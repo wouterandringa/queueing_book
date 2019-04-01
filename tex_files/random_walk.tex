@@ -11,9 +11,9 @@
 
 
 
-In the construction of queueing processes as set out in Section~\ref{sec:constr-discr-time} we are given two sequences of i.i.d.
-random variables: the number of arrivals $\{a_k\}$ per period and the service capacities $\{c_k\}$, cf., \eqref{eq:5}.
-Observe that in relation~\eqref{eq:5} the process $\{L_k\}$ shares a resemblance to a random walk $\{Z_k, k=0,1,\ldots\}$ with $Z_k$ given by
+In the construction of queueing processes as set out in~\cref{sec:constr-discr-time} we are given two sequences of i.i.d.
+random variables: the number of arrivals $\{a_k\}$ per period and the service capacities $\{c_k\}$, cf., \cref{eq:5}.
+Observe that in relation~\cref{eq:5} the process $\{L_k\}$ shares a resemblance to a random walk $\{Z_k, k=0,1,\ldots\}$ with $Z_k$ given by
 \begin{equation}\label{eq:44}
   Z_k = Z_{k-1} + a_k - c_k.
 \end{equation}
@@ -71,15 +71,13 @@ For further discussion, if you are interested, refer to
 \end{solution}
 \end{exercise}
 
-This recursion for $L_k$ leads to really interesting graphs. In Figure~\ref{fig:random_bernoulli}
- we take $a_k \sim B(0.3)$, i.e., $a_k$ is Bernoulli-distributed with success
-parameter $p=0.3$, i.e., $\P{a_k = 1} = 0.3 = 1- \P{a_k=0}$, and
-$c_k \sim B(0.4)$. In Figure~\ref{fig:random_walk},  $a_k\sim B(0.49)$ and
-the random walk is constructed as
+This recursion for $L_k$ leads to really interesting graphs.
+In~\cref{fig:random_bernoulli} we take $a_k \sim B(0.3)$, i.e., $a_k$ is Bernoulli-distributed with success parameter $p=0.3$, i.e., $\P{a_k = 1} = 0.3 = 1- \P{a_k=0}$, and $c_k \sim B(0.4)$.
+In~\cref{fig:random_walk}, $a_k\sim B(0.49)$ and the random walk is constructed as
 \begin{equation}\label{eq:51}
   Z_k = Z_{k-1} + 2 a_k -1.
 \end{equation}
-Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the random walk decreases by one step, so that $Z_k \neq Z_{k-1}$  always. Observe that this is slightly different from a random walk that satisfies~\eqref{eq:44}; there, $Z_{k}=Z_{k-1}$, if $a_k=c_k$.
+Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the random walk decreases by one step, so that $Z_k \neq Z_{k-1}$  always. Observe that this is slightly different from a random walk that satisfies~\cref{eq:44}; there, $Z_{k}=Z_{k-1}$, if $a_k=c_k$.
 
 
 \begin{figure}[ht]
@@ -104,7 +102,7 @@ Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the r
 
 
 With~(\ref{eq:reich1}),  we see that a random walk $\{Z_k\}$ can be converted into a queueing
-process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.  For this, we first relate the random walk of the type~\eqref{eq:51} to a random walk in continuous time. 
+process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.  For this, we first relate the random walk of the type~\cref{eq:51} to a random walk in continuous time. 
 
 \begin{exercise}
   Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$, show that the random variable
@@ -130,7 +128,7 @@ With the processes $N_\lambda$ and $N_\mu$ constructed above from the sequence $
 \begin{equation*}
   Z(t) = Z(0)+N_\lambda(t) - N_\mu(t).
 \end{equation*}
-Thus, we let $N_\lambda$ correspond to job  arrivals and $N_\mu$ to departures. Observe that the times $\{T_k\}$ at which $Z$ makes jumps are such that $T_k-T_{k-1}$ have exponential distribution with mean $1/(\lambda+\mu)$. At the jump times, $Z(T_k) = Z_k$, where $Z_k$ satisfies~\eqref{eq:51} with $\P{a_k = 1} = \lambda/(\lambda+\mu)$.  We call $Z$ the \emph{free} $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values. 
+Thus, we let $N_\lambda$ correspond to job  arrivals and $N_\mu$ to departures. Observe that the times $\{T_k\}$ at which $Z$ makes jumps are such that $T_k-T_{k-1}$ have exponential distribution with mean $1/(\lambda+\mu)$. At the jump times, $Z(T_k) = Z_k$, where $Z_k$ satisfies~\cref{eq:51} with $\P{a_k = 1} = \lambda/(\lambda+\mu)$.  We call $Z$ the \emph{free} $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values. 
 
 \begin{exercise}
   Show that
@@ -182,7 +180,7 @@ With this,
 
 
 The solution of the above exercise shows that there is no simple function by which we can compute the transient distribution of this simple random walk $Z$.
-Since a queueing process is typically a more complicated object (as we need to obtain $L$ from $Z$ via~\eqref{eq:reich1}), our hopes of finding anything simple for the transient analysis of the $M/M/1$ queue should not be too high.
+Since a queueing process is typically a more complicated object (as we need to obtain $L$ from $Z$ via~\cref{eq:reich1}), our hopes of finding anything simple for the transient analysis of the $M/M/1$ queue should not be too high.
 And the $M/M/1$ is but the simplest queueing system; other queueing systems will be more complicated yet.
 We therefore give up the analysis of such transient queueing systems and we henceforth contend ourselves with the analysis of queueing systems in the limit as $t\to\infty$.
 The limiting random variable $L$ is known as the \recall{steady-state limit} of the sequence of random variables $\{L_k\}$, and the distribution of~$L$ is known as the \recall{limiting distribution} or \emph{stationary distribution} of $\{L_k\}$.
@@ -198,12 +196,12 @@ Sketch a mathematical framework to answer  these questions.
 The \emph{long-run limiting behavior} of a queueing system (i.e., the first question) is an important topic by itself.
 The underlying question is what happens if we simulate the system for a long time.
 For instance, does there exist a random variable $L$ such that $L_k\to L$ in some sense?
-The answer to this question is in the affirmative, provided some simple stability conditions are satisfied, see Section~\ref{sec:rate-stability}.
+The answer to this question is in the affirmative, provided some simple stability conditions are satisfied, see~\cref{sec:rate-stability}.
 However, it requires a considerable amount of mathematics to make this procedure precise.
 To sketch what has to be done, first, we need to define $\{L_k\}$ as random variables in their own right.
 Note that up to now we just considered each $L_k$ as a \emph{number}, i.e., a measurement or simulation of the queue length time of the $k$th period.
 Defining $L_k$ as a random variable is not as simple as the definition of, for instance, the number of arrivals $\{a_k\}$; these random variables can be safely \emph{assumed} to be i.i.d.
-However, the queue lengths $\{L_k\}$ are certainly not i.i.d., but, as should be apparent from Eq.~\eqref{eq:59}, they are \emph{constructed} in terms of recursions.
+However, the queue lengths $\{L_k\}$ are certainly not i.i.d., but, as should be apparent from~\cref{eq:59}, they are \emph{constructed} in terms of recursions.
 Next, based on these recursions, we need to show that the sequence of distribution functions $\{G_k\}$ associated with the random variables $\{L_k\}$ converges to some limiting distribution function~$G$, say.
 Finally, it is necessary to show that it is possible to construct a random variable~$L$ that has~$G$ as its distribution function.
 In this sense, then, we can say that~$L_k \to L$.
@@ -213,9 +211,9 @@ In this sense, then, we can say that~$L_k \to L$.
 
 
 We illustrate the rate of convergence to the limiting situation by means of an example.
-Specifically, we consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_L$, where $W_{Q,k}$ is constructed according to the recursion Eq.~(\ref{eq:56}).
+Specifically, we consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_L$, where $W_{Q,k}$ is constructed according to the recursion~\cref{eq:56}.
 Suppose that $X_k\sim U\{1,2,4\}$ and $S_k\sim U\{1,2,3\}$.
-Starting with $W_{Q,0}=5$ we use Eq.~(\ref{eq:56}) to compute the \emph{exact} distribution of $W_{Q,k}$ for $k=1,2,\ldots, 20$, cf., the left panel in Figure~\ref{fig:convergence}.
+Starting with $W_{Q,0}=5$ we use~\cref{eq:56} to compute the \emph{exact} distribution of $W_{Q,k}$ for $k=1,2,\ldots, 20$, cf., the left panel in~\cref{fig:convergence}.
 We see that when $k=5$, the `hump' of $\P{W_{Q,5}=x}$ around $x=5$ is due the starting value of $W_{Q,0}=5$.
 However, for $k>10$ the distribution of $W_{Q,k}$ hardly changes, at least not visually.
 Apparently, the convergence of the sequence of distributions of $W_{Q,k}$ is rather fast.
@@ -274,7 +272,7 @@ If you make a plot, you will see that after some 10 customers the distribution h
   \end{exercise}
 
 \begin{exercise}
-  Validate the results of  Figure~\ref{fig:convergence} with simulation.
+  Validate the results of~\cref{fig:convergence} with simulation.
   \begin{solution}
     The code is in the file \pyv{waiting_time_simulation.py} at my github repo.
 \end{solution}

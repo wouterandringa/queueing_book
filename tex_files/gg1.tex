@@ -45,7 +45,7 @@ resulting in
 
 This formula is reasonably accurate; for related expressions we refer to \citet{bolch06:_queuein_networ_markov_chain} and \citet{hall91:_queuein_method_servic_manuf}.
 With Little's law we can compute $\E{L_Q}$ from the above.
-Moreover, $\E W = \E{W_Q} + \E S$, and so on, cf., Section~\ref{sec:some-usef-ident}.
+Moreover, $\E W = \E{W_Q} + \E S$, and so on.
 
 
 It is crucial to memorize the \emph{scaling} relations that can be obtained from the $G/G/1$ waiting time formula.
@@ -86,12 +86,12 @@ effect of certain changes, in particular  changes in capacity,
 variability and service times.
 
 \begin{exercise}[\faFlask]
-  Show that the approximation~\eqref{eq:7} reduces to the result known for the $M/M/1$ and $M/G/1$ queues.
+  Show that the approximation~\cref{eq:7} reduces to the result known for the $M/M/1$ and $M/G/1$ queues.
   \begin{hint}
  Take $c=1$.
   \end{hint}
   \begin{solution}
-    If $c=1$, as is the case for the $M/M/1$ queue, $\sqrt{2(c+1)} - 1=2-1=1$, so that~\eqref{eq:7} reduces to $\E{W_Q} = \rho/(1-\rho) \E S$. Recall that $C_a^2=C_s^2=1$ for the $M/M/1$. 
+    If $c=1$, as is the case for the $M/M/1$ queue, $\sqrt{2(c+1)} - 1=2-1=1$, so that~\cref{eq:7} reduces to $\E{W_Q} = \rho/(1-\rho) \E S$. Recall that $C_a^2=C_s^2=1$ for the $M/M/1$. 
   \end{solution}
 \end{exercise}
 
@@ -99,15 +99,15 @@ variability and service times.
 
 
 
-\begin{exercise}[\faFlask]
-  Is Eq.~\eqref{eq:24} also valid for the $G/G/1$ queue? Why (not)?
+\begin{extra}
+  Is~\cref{eq:24} also valid for the $G/G/1$ queue? Why (not)?
   \begin{solution}
     Not necessarily.
     Since jobs do not arrive in general as a Poisson process, we cannot use the PASTA property to conclude that the time average queue length $\E{L_Q}$ is the same as the average queue length as observed by customers.
     (Can you provide an example that shows this difference?
     Hint, we did this earlier.)
   \end{solution}
-\end{exercise}
+\end{extra}
 
 \begin{exercise}[\faFlask]
   Consider a queue with $n$ servers, with generally distributed inter-arrival times, generally distributed service times, and the system can contain at most $K$ customers, i.e., the $G/G/n/K$ queue.
@@ -166,9 +166,10 @@ It is crucial to remember from the above exercises that knowledge of the   utili
   What condition have you used to prove this?
 %\item Motivate that for  the $G/M/1$, $\delta(n) = p(n)$, i.e.,  departures see time averages. 
   \begin{solution}
-    All follows straightaway from the definitions in the main text. In
-    the $G/G/1$ queue jobs arrive and depart in single units. Hence,
-    $|A(n,t)-D(n,t)|\leq 1$, cf., Eq.~(\ref{eq:19}). Then, 
+    All follows straightaway from the definitions in the main text.
+    In the $G/G/1$ queue jobs arrive and depart in single units.
+    Hence, $|A(n,t)-D(n,t)|\leq 1$, cf.,~\cref{eq:19}.
+    Then,
     \begin{equation*}
       \frac{A(t)}{t}\frac{A(n,t)}{A(t)} \approx 
       \frac{D(t)}{t}\frac{D(n,t)}{D(t)}. 
@@ -253,7 +254,7 @@ In words, $\tilde \lambda$ is the average number of arrivals per period, e.g., p
 
 \begin{proof}
   The proof is based on an argument in \cite{cox62:_renew_theor}.
-  We use quite a bit of the notation developed in Section~\ref{sec:rate-stability}.
+  We use quite a bit of the notation developed in~\cref{sec:rate-stability}.
   Let $\{A(t), t\geq 0\}$ be the number of arrivals that occur up to (and including) time $t$.
   We assume that $\{A(t)\}$ is a renewal process such that the inter-arrival times $\{X_k, k=1, 2, \ldots\}$ with $X_k = A_{k}-A_{k-1}$, are i.i.d.
   with mean $1/\lambda$ and standard deviation~$\sigma$.

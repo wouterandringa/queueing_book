@@ -11,10 +11,10 @@
 
 If the arrival and service processes are such that the queueing system is rate-stable, we can sensibly define other performance measures such as the average waiting time.
 In this section we define the second most important performance measures; recall that the most important is the utilization $\rho$.
-At the end we provide an overview of the relations between these performance measures in Figure~\ref{fig:constructiongg1}.
+At the end we provide an overview of the relations between these performance measures in~\cref{fig:constructiongg1}.
 
 
-With the construction of queueing processes in Section~\ref{sec:constr-gg1-queu} we can compute the waiting time as observed by the first $n$, say, jobs.
+With the construction of queueing processes in~\cref{sec:constr-gg1-queu} we can compute the waiting time as observed by the first $n$, say, jobs.
 %Thus, the average waiting time of the first $n$ arrivals is given by $n^{-1}\sum_{k=1}^n W_k$.
 We therefore define the \recall{expected waiting time} as
 \begin{equation}\label{eq:49}
@@ -50,14 +50,14 @@ A related set of performance measures follows by tracking the system's behavior 
 % \frac 1 t\int_0^t L(s)\d s =  \frac 1 t\int_0^t (A(s)-D(s)) \d s,
 % \end{equation}
 % where we use that $L(s)=A(s) - D(s) + L(0)$ is the total number of jobs in
-% the system at time $s$ and $L(0)=0$, cf. Figure~\ref{fig:atltdt}.  Observe from the second equation that $\int_0^t L(s)\d s$ is the area enclosed between the graphs of $\{A(t)\}$
+% the system at time $s$ and $L(0)=0$, cf.~\cref{fig:atltdt}.  Observe from the second equation that $\int_0^t L(s)\d s$ is the area enclosed between the graphs of $\{A(t)\}$
 % and $\{D(t)\}$. 
-Assuming the limit exists we use~\eqref{eq:14} to define the \recall{time-average number of jobs} as
+Assuming the limit exists we use~\cref{eq:14} to define the \recall{time-average number of jobs} as
 \begin{equation}
   \label{eq:46}
   \E L = \lim_{t\to\infty} \frac 1 t\int_0^t L(s) \d s.
 \end{equation}
-Observe that, notwithstanding that the symbols are the same, this expectation need not be the same as~\eqref{eq:EQ}.
+Observe that, notwithstanding that the symbols are the same, this expectation need not be the same as~\cref{eq:EQ}.
 In a loose sense we can say that $\E L$ is the average number in the system as perceived by the \emph{server}.
 Next, define the \emph{time-average fraction of time the system contains at most $m$ jobs} as
 \begin{equation}
@@ -82,11 +82,11 @@ Consider a queueing system with constant service and inter-arrival times.
 
 
 \begin{exercise}
-  Consider a discrete-time model of a queueing system, as we developed in Section~\ref{sec:constr-discr-time}.
-  The average number of customers that \emph{see upon arrival} more than~$m$ customers in the system cannot be defined as~\eqref{eq:Qm}.
+  Consider a discrete-time model of a queueing system, as we developed in~\cref{sec:constr-discr-time}.
+  The average number of customers that \emph{see upon arrival} more than~$m$ customers in the system cannot be defined as~\cref{eq:Qm}.
   Provide a better definition.
   \begin{hint}
-    Why is \eqref{eq:Qm} not the same as the number of batches that see a queue length less than~$m$?
+    Why is \cref{eq:Qm} not the same as the number of batches that see a queue length less than~$m$?
   \end{hint}
   \begin{solution} Since we deal with a system in discrete time, $L_k$ is the queue length at the end of period~$k$.
     Thus, $\sum_{k=1}^n \1{L_k > m}$ counts the number of \emph{periods} that the queue is larger than $m$.

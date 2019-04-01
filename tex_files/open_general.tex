@@ -10,13 +10,11 @@
 \Opensolutionfile{ans}
 }
 
-Perhaps the term `class' needs some clarification. A network with a
-single class of jobs means that all jobs have the same service
-distribution at the same station. (Of course, the service rates at
-different stations can be different.) In multi-class networks jobs of
-different classes typically have different service distributions even
-if served at the same station. Note that we do not discuss multi-class
-queueing networks in this course.
+Perhaps the term `class' needs some clarification.
+A network with a single class of jobs means that all jobs have the same service distribution at the same station.
+(Of course, the service rates at different stations can be different.)
+In multi-class networks jobs of different classes typically have different service distributions even if served at the same station.
+Note that we do not discuss multi-class queueing networks in this course.
 
 There is typo in Section Zijm.2.4.3, just above Eq.2.34. There the visit ratio is defined as $V_i=\lambda_{i0}/\gamma$. This is not correct, it should be
 \begin{equation*}
@@ -35,21 +33,16 @@ proportionally increase at the stations with rework.
 
 \paragraph{Example}
 
-Company X produces paint according to a make-to-stock strategy. It
-makes paint in two steps: mixing and filling/packaging. In the first
-step, the ingredients are mixed in large vessels. Once mixed, the
-vessels are moved to an intermediate stocking point. Here the paint
-waits (in the vessels) until the planner decides to package the paint
-into cans. Company X has two filling/packaging machines: machine A
-fills small, 1 liter cans; machine B fills large, 5 liter cans. Jobs
-for machine A (B) line up in front of machine A (B), i.e., each
-machine has its own queue, cf. Figure~\ref{fig:paint}. The paint shop
-has 8 hours available per day, and any unfinished work at the end of a
-day is carried over to the next working day. The problem of Company X
-is that the amount of intermediate stock in queue is too high. This
-not only costs money (paint is quite expensive), but also makes
-due-date quotation to customers difficult (recall, by Little's law, if
-queues are long, waiting times are typically also long).
+Company X produces paint according to a make-to-stock strategy.
+It makes paint in two steps: mixing and filling/packaging.
+In the first step, the ingredients are mixed in large vessels.
+Once mixed, the vessels are moved to an intermediate stocking point.
+Here the paint waits (in the vessels) until the planner decides to package the paint into cans.
+Company X has two filling/packaging machines: machine A fills small, 1 liter cans; machine B fills large, 5 liter cans.
+Jobs for machine A (B) line up in front of machine A (B), i.e., each machine has its own queue, cf.~\cref{fig:paint}.
+The paint shop has 8 hours available per day, and any unfinished work at the end of a day is carried over to the next working day.
+The problem of Company X is that the amount of intermediate stock in queue is too high.
+This not only costs money (paint is quite expensive), but also makes due-date quotation to customers difficult (recall, by Little's law, if queues are long, waiting times are typically also long).
 
 
 \begin{figure}[ht]

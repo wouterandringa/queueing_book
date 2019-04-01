@@ -23,7 +23,7 @@ The \recall{arrival rate} is the long-run average number of jobs that arrive per
 \end{equation}
 We remark in passing that this limit does not necessarily exist if $A(t)$ is some pathological function.
 If, however, the inter-arrival times $\{X_k\}$ are the basic data, and $\{X_k\}$ are \emph{independent and identically distributed (i.i.d.)}
-and distributed as a generic random variable $X$ with finite mean $\E{X}$, we can construct $\{A_k\}$ and $\{A(t)\}$ as described in Section~\ref{sec:constr-gg1-queu}; the strong law of large numbers then guarantees that the above limit exists.
+and distributed as a generic random variable $X$ with finite mean $\E{X}$, we can construct $\{A_k\}$ and $\{A(t)\}$ as described in~\cref{sec:constr-gg1-queu}; the strong law of large numbers then guarantees that the above limit exists.
 
 \begin{extra}
   Can you make an arrival process such that $A(t)/t$ does not have a
@@ -68,7 +68,7 @@ we see that $A(A_n) = n$, and therefore
 \begin{equation*}
   \frac{1}n\sum_{k=1}^n X_k = \frac{A_n}n = \frac{A_n}{A(A_n)}. 
 \end{equation*}
-But since $A_n\to\infty$ if $n\to\infty$, it follows from Eq.~(\ref{eq:3}) that the average inter-arrival time between two consecutive jobs is
+But since $A_n\to\infty$ if $n\to\infty$, it follows from~\cref{eq:3} that the average inter-arrival time between two consecutive jobs is
 \begin{equation}\label{eq:54}
   \E X = \lim_{n\to\infty}  \frac{1}n\sum_{k=1}^n X_k = \lim_{n\to \infty} \frac{A_n}{A(A_n)} = \lim_{t\to\infty} \frac t{A(t)} = \frac 1 \lambda,
 \end{equation}

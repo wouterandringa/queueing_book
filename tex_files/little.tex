@@ -208,7 +208,7 @@ Thus, Little's law need  not hold at all moments in time; it is a statement abou
 
 With the PASTA property and Little's law it becomes quite easy to derive simple expressions for the average queue length and waiting times for the $M/M/1$ queue.
 The average waiting time $\E W$ in the entire system is the expected time in queue plus the expected time in service, i.e.,
-\begin{equation}\label{eq:32}
+\begin{equation}\label{eq:78}
   \E W = \E{W_Q}+ \E S.
 \end{equation}
 By the PASTA property we have for the $M/M/1$ queue that
@@ -224,7 +224,7 @@ Use Little's law to show for the $M/M/1$ queue that
     \E{L_Q} &= \frac{\rho^2}{1-\rho}, & \E{L_s} &= \rho.
   \end{align*}
 \begin{hint}
-  Combine \cref{eq:32,eq:wqes} and apply Little's law. 
+  Combine \cref{eq:78,eq:wqes} and apply Little's law. 
 \end{hint}
 \begin{solution}
 \begin{align*}
@@ -717,9 +717,9 @@ Wq # time in queue
   What is $\E W$ for $c=1, 2, 3$, or $4$ servers?
   How many employees should work in the tool crib?
   \begin{hint}
-Realize that we have to control the number of servers. Hence,
-    we are dealing with a multi-server queue, i.e., the $M/M/c$
-    queue. Use the formulas of Eq.~\eqref{eq:9}.
+    Realize that we have to control the number of servers.
+    Hence, we are dealing with a multi-server queue, i.e., the $M/M/c$ queue.
+    Use the formulas of~\cref{eq:9}.
 
 The remark that maintenance workers are compensated at the same rate
 as the tool crib workers confused me a bit at first.  Some thought

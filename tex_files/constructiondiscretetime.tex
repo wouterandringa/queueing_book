@@ -97,7 +97,7 @@ $L_2=6-6+4=4$, $d_3 = 4$, $L_3=4-4+9=9$, and so on.
 
 \begin{extra}
  What is the interpretation of setting
-    $d_k = \min\{L_{k-1}+a_k,  c_k\}$ rather than definition~\eqref{eq:d_k}?
+    $d_k = \min\{L_{k-1}+a_k,  c_k\}$ rather than definition~\cref{eq:d_k}?
 \begin{solution}
  The assumption is that the jobs arrive at the start of period
     $k$, before service in period $k$ starts, rather than at the end
@@ -115,7 +115,7 @@ $L_2=6-6+4=4$, $d_3 = 4$, $L_3=4-4+9=9$, and so on.
   d_k &= L_{k-1} +a_k- L_{k}.
   \end{split}
 \end{equation}
-is equivalent to a modification of~\eqref{eq:31} in which we assume that jobs can be served in the period they arrive.
+is equivalent to a modification of~\cref{eq:31} in which we assume that jobs can be served in the period they arrive.
 \begin{solution}
 Starting from ,
   \begin{align*}
@@ -134,7 +134,7 @@ Starting from ,
 
 
 Of course we are not going to carry out these computations by hand.
-Typically we use company data to model the arrival process $\{a_k\}_{k=1,2,\ldots}$ and the capacity $\{c_k\}_{k=1,2,\ldots}$ and feed this data into a computer to carry out the recursions~\eqref{eq:31}.
+Typically we use company data to model the arrival process $\{a_k\}_{k=1,2,\ldots}$ and the capacity $\{c_k\}_{k=1,2,\ldots}$ and feed this data into a computer to carry out the recursions~\cref{eq:31}.
 If we do not have sufficient data we make a probability model for these data and use the computer to generate random numbers with, hopefully, similar characteristics as the real data.
 At any rate, from this point on we assume that it is easy, by means of computers, to obtain numbers $a_1,\ldots, a_n$ for $n\gg 1000$, and so on.
 
@@ -142,7 +142,7 @@ At any rate, from this point on we assume that it is easy, by means of computers
 \subsection*{Case analysis}
 \label{sec:case-analysis}
 
-As a first step we model the arrival process of patients as a Poisson process, cf., Section~\ref{sec:poisson-distribution}.
+As a first step we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
 The duration of a period is taken to be a week.
 The average number of arrivals per period, based on data of the company, was slightly less than~12 per week; in the simulation we set it to $\lambda= 11.8$ per week.
 We model the capacity in the form of a matrix such that row $i$ corresponds to the weekly capacity of psychiatrist $i$:
@@ -197,9 +197,9 @@ zero, i.e., $C_{i,5}=C_{i,10}=\cdots=0$ for week $5$, $10$, and so
 on. Note that all these variations in holiday schemes result in the
 same average capacity.
 
-Now that we have modeled the arrivals and the capacities, we can use the recursions~\eqref{eq:31} to simulate the queue length process for the four different scenarios proposed by the psychiatrists, unbalanced versus balanced capacity, and spread out holidays versus simultaneous holidays.
+Now that we have modeled the arrivals and the capacities, we can use the recursions~\cref{eq:31} to simulate the queue length process for the four different scenarios proposed by the psychiatrists, unbalanced versus balanced capacity, and spread out holidays versus simultaneous holidays.
 
-The results are shown in Figure~\ref{fig:balanced}.
+The results are shown in~\cref{fig:balanced}.
 It is apparent that Suggestions 1 and 2 above do not significantly affect the behavior of the queue length process.
 
 
@@ -226,7 +226,7 @@ the last case all psychiatrists do five extra intakes. The previous simulation
 shows that it is safe to disregard the holiday plans, so just assume a flat 
 service capacity of 12 intakes a week.
 
-Figure~\ref{fig:intakes} shows a striking difference indeed. The queue
+\cref{fig:intakes} shows a striking difference indeed. The queue
 does not explode any more, and already taking $e=1$ has a large
 influence. 
 
@@ -592,7 +592,7 @@ but not always, applies to service capacity.
   Consider a production network with two production stations in
   tandem, that is, the jobs processed by station A are in the next
   period to the downstream Station B.  Extend the recursions of
-  \eqref{eq:31} to simulate this situation.
+  \cref{eq:31} to simulate this situation.
 \begin{solution}
   Let $a_k$ be the external arrivals at station A. Then:
 \begin{equation}
@@ -615,12 +615,8 @@ d_{k}^A$. Thus,
 \end{exercise}
 
 \begin{extra}[A tandem queue with blocking]
-  Consider a production network with two production stations in tandem
-  with blocking: when the intermediate queue, i.e., the queue in front of
-  Station B, exceeds some level $M$, then station A has to stop
-  producing, and when $L^B_k < M$ station A is not allowed to produce
-  more than the intermediate queue can contain. Extend the recursions
-  of \eqref{eq:31} to simulate this situation.
+  Consider a production network with two production stations in tandem with blocking: when the intermediate queue, i.e., the queue in front of Station B, exceeds some level $M$, then station A has to stop producing, and when $L^B_k < M$ station A is not allowed to produce more than the intermediate queue can contain.
+  Extend the recursions of~\cref{eq:31} to simulate this situation.
 \begin{solution}
 \begin{equation}
   \begin{split}
@@ -728,13 +724,9 @@ It is then sensible to set
   Provide a set of recursions to simulate this system.
   \begin{solution}
 \begin{enumerate}
-\item Realize that the recursions of Eq.~\eqref{eq:31} applied to the
-  queueing situation at the first machine provide us with the total
-  number of departures $d_k$ during period $k$. However, it does not
-  tell us about the type of these departures. Thus, to compute the
-  queue in front of station A, we need to know the number of
-  departures of type A, rather than the total number of departures of
-  the first station.
+\item Realize that the recursions of~\cref{eq:31} applied to the queueing situation at the first machine provide us with the total number of departures $d_k$ during period $k$.
+  However, it does not tell us about the type of these departures.
+  Thus, to compute the queue in front of station A, we need to know the number of departures of type A, rather than the total number of departures of the first station.
 \item It is reasonable that the number of jobs of type $A$ in queue at
   the first station is equal to
   \begin{equation*}
@@ -753,47 +745,6 @@ It is then sensible to set
 
 
 
-\begin{exercise}[Inventory control] The recursions used in the
-  exercises above can also be applied to analyze inventory control
-  policies. Consider a production system that can produce maximally
-  $M_k$ items per week during normal working hours, and maximally
-  $N_k$ items during extra (weekend and evening) hours. Let, for
-  period $k$,
-  \begin{align*}
-    D_k &= \text{Demand in  week $k$}, \\
-    S_k &= \text{Sales, i.e., number of items sold, in week $k$}, \\
-    r_k &= \text{Revenue per item sold in week $k$}, \\
-    X_k &= \text{Number of items produced in week $k$  during normal hours}, \\
-    Y_k &= \text{Number of items produced in week $k$ during extra  hours}, \\
-    c_k &= \text{Production cost per item during normal  hours}, \\
-    d_k &= \text{Production cost per item during extra  hours}, \\
-    h_k &= \text{Holding cost per  item, due at the end of week $k$}, \\
-    I_k &= \text{On hand inventory level at the end of week $k$}. \\
-  \end{align*}
-  Management needs a production plan that specifies for the next $T$ weeks the number of items to be produced per week.
-  Formulate this problem as an LP problem, taking into account the inventory dynamics.
-  Assume that demand must be met from on-hand inventory.
-  \begin{hint}
-Formulate the decision variables/controls, the
-    objective and the constraints.    
-  \end{hint}
-  \begin{solution}
-    The decision variables are $X_k$, $Y_k$ and $S_k$ (note, it is not
-    necessary to meet all demand:  the production cost and profit
-    may vary per period).  The objective is 
-    \begin{equation*}
-      \max \sum_{k=1}^T (r_kS_k -c_k X_k - d_k Y_k - h_k I_k).
-    \end{equation*}
-The constraints are 
-\begin{align*}
-  0&\leq S_k \leq D_k, \\
-  0&\leq X_k \leq M_k, \\
-  0&\leq Y_k \leq N_k, \\
-  I_k&=I_{k-1}+X_k+Y_k - S_k. \\
-I_k &\geq 0.
-\end{align*}
-  \end{solution}
-\end{exercise}
 
 \begin{extra}[\faRocket\/ Queue with setups]
   One server serves two parallel queues, one at a time. After serving

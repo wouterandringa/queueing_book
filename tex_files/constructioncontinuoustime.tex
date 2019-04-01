@@ -10,8 +10,8 @@
 \Opensolutionfile{ans}
 }
 
-In Section~\ref{sec:constr-discr-time} we modeled time as progressing in discrete `chunks': minutes, hours, days, and so on.
-For given numbers of arrivals and capacity per period we use the recursions~\eqref{eq:31} to compute the departures and queue length per period.
+In~\cref{sec:constr-discr-time} we modeled time as progressing in discrete `chunks': minutes, hours, days, and so on.
+For given numbers of arrivals and capacity per period we use the recursions~\cref{eq:31} to compute the departures and queue length per period.
 However, we can also model time in a continuous way, so that  jobs can arrive at any moment and have arbitrary service times. 
 In this section we consider a single-server FIFO queueing process in continuous time.
 
@@ -53,7 +53,6 @@ Thus, we just count all arrivals that occur up to and including time~$t$.
 \end{extra}
 
 
-%Figure~\ref{fig:waitingtimegg1} shows these relations graphically.
 \begin{extra}[\faBalanceScale]
 The following mappings are correct:
 \begin{align*}
@@ -91,7 +90,7 @@ Compare this to the definition in (\ref{eq:2}).
 \end{extra}
 
 We next construct the \recall{waiting time in queue} $\{W_{Q,k}\}$ as seen by the arrivals.
-From  Figure~\ref{fig:waitingtimegg1} it is evident that 
+From~\cref{fig:waitingtimegg1} it is evident that 
 \begin{equation}\label{eq:56}
   W_{Q,k} = [W_{Q,k-1} + S_{k-1}-X_k]^+.
 \end{equation}
@@ -390,7 +389,7 @@ From this example you can infer that it is necessary that the service rate is gr
   $S_k\in\{1,2\}$ with $\P{S_k=1}=\P{S_k=2}$. If $W_{Q,0}=3$, what are
   the distributions of $W_{Q,1}$ and $W_{Q,2}$?  
   \begin{hint}
-Use Eq.~(\ref{eq:59}).
+Use~\cref{eq:59}.
 \end{hint}
 \begin{solution}  First find the distribution of $Y_k:=S_{k-1}-X_k$ so that we can write
   $W_{Q,k}=[W_{Q,k-1}+Y_k]^+$.  Use independence of $\{S_k\}$ and $\{X_k\}$:
@@ -472,7 +471,6 @@ Great! Our handiwork matches with the computer's results.
 
 The \recall{virtual waiting time process} $\{V(t)\}$ is the amount of waiting that an arrival would see if it would arrive at time $t$.
 To construct $\{V(t)\}$, we simply draw lines that start at points $(A_k, W_k)$ and have slope -1, unless the line hits the $x$-axis, in which case the virtual waiting time remains zero until the next arrival occurs.
-%Thus, the lines with slope $-1$ in Figure~\ref{fig:waitingtimegg1} show (a sample path of) the virtual waiting time.
 
 
 \begin{exercise}
@@ -499,8 +497,7 @@ $V(A_{A(t)}) + A_{A(t)}-t$?
     \end{solution}
 \end{exercise}
 
-Once we have the arrival and departure processes it is easy to compute the \recall{number of jobs in the system} at time $t$ as, cf.
-Figure~\ref{fig:atltdt},
+Once we have the arrival and departure processes it is easy to compute the \recall{number of jobs in the system} at time $t$ as, cf.~\cref{fig:atltdt},
 \begin{equation}\label{eq:14}
   L(t) = A(t) - D(t) + L(0),
 \end{equation}

@@ -59,7 +59,7 @@ Thus, to compute the average number of items in the system, we only need to know
 
 
 
-\begin{exercise}\label{ex:5}
+\begin{extra}\label{ex:5}
   Show that  when the batch size is 1, the expression $\E{L(M^X/M/1)}$, i.e., the system length for the $M^X/M/1$ queue, reduces to
   $\E{L(M/M/1)}$, i.e., the system length for the $M/M/1$ queue. 
   \begin{hint}
@@ -71,13 +71,13 @@ What is the    distribution of the batch size $B$ for the $M/M/1$ queue?
     $\E{B_r(M/M/1)}= \rho$, and $\E{L(M/M/1)}=\rho/(1-\rho)$. 
   \end{solution}
 Realize the importance of such checks.
-\end{exercise}
+\end{extra}
 
 
 \begin{extra}
   What is $\E L$ in case $B_k=3$ always, and $\lambda=1$, $\mu=6$?  
   \begin{hint}
-Use Eq.~\cref{eq:43}. What are $\E{B^2}$, $\E B$ and $\V B$ for this case?
+Use~\cref{eq:43}. What are $\E{B^2}$, $\E B$ and $\V B$ for this case?
   \end{hint}
 \begin{solution}
   As $B$ is constant and equal to 3, $\E{B^2}=9$. Hence, $\V B=0$, which implies
@@ -155,11 +155,12 @@ Observe also that it is up to management to decide whether such reductions outwe
 \end{exercise}
 
 
-Let us now focus on deriving expressions for the expected time batches wait in queue $\E{W_{Q}}$.
-Assume that a batch upon arrival joins the end of the queue (if present), and once the queue is cleared, the entire batch moves from the queue to the server.
-Thus, all items in one batch spends the same time in queue.
+Let us now focus on deriving~\cref{eq:32}.
+Assume that an arriving batch joins the end of the queue (if present), and once the queue in front of it has been cleared, it moves in its entirety to the server.
+Thus, all items in one batch spend the same time in queue.
 Once the batch moves to the server, the server processes the items one after another until the batch is empty.
-Let $\E{L_S}$ be the average number of items of a batch at the server.
+
+Suppose that we know $\E{L_S}$, i.e., the average number of items of a batch at the server.
 
 \begin{exercise}\label{ex:57}
 Show that
@@ -195,17 +196,24 @@ is the total time up to $t$  there are~$i$ items at the server.
 
 \begin{exercise}
   Let $\tilde A_k$ be the moment the $k$th batch moves to the server and $D_k$ its departure time.
-  Use~\cref{fig:remainingservicetime} to show that
+  Use~\cref{fig:remainingservicetime} to explain that
 \begin{equation*}
-  \int_{\tilde A_k}^{D_k} \1{L_S(s)=i} \d s = S_{k,i} \1{B_k \geq i},
+  \int_{\tilde A_k}^{D_k} \1{L_S(s)=i} \d s = \1{B_k \geq i} S_{k,i},
 \end{equation*}
-where $S_{k,i}$ is the service time of the $i$th item of this batch.
+where $S_{k,i}$ is the service time of the $i$th item of this batch. Then show that
+\begin{equation*}
+  Y_i(D_n) = \sum_{k=1}^n \1{B_k\geq i} S_{k,i}.
+\end{equation*}
+\begin{hint}
+  Observe that $n$ batches have been served at time $D_n$.
+\end{hint}
 \begin{solution}
 Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time this $i$th item spends at the server is its service time $S_{k,i}$.   
+
+  At the departure time $D_n$ of the $n$th batch, precisely $n$ batches have been served.
+  Thus, each batch $k$ with more than $i$ items contributed to $Y_i(D_n)$ with the service time $S_{k,i}$.
 \end{solution}
 \end{exercise}
-
-
 
 
 \begin{figure}[th]
@@ -218,7 +226,7 @@ Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time 
     \draw (-0.5, 0) -- (18.5, 0); 
     % level crossing
     \draw (-0.5, 2.5) -- (18.5, 2.5) 
-    node[pos=0.65, fill=white, above]  {$\sum_{k=1}^n \1{B_k \geq i}$}
+    %node[pos=0.65, fill=white, above]  {$\sum_{k=1}^n \1{B_k \geq i}$}
     node[pos=0.92, fill=white]  {$y=i$};
 
 
@@ -254,29 +262,14 @@ Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time 
     
 
     % bottom line
-    \draw[<->] (0, -0.6) -- (18, -.6) node[fill=white, midway] {$\sum_{k=1}^n B_k$};
+    %\draw[<->] (0, -0.6) -- (18, -.6) node[fill=white, midway] {$\sum_{k=1}^n B_k$};
 \end{tikzpicture}
 
-\caption{The remaining job size as a function of time. The
-  total number of service periods, which is equal to the number of items arrived, is $\sum_{k=1}^n B_k$. A batch crosses   the line $y=i$ iff it contains at least $i$ items. Thus, during the service of a batch with $i$ or more items, there is precisely one  period during which the $i$-th item of a batch  is waiting in queue. Consequently, $\sum_{k=1}^n \1{B_k\geq i}$ is the number of periods in which there are precisely $i$ items waiting at the server. The fraction of  periods  there are~$i$ items is therefore
-  $\sum_k^n \1{B_k\geq i}/\sum_k^n B_k$.}
+\caption{A batch crosses the line $y=i$ iff it contains at least $i$ items.
+  Thus, during the service of a batch with $i$ or more items, there is precisely one service of an $i$-th item.}
   \label{fig:remainingservicetime}
 \end{figure}
 
-
-\begin{exercise}
-Use the previous exercise to show that 
-\begin{equation*}
-  Y_i(D_n) = \sum_{k=1}^n \1{B_k\geq i} S_{k,i}.
-\end{equation*}
-\begin{hint}
-  Observe that $n$ batches have been served at time $D_n$.
-\end{hint}
-\begin{solution}
-  At the departure time $D_n$ of the $n$th batch, precisely $n$ batches have been served.
-  Thus, each batch $k$ with more than $i$ items contributed to $Y_i(D_n)$ with the service time $S_{k,i}$.
-\end{solution}
-\end{exercise}
 
 \begin{exercise}
   Now use the renewal reward theorem to show that the (time-average) fraction of time there are~$i$ items at the server is equal to

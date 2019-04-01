@@ -10,14 +10,14 @@
 \Opensolutionfile{ans}
 }
 
-In Section~\ref{sec:batch-arrivals} we used level-crossing arguments to find a recursive method to compute the stationary distribution $p(n)$ of the number of items in an $M^X/M/1$ queue.
+In~\cref{sec:batch-arrivals} we used level-crossing arguments to find a recursive method to compute the stationary distribution $p(n)$ of the number of items in an $M^X/M/1$ queue.
 Here we apply similar arguments to find $p(n)=\P{L=n}$ for the $M/G/1$ queue.
 However, we cannot simply copy the derivation of the $M^X/M/1$ queue to the $M/G/1$ queue, because in the $M^X/M/1$ queue the service times of the items are exponential, hence memoryless, while in the $M/G/1$ this is not the case.
 
 
 When job service times are not memoryless, hence do not restart at arrival times, we cannot choose any moment we like to apply level-crossing.
 Thus, for the $M/G/1$ queue we need to focus on moments in time in which the system `restarts', which  are job departure epochs as we will see below.
-All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and relation~\eqref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
+All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and relation~\cref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
 
 An important role below is played by  the number of  arrivals $Y_k$ during the service time of the $k$th job.  Since the service times of the jobs form an i.i.d. sequence of random variables, the sequence $\{Y_k\}$ is also i.i.d. Let $Y$ be the common random variable with probability mass
  $f(j) = \P{Y = j}$; write $G(j) = \P{Y_k > j}$ for the survivor function.
@@ -61,8 +61,7 @@ where $F$ is the distribution of the service times.
 \end{exercise}
 
 \begin{exercise}[\faFlask]
-  If $S$ is deterministic and equal to $s$, show that
-  Eq.~\eqref{eq:10} reduces to Eq.~\eqref{eq:4}.  
+  If $S$ is deterministic and equal to $s$, show that~\cref{eq:10} reduces to~\cref{eq:4}.  
   \begin{hint}
  $S=s$ then
     $\P{S=s}=1$, i.e., all probability mass lies at $s$. Thus, all
@@ -198,8 +197,7 @@ G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1
     \end{solution}
 \end{exercise}
 
-\begin{exercise}[\faPhoto] \label{ex:30} Design a suitable numerical method to evaluate   Eq.~\eqref{eq:10} for more 
-  general distribution functions $F$.
+\begin{exercise}[\faPhoto] \label{ex:30} Design a suitable numerical method to evaluate~\cref{eq:10} for more general distribution functions $F$.
 \begin{hint}
 Discretize time to  a grid of points, and   approximate the integral by a summation over the grid.
 \end{hint}
@@ -277,10 +275,9 @@ This is the same as our earlier answer.
 \end{exercise}
 
 
-Let us concentrate on a down-crossing of level $n$, see
-Figure~\ref{fig:mg1_2}; recall that level $n$ lies between states $n$
-and $n+1$. For job $k$ to generate a down-crossing of level $n$, two events must take place: 
- job `$k-1$' must leave $n+1$ jobs behind after its service completion, and  job $k$ must leave $n$ jobs behind. Thus, 
+Let us concentrate on a down-crossing of level $n$, see~\cref{fig:mg1_2}; recall that level $n$ lies between states $n$ and $n+1$.
+For job $k$ to generate a down-crossing of level $n$, two events must take place: job `$k-1$' must leave $n+1$ jobs behind after its service completion, and job $k$ must leave $n$ jobs behind.
+Thus,
  \begin{equation*}
    \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = 1.
  \end{equation*}
@@ -305,14 +302,13 @@ Consequently, the number of down-crossings of level $n$ up to time $t$ is
 \end{equation*}
 
 \begin{exercise}
-Use a similar derivation as in~\eqref{eq:1332} to   show that 
+Use a similar derivation as in~\cref{eq:1332} to   show that 
 \begin{equation*}
   \lim_{t\to\infty} \frac{  D(n+1, 0, t)}t  = \delta \delta(n+1) f(0),
 \end{equation*}
 where $f(0)=\P{Y=0}$.
 \begin{solution}
-By using the definitions and limits developed in
-Sections~\ref{sec:rate-stability} and~\ref{sec:poisson-arrivals-see},
+By using the definitions and limits developed in~\cref{sec:rate-stability,sec:poisson-arrivals-see},
 \begin{align*}
   \lim_{t\to\infty} \frac{  D(n+1, 0, t)}t 
 &=   \lim_{t\to\infty}  \frac{D(t)}t \frac{D(n+1, t)}{D(t)}\frac{ D(n+1, 0, t)}{D(n+1,t)} \\
@@ -430,16 +426,16 @@ by $\delta$ gives
 \begin{equation*}
   f(0) \delta(n+1) = \delta(0) G(n) + \sum_{m=1}^{n} \delta(m) G(n+1-m).
 \end{equation*}
-Noting that $\pi(n) = \delta(n)$, which follows from~\eqref{eq:39} and the fact that the $M/G/1$ queue length process has one-step transitions, we arrive at
+Noting that $\pi(n) = \delta(n)$, which follows from~\cref{eq:39} and the fact that the $M/G/1$ queue length process has one-step transitions, we arrive at
 \begin{equation}\label{eq:72}
   f(0) \pi(n+1) = \pi(0) G(n) + \sum_{m=1}^{n} \pi(m) G(n+1-m).
 \end{equation}
 
-Clearly, we have again obtained a recursion by which we can compute, iteratively, the state probabilities, and follow the approach sketched below Exercise~\ref{ex:13}.
+Clearly, we have again obtained a recursion by which we can compute, iteratively, the state probabilities. 
 
 
 \begin{exercise}
-Provide the details behind the derivation of Eq.~\eqref{eq:555}.
+  Provide the details behind the derivation of~\cref{eq:555}.
 \begin{hint}
 Define for $m=1,\ldots, n$
 \begin{equation*}
@@ -475,16 +471,16 @@ With the definition of the hint,
 
 \begin{exercise}[\faCalculator]
   Clearly, the $M/M/1$ queue is a special case of the $M/G/1$ queue.
-  Check that the queue length distribution of the $M/M/1$ queue satisfies~\eqref{eq:72}.
+  Check that the queue length distribution of the $M/M/1$ queue satisfies~\cref{eq:72}.
   \begin{hint}
     To simplify the computations, define shorthands such as $\alpha=\lambda/(\lambda+\mu)$, so that $1-\alpha = \mu/(\lambda+\mu)$, and $\alpha/(1-\alpha) = \lambda /\mu = \rho$.
-    Then, with Eq.~\eqref{eq:41}, $f(n) = \alpha^n(1-\alpha)$ and $G(n) = \alpha^{n+1}$.
+    Then, with~\cref{eq:41}, $f(n) = \alpha^n(1-\alpha)$ and $G(n) = \alpha^{n+1}$.
     (These results do not 'come for free'.
     Of course, it's just algebra, but please try to derive this yourself.
     It's good to hone your computational skills.)
   \end{hint}
     \begin{solution}
-Use the shorthands of the hint. We work in steps. First we check whether $\pi(0)=1-\rho$ of the $M/M/1$ queue satisfies~\eqref{eq:72}, then we check $\pi(1)$, and finally we check the general case with $n\geq 1$. 
+Use the shorthands of the hint. We work in steps. First we check whether $\pi(0)=1-\rho$ of the $M/M/1$ queue satisfies~\cref{eq:72}, then we check $\pi(1)$, and finally we check the general case with $n\geq 1$. 
 
 Take $n=0$, so that $f(0)=1-\alpha$.  Hence, the left-hand side becomes $f(0) \pi(1) = (1-\alpha)\pi(1)$. The right-hand side is
       $\pi(0)G(0) = \pi(0)\alpha$. Thus,

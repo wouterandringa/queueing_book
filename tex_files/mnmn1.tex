@@ -480,8 +480,8 @@ Use $\lambda(n) p(n) = \mu(n+1)p(n+1)$, and realize that for
       this case $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$.
   \end{hint}
     \begin{solution}
- Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$, and solve
-    Eq.~\eqref{eq:25} and \eqref{eq:20}.  Thus: 
+      Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$, and solve~\cref{eq:25,eq:20}.
+      Thus:
     \begin{align*}
        p(n+1) 
 & = \frac{(N-n)\lambda}\mu p(n) 
@@ -553,12 +553,12 @@ they arrive. A simple example model with  customer balking is given by
   \end{equation*}
 and $\mu(n)=\mu$.   
 
-Observe that here we make a subtle implicit assumption; in Section~\ref{sec:poisson-arrivals-see} we elaborate on this assumption.
+Observe that here we make a subtle implicit assumption; in~\ref{sec:poisson-arrivals-see} we elaborate on this assumption.
 To make the problem clear, note that balking customers \emph{decide at the moment they arrive} to either join or leave; in other words, they decide based on what they `see upon arrival'.
 In yet other words, they make decisions based on the state of the system at arrival moments, not on time-averages.
 However, the notion of $p(n)$ is a long-run \emph{time-average}, and is typically not the same as what customers `see upon arrival'.
 As a consequence, the performance measure $\P{L\leq n}$ is not necessarily in accordance with the perception of customers.
-To relate these two `views', i.e., time-average versus observer-average, we need a new concept, \emph{PASTA}, to be developed in in Section~\ref{sec:poisson-arrivals-see}.
+To relate these two `views', i.e., time-average versus observer-average, we need a new concept, \emph{PASTA}, to be developed in~\ref{sec:poisson-arrivals-see}.
 
 
 \begin{exercise}

@@ -11,9 +11,9 @@
 
 %See section 1.11 of Zijm's book for the theory.
 
-In Sections~\ref{sec:setups-batch-proc} and \ref{sec:non-preempt-interr} we assumed that servers are never interrupted while serving a job.
+In~\cref{sec:setups-batch-proc,sec:non-preempt-interr} we assumed that servers are never interrupted while serving a job.
 However, in many situations this assumption is not satisfied: a person might receive a short phone call while working on a job, a machine may fail in the midst of processing, and so on.
-In this section we develop a model to compute the influence on the mean waiting time of such \emph{preemptive outages}, i.e., interruptions that occur \emph{during} a service. 
+In this section we develop a model to compute the influence on the mean waiting time of such \emph{preemptive outages}, i.e., interruptions that occur \emph{during} a service.
 
 Let us assume that a job's normal service time, without interruptions, is given by $S_0$. The durations of the interruptions are given by the i.i.d. random variables $\{R_i\}$ and have common mean $\E R$ and variance $\V R$. If $N$ interruptions occur, the effective service time will then be
 \begin{equation*}
@@ -25,7 +25,7 @@ We remark in passing that the results and the derivation are of general interest
 
 We first aim to find an expression for $\E S$.  Write  $S_N = \sum_{i=1}^N R_i$ for the total duration of the interruptions, so that the total job duration becomes $S = S_0 + S_N$.
 
-\begin{exercise}[\faFlask]
+\begin{exercise}
   Suppose that $N=n$, show that $\E{S_n}=n\E R$.
 \begin{hint}
     Is it relevant that for the expectation of $S_n$ that $R_1,\ldots, R_n$ are mutually independent?

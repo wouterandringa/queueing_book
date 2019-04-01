@@ -48,8 +48,7 @@ If $L(t)=1$ for all $t$, $\E{L} =1 $, but $L(t)/t \to 0$.
 \end{extra}
 
 Let us say that the system is in \emph{state $n$} at time $t$ when it contains $n$ jobs at that moment, i.e., when $L(t) = n$.
-The system \emph{crosses} level $n$ at time $t$ when its state changes from $n$ to $n+1$, either `from below' due to an arrival, or `from above' due to a departure, cf.
-Figure~\ref{fig:A_n_t}.
+The system \emph{crosses} level $n$ at time $t$ when its state changes from $n$ to $n+1$, either `from below' due to an arrival, or `from above' due to a departure, cf.~\cref{fig:A_n_t}.
 
 \begin{figure}[th]
   \centering
@@ -88,9 +87,9 @@ It is evident that the number of times this
 \end{figure}
 
 
-To establish the section's main result Eq.~\eqref{eq:12} we need a few definitions that are quite subtle and might seem a bit abstract, but below we will provide intuitive interpretations in terms of system KPIs.
+To establish the section's main result~\cref{eq:12} we need a few definitions that are quite subtle and might seem a bit abstract, but below we will provide intuitive interpretations in terms of system KPIs.
 Once we have the proper definitions, the above result will follow straightaway.
-Figure~\ref{fig:summaries} at the end of the section summarizes all concepts we develop here.
+\Cref{fig:summaries} at the end of the section summarizes all concepts we develop here.
 
 \paragraph{Level crossing}
 
@@ -163,7 +162,7 @@ be  the total time the system contains $n$ jobs during $[0,t]$, and
    p(n,t) = \frac 1 t \int_0^t  \1{L(s) = n} \d s = \frac{Y(n,t)}t,
 \end{equation}
 \end{subequations}
-be the fraction of time that $L(s) =n$ in $[0,t]$. Figure~\ref{fig:Y_1_t} illustrates the relation between $Y(n,t)$ and $A(n,t)$.
+be the fraction of time that $L(s) =n$ in $[0,t]$. ~\Cref{fig:Y_1_t} illustrates the relation between $Y(n,t)$ and $A(n,t)$.
   
  \begin{exercise} \label{ex:111} Consider the following (silly) queueing process.
    At times $0, 2,4, \ldots$ customers arrive, each customer requires $1$ unit of service, and there is one server.
@@ -324,10 +323,9 @@ Similar to the definition for $A(n,t)$, let
 \begin{equation*}
   \mu(n+1) = \lim_{t\to\infty} \frac{D(n,t)}{Y(n+1,t)},
 \end{equation*}
-as \emph{ the departure rate from state $n+1$}. (It is easy to get
-confused here: to leave $n$ jobs behind, the system must contain $n+1$
-jobs just prior to the departure.) Figure~\ref{fig:A_n_t} shows how
-$A(n,t)$ and~$\lambda(n)$ relate to $D(n+1,t)$ and $\mu(n)$.
+as \emph{ the departure rate from state $n+1$}.
+(It is easy to get confused here: to leave $n$ jobs behind, the system must contain $n+1$ jobs just prior to the departure.)
+\Cref{fig:A_n_t} shows how $A(n,t)$ and~$\lambda(n)$ relate to $D(n+1,t)$ and $\mu(n)$.
 
 \begin{extra}\label{ex:39}
 Should  we take $D(n-1,t)$ or  $D(n,t)$ in the definition of $\mu(n)$?
@@ -359,8 +357,7 @@ observation it follows immediately that
   \lim_{t\to\infty} \frac{A(n,t)}t = \lim_{t\to\infty} \frac{D(n,t)}t.
 \end{equation}
 With this equation we can obtain two nice and fundamental
-identities. The first we develop now; the second follows in
-Section~\ref{sec:poisson-arrivals-see}.
+identities. The first we develop now; the second follows in~\cref{sec:poisson-arrivals-see}.
 
 The rate of jobs that `see the system with $n$ jobs' can be defined as
 $A(n,t)/t$. Taking limits we get
@@ -375,7 +372,7 @@ Similarly, the departure rate of jobs that leave $n$ jobs behind is
 \lim_{t\to\infty}  \frac{D(n,t)}t =  \lim_{t\to\infty} \frac{D(n,t)}{Y(n+1,t)}\frac{Y(n+1,t)}t = \mu(n+1) p(n+1).
 \end{equation}
 \end{subequations}
-Combining this with~\eqref{eq:15} we arrive at the \recall{level crossing equations}
+Combining this with~\cref{eq:15} we arrive at the \recall{level crossing equations}
 \begin{equation}\label{eq:12}
   \lambda(n) p(n) = \mu(n+1)p(n+1).
 \end{equation}
@@ -391,9 +388,9 @@ Clearly, for all $n$ we have $\lambda(n)p(n)= \mu(n+1)p(n+1)$.
 \end{solution}
 \end{exercise}
 
-Result~\eqref{eq:12} turns out to be exceedingly useful, as will become evident from Section~\ref{sec:mm1} onward. More specifically, by specifying (i.e., modeling) $\lambda(n)$ and $\mu(n)$, we can compute the long-run fraction of
-time $p(n)$ that the system contains $n$ jobs. To see this, rewrite
-the above into
+Result~\cref{eq:12} turns out to be exceedingly useful, as will become evident from~\cref{sec:mm1} onward.
+More specifically, by specifying (i.e., modeling) $\lambda(n)$ and $\mu(n)$, we can compute the long-run fraction of time $p(n)$ that the system contains $n$ jobs.
+To see this, rewrite the above into
 \begin{equation}\label{eq:25}
   p(n+1) = \frac{\lambda(n)}{\mu(n+1)}p(n). 
 \end{equation}
@@ -416,9 +413,8 @@ $G$ being the \recall{normalization constant}
   \label{eq:20}
 G = 1+\sum_{n=0}^\infty \frac{\lambda(n)\lambda(n-1)\cdots\lambda(0)}{\mu(n+1)\mu(n)\cdots \mu(1)}.
 \end{equation}
-%Now that we know $p(0)$,  $p(n)$ follows from Eq.~\eqref{eq:38}. 
 
-In the next few sections we will make suitable choices for $\lambda(n)$ and $\mu(n)$ to model many different queueing situations so that, based on \eqref{eq:12}, we can obtain simple expressions for $p(n)$ in terms of the arrival and service rates.
+In the next few sections we will make suitable choices for $\lambda(n)$ and $\mu(n)$ to model many different queueing situations so that, based on \cref{eq:12}, we can obtain simple expressions for $p(n)$ in terms of the arrival and service rates.
 With $p(n)$ we define  two easy, but important performance measures. The time-average average number of items becomes
 \begin{equation*}
 \E L = \sum_{n=0}^\infty n p(n),
@@ -429,7 +425,7 @@ and the long-run fraction of time the system contains at least $n$ jobs is
 \end{equation*}
 
 \begin{exercise}
-  Derive  $\E L = \sum_{n=0}^\infty n p(n)$ from~\eqref{eq:46}. 
+  Derive  $\E L = \sum_{n=0}^\infty n p(n)$ from~\cref{eq:46}. 
 \begin{solution}
 As $L(s)$ counts the number of jobs in the system at time $s$ (thus $L(s)$ is an integer),
 \begin{equation*}
@@ -440,10 +436,9 @@ With this we can write for the time-average number of jobs in the system
 \frac 1 t \int_0^t L(s) \d s = \frac 1 t \int_0^t \left(\sum_{n=0}^{\infty} n\, \1{L(s) = n}\right) \d s
 = \sum_{n=0}^{\infty} \frac n t \int_0^t   \1{L(s) = n} \d s,
 \end{equation}
-where we interchange the integral and the summation\footnote{This is
-  allowed as the integrand is non-negative. More generally, the
-  interested reader should check Fubini's theorem.}.  It then follows
-  from Eq.~(\ref{eq:18}) that
+where we interchange the integral and the summation\footnote{This is allowed as the integrand is non-negative.
+  More generally, the interested reader should check Fubini's theorem.}.
+It then follows from~\cref{eq:18} that
 \begin{equation*}
 \frac 1 t \int_0^t L(s) \d s =  \sum_{n=0}^{\infty} n\, p(n,t).
 \end{equation*}
@@ -458,9 +453,9 @@ the above), the result follows.
 
 
 
-Finally, the following two exercises show that level crossing arguments extend well beyond the queueing systems modeled by Figure~\ref{fig:A_n_t}.
+Finally, the following two exercises show that level crossing arguments extend well beyond the queueing systems modeled by~\cref{fig:A_n_t}.
 
-\begin{exercise} \label{ex:55}
+\begin{exercise}\label{ex:67}
 Consider a single server that serves one queue and serves only in batches of 2 jobs at a time (so never 1 job or more than 2 jobs), i.e., the $M/M^2/1/3$ queue.
   Single jobs arrive at rate $\lambda$ and the inter-arrival times are exponentially distributed so that we can assume that $\lambda(n) = \lambda$.
   The batch service times are exponentially distributed with mean $1/\mu$.
@@ -491,7 +486,7 @@ See the figure below.
 \end{exercise}
 
 \begin{exercise}
-  Use the graph of exercise~\ref{ex:55} and a level crossing argument to express the steady-state probabilities $p(n), n=0,\ldots, 3$ in terms of $\lambda$ and $\mu$.
+  Use the graph of~\cref{ex:67} and a level crossing argument to express the steady-state probabilities $p(n), n=0,\ldots, 3$ in terms of $\lambda$ and $\mu$.
   \begin{hint}
 First balance the rates across the levels. Then solve this in terms of $p(0)$.
   \end{hint}
@@ -512,11 +507,10 @@ hence $p(1) = p(0)(\mu + \lambda)/\mu$.
 
 \paragraph{Balance equations}
 
-It is important to realize that  that the level crossing argument cannot
-always be used as we do here. The reason is that sometimes there does not exist a line between two states such that the state space splits into two disjoint
-parts. For a more general approach, we focus on a single state and
-count how often this state is entered and left,
-cf. Figure~\ref{fig:balance}. Specifically, define
+It is important to realize that that the level crossing argument cannot always be used as we do here.
+The reason is that sometimes there does not exist a line between two states such that the state space splits into two disjoint parts.
+For a more general approach, we focus on a single state and count how often this state is entered and left, cf.~\cref{fig:balance}.
+Specifically, define
 \begin{align*}
   I(n,t) &= A(n-1,t) + D(n,t),
 %  O(n,t) &= A(n,t) + D(n-1,t),
@@ -605,7 +599,7 @@ Thus, the fraction of parcels rejected at the chute should remain small.
 Suppose a chute can contain at most 20 parcels, say.
 Then, each parcel on the belt that `sees' 20 parcels in its chute will be blocked.
 Let $L(t)$ be the number of parcels in the chute at time $t$.
-Then, $A(20,t)$ as defined in Eq.~(\ref{eq:19}) is the number of\emph{ blocked parcels} up to time $t$, and $A(20,t)/A(t)$ is the fraction of rejected parcels.
+Then, $A(20,t)$ as defined in~\cref{eq:19} is the number of\emph{ blocked parcels} up to time $t$, and $A(20,t)/A(t)$ is the fraction of rejected parcels.
 In fact, $A(20,t)$ and $A(t)$ are continuously tracked by the sorting center and used to adapt employee capacity to control the fraction of rejected parcels.
 Thus, in simulations, if one wants to estimate loss fractions, $A(n,t)/A(t)$ is the most natural concept to consider.
 
