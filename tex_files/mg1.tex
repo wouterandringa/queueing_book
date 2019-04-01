@@ -10,259 +10,20 @@
 \Opensolutionfile{ans}
 }
 
-Let's focus on one queue in a supermarket, served by one cashier, and assume that customers do not jockey, i.e., change queue.
-What can we say about the average waiting time in queue if service times are not exponential, like in the $M/M/1$ queue, but have a more general distribution?
-One of the celebrated results of queueing theory is the Pollaczek-Khinchine formula by which we can compute the average waiting time formula for the $M/G/1$ queue.
-In this section we derive this result by means of sample path arguments.
-
-To find an expression for $\E{W_Q}$ we need the concept of expected \recall{remaining service time} $\E{S_r}$ which is defined as the expected time it takes to complete the job in service at the time a job arrives.
-In Section~\ref{sec:mg1} we give a precise meaning to this idea.
-
-\begin{exercise}\label{ex:32}
-Show for the $M/G/1$ queue  that the expected time in queue is
-\begin{equation}\label{eq:24}
-  \E{W_Q} = \E{S_r} + \E{L_Q} \E S.
-\end{equation}
-\begin{hint}
-  What happens when you enter a queue? First you have to wait until the job in service (if there is any) completes, and then you have to wait for the queue to clear.
-\end{hint}
-\begin{solution}
-It is evident that the expected waiting time for an arriving customer is the expected
-remaining service time plus the expected time in queue. The expected
-time in queue  must be equal to the expected number of
-customers in queue at an arrival epoch times the expected service time
-per customer, assuming that service times are i.i.d. If the arrival
-process is Poisson, it follows from PASTA that the average number of
-jobs in queue perceived by arriving customers is also the
-\emph{time-average} number of jobs in queue~$\E{L_Q}$.  
-\end{solution}
-\end{exercise}
+In many practical single-server queueing systems the service times are not really well approximated by the exponential distribution.
+The $M/G/1$ queue then becomes a better model then the $M/M/1$ queue.
+In this section we first present a formula to compute the average waiting time in queue for the $M/G/1$ queue, and then we derive it by means of sample path arguments.
+The derivation is also of general interest as it develops some general results of renewal theory.
 
 
-\begin{exercise}($M/G/1$)
-Use  the PASTA property to show that 
-\begin{equation}\label{eq:37}
-\E{S_r} =  \rho \E{S_r\given S_r>0}.
-\end{equation}
-\begin{hint}
-Use Exercise~\ref{ex:28}.
-a free server.  
-\end{hint}
-\begin{solution}
-By the PASTA property we know that $\rho$ is  the probability to find the server busy upon arrival; hence $1- \rho$ is the probability that the server is idle upon arrival. Then,
-\begin{equation*}
-\E{S_r} =   \rho \E{S_r\given S_r >0} + (1-\rho) \E{S_r\given S_r = 0} = \rho \E{S_r\given S_r>0},
-\end{equation*}
-since, evidently, $\E{S_r\given S_r=0}=0$.  
-\end{solution}
-\end{exercise}
-
-\begin{exercise}
-  It is an easy mistake to think that $\E{S_r} = \E S$ when service
-  times are exponential. Why is this wrong?
-  \begin{hint}
-Realize again that $\E{S_r}$ includes the jobs that arrive at an empty system.
-  \end{hint}
-  \begin{solution}
-
-    $\E{S_r \given S_r>0} = \E S$ for the $M/M/1$ queue, and
-    $\E{S_r} = \rho \E{S_r \given S_r>0}$ for the $M/G/1$ queue, it
-    follows that
-  \begin{equation*}
- \E{S_r} = \rho \E{S_r\given S_r>0} = \rho \E S.
-  \end{equation*}
-  \end{solution}
-\end{exercise}
-
-\begin{exercise}
-  What would you guess for $\E{S_r\given S_r>0}$ for the $M/D/1$ queue? 
-  \begin{solution}
-    Since the service times are deterministic (and constant), I would
-    guess that on average half of the service time remains at the
-    moment a job arrives. If the service time is $D$ always, then
-    $\E{S_r\given S_r>0} = D/2$.  
-  \end{solution}
-\end{exercise}
-
-
-\begin{exercise}
-  Use Exercise~\ref{ex:32} and Little's law to derive for the $M/G/1$ queue that 
-\begin{equation}\label{eq:35}
-  \E{W_Q} = \frac{\E{S_r}}{1-\rho}.% = \frac{\rho}{1-\rho} \E{S_r\given S_r>0}.
-\end{equation}
-\begin{hint}
-Use Little's law to see that $\E{L_Q} = \lambda \E{W_Q}$. Substitute this in~(\ref{eq:24}) and simplify.
-\end{hint}
-\begin{solution}
-With  Little's law $\E{L_Q} = \lambda \E{W_Q}$. Using this,
-\begin{equation*}
-  \E{W_Q} = \E{S_r} + \lambda \E{W_Q} \E S  =\E{S_r} + \rho \E{W_Q},
-\end{equation*}
-since $\rho=\lambda \E S$. But this gives for the $M/G/1$ queue that
-\begin{equation*}
-  \E{W_Q} = \frac{\E{S_r}}{1-\rho}.
-\end{equation*}
-\end{solution}
-\end{exercise}
-
-
-Recall that Eq.~\eqref{eq:35} states that
-\begin{equation*}
-  \E{W_Q} = \frac{\E{S_r}}{1-\rho}.
-\end{equation*}
-It remains to compute the average remaining service time $\E{S_r}$ for generally distributed service times. For this, we use the renewal reward theorem, again.
-
-
-For the $M/M/1$ queue the situation becomes significantly simpler as then the service times are exponential, hence memoryless, which implies that $\E{S_r\given S_r>0} = \E S$.
-
-Consider the $k$th job of some sample path of the $M/G/1$ queueing process.
-This job requires $S_k$ units of service, let its service time start at time $\tilde A_k$ so that it departs the server at time $D_k=\tilde A_k + S_k$. 
-\begin{exercise}[\faFlask]
-Use  Figure~\ref{fig:mg1remainingservicetime} to explain that job $k$the remaining service time at time $s$ is given by
-\begin{equation*}
-R_k(s) = (D_k-s)\1{\tilde A_k \leq s < D_k}.
-\end{equation*}
-\begin{solution}
-Observe that when $s\in [\tilde A_k, D_k)$, the remaining service
-time until job $k$ departs is $D_k-s $, while if
-$s\not \in [\tilde A_k, D_k)$, job $k$ is not in service so it cannot have
-any remaining service.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[\faFlask]
-  Explain that
-  \begin{equation*}
-    Y(t) = \int_0^t (D_{D(s)+1}-s)\1{L(s) > 0} \d s
-  \end{equation*}
-is the total remaining service time as seen by the server up to $t$. 
-\begin{solution}
-  At time $s$, the number of departures is $D(s)$. Thus, $D(s)+1$ is the first job to depart after time $s$. The departure time of this job is $D_{D(t)+1}$, hence the remaining service time at time $s$ is $D_{D(s)+1}-s$, provided this job is in service. 
-\end{solution}
-\end{exercise}
-
-\begin{figure}[htb]
-  \centering
-\begin{tikzpicture}[scale=1,
-  open/.style={shape=circle, fill=white, inner sep=1pt, draw, node contents=},
-  closed/.style={shape=circle, fill=black, inner sep=1pt, draw, node contents=}]
-    \draw (-1,0) -- (4,0); 
-    %x\draw (1,0) -- (3,0) node[midway, fill=white] {$s$};
-    \draw node (c1) at (0,3) [closed, label={}]
-          node (c2) at (3,0)[open, label={}]
-     (c1) to (c2);
-    \draw[dotted] (0,0) -- (0,3) node[midway, rotate=90, fill=white] {$S_k$};
-    \node[below] at (0,0) {$\tilde A_k$};
-    \node[below] at (3,0) {$D_k$};
-
-    \draw[<->, dotted] (0.75,0) -- (0.75,2.25) node[midway,fill=white,rotate=90] {$D_k-s$};
-    \node[below] at (0.75,0) {$s$};
-  \end{tikzpicture}
-
-  \caption{Remaining service time.}
-  \label{fig:mg1remainingservicetime}
-\end{figure}
-
-\begin{exercise}[\faCalculator]
-Use the renewal reward theorem to prove that 
-\begin{equation}\label{eq:34}
-\E{S_r} = \frac{\lambda}2 \E{S^2}.
-\end{equation}
-\begin{hint}
-  Choose $T_k=D_k$ as epochs in the renewal reward theorem.
-\end{hint}
-\begin{solution}
-  It is clear that the time-average $Y(t)/t \to \E{S_r}$. Moreover, $X_k = Y(D_k) - Y(D_{k-1})$ is the area under the triangle in Figure~\ref{fig:mg1remainingservicetime}. Thus,
-  $X=\lim_{n\to\infty} \lim_{k=1}^n S_k^2/ 2 = \E{S^2}/2$. Finally,  $\delta = \lambda$ by rate-stability.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[\faCalculator]
-Use $C_s^2 = \V S / (\E S)^2$ to show that $\lambda \E{S^2} = (1+C_s^2)\rho\E S$
-\begin{solution}
-Use that 
-\begin{equation*}
-  \frac{\E{S^2}}{(\E S)^2} = 
-  \frac{(\E{S^2}-(\E S)^2) + (\E S)^2}{(\E S)^2} =
-  \frac{\V S + (\E S)^2}{(\E S)^2} =
-  C_s^2 + 1.
-\end{equation*}
-Then
-\begin{equation*}
-  \lambda\E{S^2} = \frac{\E{S^2}}{(\E S)^2} \lambda(\E S)^2=
- \frac{\E{S^2}}{(\E S)^2} \rho \E S = (1+C_s^2) \rho \E{S}.
-\end{equation*}
-\end{solution}
-\end{exercise}
-
-
-With the above exercises  we have obtained the fundamentally important \recall{Pollaczek-Khinchine formula} for the average waiting time in queue:
+The fundamentally important \recall{Pollaczek-Khinchine formula} for the average waiting time in queue for the $M/G/1$ queue has the form
 \begin{equation} \label{eq:710}
-  \E{W_Q} = \frac{\E{S_r}}{1-\rho} =\frac 1 2 \frac{\lambda \E{S^2}}{1-\rho} =\frac{1 + C_s^2}2 \frac{\rho}{1-\rho}  \E S.
+%  \E{W_Q} = \frac{\E{S_r}}{1-\rho} =\frac 1 2 \frac{\lambda \E{S^2}}{1-\rho} =\frac{1 + C_s^2}2 \frac{\rho}{1-\rho}  \E S.
+  \E{W_Q} = \frac{1 + C_s^2}2 \frac{\rho}{1-\rho}  \E S.
 \end{equation}
-The problems below will illustrate how useful this result is.
+Before deriving this formula, let us show how to apply it.
 
-
-\begin{exercise}[\faFlask]
-\label{ex:9}
-Show from Eq.~\eqref{eq:34} that 
-\begin{equation}\label{eq:55}
-\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S}.
-\end{equation}
-\begin{solution}
- From Eq.~\eqref{eq:37} and the sentences above this equation,
-    we have that
-    \begin{equation*}
-    \E{S_r} = \rho \E{S_r\given S_r>0}=\lambda \E S \E{S_r\given S_r>0}.
-    \end{equation*}
-Hence,
-    \begin{equation*}
-    \lambda \E{S_r\given S_r>0} = \frac{\E{S_r}}{\E S} = \lambda \frac{\E{S^2}}{2 \E S}.
-    \end{equation*}
-\end{solution}
-\end{exercise}
-
-
-\begin{exercise}[\faBalanceScale]\label{ex:45}
-\begin{equation*}
-\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac \alpha 2
-\end{equation*}
-when $\V{S} = 0$. 
-  \begin{hint}
-    $\V S = 0$ implies that $S$ is deterministic.
-  \end{hint}
-\begin{solution}
- When $S$ is deterministic $\E S= \alpha$ and $\E{S^2} = \alpha^2$.  Now use~\eqref{eq:55}.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[\faCalculator]
-Show that $\E{S_r\given S_r>0} = \alpha/3$ when  $S \sim U[0, \alpha]$.
-\begin{solution}
- When $S$ is uniform on $[0, \alpha]$,
- \begin{align*}
-    \E S &= \alpha^{-1}\int_0^\alpha x \, \d x =\frac{\alpha^2}{2 \alpha} =  \frac{\alpha}2, 
-&
-\E{S^2} &= \alpha^{-1}\int_0^\alpha x^2 \, \d x = \frac{\alpha^2}3.   
- \end{align*}
- Thus, with~\eqref{eq:55}, $\E{S_r\given S_r>0} = (\alpha^2/3)/(2 \alpha/2) = \alpha/3$. 
-\end{solution}
-\end{exercise}
-
-\begin{exercise}{\faFlask}
- Show that $\E{S_r\given S_r>0} = \mu^{-1}$ when $S\sim \Exp(\mu)$.
-\begin{solution}
-    \begin{align*}
-\E S &= \mu \int_0^\infty x e^{-\mu x}\,\d x = 1/\mu, \\
-\E{S^2} 
-&= \mu \int_0^\infty x^2 e^{- \mu x} \,\d x = - \left. x^2 e^{-\mu x} \right|_0^\infty + 2 \int_0^\infty x e^{-\mu x} \, \d x \\
-&= -\left. 2\frac x \mu e^{-\mu x} \right|_0^\infty + \frac 2 \mu\int_0^\infty e^{-\mu x} \, \d x =\frac2{\mu^2}.
-    \end{align*}
-\end{solution}
-\end{exercise}
-
-
-\begin{exercise}[\faFlask]
+\begin{extra}
   Show that when services are exponential, the expected waiting time
   $\E{W_Q(M/G/1)}$ reduces to $\E{W_Q(M/M/1)}$.
     \begin{solution}
@@ -273,22 +34,22 @@ Show that $\E{S_r\given S_r>0} = \alpha/3$ when  $S \sim U[0, \alpha]$.
     \end{equation*}
 which we also found in a previous section.
     \end{solution}
-\end{exercise}
+\end{extra}
 
 
-\begin{exercise}[\faCalculator]
-  Compute $\E{W_Q}$ and $\E L$ for the $M/D/1$ queue. Assume that the
-  service time is always~$T$. Compare $\E{L(M/D/1)}$ to $\E{L(M/M/1)}$
-  where the mean service time is the same in both cases.
+\begin{extra}
+  Compute $\E{W_Q}$ and $\E L$ for the $M/D/1$ queue.
+  Assume that the service time is always~$T$.
+  Compare $\E{L(M/D/1)}$ to $\E{L(M/M/1)}$ where the mean service time is the same in both cases.
 \begin{solution}
-  For the $M/D/1$ the service time is deterministic. Thus, the service time $S=T$ always; recall that $S$ is   deterministic under the assumptions in the exercise. Therefore, we
-  must have that $\P{S\leq T} = 1$. As an immediate consequence,
-  $\P{S>T} = 1-\P{S\leq T} = 0$. Also, $\P{S \leq x} = 0$ for all
-  $x<T$. Thus, all probability mass is concentrated on the point $T$,
-  thus, it is also impossible that the service time is smaller than
-  $T$.  (If you are into mathematics, then you should be aware of the fact
-  that `impossible' and `almost surely' are not the same. Thus, my
-  using of the word `impossible' is not completely correct.)
+  For the $M/D/1$ the service time is deterministic.
+  Thus, the service time $S=T$ always; recall that $S$ is deterministic under the assumptions in the exercise.
+  Therefore, we must have that $\P{S\leq T} = 1$.
+  As an immediate consequence, $\P{S>T} = 1-\P{S\leq T} = 0$.
+  Also, $\P{S \leq x} = 0$ for all $x<T$.
+  Thus, all probability mass is concentrated on the point $T$, thus, it is also impossible that the service time is smaller than $T$.
+  (If you are into mathematics, then you should be aware of the fact that `impossible' and `almost surely' are not the same.
+  Thus, my using of the word `impossible' is not completely correct.)
 
   To compute the SCV, I first compute $\E S$, then $\E{S^2}$ and then
   $\V S = \E{S^2} - \left(\E S\right)^2$, and use the definition of
@@ -322,9 +83,9 @@ In both cases the expected service times are equal to $T$ so that the loads are 
   \end{split}
 \end{equation*}
 \end{solution}
-\end{exercise}
+\end{extra}
 
-\begin{exercise}[\faCalculator]
+\begin{extra}
   Compute $\E L$ for the $M/G/1$ queue with $S\sim U[0,\alpha]$.
   \begin{hint}
 Integrate $\alpha^{-1} \int x \d x$, and likewise for the second moment.
@@ -341,13 +102,12 @@ C_s^2 &= (\alpha^2/12)/(\alpha^2/4) = 1/3,\\
 \E L &= \lambda \E W.
   \end{align*}
 \end{solution}
-\end{exercise}
+\end{extra}
 
-\begin{exercise}[\faPhoto]
-  A queueing system receives Poisson arrivals at the rate of 5 per
-  hour. The single server has a uniform service time distribution,
-  with a range of 4 minutes to 6 minutes. Determine $\E{L_Q}$, $\E L$,
-  $\E{W_Q}$, $\E W$.
+\begin{exercise}
+  A queueing system receives Poisson arrivals at the rate of 5 per hour.
+  The single server has a uniform service time distribution, with a range of 4 minutes to 6 minutes.
+  Determine $\E{L_Q}$, $\E L$, $\E{W_Q}$, $\E W$.
   \begin{solution}
 First the load.
 \begin{pyconsole}
@@ -382,11 +142,11 @@ L
 
 
 
-\begin{exercise}[\faPhoto]
-  Consider a workstation with just one machine. Jobs arrive, roughly,
-  in accordance with a Poisson process, with rate $\lambda=3$ per day. The
-  average service time $\E S = 2$ hours, $C^2_s = 1/2$, and the shop
-  is open for 8 hours. What is $\E{W_Q}$?
+\begin{extra}
+  Consider a workstation with just one machine.
+  Jobs arrive, roughly, in accordance with a Poisson process, with rate $\lambda=3$ per day.
+  The average service time $\E S = 2$ hours, $C^2_s = 1/2$, and the shop is open for 8 hours.
+  What is $\E{W_Q}$?
 
  Suppose the expected waiting time has to be reduced to 1h. How
   to achieve this? 
@@ -402,10 +162,10 @@ L
     arrival process. However, typically this is not possible. For
     instance, would you accept this as a customer?
 \end{solution}
-\end{exercise}
+\end{extra}
 
 
-\begin{exercise}[\faPhoto] \label{ex:46} (Hall 5.16) The manager of a small firm would like to determine which of two people to hire.
+\begin{exercise}[Hall 5.16] \label{ex:46}The manager of a small firm would like to determine which of two people to hire.
   One employee is fast, on average, but is somewhat inconsistent.
   The other is a bit slower, but very consistent.
   The first has a mean service time of $2$ minutes, with a standard deviation of 1 minute.
@@ -452,7 +212,7 @@ L
 \end{exercise}
 
 
-\begin{exercise}[\faFlask]
+\begin{extra}
   Show that for the $M/G/1$ queue, the expected idle time is
   $\E I = 1/\lambda$.  
   \begin{hint}
@@ -464,10 +224,10 @@ What is the average time between two
   \begin{solution}
     Since the inter-arrival times are memoryless, the expected time to the first arrival after the system becomes empty is also $\E X=1/\lambda$.
   \end{solution}
-\end{exercise}
+\end{extra}
 
-\begin{exercise}[\faFlask]
-  What is the utilization of the $M/G/1/1$ queue?  
+\begin{extra}
+  Express the utilization of the $M/G/1/1$ queue in terms of $\lambda$ and $\E S$.
   \begin{solution}
     The system can contain at most 1 job.
     Necessarily, if the system contains a job, this job must be in service.
@@ -477,15 +237,15 @@ What is the average time between two
     Thus, the utilization is $\E S/(1/\lambda + \E S) = \lambda \E S/ (1 + \lambda \E S)$.
     Since not all jobs are accepted, the utilization $\rho$ cannot be equal to $\lambda \E S$.
   \end{solution}
-\end{exercise}
+\end{extra}
 
-\begin{exercise}[\faFlask]
-  For the $M/G/1/1$ queue what is the fraction of jobs rejected
-  (hence, what is the fraction of accepted jobs)?  
+\begin{extra}
+  For the $M/G/1/1$ queue what is the fraction of jobs rejected?
   \begin{hint}
-The rate of
-    accepted jobs is $\lambda \pi(0)$. What is the load of these jobs?
-    Equate this to $1-\pi(0)$ as this must also be the load. Then solve for $\pi(0)$.
+    The rate of accepted jobs is $\lambda \pi(0)$.
+    What is the load of these jobs?
+    Equate this to $1-\pi(0)$ as this must also be the load.
+    Then solve for $\pi(0)$.
   \end{hint}
   \begin{solution}
     Let $p(0)$ be the fraction of time the server is idle. By PASTA,
@@ -505,12 +265,11 @@ which is the same as in the previous problem.
 
 Note that  $\delta < \lambda$, as it should be the case. 
   \end{solution}
-\end{exercise}
+\end{extra}
 
 
-\begin{exercise}[\faFlask]
-  Why is the fraction of lost jobs at the $M/G/1/1$ queue not
-  necessarily the same as for a $G/G/1/1$ queue with the same load?  
+\begin{extra}
+  Why is the fraction of lost jobs at a $M/G/1/1$ queue not necessarily the same as for a $G/G/1/1$ queue with the same load?
   \begin{hint}
 Provide an  example.
   \end{hint}
@@ -521,11 +280,250 @@ Provide an  example.
   1 hour. The load is $59/60$, but no job is lost, also not in the
   $G/G/1/1$ case. Thus, $\delta=\lambda$ in this case.
   \end{solution}
+\end{extra}
+
+
+
+To derive the PK-formula, suppose at first that we know the expected \recall{remaining service time} $\E{S_r}$, i.e., the expected time it takes to complete the job in service, if present, at the time a job arrives.
+
+
+
+
+\begin{extra}\label{ex:32}
+Show for the $M/G/1$ queue  that the expected time in queue is
+\begin{equation}\label{eq:24}
+  \E{W_Q} = \E{S_r} + \E{L_Q} \E S.
+\end{equation}
+\begin{hint}
+  What happens when you enter a queue? First you have to wait until the job in service (if there is any) completes, and then you have to wait for the queue to clear.
+\end{hint}
+\begin{solution}
+It is evident that the expected waiting time for an arriving customer is the expected
+remaining service time plus the expected time in queue. The expected
+time in queue  must be equal to the expected number of
+customers in queue at an arrival epoch times the expected service time
+per customer, assuming that service times are i.i.d. If the arrival
+process is Poisson, it follows from PASTA that the average number of
+jobs in queue perceived by arriving customers is also the
+\emph{time-average} number of jobs in queue~$\E{L_Q}$.  
+\end{solution}
+\end{extra}
+
+
+\begin{exercise}
+Show that, given $\E{S_r}$, 
+\begin{equation}\label{eq:35}
+  \E{W_Q} = \frac{\E{S_r}}{1-\rho}.% = \frac{\rho}{1-\rho} \E{S_r\given S_r>0}.
+\end{equation}
+\begin{hint}
+  Use Exercise~\ref{ex:32}. Then use Little's law to see that $\E{L_Q} = \lambda \E{W_Q}$. Substitute this in~(\ref{eq:24}) and simplify.
+\end{hint}
+\begin{solution}
+With  Little's law $\E{L_Q} = \lambda \E{W_Q}$. Using this,
+\begin{equation*}
+  \E{W_Q} = \E{S_r} + \lambda \E{W_Q} \E S  =\E{S_r} + \rho \E{W_Q},
+\end{equation*}
+since $\rho=\lambda \E S$. But this gives for the $M/G/1$ queue that
+\begin{equation*}
+  \E{W_Q} = \frac{\E{S_r}}{1-\rho}.
+\end{equation*}
+\end{solution}
 \end{exercise}
 
 
 
+It remains to compute the average remaining service time $\E{S_r}$ for generally distributed service times.
+Just like in \ref{sec:mxm1-queue:-expected} we use the renewal reward theorem.
+Consider the $k$th job of some sample path of the $M/G/1$ queueing process.
+Let its service time start at time $\tilde A_k$ so that it departs at time $D_k=\tilde A_k + S_k$.
+\begin{exercise}[\faFlask]
+  Use~\cref{fig:mg1remainingservicetime} to explain that the remaining service time of job $k$ at time $s$ is given by
+\begin{equation*}
+R_k(s) = (D_k-s)\1{\tilde A_k \leq s < D_k}.
+\end{equation*}
+\begin{solution}
+Observe that when $s\in [\tilde A_k, D_k)$, the remaining service
+time until job $k$ departs is $D_k-s $, while if
+$s\not \in [\tilde A_k, D_k)$, job $k$ is not in service so it cannot have
+any remaining service.
+\end{solution}
+\end{exercise}
 
+
+\begin{figure}[htb]
+  \centering
+\begin{tikzpicture}[scale=1,
+  open/.style={shape=circle, fill=white, inner sep=1pt, draw, node contents=},
+  closed/.style={shape=circle, fill=black, inner sep=1pt, draw, node contents=}]
+    \draw (-1,0) -- (4,0); 
+    %x\draw (1,0) -- (3,0) node[midway, fill=white] {$s$};
+    \draw node (c1) at (0,3) [closed, label={}]
+          node (c2) at (3,0)[open, label={}]
+     (c1) to (c2);
+    \draw[dotted] (0,0) -- (0,3) node[midway, rotate=90, fill=white] {$S_k$};
+    \node[below] at (0,0) {$\tilde A_k$};
+    \node[below] at (3,0) {$D_k$};
+
+    \draw[<->, dotted] (0.75,0) -- (0.75,2.25) node[midway,fill=white,rotate=90] {$D_k-s$};
+    \node[below] at (0.75,0) {$s$};
+  \end{tikzpicture}
+
+  \caption{Remaining service time.}
+  \label{fig:mg1remainingservicetime}
+\end{figure}
+
+\begin{exercise}
+  Explain that
+  \begin{equation*}
+    Y(t) = \int_0^t (D_{D(s)+1}-s)\1{L(s) > 0} \d s
+  \end{equation*}
+is the total remaining service time as seen by the server up to $t$. 
+\begin{solution}
+  At time $s$, the number of departures is $D(s)$. Thus, $D(s)+1$ is the first job to depart after time $s$. The departure time of this job is $D_{D(t)+1}$, hence the remaining service time at time $s$ is $D_{D(s)+1}-s$, provided this job is in service. 
+\end{solution}
+\end{exercise}
+
+\begin{exercise}
+Use the renewal reward theorem to prove that 
+\begin{equation}\label{eq:34}
+\E{S_r} = \frac{\lambda}2 \E{S^2}. 
+\end{equation}
+Then simplify to get~\eqref{eq:710}. 
+\begin{hint}
+  Choose $T_k=D_k$ as epochs in the renewal reward theorem.
+\end{hint}
+\begin{solution}
+  It is clear that the time-average $Y(t)/t \to \E{S_r}$.
+  Moreover, $X_k = Y(D_k) - Y(D_{k-1})$ is the area under the triangle in Figure~\ref{fig:mg1remainingservicetime}.
+  Thus, $X=\lim_{n\to\infty} \lim_{k=1}^n S_k^2/ 2 = \E{S^2}/2$.
+  Finally, $\delta = \lambda$ by rate-stability.
+
+  The rest is plain algebra, see~\cref{ex:65}.
+\end{solution}
+\end{exercise}
+
+\begin{extra}\label{ex:65}
+Use $C_s^2 = \V S / (\E S)^2$ to show that $\lambda \E{S^2} = (1+C_s^2)\rho\E S$
+\begin{solution}
+Use that 
+\begin{equation*}
+  \frac{\E{S^2}}{(\E S)^2} = 
+  \frac{(\E{S^2}-(\E S)^2) + (\E S)^2}{(\E S)^2} =
+  \frac{\V S + (\E S)^2}{(\E S)^2} =
+  C_s^2 + 1.
+\end{equation*}
+Then
+\begin{equation*}
+  \lambda\E{S^2} = \frac{\E{S^2}}{(\E S)^2} \lambda(\E S)^2=
+ \frac{\E{S^2}}{(\E S)^2} \rho \E S = (1+C_s^2) \rho \E{S}.
+\end{equation*}
+\end{solution}
+\end{extra}
+
+
+
+\begin{exercise}($M/G/1$)
+Use  the PASTA property to show that 
+\begin{equation}\label{eq:37}
+\E{S_r} =  \rho \E{S_r\given S_r>0}.
+\end{equation}
+\begin{hint}
+Use Exercise~\ref{ex:28}.
+a free server.  
+\end{hint}
+\begin{solution}
+By the PASTA property we know that $\rho$ is  the probability to find the server busy upon arrival; hence $1- \rho$ is the probability that the server is idle upon arrival. Then,
+\begin{equation*}
+\E{S_r} =   \rho \E{S_r\given S_r >0} + (1-\rho) \E{S_r\given S_r = 0} = \rho \E{S_r\given S_r>0},
+\end{equation*}
+since, evidently, $\E{S_r\given S_r=0}=0$.  
+\end{solution}
+\end{exercise}
+
+\begin{extra}
+  It is an easy mistake to think that $\E{S_r} = \E S$ when service
+  times are exponential. Why is this wrong?
+  \begin{hint}
+Realize again that $\E{S_r}$ includes the jobs that arrive at an empty system.
+  \end{hint}
+  \begin{solution}
+
+    $\E{S_r \given S_r>0} = \E S$ for the $M/M/1$ queue, and
+    $\E{S_r} = \rho \E{S_r \given S_r>0}$ for the $M/G/1$ queue, it
+    follows that
+  \begin{equation*}
+ \E{S_r} = \rho \E{S_r\given S_r>0} = \rho \E S.
+  \end{equation*}
+  \end{solution}
+\end{extra}
+
+
+
+
+\begin{exercise}[\faFlask]
+\label{ex:9}
+Show from Eq.~\cref{eq:34} that 
+\begin{equation}\label{eq:55}
+\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S}.
+\end{equation}
+\begin{solution}
+ From Eq.~\cref{eq:37} and the sentences above this equation,
+    we have that
+    \begin{equation*}
+    \E{S_r} = \rho \E{S_r\given S_r>0}=\lambda \E S \E{S_r\given S_r>0}.
+    \end{equation*}
+Hence,
+    \begin{equation*}
+    \lambda \E{S_r\given S_r>0} = \frac{\E{S_r}}{\E S} = \lambda \frac{\E{S^2}}{2 \E S}.
+    \end{equation*}
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}[\faBalanceScale]\label{ex:45}
+\begin{equation*}
+\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S} 2
+\end{equation*}
+when $\V{S} = 0$. 
+  \begin{hint}
+    $\V S = 0$ implies that $S$ is deterministic.
+  \end{hint}
+\begin{solution}
+ When $S$ is deterministic $\E{S^2} = (\E{S})^2$.  Now use~\cref{eq:55}.
+\end{solution}
+\end{extra}
+
+\begin{extra}
+  What is  $\E{S_r\given S_r>0}$ for the $M/D/1$ queue? 
+  \begin{solution}
+By~\cref{ex:45}, it is half the service time. 
+  \end{solution}
+\end{extra}
+
+\begin{extra}
+Show that $\E{S_r\given S_r>0} = \alpha/3$ when  $S \sim U[0, \alpha]$.
+\begin{solution}
+ When $S$ is uniform on $[0, \alpha]$,
+ \begin{align*}
+    \E S &= \alpha^{-1}\int_0^\alpha x \, \d x =\frac{\alpha^2}{2 \alpha} =  \frac{\alpha}2, 
+&
+\E{S^2} &= \alpha^{-1}\int_0^\alpha x^2 \, \d x = \frac{\alpha^2}3.   
+ \end{align*}
+ Thus, with~\cref{eq:55}, $\E{S_r\given S_r>0} = (\alpha^2/3)/(2 \alpha/2) = \alpha/3$. 
+\end{solution}
+\end{extra}
+
+\begin{extra}
+ Show that $\E{S_r\given S_r>0} = \mu^{-1}$ when $S\sim \Exp(\mu)$.
+\begin{solution}
+    \begin{align*}
+\E S &= \mu \int_0^\infty x e^{-\mu x}\,\d x = 1/\mu, \\
+\E{S^2} 
+&= \mu \int_0^\infty x^2 e^{- \mu x} \,\d x = - \left. x^2 e^{-\mu x} \right|_0^\infty + 2 \int_0^\infty x e^{-\mu x} \, \d x \\
+&= -\left. 2\frac x \mu e^{-\mu x} \right|_0^\infty + \frac 2 \mu\int_0^\infty e^{-\mu x} \, \d x =\frac2{\mu^2}.
+    \end{align*}
+\end{solution}
+\end{extra}
 
 
 \opt{solutionfiles}{
