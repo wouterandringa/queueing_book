@@ -26,33 +26,42 @@ For instance, suppose that $L(A_k-) = 3$, i.e., job $k$ sees 3 items in the syst
 If it's size $B_k = 20$, then right after the $k$th arrival the system contains 23 items, that is, $L(A_k)=3+20=23$.
 Thus, at the arrival of job $k$, all levels between states $3$ and $23$ are crossed.
 
-The left panel in~\cref{fig:levelcrossing} demonstrates the up- and down-crossings in more general terms.
-The down-crossing rate is easy: there is just one arrow from right to left in~\cref{fig:levelcrossing} to down-cross level $n$, namely from $n+1$ to $n$.
-Level $n$ can be up-crossed from below from many states, in fact from any level $m, 0\leq m <n$.
-Below we will generalize the argument that lead~\cref{eq:22} to the level-crossing equation for the $M^X/M/1$ queue:
-\begin{equation}\label{eq:42}
-\lambda  \sum_{m=0}^n G(n-m) \pi(m) = \mu \pi(n+1).
-\end{equation}
-
-\begin{exercise}[\faFlask]
-Provide an interpretation of the above result in terms of a thinned Poisson arrival process.
-\begin{solution}
-  \Cref{eq:16} has the interpretation that the rate at which level $n$ is crossed from below from state $m$ is equal to the rate at which jobs arrive times the fraction of jobs that see $m$ jobs in the system times the fraction of jobs with batch size larger than $n-m$.
-  Observe that the stream of jobs with batch size larger than $n-m$ is a Poisson process thinned at rate $G(n-m)$.
-\end{solution}
-\end{exercise}
+The left panel in~\cref{fig:levelcrossing} shows all up- and down-crossings of some level $n$.
+The down-crossing rate is easy: just as in~\cref{fig:A_n_t} there is just one arrow from right to left.
+However, level~$n$ can be up-crossed from below from many states, in fact from any level $m, 0\leq m <n$.
+More formally, to count the number of up-crossings define
+\begin{equation*}
+  A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
+\end{equation*}
+as the number of jobs up to time $t$ that see $m$ in the system upon arrival and have batch size larger than $n-m$.
+% With this, the total number of times level $n$ is up-crossed up to time~$t$ becomes
+%  \begin{equation*}
+% A(n, t) =  \sum_{m=0}^n A(m,n,t).
+% \end{equation*}
 
 
-\begin{extra}
-  Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
-  \begin{solution}
-    The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
-    In the $M/M/1$ queue, all batches have size $1$.
-    Thus, $\P{B=1} = f(1)=1$ and $f(k)=0$ for $k\neq 1$.
-    Thus, $G(0)=1$ and $G(1)=G(2)=\cdots = 0$.
-    Thus, $\sum_{m=0}^n G(n-m) \pi(m) = G(0)\pi(n)=\pi(n)$.
-  \end{solution}
-\end{extra}
+% Observe that $\1{L(A_k-)\leq n}=1$ only when the $k$th job sees~$n$ or less items in the system, and $\1{L(A_k) > n}=1$ only after the $k$th arrival the system contains more than $n$ items.
+% Thus, $\1{L(A_k-) \leq n}\1{ L(A_k)>n}=1$ iff the $k$th arrival generates an up-crossing of level~$n$.
+
+% %  Hence
+% % \begin{equation*}
+% %   \sum_{k=1}^{A(t)} \1{L(A_k-) \leq n}\,\1{L(A_k)>n}
+% % \end{equation*}
+% % counts all up-crossings  of level $n$ up to time $t$.
+
+
+% From~\cref{fig:levelcrossing} we see that an up-crossing can be decomposed into:
+% \begin{equation*}
+%   \begin{split}
+% &\1{L(A_k-) \leq n}\1{L(A_k)>n}  \\
+% &=  \1{L(A_k-) =n}\, \1{B_k >0} + \1{L(A_k-) =n-1}\1{ B_k >1} +\cdots + \1{L(A_k-) =0}\1{B_k > n} \\
+% &= \sum_{m=0}^n \1{L(A_k-) =m}\1{B_k > n-m}.
+%   \end{split}
+% \end{equation*}
+% In other words, sample paths that up-cross level $n$ require that any job that
+% sees $m$ ($m\leq n$) in the system upon arrival must bring a batch larger
+% than $n-m$ items.
+
 
 
 % As a consequence, it is not
@@ -113,40 +122,6 @@ Provide an interpretation of the above result in terms of a thinned Poisson arri
   \label{fig:levelcrossing}
 \end{figure}
 
-To derive~\eqref{eq:42} more formally, we turn to counting the number of up-crossings.
-Define first
-\begin{equation*}
-  A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
-\end{equation*}
-as the number of jobs up to time $t$ that see $m$ in the system upon arrival and have batch size larger than $n-m$.
-With this, the total number of times level $n$ is up-crossed up to time~$t$ becomes
- \begin{equation*}
-A(n, t) =  \sum_{m=0}^n A(m,n,t).
-\end{equation*}
-
-
-% Observe that $\1{L(A_k-)\leq n}=1$ only when the $k$th job sees~$n$ or less items in the system, and $\1{L(A_k) > n}=1$ only after the $k$th arrival the system contains more than $n$ items.
-% Thus, $\1{L(A_k-) \leq n}\1{ L(A_k)>n}=1$ iff the $k$th arrival generates an up-crossing of level~$n$.
-
-% %  Hence
-% % \begin{equation*}
-% %   \sum_{k=1}^{A(t)} \1{L(A_k-) \leq n}\,\1{L(A_k)>n}
-% % \end{equation*}
-% % counts all up-crossings  of level $n$ up to time $t$.
-
-
-% From~\cref{fig:levelcrossing} we see that an up-crossing can be decomposed into:
-% \begin{equation*}
-%   \begin{split}
-% &\1{L(A_k-) \leq n}\1{L(A_k)>n}  \\
-% &=  \1{L(A_k-) =n}\, \1{B_k >0} + \1{L(A_k-) =n-1}\1{ B_k >1} +\cdots + \1{L(A_k-) =0}\1{B_k > n} \\
-% &= \sum_{m=0}^n \1{L(A_k-) =m}\1{B_k > n-m}.
-%   \end{split}
-% \end{equation*}
-% In other words, sample paths that up-cross level $n$ require that any job that
-% sees $m$ ($m\leq n$) in the system upon arrival must bring a batch larger
-% than $n-m$ items.
-
 \begin{extra}
    Show that $A(n, n,t) = A(n,t)$, where $A(n,t)$ is defined by~\cref{eq:19}.
 \begin{solution}
@@ -205,18 +180,39 @@ Show that $\P{B>n-m\given L(A-)=m}=\P{B>n-m}$.
 \end{solution}
 \end{extra}
 
+Equating the number of up- and down-crossing gives $\sum_{m=0}^n A(m,n,t) \approx  D(n,t)$. 
+Then, dividing by~$t$,  taking the limit $t\to\infty$, and using~\cref{ex:70} results in the level-crossing equation for the $M^X/M/1$ queue:
+\begin{equation}\label{eq:42}
+\lambda  \sum_{m=0}^n \pi(m) G(n-m) = \mu \pi(n+1).
+\end{equation}
 
-The last step is to equate the up- and down-crossing rates, so that
- \begin{equation*}
- \sum_{m=0}^n A(m,n,t) = A(n,t) \approx  D(n,t). 
-\end{equation*}
-Dividing by $t$ and taking the limit $t\to\infty$ results in~\cref{eq:42}.
+\begin{exercise}
+Provide an interpretation of~\eqref{eq:42} in terms of a thinned Poisson arrival process.
+\begin{solution}
+  \Cref{eq:16} has the interpretation that the rate at which level $n$ is crossed from below from state $m$ is equal to the rate at which jobs arrive times the fraction of jobs that see $m$ jobs in the system times the fraction of jobs with batch size larger than $n-m$.
+  Observe that the stream of jobs with batch size larger than $n-m$ is a Poisson process thinned at rate $G(n-m)$.
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}
+  Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
+  \begin{solution}
+    The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
+    In the $M/M/1$ queue, all batches have size $1$.
+    Thus, $\P{B=1} = f(1)=1$ and $f(k)=0$ for $k\neq 1$.
+    Thus, $G(0)=1$ and $G(1)=G(2)=\cdots = 0$.
+    Thus, $\sum_{m=0}^n G(n-m) \pi(m) = G(0)\pi(n)=\pi(n)$.
+  \end{solution}
+\end{extra}
+
 
 
 It is left to find the normalization constant.
 As this recursion does not lead to a closed form expression for $\pi(n)$, such as~\cref{eq:23}, we need to use a criterion to stop this iterative procedure.
-Finding general conditions when to stop is not directly easy, but a pragmatic approach is simple: stop at some (large) number $N$ such that $\pi(k)\ll \pi(0)$ and steadily decreases for $k>N$.\footnote{An interesting question, why should it decrease monotonically after some, large, $N$?}
-Then take $G=\sum_{i=0}^N \pi(i)$ as the normalization constant, so that $\pi(0)=1/G$, $\pi(1)=\alpha/G$, and so on.
+Finding general conditions when to stop is not directly easy, but a pragmatic approach is simple.
+When the demand is finite, the numbers $\{\pi(k)\}$ should decrease geometrically fast when $k\geq N$ for some (large) $N$\footnote{An interesting question, why should it decrease monotonically after some, large, $N$?}.
+Stop when $\pi(N)\ll \pi(0)$, and take $G=\sum_{i=0}^N \pi(i)$ as the normalization constant.
 While this is a practical approach, getting formal bounds on a proper size of $N$ requires more work than we can do here.
 
 Once again with $\pi(n)$ we can compute all performance measures we need, and study the influence on the batch size distribution and $\lambda$ and $\mu$ on the system's performance.
@@ -229,23 +225,28 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \end{solution}
 \end{exercise}
 
-Let us use recursion~\cref{eq:42} for $\pi(n)$ to derive an expression for the expected number of units of work $\E L$ in the system.
-\begin{exercise}
- Show that
+\begin{exercise}\label{ex:73}
+ Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\eqref{eq:43}.
+  \begin{solution}
+    We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
+  \end{solution}
+\end{exercise}
+
+\begin{extra}\label{ex:71}
+  Step 1 of~\cref{ex:73}.
+  Show that
 \begin{equation}\label{eq:67}
   \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2  + \lambda \E B \E L +\lambda \frac{\E B}2.
 \end{equation}
 \begin{hint}
-Substitute the
-  recursion, and carry on with the algebra. We urge the reader to try
-  it, its good (necessary) practice.  Use also the results of the
-  exercises of~\cref{sec:mxm1-queue:-expected}.  
+  Substitute the recursion, and carry on with the algebra.
+  Use also the results of the exercises of~\cref{sec:mxm1-queue:-expected}.
 \end{hint}
 \begin{solution}
   We use that $\mu \pi(n) =\lambda \sum_{i=0}^{n-1} \pi(i) G(n-1-i)$ and the results of the exercises of~\cref{sec:mxm1-queue:-expected} to see that
 \begin{align*}
   \mu \E L
-  &=\sum_{n=0}^\infty n\, \mu \pi(n), \quad \text{now substitute for $\mu \pi(n)$ the above recursion}, \\
+  &=\sum_{n=0}^\infty n\, \mu \pi(n), \quad \text{now substitute for $\mu \pi(n)$ the recursion~\cref{eq:42}}, \\
 & =\lambda \sum_{n=0}^\infty n \sum_{i=0}^{n-1} \pi(i) G(n-1-i) 
   =\lambda \sum_{n=0}^\infty n \sum_{i=0}^\infty \1{i<n} \pi(i) G(n-1-i) \\
 & =\lambda \sum_{i=0}^\infty \pi(i) \sum_{n=0}^\infty \1{i<n} n G(n-1-i) 
@@ -258,95 +259,72 @@ Substitute the
   &= \lambda \frac{\E{B^2} }2  + \lambda \E B \E L +\lambda \frac{\E B}2.
 \end{align*}
 \end{solution}
-\end{exercise}
+\end{extra}
 
-With this we can check a result of~\cref{sec:mxm1-queue:-expected}.  
-\begin{exercise}
+\begin{extra}\label{ex:72}
+  Step 2 of~\cref{ex:73}.
   Use~\cref{eq:67} and the definition $\rho=\lambda \E B/\mu$ to show that
 \begin{equation*}
 (1- \rho) \E L = \frac{\lambda}\mu \frac{\E{B^2}}2 + \frac\rho2.
 \end{equation*}
-\begin{hint}
-Divide both sides by $\mu$.
-\end{hint}
 \begin{solution}
-Dividing both sides by $\mu$ and using that $\lambda \E B/\mu = \rho$, 
+  Dividing both sides of~\cref{eq:67} by $\mu$ and using that $\lambda \E B/\mu = \rho$,
 \begin{equation*}
   \E L = \frac{\lambda}{\mu}  \frac{\E{B^2}}2 + \rho \E L + \frac\rho2.
 \end{equation*}
 \end{solution}
-\end{exercise}
+\end{extra}
 
 
 
-\begin{exercise}[\faCalculator]
-  Implement the recursion~\cref{eq:42} in a computer program for the case $f(1)=f(2)=f(3)=1/3$ (recall $\P{B=k} =f_k$).
+\begin{exercise}
+  Implement the recursion~\cref{eq:42} in a computer program for the case $f(1)=f(2)=f(3)=1/3$.
   Take $\lambda =1$ and $\mu = 3$.
-  \begin{hint}
-This is an important problem, it helps to check (numerically)
-    the algebraic results we have been deriving up to
-    now. Implementing the recursion is not hard, just try and see how
-    far you get.
-  \end{hint}
   \begin{solution}
-The recursion for $n$ becomes 
+    The recursion for $n$ becomes
 \begin{equation*}
 \pi(n) = \frac \lambda \mu \sum_{i=0}^{n-1} \pi(n-1-i)G(i).
 \end{equation*}
 Since $G(i) =0$ for $i\geq 3$ we rewrite this to 
 \begin{equation*}
-  \pi(n) = \frac\lambda \mu \sum_{i=0}^{\min\{n-1,l\}} \pi(n-1-i)G(i),
+  \pi(n) = \frac\lambda \mu \sum_{i=0}^{\min\{n-1,\text{len } G\}} \pi(n-1-i)G(i),
 \end{equation*}
-where $l=3$. 
+where $\text{len} G$ for the largest possible batch size.
 
-In Python this reads:
-
-\begin{pyverbatim}
-p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, l)))
-\end{pyverbatim}
-
-The following code carries out the recursion for the $M/M/1$ queue and compares the result to the \emph{unnormalized} probabilities $(\lambda/\mu)^n$ (unnormalized means that I do  not multiply with $1-\rho$). Thus, we can test the code right away. 
+The following code carries out the recursion for the $M/M/1$ queue and compares the result to the \emph{unnormalized} probabilities of the $M/M/1$ queue.
+Recall, $(\lambda/\mu)^n$ are these unnormalized probabilities.
+With this we can test the code right away.
 
 \begin{pyconsole}
 import numpy as np
 
-l = 1 # M/M/1 has batch size 1
-f = np.ones(l + 1) / l # f[0] =1, f[1] = 1 
-f[0] = 0 # set f[0] = 0
+f = [0, 1] # set f[0] = 0
 F = np.cumsum(f) # distribution 
 G = np.ones_like(F) - F # survivor function
 
 labda = 1
 mu = 3
-num = 30
+num = 4
 p = np.ones(num)
 
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, l)))
+    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
     print(n, p[n], (labda / mu)**n)
 
 \end{pyconsole}
-The test is convincing.
+The test is convincing. So now we'll move on the real problem. 
 
 \begin{pyconsole}
-l = 3
-f = np.ones(l + 1) / l
+f = np.ones(4) / 3
 f[0] = 0
 F = np.cumsum(f)
 G = np.ones_like(F) - F
-num = 30
+num = 30 # stop at 80
 p = np.ones(num)
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, l)))
-    print(n, p[n])
+    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
 
-\end{pyconsole}
-Stopping at 30 seems OK. The last step is normalize.
-\begin{pyconsole}
 p /= p.sum()  # normalize
-for n in range(1, num):  # print normalized results
-    print(n, p[n])
-
 \end{pyconsole}
 
 Now that we have the probabilities we can do all experiments we like. 
@@ -355,72 +333,51 @@ EL = sum(n*p[n] for n in range(len(p)))
 EL 
 \end{pyconsole}
 
-It is of interest to compare this result to the equation above~\cref{eq:43}.
+It is of interest to compare this result to~\cref{eq:43}.
+In fact, I spent at least one hour to get~\cref{eq:43} correct; now I can finally check it numerically.
 
 
 \begin{pyconsole}
 EB = sum(k*fk for k,fk in enumerate(f))
-EB2 = sum(k*k*fk for k,fk in enumerate(f))
-EB2
 rho=labda*EB/mu
-RHS = labda/mu*EB2/2 + rho/2
-EL=RHS/(1-rho)
+EB2 = sum(k*k*fk for k,fk in enumerate(f))
+VB = EB2 - EB*EB
+C2 = VB/EB/EB
+EL = (1+C2)/2*rho/(1-rho)*EB + rho/(1-rho)/2
 EL
 \end{pyconsole}
 
-So, after all, stopping at 30 seems not quite OK: there is a slight
-difference between the two expectations. Let's run the recursion up to
-100, and see what we get then.
+So, after all, stopping at 30 is not quite OK: there is a slight difference between the two expectations.
+Let's run the recursion up to 100, and see what we get then.
 
 \begin{pyconsole}
 num = 100
 p = np.ones(num)
 
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, l)))
+    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
 
 p /= p.sum()  # normalize
 EL = sum(n*p[n] for n in range(len(p)))
 print(EL)
 \end{pyconsole}
 This does the job.
-
-As a last step, I want to check~\cref{eq:43}.
-In fact, I spent at least one hour to get~\cref{eq:43} correct.
-Now I can also numerically check it.
-
-\begin{pyconsole}
-VB = EB2 - EB*EB
-C2 = VB/EB/EB
-EL = (1+C2)/2*rho/(1-rho)*EB + rho/(1-rho)/2
-EL
-\end{pyconsole}
-The results agree. 
 \end{solution}
 \end{exercise}
 
 
-\begin{exercise}[Finite queueing systems] split in drieen. We consider the $M^X/M/1/K$
-queue, i.e., a batch queue in which at most $K$ jobs fit into the
-system. When customers can be blocked, it is necessary to specify an
-acceptance, or equivalently a rejection, policy. Three common rules are
+We consider the $M^X/M/1/K$ queue, i.e., a batch queue in which at most $K$ jobs fit into the system.
+When customers can be blocked in a batch queue it is necessary to specify a policy that decides which items in a batch to accept.
+Three common rules are
 \begin{enumerate}
 \item Complete rejection: if a batch does not fit entirely into the system, it will be rejected completely.
 \item Partial acceptance: accept whatever fits of a batch, and reject the rest.
-\item Complete acceptance: accept all batches that arrive when the
-  system contains $K$ or less jobs, and reject otherwise.
+\item Complete acceptance: accept all batches that arrive when the system contains $K$ or less jobs, and reject the entire batch otherwise.
 \end{enumerate}
-Derive a set of recursions, analogous to~\cref{eq:42}, to compute
-$\pi(n)$ for these three different acceptance rules.  
-\begin{hint}
-  This exercise tests your creativity and modeling skills, it is not analytically difficult.
-  The best approach to problems like this is to try some simple cases first.
-  For instance, consider the case with batch sizes of $1$ first, then batches of sizes $1$ or $2$, and so on.
-  If system contains $K$ jobs, which batches can be accepted?
-  If the system contains $K-3$, say, which batch sizes can be accepted, which will be refused, under which acceptance policy?
-\end{hint}
+
+\begin{exercise}
+  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete rejection.
 \begin{solution}
-  Let's first deal with complete rejection.
   Suppose a batch of size $k$ arrives when the system contains $n$ jobs.
   When $k+n \leq K$, the batch can be accepted since the entire batch will fit into the queue.
   When, however, $k+n> K$, the batch has to be rejected.
@@ -473,7 +430,13 @@ where we use that
     should. (Observe that $G$ is a decreasing function of its argument;
     its a survival function.)
   \end{itemize}
+\end{solution}
+\end{exercise}
 
+
+\begin{extra}
+  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete acceptance.
+\begin{solution}
   The complete-acceptance policy is actually quite simple. As any
   batch will be accepted when $n\leq K$, the queue length is not
   bounded.  Only when the number of jobs in the system is larger than
@@ -485,27 +448,29 @@ where we use that
       \lambda \sum_{m=0}^K \pi(m) G(n-m), & \text{ for } n> K.
     \end{cases}
   \end{equation*}
+\end{solution}
+\end{extra}
 
-
-
-
-
-
-  For the partial acceptance case, any job is accepted, but the system
-  only admits whatever fits.  As level $n\in {0,1,...,K-1}$ is still up-crossed by any batch of size at least $n-m$ when the system is in state $m$, the formula for the up-crossing rate is identical to the case without this acceptance policy. Moreover, nothing changes to the formula for the down-crossing rate. Hence, 
+\begin{extra}
+  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with partial acceptance.
+\begin{solution}
+  For the partial acceptance case, any job is accepted, but the system only admits whatever fits.
+  As level $n\in {0,1,...,K-1}$ is still up-crossed by any batch of size at least $n-m$ when the system is in state $m$, the formula for the up-crossing rate is identical to the case without this acceptance policy.
+  Moreover, nothing changes to the formula for the down-crossing rate.
+  Hence,
   \begin{equation*}
     \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) G(n-m), 
   \end{equation*}
   for $n=0,1,\ldots, K-1$. 
 \end{solution}
-\end{exercise}
+\end{extra}
 
 
-\begin{exercise}[\faRocket]
+\begin{extra}[\faRocket]
   An interesting extension is to consider a queueing process with batch services, i.e., the $M/M^Y/1$ queue.
   Constructing a recursion for the steady-state probabilities $\pi(n)$ for this case is not hard, in fact, mostly analogous to~\cref{eq:42}.
   However, solving the recursion appears to be quite a bit harder; we will not discuss this further here.
-\end{exercise}
+\end{extra}
 
 
 

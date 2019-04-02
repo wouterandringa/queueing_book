@@ -276,6 +276,10 @@ Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time 
   \begin{equation*}
     \P{L_S = i} = \lambda \E{S} G(i-1) = \rho \frac{G(i-1)}{\E B}.
   \end{equation*}
+Conclude that
+\begin{equation*}
+  \E{L_S} = \sum_{i=0}^\infty i \P{L_S=i} = \frac{\rho}{\E B} \sum_{i=1}^\infty i G(i-1).
+\end{equation*}
   \begin{solution}
     By construction, $Y_i(t)/t \to \P{L_S=i}$.
     Let $X_k = Y_i(D_k) - Y_i(D_{k-1})$.
@@ -285,11 +289,6 @@ Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time 
       The result follows by using rate stability ($\delta = \lambda$) in the renewal reward theorem.
   \end{solution}
 \end{exercise}
-
-With the above exercises we conclude that
-\begin{equation*}
-  \E{L_S} = \sum_{i=0}^\infty i \P{L_S=i} = \frac{\rho}{\E B} \sum_{i=1}^\infty i G(i-1).
-\end{equation*}
 
 \begin{exercise}
   Brush up the above expression for $\E{L_S}$  to arrive at~\cref{eq:32}.
