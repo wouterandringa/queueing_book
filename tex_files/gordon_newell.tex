@@ -3,10 +3,10 @@
 \label{sec:gordonNewell}
 
 
-\subsection*{Theory and Exercises}
 
 
 \opt{solutionfiles}{
+\subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
 \Opensolutionfile{ans}
 }
@@ -15,14 +15,11 @@
   Provide an interpretation of a single-server queueing server with a
   finite calling population in terms of a closed network.
 \begin{solution}
-    Consider a closed-queueing network with two stations. Station 1 is
-    a single-server station with exponentially distributed service
-    times with mean $\mu$; station 2 has $N$ parallel exponential
-    servers, each working at rate $\lambda$. If station 1 contains $n$
-    jobs, then Station 2 contains $N-n$ jobs.  The rate at which jobs
-    move from Station 2 to Station 1 is $(N-n)\lambda$, since $N-n$ of
-    the $N$ servers of Station 2 are occupied. Jobs move from Station
-    1 to Station 2 at rate $\mu$, provided $n\geq1$.
+  Consider a closed-queueing network with two stations.
+  Station 1 is a single-server station with exponentially distributed service times with mean $\mu$; station 2 has $N$ parallel exponential servers, each working at rate $\lambda$.
+  If station 1 contains $n$ jobs, then Station 2 contains $N-n$ jobs.
+  The rate at which jobs move from Station 2 to Station 1 is $(N-n)\lambda$, since $N-n$ of the $N$ servers of Station 2 are occupied.
+  Jobs move from Station 1 to Station 2 at rate $\mu$, provided $n\geq1$.
   \end{solution}
 \end{exercise}
 

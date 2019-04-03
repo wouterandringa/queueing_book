@@ -82,14 +82,14 @@ First we use the hint to  establish a generic relation for $p(n)$. Taking $\rho=
         = \frac{\lambda}{\min\{c, n\} \mu }p(n-1) 
       = \frac{1}{\min\{c, n\}}(c\rho) p(n-1) \\
       &  = \frac{1}{\min\{c, n\}\min\{c, n-1\}}(c\rho)^2 p(n-2) \\
-      &= \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0).
+      &= \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0). 
     \end{align*}
 Thus, if $n<c$:
-\begin{equation*}
+\begin{equation}
   p(n)
   % = \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0)
   = \frac{(c\rho)^n}{n!} p(0),
-\end{equation*}
+\end{equation}
 % since $\min\{c,k\}=k$ when $k<c$.
 If $n\geq c$:
 \begin{align*}
@@ -117,9 +117,9 @@ p(0) \sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} +
 p(0)\frac{(c\rho)^c}{c!(1-\rho)}.
 \end{align*}
 Hence, 
-\begin{equation*}
+\begin{equation}\label{eq:501}
   G= \sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{c!(1-\rho)}.
-\end{equation*}
+\end{equation}
 
 Next, 
 \begin{align*}
@@ -333,7 +333,7 @@ Next, for any fixed $n$, eventually $c>n$, and then, as $\rho=\lambda/(\mu c)$,
   p(n) = \frac{1}G \frac{(c\rho)^n}{n!} = \frac{1}G \frac{(\lambda/\mu)^n}{n!} 
 \to e^{-\lambda/\mu}  \frac{(\lambda/\mu)^n}{n!}, \quad\text{as } c\to\infty.
 \end{equation*}
-Moreover, there is no fixed $n$ such that $n>c$. Thus, the probabilities in~\cref{eq:58} are no longer present. Thus, we see that the number of busy servers in the $M/M/\infty$ queue is
+Moreover, there is no fixed $n$ such that $n>c$. Thus, the probabilities in~\cref{ex:7} are no longer present. Thus, we see that the number of busy servers in the $M/M/\infty$ queue is
 Poisson distributed with parameter $\lambda/\mu$, and
 $\E{L} = \E{L_S} = \lambda/\mu$.  Observe that now $\lambda/\mu$ has
 no longer the interpretation of the fraction of time the server(s) are

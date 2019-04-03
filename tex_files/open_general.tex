@@ -77,49 +77,30 @@ queuei/.pic={
 To analyze how to control the average cycle time of an arbitrary job,
 whether it is an A or a B job, we can use at least three models.
 \begin{enumerate}
-\item Model 1. Model all stations as $M/M/1$ queues. As, by
-  assumption, the mixing station is an $M/M/1$ queue, its departure
-  process is exponential with rate $\lambda_A + \lambda_B$, and of
-  these departures, the type A jobs go to filling station A. Thus, we
-  can compute the waiting times at stations $A$ and $B$ also. Finally,
-  the average waiting time is given by the weighted average of the
-  waiting times of the A and B jobs. One weak point of this model is
-  the assumption of the exponentiality of the processing times at all
-  stations. The data obtained at the paint factory tells that
-  processing times are not really exponential.  However, we can model
-  the processing times as exponential, and use the ideas of Section
-  2.2. of Zijm's book to compute the waiting times.
-\item Model 2. Model the second processing step as \emph{one} filling
-  station, i.e., put an imaginary box around both filling stations A
-  and B, and model it as one station with \emph{one} machine, but such
-  that the capacity of this one machine is equal to the capacity of
-  the two original filling machines. This is a simple model, but it
-  approximates the two filling machines by one machine, and we know
-  that multi-server queueing systems behave a bit different from
-  single-server queueing systems. Besides that, there are two queues
-  in front of the machines, but in this model we merge both queues
-  into one.
-\item Model 3. Model the second processing step as \emph{one} filling
-  station, i.e., put an imaginary box around both filling stations A
-  and B, but now model it as one station with \emph{two identical}
-  machines.  This is also a simple model, but for this to work we need
-  to assume that both machines have the same capacity, i.e.,
-  processing speed. This assumption, however, is not satisfied in the
-  paint factory.
+\item Model 1.
+  Model all stations as $M/M/1$ queues.
+  As, by assumption, the mixing station is an $M/M/1$ queue, its departure process is exponential with rate $\lambda_A + \lambda_B$, and of these departures, the type A jobs go to filling station A.
+  Thus, we can compute the waiting times at stations $A$ and $B$ also.
+  Finally, the average waiting time is given by the weighted average of the waiting times of the A and B jobs.
+  One weak point of this model is the assumption of the exponentiality of the processing times at all stations.
+  The data obtained at the paint factory tells that processing times are not really exponential.
+  However, we can model the processing times as exponential, and use the ideas of Section 2.2.
+  of Zijm's book to compute the waiting times.
+\item Model 2.
+  Model the second processing step as \emph{one} filling station, i.e., put an imaginary box around both filling stations A and B, and model it as one station with \emph{one} machine, but such that the capacity of this one machine is equal to the capacity of the two original filling machines.
+  This is a simple model, but it approximates the two filling machines by one machine, and we know that multi-server queueing systems behave a bit different from single-server queueing systems.
+  Besides that, there are two queues in front of the machines, but in this model we merge both queues into one.
+\item Model 3.
+  Model the second processing step as \emph{one} filling station, i.e., put an imaginary box around both filling stations A and B, but now model it as one station with \emph{two identical} machines.
+  This is also a simple model, but for this to work we need to assume that both machines have the same capacity, i.e., processing speed.
+  This assumption, however, is not satisfied in the paint factory.
 \end{enumerate}
 
-We see that all three models capture part of the real production
-system, but they are also partly wrong.  To analyze the case it is
-perhaps best to implement all three models and investigate to what
-extent these models give similar or dissimilar results. Once we know
-which models appears to give the most realistic, or robust, results,
-we can use the models to obtain insight into the situation and provide
-ideas how and where to improve the situation. Mind that in general it
-is quite pointless to make very detailed models: often only gross data
-is available, the data needed to estimate the parameters of
-fine-grained models is simply not available, or need to be guesses.
-As a conclusion, the analysis of a real situation often requires several
-models, each with their own strengths and weaknesses.
+We see that all three models capture part of the real production system, but they are also partly wrong.
+To analyze the case it is perhaps best to implement all three models and investigate to what extent these models give similar or dissimilar results.
+Once we know which models appears to give the most realistic, or robust, results, we can use the models to obtain insight into the situation and provide ideas how and where to improve the situation.
+Mind that in general it is quite pointless to make very detailed models: often only gross data is available, the data needed to estimate the parameters of fine-grained models is simply not available, or need to be guesses.
+As a conclusion, the analysis of a real situation often requires several models, each with their own strengths and weaknesses.
 
 
 \begin{exercise}
@@ -129,19 +110,17 @@ models, each with their own strengths and weaknesses.
  Check the formulas in the synthesis carefully.
   \end{hint}
   \begin{solution}
-    \begin{enumerate}
-    \item The routing matrix $P$ is $M$ times $M$, hence contains
+ The routing matrix $P$ is $M$ times $M$, hence contains
       $M^2$ parameters, but often most of them will be zero.
-    \item $\lambda_{0i}$ is the arrival rate of external jobs to station $i$, hence $M$ parameters.
-    \item $C_{0i}^2$ is the SCV of the inter-arrival times at station
+ $\lambda_{0i}$ is the arrival rate of external jobs to station $i$, hence $M$ parameters.
+ $C_{0i}^2$ is the SCV of the inter-arrival times at station
       $i$, hence $M$ parameters.
-    \item $C_{si}^2$ is the SCV of the service times at station $i$,
+ $C_{si}^2$ is the SCV of the service times at station $i$,
       hence $M$ parameters.
-    \item The expected service times $\E S_i$ at station $i$, 
+ The expected service times $\E S_i$ at station $i$, 
       hence $M$ parameters.
-    \item The number of servers $c_i$ at station $i$, hence $M$
+ The number of servers $c_i$ at station $i$, hence $M$
       parameters.
-    \end{enumerate}
   \end{solution}
 \end{exercise}
 
