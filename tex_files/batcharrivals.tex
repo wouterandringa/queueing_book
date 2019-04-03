@@ -16,7 +16,7 @@ To compute more difficult performance measures, for instance the loss probabilit
 Here we present a numerical, recursive, scheme to compute these probabilities.
 
 To find $\pi(n)$, $n=0, 1, \ldots$, we turn again to level-crossing arguments.
-However, the reasoning that lead to the level-crossing equation~\eqref{eq:15} need to be generalized.
+However, the reasoning that lead to the level-crossing equation~\cref{eq:15} need to be generalized.
 To see this, we consider an example.
 If $L(t)=3$, the system contains $3$ items.
 (This is not necessarily the same as 3 batches.)
@@ -187,7 +187,7 @@ Then, dividing by~$t$,  taking the limit $t\to\infty$, and using~\cref{ex:70} re
 \end{equation}
 
 \begin{exercise}
-Provide an interpretation of~\eqref{eq:42} in terms of a thinned Poisson arrival process.
+Provide an interpretation of~\cref{eq:42} in terms of a thinned Poisson arrival process.
 \begin{solution}
   \Cref{eq:16} has the interpretation that the rate at which level $n$ is crossed from below from state $m$ is equal to the rate at which jobs arrive times the fraction of jobs that see $m$ jobs in the system times the fraction of jobs with batch size larger than $n-m$.
   Observe that the stream of jobs with batch size larger than $n-m$ is a Poisson process thinned at rate $G(n-m)$.
@@ -226,7 +226,7 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \end{exercise}
 
 \begin{exercise}\label{ex:73}
- Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\eqref{eq:43}.
+ Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\cref{eq:43}.
   \begin{solution}
     We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
   \end{solution}

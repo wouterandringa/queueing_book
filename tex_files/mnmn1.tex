@@ -10,7 +10,7 @@
 \Opensolutionfile{ans}
 }
 
-As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level crossing equations~\eqref{eq:25}.
+As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level crossing equations~\cref{eq:25}.
 For these queueing systems we just present the results.
 In the exercises we ask you to derive the formulas---the main challenge is not to make computational errors.
 
@@ -28,7 +28,7 @@ if $L(A_k)=n$ (not $L(A_k-)=n$) for some function $g:\N \to [0,\infty)$.
   \begin{exercise}
     Model the $M/M/1/K$ queue in terms of an $M(n)/M(n)/1$ queue and compute $p(K)$, i.e., the fraction of time that the system is full.
 \begin{hint}
-  Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\eqref{eq:38}.
+  Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\cref{eq:38}.
 \end{hint}
   \begin{solution}
 Note that 
@@ -333,7 +333,7 @@ Next, for any fixed $n$, eventually $c>n$, and then, as $\rho=\lambda/(\mu c)$,
   p(n) = \frac{1}G \frac{(c\rho)^n}{n!} = \frac{1}G \frac{(\lambda/\mu)^n}{n!} 
 \to e^{-\lambda/\mu}  \frac{(\lambda/\mu)^n}{n!}, \quad\text{as } c\to\infty.
 \end{equation*}
-Moreover, there is no fixed $n$ such that $n>c$. Thus, the probabilities in~\eqref{eq:58} are no longer present. Thus, we see that the number of busy servers in the $M/M/\infty$ queue is
+Moreover, there is no fixed $n$ such that $n>c$. Thus, the probabilities in~\cref{eq:58} are no longer present. Thus, we see that the number of busy servers in the $M/M/\infty$ queue is
 Poisson distributed with parameter $\lambda/\mu$, and
 $\E{L} = \E{L_S} = \lambda/\mu$.  Observe that now $\lambda/\mu$ has
 no longer the interpretation of the fraction of time the server(s) are

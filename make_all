@@ -1,15 +1,20 @@
+#!/bin/bash
 source ~/venv/bin/activate
 rm -rf pythontex-files-*
 
-pdflatex queueing_book
-pythontex --interpreter python:python3 queueing_book
-pdflatex queueing_book
-makeindex queueing_book
-pdflatex queueing_book
+FILE="queueing_book"
+pdflatex $FILE
+pythontex --interpreter python:python3 $FILE
+pdflatex $FILE
+makeindex $FILE
+pdflatex $FILE
 
-pdflatex queueing_book_mobile
-pythontex --interpreter python:python3 queueing_book_mobile
-pdflatex queueing_book_mobile
-makeindex queueing_book_mobile
-pdflatex queueing_book_mobile
+FILE="companion"
+pdflatex $FILE
+pythontex --interpreter python:python3 $FILE
+pdflatex $FILE
+makeindex $FILE
+pdflatex $FILE
+
+
 

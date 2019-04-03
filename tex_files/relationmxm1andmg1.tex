@@ -59,7 +59,7 @@ Let us see how this limit can be used to show that the expected
 waiting in queue for the batch queue leads to the
 Pollaczek-Khinchine equation, i.e., the expected waiting time in
 queue for the $M/G/1$ queue.  Writing $\E{L^{(n)}}$ for the batch
-queue with grid size $1/n$, we use~\eqref{eq:43} to see that
+queue with grid size $1/n$, we use~\cref{eq:43} to see that
 \begin{align}\label{eq:1pp}
 \frac{\E{L^{(n)}}}{n}
 = \frac{\rho}{1-\rho}\cdot \frac12\left(1 + \frac{\V{B^{(n)}}}{(\E{B^{(n)}})^2}\right) \frac{\E{B^{(n)}}}n +  \frac1{2n}\frac{\rho}{1-\rho}.
@@ -98,7 +98,7 @@ as $n\to \infty$.  Moreover, we \emph{expect} that
 since the number of items in the system, $\E{L^{(n)}}$, becomes ever
 larger as $n$ increases, but the service time of one item is $1/n$,
 which becomes ever smaller. Now, taking the limit $n\to\infty$
-in~\eqref{eq:1pp} we obtain
+in~\cref{eq:1pp} we obtain
 \begin{equation*}
   \frac{\E{L^{(n)}}}{n}
   \to \frac{\rho}{1-\rho}  \frac{1 + C_s^2}2\E{S}.
@@ -108,7 +108,7 @@ Thus, based on this  limit we expect that
 \E{W_Q}=  \frac{\E{L^{(n)}}}{n}
   \to \frac{\rho}{1-\rho}  \frac{1 + C_s^2}2\E{S},
 \end{equation*}
-but this is the same as Eq.~\eqref{eq:710}!
+but this is the same as Eq.~\cref{eq:710}!
 
 \begin{exercise}
   Why do we consider $\E{L^{(n)}}/n \to \E{W_Q}$, and not

@@ -50,7 +50,7 @@ The first is the expected  time an item spends in queue:
 \E{W_{Q}} = \frac{1+C_s^2}2 \frac{\rho}{1-\rho} \E B \E S + \frac12\frac\rho{1-\rho}\E S,
 \end{equation}
 where $C_s^2$ is the SCV of the batch size distribution.
-We obtain the second by applying~\eqref{eq:wqes}, which evidently also applies here, to the above to find that the expected number of items in the system is
+We obtain the second by applying~\cref{eq:wqes}, which evidently also applies here, to the above to find that the expected number of items in the system is
 \begin{equation}\label{eq:43}
 \E{L}  =\frac{\E{W_{Q}}}{\E S} =  
 \frac{1+C_s^2}2 \frac{\rho}{1-\rho} \E B + \frac12\frac\rho{1-\rho}.
@@ -168,7 +168,7 @@ Show that
   \E{W_{Q}} = \frac{\E{L_S}}{1-\rho}\E{S}.
   \end{equation*}
   \begin{hint}
-    Use~\eqref{eq:wqes}, $\E{L} = \E{L_{Q}}\E B + \E{L_S}$, where $\E{L_{Q}}$ is the number of batches in queue, and Little's law.
+    Use~\cref{eq:wqes}, $\E{L} = \E{L_{Q}}\E B + \E{L_S}$, where $\E{L_{Q}}$ is the number of batches in queue, and Little's law.
   \end{hint}
 \begin{solution}
 \begin{equation*}
