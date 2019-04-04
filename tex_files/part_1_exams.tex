@@ -1,0 +1,71 @@
+\opt{solutionfiles}{
+\section{Old exam Questions}
+\label{sec:expon-distr}
+
+\Opensolutionfile{ans}
+\subsection{Multiple-choice Questions}
+}
+
+\begin{extra}[201904, 1]
+  One server serves two queues and has capacity $c$ per period available.
+  %Each queue receives service capacity in period $k$ 
+  We divide the capacity $c$ over the queues in proportion to the queue lengths $L^i_{k-1}$, $i=1,2$.
+  The following implements this rule:
+    \begin{align*}
+      c_k^1 &= \left\lfloor \frac{L_{k-1}^1}{L_{k-1}^1 + L_{k-1}^2} c + \frac 1 2 \right\rfloor, & c_k^2 &= c - c_k^1,
+    \end{align*}
+    where $c_k^i$ be the capacity allocated to queue $i$ in period $k$ and we include the rounding to prevent the loss of capacity.
+
+\begin{solution}
+      Answer = A, \ref{ex:51}.
+      We introduce rounding to prevent the service of `partial' customers.
+      For instance, if the first queue contains 1 job, and the second 2, then without rounding we would server $2/3$ customer of the second type.
+
+      Note that the case with empty queues does not lead to a problem.
+      When there are no jobs, the service distribution is irrelevant.
+\end{solution}
+\end{extra}
+
+
+\begin{extra}[201904, 1]
+When  $X\sim\Exp(\lambda)$ its SCV is larger than 1..
+\begin{solution} Answer = B, see \ref{ex:29}.
+\end{solution}
+\end{extra}
+
+\begin{extra}[201904, 1]
+  For the $G/G/1$ queue the waiting time satisfies the recursion
+  \begin{equation*}
+  W_{Q,k} = \max\{W_{Q,k-1} + S_{k}-X_k, 0\}.
+  \end{equation*}
+\begin{solution} Answer = B, \eqref{eq:56}.
+\end{solution}
+\end{extra}
+
+\opt{solutionfiles}{
+  \subsection{Open Questions}
+}
+
+\begin{extra}[201904, 2]
+  A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
+  Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
+  Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
+  Make a set of discrete-time recursions to analyze this case.
+  \begin{solution}
+See \ref{ex:52}
+  \end{solution}
+\end{extra}
+
+
+\opt{solutionfiles}{
+\Closesolutionfile{ans}
+\subsection*{Solutions}
+\input{ans}
+}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../companion"
+%%% End:
