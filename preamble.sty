@@ -13,6 +13,7 @@
 \usepackage{mathtools,amsthm,amssymb,amsmath}
 \usepackage{verbatim}
 \usepackage{ifthen}
+\usepackage{comment}
 
 \numberwithin{equation}{section}
 
@@ -66,17 +67,23 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}{}[section]
 
-\newenvironment{extra}%
-        {%
-            \ifthenelse{\isundefined{\showextra}}%
-                    {\expandafter\comment}%
-                    {\expandafter\exercise}%
-                    }%
-         {%
-            \ifthenelse{\isundefined{\showextra}}%
-                    {\expandafter\endcomment}%
-                    {\expandafter\endexercise}%
-          }
+\ifshowextra
+  \newenvironment{extra}{\begin{exercise}}{\end{exercise}}
+\else
+  \excludecomment{extra}
+\fi
+
+% \newenvironment{extra}%
+%         {%
+%             \ifthenelse{\isundefined{\showextra}}%
+%                     {\expandafter\comment}%
+%                     {\expandafter\exercise}%
+%                     }%
+%          {%
+%             \ifthenelse{\isundefined{\showextra}}%
+%                     {\expandafter\endcomment}%
+%                     {\expandafter\endexercise}%
+%           }
 
 
 %\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}} % One single link
