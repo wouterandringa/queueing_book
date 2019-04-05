@@ -1,20 +1,148 @@
-\opt{solutionfiles}{
 \section{Old exam Questions}
-\label{sec:expon-distr}
 
 \Opensolutionfile{ans}
 \subsection{Multiple-choice Questions}
-}
 
-\opt{solutionfiles}{
-  \subsection{Open Questions}
-}
+\begin{exercise}[201807]{1}
+Sakasegawa's approximation for the waiting time in a $G/G/c$ queue is 
+\begin{equation*}
+  \E{W_Q} = \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S.
+\end{equation*}
+We claim that it is exact for the $M/M/1$ queue.
+\begin{solution}
+answer = A, see Page 179
+\end{solution}
+\end{exercise}
 
-\opt{solutionfiles}{
+\begin{exercise}[201807]{1}
+  A production system consists of 2 stations in tandem. The first station has one machine, the second has two identical machines. Machines never fail and service times are deterministic. Jobs arrive at rate 1 per hour. The machine at first station has a service time of 45 minutes per job, a machine at the second station has a service time of 80 minutes. We claim that the second  station is the bottleneck. 
+\begin{solution}
+answer = B, see Page 200. The second station has a utilization of $80/(2*60) = 8/12 = 2/3$, while  the first has a utilization of $45/60 = 3/4$, which is higher.
+\end{solution}
+\end{exercise}
+
+
+
+\subsection{Open Questions}
+
+
+
+\begin{exercise}[201706]{2}
+  We have a machine that fails regularly, but we can control the way it fails.
+  Option 1: Clean and tune the machine for precisely 15 minutes at the start of every hour.
+  Option 2: Don't clean the machine, but wait until it fails and then do a repair.
+  In the latter situation, the time between two failures is exponentially distributed with a mean of 6 hours.
+  Repair times are i.i.d.
+  and exponentially distributed with a mean of 1 hour.
+  To simplify the analysis, you are allowed for Option 1 to model the time between the cleaning actions and the cleaning actions themselves as exponentially distributed.
+
+Jobs arrive as a Poisson process with rate $2$ per hour, regular service times are exponential with a mean of $10$ minutes. Which of the two options would you prefer?
+\begin{solution}
+Note, the time between two failures is not the same as the time to failure.
+
+
+Option 1. The availability is $A=45/60=3/4$. Hence, 
+\begin{equation*}
+\E{S_e} = 10\cdot 4/3 = 40/3 \approx 13\text{ minutes}
+\end{equation*}
+We also have
+\begin{equation*}
+   C_e^2 = C_0^2 + 2A(1-A)\frac{m_r}{\E{S_0}} = 1 + 2\frac{3}{4}\frac1{4}\frac{15}{10}.
+ \end{equation*}
+Now,
+\begin{equation*}
+  \rho = \lambda \E{S_e} = \frac{2}{60}\frac{40}3.
+\end{equation*}
+Now we can fill in 
+\begin{equation*}
+  \E{W_Q} = \frac{1 + C_e^2}2 \frac{\rho}{1-\rho} \E{S_e}.
+\end{equation*}
+Finally, $E W = \E{W_Q} + \E{S_e}$.
+
+
+Option 2. The availability is $A=50/60=5/6$. Hence, 
+\begin{equation*}
+\E{S_e} = 10\cdot 6/5 = 12\text{ minutes}
+\end{equation*}
+We also have
+\begin{equation*}
+   C_e^2 = C_0^2 + 2A(1-A)\frac{m_r}{\E{S_0}} = 1 + 2\frac{5}{6}\frac1{6}\frac{60}{10}.
+ \end{equation*}
+and
+\begin{equation*}
+  \rho = \lambda \E{S_e} = \frac{2}{60}12
+\end{equation*}
+
+It is essential that you realize that both $\E S$ and $C_e^2$ are affected by failures. If you forgot to compensate in either of the two, I subtracted one point. 
+\end{solution}
+\end{exercise}
+
+
+A station contains 3 identical machines in parallel. Jobs arrive as a Poisson process with rate $3$ per hour. Service times are exponential with a mean duration of 1/2 hour. 
+
+\begin{exercise}[201807]{1}
+  Is there a model by which we can obtain an exact answer for the average time the system contains $n$ jobs? 
+  \begin{solution}
+    Yes, use the $M/M(n)/1$ queueing model, or the $M/M/3$ model (which is a subset of the $M/M(n)/1$ queue). 
+
+Note the $M/M/1$ queue with a fast server is not the same as the $M/M/3$ server. The service process is different. 
+  \end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201807]{1}
+Use Sakasegawa's approximation to compute the average time a job spends in queue. (You do not have to use your calculator to compute the final answer;. I just want to see the numerical values of each component of the formula, you don't have to compute the end result.)
+\begin{solution}
+$\rho = \lambda \E{S}/c = 3 *0.5/3=0.5$.
+\begin{align*}
+  \E{W_Q} 
+&= \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S \\
+&= \frac{1+1}2 \frac{0.5^{\sqrt{7}}}{3*0.5} *0.5 \\
+&=\frac{0.5^{\sqrt{7}}}{3} = \py{0.5**(math.sqrt(7))/3}.
+\end{align*}
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201807]{1}
+  What is the average time a job spends in the system?
+  \begin{solution}
+    This is $\E{W_Q} + \E S = \E{W_Q} + 0.5$
+  \end{solution}
+
+Some students add three times the average service time, but servers in parallel are not servers in tandem\ldots
+\end{exercise}
+
+
+\begin{exercise}[201807]{1}
+Suppose now that each machine can fail between any two jobs with constant probability $p=1/3$. The repair time is constant, and takes 1 hour.  What is the average time a job spends in queue? (Again, it suffices if you show the numerical answer for each component in the formula.)
+\begin{solution}
+  The expected service time of a job now becomes 
+  \begin{equation*}
+    \E S = \E{S_0} + \E{T}/B = 0.5 + 1/3 = 5/6
+  \end{equation*}
+\pyc{v = 0.5*2 + 1/3.*2/9}
+Next, with the formula sheet: 
+\begin{equation*}
+\V{S} = 0.5*2 + \frac 1 3 + \frac{3-1}{3^2} 1 = \py{v}.
+\end{equation*}
+With this, 
+\begin{equation*}
+  C_s^ = \frac{\V{S}}{(\E S)^2} = \V{S}\frac{36}{25} = \py{v*32/25}.
+\end{equation*}
+Finally, $\rho = 3*\E{S} / 3 = 5/6$, and fill in Sakasegawa's formula with these values.
+
+Mind that failures affect $\E S$ \emph{and} $C_s^2$. If you forgot to compute $C_s^2$: -1/2.
+
+Some students use the wrong failure model, the one with preemptive failures: -1/2.
+\end{solution}
+\end{exercise}
+
+
+
 \Closesolutionfile{ans}
 \subsection*{Solutions}
 \input{ans}
-}
 
 
 
