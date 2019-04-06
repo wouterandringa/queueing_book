@@ -2,7 +2,6 @@
 \usepackage{imakeidx}
 \makeindex[columns=2, title=Index]
 
-
 \setcounter{tocdepth}{1}
 
 \usepackage{natbib}
@@ -17,8 +16,6 @@
 
 \numberwithin{equation}{section}
 
-
-%\usepackage[T1]{fontenc}
 \usepackage{fouriernc}
 \usepackage{fontawesome} % for the linux hint symbol
 
@@ -33,7 +30,15 @@
 % I don't know why, pythontext should appear somewhere above some
 % other packages. I don't know which ones, but at this spot it works.
 \usepackage{pythontex}
-\usepackage{environ}
+
+
+\ifshowextra
+  \newenvironment{extra}{\begin{exercise}}{\end{exercise}}
+\else
+  \excludecomment{extra}
+  %\NewEnviron{hint}{}
+  %\NewEnviron{solution}{}
+\fi
 
 \opt{solutionfiles}{
 \usepackage{answers}
@@ -44,8 +49,11 @@
 }
 
 \opt{nosolutionfiles}{
-\NewEnviron{hint}{}
-\NewEnviron{solution}{}
+\excludecomment{hint}
+\excludecomment{solution}
+%\usepackage{environ}
+%\NewEnviron{hint}{}
+%\NewEnviron{solution}{}
 }
 
 \opt{check}{
@@ -66,27 +74,6 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}{}[section]
-
-\ifshowextra
-  \newenvironment{extra}{\begin{exercise}}{\end{exercise}}
-\else
-  \excludecomment{extra}
-\fi
-
-% \newenvironment{extra}%
-%         {%
-%             \ifthenelse{\isundefined{\showextra}}%
-%                     {\expandafter\comment}%
-%                     {\expandafter\exercise}%
-%                     }%
-%          {%
-%             \ifthenelse{\isundefined{\showextra}}%
-%                     {\expandafter\endcomment}%
-%                     {\expandafter\endexercise}%
-%           }
-
-
-%\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}} % One single link
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
