@@ -34,7 +34,7 @@ performance measures for the analysis of closed-queueing network.
 Interpret each component at the right-hand side of the equation
     and generalize it to a multi-server queueing system. 
 \end{hint}
-  \begin{solution}
+\begin{solution}
     Recall that for the $M/M/1$ queue, $\E{S_r\given S_r>0} = 1/\mu$.
     Applying Little's law to the queue, we have that
     $\lambda \E{W_Q} =\ E{L_Q}$, so that it follows that
@@ -91,7 +91,7 @@ one of the jobs in service.
 
 Observe also that, by PASTA, we have $\pi(k) = p(k)$, so that the
 arriving job also sees $p(k)$.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 To wait in queue at station $j$ it is necessary that $k\geq c_j$, for
@@ -124,12 +124,12 @@ Up- and down-crossing of level $k$ gives that
 
 \begin{exercise}
   Apply the MDA algorithm to the network discussed in Exercise~\ref{ex:mva_numerical}, but now assume that station 1 has 2 servers. 
-  \begin{hint}
+\begin{hint}
  Just follow the description of the algorithm of the book of
     Zijm. I expect that you have read the solution of
     Exercise~\ref{ex:mva_numerical}.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     Take $n=1$.
     \begin{align*}
       \E{W_0(1)} 
@@ -183,7 +183,7 @@ p_1(0|2) &= 1 - p_1(1|2) - p_1(2|2).
     \end{align*}
     I am done (and fed up). Its time to for the computer to take over
     \ldots
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -298,7 +298,7 @@ improving the bottleneck.
   jobs at each station? Use the Marginal Distribution Analysis
   Algorithm. Plot also the distribution of the number of jobs at
   stations 0 and 1.
-  \begin{solution}
+\begin{solution}
     I first implement the algorithm. Then I use the case, i.e., the
     data of Example 3.4, and compare, as a test, the results to the
     results of the previous exercise.
@@ -408,7 +408,7 @@ plt.close()
 
 \includegraphics{mda_mass}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

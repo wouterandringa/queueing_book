@@ -30,7 +30,7 @@ if $L(A_k)=n$ (not $L(A_k-)=n$) for some function $g:\N \to [0,\infty)$.
 \begin{hint}
   Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\cref{eq:38}.
 \end{hint}
-  \begin{solution}
+\begin{solution}
 Note that 
 \begin{equation*}
 1 = \sum_{i=0}^K p(i) = p(0)\sum_{i=0}^K \rho^i  = p(0) \frac{1-\rho^{K+1}}{1-\rho}. 
@@ -42,18 +42,18 @@ p(n) &=  \frac{\rho^n}G, \quad 0\leq n \leq K,\\
 p(K) &= \frac{1-\rho}{1-\rho^{K+1}} \rho^K.
 \end{align}
 \end{subequations}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}\label{ex:40}
    Show that as $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
-  \begin{hint}
+\begin{hint}
 Use that $\sum_{i=0}^n x^i = (1-x^{n+1})/(1-x)$. BTW, is it
     necessary for this expression to be true that $|x|<1$? What should
     you require for $|x|$ when you want to take the limit
     $n\to\infty$?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 To take the limit $K\to\infty$---mind, not the limit $n\to\infty$---, write
 \begin{equation*}
 G= \frac{1-\rho^{K+1}}{1-\rho} = \frac{1}{1-\rho} -\frac{\rho^{K+1}}{1-\rho}.
@@ -66,15 +66,15 @@ as $K\to\infty$.  Therefore $p(n)=\rho^n/G \to \rho^n(1-\rho)$, and
 the latter are the steady-state probabilities of the $M/M/1$
 queue. Finally, if the steady-state probabilities are the same, the
 performance measures (which are derived from $p(n)$) must be the same.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}\label{ex:7}
     Model the $M/M/c$ queue in terms of an $M(n)/M(n)/1$ queue and compute $\E{L_Q}$. 
-  \begin{hint}
+\begin{hint}
 Take $\lambda(n) = \lambda,$ and $\mu(n) = \min\{n, c\} \mu$. 
 \end{hint}
-  \begin{solution}
+\begin{solution}
 First we use the hint to  establish a generic relation for $p(n)$. Taking $\rho=\lambda/(c\mu)$, 
     \begin{align*}
       p(n) 
@@ -181,10 +181,10 @@ Observe that the right-hand side is precisely equal to $\rho c G$, and hence,
 
 \begin{extra}
   Check that the performance measures of the $M/M/c$ queue reduce to those of the $M/M/1$ queue if $c=1$.
-  \begin{hint}
+\begin{hint}
 Fill in $c=1$. Realize that this is a check on the formulas.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 Take $c=1$
 \begin{subequations}
  \begin{align}
@@ -198,7 +198,7 @@ G &=\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{(1-\rho)c!}
 \end{align}
 \end{subequations}
 Everything is in accordance to the formulas we derived earlier for the $M/M/1$ queue.    
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -211,7 +211,7 @@ Everything is in accordance to the formulas we derived earlier for the $M/M/1$ q
   Suppose that we have an $M/M/3$ queue, with arrival rate $\lambda = 5$ per day and $\mu=2$ per server, and we compare it to an $M/M/1$ with the same arrival rate but with a service rate of $\mu = 3\cdot 2 = 6$.
   Make a graph of the ratios of $\E{L}$ and $\E{L_Q}$ of both models as a function of $\rho$.
   Explain why these ratios become $1$ as $\rho\uparrow 1$. 
-  \begin{solution}
+\begin{solution}
 I implement the formulas of Exercise~\ref{ex:7} in Python. First the results for the $M/M/3$ queue.
 
 \begin{pyconsole}
@@ -292,7 +292,7 @@ The  code can be found on \texttt{github} in the \texttt{progs} directory.
 \begin{exercise}
   Model the $M/M/c/c$ queue in terms of an $M(n)/M(n)/1$ queue and determine the performance measures.
   This model is also known as the Erlang $B$-formula and is often used to determine the number of beds at hospitals, where the beds act as servers and the patients as jobs.
-  \begin{solution} Take,
+\begin{solution} Take,
     $\lambda(n) = \lambda$ if $n< c$, and $\lambda(n)=0$ for $n\geq c$. Also, let, $\mu(n) = n \mu$ for $n\leq c$. (And $n$ can never be larger than $c$, since $\lambda(n) = 0$ for $n\geq c$.) Define $\rho = \lambda/(c \mu)$. Then, we see that $p(n) = p(0)(c\rho)^n/n!$. For the normalization
     \begin{equation*}
       1=\sum_{n=0}^c p(n) = p(0) \sum_{n=0}^c \frac{(c\rho)^n}{n!}.
@@ -311,15 +311,15 @@ Since there are as many servers as places available in the system, $\E{L_Q}=0$. 
 &= \frac{\lambda}{\mu} \left(1- p(c)\right).
     \end{align*}
 This can be explained as follows: $\lambda(1-p(c))$ is the rate of accepted jobs (since a fraction $p(c)$ is lost). Thus, the load is $\lambda(1-p(c))/\mu$, and the load is the fraction of time the servers are busy. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   Take the limit $c\to \infty$ in the $M/M/c$ queue (or the $M/M/c/c$ queue) and obtain the performance measures for the $M/M/\infty$ queue, i.e., a queueing system with ample servers.
-  \begin{hint}
+\begin{hint}
 Use that for any $x$, $x^n/n!\to 0$ as $n\to\infty$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
   By taking the limit $c\to\infty$, note first that in~(\ref{eq:501}),
 \begin{equation*}
 \frac{(c\rho)^c}{(1-\rho)c!} = \frac{(\lambda/\mu)^c}{(1-\rho)c!}\to 0, \quad\text{as } c\to \infty.
@@ -342,14 +342,14 @@ busy; it is the average number of busy servers.
 We mention in passing---but do not
 prove it---that the same results also hold for the $M/G/\infty$ queue
 with $\lambda \E S$ rather than $\lambda/\mu$.
-  \end{solution}
+\end{solution}
 
 
 \end{exercise}
 
 \begin{extra}
  Show that the $M/M/\infty$ queue is stable for any finite $\lambda$. 
- \begin{solution}
+\begin{solution}
     No matter how many jobs are in service, there is always another
    free server available when a new job arrives. Thus, jobs never have
    to wait in queue, and only spend time in service. Since
@@ -360,7 +360,7 @@ with $\lambda \E S$ rather than $\lambda/\mu$.
 
 \begin{extra}
  Why is $\E L=\rho$ for the $M/M/\infty$ queue? 
- \begin{solution}
+\begin{solution}
    Write $\rho = \lambda /\mu$.
    Then, from the formulas for the $M/M/\infty$ queue, it follows that $p(n) = e^{-\rho} \rho^n/n!$.
    Interestingly, we see that this is equal to $\P{N=n}$ where $N$ is a Poisson r.v.
@@ -379,7 +379,7 @@ with $\lambda \E S$ rather than $\lambda/\mu$.
 Consider the $M/M/2/3$ queue with arrival rate $\lambda$ and
 service rate $\mu$ (thus, at most 2 jobs can be in service and 1 in queue).
  Derive first the level-crossing equations for this queueing system, then  derive closed form expressions for the state    probabilities in steady state. 
-  \begin{hint}
+\begin{hint}
  Think about what would be the appropriate model choices for
    $\lambda(n)$ and $\mu(n)$ and use the level-crossing equations
    $\lambda(n) p(n) = \mu(n+1)p(n+1)$.  For instance, realize that
@@ -388,8 +388,8 @@ service rate $\mu$ (thus, at most 2 jobs can be in service and 1 in queue).
    setting $\lambda(3)=0$. For the service rate, how many servers are
    busy when the system contains 2 or more jobs?  What does this say
    about $\mu(k)$ for $k=2$ or $k=3$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
  Use the figure below. Make sure you understand why $\mu(2)=2\mu$ and so on. 
     \begin{center}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
@@ -431,7 +431,7 @@ hence,
 \begin{equation*}
 p(0) = (1+\rho + \rho^2/2 + \rho^3/4)^{-1}.
 \end{equation*}
-   \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -439,11 +439,11 @@ p(0) = (1+\rho + \rho^2/2 + \rho^3/4)^{-1}.
   Consider the $M/M/c/c+K$ queue in which at most $c$ jobs can be in service and $K$ in queue.
   Try to derive the steady state probabilities $p(0)$, $p(1), \ldots$.
   You do not have to compute the normalization constant $G$.
-  \begin{hint}
+\begin{hint}
 Use $\lambda(n) p(n) = \mu(n+1)p(n+1)$ and
     find suitable expressions for $\lambda(n)$ and $\mu(n+1)$. 
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     $\lambda(n) \equiv \lambda$ for all $n<c+K$. When $n=c+K$,
     $\lambda(n)=0$, since then the system is full, and all arriving
     jobs will be dropped; in other words, there will still be jobs
@@ -465,7 +465,7 @@ For $c\leq n\leq c+K$ and using the above to get $p(c-1)$:
 =\rho^{n} \frac{(c)^{c-1}c}{(c-1)!c}p(0) =\frac{c^c \rho^n}{c!} p(0).
  \end{align*}
 The normalization is trivial, numerically at least.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -475,11 +475,11 @@ The normalization is trivial, numerically at least.
   Derive the steady state probabilities $p(n)$ for a single-server queue with a finite calling population with $N$ jobs, i.e., jobs that are in service cannot arrive to the system.
   Check the answer you obtained for the cases $N=1$ and $N=2$. What happens if $N\to\infty$? 
   Interpret the results.
-  \begin{hint}
+\begin{hint}
 Use $\lambda(n) p(n) = \mu(n+1)p(n+1)$, and realize that for
       this case $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$.
-  \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
       Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$, and solve~\cref{eq:25,eq:20}.
       Thus:
     \begin{align*}
@@ -503,23 +503,23 @@ We see from this that $p(0)$ times some constant must be $1$. Hence, dividing by
   p(0) = \left(\sum_{n=0}^N \rho^n \frac{N!}{(N-n)!}\right)^{-1}.
 \end{equation*}
 I asked WolframAlpha to simplify this, but the answer I got was not particularly revealing. 
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise} Give an example of a system with a finite calling population.
-  \begin{solution}
+\begin{solution}
     A finite calling population occurs for instance at a factory with a number of machines.
     When a machine breaks down, it becomes a (repair) job at the repair department.
     Thus, a break down forms an arrival at the repair shop.
     The mechanics at the repair department form a set of parallel servers.
     Typically, the number of machines is quite small, 10 or so, and when a machine is `down', i.e., broken, it cannot break again.
     Hence, when 2, say, machines are in repair, the number of `customers' that can arrive to the queueing system is only 8.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{extra} Derive the steady state probabilities $p(n)$ for a queue with a finite calling population with $N$ jobs and $N$ servers, i.e., the number of servers in the queueing system is equal to the size of the calling population. What happens if $N\to\infty$? 
-    \begin{solution}
+\begin{solution}
   Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = n \mu$. Then 
     \begin{align*}
       p(n+1) 
@@ -534,7 +534,7 @@ I asked WolframAlpha to simplify this, but the answer I got was not particularly
 \begin{equation*}
   p(n) = \frac{\rho^n {N \choose n}}{\sum_{k=0}^N \rho^k {N \choose k}}.
 \end{equation*}
-    \end{solution}
+\end{solution}
 \end{extra}
 
 

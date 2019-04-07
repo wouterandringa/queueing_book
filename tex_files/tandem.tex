@@ -102,10 +102,10 @@ Motivate that
   \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}
 \end{equation*}
 is a reasonable approximation of the queueing time. Compare this to the queueing time of the reference situation.
-  \begin{hint}
+\begin{hint}
     Realize that now also the distribution of inter-departure times of the first station changes and becomes more regular.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 Analogous to the previous situation, suppose we can set the coefficient of variation
 $C_{1,s}^2$ of the first server to zero. Thus, this becomes an $M/D/1$
 queue, so that, similar to~(\ref{eq:300}):
@@ -149,15 +149,15 @@ Combining~(\ref{eq:500}) and~(\ref{eq:400}), the total time in queue becomes:
   \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}, 
 \end{equation*}
 which is half the waiting time of the two $M/M/1$ stations in tandem, but also smaller than the situation in which we reduce the variability at the second station.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   What do you conclude from the above exercises?
-  \begin{hint}
+\begin{hint}
     What would you do if there would be a third station in this tandem network?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 As a general guideline, it seems best to reduce the
 variability at the first station. The main point to remember is that
 reducing the variability of the service process at the first station
@@ -165,7 +165,7 @@ also reduces the variability of its departure process, hence the
 variability of the arrival processes at the second station. Thus, the
 situation improves at two locations of the chain of stations, rather
 than at one.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 For a tandem network of $G/G/1$ queues, observe that the SCV of the departure process $C_{d,i}^2$ of the $i$th station is the SCV of the arrival process $C_{a,i+1}^2$ at station $i+1$.  Thus, if we have $C_{d,i}^2$ we can compute the average waiting time at station~$i+1$ by means of the $G/G/1$ waiting time approximation. 
@@ -198,9 +198,9 @@ What is $C_d^2$ for the $M/M/1$ queue according to~\cref{eq:40}?
 
 \begin{exercise}
   Use~\cref{eq:40} to show for the $G/D/1$ that $C_d^2 < C_a^2$. 
-  \begin{solution}
+\begin{solution}
 As $C_s^2 = 0$ for the $G/D/1$ queue, $C_d^2 = (1-\rho^2) C_a^2 < C_a^2$, as $\rho<1$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
@@ -261,7 +261,7 @@ For a $G/G/c$ queue, we can use the following approximation
 
 \begin{exercise}
   Show that~\cref{eq:57} reduces to \cref{eq:40} for the $G/G/1$ queue.
-  \begin{solution}
+\begin{solution}
     Since $c=1$ for the $G/G/1$ queue, we get
 \begin{align*}
   C_{d}^2 
@@ -269,7 +269,7 @@ For a $G/G/c$ queue, we can use the following approximation
 &= 1 + C_a^2 - \rho^2 C_{a}^2 -1 + \rho^2  + \rho^2 C_{s}^2 -\rho^2 \\
 &= (1-\rho^2) C_a^2  + \rho^2 C_{s}^2.
 \end{align*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

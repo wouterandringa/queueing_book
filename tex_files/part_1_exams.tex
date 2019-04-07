@@ -8,14 +8,14 @@
   \begin{equation*}
   \E{X^2}= \frac{1}{\lambda^2}.
   \end{equation*}
-  \begin{solution}
+\begin{solution}
     False
 
   \begin{equation*}
   \E{X^2}= \frac{2}{\lambda^2}.
   \end{equation*}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %2
@@ -25,12 +25,12 @@
   \begin{equation*}
 Z=\max\{X,Y\}\sim\exp(\lambda+\mu),
   \end{equation*}
-  \begin{solution}
+\begin{solution}
     False
 
 $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %3
@@ -43,7 +43,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
 &= - \frac{(\lambda t)^{k}}{k!} e^{-\lambda t} + \P{A_k \leq t}
   \end{split}
 \end{equation*}
-  \begin{solution}
+\begin{solution}
     True. 
 
     I decided to withdraw this question. The initial wording of the
@@ -56,7 +56,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
     namely the arrival times are not i.i.d.  Hence, there was no way
     in which the problem could be interpreted during the exam in an
     unambiguous way. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %4
@@ -67,9 +67,9 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
 \P{N_a(t) + N_s(t) = n} 
 = e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!}  \\
   \end{equation*}
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 % 5
@@ -78,7 +78,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
   If $N(t)\sim P(\lambda t)$,
  then $\E{N^2}=(\lambda t)^2$.
 
- \begin{solution}
+\begin{solution}
 False
 
 Set $t=1$ for notational simplicity. Then
@@ -96,7 +96,7 @@ and
 Finally, 
 $\E{N^2} = M''(0) = \lambda^2+\lambda$. 
 
- \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -105,12 +105,12 @@ $\E{N^2} = M''(0) = \lambda^2+\lambda$.
   For the $M/D/1$ queue, job service times are exponentially
   distributed and the interarrival times are deterministic.
 
-  \begin{solution}
+\begin{solution}
     False
 
     The interarrival times are exponentially distributed and the
     service times are deterministic.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %7
@@ -135,11 +135,11 @@ Q_k &= Q_{k-1} - (1-I_k) d_k + a_k.
 It is true that the above
     recursions model this queueing system.
 
-  \begin{solution}
+\begin{solution}
     False
 It should be this: $d_k =I_k \min\{Q_{k-1}, c_k\}$,  $Q_k = Q_{k-1} - d_k + a_k$.
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -151,9 +151,9 @@ For the $G/G/1$ queue the following recursion is true:
   D_k &= A_k + W_k.
 \end{align*}
 
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 % 9
@@ -166,7 +166,7 @@ For the $G/G/1$ queue the following recursion is true:
     \P{W_{Q,1} = 1} =\frac4{15}.
   \end{equation*}
 
-  \begin{solution}
+\begin{solution}
     True
   \begin{equation*}
     \P{W_{Q,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
@@ -174,7 +174,7 @@ For the $G/G/1$ queue the following recursion is true:
 
   I asked $<1/2$ in case you would use your calculator which might
   have resulted in rounding errors. Like this, I was on the safe side.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 % 10
@@ -194,9 +194,9 @@ departure process is a Poisson process $N_\mu(t)$.
 \end{equation*}
 where $\P{m}{\cdot}$ means that $Z(0)=m$.
 
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -260,8 +260,8 @@ satisfies
       \begin{equation*}
         V(t) = [V(A_{A(t)}) + (A_{A(t)}-t)]^+.
       \end{equation*}
-    \begin{solution} True
-    \end{solution}
+\begin{solution} True
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%4
@@ -294,8 +294,8 @@ such that
  \lambda_B T &< k_B.
 \end{align*}
 
-  \begin{solution} True
-  \end{solution}
+\begin{solution} True
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%6
@@ -872,7 +872,7 @@ The total cost is
       \sum_{k=1}^T \left(\beta c_k + h Q_k\right).
     \end{equation*}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
@@ -955,7 +955,7 @@ The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p
   Jobs arriving on day $k$ cannot be served on day $k$. Queue $i$
   receives service capacity in proportion to its queue length.  Derive
   a set of recursions  to compute the queue lengths $Q_k^i \in \R_+$ for days $k=1,2,\ldots$. 
-  \begin{solution}
+\begin{solution}
     Let $c_k^i$ be the capacity allocated to queue $i$ in period $k$. The fair rule gives that 
     \begin{equation*}
       c_k^i = \frac{Q_{k-1}^i}{\sum_{i=1}^n Q_{k-1}^i } c_k.
@@ -967,18 +967,18 @@ Then,
 Q_k^i &= Q_{k-1}^1+a_k^i  - d_k^i.
   \end{split}
 \end{equation*}
-  \end{solution}
+\end{solution}
   \end{exercise}
 
 \begin{exercise}[201704]
   Provide a real-world example for this queueing model.
-  \begin{solution}
+\begin{solution}
 A machine serving work of different types of jobs. Jobs of the same type are put in the same queue. When the machine has to switch from one type of job to another, it might need to change a tool. For this reason it works on jobs of the same queue for some time. Then it changes to the next queue, and so on. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]{2} For the situation of the previous question, find a recursion to compute a tight upper bound on the time the arriving work $a_k^i$ spends in the system.
-  \begin{solution}
+\begin{solution}
 We need to compute the time it takes to clear $Q_k^i$. This is
 \begin{equation*}
   \min\left\{r: \sum_{j=k+1}^r c_j^i \geq Q_k^i\right\}.
@@ -990,7 +990,7 @@ Some wrong answers:
 \item $W_k^i=(Q_{k-1}^i+a_k^i)/C_k$. This is partly ok, intuitively at least. However, the capacity $c_k$ is the total capacity for all queues, hence the division should be by $c_k^i$. This is still not completely ok, because $c_k^i$ is not constant as a function of $k$.
 \item $W_k = [W_{k-1}-X_k]^+ + S_k$. Here we are not dealing with a continuous-time queueing model. 
 \end{itemize}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -1031,13 +1031,13 @@ The process is a random walk with drift. The study of its probabilistic properti
 
 \begin{exercise}[201807]{1}
   What is a disadvantage of using simulation to analyze queueing systems?
-  \begin{solution}
+\begin{solution}
     It can take a long simulation time to obtain relevant answers. It is hard to get structural insights into systems. When you make a bug, it may be hard to find it out.
 
 Some students say that the fact that a simulation is a model is itself a disadvantage. This is of course not a good answer. Anything we say is a model: the word `apple' is not an apple itself, and all apples are slightly different\ldots 
 
 Others say that with simulation its only possible to model systems that operate in discrete time. This is nonsense, just check the book. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

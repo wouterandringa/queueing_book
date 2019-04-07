@@ -25,14 +25,14 @@ Before deriving this formula, let us apply it.
 
 \begin{extra}
   Show that when services are exponential, the expected waiting time $\E{W_Q(M/G/1)}$ reduces to $\E{W_Q(M/M/1)}$.
-    \begin{solution}
+\begin{solution}
       Since the SCV for the exponential distribution is $1$, hence
       $C_s^2=1$, we get 
     \begin{equation*}
 \E{W_Q} = \frac{1+1}2\frac{\rho}{1-\rho} \E S = \frac{\rho}{1-\rho} \E S,
     \end{equation*}
 which we also found in a previous section.
-    \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -57,9 +57,9 @@ Therefore,
 
 \begin{extra}
   Compute $\E L$ for the $M/G/1$ queue with $S\sim U[0,\alpha]$.
-  \begin{hint}
+\begin{hint}
 Integrate $\alpha^{-1} \int_0^\alpha x \d x$, and likewise for the second moment.
-  \end{hint}
+\end{hint}
 \begin{solution}
   \begin{align*}
 \E S &= \alpha/2,\\
@@ -78,7 +78,7 @@ C_s^2 &= (\alpha^2/12)/(\alpha^2/4) = 1/3,\\
   A queueing system receives Poisson arrivals at the rate of 5 per hour.
   The single server has a uniform service time distribution, with a range of 4 minutes to 6 minutes.
   Determine $\E{L_Q}$, $\E L$, $\E{W_Q}$, $\E W$.
-  \begin{solution}
+\begin{solution}
 First the load.
 \begin{pyconsole}
 labda = 5./60 # arrivals per minute
@@ -107,7 +107,7 @@ Lq
 L = labda*W
 L
 \end{pyconsole}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -141,7 +141,7 @@ L
   The second has a mean service time of $2.1$ minutes, with a standard deviation of $0.1$ minutes.
   If the arrival rate is Poisson with rate 20 per hour, which employee would minimize $\E{L_Q}$?
   Which would minimize $\E L$?
-  \begin{solution}
+\begin{solution}
     The arrival process is assumed to be Poisson. There is also
     just one server. Hence, we can use the PK formula to compute the average queue length.
 
@@ -177,27 +177,27 @@ L = rho + Lq
 L
 \end{pyconsole}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{extra}
   Show that for the $M/G/1$ queue, the expected idle time is
   $\E I = 1/\lambda$.  
-  \begin{hint}
+\begin{hint}
 What is the average time between two
     arrivals? Observe that the inter-arrivals are memoryless, hence the
     average time until the next arrival after the server becomes idle
     is also $1/\lambda$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     Since the inter-arrival times are memoryless, the expected time to the first arrival after the system becomes empty is also $\E X=1/\lambda$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   Express the utilization of the $M/G/1/1$ queue in terms of $\lambda$ and $\E S$.
-  \begin{solution}
+\begin{solution}
     The system can contain at most 1 job.
     Necessarily, if the system contains a job, this job must be in service.
     All jobs that arrive while the server is busy are rejected.
@@ -205,18 +205,18 @@ What is the average time between two
     After this departure, a new cycle starts.
     Thus, the utilization is $\E S/(1/\lambda + \E S) = \lambda \E S/ (1 + \lambda \E S)$.
     Since not all jobs are accepted, the utilization $\rho$ cannot be equal to $\lambda \E S$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   For the $M/G/1/1$ queue what is the fraction of jobs rejected?
-  \begin{hint}
+\begin{hint}
     The rate of accepted jobs is $\lambda \pi(0)$.
     What is the load of these jobs?
     Equate this to $1-\pi(0)$ as this must also be the load.
     Then solve for $\pi(0)$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     Let $p(0)$ be the fraction of time the server is idle. By PASTA,
     $\pi(0)=p(0)$. Thus, the rate of accepted jobs is
     $\lambda\pi(0)$. Therefore, the departure rate
@@ -233,22 +233,22 @@ What is the average time between two
 which is the same as in the previous problem.
 
 Note that  $\delta < \lambda$, as it should be the case. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{extra}
   Why is the fraction of lost jobs at a $M/G/1/1$ queue not necessarily the same as for a $G/G/1/1$ queue with the same load?
-  \begin{hint}
+\begin{hint}
 Provide an  example.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
  Typically, in the $G/G/1$ queue, the arrivals do not see  time-averages. Consequently, the fraction of arrivals that are blocked is not necessarily equal to the utilization~$\rho$.
 
   Again, take jobs with a duration 59 minutes and inter-arrival times of
   1 hour. The load is $59/60$, but no job is lost, also not in the
   $G/G/1/1$ case. Thus, $\delta=\lambda$ in this case.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -407,10 +407,10 @@ since, evidently, $\E{S_r\given S_r=0}=0$.
 \begin{extra}
   It is an easy mistake to think that $\E{S_r} = \E S$ when service
   times are exponential. Why is this wrong?
-  \begin{hint}
+\begin{hint}
 Realize again that $\E{S_r}$ includes the jobs that arrive at an empty system.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 
     $\E{S_r \given S_r>0} = \E S$ for the $M/M/1$ queue, and
     $\E{S_r} = \rho \E{S_r \given S_r>0}$ for the $M/G/1$ queue, it
@@ -418,7 +418,7 @@ Realize again that $\E{S_r}$ includes the jobs that arrive at an empty system.
   \begin{equation*}
  \E{S_r} = \rho \E{S_r\given S_r>0} = \rho \E S.
   \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -448,9 +448,9 @@ Hence,
 \E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S} 2
 \end{equation*}
 when $\V{S} = 0$. 
-  \begin{hint}
+\begin{hint}
     $\V S = 0$ implies that $S$ is deterministic.
-  \end{hint}
+\end{hint}
 \begin{solution}
  When $S$ is deterministic $\E{S^2} = (\E{S})^2$.  Now use~\cref{eq:55}.
 \end{solution}
@@ -458,9 +458,9 @@ when $\V{S} = 0$.
 
 \begin{extra}
   What is  $\E{S_r\given S_r>0}$ for the $M/D/1$ queue? 
-  \begin{solution}
+\begin{solution}
 By~\cref{ex:45}, it is half the service time. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
@@ -513,7 +513,7 @@ service times of jobs.
     where $\1{\cdot}$ is the indicator function, that is, $\1{A}=1$ if the
     event $A$ is true, and $\1{A}=0$ if $A$ is not true.   
 \end{hint}
-  \begin{solution}
+\begin{solution}
 With the hint, 
 \begin{align*}
   \E S 

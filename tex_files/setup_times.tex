@@ -76,18 +76,18 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
   \begin{equation*}
  B>\frac{\lambda \E R}{1-\lambda \E{S_0}}.
   \end{equation*}
-  \begin{solution}
+\begin{solution}
     We require that the load is less than one, in other words, that $\lambda\left(\E{S_0} + {\E{R}}/B\right) < 1$. This  is equivalent to $\E{R}/B < 1/\lambda - \E{S_0}$, hence $B > \E{R}/(1/\lambda - \E{S_0})$. Multiplying with $\lambda$ gives the result. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   What important insights do the above formulas provide about setting proper batch sizes?
-  \begin{solution}
+\begin{solution}
     Overall, batch sizes need to be tuned to minimize average sojourn times.
     When the batch sizes are small, the load $\rho$ is near to one (in other words, the server spends a relatively large fraction of its time on setups), so that the queueing times are long, but the times to form a batch are small, as the times to form and process batches are linear functions of the batch size $B$.
     If, however, the batch sizes are large, the queueing times will be relatively short, but the times to form and unpack batches will be large.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -98,7 +98,7 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
 
   What is the average time a red job spends in the system in case $B=30$ jobs?
   Finally, observe that there is $B$ that minimizes the average sojourn time.
-  \begin{solution}
+\begin{solution}
 First check the load.
 \begin{pyconsole}
 labda = 3 # per hour
@@ -160,21 +160,21 @@ total = EWf + EWq + ES
 total
 \end{pyconsole}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}\label{ex:85}
   Derive \cref{eq:81}--\cref{eq:85}.
-  \begin{solution}
+\begin{solution}
     See~\cref{ex:48} to \cref{ex:85}.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}\label{ex:48}
   Derive~\cref{eq:79}.
- \begin{hint}
+\begin{hint}
  Show that the total time to form a red batch is $(B-1)/\lambda_r$. 
- \end{hint}
+\end{hint}
 \begin{solution}
   Suppose a batch is just finished. The first job of a new batch needs to wait, on average, $B-1$  inter-arrival times until the batch is complete, the second $B-2$ inter-arrival times, and so on. The last job does not have to wait at all. Thus, the total time to form a batch is $(B-1)/\lambda_r$. 
 
@@ -185,12 +185,12 @@ An arbitrary job can be anywhere in the batch, hence the average time a job must
 
 \begin{extra}
   Derive~\cref{eq:81}.
-  \begin{hint}
+\begin{hint}
     What fraction of the setup time $\E R$ `belongs' to one job?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     The total service time spent on a batch of size $B$ is $B \E{S_0} + \E R$. The effective time per job is then the average, i.e.,  $(B \E{S_0}+\E R)/B$. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
@@ -212,12 +212,12 @@ Then  the equality has the interpretation of the batch arrival rate times the wo
 
 \begin{extra}
 Derive~\cref{eq:82}.
-  \begin{solution}
+\begin{solution}
 The variance of the inter-arrival time of batches is $B$ times the variance of job inter-arrival times. The inter-arrival times of batches is also $B$ times the inter-arrival times of jobs. Thus, 
 \begin{equation*}
   C_{a,B}^2 = \frac{B \V{X}}{(B \E X)^2} = \frac{\V X}{(\E X)^2} \frac 1 B =  \frac{C_a^2}{B}.
 \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 

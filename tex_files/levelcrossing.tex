@@ -39,12 +39,12 @@ We will generalize these notions of up- and downcrossing in this section to deri
 
 \begin{extra}
   If $L(t)/t \to 0$ as $t\to\infty$, can it still be true that $\E{L}>0$? 
-  \begin{solution}
+\begin{solution}
     \begin{equation*}
       \E{L} = \lim_{t\to\infty} \frac 1 t \int_0^t L(s) \d s \neq \lim_{t\to\infty} \frac{L(t)}t.
     \end{equation*}
 If $L(t)=1$ for all $t$, $\E{L} =1 $, but $L(t)/t \to 0$. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 Let us say that the system is in \emph{state $n$} at time $t$ when it contains $n$ jobs at that moment, i.e., when $L(t) = n$.
@@ -105,10 +105,10 @@ as the number of arrivals up to time $t$ that saw $n$ customers in the system at
 
 \begin{extra}
   Why do we  take $L(A_k-)=n$ rather than $L(A_k)$ in the definition of $A(n,t)$?
-  \begin{hint}
+\begin{hint}
 Recall that $L(t)$ is \emph{right-continuous}.
-  \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
       $L(t)$ is the number of customers in the system at time $t$.
       As such the function $t\to L(t)$ is \textsl{right-continuous}.
       The definition of $L(A_k-) = \lim_{t\uparrow A_k} L(t)$ is the limit from the left.
@@ -122,7 +122,7 @@ If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum
   $A(t)$ counts all customers that arrive up to time $t$, i.e., during
   $[0,t]$. Note that this \textsl{includes} time $t$. $A(n,t)$ counts
   the jobs that see $n$ jobs in the system just before they arrive. As there either $0$, or $1$, or $2$, etc., jobs in the system upon arrival the summation covers all possible outcomes. Therefore the claim is true. 
-    \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
@@ -138,18 +138,18 @@ If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum
     \end{equation*}
     For any `normal' queueing system, $A(t) > A(n,t)$, because the
     queue length fluctuates.
-    \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}\label{ex:38}
 If $\lambda>\delta$ it can happen that  $ \lim_{t\to\infty} A(n,t)/t > 0$ for some (finite) $n$. 
-  \begin{solution}
+\begin{solution}
     If $\lambda > \delta$, then $L(t)\to\infty$.
     But then there must be a last time, $s$ say, that $L(s) = n+1$, and $L(t) > n+1$ for all $t>s$.
     Hence, after time $s$ no job will see the system with $n$ jobs.
     Thus $A(n,t) = A(n,s)$ for all $t>s$.
     This is a finite number, while $t\to\infty$, so that $A(n,t)/t \to 0$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -168,25 +168,25 @@ be the fraction of time that $L(s) =n$ in $[0,t]$. ~\Cref{fig:Y_1_t} illustrates
    At times $0, 2,4, \ldots$ customers arrive, each customer requires $1$ unit of service, and there is one server.
    Find an expression for $A(n,t)$.
    (What acronym would describe this queueing situation?)
-  \begin{hint}
+\begin{hint}
     For the acronym, observe that the service times and inter-arrival are deterministic and there is one server.
     For the computation of $Y(n,t)$, make a plot of $L(s)$ as a function of time for $n=1$.
 
     Make a plot of $L(s)$ for $n=1$ as a function of time.
-  \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
       It is the $D/D/1$ queue, since there is one server and the inter-arrival times and service times are constant, i.e., deterministic.
       $A_k = 2k$ as jobs arrive at $t=0, 2, 4, \ldots$, hence, $A(t) \approx t/2$ when $t\gg 0$.
       We also know that $L(s)=1$ if $s\in [2i, 2i+1)$ and $L(s)=0$ for $s\in[2i-1, 2i)$ for $i=0, 1, 2, \ldots$.
       Thus, $L(A_k-) = L(2k-)=0$.
       Hence, $A(0,t) \approx t/2$ for $t\gg 0$, and $A(n,t)=0$ for $n\geq 1$.
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{exercise}[Continuation of~\ref{ex:111}] \label{ex:112} 
   Find an expression for $Y(n,t)$.
-    \begin{solution}
+\begin{solution}
       Next, to get $Y(n,t)$, observe that the system never contains
       more than 1 job. Hence, $Y(n,t)=0$ for all $n\geq 2$.  Then we see that
       $Y(1,t) = \int_0^t \1{L(s) = 1}\d s.$ Now observe that for our
@@ -213,7 +213,7 @@ Continuing to $[2,3)$ and so on gives
     \begin{equation*}
       Y(0,t) = t-Y(1,t).
     \end{equation*}
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -302,7 +302,7 @@ $A(t)/t$ is the total number of arrivals during $[0,t]$ divided by~$t$, $A(n,t)/
 the time the system contains $n$ jobs.
 
 \begin{exercise}[Continuation of \ref{ex:112}] \label{ex:113} Compute $p(n)$ and $\lambda(n)$.
-  \begin{solution}
+\begin{solution}
     From the other exercises:
     \begin{align*}
       \lambda(0) &\approx \frac{A(0,t)}{Y(0,t)} \approx \frac{t/2}{t/2} = 1, \\
@@ -311,7 +311,7 @@ the time the system contains $n$ jobs.
       p(1) &\approx \frac{Y(1,t)}{t} \approx \frac{t/2}{t} = \frac 1 2.
     \end{align*}
 For the rest $\lambda(n) = 0$, and $p(n)=0$, for $n\geq 2$.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 Similar to the definition for $A(n,t)$, let
@@ -329,7 +329,7 @@ as \emph{ the departure rate from state $n+1$}.
 
 \begin{extra}\label{ex:39}
 Should  we take $D(n-1,t)$ or  $D(n,t)$ in the definition of $\mu(n)$?
-    \begin{solution}
+\begin{solution}
       $D(n-1,t)$ counts the departures that leave $n-1$ behind. Thus,
       just before the customer leaves, the system contains $n$
       customers.
@@ -463,7 +463,7 @@ Consider a single server that serves one queue and serves only in batches of 2 j
   At most 3 jobs fit in the system.
   Make a graph of the state-space and show, with arrows, the transitions that can occur.
 
-  \begin{solution}
+\begin{solution}
 See the figure below.
 
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
@@ -482,15 +482,15 @@ See the figure below.
 
 \draw[-, dotted, gray] (4,-2.)--(4,2.0) node[above, black] {level $1$};
 \end{tikzpicture}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   Use the graph of~\cref{ex:67} and a level crossing argument to express the steady-state probabilities $p(n), n=0,\ldots, 3$ in terms of $\lambda$ and $\mu$.
-  \begin{hint}
+\begin{hint}
 First balance the rates across the levels. Then solve this in terms of $p(0)$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 With level crossing
   \begin{align*}
     \lambda p(0)  &= \mu p(2), \quad\text{the level between 0 and 1,}\\
@@ -502,7 +502,7 @@ With level crossing
     \lambda p(1) = \mu(p(2) + p(3)) = \mu (\rho + \rho^2) p(0) = (\lambda + \lambda^2/\mu) p(0),
   \end{equation*}
 hence $p(1) = p(0)(\mu + \lambda)/\mu$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \paragraph{Balance equations}

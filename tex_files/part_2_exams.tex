@@ -27,22 +27,22 @@ For the $G/G/1$ queue,
 \end{equation}
 if $n\geq 1$.
 
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %13
 \begin{exercise}[201703]
   For the $M/M/1$ queue with $\lambda=3$, $\mu=5$, $\E{L_Q} \leq 1$
 
-  \begin{solution}
+\begin{solution}
     True.
 
     \begin{equation*}
 \E{L_Q} = \frac{\rho^2}{1-\rho}.
     \end{equation*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 %14
@@ -62,9 +62,9 @@ if $n\geq 1$.
 \end{split}
 \end{equation*}
 
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 % 15
@@ -75,9 +75,9 @@ if $n\geq 1$.
 C_s^2 = \frac 13.
   \end{equation*}
 
-  \begin{solution}
+\begin{solution}
     True
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%7
@@ -92,8 +92,8 @@ C_s^2 = \frac 13.
         1+(t-2) & t\in[2,3), \\
       \end{cases}
     \end{equation*}
-    \begin{solution} True
-    \end{solution}
+\begin{solution} True
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%8
@@ -101,7 +101,7 @@ For the $M/M/c$ queue with $\rho= c \lambda/\mu$,
     \begin{equation*}
        p(n+1) = \frac{\Pi_{k=1}^{n+1}\min\{c, k\}}\rho^{n+1} p(0).
     \end{equation*}
-  \begin{solution} False. $\rho= \lambda/ (c\mu)$, and the rest of the formula is also wrong:
+\begin{solution} False. $\rho= \lambda/ (c\mu)$, and the rest of the formula is also wrong:
     \begin{align*}
         p(n+1) 
 &= \frac{\lambda}{\mu(n+1)}p(n) 
@@ -115,8 +115,8 @@ etc.
   Consider a queueing system in which each customer requires precisely
   59 minutes of service. At the start of each hour, one customer arrives. Then
   $\pi(0) = 1/60$.
-  \begin{solution} False. $\pi(0)=1$.
-  \end{solution}
+\begin{solution} False. $\pi(0)=1$.
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%10
@@ -144,7 +144,7 @@ Then
   \E L = \left.\frac d {dz} \phi(z)\right|_{z=0}.
 \end{equation*}
 
-  \begin{solution} False
+\begin{solution} False
 \begin{equation*}
   \E L = \left.\frac d {dz} \phi(z)\right|_{z=1} = \frac{\rho}{1-\rho}.
 \end{equation*}
@@ -161,7 +161,7 @@ For the $M^X/M/1$ queue,
 &= \rho \frac{\V B}{(\E B)^2}\E B = \rho C_s^2\E B.
   \end{split}
 \end{equation*}
-  \begin{solution} False
+\begin{solution} False
 We have
 \begin{equation*}
   \begin{split}
@@ -170,7 +170,7 @@ We have
 &= \rho \frac{(\E B)^2+\V B}{(\E B)^2}\E B = \rho (1+C_s^2)\E B.
   \end{split}
 \end{equation*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%13
@@ -1062,7 +1062,7 @@ answer = A, see Page 149
   \end{equation}
   for a queueing system in which jobs arrive and depart in single
   units.
-  \begin{solution}
+\begin{solution}
     $|A(n,t)-D(n,t)| \leq 1$. Hence
     \begin{equation*}
       \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
@@ -1071,12 +1071,12 @@ answer = A, see Page 149
 Now take the limit $t\to \infty$.
 
 Just saying that level-crossing implies $\lambda \pi(n) = \mu(n+1)p(n+1)$ is of course not a good answer. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]{2}
   What condition should be satisfied in the above Equation~\eqref{eq:90} so that PASTA holds? 
-  \begin{solution}
+\begin{solution}
     \begin{equation*}
 \frac{A(n,t)}t =  \frac{A(t)}{t} \frac{A(n,t)}{A(t)}   \frac{A(n, t)}{Y(n,t)} \frac{Y(n,t)}{t}.
     \end{equation*}
@@ -1090,7 +1090,7 @@ Hence, when $\lambda=\lambda(n)$ for all $n$, $\pi(n)=p(n)$, which is the PASTA 
 Some students said that $p(n)=\pi(n)$, but this is the meaning of PASTA, not the condition for PASTA. (For the curious, there is an Anti-PASTA theorem.)  
 
 If you would just have said something like `Poisson arrivals', or `exponential interarrival times', I gave one point. The answer is not complete. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]{2}
@@ -1187,12 +1187,12 @@ We are done.
 Half point for stating that we are looking for $\P{A_k\leq t} - \P{A_{k+1}\leq t}$.  Some students reversed these two probabilities. It is simple to see that that is wrong.
 
 For a full point I also wanted to see the algebra that leads to the final answer. 
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
 Consider a single-server queueing  in discrete time, $k=0,1,\ldots$. The machine can switch between a fast speed and a slow production speed. When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to the fast speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the slow speed $c_- < c_+$, otherwise the machine's speed remains the same. The arrival process is given by $\{a_k\}$. Assuming the arrivals $a_k$ in period $k$ cannot be served on day $k$, establish a set of recursions to enable a simulation of this system. Assume that $Q_0=0$.
-  \begin{solution}
+\begin{solution}
     First we need to implement the switching policy. For this we need an extra
     variable to keep track of the state of the server. Let $I_k=c_+$ if the machine is working fast in period $k$ and $I_k=c_-$ if it is working slowly. Then $\{I_k\}$ must satisfy the relation
     \begin{equation*}
@@ -1246,8 +1246,8 @@ Related to the previous problem, assuming that the average arrival rate of jobs 
 
 \begin{exercise}[201706]
   Provide a real-world example for the queueing model of the previous three problems.
-  \begin{solution} A machine that needs to be warm/hot to produce. When there are no jobs, it is better to switch it off ($m=0$ case); only switch it on when the queue length in front of it is longer than $M$. If $m>0$, assume that the machine can work at two speeds, but the higher speed requires more power. 
-  \end{solution}
+\begin{solution} A machine that needs to be warm/hot to produce. When there are no jobs, it is better to switch it off ($m=0$ case); only switch it on when the queue length in front of it is longer than $M$. If $m>0$, assume that the machine can work at two speeds, but the higher speed requires more power. 
+\end{solution}
 \end{exercise}
 
 
@@ -1299,10 +1299,10 @@ State explicitly all relevant assumptions you needed to make in the previous pro
   For the previous question, customers spend 10 Euro on average on an order.
   What is the rate at which the stand makes money?
   What theorem(s) do you need to use to compute this?
-  \begin{solution}
+\begin{solution}
 see the book. 
     The rate at which customers are accepted is $\sum_{n} \lambda_n p_n$. Multiply this by 10 to get the rate at which the system makes money. Note that this is not $10 \E L$. Customers pay to get served, not to stay in the line...
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -1311,7 +1311,7 @@ see the book.
   \pi(n) = \delta(n).
   \end{equation}
 
-  \begin{solution}
+\begin{solution}
     $A(n,t) \approx D(n,t)$. Hence
     \begin{equation*}
       \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
@@ -1320,28 +1320,28 @@ see the book.
 Now take the limit $t\to \infty$ to get $\lambda \pi(n) = \delta(n) \delta$. 
 
 Using $D(n,t)/Y(n,t) \cdot Y(n,t)/t$ is plain wrong (check the book). $-1/2$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
   What condition should be satisfied in~\cref{eq:91} so that it holds? 
-  \begin{solution}
+\begin{solution}
 Rate stability, i.e., $\lambda = \delta$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 Does~\cref{eq:91} also hold for the $G/G/1$ queue (motivate).
-  \begin{solution}
+\begin{solution}
 Sure, to derive~\cref{eq:91}, we only used counting arguments, but nothing  in particular about the interarrival times. 
 
 Some students say no, because it is not true in case of batch arrivals. Ok. but recall, by assumption we are dealing here with $G/G/1$ queue\ldots
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 Does~\cref{eq:91} imply the PASTA property (motivate).
-  \begin{solution}
+\begin{solution}
 No, for PASTA we need more. 
     \begin{equation*}
       \frac{A(t)}{t} \frac{A(n,t)}{A(t)}  = \frac{A(n, t)}{Y(n, t)} \frac{Y(n,t)}{t}
@@ -1349,13 +1349,13 @@ No, for PASTA we need more.
 Taking limits gives $\lambda \pi(n) = \lambda(n) p(n)$. When $\lambda(n)=\lambda$, arrivals see time averages. In particular, when the arrival process is Poisson, $\lambda(n)=\lambda$. 
 
 Some students seem to think that if you use PASTA to prove that $\pi(n)=\delta(n)$ (which is a bit convoluted), that this $\pi(n)=\delta(n)$ then implies PASTA. This, however, is a simple logical failure: note that $p\implies q$ is not the same as $q\implies p$. (A dog is an animal with four legs, an animal with four legs is not necessarily a dog\ldots)
-  \end{solution}
+\end{solution}
 
 \end{exercise}
 
 \begin{exercise}[201804]
   Use the Pollack-Khintchine equation to show for the $M/M/1$ queue that $\E{L}=\rho/(1-\rho)$. 
-  \begin{solution}
+\begin{solution}
     \begin{equation*}
     \E{W_q}= \frac{1+C_a^2}2 \frac \rho{1-\rho} \E S = \frac \rho{1-\rho} \E S,
     \end{equation*}
@@ -1366,7 +1366,7 @@ since for the $M/M/1$ queue, $C_a^2=1$. Next, $\E W=\E{W_q} + \E S$. Thus, with 
 The result now follows.
 
 Not using the PK-formula: no point. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]{1}\label{ex:86}
@@ -1405,15 +1405,15 @@ Since $\lambda=\mu$,  $p(0) = 2p(2)$, $p(2) = p(3)$. But then, from the second e
 
 
 \begin{exercise}[201807]{1} What is the fraction of lost jobs?
-  \begin{solution}
+\begin{solution}
     First use PASTA to see that $\pi(n) = p(n)$. Then, conclude that $\pi(3) = p(3) = 1/7$. 
 
 You need to mention that you used PASTA. Its not evident that $p(n)=\pi(n)$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]{1}  Suppose the manager is unsatisfied with the loss rate. Writing $x=\lambda/\mu$ for ease, what condition should $x$ satisfy such that the loss probability is less than some threshold $\alpha$? (Just show the condition on $x$; you do not have to solve for $x$.) 
-  \begin{solution}
+\begin{solution}
     Now, 
     \begin{align*}
       p(2) &= \frac 2 x p(1) & p(3) &= x p(2)= \frac{x^2}2 p(0) \\
@@ -1428,7 +1428,7 @@ With this we have, for given $x$, found $p(0)$. Then we want $x$ to be such that
  p(3) = \frac{x^2/2}{2 + x + x^2/2} > \alpha.
 \end{align*}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -1456,11 +1456,11 @@ With this we have, for given $x$, found $p(0)$. Then we want $x$ to be such that
 %\draw[-, dotted, gray] (4,-2.)--(4,2.0) node[above, black] {level $1$};
 \end{tikzpicture}
 \end{center}
-  \begin{solution}
+\begin{solution}
 Yes, because we add an extra state that can be reached, while the transition rates between states $0, 1, 2$ and $3$ do not change. Hence, since $p(4)>0$, and $p(4)=p(3)$, the fraction of time spent in state 3 must be smaller in the presence of a state 4 than without this extra state. 
 
 In simple terms, if there is a waiting room with 3 seats, and you add an extra seat, than the fraction of people that have to stand becomes less. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -1470,24 +1470,24 @@ In simple terms, if there is a waiting room with 3 seats, and you add an extra s
   \begin{equation}\label{eq:86}
     \beta = 1 - \rho\frac{\mu}{\lambda}.
   \end{equation}
-  \begin{solution}
+\begin{solution}
     Jobs arrive at rate $\lambda$.
     The fraction accepted is $(1-\beta)$.
     Hence, the rate at which jobs enter is $\lambda(1-\beta)$. The average time jobs stay in the system is $1\\mu$. Thus, by Little's law, the average number of jobs in the system $\rho=\lambda(1-\beta)/\mu$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201807]{1}
   Explain why \cref{eq:86} not applicable for the queueing system of question~\cref{ex:86}.
-  \begin{solution}
+\begin{solution}
     The service times are not i.i.d., they depend on the number of jobs in the system, in other words, the service rate in state 2 is $2\mu$, while in state 1 it is 0 and in state 3 it is $\mu$. Its simply not a $G/G/n/K$ queue, even though there is loss. 
 
 
 Interestingly, quite a number of students mess up the concepts of $G/G/1$ and so on. Note that the the $M/M/1$ queue is a special case of the $M/M/1$ queue, and this in turn is a special case of the $G/G/n$ queue. Check out the definitions in the book.
 
 In the $G/G/n/K$ queue, it is not true that $\rho=\lambda/\mu$. This would imply with~\cref{eq:86} that $\beta=0$. But this ridiculous: the fraction of lost customers is not 0 in the $G/G/n/K$ queue in general, while~\cref{eq:86} holds for any such queueing system. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

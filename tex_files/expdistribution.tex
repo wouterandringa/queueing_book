@@ -45,14 +45,14 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 
 \begin{exercise}\label{exer:lambda}
   If the random variable $X\sim\Exp(\lambda)$, show that its mean $\E X = \frac{1}\lambda$. 
-  \begin{hint}
+\begin{hint}
  \begin{equation*}
     \E X = \int_0^\infty t f(t)\, \d t =
     \int_0^\infty t \lambda e^{-\lambda t}\, \d t,
   \end{equation*}
   where~$f(t)=\lambda e^{-\lambda t}$ is the density function of the distribution function $F$ of $X$. Now solve the integral.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     \begin{align*}
 \E{X} 
 &= \int_0^\infty t \lambda e^{-\lambda t} \d t, \quad\text{density is } \lambda e^{-\lambda t} \\
@@ -60,17 +60,17 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 &=  -\lambda^{-1}\left. t e^{- t}\right|_0^\infty + \lambda^{-1} \int_0^\infty e^{- t} \d t\\
 &=  - \lambda^{-1} \left. e^{- t} \right|_0^\infty =  \frac1\lambda.
     \end{align*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}\label{ex:15} 
   If $X\sim\Exp(\lambda)$, show that its second moment $\E{X^2} =  \frac{2}{\lambda^2}$.
-  \begin{hint}
+\begin{hint}
   \begin{equation*}
   \E{X^2}= \int_0^\infty t^2 \lambda e^{-\lambda t}\, \d t =  \frac{2}{\lambda^2}.
   \end{equation*}
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     \begin{align*}
 \E{X^2} 
 &= \int_0^\infty t^2 \lambda e^{-\lambda t} \d t \\
@@ -80,7 +80,7 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 &=  - 2\lambda^{-2} \left. e^{- t} \right|_0^\infty \\
 &=  2/\lambda^2.
     \end{align*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -92,10 +92,10 @@ $\V X = \lambda^{-2}$.
   % \begin{equation*}
   % \V X = \E{X^2} - (\E X)^2.
   % \end{equation*}
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     By the previous problems, $\E{X^2}=2/\lambda^2$ and $\E X = 1/\lambda$. Hence the variance $\V X = \E{X^2} - (\E X)^2 = \frac{2}{\lambda^2} - (\frac{1}{\lambda})^2 = \lambda^{-2}.$
-  \end{solution}
+\end{solution}
 \end{extra}
 
 % The  above exercises can also be easily solved with the moment-generating function of $X$:
@@ -115,12 +115,12 @@ $\V X = \lambda^{-2}$.
     \begin{equation*}
     M_X(t) = \frac{\lambda}{\lambda-t}.
     \end{equation*}
-   \begin{hint}
+\begin{hint}
     \begin{equation*}
       M_X(t) = \E{\exp(t X)} =\int_0^\infty e^{t x} f(x) \,\d x.
 \end{equation*}
 \end{hint}
-    \begin{solution}
+\begin{solution}
     \begin{align*}
       M_X(t) &= \E{\exp(t X)}  
 =\int_0^\infty e^{tx} f(x) \,\d x 
@@ -128,7 +128,7 @@ $\V X = \lambda^{-2}$.
 &=\lambda \int_0^\infty e^{(t-\lambda)x} \,\d x 
 =\frac{\lambda}{\lambda -t}.
     \end{align*}
-    \end{solution}
+\end{solution}
   \end{extra}
 
 \begin{exercise}\label{ex:21}
@@ -147,10 +147,10 @@ Use~\cref{eq:69} and \cref{eq:64}.
 
 \begin{extra}[\faBalanceScale]\label{ex:29}
 When  $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
-  \begin{hint}
+\begin{hint}
   Use~\cref{eq:62} 
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
   By the previous problems, $\V X = 1/\lambda^2$ and $\E X=1/\lambda$, hence
   \begin{equation*}
     C^2= \frac{\V X}{(\E X)^2} = \frac{1/\lambda^2}{1/\lambda^2} = 1.
@@ -163,16 +163,16 @@ We now provide a number of relations between the Poisson distribution and the ex
 
 \begin{exercise}
   If $N_\lambda$ is a Poisson process with rate $\lambda$, show that the time $X_1$ to the first arriving job is $\Exp(\lambda$).
-  \begin{hint}
+\begin{hint}
     What is the meaning of $\P{N(t)=0}$?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 If there are no arrivals in some interval $[0,t]$, then it
 must be that $N(t) = 0$. Hence, for the first inter-arrival time $X_1$: 
 \begin{equation*}
  \P{X_1> t} = \P{N(t) = 0} = e^{-\lambda t} \frac{(\lambda t)^0}{0!}= e^{-\lambda t}.
 \end{equation*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}
@@ -181,16 +181,16 @@ the arrival time of the $i$th job be  $A_i=\sum_{k=1}^i X_k$. Show that %We do n
  \begin{equation*}
 \E{A_i} = \frac i\lambda.
  \end{equation*}
- \begin{hint} What is $\E{X+Y}$ for some general random variables (each with finite mean)?
- \end{hint}
-  \begin{solution}
+\begin{hint} What is $\E{X+Y}$ for some general random variables (each with finite mean)?
+\end{hint}
+\begin{solution}
 The simplest way to obtain the answer is to use that the expectation is a linear operator, i.e., $\E{X+Y}= \E X + \E Y$ for any r.v. $X$ and $Y$. Then,
 \begin{equation*}
 \E{A_i} = \E{\sum_{k=1}^i X_k} = i \E{X} = \frac i \lambda.
 \end{equation*}
 (Just as a reminder, $\E{X Y} \neq \E X \E Y$ in general. Only when $X$ and $Y$ are uncorrelated (which is implied by independence), the product of the expectations is the expectation of the products.)
 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}\label{ex:54}
@@ -227,14 +227,14 @@ $A_i \sim \Gamma(i,\lambda)$, i.e., $A_i$ is Gamma distributed.
 
 \begin{extra}
   Use the density $f_{A_i}$ of exercise~\ref{ex:54} to show that $\E{A_i}=i/\lambda$. 
-  \begin{hint}
+\begin{hint}
 Use the standard integral 
     $\int_0^\infty x^n e^{-\alpha x} \d x =
     \alpha^{-n-1}n!$. 
     Another way would be to use that, once you have the moment
     generating function of some random variable $X$,
     $\E X = \frac{\d}{\d t} M_X(t) |_{t=0}$. 
-  \end{hint}
+\end{hint}
 \begin{solution}
   \begin{equation*}
 \E{A_i} = \int_0^\infty t f_{A_i} (t) \, \d t  = 
@@ -262,11 +262,11 @@ What if we would use the moment-generating function, as derived by the previous 
 \begin{exercise}
   If the inter-arrival times $\{X_i\}$ are i.i.d.
   $\sim \Exp(\lambda)$, prove that the number $N(t)$ of arrivals during interval $[0,t]$ is Poisson distributed.
-  \begin{hint}
+\begin{hint}
   Realize that
     $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.
-  \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
       We want to show that
     \begin{equation*}
       \P{N(t)=k} = e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
@@ -280,7 +280,7 @@ What if we would use the moment-generating function, as derived by the previous 
 &= - \frac{(\lambda t)^{k}}{k!} e^{-\lambda t} + \P{A_k \leq t}.
 \end{align*}
 We are done.
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 We now introduce another fundamental concept.
@@ -293,10 +293,10 @@ In words, the probability that $X$ is larger than some time $t+h$, conditional o
 \begin{exercise}
   Show that $X\sim \Exp(\lambda)$ is memoryless.
 
-  \begin{hint}
+\begin{hint}
 Condition on the event ${X>t}$. 
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 By  the definition of conditional probability
 \begin{equation*}
   \P{X>t+h|X>t} = \frac{\P{X>t+h, X>t}}{\P{X>t}} = \frac{\P{X>t+h}}{\P{X>t}} = \frac{e^{-\lambda(t+h)}}{e^{-\lambda t}} = e^{-\lambda h} = \P{X>h}.
@@ -306,7 +306,7 @@ Thus, no matter how long we have been waiting for the next arrival to occur, the
 
 This property seems to be vindicated also in practice: suppose that a patient with a broken arm just arrived at the emergency room of a hospital, what does that tell us about the time the next patient will be brought in?
 Not much, as most of us will agree.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 In fact, it can be shown that only exponential random variables have the memoryless property.
@@ -324,7 +324,7 @@ hence $\E Z = (\lambda+\mu)^{-1}$.
 Use that if $Z=\min\{X, S\}>x$,  it then must be that $X>x$
   and $S>x$. Then use independence of $X$ and $S$.
 \end{hint}
-  \begin{solution}
+\begin{solution}
 Use that $X$ and $S$ are independent to get
     \begin{equation*}
       \begin{split}
@@ -333,7 +333,7 @@ Use that $X$ and $S$ are independent to get
 &= e^{-\lambda x} e^{-\mu x} = e^{-(\lambda+\mu)x}.
       \end{split}
     \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}\label{ex:3}
@@ -341,11 +341,11 @@ Use that $X$ and $S$ are independent to get
     \begin{equation*}
       \P{X\leq S} = \frac{\lambda}{\lambda+\mu}.
     \end{equation*}
-    \begin{hint}
+\begin{hint}
      Define the joint distribution of $X$ and $S$ and carry out
       the computations, or use conditioning, or use the result of the
       previous exercise.
-    \end{hint}
+\end{hint}
 \begin{solution}
 There is more than one way to show that $\P{X\leq S} = \lambda/(\lambda+\mu)$.  
 

@@ -28,14 +28,14 @@ and distributed as a generic random variable $X$ with finite mean $\E{X}$, we ca
 \begin{extra}
   Can you make an arrival process such that $A(t)/t$ does not have a
   limit?  
-  \begin{hint}
+\begin{hint}
 As a start, the function $\sin(t)$ does not have a limit as
     $t\to\infty$. However, the time-average $\sin(t)/t \to 0$.  Now
     you need to make some function whose time-average does not
     converge, hence it should grow fast, or fluctuate wilder and
     wilder.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
  If $A(t) = 3 t^2$, then clearly $A(t)/t = 3t$. This does not
     converge to a limit. 
 
@@ -56,7 +56,7 @@ As a start, the function $\sin(t)$ does not have a limit as
 
 For the mathematically interested, we seek a
     function for which its Ces\`aro limit does not exist.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -79,12 +79,12 @@ In words, the above states that the arrival rate $\lambda$ is the inverse of the
   In \cref{eq:54} we replaced the limit with respect to $n$ by a limit with respect to $t$.
   Use the notation $A_{A(t)}$ to show that this is allowed.
   Show next that the function $t\to A(t)$ as defined by \cref{eq:2} is right-continuous.
-    \begin{hint}
+\begin{hint}
       Use that $A_{A(t)} \leq t < A_{A(t)+1}$.
       Divide by $A(t)$ and take suitable limits.
       BTW, such type of proof is used quite often to show that the existence of one limit implies, and is implied by, the existence of another type of limit.
-    \end{hint}
- \begin{solution}
+\end{hint}
+\begin{solution}
    This exercise is meant to provide some insight into what needs to be done to put everything on solid ground.
 
 
@@ -137,7 +137,7 @@ In words, the above states that the arrival rate $\lambda$ is the inverse of the
     % limit exists. When $f_n$ are all increasing, which is the case for
     % our situation by taking $f_n(t) = 1\{A_n \leq t\}$, then this
     % limit certainly exists.
- \end{solution}
+\end{solution}
 \end{extra}
 
 The development of the departure times $\{D_k\}$ is entirely analogous to that of the arrival times; define the \recall{departure rate} as
@@ -201,26 +201,26 @@ Define the random variables $\{\tilde X_k,k=1,\ldots\}$ as $\tilde X_k = S_{k-1}
   $\tilde X_k$ has negative expectation, i.e.,
   $\E{\tilde X_k} = \E{S_{k-1}-X_k} < 0$.  What is the conceptual
   meaning of this inequality?
-  \begin{solution}
+\begin{solution}
  That the average time customers spend in service is smaller
       than the average time between the arrival of two subsequent
       jobs. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
 Define $\tilde X_k = S_{k-1}-X_k$.
  Show that $\E{\tilde X_k} <0$ implies that $\lambda<\mu$. 
- \begin{hint}
+\begin{hint}
 Remember that $\{X_k\}$ and $\{S_k\}$ are sequences of i.i.d. random variables. What are the implications for the expectations?
- \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
   $0> \E{\tilde X_k} = \E {S_{k-1}-X_k} =  \E{ S_{k-1}}- \E {X_k} = \E S - \E X$, where we use the fact that the $\{S_k\}$ and $\{X_k\}$ are i.i.d. sequences. Hence, 
   \begin{equation*}
     \E X > \E S \iff \frac 1{\E S} > \frac1{\E X} \iff \mu > \lambda.
   \end{equation*}
 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -255,7 +255,7 @@ Here are some questions to help you interpret this formulation.
 \end{enumerate}
 \end{hint}
 
-  \begin{solution}
+\begin{solution}
     Realize that the machine works in cycles. A cycle starts with
     processing $k_A$ jobs of type A, then does a setup, and processes
     $k_B$ jobs of type B, and then a new cycle starts again.  The time
@@ -265,7 +265,7 @@ Here are some questions to help you interpret this formulation.
     that arrive during one cycle is $\lambda_A T$. We of course want
     that $\lambda_A T< k_A$, i.e., less jobs of type A arrive on
     average per cycle than what we can process.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

@@ -31,13 +31,13 @@ Henceforth we require that $\rho< 1$.
 
 
 \begin{exercise} Use the renewal reward theorem to explain that work arrives at rate $\lambda \E B$.
-  \begin{hint}
+\begin{hint}
 Observe that the total number of items is given by
 \begin{equation*}
 Y(t)=  \sum_{k=1}^{A(t)} B_k.
 \end{equation*}
 What should you take for the times $\{T_k\}$? 
-  \end{hint}
+\end{hint}
 \begin{solution}
 Take $T_k = A_k$. Then $X_k = Y(A_k) - Y(A_{k-1}) = B_k$.  Hence $X = \lim_{n\to\infty} n^{-1} \lim_{k=1}^n X_k = \E B$. Clearly, $Y = \lim_{t\to\infty} Y(t)/t$ is the arrival rate of work. , The relation $Y=\lambda  X$ implies that the arrival rate of work is $\lambda \E B$. 
 \end{solution}
@@ -62,37 +62,37 @@ Thus, to compute the average number of items in the system, we only need to know
 \begin{extra}\label{ex:5}
   Show that  when the batch size is 1, the expression $\E{L(M^X/M/1)}$, i.e., the system length for the $M^X/M/1$ queue, reduces to
   $\E{L(M/M/1)}$, i.e., the system length for the $M/M/1$ queue. 
-  \begin{hint}
+\begin{hint}
 What is the    distribution of the batch size $B$ for the $M/M/1$ queue?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     For the $M/M/1$ queue, each job contains just one item. Thus,
     $B\equiv 1$, hence $\P{B=1}=1$, $\E{B^2}=\E B =1$. Therefore,
     $\E{B_r(M/M/1)}= \rho$, and $\E{L(M/M/1)}=\rho/(1-\rho)$. 
-  \end{solution}
+\end{solution}
 Realize the importance of such checks.
 \end{extra}
 
 
 \begin{extra}
   What is $\E L$ in case $B_k=3$ always, and $\lambda=1$, $\mu=6$?  
-  \begin{hint}
+\begin{hint}
 Use~\cref{eq:43}. What are $\E{B^2}$, $\E B$ and $\V B$ for this case?
-  \end{hint}
+\end{hint}
 \begin{solution}
   As $B$ is constant and equal to 3, $\E{B^2}=9$. Hence, $\V B=0$, which implies
  $C_s^2=0$.  Also, $\rho=\lambda\E B/\mu=1\cdot 3/6=1/2$. Hence,
   \begin{equation*}
     \E L = \frac 1 2 \frac{1/2}{1-1/2}\cdot 3 + \frac12\frac{1/2}{1-1/2}.
   \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
   If the batch size is $p$ geometrically distributed, what is $\E L$?
-  \begin{hint}
+\begin{hint}
 $f_k=q^{k-1}p$ with $q=1-p$. Use generating functions to compute $\E B$ and $\E{B^2}$.
-  \end{hint}
+\end{hint}
 \begin{solution}
   We need $\V B$ and $\E B$. Consider
   \begin{align*}
@@ -127,7 +127,7 @@ queue. The result is at least consistent with earlier work.
   Batches arrive at rate 1 per hour.
   The average processing time for an item is $25$ minutes.
   Compute by how much the number of items in de system would decreases if batch sizes were constant and equal to~$2$; hence the load is the same in both cases.
-  \begin{solution}
+\begin{solution}
     Start with the simple case, $B\equiv 2$. Then $\V{B}=0$ and
     $\E B = 2$. The load is $\rho=\lambda \E B \E S = 1\cdot 2 \cdot 25/60 = 5/6$.  Hence,
     \begin{equation*}
@@ -150,7 +150,7 @@ And thus,
 Observe how easy it is with these models to get insight into the order of magnitude of queue length reductions or waiting times that can be achieved with changing work habits, such as making batch sizes constant rather than allowing them to vary.
 Observe also that it is up to management to decide whether such reductions outweigh any efforts to reduce the variation in batch sizes.
 
-  \end{solution}
+\end{solution}
 
 \end{exercise}
 
@@ -167,9 +167,9 @@ Show that
   \begin{equation*}
   \E{W_{Q}} = \frac{\E{L_S}}{1-\rho}\E{S}.
   \end{equation*}
-  \begin{hint}
+\begin{hint}
     Use~\cref{eq:wqes}, $\E{L} = \E{L_{Q}}\E B + \E{L_S}$, where $\E{L_{Q}}$ is the number of batches in queue, and Little's law.
-  \end{hint}
+\end{hint}
 \begin{solution}
 \begin{equation*}
   \E{W_{Q}} 
@@ -280,21 +280,21 @@ Conclude that
 \begin{equation*}
   \E{L_S} = \sum_{i=0}^\infty i \P{L_S=i} = \frac{\rho}{\E B} \sum_{i=1}^\infty i G(i-1).
 \end{equation*}
-  \begin{solution}
+\begin{solution}
     By construction, $Y_i(t)/t \to \P{L_S=i}$.
     Let $X_k = Y_i(D_k) - Y_i(D_{k-1})$.
     Then, since the $\{S_{k, i}\}$ are i.i.d. with $\E{S_{k,i}} = \E S$, 
       and the $\{B_k\}$ are i.i.d.,  we obtain from the previous exercise that $X = \lim_{n\to\infty} n^{-1}\sum_{k=1}^n (S_{k,i} \1{B_{k} \geq i}) = \E{S \1{B\geq i}}$.
       Now $B$ and $S$ are independent by assumption, hence $X = \E{S} \E{\1{B\geq i}} = \E S \P{B\geq i}$.
       The result follows by using rate stability ($\delta = \lambda$) in the renewal reward theorem.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   Brush up the above expression for $\E{L_S}$  to arrive at~\cref{eq:32}.
-  \begin{solution}
+\begin{solution}
     See \cref{ex:ER}--\cref{q:batch}.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -308,10 +308,10 @@ so that
   \E{L_S} = \rho \frac{\E{B^2}}{2 \E B} + \frac{\rho}{2}.
 \end{equation*}
 
-  \begin{hint}
+\begin{hint}
     Use \cref{ex:6} and \cref{ex:66}.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 \begin{equation*}
   \begin{split}
  \sum_{i=1}^\infty i G(i-1) 
@@ -321,7 +321,7 @@ so that
 &= (\E{B^2} - \E B + 2\E B)/2.
   \end{split}
 \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -330,7 +330,7 @@ Finally,
 \begin{equation*}
 \rho  \frac{\E{B^2}}{2\E{B}} = \frac{1+C_s^2}{2} \rho \E B.
 \end{equation*}
-  \begin{solution}
+\begin{solution}
 We have
 \begin{align*}
   \frac{\E{B^2}}{\E{B}}
@@ -338,17 +338,17 @@ We have
 =    \frac{\E{B^2} - (\E B)^2 + (\E B)^2}{(\E B)^2} \E B  \\
 &= \frac{\V B + (\E B)^2}{(\E B)^2}\E B = (C_s^2+1)\E B.
 \end{align*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{exercise}
   Show that $\E{W_Q(M^X/M/1)} \geq \E{W_Q(M/M/1)}$ when the loads are the same.
   What do you conclude?
-  \begin{hint}
+\begin{hint}
 Use \cref{ex:5,ex:57}
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     \begin{equation*}
     \frac{\E{W_Q(M^X/M/1)}}{\E{W_Q(M/M/1)}} = \frac{\E{L_S(M^X/M/1)}}{\E{L_S(M/M/1)}} = \frac{\E{L_S(M^X/M/1)}}{\rho} = 
 \frac{\E{B^2}}{2\E B} + \frac 12.
@@ -388,7 +388,7 @@ for all $B$.
 
 In conclusion, if work arrives in batches, the average number of jobs
 in the system increases, hence the average waiting time increases.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

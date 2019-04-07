@@ -148,10 +148,10 @@ grows roughly linearly with slope $\lambda - \mu$.
 \begin{exercise}
   Consider a queueing system with $c$ servers with identical production rates $\mu$.
   What would be a reasonable stability criterion for this system?
-  \begin{hint}
+\begin{hint}
 What is the rate in, and what is the service capacity?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     The criterion is that $c$ must be such that $\lambda < c\mu$.
     (Thus, we interpret the number of servers as a \emph{control}, i.e., a `thing' we can change, while we assume that $\lambda$ and $\mu$ cannot be easily changed.)
     To see this, we can take two different points of view.
@@ -160,7 +160,7 @@ What is the rate in, and what is the service capacity?
     For the system with the fast server the load is defined as $\rho =\lambda/c\mu$, and for stability we require $\rho<1$.
     Another way to see it is to assume that the stream of jobs is split into $c$ smaller streams, each with arrival rate $\lambda/c$.
     In this case, applying the condition that $(\lambda/c )/\mu<1$ per server leads to the same condition that $\lambda/(c\mu) < 1$.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

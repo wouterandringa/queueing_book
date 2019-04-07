@@ -29,18 +29,18 @@ Familiarize yourself with this notation as it is used continuously in the rest o
 
 \begin{extra}
   What is the meaning of $M/M/1$?
-  \begin{solution}
+\begin{solution}
 $M/M/1$: The distribution of the inter-arrival times is
   memoryless, hence exponential, the service times are also
   memoryless, and there is 1 server. As $K$ is unspecified, the system can contain any number of jobs.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   By how many parameters is the $M/M/1$ queue characterized?
-  \begin{solution}
+\begin{solution}
     The inter-arrival times are exponentially distributed with rate $\lambda$; the service times are also exponential, but with parameter $\mu$. Thus, if we know $\lambda$ and $\mu$, we have fully characterized the parameters of both distributions. Since the number of servers is 1, only $\lambda$ and $\mu$ remain.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
@@ -52,123 +52,123 @@ $D/D/1$: A queueing process with deterministic inter-arrival times, deterministi
 
 \begin{extra}
 The  $M/M/c$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
-  \begin{solution}
+\begin{solution}
 $M/M/c$: A \recall{multi-server} queue with $c$ servers in which
   all servers have the same service capacity. Jobs arrive according to a
   Poisson process and have exponentially distributed processing times.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   What is the meaning of $M/M/c/K$?
-  \begin{solution}
+\begin{solution}
 $M/M/c/K$: Inter-arrival times and process times are exponential,
   and the \recall{system capacity} is $K$ jobs. Thus, the queue can
   contain at most $K-c$ jobs. 
 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{extra}
   What is the meaning of $M/M/c/c$?
-  \begin{solution}
+\begin{solution}
  $M/M/c/c$: In this system the number of servers is the same as
   the system capacity, thus the queue length is always zero. This
   queueing system is useful to determine the number of beds
   in a hospital; the beds act as servers.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
   What is the meaning of $M(n)/M(n)/1$?
-  \begin{solution}
+\begin{solution}
 $M(n)/M(n)/1$: The inter-arrival times are exponential, just as
   the service times, but the rates of the arrival and service processes
   may depend on the queue length $n$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{exercise}
   What is the meaning of $M^X/M/1$?
-  \begin{solution}
+\begin{solution}
  $M^X/M/1$: Customers arrive with exponentially distributed
   inter-arrival times. However, each customer brings in a number of
   jobs, known as a batch. The number of jobs in each batch is
   distributed as the random variable $X$. Thus, the arrival process of
   work is \recall{compound Poisson}.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}
   What is the meaning of $M/G/1$?
-  \begin{solution}
+\begin{solution}
 $M/G/1$: The inter-arrival times are exponentially distributed,
   the service times can have any general distribution (with
   finite mean), and there is 1 server.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{extra}
   What is the meaning of $M/G/\infty$?
-  \begin{solution}
+\begin{solution}
  $M/G/\infty$: Exponential inter-arrival times, service times can
   have any distribution, and there is an unlimited supply of
   servers. This is also known as an \recall{ample server}. Observe
   that in this queueing process, jobs actually never have to wait in
   queue; upon arrival there is always a free server available.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   What is the meaning of $G/G/1$?
-  \begin{solution}
+\begin{solution}
  $G/G/1$: Generally distributed inter-arrival and service times, 1 server.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
   What is the meaning of $M/D/1-LIFO$?
-  \begin{solution}
+\begin{solution}
  $M/D/1-LIFO$:  Now, job service times are deterministic, and the service sequence is last-in-first-out (LIFO).
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
   Is the $M/D/1$ queue a specific type of  $M/G/c$ queue? 
-  \begin{solution}
+\begin{solution}
     Yes, take $G=D$ and $c=1$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}
   What are some advantages and disadvantages of using the Shortest Processing Time First (SPTF) rule to serve jobs?
-  \begin{hint}
+\begin{hint}
 Look up the relevant
   definitions on Wikipedia or
   \citet{hall91:_queuein_method_servic_manuf}.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     Advantage: SPTF minimizes the number of jobs in queue.
     Thus, if you want to keep the shop floor free of jobs, then this is certainly a good rule.
     Disadvantage: large jobs get near to terrible waiting times, and the variance of the waiting time increases.
     Thus, the $C_s^2$ is larger than under FIFO.
     Also, SPTF does not take due-dates into account, thus giving a reliable due-date quotation to a customer is hard (near to impossible).
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{exercise}
   Suppose for the $G/G/1$ that a job sees $n$ jobs in the system upon arrival.
   Use the central limit theorem to estimate the distribution of the waiting time in queue for this job.
-  \begin{hint}
+\begin{hint}
     Let $W_{Q,n} = \sum_{k=1}^n S_k$.
     Since $\{S_k\}$ are assumed to be i.i.d.
     for the $G/G/1$ queue,  $W_{Q,n}$ has mean $\mu_n = n \E S$ and $\sigma_n^2 = n\V S$.
-  \end{hint}
-  \begin{solution} Under conditions you can find on the internet,
+\end{hint}
+\begin{solution} Under conditions you can find on the internet,
     \begin{equation*}
     \frac{W_{Q,n} - \mu_n}{\sigma_n} \to \mathcal{N}(0,1), \quad\text{as } n\to \infty,
     \end{equation*}

@@ -165,9 +165,9 @@ where the random variable $L(A-)$ denotes the number in the system seen by an ar
 
 \begin{extra}\label{ex:69}
 Show that $\P{B>n-m\given L(A-)=m}=\P{B>n-m}$.
-  \begin{hint}
+\begin{hint}
     Realize that $B$ and $L(A-)$ are assumed to be independent.
-  \end{hint}
+\end{hint}
 \begin{solution}
 \begin{equation*}
   \begin{split}
@@ -197,13 +197,13 @@ Provide an interpretation of~\cref{eq:42} in terms of a thinned Poisson arrival 
 
 \begin{extra}
   Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
-  \begin{solution}
+\begin{solution}
     The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
     In the $M/M/1$ queue, all batches have size $1$.
     Thus, $\P{B=1} = f(1)=1$ and $f(k)=0$ for $k\neq 1$.
     Thus, $G(0)=1$ and $G(1)=G(2)=\cdots = 0$.
     Thus, $\sum_{m=0}^n G(n-m) \pi(m) = G(0)\pi(n)=\pi(n)$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -227,9 +227,9 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 
 \begin{exercise}\label{ex:73}
  Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\cref{eq:43}.
-  \begin{solution}
+\begin{solution}
     We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}\label{ex:71}
@@ -280,7 +280,7 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \begin{exercise}
   Implement the recursion~\cref{eq:42} in a computer program for the case $f(1)=f(2)=f(3)=1/3$.
   Take $\lambda =1$ and $\mu = 3$.
-  \begin{solution}
+\begin{solution}
     The recursion for $n$ becomes
 \begin{equation*}
 \pi(n) = \frac \lambda \mu \sum_{i=0}^{n-1} \pi(n-1-i)G(i).

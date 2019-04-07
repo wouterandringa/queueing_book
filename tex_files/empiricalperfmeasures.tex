@@ -69,9 +69,9 @@ Again, this probability need not be the same as what customers see upon arrival.
 
 \begin{exercise}
 Design a queueing system to show that average number of jobs in the system as seen by the server can be very different from what the customers see.
-  \begin{hint}
+\begin{hint}
 Consider a queueing system with constant service and inter-arrival times.
-  \end{hint}
+\end{hint}
 \begin{solution}
   Take $X_k = 10$ and $S_k = 10-\epsilon$ for some tiny
   $\epsilon$. Then $L(t) = 1$ nearly all of the time. In fact,
@@ -85,10 +85,10 @@ Consider a queueing system with constant service and inter-arrival times.
   Consider a discrete-time model of a queueing system, as we developed in~\cref{sec:constr-discr-time}.
   The average number of customers that \emph{see upon arrival} more than~$m$ customers in the system cannot be defined as~\cref{eq:Qm}.
   Provide a better definition.
-  \begin{hint}
+\begin{hint}
     Why is \cref{eq:Qm} not the same as the number of batches that see a queue length less than~$m$?
-  \end{hint}
-  \begin{solution} Since we deal with a system in discrete time, $L_k$ is the queue length at the end of period~$k$.
+\end{hint}
+\begin{solution} Since we deal with a system in discrete time, $L_k$ is the queue length at the end of period~$k$.
     Thus, $\sum_{k=1}^n \1{L_k > m}$ counts the number of \emph{periods} that the queue is larger than $m$.
     This is of course not the same as the number of \emph{jobs} that see a queue larger than $m$; only when $a_k>0$ the customers in a batch would see a queue $L_k>m$.
     Thus,
@@ -113,7 +113,7 @@ In that case,
 \frac 1{A(n)}\sum_{k=1}^n a_k \1{L_k > m}.
 \end{equation*}
 Thus, when jobs arrive in batches, the definition of loss fraction requires some care; not all definitions need to measure the same.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

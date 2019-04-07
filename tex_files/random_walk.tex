@@ -255,7 +255,7 @@ stationary state will occupy us for the rest of the book.
   Suppose that $X_k\in\{1,3\}$ such that $\P{X_k=1}=\P{X_k=3}$ and
   $S_k\in\{1,2\}$ with $\P{S_k=1}=\P{S_k=2}$. Write a computer program
   to see how fast the distributions of $W_{Q,k}$ converge to a limiting distribution function.
-  \begin{solution}
+\begin{solution}
     Here is an example with Python.
     I compute the difference, i.e., the Kolmogorov-Smirnov statistic, between the distributions of $W_{Q,k-1}$ and $W_{Q,k}$,
 \begin{equation*}
@@ -268,12 +268,12 @@ my github repo.
 
 If you make a plot, you will see that after some 10 customers the distribution hardly changes any further. 
 
-  \end{solution}
+\end{solution}
   \end{exercise}
 
 \begin{exercise}
   Validate the results of~\cref{fig:convergence} with simulation.
-  \begin{solution}
+\begin{solution}
     The code is in the file \pyv{waiting_time_simulation.py} at my github repo.
 \end{solution}
 \end{exercise}

@@ -53,23 +53,23 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
 
 \begin{exercise}
   Show that the approximation~\cref{eq:7} reduces to the result known for the $M/M/1$ and $M/G/1$ queues.
-  \begin{hint}
+\begin{hint}
  Take $c=1$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     If $c=1$, as is the case for the $M/M/1$ queue, $\sqrt{2(c+1)} - 1=2-1=1$, so that~\cref{eq:7} reduces to $\E{W_Q} = \rho/(1-\rho) \E S$. Recall that $C_a^2=C_s^2=1$ for the $M/M/1$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
 \begin{extra}
   Is~\cref{eq:24} also valid for the $G/G/1$ queue? Why (not)?
-  \begin{solution}
+\begin{solution}
     Not necessarily.
     Since jobs do not arrive in general as a Poisson process, we cannot use the PASTA property to conclude that the time average queue length $\E{L_Q}$ is the same as the average queue length as observed by customers.
     (Can you provide an example that shows this difference?
     Hint, we did this earlier.)
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
@@ -92,20 +92,20 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
   Consider a single-server queue at which every minute a customer arrives, precisely at the first second.
   Each customer requires precisely $50$ seconds of service.
   What are $\rho$, $\E L$, $C_a^2$, and $C_S^2$?
-  \begin{solution}
+\begin{solution}
     $\rho = \lambda \E S = 1/60 \cdot 50 = 5/6$.
     Since job arrivals do not overlap any job service, the number of jobs in the system is 1 for $50$ seconds, then the server is idle for 10 seconds, and so on.
     Thus $\E L = 1\cdot5/6 = 5/6$.
     There is no variance in the inter-arrival times, and also not in the service times, thus $C_a^2 = C_s^2 = 0$.
     Also $\E{W_Q}=0$ since $\E{L_Q}=0$.
     Interestingly, we get the same from Kingman's formula.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}\label{ex:76}
   Consider the same single-server system as in~\cref{ex:76}, but now the customer service time is stochastic: with probability $1/2$ a customer requires $1$ minute and $20$ seconds of service, and with probability $1/2$ the customer requires only $20$ seconds of service.
   What are $\rho$, $C_a^2$, and $C_S^2$?
-  \begin{solution}
+\begin{solution}
  Again $\E S$ is 50 seconds, so that $\rho = 5/6$. Also
       $C_a^2=0$. For the $C_S^2$ we have to do some work. 
       \begin{equation*}
@@ -116,7 +116,7 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
           C_S^2 &=  \frac{\V S}{(\E S)^2} = \frac{900}{2500}=\frac{9}{25}.
         \end{split}
       \end{equation*}
-  \end{solution}
+\end{solution}
 It is crucial to remember from the above exercises that knowledge of the   utilization is not sufficient to characterize the average queue   length.
 \end{exercise}
 
@@ -124,7 +124,7 @@ It is crucial to remember from the above exercises that knowledge of the   utili
   For the $G/G/1$ queue, prove that the fraction of jobs that see $n$ jobs in the system is the same as the fraction of departures that leave $n$ jobs behind.
   What condition have you used to prove this?
 %\item Motivate that for  the $G/M/1$, $\delta(n) = p(n)$, i.e.,  departures see time averages. 
-  \begin{solution}
+\begin{solution}
     All follows straightaway from the definitions in the main text.
     In the $G/G/1$ queue jobs arrive and depart in single units.
     Hence, $|A(n,t)-D(n,t)|\leq 1$, cf.,~\cref{eq:19}.
@@ -137,7 +137,7 @@ It is crucial to remember from the above exercises that knowledge of the   utili
     the right-hand side to $\delta \delta(n)$. Use the fact that we
     always assume, implicitly, that the system is stable, so that
     $\lambda = \delta$. As a consequence $\delta(n) = \pi(n)$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -148,7 +148,7 @@ It is crucial to remember from the above exercises that knowledge of the   utili
   inter-arrival times uniformly distributed on $[3,9]$ minutes.
 
 As a first case,  assuming a single server, estimate $\E{W_Q}$ with the $G/G/1$ waiting time formula. As a second case, compare this result to an $M/G/1$ system with arrival rate 10 per hour and the same service time distribution. Explain why your previous answer is smaller. 
-  \begin{solution}
+\begin{solution}
 First the $G/G/1$ case. Observe that in this case, the inter-arrival time $X\sim U[3,9]$, that is, never smaller than 3 minutes, and never longer than 9 minutes. 
 
 \begin{pyconsole}
@@ -186,7 +186,7 @@ Wq
 The arrival process with uniform inter-arrival times is much more
 regular than a Poisson process. In the first case, bus arrivals are
 spaced in time at least with 3 minutes.
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 

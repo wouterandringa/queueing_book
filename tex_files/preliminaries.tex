@@ -2,19 +2,19 @@
 \label{sec:preliminaries}
 
 
-Here is an overview of concepts you are supposed to have seen in earlier courses.
-We will use these concepts over and over in the rest of the course.
-
-\subsection*{Theory and Exercises}
-
 \opt{solutionfiles}{
+\subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
 \Opensolutionfile{ans}
 }
 
 
+Here is an overview of concepts you are supposed to have seen in earlier courses.
+We will use these concepts over and over in the rest of the course.
+
+
 We use the notation:
-\begin{align*}
+  \begin{align*}
   [x]^+ &= \max\{x, 0\}, \\
   f(x-) &= \lim_{y\uparrow x} f(y),\\
   f(x+) &= \lim_{y\downarrow x} f(y),\\
@@ -33,7 +33,9 @@ We call this \recall{Small $o$ notation}.
 \begin{exercise}%\[faCalculator]
   Let $c$ be a constant (in $\R$) and the functions $f$ and $g$ both of $o(h)$. Then show that (1) $f(h) \to 0$ when $h\to 0$, (2) $c\cdot f = o(h)$, (3) $f+g=o(h)$, and (4) $f\cdot g=o(h)$. 
 \begin{solution}
-In fact (1) is trivial: $|f(h)| \leq |f(h)/h|$ when $|h| < 1$. But it is given that the right-hand side goes to zero.  For (2) and (3):
+     In fact (1) is trivial: $|f(h)| \leq |f(h)/h|$ when $|h| < 1$.
+     But it is given that the right-hand side goes to zero.
+     For (2) and (3):
 \begin{align*}
 \lim_{h\to 0} \frac{c f(h)}{h} &=  c \lim_{h\to 0} \frac{f(h)}{h} = 0, \; \text{as } f = o(h), \\
 \lim_{h\to 0} \frac{f(h) + g(h)} h &= \lim_{h\to 0} \frac{f(h)} h + \lim_{h\to 0} \frac{g(h)} h = 0.
@@ -145,10 +147,10 @@ Check Fubini's theorem for more on this if you are interested.)
 \begin{exercise}\label{ex:66}
  Use indicator functions to prove that
 $\sum_{i=0}^\infty i G(i) =  \E{X^2}/2 - \E{X}/2.$
-    \begin{hint}
+\begin{hint}
 $\sum_{i=0}^\infty i G(i) = \sum_{n=0}^\infty \P{X=n} \sum_{i=0}^\infty i \1{n\geq i+1}$,
 and reverse the summations.
-    \end{hint}
+\end{hint}
 \begin{solution}
 \begin{align*}
 \sum_{i=0}^\infty i G(i)

@@ -40,7 +40,7 @@ where we recognize the visit ratios.
 \begin{exercise}[\faFlask\/ Linear algebra refresher] Can you find an example to
   show for two matrices $A$ and $B$ that $AB\neq BA$, hence
   $x A \neq A x$.
-  \begin{hint}
+\begin{hint}
     Let 
     \begin{equation*}
 A =
@@ -54,9 +54,9 @@ A =
 1&1
     \end{pmatrix}.
     \end{equation*}
-  \end{hint}
+\end{hint}
 
-  \begin{solution}
+\begin{solution}
     \begin{equation*}
       AB =  
     \begin{pmatrix}
@@ -83,12 +83,12 @@ $, we get $Ax =
 \end{pmatrix}.  $
 Recall, horizontal vectors are not vertical vectors. The horizontal
 ones are to the left of a matrix, and the vertical ones to the right.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}[\faCalculator\/ Linear algebra refresher 2] Suppose the matrix $A$
   has an eigenvalue $0$. What is the geometric meaning of this fact? 
-  \begin{solution}
+\begin{solution}
     Many students think that a matrix is just a bunch of numbers ordered in a grid.
     This is, in my opinion, the most unproductive way to think about matrices.
     A much more useful way is to see a matrix as an \emph{operator}.
@@ -270,13 +270,13 @@ But then, by Gerschgorin's theorem, all eigenvalues of $P$ also lie strictly in 
   \begin{equation*}
     f_i(n_i) = \frac{1}{G(i)}\frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}}\left( \frac{\lambda_i}{\mu_i}\right)^{n_i}.
   \end{equation*}
-  \begin{solution}
+\begin{solution}
     Take $n_i<c_i$. Then
     $\Pi_{k=1}^{n_i} \min\{k, c_i\} = \Pi_{k=1}^{n_i} k = n_i!$, and
     $(c_i\rho_i)^{n_i} = (\lambda_i/\mu_i)^{n_i}.$ If $n_i\geq c_i$,
     then $\Pi_{k=1}^{n_i} \min\{k, c_i\} = c_i! c_i^{n_i-c_i}$, and
     $(c_i\rho_i)^{n_i} = (\lambda_i/\mu_i)^{n_i} c_i^{n_i}$.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

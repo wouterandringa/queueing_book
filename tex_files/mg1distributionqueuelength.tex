@@ -33,9 +33,9 @@ An important role below is played by  the number of  arrivals $Y_k$ during the s
 If $s$ is deterministic, the number of arrivals during a fixed
     period of time with length $s$ must be Poisson distributed.
 \end{hint}
-  \begin{solution}
+\begin{solution}
 See the hint.  The period during which the arrivals occur is $s$. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
@@ -66,12 +66,12 @@ where $F$ is the distribution of the service times.
 
 \begin{extra}
   If $S$ is deterministic and equal to $s$, show that~\cref{eq:10} reduces to~\cref{eq:4}.  
-  \begin{hint}
+\begin{hint}
  $S=s$ then
     $\P{S=s}=1$, i.e., all probability mass lies at $s$. Thus, all
     arrivals must occur during $[0,s]$.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     Let us first attack this problem from a general point of
     view. Suppose the service time $S$ can take values
     $s_1<s_2<\cdots <s_n$, and $\P{S=s_i}=\alpha_i$. Then of course we
@@ -138,7 +138,7 @@ Hence,
     \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x) = 
     g(s) = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
     \end{equation*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}\label{ex:74}
@@ -146,10 +146,10 @@ Hence,
   \begin{equation} \label{eq:41}
 f(j) = \P{Y_k = j} = \frac{\mu}{\lambda+\mu}\left(\frac{\lambda}{\lambda+\mu}\right)^j.
   \end{equation}
-  \begin{hint}
+\begin{hint}
 Use the ideas of Exercise~\ref{ex:15} to simplify the standard integral.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 Use conditional probability to see that 
 \begin{align*}
   \P{Y_n = j} 
@@ -180,7 +180,7 @@ $\mu/(\lambda+\mu)$.  The probability that $j$ arrivals occur before a
 service occurs, is the same as the probability that a geometrically
 distributed random variable with success probability
 $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
@@ -188,9 +188,9 @@ $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
   \begin{equation}
 G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1}.
   \end{equation}
-  \begin{hint}
+\begin{hint}
     Use \cref{ex:74}.
-  \end{hint}
+\end{hint}
 \begin{solution}
   Take $\alpha = \lambda/(\lambda+\mu)$ so that
   $f(j) = (1-\alpha) \alpha^j$.
@@ -201,14 +201,14 @@ G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1
 & = (1-\alpha) \sum_{k=0}^\infty \alpha^{k}\alpha^{j+1}= (1-\alpha)\alpha^{j+1} \sum_{k=0}^\infty \alpha^k \\
 &= (1-\alpha)\alpha^{j+1} \frac{1}{1-\alpha} = \alpha^{j+1}.
 \end{align*}
-    \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}\label{ex:30} Design a suitable numerical method to evaluate~\cref{eq:10} for more general distribution functions $F$.
 \begin{hint}
 Discretize time to  a grid of points, and   approximate the integral by a summation over the grid.
 \end{hint}
-  \begin{solution}
+\begin{solution}
     A simple numerical method is as follows.
     Make a grid of size $\d x$, for some small number $\d x$, e.g.
     $\d x=1/100$, and write $f_i = \P{S\in(i\d x, (i+1)\d x]} = F((i+1)\d x) - F(i\d x)$.
@@ -379,14 +379,14 @@ Before we deal with the up-crossing, it is important to do the next exercise.
   However, if $L(D_{k-1}) = 0$, the time between $D_{k-1}$ and $D_k$ is \emph{not} equal to $S_k$.
   Why not?
   Can you find an expression for the distribution of $D_k-D_{k-1}$ in case $L(D_{k-1})=0$?
-  \begin{hint}
+\begin{hint}
     You might find some inspiration in Exercise~\ref{ex:17}.
 
     Realize that if $L(D_{k-1})=0$, job $k-1$ leaves behind an empty system.
     Thus, before job $k$ can leave, it has to arrive.
     In other words, $D_{k-1}<A_k$.
     Since job $k$ arrives to an empty system, his service starts right away, to that the time between $A_k$ and $D_k$ is equal to the service time of job $k$.
-  \end{hint}
+\end{hint}
 \begin{solution}
   When $L(D_{k-1})>0$, job $k$ is already in the system when job $k-1$
   finishes its service and leaves. Thus, at the departure time
@@ -484,14 +484,14 @@ With the definition of the hint,
 \begin{exercise}
   Clearly, the $M/M/1$ queue is a special case of the $M/G/1$ queue.
   Check that the queue length distribution of the $M/M/1$ queue satisfies~\cref{eq:72}.
-  \begin{hint}
+\begin{hint}
     To simplify the computations, define shorthands such as $\alpha=\lambda/(\lambda+\mu)$, so that $1-\alpha = \mu/(\lambda+\mu)$, and $\alpha/(1-\alpha) = \lambda /\mu = \rho$.
     Then, with~\cref{eq:41}, $f(n) = \alpha^n(1-\alpha)$ and $G(n) = \alpha^{n+1}$.
     (These results do not 'come for free'.
     Of course, it's just algebra, but please try to derive this yourself.
     It's good to hone your computational skills.)
-  \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
 Use the shorthands of the hint. We work in steps. First we check whether $\pi(0)=1-\rho$ of the $M/M/1$ queue satisfies~\cref{eq:72}, then we check $\pi(1)$, and finally we check the general case with $n\geq 1$. 
 
 Take $n=0$, so that $f(0)=1-\alpha$.  Hence, the left-hand side becomes $f(0) \pi(1) = (1-\alpha)\pi(1)$. The right-hand side is

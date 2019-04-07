@@ -113,11 +113,11 @@ but this is the same as Eq.~\cref{eq:710}!
 \begin{exercise}
   Why do we consider $\E{L^{(n)}}/n \to \E{W_Q}$, and not
   $\E{L^{(n)}}/n \to \E W$? 
-  \begin{hint}
+\begin{hint}
 What is the expected service time of one
   unit of a job in the $M^X/M/1$ queue in the limiting case?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     The time it takes to serve one unit is $1/n$. Thus, the fraction
     of time an item spends in service in the batch queue becomes negligible compared
     to the time in queue. Another way to see this, is to use 
@@ -126,13 +126,13 @@ What is the expected service time of one
       \frac{\E{L^{(n)}_Q}}n + \frac{\E{L^{(n)}_s}}n.
     \end{equation*}
 Since $L^{(n)}_s \leq 1$, $\E{L^{(n)}}/n \approx \E{L^{(n)}_Q}/n$ for $n$ large.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
   
 \begin{exercise}[\faRocket]
 Can you model the $M^X/M/1$ as an $M/G/1$ queue, thereby deriving Eq.~(\ref{eq:43}) from Eq.~(\ref{eq:710})? 
-  \begin{solution}
+\begin{solution}
 I guess this is a bit hard, so I include a partial answer for the interested. 
 
 
@@ -151,7 +151,7 @@ random batch $B$ of i.i.d. exponentials so that $S = \sum_{i=1}^B S_i$. Now
 \end{equation*}
 where $f(k)=\P{B=k}$, and we obtain the $M^X/M/1$ from the $M/G/1$
 queue by taking this distribution function for the service times.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

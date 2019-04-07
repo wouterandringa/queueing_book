@@ -85,12 +85,12 @@ Show that the average effective processing time is given by~\cref{eq:88}.
 \begin{hint}
 If there is no failure, the service time is $S_0$. If there is a failure, the service of a job is $R + S_0$, since we add the outage time to the service time of the job. 
 \end{hint}
-  \begin{solution}
+\begin{solution}
     \begin{equation*}
       \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
     \end{equation*}
 since $p=1/B$. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -100,22 +100,22 @@ since $p=1/B$.
   \begin{equation*}
     \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
   \end{equation*}
-  \begin{solution}
+\begin{solution}
   \begin{align*}
     \E{S^2} 
 &= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
 &= (1-p) \E{S_0^2} + p \E{S_0^2}  + 2 p \E{S_0} \E R + p \E{R^2}. 
   \end{align*}
   Simplify and substitute $p=1/B$. 
-  \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{exercise}
 Derive $V(S)$ in~\cref{eq:89}.
-  \begin{hint}
+\begin{hint}
     First compute $\E{S^2}$. See~\cref{ex:78}.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     \begin{equation*}
       \begin{split}
 \V{S} 
@@ -125,7 +125,7 @@ Derive $V(S)$ in~\cref{eq:89}.
 &=  \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
       \end{split}
     \end{equation*}
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 

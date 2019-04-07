@@ -66,13 +66,13 @@ Thus, for the $M/M/1$ queue in particular,
 
 \begin{exercise}
   Check that~\cref{eq:13}  holds for the system of~\cref{ex:8}.
-  \begin{solution}
+\begin{solution}
 From the relevant previous exercises, $\lambda = \lim_t A(t)/t = 1/2$. $\lambda(0)=1$, $p(0)=1/2$, and $\pi(0)=1$. Hence,
 \begin{equation*}
   \lambda \pi(0) = \lambda(0) p(0) \implies  \frac 1 2 \times 1 = 1\times \frac 1 2.
 \end{equation*}
 For $n>0$ it's easy, everything is 0.
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 
@@ -105,12 +105,12 @@ Thus, if the system is rate-stable, statistics obtained  by arrivals is the same
 
 \begin{exercise}\label{ex:26}
   When $\lambda\neq \delta$, is $\pi(n)\geq \delta(n)$? 
-  \begin{hint}
+\begin{hint}
     Use that    $\lambda \geq \delta$ always holds. Thus, when $\lambda \neq \delta$, it must be that $\lambda > \delta$. What are the consequences of this inequality; how does the queue length behave as a function of time?
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
     The assumptions lead us to conclude that $\lambda > \delta$. As a consequence, the queue length must increase on the long run (jobs come in faster than they leave). Therefore, $A(n,t)/t \to 0$ for all $n$, and also $D(n,t)/t\to 0$. Consequenly, $\pi(n) = \delta(n) = 0$, which is the only sensible reconciliation with~\cref{eq:36}. 
-  \end{solution}
+\end{solution}
 \end{exercise}
 
 \begin{extra}
@@ -138,14 +138,14 @@ Check all definitions of $Y(n,t)/t$ and so on.
 
 \begin{extra}\label{ex:58}
   Use PASTA and the balance equations of the $M/M/1$ queue to derive that $(\lambda + \mu) \pi(n) = \lambda \pi(n-1) + \mu \pi(n+1)$.
-  \begin{hint}
+\begin{hint}
     Consider some state $n$ (not a level) and count all transitions that `go in and out of' this state.
     Specifically, $A(n,t) + D(n-1,t)$ counts all transitions out of state $n$: $A(n,t)$ counts the number of arrivals that see $n$ in the system upon arrival, hence immediately after such arrivals the system contains $n+1$ jobs; likewise, $D(n-1,t)$ counts all jobs that leave $n-1$ jobs behind, hence immediately before such jobs depart the system contains $n$ jobs.
     In a similar way, $A(n-1,t) + D(n,t)$ counts all transitions into state $n$ (Recall once again, $D(n,t)$ counts the jobs that leave $n$ behind.
     Hence, when such departures occur, state $n$ is entered).
     Now use that `what goes in must go out'.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
 By  the hint,  the difference between the `out
     transitions' and the `in transitions' is at most 1 for all $t$. Thus,  we can write
     \begin{align*}
@@ -161,7 +161,7 @@ Using the ideas of~\cref{sec:level-cross-balance} this becomes for $t\to\infty$,
 Since we are concerned here with the $M/M/1$ queue we have that
 $ \lambda(n) = \lambda$ and $\mu(n) = \mu$, and using PASTA we have
 that $p(n) = \pi(n)$. We are done.
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -232,7 +232,7 @@ Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover,  job
 We will focus on departure moments and use~\cref{eq:39}, in particular that departures `see' what arrivals `see', i.e., $\delta(n)= \pi(n)$, and PASTA.
 \begin{solution}
          Because jobs do not leave at rate $\mu$. 
-    \end{solution}
+\end{solution}
 \end{extra}
 
 
@@ -240,23 +240,23 @@ We will focus on departure moments and use~\cref{eq:39}, in particular that depa
 
 \begin{extra}\label{ex:28}
 Show that the probability that a job leaves behind a busy station is $\rho$, hence $1-\rho$ is the probability to leave an idle server behind.
-    \begin{solution}
+\begin{solution}
 Observe that $\rho$ is the fraction of time the server is busy. Then, from  PASTA, the fraction of jobs that see a busy server is also $\rho$.  This fraction of jobs is $\sum_{n=1}^\infty \pi(n)$. Finally, $\delta(n) = \pi(n)$ , a fraction $\rho$ of the departures leaves a busy system behind.
 
-    \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{extra}\label{ex:17}
  If job $n-1$, say, leaves behind an empty system, show that the expected time until the next departure is $\E{D_n - D_{n-1}} = 1/\lambda + 1/\mu$. 
-    \begin{hint}
+\begin{hint}
       After job $n-1$ left, job $n$ has to arrive, so we need to wait first for this inter-arrival time. Then job $n$ must be served. This adds up to $1/\lambda + 1/\mu$. 
-    \end{hint}
-    \begin{solution}
+\end{hint}
+\begin{solution}
 With the hint, we first have to wait for an inter-arrival
     time $X_n$. Then, since job $n$'s service starts right away, it
     leaves when $D_n = D_{n-1}+X_n + S_n$. Now observe that, due to the memoryless property of the inter-arrival times, $\E{X_n} = \E{A_n - D_{n-1}} = 1/\lambda$. Thus, the expected duration is $\E{X_n + S_n}=1/\lambda + 1/\mu$. 
-    \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}
@@ -265,7 +265,7 @@ Show that the density of $D_{n} - D_{n-1}$ is
     f_{X+S}(t) = \frac{\lambda \mu}{\lambda - \mu} (e^{-\mu t} - e^{-\lambda t})
     \end{equation*}
 if the server is idle after $D_{n-1}$.
-    \begin{solution}
+\begin{solution}
       By the previous point, the density of $D_{n} - D_{n-1}$ is the
       same as the density of $X_n + S_n$.  Since $\{X_n\}$ and $\{S_n\}$ are both i.i.d. sequences, the problem becomes to find the density of $X+S$.  We will use two ways of computing this. 
 
@@ -298,28 +298,28 @@ Conditioning is much faster, but requires the concept of conditional density. Yo
      &= \lambda \mu e^{-\mu t} \int_0^t  e^{x(\mu-\lambda)} \d{x} \\
 &= \frac{\lambda \mu}{\lambda - \mu}\left(e^{-\mu t} - e^{-\lambda t}\right).
     \end{align*}
-    \end{solution}
+\end{solution}
 \end{extra}
 
 
 \begin{extra}
 Show  that when the queue is not empty at a departure time, the density of the next inter-departure time is $f_D(t) = \mu e^{-\mu t}$.
-    \begin{solution}
+\begin{solution}
 After the departure, the server can start right away with the job at the head of the queue. The inter-departure time of this job is $\Exp(\mu)$.
-    \end{solution}
+\end{solution}
 \end{extra}
 
 \begin{extra}\label{ex:63}
 Use conditioning on the server being idle or busy at a departure to show that  the density of  the inter-departure time is $\lambda e^{-\lambda t}$.
-  \begin{hint}
+\begin{hint}
 Conditioning leads to 
 \begin{equation*}
     f_D(t) = f_{X+S}(t) \P{\text{server is idle}} + f_S(t) \P{\text{ server is busy }}= (1-\rho) f_{X+S}(t) +
     \rho \mu e^{-\mu t}.
 \end{equation*}
     Now use the above exercises to simplify.
-  \end{hint}
-  \begin{solution}
+\end{hint}
+\begin{solution}
        \begin{align*}
     f_D(t) 
 &= (1-\rho) f_{X+S}(t) +    \rho \mu e^{-\mu t} \\
@@ -330,7 +330,7 @@ Conditioning leads to
 &= - \lambda\left(e^{-\mu t}-e^{-\lambda t}\right)  +    \lambda e^{-\mu t} \\
 &=  \lambda e^{-\lambda t}.
       \end{align*}
-  \end{solution}
+\end{solution}
 \end{extra}
 
 
