@@ -824,6 +824,20 @@ The initial formulation of the question was like this: Take  $d_k = \min\{Q_{k-1
 \end{solution}
 \end{exercise}
 
+\begin{exercise}[201902]
+  Consider a random walk $Z_k = Z_{k-1} + X_k$ with $\{X_k\}$ a process of i.i.d. random variables such that $\P{X_k=1} = 1-\P{X_k=-1} = p \in (0, 1)$. Then, for large $n$ and $\alpha = 2$
+  \begin{equation*}
+    \P{Z_n >  np + \alpha \sqrt{np(1-p)}} \approx 2.5\%, 
+  \end{equation*}
+
+
+\begin{solution}
+answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases  when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
+
+The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p = 1- \P{X_k=0}$. 
+\end{solution}
+\end{exercise}
+
 \begin{exercise}[201903]
 Let $\{X_k, k=1, 2, \ldots\}$ be a set of i.i.d. exponentially distributed random variables with mean $1/\lambda$, and $\{N(t), t\geq 0\}$ with  $N(0)=0$ the associated counting process. Then $\P{X_1\leq s, X_2 \leq t} = \P{N(s+t) = 2}$. 
 \begin{solution}
@@ -932,19 +946,6 @@ When  $X\sim\Exp(\lambda)$ its SCV is larger than 1..
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201902]
-  Consider a random walk $Z_k = Z_{k-1} + X_k$ with $\{X_k\}$ a process of i.i.d. random variables such that $\P{X_k=1} = 1-\P{X_k=-1} = p \in (0, 1)$. Then, for large $n$ and $\alpha = 2$
-  \begin{equation*}
-    \P{Z_n >  np + \alpha \sqrt{np(1-p)}} \approx 2.5\%, 
-  \end{equation*}
-
-
-\begin{solution}
-answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases  when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
-
-The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p = 1- \P{X_k=0}$. 
-\end{solution}
-\end{exercise}
 
 \subsection{Open Questions}
 

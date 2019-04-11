@@ -1052,6 +1052,119 @@ answer = A, see Page 149
 \end{solution}
 \end{exercise}
 
+\begin{exercise}[201904, 1]
+  A machine serves two types of jobs.
+  The processing time of jobs of type $i$, $i=1,2$, is exponentially distributed with parameter $\mu_i$.
+  The type $T$ of a job is random and independent of anything else, and such that $\P{T=1} = p = 1-q = 1-\P{T=2}$. Then,
+\begin{align*}
+  \E{S} &= p/\mu_1 + q/\mu_2.
+  \end{align*}
+\begin{solution}
+Answer = A, \ref{ex:49}.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+The  $M/G/c/K$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
+\begin{solution} Answer = B \ref{ex:29}
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201904, 1] Consider the server of the $G/G/1$ queue as a system by itself.
+  The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
+  It follows from Little's law that the fraction of time the server is busy is $\lambda \E S$.
+\begin{solution} Answer = A, \ref{ex:37}.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1] If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum_{n=0}^\infty A(n,t)$?
+\begin{solution} Answer = A, \ref{ex:36}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+If $\lambda>\delta$ it can happen that  $ \lim_{t\to\infty} A(n,t)/t > 0$ for some (finite) $n$. 
+\begin{solution} Answer = B, \ref{ex:38}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+Let
+\begin{align*}
+    D(n,t) &= \sum_{k=1}^\infty \1{D_k \leq t} \1{L(D_k) = n}, &    Y(n,t) &= \int_0^t  \1{L(s) = n} \d s
+  \end{align*}
+  denote the number of departures up to time $t$ that leave $n$ customers behind and the total time the system contains $n$ jobs during $[0,t]$.
+  Then, the departure rate from state $n+1$ is
+\begin{equation*}
+  \mu(n+1) = \lim_{t\to\infty} \frac{D(n+1,t)}{Y(n+1,t)},
+\end{equation*}
+\begin{solution} Answer = B, \ref{ex:39}
+\end{solution}
+\end{exercise}
+
+
+
+\begin{exercise}[201904, 1] As $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
+\begin{solution} Answer = A, \ref{ex:40}
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201904, 1] To model the  $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lambda(n) = \lambda$ for all $n$.
+\begin{solution} Answer = B, \ref{ex:41}
+\end{solution}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}[201904, 1]
+  Take
+  \begin{align*}
+    \pi(n) &= \lim_{t\to\infty} \frac{A(n,t)}{A(t)}, & 
+    \delta(n) &= \lim_{t\to\infty} \frac{D(n,t)}{D(t)}. 
+  \end{align*}
+  Then, $\lambda\neq \delta \implies \pi(n) > \delta(n)$.
+\begin{solution} Answer = B, \ref{ex:26}.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Consider a $M/D/1$ queue with $\lambda=1$ and $\E S = 0.10$. Then the SCV of its departure process is smaller than $0.5$.
+\begin{solution}
+    Answer = B.
+    \begin{pyconsole}
+labda = 1
+ES = 0.10
+Ca = 1
+Cs = 0
+rho = labda*ES
+rho
+Cd = (1-rho*rho)*Ca + rho*rho*Cs
+Cd
+      
+    \end{pyconsole}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1] For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=4$ per hour and are served at rate $\mu=5$ per hour.
+  At the moment you join the system, the number of customers in the system is 10.
+  Your expected time in the system is, by Little's law, $\E W = \E L /\lambda = 2.5$ hour.
+\begin{solution} Answer = B, \ref{ex:44}.
+    Depending on the service distribuion, the expected time can be $10/2$, but it can also be something else.
+    This depends on the distribution of the remaining service time of the job in service at the moment you arrive.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  When $\V{S} = 0$, it follows for the remaining service time $S_r$ that
+\begin{equation*}
+\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S}2
+\end{equation*}
+\begin{solution} Answer = A, \ref{ex:45}
+\end{solution}
+\end{exercise}
+
 
 
 \subsection{Open Questions}
@@ -1490,7 +1603,205 @@ In the $G/G/n/K$ queue, it is not true that $\rho=\lambda/\mu$. This would imply
 \end{solution}
 \end{exercise}
 
+\subsection{Parallel servers}
+\label{sec:parallel-servers}
 
+In the $M/M/c$ queue it is assumed that all servers work at the same rate.
+However, in practice, this is not always the case.
+In this section, from Questions~\ref{ex1}--\ref{ex:2}, we make a model by which we can analyze the effects of servers with different speeds.
+
+  A station has two parallel servers, the service times of the first are $\Exp(\mu_1)$ and of the second $\Exp(\mu_2)$.
+  Jobs arrive as a Poisson process with rate $\lambda$.
+  %The queue can contain at most one job.
+  The queue cannot contain a job, hence any job arriving when both servers are busy is rejected.
+  When the system is empty, jobs are routed to the first server.
+  %When there is a job in the queue, the job is served by the server that becomes free the earliest.
+
+\begin{exercise}[201904, 1] \label{ex1}
+  Explain that the figure below contains all the relevant states.
+
+% Consider the queueing system below. Jobs arrive as a Poisson process with rate $\lambda$. Service times are exponential service with  mean $(2\mu)^{-1}$ when there are two jobs in the system, and mean $\mu^{-1}$ when there are 3 jobs. What is $p(2)$ if $\lambda=\mu=1$?
+
+\begin{center}
+\begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+\node[state] (0) {$0,0$}; 
+\node[state] (1) [above right  of=0] {$1,0$}; 
+\node[state] (2) [below right of=0] {$0, 1$}; 
+\node[state] (3) [right of=0] {$1, 1$}; 
+
+% \path 
+% (0) edge [bend left] node[above] {$\lambda$} (1)
+% (1) edge [bend left] node[above] {$\lambda$} (2)
+% (2) edge [bend left] node[above] {$\lambda$} (3)
+% (3) edge [bend left] node[below] {$\mu$} (1)
+% (2) edge [bend left] node[below] {$2\mu$} (0);
+
+%\draw[-, dotted, gray] (4,-2.)--(4,2.0) node[above, black] {level $1$};
+\end{tikzpicture}
+\end{center}
+\begin{solution}
+  $(0,0)$ both servers are empty, $(1,0)$ first server is busy, $(0,1)$ second server is busy, $(1,1)$ both servers are busy.
+  As no jobs can be in queue, these are all possible states.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Add arrows to the figure of the state space to indicate the possible transitions and add the rates.
+
+\begin{solution}
+\begin{center}
+\begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+\node[state] (0) {$0,0$}; 
+\node[state] (1) [above right  of=0] {$1,0$}; 
+\node[state] (2) [below right of=0] {$0, 1$}; 
+\node[state] (3) [right of=0] {$1, 1$}; 
+
+\path 
+(0) edge [bend left] node[above] {$\lambda$} (1)
+(1) edge [bend left] node[above] {$\mu_1$} (0)
+(1) edge [bend left] node[above] {$\lambda$} (3)
+(2) edge [bend left] node[above] {$\lambda$} (3)
+(3) edge [bend left] node[above] {$\mu_1$} (2)
+(3) edge [bend left] node[below] {$\mu_2$} (1)
+(2) edge [bend left] node[below] {$\mu_2$} (0);
+
+%\draw[-, dotted, gray] (4,-2.)--(4,2.0) node[above, black] {level $1$};
+\end{tikzpicture}
+\end{center}
+There cannot be an arrow from $(1,1)$ to $(0,0)$, nor from $(0,0)$ to $(0,1)$ (Besides that this is not in line with the problem specification, why would you join the slow server if the fast is free?)
+    
+\end{solution}
+\end{exercise}
+
+%To simplify the computations, assume henceforth that $\mu_1=2\mu_2$.
+
+\begin{exercise}[201904, 2]
+  Find an expression for the long-run fraction of time the system is empty. (You might want to use balance equations here.)
+\begin{solution}
+    For ease, call $p(0,0)=a$, $p(1,0)=b$, $p(1,1)=c$, $p(0,1)=d$.
+    Balance equations:
+    \begin{align*}
+      \lambda a &= \mu_1b + \mu_2 d\\
+      (\lambda +\mu_1) b &=  \lambda a + \mu_2 c\\
+      (\mu_1 +\mu_2) c &=  \lambda b + \lambda d\\
+      (\lambda  +\mu_2) d &=  \mu_1 c.
+    \end{align*}
+    Thus, from (4) we have $d$ as function of $c$. With (3) we get $c$ as function of $b$. With (2) we get $b$ as function of $a$. Then normalize to get $a$.
+
+    This is NOT a Jackson network\ldots
+\end{solution}
+\end{exercise}
+
+\newpage
+
+\begin{exercise}[201904, 1]
+  Express the long-run fraction of lost jobs in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. Explain your reasoning.
+\begin{solution}
+  Jobs arrive at rate $\lambda$.
+  By PASTA $\lambda p(1, 1)$ is the rate at which jobs are lost.
+  Hence, the loss fraction is $p(1, 1)$.
+  Note, that $\lambda p(1,1) \neq p(1,1)$, but somehow, many students give the answer $\lambda p(1,1)$.
+  Even by checking the units (number per unit time versus just number) it is apparent that $\lambda p(1,1)$ must be wrong.
+  You need to mention that you used PASTA.
+  Its not evident that it is $p(1, 1)$.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201904, 1]
+  By making the simplifying assumption that $\mu_1 = \mu_2$ the above system reduces to a simpler queueing system for which we have closed-form solutions for the state probabilities.
+What is this simpler queueing system?
+\begin{solution}
+  If $\mu_2=\mu_1$ and the queue can contain no job, then the above system reduces to the $M/M/2/2$ queue. It is not the $M/M/1$ or $M/M/2$ or $M/M/1/2$ queue. 
+\end{solution}
+\end{exercise}
+
+
+Suppose we can extend the system such that one job can be queued.
+
+\begin{exercise}[201904, 1] Make a sketch of the state space and include the transitions and rates. 
+\begin{solution}
+  Add a state $(1)$ to the right of $(1,1)$. There is an arrow $\lambda$ from $(1,1)$ to $(1)$, and an arrow $\mu_1 + \mu_2$ in the other direction.
+
+  Some students made two queues, one for each server. But why would you wait for a server when another server is free? 
+
+  Also, this is not an $M/M/2/3$ queue, because the servers are not identical.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Show how you can use level-crossing arguments to express the probability to find a job in queue in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. 
+\begin{solution}
+$p(1) = p(1,1) \lambda /( \mu_1+\mu_2)$. 
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201904, 2]
+  Suppose now that the queue is infinite so that jobs are never lost.
+  Approximate the queueing system by a suitable $G/G/c$ queue and use Sakasegawa's formula to estimate $\E{W_Q}$.
+  Take $\mu_1=6$, $\mu_2=3$, $\lambda=8$.
+\begin{solution}
+  $C_a^2=1$. $c=2$. However, $C_s^2\neq 1$ (you should realize this as soon as you read the problem.). As an approximation
+  \begin{align*}
+  \E S &= \frac 1 3 \frac 1 3 + \frac 2 3 \frac 1 6, \\
+  \E{S^2} &= \frac 1 3 \frac 1 3^2 + \frac 2 3 \frac 1 6^2.
+  \end{align*}
+  This gives $\V S$, and then $C_s^2$.
+
+  The real problem is more interesting than this.
+  The fraction of orders served by the fast server should depend on $\lambda$.
+  Think about this.
+
+  Some students think that $\E S = 1/(3+6)$. 
+\end{solution}
+\end{exercise}
+
+
+
+\begin{exercise}[201904, 1]
+  For the $M^X/M/1$ queue  we derived the expression that $p(n)$, i.e., the fraction of time the system contains $n$ jobs, must satisfy
+  \begin{equation}
+  \lambda \sum_{m=0}^n G(n-m) p(m) = \mu p(n+1),  
+  \end{equation}
+  where $G(k) = \P{B>k}$.
+  Explain this formula, by a drawing or in words (or both).
+\begin{solution}
+    See the section in the book.
+
+    Some students say that $A(m,n,t) \approx D(n,t)$. Others say that $\lambda G(n-m)p(m)$ is the rate at which state $n+1$ is entered from state $m$. Why is this wrong?  Yet others just say that upcrossings are downcrossings, and leave it at that. 
+\end{solution}
+
+\end{exercise}
+
+
+
+\begin{exercise}[201904, 1]
+For the $M^X/M/1$ queue we have that
+\begin{equation}
+  \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2  + \lambda \E B \E L +\lambda \frac{\E B}2.
+\end{equation}
+Show that this reduces to $\E L = \rho/(1-\rho)$ for the $M/M/1$ queue.
+\begin{solution}
+  $B=1$, hence  $\E B = \E{B^2} = 1$. Substitute and simplify.
+
+  Some students show that $\E L = \sum_n np(n)=\rho/(1-\rho)$, but that is not the answer to the question.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Explain (briefly) why checks such as the above are important.
+\begin{solution}
+    Formulas of general model should reduce to formulas for special cases of the general model. If not, the formula for the general model is wrong.
+
+    Some students say that such checks prove that the general formula is correct.
+    In other words, they reverse the logic.
+    Others say that it is important to `connect the systems'.
+    This is of course not the answer to the question.
+\end{solution}
+\end{exercise}
 
 
 

@@ -66,6 +66,35 @@ answer = A, see Page 201
 \end{solution}
 \end{exercise}
 
+\begin{exercise}[201904, 1] For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
+\begin{solution} Answer = B.
+    The claim applies to closed queueing networks.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  We have a two-station single-server open network.
+  Jobs enter the network at the first station with rate $\gamma$.
+  A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2.
+  At station 2, a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1.
+  Then,
+  \begin{equation*}
+    P = 
+    \begin{pmatrix}
+      \alpha & 1- \alpha \\
+      1- \beta_1-\beta_2 & \beta_2
+    \end{pmatrix}.
+  \end{equation*}
+\begin{solution}  Answer = B, \ref{ex:47}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Jobs arrive at rate $\lambda$ and are assembled into batches of size $B$.
+  The average time a job waits until the batch is complete is $\E{W} = \frac{B-1}{2\lambda}$.
+\begin{solution}Answer = A, \ref{ex:48}
+\end{solution}
+\end{exercise}
 
 \subsection{Open Questions}
 
@@ -687,6 +716,85 @@ If two jobs are allowed in the network, what is the expected number of jobs at t
 % In hindsight, it would have more interesting to ask for the expected number of jobs at station 1, i.e., $\E{L_1(2)}$. 
 \end{solution}
 \end{exercise}
+
+
+The following code implements the mean value analysis algorithm for a closed queueing network.
+
+\begin{pyverbatim}[stdout][numbers=left]
+num_stations = 3
+V = [1, 2 / 3, 1 / 3]
+ES = [1, 2, 3]
+EL = [0] * num_stations
+EW = [0] * num_stations
+
+
+for n in range(1, 4):
+    for j in range(num_stations):
+        EW[j] = EL[j] * ES[j] + ES[j]
+    EW_tot = 0
+    for j in range(num_stations):
+        EW_tot += EW[j]
+    TH = n / EW_tot
+    for j in range(num_stations):
+        EL[j] =  EW[j] *  V[j] * TH
+    print(EL)
+
+  \end{pyverbatim}  
+
+\begin{exercise}[201904, 1]
+  By which line in the code do we control the number of jobs that are present in the network?
+\begin{solution}
+    Line 8
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  One line in the code above is wrong.
+  Repair the incorrect line (you can write the correct expression in mathematical notation; it is not necessary to provide the python code.)
+\begin{solution}
+Line 13 should read like this: \pyv{EW_tot += V[j] * EW[j]}.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201904, 1]
+  Assume that the algorithm is correct.
+  Suppose that we would merge lines 8--16 into the following:
+\begin{pyverbatim}[stdout][numbers=left]
+for n in range(1, 4):
+    EW_tot = 0
+    for j in range(num_stations):
+        EW[j] = EL[j] * ES[j] + ES[j]
+        EW_tot += EW[j]
+        TH = n / EW_tot
+        EL[j] =  EW[j] *  V[j] * TH
+      \end{pyverbatim}
+      Explain why is this wrong.
+\begin{solution}
+Since \pyv{EW_tot} is updated for every $j$, the throughput depends on $j$. This is of course wrong. We should first compute  $\E{W_j}$ for all stations, then compute the total time in the system, and then the throughput. 
+\end{solution}
+\end{exercise}  
+
+In the tutorial we developed a number of important simulation concepts.
+
+\begin{exercise}[201904, 1]
+Why is  an event stack useful in discrete-event simulation? 
+\begin{solution}
+  It is used to organize the events in the correct chronological order. 
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201904, 1]
+  Why do we use classes and objects in the simulations?
+\begin{solution}
+  With classes we can organize functions (behavior) and state in a neat way.
+  Then we make objects of classes to store the state for specific indiviuals, like jobs.
+  We assemble the data of a simulation in these objects, so that we can do statistical analysis at the end.
+
+  For a detailed discussion, see the web, but that is for the really interested student.
+\end{solution}
+\end{exercise}
+
 
 \Closesolutionfile{ans}
 \subsection*{Solutions}

@@ -22,6 +22,22 @@ answer = B, see Page 200. The second station has a utilization of $80/(2*60) = 8
 \end{exercise}
 
 
+\begin{exercise}[201904, 1]
+  A job's normal service time, without interruptions, is given by $S_0$.
+  The durations of interruptions are given by the i.i.d.
+  random variables $\{R_i\}$ and have common mean $\E R$ and variance $\V R$.
+  If $N$ interruptions occur, the effective service time will then be
+\begin{equation*}
+S= S_0 + \sum_{i=1}^N R_i.
+\end{equation*}
+Then all steps in the computation below are correct: 
+\begin{align*}
+  \E{\sum_{i=1}^N R_i} 
+&=  \E{ \sum_{n=0}^\infty \1{N=n}} \E{ \sum_{i=1}^n R_i } = \E N \E R
+\end{align*}
+\begin{solution} Answer = B, \ref{ex:16}
+\end{solution}
+\end{exercise}
 
 \subsection{Open Questions}
 
@@ -98,7 +114,7 @@ $\rho = \lambda \E{S}/c = 3 *0.5/3=0.5$.
   \E{W_Q} 
 &= \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S \\
 &= \frac{1+1}2 \frac{0.5^{\sqrt{7}}}{3*0.5} *0.5 \\
-&=\frac{0.5^{\sqrt{7}}}{3} = \py{0.5**(math.sqrt(7))/3}.
+&=\frac{0.5^{\sqrt{7}}}{3}. 
 \end{align*}
 \end{solution}
 \end{exercise}
