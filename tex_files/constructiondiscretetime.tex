@@ -226,7 +226,7 @@ shows that it is safe to disregard the holiday plans, so just assume a flat
 service capacity of 12 intakes a week.
 
 \cref{fig:intakes} shows a striking difference indeed. The queue
-does not explode anymore, and already taking $e=1$ has a large
+does not explode any more, and already taking $e=1$ has a large
 influence. 
 
 \begin{figure}[ht]
@@ -283,7 +283,7 @@ For this reason, most of the exercises below focus on obtaining recursions for m
   set of recursions to cover this case. What is the loss per period? What is the fraction of jobs lost?
 \begin{solution}
 
-    All jobs that arrive such that the queue become larger than $K$
+    All jobs that arrive such that the queue becomes larger than $K$
     must be dropped. 
 
 First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$. 
@@ -555,7 +555,7 @@ If there are less patients of some group, then the capacity can be planned/given
 
   Let $r_A$ be the reserved capacity for queue A, and likewise for
    $r_B$. We assume of course that $c_k\geq r_A + r_B$, for all $k$.
-\begin{solution} Lueue A can use all capacity, except what is
+\begin{solution} Queue A can use all capacity, except what is
      reserved for queue B:
 \begin{equation*}
   d_{k,A} = \min\{L_{A, k-1}, c_k - r_B\}.
@@ -723,7 +723,7 @@ It is then sensible to set
   Provide a set of recursions to simulate this system.
 \begin{solution}
 \begin{enumerate}
-\item Realize that the recursions of~\cref{eq:31} applied to the queueing situation at the first machine provide us with the total number of departures $d_k$ during period $k$.
+\item Realize that the recursions of~\cref{eq:31}, applied to the queueing situation at the first machine, provide us with the total number of departures $d_k$ during period $k$.
   However, it does not tell us about the type of these departures.
   Thus, to compute the queue in front of station A, we need to know the number of departures of type A, rather than the total number of departures of the first station.
 \item It is reasonable that the number of jobs of type $A$ in queue at
