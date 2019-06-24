@@ -19,7 +19,7 @@ Assume we are given the \recall{arrival process} $\{A(t); t\geq 0\}$, i.e., the 
 Thus, $\{A(t); t\geq 0\}$ is a \emph{counting process}.
 
 From this arrival process we can derive various other interesting concepts, such as the \recall{arrival times} of individual jobs.
-Specially, if we know that $A(s) = k-1$ and $A(t) = k$, then the arrival time $A_k$ of the $k$th job must lie somewhere in $(s,t]$.
+Especially, if we know that $A(s) = k-1$ and $A(t) = k$, then the arrival time $A_k$ of the $k$th job must lie somewhere in $(s,t]$.
 Thus, from $\{A(t)\}$, we can define
 \begin{equation}\label{eq:27}
   A_k = \min\{t: A(t) \geq k\},
@@ -379,7 +379,7 @@ D
       \end{equation*}
       The computation is a bit tricky since sometimes  arrivals  and  departures coincide. (Consider for instance $t=120$.)
 
-From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e.,  $\mu > \lambda$,  for otherwise the queue length keeps on increasing (on the long run).
+From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e.,  $\mu > \lambda$,  for otherwise the queue length keeps on increasing (in the long run).
 \end{solution}
 \end{extra}
 
@@ -575,7 +575,7 @@ L_s(t) &= \tilde A(t) - D(t) = L(t) - L_Q(t).
 
 
 \begin{extra}
-  Why don't we need separate notation for $D_s(t)$, the number of jobs that departed from the server?
+  Why don't we need a separate notation for $D_s(t)$, the number of jobs that departed from the server?
 \begin{solution}
  Because $D_s(t) = D(t)$. Once customers leave the server,
     their service is completed, and they leave the queueing system.
@@ -755,7 +755,7 @@ The recursions for the two-server system are this:
       $M_{k-1}$. If however, $C_k<M_{k-1}$, then job $k$ leaves
       earlier than the latest of the jobs in $\{1,2,\ldots, k-1\}$. As
       $C_k>D_{k-2}$, it must be that $C_k > M_{k-2}$, because
-      $D_{k-2}$ is latest departure of the jobs in
+      $D_{k-2}$ is the latest departure of the jobs in
       $\{1,2,\ldots, k-2\}$, and this is also equal to $M_{k-2}$. As a
       consequence, if $C_k < M_{k-1}$, job $k$ is also the first job
       that leaves after $D_{k-2}$ ( provided of course that
