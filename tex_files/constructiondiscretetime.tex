@@ -294,27 +294,24 @@ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue 
 \label{ex:19} Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO sequence.
   Find an expression for the shortest possible waiting time $W_{-,k}$ of a job that arrives at time $k$, and an expression for the largest possible waiting time $W_{+,k}$.
 \begin{hint}
-  Consider a numerical example. Suppose $L_{k-1}=20$. Suppose
-    that the capacity is $c_k=3$ for all $k$. Then a job that arrives
-    in the $k$th period, must wait at least $20/3$ (plus rounding)
-    periods before it can leave the system. Now generalize this
-    numerical example.
+  Consider a numerical example.
+  Suppose $L_{k-1}=20$.
+  Suppose that the capacity is $c_k=3$ for all $k$.
+  Then a job that arrives in the $k$th period, must wait at least $20/3$ (plus rounding) periods before it can leave the system.
+  Now generalize this numerical example.
 \end{hint}
 \begin{solution}
-      Let's tag the first customer that arrives in period $k$. This
-      tagged customer sees $L_{k-1}$ customers in the system, hence the
-      tagged customer's service can only start after all $L_{k-1}$
-      customers have been served (assuming FIFO scheduling of course).  Now, if $L_{k-1}-c_k \geq 0$, there are
-      still people in front of the tagged customer, either in queue or in service. In fact, as long
-      as $c_k+c_{k+1}+\cdots +c_m \leq L_{k-1}$, there are still customers in
-      front of the tagged customer. Therefore, when the tagged customer leaves the system, the inequality $c_k+c_{k+1}+\cdots +c_m > L_{k-1}$ must hold.
+  Let's tag the first customer that arrives in period $k$.
+  This tagged customer sees $L_{k-1}$ customers in the system, hence the tagged customer's service can only start after all $L_{k-1}$ customers have been served (assuming FIFO scheduling of course).
+  Now, if $L_{k-1}-c_k \geq 0$, there are still people in front of the tagged customer, either in queue or in service.
+  In fact, as long as $c_k+c_{k+1}+\cdots +c_m \leq L_{k-1}$, there are still customers in front of the tagged customer.
+  Therefore, when the tagged customer leaves the system, the inequality $c_k+c_{k+1}+\cdots +c_m > L_{k-1}$ must hold.
 
-      We can also tag the last customer that arrives in period
-      $k$. This customer will certainly have left if $m$ is such that
-      $c_k+\cdots+c_m \geq L_{k-1}+a_k$.
+  We can also tag the last customer that arrives in period $k$.
+  This customer will certainly have left if $m$ is such that $c_k+\cdots+c_m \geq L_{k-1}+a_k$.
 
-      In formulas the above comes down to the following.  A job that
-      arrives in period $k$ cannot be served before period
+  In formulas the above comes down to the following.
+  A job that arrives in period $k$ cannot be served before period
     \begin{equation*}
     W_{-,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i > L_{k-1}\right\},
     \end{equation*}
@@ -328,25 +325,24 @@ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue 
 \end{solution}
 \end{exercise}
 
-\begin{extra}[Yield loss]
-  A machine produces items, but a fraction $p$ of the items produced in a period turns out to be faulty, and has to be made anew.
-  Develop a set of recursions to model this case.
+\begin{extra}[Yield loss]\label{ex:88}
+  A machine produces items to serve customer demand.
+  A fraction $p$ of the items produced in a period turns out to be faulty, and has to be made anew.
+  Develop a set of recursions to model the queue of customers waiting to be served from the machine.
 \begin{solution}
-    The amount produced in period $k$ is $d_k$. Thus, $p d_k$ is the
-    amount lost, neglecting rounding errors for the moment. Thus,
-    $p d_k$ items have to be fed back to the system in the next period
-    to be remade. Therefore the total amount of arrivals in period
-    $k+1$ is $a_{k+1}'=a_{k+1}+pd_k$, i.e., the external arrivals plus
-    the extra items. Now use the standard recursions but with the
-    $\{a_{k}'\}$ rather than $\{a_k\}$.
+  The machine amount produced in period $k$ is $d_k$.
+  Thus, $p d_k$ is the amount lost, neglecting rounding errors for the moment.
+  Thus, $(1-p)d_k$ items can be used to serve customer demand.
+  Therefore
+  \begin{align*}
+    d_k &= \min\{L_{k-1}, c_k\}, \\
+    L_K &= L_{k-1}-d_k(1-p) + a_k'.
+  \end{align*}
 
-    Can you use these recursions to show that the long-run average
-    service capacity $n^{-1}\sum_{i=1}^n c_i$ must be larger than
-    $\lambda(1+p)$?
+  Can you use these recursions to show that the long-run average service capacity $n^{-1}\sum_{i=1}^n c_i$ must be larger than $\lambda(1+p)$?
 
-    If you like you can incorporate time-dependent failure rates
-    $\{p_k\}$ too. Whether this makes practical sense depends on the
-    context of course.
+  If you like you can incorporate time-dependent failure rates $\{p_k\}$ too.
+  Whether this makes practical sense depends on the context of course.
 \end{solution}
 \end{extra}
 

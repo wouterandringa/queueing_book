@@ -1304,7 +1304,12 @@ For a full point I also wanted to see the algebra that leads to the final answer
 \end{exercise}
 
 \begin{exercise}[201706]
-Consider a single-server queueing  in discrete time, $k=0,1,\ldots$. The machine can switch between a fast speed and a slow production speed. When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to the fast speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the slow speed $c_- < c_+$, otherwise the machine's speed remains the same. The arrival process is given by $\{a_k\}$. Assuming the arrivals $a_k$ in period $k$ cannot be served on day $k$, establish a set of recursions to enable a simulation of this system. Assume that $Q_0=0$.
+  Consider a single-server queueing in discrete time, $k=0,1,\ldots$.
+  The machine can switch between a high and a low production speed.
+  When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to the high speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the low speed $c_- < c_+$, otherwise the machine's speed remains the same.
+  The arrival process is given by $\{a_k\}$.
+  Assuming the arrivals $a_k$ in period $k$ cannot be served on day $k$, establish a set of recursions to enable a simulation of this system.
+  Assume that $Q_0=0$.
 \begin{solution}
     First we need to implement the switching policy. For this we need an extra
     variable to keep track of the state of the server. Let $I_k=c_+$ if the machine is working fast in period $k$ and $I_k=c_-$ if it is working slowly. Then $\{I_k\}$ must satisfy the relation
@@ -1318,7 +1323,7 @@ Consider a single-server queueing  in discrete time, $k=0,1,\ldots$. The machine
     \end{equation*}
 and assume that $I_0 =c_+$ at the start, i.e., the machine if off. Thus, we can write:
 \begin{equation*}
-  I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_-\cdot \1{Q_k \leq m}.
+  I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_- \1{Q_k \leq m}.
 \end{equation*}
 With $I_k$ it follows that $d_k =\min\{Q_{k-1}, I_k \}$, from which
 $Q_k$ follows, and so on.
