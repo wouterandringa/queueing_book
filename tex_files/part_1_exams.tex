@@ -318,7 +318,7 @@ such that
 \begin{exercise}[201802]
 If $N(t)$ is Poisson distributed with parameter $\lambda t$, i.e., $N(t) \sim P(\lambda t)$, the variance $\V{N(t)} = \lambda t$. 
 \begin{solution}
-answer = A, see Page 10
+answer = A
 \end{solution}
 \end{exercise}
 
@@ -327,7 +327,7 @@ answer = A, see Page 10
 \sum_{n=0}^\infty n \frac{\lambda^n}{n!} = \lambda e^{\lambda}.
 \end{equation*}
 \begin{solution}
-answer = A, see Page 13
+answer = A
 \end{solution}
 \end{exercise}
 
@@ -337,7 +337,7 @@ Let $N$ be a Poisson process with rate $\lambda$. Then,
 \{N(0,s]+N(s,t]=1\}\cap\{N(0,t]=1\} = \{N(0,s]=1\}.
   \end{equation*}
 \begin{solution}
-answer = B, see Page 14
+answer = B
 \end{solution}
 \end{exercise}
 
@@ -348,7 +348,7 @@ M_{N}(s) = \E{e^{s N}} =\exp(\lambda(s - 1)).
 \end{equation*}
 
 \begin{solution}
-answer = B, see Page 16
+answer = B
 \end{solution}
 \end{exercise}
 
@@ -376,7 +376,7 @@ answer = A, see Page 20
 \begin{exercise}[201802]
 When many unrelated jobs arrive at a queueing system, like patients at a hospital, or customers at a shop, it is reasonable to model the interarrival times as exponentially distributed with a mean that is constant during short periods, (e.g. 10 minutes or 30 minutes, depending on the relevant context). 
 \begin{solution}
-answer = A, see Page 23
+answer = A
 \end{solution}
 \end{exercise}
 
@@ -386,7 +386,7 @@ If $X$ is exponentially distributed with rate $\lambda$,
     \E X = \int_0^\infty \lambda e^{-\lambda t}\, \d t.
   \end{equation*}
 \begin{solution}
-answer = B, see Page 26
+answer = B
 \end{solution}
 \end{exercise}
 
@@ -394,21 +394,21 @@ answer = B, see Page 26
 Given a non-negative random variable $B$ taking values in $\N$ and with $F(i) = \P{B\leq i}$, 
 then, $\E{B} = \sum_{i=0}^\infty i F(i)$.
 \begin{solution}
-answer = B, see Page 27. 
+answer = B
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
 In the  $D/M/1$ jobs have deterministic service times.
 \begin{solution}
-answer = B, see Page 35
+answer = B
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
 In a discrete-time queueing system, when job arrivals in period $k$ cannot be served in period $k$, then $d_k = \min\{Q_{k-1}, c_k\}$, $Q_k = Q_{k-1} -d_k + a_k.$
 \begin{solution}
-answer = A, see Page 38
+answer = A
 \end{solution}
 \end{exercise}
 
@@ -418,7 +418,7 @@ For a continuous-time queueing system, if $S_2$ is the service time of job $2$ a
   \P{S_{2}=1, X_3=3} = \P{S_{2}=1}\P{X_3=3}.
 \end{equation*}
 \begin{solution}
-answer = A, see Page 59
+answer = A
 \end{solution}
 \end{exercise}
 
@@ -428,34 +428,15 @@ For a single-server queueing system that starts empty,  the number $L(t)$ of job
       L(t) = \sum_{k=1}^\infty \left[\1{A_k \leq t} -  \1{D_k \leq t}\right].
   \end{equation*}
 \begin{solution}
-answer = A, see Page 61
+answer = A
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201802]
-A random walk $\{Z\}$ satisfies $Z_k = Z_{k-1} + a_k$ where $\{a_k\}$ forms a set of i.i.d. random variables such that $\P{a_k=1}=\P{a_k=-1}=1/2$.  The figure below shows a possible sample path of $\{Z\}$.
-% \begin{figure}[ht]
-%\input{reflected_random_walk.tex}
-%\begin{center}
-%\centering
-% see progs/reflected_random_walk.py
-%\input{progs/reflected_bernoulli_walk.tex}
-% \caption{The upper panel shows a graph of the random walk $Z$. An
-%   upward pointing triangle corresponds to an arrival, a downward
-%   triangle to a potential service. The lower panel shows the queueing
-%   process $\{Q_k\}$ as a random walk with reflection.}
-% \label{fig:random_bernoulli}
-% \end{figure}
-%\end{center}
-\begin{solution}
-answer = B, see Page 66
-\end{solution}
-\end{exercise}
 
 \begin{exercise}[201802]
 For three numbers $a,b,c$, $\max\{a, \max\{b, c\}\} = \max\{a, b, c\}$. 
 \begin{solution}
-answer = A, see Page 69
+answer = A.
 \end{solution}
 \end{exercise}
 
@@ -466,14 +447,14 @@ If a r.v. $X\sim\exp(\lambda)$, i.e., exponentially distributed with mean $\lamb
 \end{equation*}
 
 \begin{solution}
-answer = A, see Page 30. 
+answer = A
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201803]
-Consider the $G/G/1$ queue. Under the `shortest processing time first' scheduling rule predictions of the finish times (i.e., quoting duedates) are more accurate than under the `first-in-first-out' rule.
+Consider the $G/G/1$ queue. Under the `shortest processing time first' scheduling rule predictions of the finish times (i.e., quoting due dates) are more accurate than under the `first-in-first-out' rule.
 \begin{solution}
-answer = B, see Page 38
+answer = B
 \end{solution}
 \end{exercise}
 
@@ -910,7 +891,7 @@ answer = A, see Page 58
 
 
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   One server serves two queues and has capacity $c$ per period available.
   %Each queue receives service capacity in period $k$ 
   We divide the capacity $c$ over the queues in proportion to the queue lengths $L^i_{k-1}$, $i=1,2$.
@@ -931,13 +912,13 @@ answer = A, see Page 58
 \end{exercise}
 
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
 When  $X\sim\Exp(\lambda)$ its SCV is larger than 1..
 \begin{solution} Answer = B, see \ref{ex:29}.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   For the $G/G/1$ queue the waiting time satisfies the recursion
   \begin{equation*}
   W_{Q,k} = \max\{W_{Q,k-1} + S_{k}-X_k, 0\}.
@@ -995,7 +976,7 @@ Some wrong answers:
 \end{exercise}
 
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 Consider a network of two stations in tandem. Jobs only arrive at station 1. Jobs arriving in period $k$ are only accepted  when the total number of jobs in the system is less than $K$ at the start of the period. Otherwise, all arriving jobs are rejected. Provide a set of recursions to simulate the queue length process at  both stations in discrete time. 
 
 \begin{solution}
@@ -1012,7 +993,7 @@ Some students just model one queue, or do not mention that the arrivals at the s
 \end{exercise}
 
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 We have a queueing system that operates under the following set of recursions:
 \begin{align*}
   c_n &= 3\1{Q_n \in [5, 10]} + \1{Q_n \not \in [5, 10]}, \\
@@ -1030,7 +1011,7 @@ The process is a random walk with drift. The study of its probabilistic properti
 \end{exercise}
 
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
   What is a disadvantage of using simulation to analyze queueing systems?
 \begin{solution}
     It can take a long simulation time to obtain relevant answers. It is hard to get structural insights into systems. When you make a bug, it may be hard to find it out.
@@ -1042,7 +1023,7 @@ Others say that with simulation its only possible to model systems that operate 
 \end{exercise}
 
 
-\begin{exercise}[201904, 2]
+\begin{exercise}[201904]
   A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
   Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
   Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
