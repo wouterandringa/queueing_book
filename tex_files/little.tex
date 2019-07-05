@@ -1012,6 +1012,87 @@ Lp
 \end{exercise}
 
 
+\begin{extra}[Continuation of~\cref{ex:95}]
+Suppose  cabs are not allowed to wait. What is the expected waiting time for a party of riders?
+
+\begin{solution}
+Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\E L$ of the $M/M/1$ queue. We can use Little's law to compute the waiting time.
+\end{solution}
+\end{extra}
+
+
+\begin{exercise}[[Continuation of~\cref{ex:95}] Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
+  Parties of riders have the same destination, so riders of different parties cannot be served by one taxi.
+  Provide a set of recursions to simulate this system.
+  (This is a real hard exercise, but doable.
+  I asked it at an exam to see who would deserve the highest grade.
+  I was lenient with the grading\ldots)
+
+\begin{hint}
+Realize that you have model the server process separately from the queueing process. 
+\end{hint}
+
+\begin{solution}
+  We concentrate on departure epochs of the taxis.
+  Thus the $k$th period is the time between the departure of taxi $k-1$ and taxi $k$.
+  During the $k$th epoch $a_k$ batches can arrive.
+
+  The system starts with $a_0$ batches in queue.
+
+  Suppose that the first batch contains 5 riders.
+  Then the first taxi takes 4 riders, and 1 rider of the batch remains.
+  This 1 rider will take the next taxi, and no riders of other groups can join because the riders of different parties have different destinations.
+  Once all riders of a party are served, the next party in line can move to the `server' and wait to be served.
+
+  The recursions are as follows; realize that the order in which you carry out these recursions is important. The meaning of each line is explained below the line. 
+\begin{align*}
+  d_s &=\min\{Q_s, 4\}, 
+      \intertext{the number of riders that can depart from the party of riders in service,} 
+  Q_s' &=Q_s - d_s, 
+  \intertext{the remaining of number riders of a party after being served by one taxi,} 
+  Q &=Q + a_k,  
+      \intertext{the number of parties in queue (not in the system) just after the arrival of the batches during the $k$th interdeparture time,} p
+  d_q &= \min\{Q, \1{Q_s' = 0}\}, 
+  \intertext{only move a party from the queue is `the server is free',}    
+  Q &= Q- d_q, 
+      \intertext{move the party from the queue to the server, if allowed,} 
+  Q_s &= Q_s'\1{Q_s'>0} + B_b\1{Q_s' = 0},  
+        \intertext{if the server is not free, the number of riders is equal to $Q_s'$, otherwise send the $b$th batch to the server,} 
+  b &= b+ \1{Q_s'=0}, 
+  \intertext{if the server is free, move the index of the batch in service to the next batch to be served once the server becomes free again.}
+\end{align*}
+
+
+
+In the code $A_k$ corresponds to a list of batches arriving on the $k$th day, $B_i$ to the size of the $i$th batch, and $a_k$ to the number of batches arriving on the $k$th period.
+I used the \pyv{pysnooper} module to debug the code. It is quite hard to get it right.
+
+\begin{pyverbatim}
+A = [[5, 3, 4], [3], [6], [1, 1], [], [2], [], [], [3], []]
+
+a = [len(A[i]) for i in range(len(A))]
+
+B = [item for sublist in A for item in sublist]
+
+Qs = 0
+b = 0
+Q = 0
+
+for k in range(len(a)):
+    ds = min(Qs, 4)
+    Qs_p = Qs - ds
+    Q += a[k]
+    dq = min(Q, 1 * (Qs_p == 0))
+    Q -= dq
+    Qs = (Qs_p > 0) * Qs_p + (Qs_p == 0) * B[b]
+    b += Qs_p == 0
+    print(f"ds={ds}, Qs_p={Qs_p}, dq={dq}, Q={Q}, Qs={Qs}, b={b}")
+
+\end{pyverbatim}
+
+\end{solution}
+
+\end{exercise}
 
 \opt{solutionfiles}{
 \Closesolutionfile{hint}
