@@ -63,7 +63,7 @@ the system, i.e., the \emph{sojourn time}.
 
 In these notes we will be primarily concerned with making models of queueing systems such that we can compute or estimate the above-mentioned performance measures.
 
-In Chapter~\ref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time.
+In~\cref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time.
 By implementing these constructions in Python code we can then simulate and analyze such systems.
 Besides that, simulation provides ample motivation of why and how we deal with queueing systems, simulation is useful to analyzing realistic systems, as mathematical models have severe shortcomings in such cases.
 Consider, for example, the service process at a check-in desk of KLM.
@@ -72,7 +72,7 @@ The business customers are served by one server, server A say, while the economy
 What would happen to the sojourn time of the business customers if server A would be allowed to serve economy class customers when the business queue is empty?
 For the analysis of such complicated control policies, simulation is the most natural approach.
 
-In Chapter~\ref{cha:analytical-models} and Chapter~\ref{cha:approximate-models} we derive exact and approximate models, respectively, for single-station queueing systems.
+In~\cref{cha:analytical-models} and~\cref{cha:approximate-models} we derive exact and approximate models, respectively, for single-station queueing systems.
 The benefit of such models is that they offer structural insights into the behavior of the system and scaling laws, such as that the average waiting time scales (more or less) linearly in the variance of the service times of individual customers.
 The main idea is to consider the \emph{sample paths of a queueing process}, and assume that a typical sample path captures the `normal' stochastic behavior of the system.
 This sample-path approach has two advantages.
@@ -82,7 +82,7 @@ In fact, simulation of a queueing system offers us one (or more) sample path(s),
 In fact, the performance measures defined for sample paths are precisely those we compute with simulation.
 
 
-In Chapter~\ref{sec:notes-relat-chapt2}  we construct algorithms to analyze open and closed queueing networks.
+In~\cref{sec:notes-relat-chapt2}  we construct algorithms to analyze open and closed queueing networks.
 Many of the sample path results developed for the single-station case can be applied to these networks.
 Thus, with sample-path methods we relate the theory, algorithms and simulation of queueing systems.
 For this part we refer to the book of Prof.
@@ -139,14 +139,7 @@ For most of you all this detail is not necessary, but over the years I got many 
 As service I then added such intermediate steps.
 The companion document also contains many additional simple exercises and old exam questions.
 
-The following symbols are used to classify the type of exercise:
-\begin{itemize}
-% \item \faCalculator: Computation.
-% \item \faFlask:  Test some (simple) technical aspect.
-\item \faBalanceScale: This is a claim and it is up to you to decide whether it is correct or not.
-% \item \faPhoto: Illustration.
-\item \faRocket: interesting, but hard. I will not use this in an exam.
-\end{itemize}
+An exercise marked as \faRocket is  interesting, but hard. I will not use this in an exam.
 
 \section*{Acknowledgements}
 

@@ -20,7 +20,7 @@ Assuming that jobs arrive at the first station at rate $\lambda$, and are served
 \end{equation}
 where $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$. 
 \begin{hint}
-Focus on the waiting times for each station separately, and realize that each is an $M/M/1$ queue. What is the arrival process at the second station? Recall Burke's law, cf., \ref{ex:burke}.
+Focus on the waiting times for each station separately, and realize that each is an $M/M/1$ queue. What is the arrival process at the second station? Recall Burke's law, cf.,~\cref{ex:burke}.
 \end{hint}
 \begin{solution}
 The first queue is the familiar $M/M/1$ queue.  (Why?) For the sequel
@@ -78,7 +78,7 @@ This yields that the coefficient of variation $C_{s,2}^s = 0$.
 Thus, the service process being deterministic, the second station becomes the $M/D/1$ queue.
 
 The expected waiting time for the $M/D/1$ queue follows immediately
-from~(\ref{eq:200}) by setting $C_{s,2}^2 =0$:
+from~\cref{eq:200} by setting $C_{s,2}^2 =0$:
 \begin{equation}\label{eq:300}
 \E{W_{Q,2}} = \frac{1}2\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
 \end{equation}
@@ -108,7 +108,7 @@ is a reasonable approximation of the queueing time. Compare this to the queueing
 \begin{solution}
 Analogous to the previous situation, suppose we can set the coefficient of variation
 $C_{1,s}^2$ of the first server to zero. Thus, this becomes an $M/D/1$
-queue, so that, similar to~(\ref{eq:300}):
+queue, so that, similar to~\cref{eq:300}:
 \begin{equation*}
 \E{W_{Q,1}} = \frac{1}2\frac{\rho_1}{1-\rho_1} \frac1{\mu_1}.
 \end{equation*}
@@ -143,7 +143,7 @@ since the service process is still exponential. Hence,
 \E{W_{Q,2}} = \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
 \end{equation}
 
-Combining~(\ref{eq:500}) and~(\ref{eq:400}), the total time in queue becomes:
+Combining~\cref{eq:500} and~\cref{eq:400}, the total time in queue becomes:
 \begin{equation*}
   \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
   \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}, 
@@ -260,7 +260,7 @@ For a $G/G/c$ queue, we can use the following approximation
 \end{equation}
 
 \begin{exercise}
-  Show that~\cref{eq:57} reduces to \cref{eq:40} for the $G/G/1$ queue.
+  Show that~\cref{eq:57} reduces to~\cref{eq:40} for the $G/G/1$ queue.
 \begin{solution}
     Since $c=1$ for the $G/G/1$ queue, we get
 \begin{align*}

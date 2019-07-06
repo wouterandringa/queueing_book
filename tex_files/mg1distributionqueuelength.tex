@@ -18,7 +18,7 @@ However, we cannot simply copy the derivation of the $M^X/M/1$ queue to the $M/G
 When job service times are not memoryless, hence do not restart at arrival times, we cannot choose any moment we like to apply level-crossing.
 Thus, for the $M/G/1$ queue we need to focus on moments in time in which the system `restarts'.
 As we will see below the appropriate moments are job departure epochs.
-All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and relation~\cref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
+All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and~\cref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
 
 An important role below is played by  the number of  arrivals $Y_k$ during the service time of the $k$th job.  Since the service times of the jobs form an i.i.d. sequence of random variables, the sequence $\{Y_k\}$ is also i.i.d. Let $Y$ be the common random variable with probability mass
  $f(j) = \P{Y = j}$; write $G(j) = \P{Y_k > j}$ for the survivor function.
@@ -45,7 +45,7 @@ See the hint.  The period during which the arrivals occur is $s$.
 \end{equation}
 where $F$ is the distribution of the service times.
 \begin{hint}
-  Use \cref{ex:75}.
+  Use~\cref{ex:75}.
 \end{hint}
 \begin{solution}
   We use a conditioning argument to arrive at this result. The
@@ -147,7 +147,7 @@ Hence,
 f(j) = \P{Y_k = j} = \frac{\mu}{\lambda+\mu}\left(\frac{\lambda}{\lambda+\mu}\right)^j.
   \end{equation}
 \begin{hint}
-Use the ideas of Exercise~\ref{ex:15} to simplify the standard integral.
+Use the ideas of~\cref{ex:15} to simplify the standard integral.
 \end{hint}
 \begin{solution}
 Use conditional probability to see that 
@@ -170,7 +170,7 @@ In the last integral, we use the hint. Specifically,
 
 
 In hindsight, this result could have been derived in another way, in
-fact by using the result of Exercise~\ref{ex:3} in which we analyzed a
+fact by using the result of~\cref{ex:3} in which we analyzed a
 merged Poisson process. Consider the Poisson process with rate
 $\lambda+\mu$ that arises when the arrival and service process are
 merged. The probability that an arrival corresponds to an epoch of the
@@ -189,7 +189,7 @@ $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
 G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1}.
   \end{equation}
 \begin{hint}
-    Use \cref{ex:74}.
+    Use~\cref{ex:74}.
 \end{hint}
 \begin{solution}
   Take $\alpha = \lambda/(\lambda+\mu)$ so that
@@ -380,7 +380,7 @@ Before we deal with the up-crossing, it is important to do the next exercise.
   Why not?
   Can you find an expression for the distribution of $D_k-D_{k-1}$ in case $L(D_{k-1})=0$?
 \begin{hint}
-    You might find some inspiration in Exercise~\ref{ex:17}.
+    You might find some inspiration in~\cref{ex:17}.
 
     Realize that if $L(D_{k-1})=0$, job $k-1$ leaves behind an empty system.
     Thus, before job $k$ can leave, it has to arrive.

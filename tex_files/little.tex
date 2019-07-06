@@ -224,7 +224,7 @@ Use Little's law to show for the $M/M/1$ queue that
     \E{L_Q} &= \frac{\rho^2}{1-\rho}, & \E{L_s} &= \rho.
   \end{align*}
 \begin{hint}
-  Combine \cref{eq:78,eq:wqes} and apply Little's law. 
+  Combine~\cref{eq:78,eq:wqes} and apply Little's law. 
 \end{hint}
 \begin{solution}
 \begin{align*}
@@ -238,7 +238,7 @@ Use Little's law to show for the $M/M/1$ queue that
 \end{exercise}
 
 \begin{exercise}
-Why is \cref{eq:wqes} \emph{not} true in general for the $M/G/1$ queue? 
+Why is~\cref{eq:wqes} \emph{not} true in general for the $M/G/1$ queue? 
 \begin{solution}
   By the memoryless property of the (exponential) distributed service times of the $M/M/1$ queue, the duration of a job in service, if any, is $\Exp(\mu)$ also at an arrival moment.
   Therefore, at an arrival moment, all jobs in the system (whether in service or not) have the same expected duration.
@@ -1021,7 +1021,25 @@ Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\
 \end{extra}
 
 
-\begin{exercise}[[Continuation of~\cref{ex:95}] Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
+
+\begin{exercise}[Continuation of~\cref{ex:95}]
+  Did you have to use the PASTA property to solve ~\cref{ex:95}? If so, how did you use it? If not, why not?
+\begin{solution}
+  Actually, you don't have to use PASTA.
+  So why is that?
+  For instance, $\sum_{i=1}^3 i p(0, i)$ is the number of taxis waiting, and this is a time average (since we use $p(0, i)$).
+  In the proof of Little's law, it is also clear that the $\E L$ is a time average.
+  Also, in the proof of Little's law, we compute the waiting time as $\E W = \lim_{n\to\infty} n^{-1}\sum_{k=1}^n W_k$, where $W_k$ is the waiting time as perceived by the $k$th job.
+  Thus, here $\E W$ is the average as observed by jobs.
+
+  This was an old exam question.
+  Some students used the PK-formula, see~\cref{sec:mg1}, to compute the average waiting time.
+  The derivation of this \emph{does} depend on the PASTA property.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[Continuation of~\cref{ex:95}] Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
   Parties of riders have the same destination, so riders of different parties cannot be served by one taxi.
   Provide a set of recursions to simulate this system.
   (This is a real hard exercise, but doable.
@@ -1093,6 +1111,67 @@ for k in range(len(a)):
 \end{solution}
 
 \end{exercise}
+
+
+In the above proof of Little's law we assumed that there is a sequence of moments $\{T_k, k=0,1,\ldots\}$ at which the system is empty and such that $T_k < T_{k+1}$ and $T_k \to \infty$.
+However, in many practical queueing situations the system is never empty.
+Thus, to be able to apply Little's law to such more general situations we should slacken the assumption that such a sequence exists.
+The aim of this set of questions is to find an educated guess for a more general assumption under which Little's law can hold.
+
+
+\begin{exercise}
+  Motivate in words (or with a derivation, if you prefer this) why the following is true:
+  \begin{equation*}
+    \sum_{k=1}^{A(t)} W_k \geq \int_0^t L(s) \d s \geq  \sum_{k=1}^{D(t)} W_k.
+  \end{equation*}
+\begin{solution}
+  Intuitively, the left hand is all the work that arrived up to time $t$, the middle term is all the work that has been processed, and the right term all the work that left.
+  Any job that that is half way its service counts for full at the left, for half in the middle expression, and not  in the right.
+
+  More formally, for any job $k$ and time $t$, we have $W_k \1{A_k \leq t} \geq \int_0^t \1{A_k \leq s < D_k } \d s \geq W_k \1{D_k \leq t}$. (To see this, fix $k$, and check the three cases $t < A_k, A_k \leq t < D_k, D_k < t$.) Then,
+  \begin{equation*}
+    \sum_{k=1}^\infty W_k \1{A_k \leq t} \geq \int_0^t \sum_{k=1}^\infty \1{A_k \leq t < D_k} \d s \geq \sum_{k=1}^\infty W_k \1{D_k \leq t}. 
+  \end{equation*}
+  Finally, note that $ \sum_{k=1}^\infty W_k \1{A_k \leq t} = \sum_{k=1}^{A(t)} W_k$ and $ \sum_{k=1}^\infty W_k \1{D_k \leq t} = \sum_{k=1}^{D(t)} W_k$, and use the definition of $L(s)$.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}
+Take suitable limits (and assume all these limits exist) to show that 
+  \begin{equation*}
+\lambda \E W  \geq \E L \geq  \delta \E W.
+  \end{equation*}
+  Make explicit all the points where you use the strong law of large numbers.
+\begin{solution}
+  \begin{equation*}
+    \lim_{t\to\infty} \frac{A(t)}{t}\frac 1{A(t)}\sum_{k=1}^{A(t)} W_k \geq \lim_{t\to \infty} \frac 1 t \int_0^t L(s) \d s \geq      \lim_{t\to\infty} \frac{D(t)}{t}\frac 1{D(t)} \sum_{k=1}^{D(t)} W_k 
+  \end{equation*}
+  We use the strong law of large numbers to conclude that limits converges to $n^{-1} \sum_{k=1}^n W_k \to \E W$, and we assume that $\{W_k, k\geq N\}$ forms a sequence of i.i.d.
+  random variables for $N$ sufficiently large.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}
+  Suppose that $A(t) = \lambda t$ and $D(t)= [A(t) - 10]^+$.
+  Explain that for this system the above assumption on $\{T_k\}$ is violated. Show that Little's law is still true.
+\begin{solution}
+  When $t>10$, $L(t) = 10$.
+  Hence the system is never empty.
+  Since still $\delta=\lim_t D(t)/t = \lambda$, and $\lim_{n\to \infty} n^{-1}\sum_{k=1}^n W_k$ exists, Little's law follows.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}
+  Based on the above formulate an educated guess for more general conditions under which Little's law holds.
+  (You don't have to prove Little's law under your condition; postpone that to after the exam.)
+\begin{solution}
+We seem to need that $\lambda = \delta$ and that  $\lim_{n\to \infty} n^{-1}\sum_{k=1}^n W_k$ exists. 
+\end{solution}
+\end{exercise}
+
+
+
 
 \opt{solutionfiles}{
 \Closesolutionfile{hint}

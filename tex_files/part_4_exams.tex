@@ -4,7 +4,7 @@
 \subsection{Multiple-choice Questions}
 \begin{exercise}[201804] Consider a network with $n$ stations in tandem. At station $i$, the service times $S_i$ for all machines at that station are the same and constant;   station $i$ contains $N_i$ machines. The number of jobs required to keep all machines busy is $N=\sum_{i=1}^n N_i$, and the raw processing time $T_0=\sum_{i=1}^n S_i$. Thus, if the number $w$ of allowed jobs in the system is larger than $N$,  the number of jobs waiting somewhere in queue is $w-N$.
 \begin{solution}
-answer = B, see Page 200
+Answer = B.
 
 In general the number of jobs in queue is much higher than $w-N$. Consider the example $S_1=10$ and $N_1=10$, and $S_2=1, N_2=20$, and $n=2$. Clearly, 19 machines at station 2 are always empty.
 
@@ -17,28 +17,28 @@ Consider an $M$-station Jackson network with $\lambda_i$ the total arrival rate 
   \E{W} = \sum_{i=1}^M \lambda_i \E{W_i}
 \end{equation*}
 \begin{solution}
-answer = B, see Page 201. A simple reason is that the units left and right don't match: left time, right number per time times time. 
+Answer = B. A simple reason is that the units left and right don't match: left time, right number per time times time. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 In a Jackson network the time-average probability that station $i$ contains $n_i$ jobs (either in queue or in service) is given $(1-\rho_i)\rho_i^{n_i}$. 
 \begin{solution}
-answer = A, see Page 202
+Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 For the $G/G/1$ we can approximate the SCV of the inter-departures by the formula $(1-\rho^2)C_a^2 + \rho^2 C_{s}^2$. For the $M/M/1$ queue this reduces to $C_{d}^2 = 1$.
 \begin{solution}
-answer = A, see Page 213
+Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 Suppose in a tandem network of $G/G/c$ queues we can reduce $C_{s}^2$ of just one station by a factor 2.  To improve the average waiting time in the entire chain, it is  best to reduce $C_{s,1}^2$.   
 \begin{solution}
-answer = A, see Page 215
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -49,30 +49,30 @@ We have a two-station Jackson network. If the routing matrix is $P=
 r & 0
 \end{pmatrix}$ the total arrival rate $\lambda_1$ at station 1 is finite only if $r=1$. 
 \begin{solution}
-answer = B, see Zijm, Page 38.
+Answer = B, see Zijm, Page 38.
 
 When $r=1$, the matrix $P$ has an eigenvalue 1. Hence, the equation $\lambda = \gamma + \lambda P$ has no inverse in this case.
 \end{solution}
 \end{exercise}
 
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
   A production network consists of 3 single-machine stations in
   tandem. The   processing times constant and such that $t_1=2$ hours, $t_2=3$ hours and $t_3=2$ hours.
 We claim that  the critical WIP $W_0=7/3$, the bottleneck
   capacity $r_b=1/3$ and the raw processing time~$T_0=7$.
 \begin{solution}
-answer = A, see Page 201
+Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1] For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
+\begin{exercise}[201904] For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
 \begin{solution} Answer = B.
     The claim applies to closed queueing networks.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   We have a two-station single-server open network.
   Jobs enter the network at the first station with rate $\gamma$.
   A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2.
@@ -85,16 +85,67 @@ answer = A, see Page 201
       1- \beta_1-\beta_2 & \beta_2
     \end{pmatrix}.
   \end{equation*}
-\begin{solution}  Answer = B, \ref{ex:47}
+\begin{solution}  Answer = B,~\cref{ex:47}
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   Jobs arrive at rate $\lambda$ and are assembled into batches of size $B$.
   The average time a job waits until the batch is complete is $\E{W} = \frac{B-1}{2\lambda}$.
-\begin{solution}Answer = A, \ref{ex:48}
+\begin{solution}Answer = A,~\cref{ex:48}
 \end{solution}
 \end{exercise}
+
+
+\begin{exercise}[201907]
+  We have a queueing network with $M$ exponential servers and Poisson arrival processes
+  Let $P_{ij}$ be the routing matrix.
+  For stability it is necessary that $\sum_{j=1}^M P_{i j} <1$  for at least one $i$. 
+\begin{solution}
+Answer = A,~\cref{ex:93}.
+\end{solution}
+\end{exercise}
+
+% \begin{exercise}[201907]
+%   Ruben: voorkeur voor deze vraag, of de vorige? Beide opnemen?
+
+%   We have a queueing network with $M$ exponential servers and Poisson arrival processes Let $P_{ij}$ be the routing matrix.
+%   For stability it is sufficient that $\sum_{j=1}^M P_{i j} <1$ for at least one $i$.
+% \begin{solution}
+% Answer = B,~\cref{ex:93}.
+% \end{solution}
+% \end{exercise}
+
+\begin{exercise}[201907]
+We have two $M/M/1$ stations in tandem.  The average queueing time for the network  is given by
+\begin{equation}
+\E{W_Q}  = \frac{\rho_1}{1-\rho_1} + \frac{\rho_2}{1-\rho_2}.
+\end{equation}
+\begin{solution}
+Answer = B, see~\cref{ex:94}. It is evidently wrong: the units don't check.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[201907]
+  Consider a two-station Jackson network with $P=
+  \begin{pmatrix}
+    0 &1 \\
+    0 & 0
+  \end{pmatrix}$ and $\gamma = (1, 0)$.
+  Let $p(i,j)$ be the stationary probability that the first (second) station contains $i$ ($j$) jobs.
+  Then
+  \begin{equation*}
+    \lambda p(0, 0) = \mu_2 p(0, 1).
+  \end{equation*}
+\begin{solution}
+Answer = A.
+\end{solution}
+\end{exercise}
+
+
+
+
 
 \subsection{Open Questions}
 
@@ -115,7 +166,7 @@ The entire network can contain at most one job, hence, when there is a job anywh
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
 Make a sketch of the states and the transition rates.
 \begin{solution}
   \begin{center}
@@ -151,7 +202,7 @@ edge[pil, ->]  node[midway, left] {$\mu_2$} (0);
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
 What are the balance equations for this queueing network?
 \begin{solution}
   \begin{align*}
@@ -162,7 +213,7 @@ What are the balance equations for this queueing network?
 \end{exercise}
 
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
   Find the stationary distribution of the number of jobs at the first
   and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
 \begin{solution}
@@ -179,7 +230,7 @@ p(0,0)=\frac1{1 + \rho_1 + \rho_2}.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
   Compute  $\E{L_1}$ and $\E{L_2}$.
 \begin{solution}
     \begin{equation*}
@@ -192,7 +243,7 @@ and
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
   Compute  $\V{L_1}$.
 \begin{solution}
     \begin{equation*}
@@ -224,7 +275,7 @@ What are the visit ratios at each station?
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2}
+\begin{exercise}[201704]
   Use the convolution algorithm to determine the value of the
   normalization constant for this network.
 \begin{solution}
@@ -278,7 +329,7 @@ distributed with  mean $\mu_i^{-1}$ for station $i$, $i=1,2$. The waiting room a
 \end{exercise}
 
 
-\begin{exercise}[201706]{2}
+\begin{exercise}[201706]
 Make a sketch of the state space,  the transitions and the transition rates.
 \begin{solution}
   \begin{center}
@@ -353,7 +404,7 @@ However, any reasonable answer would do here.
 
 Henceforth, assume that also the first station cannot contain more than one job. 
 
-\begin{exercise}[201706]{2}
+\begin{exercise}[201706]
   Find the stationary joint distribution of the number of jobs at the first
   and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
 \begin{solution}
@@ -436,6 +487,8 @@ It is actually interesting to also consider the limit $\mu_1\to\infty$, rather t
 \end{exercise}
 
 
+
+
 \subsection{Closed Queueing Networks}
 \label{sec:queueing-networks}
 
@@ -458,7 +511,7 @@ P =
 
 Suppose henceforth that the visit ratios are $(1,2,3,4)$. 
 
-\begin{exercise}[201706]{2}
+\begin{exercise}[201706]
   Use the convolution algorithm to determine $G(2,2)$.
 \begin{solution}
     From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
@@ -645,7 +698,7 @@ Once again, other answers can certainly be ok too.
 
 We have a closed network with three single-server stations. Jobs go from the load/unload station with probability 1/3 to  station 2. From stations 1 and 2 jobs can only return to the load/unload station. Services times are exponentially distributed with mean $\E{S_0} = 1$ at the load/unload, $\E{S_1} = 2$ at station 1 and $\E{S_2}=3$ at station 2.
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 Make a sketch of the transitions; use this to make the routing matrix $P$.
 \begin{solution}
   \begin{equation*}
@@ -664,7 +717,7 @@ Make a sketch of the transitions; use this to make the routing matrix $P$.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
   What are the visit ratios?
 \begin{solution}
 Set $V_0=1$. Then solve for $V_1$ and $V_2$ in the equation $V = VP$, where $V=(V_0, V_1, V_2)$.
@@ -679,7 +732,7 @@ If you would not set $V_0=1$, but solve $V_0+V_1+V_2 = 1$, then this is VERY wro
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
   If there is just one job allowed in the network, determine $\E W$.
 \begin{solution}
     \begin{align*}
@@ -699,7 +752,7 @@ If you would not set $V_0=1$, but solve $V_0+V_1+V_2 = 1$, then this is VERY wro
 
 \end{exercise}
 
-\begin{exercise}[201807]{2}
+\begin{exercise}[201807]
 If two jobs are allowed in the network, what is the expected number of jobs at the second station?
 \begin{solution}
     With the previous problem we have the case with one job. Now, with the arrival theorem,
@@ -741,14 +794,14 @@ for n in range(1, 4):
 
   \end{pyverbatim}  
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   By which line in the code do we control the number of jobs that are present in the network?
 \begin{solution}
     Line 8
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   One line in the code above is wrong.
   Repair the incorrect line (you can write the correct expression in mathematical notation; it is not necessary to provide the python code.)
 \begin{solution}
@@ -756,7 +809,7 @@ Line 13 should read like this: \pyv{EW_tot += V[j] * EW[j]}.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   Assume that the algorithm is correct.
   Suppose that we would merge lines 8--16 into the following:
 \begin{pyverbatim}[stdout][numbers=left]
@@ -776,7 +829,7 @@ Since \pyv{EW_tot} is updated for every $j$, the throughput depends on $j$. This
 
 In the tutorial we developed a number of important simulation concepts.
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
 Why is  an event stack useful in discrete-event simulation? 
 \begin{solution}
   It is used to organize the events in the correct chronological order. 
@@ -784,7 +837,7 @@ Why is  an event stack useful in discrete-event simulation?
 \end{exercise}
 
 
-\begin{exercise}[201904, 1]
+\begin{exercise}[201904]
   Why do we use classes and objects in the simulations?
 \begin{solution}
   With classes we can organize functions (behavior) and state in a neat way.

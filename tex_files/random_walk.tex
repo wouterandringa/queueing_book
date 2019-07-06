@@ -12,8 +12,8 @@
 
 
 In the construction of queueing processes as set out in~\cref{sec:constr-discr-time} we are given two sequences of i.i.d.
-random variables: the number of arrivals $\{a_k\}$ per period and the service capacities $\{c_k\}$, cf., \cref{eq:5}.
-Observe that in relation~\cref{eq:5} the process $\{L_k\}$ shares a resemblance to a random walk $\{Z_k, k=0,1,\ldots\}$ with $Z_k$ given by
+random variables: the number of arrivals $\{a_k\}$ per period and the service capacities $\{c_k\}$, cf.,~\cref{eq:5}.
+Observe that in~\cref{eq:5} the process $\{L_k\}$ shares a resemblance to a random walk $\{Z_k, k=0,1,\ldots\}$ with $Z_k$ given by
 \begin{equation}\label{eq:44}
   Z_k = Z_{k-1} + a_k - c_k.
 \end{equation}
@@ -25,7 +25,7 @@ Moreover, we can use the probabilistic tools that have been developed for the ra
 One example is the distribution of the time until an especially large queue length is reached; these times can be formulated as \emph{hitting times} of the random walk.
 Another example is the average time it takes to clear a large queue.
 
-\begin{exercise}[\faCalculator]
+\begin{exercise}
 Show that  $L_k$ satisfies the relation
 \begin{equation}\label{eq:reich1}
   L_k = Z_k - \min_{1\leq i \leq k} Z_i\wedge 0,
@@ -66,8 +66,7 @@ From this, using recursion and the hints, we see that
 &= - \min\{0, Z_1, \ldots, Z_k\}.
   \end{split}
   \end{equation*}
-For further discussion, if you are interested, refer to
-  \citet{baccelli88:_sampl_m_m}.
+  For further discussion, if you are interested, see~\citet{baccelli88:_sampl_m_m}.
 \end{solution}
 \end{exercise}
 
@@ -101,7 +100,7 @@ Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the r
 \end{figure}
 
 
-With~(\ref{eq:reich1}),  we see that a random walk $\{Z_k\}$ can be converted into a queueing
+With~\cref{eq:reich1},  we see that a random walk $\{Z_k\}$ can be converted into a queueing
 process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.  For this, we first relate the random walk of the type~\cref{eq:51} to a random walk in continuous time. 
 
 \begin{exercise}\label{ex:89}
@@ -111,10 +110,10 @@ process $\{L_k\}$, and we might try to understand the transient behavior of the 
   \end{equation*}
 has a Poisson distribution with rate $\lambda t$. 
 \begin{hint}
-Use Exercise~\ref{ex:1}.
+Use~\cref{ex:1}.
 \end{hint}
 \begin{solution}
-  From Exercise~\ref{ex:1} we know that thinning  a rate $\lambda$ Poisson process  with i.i.d. Bernoulli random variables with success probability $p$  leads to another Poisson process with rate $\lambda p$. In the present case, the original Poisson process has rate $\lambda+\mu$ and $p=\lambda/(\lambda+\mu)$. Hence, the random variable $N_{\lambda t}\sim P\left(\frac\lambda{\lambda+\mu} (\lambda+\mu)t\right) = P(\lambda t)$.
+  From~\cref{ex:1} we know that thinning  a rate $\lambda$ Poisson process  with i.i.d. Bernoulli random variables with success probability $p$  leads to another Poisson process with rate $\lambda p$. In the present case, the original Poisson process has rate $\lambda+\mu$ and $p=\lambda/(\lambda+\mu)$. Hence, the random variable $N_{\lambda t}\sim P\left(\frac\lambda{\lambda+\mu} (\lambda+\mu)t\right) = P(\lambda t)$.
 \end{solution}
 \end{exercise}
 

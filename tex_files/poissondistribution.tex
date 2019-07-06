@@ -62,8 +62,7 @@ Use that $\E{X+Y} = \E X + \E Y$.
   \begin{equation*}
     \E{N_n(t)} = \E{\sum_{i=1}^n {B_i}} = \sum_{i=1}^n \E{B_i} = n \E{B_i} = n p.
   \end{equation*}
-
- By~\cref{eq:6} $\E{N(t)} = \lambda t$.  We want the expectations of $N_n(t)$ and $N(t)$ to be the same,  that is, $n p = \lambda t$. 
+ By~\cref{eq:6} $\E{N(t)} = \lambda t$.  Now we want the expectations of $N_n(t)$ and $N(t)$ to be the same,  thus, $n p = \lambda t$. 
 \end{solution}
 \end{extra}
 
@@ -158,7 +157,7 @@ where we apply a change of notation in the second to last step.
   \begin{equation*}
 \V{N(t)} = \lambda t.
   \end{equation*}
-\begin{hint} Use~\cref{eq:68}. Compute $\E{N^2}$ and use Exercise~\ref{ex:2}.
+\begin{hint} Use~\cref{eq:68}. Compute $\E{N^2}$ and use~\cref{ex:2}.
 \end{hint}
 \begin{solution} 
 
@@ -204,7 +203,7 @@ Use  the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(
 Use~\cref{eq:69} and~\cref{eq:64}. 
 \end{hint}
 \begin{solution}
-Using the expression for the moment-generating function of exercise~\ref{ex:53},
+Using the expression for the moment-generating function of~\cref{ex:53},
   \begin{equation*}
     M_{N(t)}'(s) = \lambda t e^s \exp(\lambda t(e^s - 1)).
   \end{equation*}
@@ -281,7 +280,7 @@ Thus,
 \P{N(t+h) = n+1 \given N(t) = n} = \lambda h + o(h)
   \end{equation*}
 when $N(t) \sim P(\lambda t)$ and $h$ is small. 
-\begin{hint} Use  Exercise~\ref{ex:35}.
+\begin{hint} Use ~\cref{ex:35}.
 \end{hint}
 \begin{solution}
   \begin{align*}
@@ -396,7 +395,7 @@ $N_\lambda + N_\mu$ is  a Poisson process with rate $(\lambda + \mu)t$.
         \1{N_\lambda(t) + N_\mu(t) = n} = 
         \sum_{i=0}^n \1{N_\lambda(t)=i, N_\mu(t) = n-1}.
       \end{equation*}
-Take expectations left and right, use~\cref{eq:74}, and  independence of $N_\lambda$ and $N_\mu$. Near the end of the computation, use \cref{eq:71}.
+Take expectations left and right, use~\cref{eq:74}, and  independence of $N_\lambda$ and $N_\mu$. Near the end of the computation, use~\cref{eq:71}.
 \end{hint}
 \begin{solution}
 \begin{align*}\label{eq:002}
@@ -514,7 +513,7 @@ Suppose that  $N_1$ is the  thinned stream, and $N$ the original stream.  Condit
       \begin{equation*}
         \P{N_1(t)=k \given N(t) = n} = {n \choose k} p^k (1-p)^{n-k}.
       \end{equation*}
-Use~\cref{eq:70} to decompose the $\{N_1=k\}$, and \cref{eq:76} at the end. 
+Use~\cref{eq:70} to decompose the $\{N_1=k\}$, and~\cref{eq:76} at the end. 
 \end{hint}
 \begin{solution}
 \begin{align*}
@@ -557,9 +556,9 @@ Suppose that $N=n$, then since the outcomes $Z_i$ of the coins are i.i.d.,
 \begin{equation*}
 \E{e^{s\sum_{i=1}^n Z_i}} = \left(\E{e^{s Z}}\right)^n = \left(1 + p (e^s - 1)\right)^n,
 \end{equation*}
-where we use \cref{eq:73}. 
+where we use~\cref{eq:73}. 
 
-With  \cref{eq:77}, 
+With ~\cref{eq:77}, 
 \begin{align*}
   \E{e^{s Y}}
 &= \E{\sum_{n=0}^\infty e^{s\sum_{i=1}^N Z_i} \1{N=n}} \\
@@ -584,13 +583,13 @@ Then we can model the arrival stream at the second machine as a thinned stream (
 Merging occurs where the output streams of various stations arrive at another station.
 
 \begin{extra}
-Use the solution of Exercise~\ref{ex:1} to prove the result of Exercise~\ref{ex:31}. 
+Use the solution of~\cref{ex:1} to prove the result of~\cref{ex:31}. 
 \begin{solution}
 Take $Y=\sum_{i=1}^n Z_i$ with $Z_i\sim B(p)$. Then, 
 \begin{equation*}
 M_Y(s) = \E{e^{s\sum_{i=1}^n Z_i}} = \left(\E{e^{s Z}}\right)^n = \left(1 + p (e^s - 1)\right)^n. 
 \end{equation*}
-Recall that $p= \lambda t/ n$. Then, with \cref{eq:65},
+Recall that $p= \lambda t/ n$. Then, with~\cref{eq:65},
 \begin{equation*}
 \lim_{n\to\infty}  \left(1 + \frac{\lambda t}{n} (e^s - 1)\right)^n = \exp{\lambda t (e^s-1)}. 
 \end{equation*}

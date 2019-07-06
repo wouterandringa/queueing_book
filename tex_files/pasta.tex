@@ -20,7 +20,7 @@ In this section we will derive the famous \recall{Poisson arrivals see time aver
 
 
 %We can make some progress by rewriting $\pi(n)$ in the following way.
-Since $A(t)\to \infty$ as $t\to\infty$, it is reasonable that (see \cref{ex:18} for a proof)
+Since $A(t)\to \infty$ as $t\to\infty$, it is reasonable that (see~\cref{ex:18} for a proof)
 \begin{equation}\label{eq:132}
   \begin{split}
   \pi(n) &= \lim_{t\to\infty} \frac1{A(t)}\sum_{k=1}^{A(t)} \1{L(A_k-) = n} 
@@ -80,7 +80,7 @@ For $n>0$ it's easy, everything is 0.
 
 
 With the above reasoning, we can also establish a relation between $\pi(n)$ and the statistics of the system as obtained by the departures.
-Define, analogous to \cref{eq:132}, 
+Define, analogous to~\cref{eq:132}, 
 \begin{equation}
   \label{eq:33}
   \delta(n) = \lim_{t\to\infty} \frac{D(n,t)}{D(t)}
@@ -206,7 +206,7 @@ Observing that in a network of queues the departures from one queueing station f
 \begin{exercise}\label{ex:burke}
   Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
 \begin{solution}
-  \cref{ex:dep} to \cref{ex:63} show that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
+  It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
   It can also be shown that the inter-departure times are independent.
 
 Thus, the inter-departures times form a set of i.i.d.

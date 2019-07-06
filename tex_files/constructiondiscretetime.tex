@@ -220,14 +220,11 @@ A simple rule to implement this is by considering last week's queue $L_{n-1}$: i
 When $L_{n-1}>24$, i.e., larger than two weeks of intakes, do $e$ intakes more.
 Here, $e=1$ or $2$, or perhaps a larger number; it corresponds to the amount of control we want to exercise.
 
-Let's consider three different control levels, $e=1$, $e=2$, and $e=5$; thus in 
-the last case all psychiatrists do five extra intakes. The previous simulation 
-shows that it is safe to disregard the holiday plans, so just assume a flat 
-service capacity of 12 intakes a week.
+Let's consider three different control levels, $e=1$, $e=2$, and $e=5$; thus in the last case all psychiatrists do five extra intakes.
+The previous simulation shows that it is safe to disregard the holiday plans, so just assume a flat service capacity of 12 intakes a week.
+The results, see~\cref{fig:intakes}, show a striking difference indeed.
+The queue does not explode any more, and already taking $e=1$ has a large influence.
 
-\cref{fig:intakes} shows a striking difference indeed. The queue
-does not explode any more, and already taking $e=1$ has a large
-influence. 
 
 \begin{figure}[ht]
   \centering
@@ -237,6 +234,7 @@ influence.
   service rate `does wonders' to control the queue length.}
 \label{fig:intakes}
 \end{figure}
+
 
 From this simulation experiment we learn that changing holiday plans or spreading the work over multiple servers, i.e., psychiatrists, does not significantly affect the queueing behavior.
 However, controlling the service rate as a function of the queue length improves the situation quite dramatically.
@@ -584,10 +582,8 @@ but not always, applies to service capacity.
 
 
 \begin{exercise}[Tandem  networks]
-  Consider a production network with two production stations in
-  tandem, that is, the jobs processed by station A are in the next
-  period to the downstream Station B.  Extend the recursions of
-  \cref{eq:31} to simulate this situation.
+  Consider a production network with two production stations in tandem, that is, the jobs processed by station A are in the next period to the downstream Station B.
+  Extend the recursions of~\cref{eq:31} to simulate this situation.
 \begin{solution}
   Let $a_k$ be the external arrivals at station A. Then:
 \begin{equation}

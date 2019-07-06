@@ -103,7 +103,7 @@ $\V X = \lambda^{-2}$.
 %   M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
 % \end{equation}
 
-\begin{extra}[\faBalanceScale]\label{ex:11}
+\begin{extra}\label{ex:11}
   Suppose $X\sim\Exp(\lambda)$.
   Only when $t < \lambda$ the moment-generating function $M_X(t)$ is finite.
 \begin{solution} The claim is true. 
@@ -138,14 +138,14 @@ Use the moment-generating function  of $X\sim\Exp(\lambda)$  to show that
       \E{X^2} &=\frac2{\lambda^2}.
     \end{align*}
 \begin{hint}
-Use~\cref{eq:69} and \cref{eq:64}.
+Use~\cref{eq:69} and~\cref{eq:64}.
 \end{hint}
-\begin{solution} By Ex.~\ref{ex:33}, 
+\begin{solution} By~\cref{ex:33}, 
   $ M_X'(t)=\lambda/(\lambda-t)^2$. Hence, $M_X'(0)=1/\lambda$. Next, $M_X''(t)=2\lambda/(\lambda-t)^3$, hence $\E{X^2}=M_X''(0)=2\lambda/\lambda^3=2\lambda^{-2}$. 
 \end{solution}
   \end{exercise}
 
-\begin{extra}[\faBalanceScale]\label{ex:29}
+\begin{extra}\label{ex:29}
 When  $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
 \begin{hint}
   Use~\cref{eq:62} 
@@ -226,7 +226,7 @@ $A_i \sim \Gamma(i,\lambda)$, i.e., $A_i$ is Gamma distributed.
 \end{extra}
 
 \begin{extra}
-  Use the density $f_{A_i}$ of exercise~\ref{ex:54} to show that $\E{A_i}=i/\lambda$. 
+  Use the density $f_{A_i}$ of~\cref{ex:54} to show that $\E{A_i}=i/\lambda$. 
 \begin{hint}
 Use the standard integral 
     $\int_0^\infty x^n e^{-\alpha x} \d x =

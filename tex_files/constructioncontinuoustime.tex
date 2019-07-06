@@ -20,12 +20,12 @@ Thus, $\{A(t); t\geq 0\}$ is a \emph{counting process}.
 
 From this arrival process we can derive various other interesting concepts, such as the \recall{arrival times} of individual jobs.
 Especially, if we know that $A(s) = k-1$ and $A(t) = k$, then the arrival time $A_k$ of the $k$th job must lie somewhere in $(s,t]$.
-Thus, from $\{A(t)\}$, we can define
+Thus, from $\{A(t)\}$, we can define\footnote{If we want to be mathematically precise, we must take $\inf$ rather than $\min$.
+  However, in this set of notes we do not want to distinguish between  subtleties.}
 \begin{equation}\label{eq:27}
   A_k = \min\{t: A(t) \geq k\},
 \end{equation}
-and set $A_0 = 0$\footnote{If we want to be mathematically precise, we must take $\inf$ rather than $\min$.
-  However, in this set of notes we do not want to distinguish between  subtleties.}.
+and set $A_0 = 0$.
 Once we have the set of arrival times $\{A_k\}$, the set of \recall{inter-arrival times} $\{X_k, k=1, 2, \ldots\}$ between consecutive customers can be constructed as
 \begin{equation}
   X_k = A_k - A_{k-1}.
@@ -53,7 +53,7 @@ Thus, we just count all arrivals that occur up to and including time~$t$.
 \end{extra}
 
 
-\begin{extra}[\faBalanceScale]
+\begin{extra}
 The following mappings are correct:
 \begin{align*}
   A_k : \N \to \R, \quad{\text{job id (integer) to arrival time (real number)}}, \\
@@ -79,7 +79,7 @@ The following mappings are correct:
 \begin{extra}\label{ex:22}
   In view of the above, can  $A(t)$ be defined as $\min\{k : A_k \geq t\}$ or as $\min\{k: A_k > t\}$?
 \begin{hint}
-Compare this to the definition in (\ref{eq:2}).
+Compare this to the definition in~\cref{eq:2}.
 \end{hint}
 \begin{solution}
     Suppose $A_3 = 10$ and $A_4 = 20$. Take $t=15$. Then
@@ -705,7 +705,7 @@ Define the number of jobs in the system as seen by the $k$th arrival  as
 
 
 \begin{extra}
-  In Exercise~\ref{ex:55},   why do we take $i=k-1-L(A_{k-1}-)$ in  the sum, and not $i=k-2-L(A_{k-1}-)$?
+  In~\cref{ex:55},   why do we take $i=k-1-L(A_{k-1}-)$ in  the sum, and not $i=k-2-L(A_{k-1}-)$?
 \begin{solution}
     The reason to start at $k-1-L(A_{k-1}-)$ is that the number in the
     system as seen by job $k$ is $k-1 - D(A_k)$ (not
@@ -718,7 +718,7 @@ Define the number of jobs in the system as seen by the $k$th arrival  as
 
 
 
-\begin{extra}[\faRocket] Try to extend the recursions~(\ref{eq:45})  to a situation in which one queue is
+\begin{extra}[\faRocket] Try to extend the recursions~\cref{eq:45}  to a situation in which one queue is
   served by two servers.  
 \begin{hint} The problem is
       that in a multi-server queueing systems, unlike for

@@ -184,7 +184,7 @@ be the fraction of time that $L(s) =n$ in $[0,t]$. ~\Cref{fig:Y_1_t} illustrates
 \end{exercise}
 
 
-\begin{exercise}[Continuation of~\ref{ex:111}] \label{ex:112} 
+\begin{exercise}[Continuation of~\cref{ex:111}] \label{ex:112} 
   Find an expression for $Y(n,t)$.
 \begin{solution}
       Next, to get $Y(n,t)$, observe that the system never contains
@@ -301,7 +301,7 @@ sees $n$ jobs in the system just prior to its arrival. Thus, just as
 $A(t)/t$ is the total number of arrivals during $[0,t]$ divided by~$t$, $A(n,t)/Y(n,t)$ is the number of arrivals that see $n$ jobs divided by
 the time the system contains $n$ jobs.
 
-\begin{exercise}[Continuation of \ref{ex:112}] \label{ex:113} Compute $p(n)$ and $\lambda(n)$.
+\begin{exercise}[Continuation of~\cref{ex:112}] \label{ex:113} Compute $p(n)$ and $\lambda(n)$.
 \begin{solution}
     From the other exercises:
     \begin{align*}
@@ -336,7 +336,7 @@ Should  we take $D(n-1,t)$ or  $D(n,t)$ in the definition of $\mu(n)$?
 \end{solution}
 \end{extra}
 
-\begin{exercise}[Continuation of~\ref{ex:113}] \label{ex:4}
+\begin{exercise}[Continuation of~\cref{ex:113}] \label{ex:4}
 Compute 
 $D(n,t)$ and $\mu(n+1)$ for $n\geq 0$.
 \begin{solution}
@@ -377,11 +377,11 @@ Combining this with~\cref{eq:15} we arrive at the \recall{level crossing equatio
   \lambda(n) p(n) = \mu(n+1)p(n+1).
 \end{equation}
 
-\begin{exercise}[Continuation of~\ref{ex:4}] Compute $\lambda(n) p(n)$ for $n\geq 0$, and check $\lambda(n) p(n) = \mu(n+1) p(n+1)$.
+\begin{exercise}[Continuation of~\cref{ex:4}] Compute $\lambda(n) p(n)$ for $n\geq 0$, and check $\lambda(n) p(n) = \mu(n+1) p(n+1)$.
 \begin{solution}
   $\lambda(0)p(0)=1\cdot 1/2 = 1/2$, $\lambda(n)p(n)= 0$ for $n>1$, as $\lambda(n)=0$ for $n>0$.
 
-From Exercise~\ref{ex:4}, $\mu(1)=1$, hence $\mu(1) p(1) = 1\cdot 1/2 = 1/2$. Moreover, $\mu(n)=0$ for $n\geq 2$. 
+From~\cref{ex:4}, $\mu(1)=1$, hence $\mu(1) p(1) = 1\cdot 1/2 = 1/2$. Moreover, $\mu(n)=0$ for $n\geq 2$. 
 
 Clearly, for all $n$ we have $\lambda(n)p(n)= \mu(n+1)p(n+1)$. 
 
@@ -414,7 +414,7 @@ $G$ being the \recall{normalization constant}
 G = 1+\sum_{n=0}^\infty \frac{\lambda(n)\lambda(n-1)\cdots\lambda(0)}{\mu(n+1)\mu(n)\cdots \mu(1)}.
 \end{equation}
 
-In the next few sections we will make suitable choices for $\lambda(n)$ and $\mu(n)$ to model many different queueing situations so that, based on \cref{eq:12}, we can obtain simple expressions for $p(n)$ in terms of the arrival and service rates.
+In the next few sections we will make suitable choices for $\lambda(n)$ and $\mu(n)$ to model many different queueing situations so that, based on~\cref{eq:12}, we can obtain simple expressions for $p(n)$ in terms of the arrival and service rates.
 With $p(n)$ we define  two easy, but important performance measures. The time-average average number of items becomes
 \begin{equation*}
 \E L = \sum_{n=0}^\infty n p(n),
@@ -582,7 +582,7 @@ probabilistic results.
 
 \paragraph{Interpretation}
 
-The definitions in~(\ref{eq:rates_}) may seem a bit abstract, but they obtain an immediate interpretation when relating them to applications.
+The definitions in~\cref{eq:rates_} may seem a bit abstract, but they obtain an immediate interpretation when relating them to applications.
 To see this, we discuss two examples.
 
 Consider the sorting process of post parcels at a distribution center of a post delivery company.

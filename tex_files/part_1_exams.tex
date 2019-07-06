@@ -3,13 +3,17 @@
 \Opensolutionfile{ans}
 \subsection{Multiple-choice Questions}
 
+The questions in this sections are actually claims that are either true of false.
+It is up to you to decide which of the two alternatives is correct.
+A (in)correct answers (costs) earns you a point.
+
 \begin{exercise}[201703] 
   If the random variable $X\sim\exp(\lambda)$ then
   \begin{equation*}
   \E{X^2}= \frac{1}{\lambda^2}.
   \end{equation*}
 \begin{solution}
-    False
+    Answer = B.
 
   \begin{equation*}
   \E{X^2}= \frac{2}{\lambda^2}.
@@ -26,7 +30,7 @@
 Z=\max\{X,Y\}\sim\exp(\lambda+\mu),
   \end{equation*}
 \begin{solution}
-    False
+    Answer = B.
 
 $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
 
@@ -44,7 +48,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
   \end{split}
 \end{equation*}
 \begin{solution}
-    True. 
+    Answer = A. 
 
     I decided to withdraw this question. The initial wording of the
     question was like this: `If the interarrival times $\{A_k\}$ are
@@ -68,7 +72,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
 = e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!}  \\
   \end{equation*}
 \begin{solution}
-    True
+    Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -79,7 +83,7 @@ $Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
  then $\E{N^2}=(\lambda t)^2$.
 
 \begin{solution}
-False
+Answer = B.
 
 Set $t=1$ for notational simplicity. Then
 \begin{equation*}
@@ -106,7 +110,7 @@ $\E{N^2} = M''(0) = \lambda^2+\lambda$.
   distributed and the interarrival times are deterministic.
 
 \begin{solution}
-    False
+    Answer = B.
 
     The interarrival times are exponentially distributed and the
     service times are deterministic.
@@ -136,7 +140,7 @@ It is true that the above
     recursions model this queueing system.
 
 \begin{solution}
-    False
+    Answer = B.
 It should be this: $d_k =I_k \min\{Q_{k-1}, c_k\}$,  $Q_k = Q_{k-1} - d_k + a_k$.
 
 \end{solution}
@@ -152,7 +156,7 @@ For the $G/G/1$ queue the following recursion is true:
 \end{align*}
 
 \begin{solution}
-    True
+    Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -167,7 +171,7 @@ For the $G/G/1$ queue the following recursion is true:
   \end{equation*}
 
 \begin{solution}
-    True
+    Answer = A.
   \begin{equation*}
     \P{W_{Q,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
   \end{equation*}
@@ -195,7 +199,7 @@ departure process is a Poisson process $N_\mu(t)$.
 where $\P{m}{\cdot}$ means that $Z(0)=m$.
 
 \begin{solution}
-    True
+    Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -217,7 +221,7 @@ then
 \end{equation*}
 
 \begin{solution}
-False
+Answer = B.
 
 \begin{equation*}
   \begin{split}
@@ -243,7 +247,7 @@ For the $G/G/1$ it is true that
 \end{equation*}
 
 \begin{solution}
-  False
+  Answer = B.
 
 \begin{equation}
   \begin{split}
@@ -260,7 +264,7 @@ satisfies
       \begin{equation*}
         V(t) = [V(A_{A(t)}) + (A_{A(t)}-t)]^+.
       \end{equation*}
-\begin{solution} True
+\begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -270,7 +274,7 @@ satisfies
 \begin{equation*}
   \E B = \frac{\rho }{1-\rho} \E I. 
 \end{equation*}
-\begin{solution} True
+\begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -294,7 +298,7 @@ such that
  \lambda_B T &< k_B.
 \end{align*}
 
-\begin{solution} True
+\begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -304,7 +308,7 @@ such that
 \begin{equation*}
   \P{W \leq x}  =  \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
 \end{equation*}
-\begin{solution} False
+\begin{solution} Answer = B.
   
 \begin{equation}
   \P{W \leq x}  = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
@@ -318,7 +322,7 @@ such that
 \begin{exercise}[201802]
 If $N(t)$ is Poisson distributed with parameter $\lambda t$, i.e., $N(t) \sim P(\lambda t)$, the variance $\V{N(t)} = \lambda t$. 
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -327,7 +331,7 @@ answer = A
 \sum_{n=0}^\infty n \frac{\lambda^n}{n!} = \lambda e^{\lambda}.
 \end{equation*}
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -337,7 +341,7 @@ Let $N$ be a Poisson process with rate $\lambda$. Then,
 \{N(0,s]+N(s,t]=1\}\cap\{N(0,t]=1\} = \{N(0,s]=1\}.
   \end{equation*}
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
@@ -348,7 +352,7 @@ M_{N}(s) = \E{e^{s N}} =\exp(\lambda(s - 1)).
 \end{equation*}
 
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
@@ -369,14 +373,14 @@ Suppose $N\sim P(\lambda)$ and $N_1$ is a random variable obtained by `thinning'
   \end{split}
 \end{equation*}
 \begin{solution}
-answer = A, see Page 20
+Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
 When many unrelated jobs arrive at a queueing system, like patients at a hospital, or customers at a shop, it is reasonable to model the interarrival times as exponentially distributed with a mean that is constant during short periods, (e.g. 10 minutes or 30 minutes, depending on the relevant context). 
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -386,7 +390,7 @@ If $X$ is exponentially distributed with rate $\lambda$,
     \E X = \int_0^\infty \lambda e^{-\lambda t}\, \d t.
   \end{equation*}
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
@@ -394,21 +398,21 @@ answer = B
 Given a non-negative random variable $B$ taking values in $\N$ and with $F(i) = \P{B\leq i}$, 
 then, $\E{B} = \sum_{i=0}^\infty i F(i)$.
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
 In the  $D/M/1$ jobs have deterministic service times.
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
 In a discrete-time queueing system, when job arrivals in period $k$ cannot be served in period $k$, then $d_k = \min\{Q_{k-1}, c_k\}$, $Q_k = Q_{k-1} -d_k + a_k.$
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -418,7 +422,7 @@ For a continuous-time queueing system, if $S_2$ is the service time of job $2$ a
   \P{S_{2}=1, X_3=3} = \P{S_{2}=1}\P{X_3=3}.
 \end{equation*}
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -428,7 +432,7 @@ For a single-server queueing system that starts empty,  the number $L(t)$ of job
       L(t) = \sum_{k=1}^\infty \left[\1{A_k \leq t} -  \1{D_k \leq t}\right].
   \end{equation*}
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -436,7 +440,7 @@ answer = A
 \begin{exercise}[201802]
 For three numbers $a,b,c$, $\max\{a, \max\{b, c\}\} = \max\{a, b, c\}$. 
 \begin{solution}
-answer = A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -447,14 +451,14 @@ If a r.v. $X\sim\exp(\lambda)$, i.e., exponentially distributed with mean $\lamb
 \end{equation*}
 
 \begin{solution}
-answer = A
+Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201803]
 Consider the $G/G/1$ queue. Under the `shortest processing time first' scheduling rule predictions of the finish times (i.e., quoting due dates) are more accurate than under the `first-in-first-out' rule.
 \begin{solution}
-answer = B
+Answer = B.
 \end{solution}
 \end{exercise}
 
@@ -473,7 +477,7 @@ Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
 where $r_A$, $r_B$ are the reserved capacities for each queue, and $c_k$ the total service capacity available in time $k$ and such that $c_k \geq r_A+r_B$.
 
 \begin{solution}
-answer = B, see Page 44. The following is correct: 
+Answer = B. The following is correct: 
 \begin{align*}
   c_{k,B} &= \min\{Q_{ k-1, B}, r_B\}\\
 d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,B}\}\\
@@ -491,7 +495,7 @@ The Kolmogorov-Smirnov statistic between the distributions of the random variabl
 \end{equation*}
 
 \begin{solution}
-answer = B, see Page 71. It should be
+Answer = B. It should be
 \begin{equation*}
   \max_x\{|\P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}|\}.
 \end{equation*}
@@ -508,7 +512,7 @@ answer = B, see Page 71. It should be
 \E{A_i} = \frac i\lambda.
  \end{equation*}
 \begin{solution}
-answer = A, see ex 1.2.11
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -523,7 +527,7 @@ Q_n &= Q_{n-1} + a_n - d_n,
 \end{align*}
 where the notation is the same as in the book.
 \begin{solution}
-answer = B. It should be this:
+Answer = B. It should be this:
 \begin{align*}
 c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} < 12}\\
   d_n &= \min\{Q_{n-1}, c_n\} \\
@@ -541,7 +545,7 @@ The following formula computes the number of periods in which the queue exceeds 
 N-  \sum_{n=1}^N \1{Q_n \leq 30}.
 \end{equation*}
 \begin{solution}
-answer = A. 
+Answer = A. 
 \begin{equation*}
 N-  \sum_{i=n}^N \1{Q_n \leq 30} = 
 \sum_{i=n}^N (1-\1{Q_n \leq 30}) = 
@@ -559,7 +563,7 @@ The following is correct:
 = (\lambda/\mu)^{(n-m)/2} (t\sqrt{\lambda \mu})^{2k+m-n}.
 \end{equation*}
 \begin{solution}
-answer = A, see Page 73
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -571,11 +575,11 @@ Thus,  the     fraction of time that the server has been busy during $[A_1, A_{n
 =          \frac{\sum_{i=1}^n S_i}{\sum_{i=2}^{n+1}X_i}.
         \end{equation*}
 \begin{solution}
-answer = B, see Page 79. The point here is that it is not true in general. Only when $L(A_{n+1})=0$, it is true. Otherwise, if $A_{n+1}< D_n$, there is a queue, hence the total amount of work arrived is larger than what has been served. In fact, the quantity in the formula may exceed 1, in which case it cannot be a fraction of time.
+Answer = B. The point here is that it is not true in general. Only when $L(A_{n+1})=0$, it is true. Otherwise, if $A_{n+1}< D_n$, there is a queue, hence the total amount of work arrived is larger than what has been served. In fact, the quantity in the formula may exceed 1, in which case it cannot be a fraction of time.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 Let $\{N(t)\}$ denote the Poisson process with rate $\lambda$, and write $N(s, t]$ for the number of arrivals in the interval $(s,t]$. Claim:  the following holds for $h\ll 1$, 
     \begin{align*}
   \P{N(t+h) = n | N(t) = n} 
@@ -588,20 +592,20 @@ Let $\{N(t)\}$ denote the Poisson process with rate $\lambda$, and write $N(s, t
 &= e^{-\lambda h} = 1-\lambda h + o(h).
     \end{align*}
 \begin{solution}
-answer = A, see Page 18
+Answer = A.
 \end{solution}
 \end{exercise}
 
 
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 Assume that the arrival rate of customers is constant in a given half hour. Claim: it is reasonable to model the interarrival times of customers at call centers or hospitals as  exponentially distributed.
 \begin{solution}
-answer = A, see Page 24
+Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 If $X$ is an exponentially distributed random variable with mean $1/\lambda$ and $Y$ exp. dist. with mean $1/\mu$, and $X$ and $Y$ are independent. Claim:
 \begin{align*}
     \P{X\leq Y} 
@@ -609,11 +613,11 @@ If $X$ is an exponentially distributed random variable with mean $1/\lambda$ and
 \end{align*}
 
 \begin{solution}
-answer = B, see Page 31
+Answer = B.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]{1}
+\begin{exercise}[201807]
 Let $S$ be  a continuous random variable with survivor function $G$, density $f$, and finite second moment. Claim:
   \begin{align*}
 \int_0^\infty y G(y) \d y 
@@ -623,7 +627,7 @@ Let $S$ be  a continuous random variable with survivor function $G$, density $f$
   \end{align*}
 
 \begin{solution}
-answer = A, see Page 36
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -634,21 +638,21 @@ answer = A, see Page 36
 Let $N\sim P(\lambda)$. Then its variance is  $\lambda$. 
 
 \begin{solution}
-answer = A. %see Page 11
+Answer = A. %see Page 11
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
 Let $N\sim P(\lambda)$. Then its SCV is  $1/\lambda^2$. 
 \begin{solution}
-answer = B. The SCV is $1/\lambda$. %see Page 16
+Answer = B. The SCV is $1/\lambda$. %see Page 16
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
 Let $f(x) =  10^6 x^2$. Then $f(x) = o(x)$. 
 \begin{solution}
-answer = A, see Page 17
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -659,7 +663,7 @@ answer = A, see Page 17
     \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N\leq n}}.
   \end{equation*}
 \begin{solution} 
-answer = B
+Answer = B.
   \begin{equation*}
     \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N= n}}.
   \end{equation*}
@@ -670,7 +674,7 @@ answer = B
 \begin{exercise}[201902]
 Let $Y$ be a random variable,  exponentially distributed with rate $\lambda>0$. Then $\V Y = 1/\lambda^2$. 
 \begin{solution}
-answer = A %, see Page 22
+Answer = A. %
 \end{solution}
 \end{exercise}
 
@@ -684,7 +688,7 @@ answer = A %, see Page 22
 \end{align*}
 
 \begin{solution}
-answer = B. $A_i = A_{i-1} + X_i$. Hence, 
+Answer = B. $A_i = A_{i-1} + X_i$. Hence, 
 \begin{align*}
   M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i} X_k\right)}.
 \end{align*}
@@ -698,7 +702,7 @@ answer = B. $A_i = A_{i-1} + X_i$. Hence,
   f_{X S}(x,s) = \1{0\leq x \leq 10, 0\leq s \leq 7}.
 \end{equation*}
 \begin{solution}
-answer = B. %, see Page 34
+Answer = B. %
 \begin{equation*}
   f_{X S}(x, s) = f_X(x) \cdot f_S(s) = \frac{1}{10} \1{0\leq x \leq 10}\cdot \frac 17 \1{0\leq s \leq 7},
 \end{equation*}
@@ -709,14 +713,14 @@ answer = B. %, see Page 34
 \begin{exercise}[201902]
 Consider a check-in desk at an airport. There is one desk that is dedicated to  business customers. However, when it is idle (i.e., no business customer in service or in queue), this desk also serves economy class customers. The other $c$ desks are reserved for economy class customers. The queueing process as perceived by the economy class customers can be modeled as an $M/M/(c+1)$ queue. 
 \begin{solution}
-answer = B. 
+Answer = B. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
 In the $M/G/\infty$ queue jobs never spend time in queue.
 \begin{solution}
-answer = A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -738,7 +742,7 @@ for k in range(1, len(a)):
 \end{pyverbatim}
 
 \begin{solution}
-  answer = B. The vectors $a$ and $c$ are not given. See this:
+  Answer = B. The vectors $a$ and $c$ are not given. See this:
 
 \begin{pyconsole}
 import numpy as np
@@ -759,7 +763,7 @@ for k in range(1, len(a)):
 \begin{exercise}[201902]
   We have a queueing system in discrete time. Take $c_k = c\1{Q_{k-1} > t}$ as service capacity in period $k$. If $c < t$, and $Q_0 > 0$, then $Q_k > 0$ for all $k$. 
 \begin{solution}
-answer = A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -774,7 +778,7 @@ for k in range(1, len(a)):
 \end{pyverbatim}
 
 \begin{solution}
-answer = A. This recursion is used to relate the queueing process to a random walk.
+Answer = A. This recursion is used to relate the queueing process to a random walk.
 \end{solution}
 \end{exercise}
 
@@ -787,7 +791,7 @@ Take  $d_k = \min\{Q_{k-1}+a_k, c_k\}$, and assume that jobs are served in
     \end{equation*}
 
 \begin{solution}
-answer = A, see Page 50
+Answer = A.
 
 
 
@@ -813,7 +817,7 @@ The initial formulation of the question was like this: Take  $d_k = \min\{Q_{k-1
 
 
 \begin{solution}
-answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases  when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
+Answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases  when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
 
 The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p = 1- \P{X_k=0}$. 
 \end{solution}
@@ -822,7 +826,7 @@ The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p
 \begin{exercise}[201903]
 Let $\{X_k, k=1, 2, \ldots\}$ be a set of i.i.d. exponentially distributed random variables with mean $1/\lambda$, and $\{N(t), t\geq 0\}$ with  $N(0)=0$ the associated counting process. Then $\P{X_1\leq s, X_2 \leq t} = \P{N(s+t) = 2}$. 
 \begin{solution}
-  answer = B, see Page 21.
+  Answer = B.
 
   When $X_1\leq s$ and $X_2\leq t$ then still $N(s+t)=3$ is possible. For $N(s+t)=2$ it is  necessary that $X_1+X_2 + X_3 > s+t$. 
 \end{solution}
@@ -831,7 +835,7 @@ Let $\{X_k, k=1, 2, \ldots\}$ be a set of i.i.d. exponentially distributed rando
 \begin{exercise}[201903]
 Let $X\sim\exp(\lambda)$ and $M_X(s)$ the associated moment-generating function. Then $M_X(s)<\infty$ for all $s\in \R$. 
 \begin{solution}
-  answer = B, see Page 22
+  Answer = B.
 
   If $s>\lambda$ the integral does not converge. 
 \end{solution}
@@ -844,7 +848,7 @@ d_k &= \min\{Q_{k-1}, c_k\},  & Q_k &= Q_{k-1} -d_k + a_k.
 \end{align}
 Take $a_k$ Poisson distributed with $\lambda=2$, i.e., $a_k \sim P(2)$, and $c_k\sim P(1)$ and initialize $Q_0 = 0$. Then $\P{Q_{10000} \geq 100} \leq 1/2$. 
 \begin{solution}
-answer = B, see Page 40
+Answer = B.
 \end{solution}
 \end{exercise}
 
@@ -860,7 +864,7 @@ answer = B, see Page 40
   There is also a cost $h$ per unit time per job in the system.
   The total cost up to some time $T$ is given by  $\beta \sum_{k=1}^T c_k$.
 \begin{solution}
-answer = B.
+Answer = B.
 
 The total cost is
     \begin{equation*}
@@ -873,7 +877,7 @@ The total cost is
 \begin{exercise}[201903]
 In python you need to set the seed of the random number generator to a fixed value in order to obtain the same random numbers for various simulation runs. 
 \begin{solution}
-answer = A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -885,7 +889,7 @@ Consider the $G/G/1$ queue in continuous time with inter-arrival times $X_k$, se
 \end{align}
 
 \begin{solution}
-answer = A, see Page 58
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -902,7 +906,7 @@ answer = A, see Page 58
     where $c_k^i$ be the capacity allocated to queue $i$ in period $k$ and we include the rounding to prevent the loss of capacity.
 
 \begin{solution}
-      Answer = A, \ref{ex:51}.
+      Answer =  A,~\cref{ex:51}.
       We introduce rounding to prevent the service of `partial' customers.
       For instance, if the first queue contains 1 job, and the second 2, then without rounding we would server $2/3$ customer of the second type.
 
@@ -913,8 +917,8 @@ answer = A, see Page 58
 
 
 \begin{exercise}[201904]
-When  $X\sim\Exp(\lambda)$ its SCV is larger than 1..
-\begin{solution} Answer = B, see \ref{ex:29}.
+When  $X\sim\Exp(\lambda)$ its SCV is larger than 1.
+\begin{solution} Answer =  B, see~\cref{ex:29}.
 \end{solution}
 \end{exercise}
 
@@ -923,9 +927,93 @@ When  $X\sim\Exp(\lambda)$ its SCV is larger than 1..
   \begin{equation*}
   W_{Q,k} = \max\{W_{Q,k-1} + S_{k}-X_k, 0\}.
   \end{equation*}
-\begin{solution} Answer = B, \eqref{eq:56}.
+\begin{solution} Answer =  B, \eqref{eq:56}.
 \end{solution}
 \end{exercise}
+
+
+\begin{exercise}[201907]
+$e^{x} = 1 +x^2 + o(x^2)$.
+\begin{solution}
+Answer =  B, see~\cref{ex:87}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201907]
+  A machine produces items to serve customer demand.
+  A fraction $p_k$ of the items produced in period $k$ turns out to be faulty, and has to be made anew.
+  The following set of recursions models the queue of customers waiting to be served from the machine:
+  \begin{align*}
+    d_k &= \min\{L_{k-1}, c_k\}, \\
+    L_k &= L_{k-1}-d_k(1-p_k) + a_k.
+  \end{align*}
+\begin{solution}
+Answer =  A, see\cref{ex:88}.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201907]
+The departure process $\{D(t)\}$ can be computed from the set $\{D_k\}$ of departure times according to:
+\begin{equation*}
+  D(t) = \sum_{k=1}^\infty \1{D_k \leq t}.
+\end{equation*}
+
+\begin{solution}
+Answer =  A.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201907]
+The waiting time of the third job is correctly represented in the figure below.
+  \begin{center}
+\begin{tikzpicture}[scale=0.9,
+  open/.style={shape=circle, fill=white, inner sep=1pt, draw, node contents=},
+  closed/.style={shape=circle, fill=black, inner sep=1pt, draw, node contents=},
+  soldot/.style={color=blue,only marks,mark=*}
+]
+
+\def\rightend{14}
+\def\top{7}
+\path [clip] (-1,-1) rectangle (\rightend,\top);
+
+\draw[->] (-1,0) -- (\rightend,0);
+\draw[->] (-0.5,-0.5) -- (-0.5, \top);
+
+% arrivals
+\def\lastx{0}
+\foreach \x [count=\y, remember=\x as \lastx] in {1,3,4, 7, 9, 18} { 
+  \node at (\lastx, 0) [below] {$A_{\y}$};
+  \node (a) at (\lastx,\y) [closed] {};
+  \draw[dotted] (\lastx,0) -- (a); 
+  \draw (a)-- (\x,\y) node[open, label={}]; 
+}
+% draw first arrival. Since I want the circle to be open, I draw it at
+% the end.
+\node at (0, 0) [open] {};
+\node at (5.5, 4) [fill=white] {$A(t)$};
+
+
+% departures
+\def\lastx{5}
+\foreach \x [count=\y, remember=\x as \lastx] in {6, 8, 10, 11, 13,15} { 
+  \draw[dotted] (\lastx,\y) -- (\lastx,0); 
+  \draw (\lastx,\y) node[closed, label={}] -- (\x,\y) node[open, label={}]; 
+  \node at (\lastx, -0.5) [below] {$D_{\y}$};
+}
+\node at (5, 0) [open] {};
+\node at (12, 5) [fill=white] {$D(t)$};
+  
+\draw[dashed, <->] (3,2.5)--node[midway, fill=white] {$W_3$} (8,2.5);
+\draw[dashed, <->] (7.5,2)--node[midway, fill=white,rotate=90] {$L(t)$} (7.5,5);
+
+\end{tikzpicture}
+  \end{center}
+
+\begin{solution}
+Answer =  A.
+\end{solution}
+\end{exercise}
+
 
 
 \subsection{Open Questions}
@@ -959,7 +1047,7 @@ A machine serving work of different types of jobs. Jobs of the same type are put
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]{2} For the situation of the previous question, find a recursion to compute a tight upper bound on the time the arriving work $a_k^i$ spends in the system.
+\begin{exercise}[201704] For the situation of the previous question, find a recursion to compute a tight upper bound on the time the arriving work $a_k^i$ spends in the system.
 \begin{solution}
 We need to compute the time it takes to clear $Q_k^i$. This is
 \begin{equation*}
@@ -1029,9 +1117,23 @@ Others say that with simulation its only possible to model systems that operate 
   Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
   Make a set of discrete-time recursions to analyze this case.
 \begin{solution}
-See \ref{ex:52}
+See~\cref{ex:52}
 \end{solution}
 \end{exercise}
+
+
+\begin{exercise}[201907]
+  Why did we discuss the transient behavior of the random walk in a course on queueing theory?   
+
+\begin{solution}
+  The random walk acts as a queueing system without a boundary at $y=0$; the random walk can be negative while the queueing system cannot be negative.
+  Often a queueing system is called a reflected random walk.
+  We analyzed the transient behavior of the random walk, and saw that that was already quite complicated.
+  Including reflections makes the analysis of the transient behavior harder.
+  Thus we decided to focus on the stationary behavior instead.
+\end{solution}
+\end{exercise}
+
 
 
 \Closesolutionfile{ans}
