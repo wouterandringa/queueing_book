@@ -289,7 +289,7 @@ Since $G(i) =0$ for $i\geq 3$ we rewrite this to
 \begin{equation*}
   \pi(n) = \frac\lambda \mu \sum_{i=0}^{\min\{n-1,\text{len } G\}} \pi(n-1-i)G(i),
 \end{equation*}
-where $\text{len} G$ for the largest possible batch size.
+where $\text{len } G$ is the largest possible batch size.
 
 The following code carries out the recursion for the $M/M/1$ queue and compares the result to the \emph{unnormalized} probabilities of the $M/M/1$ queue.
 Recall, $(\lambda/\mu)^n$ are these unnormalized probabilities.
