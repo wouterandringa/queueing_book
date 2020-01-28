@@ -1,0 +1,7 @@
+file=level_crossing_illustration
+
+ipynb-py-convert $file.py $file.ipynb
+jupyter nbconvert --execute $file.ipynb --inplace
+jupyter nbconvert --to latex $file.ipynb
+pdflatex $file.tex
+rm $file.out $file.log $file.aux $file.tex
