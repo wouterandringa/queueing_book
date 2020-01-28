@@ -11,12 +11,10 @@ derived by level crossing arguments applied to queueing systems in which jobs ar
 
 We start with a given set of arrival epochs $\{A_k\}$ and departure epochs $\{D_k\}$. 
 Let $A(t)$ be the total number of jobs arrived up to time, i.e., $A(t)=\max\{k : A_k \leq t\}$, and $D(t)$ be the number departed up, i.e., $D(t)=\max\{k: D_k \leq t\}$. Then $L(t) = A(t)-D(t)$ is the number of jobs in the system, assuming the system starts out empty. Define
-$$
 \begin{align}
   A(n,t) &= \sum_{k=1}^\infty \mathbf{1}\{A_k\leq t, L(A_k-)=n\}, \\
   D(n,t) &= \sum_{k=1}^\infty \mathbf{1}\{D_k\leq t, L(D_k)=n\}, 
 \end{align}
-$$
 respectively, as the number of arrivals up to time $t$ that see $n$ jobs in the system upon arrival, and as the number of departures that leave $n$ behind. Next,  let
 \begin{equation}
   Y(n,t)=\int_0^t \mathbf{1}\{L(s)=n\}d\,s,
