@@ -460,7 +460,8 @@ Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201804]For the $G/G/1$ queue,  the average number of
+\begin{exercise}[201804]
+For the $G/G/1$ queue,  the average number of
 jobs in the system as seen by arrivals is given by
 \begin{equation}\label{eq:11}
 \frac 1 t\int_0^t L(s)\d s =  \frac 1 t\int_0^t (A(s)-D(s)) \d s,
@@ -526,7 +527,8 @@ Answer = B. Its precisely the other way around.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201804]For the $M^X/M/1$ queue, if $B_r$ is the number of items of the batch currently at the server and $L_{Q,b}$ the number of batches in queue, then
+\begin{exercise}[201804]
+For the $M^X/M/1$ queue, if $B_r$ is the number of items of the batch currently at the server and $L_{Q,b}$ the number of batches in queue, then
 \begin{equation*}
   \E{L} = \E{L_{Q,b}}\E B + \E{B_r}.
 \end{equation*}
@@ -535,7 +537,8 @@ Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201804]For the $M^X/M/1$ queue, 
+\begin{exercise}[201804]
+For the $M^X/M/1$ queue, 
 Let $\tilde A_k$ be the moment the $k$th batch moves to the server and $D_k$ its departure time.  When $S_{k,i}$ is the service time of the $i$th item of batch~$k$,  
 \begin{equation*}
   \int_{\tilde A_k}^{D_k} \1{L_S(s)=i} \d s = S_{k,i} \1{B_k \geq i}.
@@ -634,7 +637,8 @@ Answer = A.
 \end{exercise}
 
 
-\begin{exercise}[201807] For the $G/G/1$ the difference between the number of `out
+\begin{exercise}[201807] 
+For the $G/G/1$ the difference between the number of `out
     transitions' and the number of `in transitions' is at most 1 for all $t$. As a consequence,
     \begin{align*}
 \text{transitions out } &\approx \text{transitions in } \iff \\
@@ -1072,14 +1076,16 @@ The  $M/G/c/K$ shorthand means that jobs arrive as a Poisson process, job servic
 \end{exercise}
 
 
-\begin{exercise}[201904] Consider the server of the $G/G/1$ queue as a system by itself.
+\begin{exercise}[201904]
+ Consider the server of the $G/G/1$ queue as a system by itself.
   The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
   It follows from Little's law that the fraction of time the server is busy is $\lambda \E S$.
 \begin{solution} Answer = A,~\cref{ex:37}.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904] If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum_{n=0}^\infty A(n,t)$?
+\begin{exercise}[201904]
+ If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum_{n=0}^\infty A(n,t)$?
 \begin{solution} Answer = A,~\cref{ex:36}
 \end{solution}
 \end{exercise}
@@ -1106,13 +1112,15 @@ Let
 
 
 
-\begin{exercise}[201904] As $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
+\begin{exercise}[201904] 
+As $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
 \begin{solution} Answer = A,~\cref{ex:40}
 \end{solution}
 \end{exercise}
 
 
-\begin{exercise}[201904] To model the  $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lambda(n) = \lambda$ for all $n$.
+\begin{exercise}[201904] 
+To model the  $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lambda(n) = \lambda$ for all $n$.
 \begin{solution} Answer = B,~\cref{ex:41}
 \end{solution}
 \end{exercise}
@@ -1148,7 +1156,8 @@ Cd
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904] For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=4$ per hour and are served at rate $\mu=5$ per hour.
+\begin{exercise}[201904] 
+For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=4$ per hour and are served at rate $\mu=5$ per hour.
   At the moment you join the system, the number of customers in the system is 10.
   Your expected time in the system is, by Little's law, $\E W = \E L /\lambda = 2.5$ hour.
 \begin{solution} Answer = B,~\cref{ex:44}.
@@ -1280,7 +1289,8 @@ Answer = A.
   
 \subsection{Open Questions}
 
-\begin{exercise}[201704] Show with a level-crossing argument that
+\begin{exercise}[201704] 
+Show with a level-crossing argument that
   \begin{equation}\label{eq:90}
   \lambda \pi(n) = \mu(n+1) p(n+1)
   \end{equation}
@@ -1357,7 +1367,8 @@ What is wrong with this formula, and repair it.
 \end{exercise}
 
 
-\begin{exercise}[201706] Show that an  exponentially distributed random variable is memoryless.
+\begin{exercise}[201706]
+ Show that an  exponentially distributed random variable is memoryless.
 \begin{solution}
   See the book.
 
@@ -1366,7 +1377,8 @@ No points if you do not explicitly use the exponential distribution.
 \end{exercise}
 
 
-\begin{exercise}[201706] Suppose an $M/M/1$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
+\begin{exercise}[201706]
+ Suppose an $M/M/1$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
 \begin{solution}
   See the book. $\P{\min\{X, S\} > x} = \exp{-(\mu+\lambda) x}$. 
 
@@ -1376,7 +1388,8 @@ Stating that the time is $\min\{X,Y\}$ where $X$ and $Y$ are exp. distr. random 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201706] Suppose an $M/M/4$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
+\begin{exercise}[201706]
+ Suppose an $M/M/4$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
 \begin{solution}
   See the book. $\P{\min\{X, S_1,\ldots, S_4\} > x} = \exp{-(4\mu+\lambda) x}$. 
 \end{solution}
@@ -1537,7 +1550,8 @@ see the book.
 \end{exercise}
 
 
-\begin{exercise}[201804] Show with a level-crossing argument  that for the $M/M/1$ queue 
+\begin{exercise}[201804] 
+Show with a level-crossing argument  that for the $M/M/1$ queue 
   \begin{equation}\label{eq:91}
   \pi(n) = \delta(n).
   \end{equation}
@@ -1635,7 +1649,8 @@ Since $\lambda=\mu$,  $p(0) = 2p(2)$, $p(2) = p(3)$. But then, from the second e
 \end{exercise}
 
 
-\begin{exercise}[201807] What is the fraction of lost jobs?
+\begin{exercise}[201807] 
+What is the fraction of lost jobs?
 \begin{solution}
     First use PASTA to see that $\pi(n) = p(n)$. Then, conclude that $\pi(3) = p(3) = 1/7$. 
 
@@ -1643,7 +1658,8 @@ You need to mention that you used PASTA. Its not evident that $p(n)=\pi(n)$.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]  Suppose the manager is unsatisfied with the loss rate. Writing $x=\lambda/\mu$ for ease, what condition should $x$ satisfy such that the loss probability is less than some threshold $\alpha$? (Just show the condition on $x$; you do not have to solve for $x$.) 
+\begin{exercise}[201807]  
+Suppose the manager is unsatisfied with the loss rate. Writing $x=\lambda/\mu$ for ease, what condition should $x$ satisfy such that the loss probability is less than some threshold $\alpha$? (Just show the condition on $x$; you do not have to solve for $x$.) 
 \begin{solution}
     Now, 
     \begin{align*}
@@ -1663,7 +1679,8 @@ With this we have, for given $x$, found $p(0)$. Then we want $x$ to be such that
 \end{exercise}
 
 
-\begin{exercise}[201807]{Continuation of previous exercise, 1} Assume again that $\lambda=\mu=1$. Would the loss be reduced if the manager extends the system to four $4$ positions like this:
+\begin{exercise}[201807]{Continuation of previous exercise, 1}
+ Assume again that $\lambda=\mu=1$. Would the loss be reduced if the manager extends the system to four $4$ positions like this:
 \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
                     semithick]
@@ -1839,7 +1856,8 @@ What is this simpler queueing system?
 
 Suppose we can extend the system such that one job can be queued.
 
-\begin{exercise}[201904] Make a sketch of the state space and include the transitions and rates. 
+\begin{exercise}[201904] 
+Make a sketch of the state space and include the transitions and rates. 
 \begin{solution}
   Add a state $(1)$ to the right of $(1,1)$. There is an arrow $\lambda$ from $(1,1)$ to $(1)$, and an arrow $\mu_1 + \mu_2$ in the other direction.
 

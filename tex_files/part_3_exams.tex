@@ -40,7 +40,8 @@ Then all steps in the computation below are correct:
 \end{exercise}
 
 
-\begin{exercise}[201907] When a bus reaches the end of its line, it undergoes a series of inspections.
+\begin{exercise}[201907] 
+When a bus reaches the end of its line, it undergoes a series of inspections.
   The entire inspection takes 5 minutes on average, with a standard deviation of 2 minutes.
   Buses arrive with inter-arrival times uniformly distributed on $[3,9]$ minutes.
   We model the number of buses waiting to be inspected as an $G/G/1$ queue.
@@ -296,7 +297,8 @@ The above code simulates the $G/G/1$ queue. Complete the code to compute the soj
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201907] Explain the code from lines 45 to 48.
+\begin{exercise}[201907]
+ Explain the code from lines 45 to 48.
 
 \begin{solution}
   First we set a flag to indicate that the server is occupied.
@@ -305,7 +307,8 @@ The above code simulates the $G/G/1$ queue. Complete the code to compute the soj
 \end{solution}
 \end{exercise}              
 
-\begin{exercise}[201907] Suppose we want to implement the LIFO queue. Which line of the above code has to change, and what should the change be? (It is ok if your answer is not perfect python code; however, your answer should show your correct understanding.) 
+\begin{exercise}[201907] 
+Suppose we want to implement the LIFO queue. Which line of the above code has to change, and what should the change be? (It is ok if your answer is not perfect python code; however, your answer should show your correct understanding.) 
 
 \begin{solution}
 \pyv{heappush(queue, (-job.arrival_time, job))}

@@ -273,7 +273,8 @@ For this reason, most of the exercises below focus on obtaining recursions for m
   So, let's be pragmatic: the aim is that you practice with modeling, and that you learn from the solutions.
   If you obtain \emph{reasonable} recursions, but they are different from mine, then your answer is just as good.}
 
-\begin{exercise}[Queue with Blocking] A queueing system
+\begin{exercise}[Queue with Blocking] 
+A queueing system
   under daily review, i.e., at the end of the day the queue length is
   measured. We assume that at the end of the day no jobs are still in
   service. We assume that jobs that arrive at day $k$ cannot be served
@@ -288,8 +289,8 @@ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[Estimating the lead time distribution] 
-\label{ex:19} Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO sequence.
+\begin{exercise}[Estimating the lead time distribution] \label{ex:19} 
+Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO sequence.
   Find an expression for the shortest possible waiting time $W_{-,k}$ of a job that arrives at time $k$, and an expression for the largest possible waiting time $W_{+,k}$.
 \begin{hint}
   Consider a numerical example.
@@ -378,7 +379,8 @@ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue 
 \end{extra}
 
 
-\begin{exercise}[Cost models] A single-server queueing station
+\begin{exercise}[Cost models]
+ A single-server queueing station
   processes customers. At the start of a period the server capacity is
   chosen, so that for period $k$ the capacity is $c_k$. Demand that
   arrives in a period can be served in that period. It costs $\beta$
@@ -484,7 +486,8 @@ and likewise for the other queue.
 \end{solution}
 \end{extra}
 
-  \begin{exercise} [Priority queueing] An interesting situation is a system with two queues served by one server, but such that one queue, queue $A$, gets priority over the other queue.
+  \begin{exercise}[Priority queueing] 
+    An interesting situation is a system with two queues served by one server, but such that one queue, queue $A$, gets priority over the other queue.
     Again find a set of recursions to describe this case.
 \begin{solution}
       The rules below implement a strict priority rule for jobs of type
@@ -540,12 +543,12 @@ If there are less patients of some group, then the capacity can be planned/given
 \end{extra}
 
 
-\begin{exercise} [Queue with protected service capacity and lost capacity] Consider a
-  single-server that serves two parallel queues $A$ and $B$. Each queue receives a
-  minimal service capacity every period. Reserved capacity unused for
-  one queue cannot be used to serve the other queue. Any extra
-  capacity beyond the reserved capacity is given to queue A with
-  priority. Formulate a set of recursions to analyze this situation.
+\begin{exercise}[Queue with protected service capacity and lost capacity] 
+  Consider a single-server that serves two parallel queues $A$ and $B$.
+  Each queue receives a minimal service capacity every period.
+  Reserved capacity unused for one queue cannot be used to serve the other queue.
+  Any extra capacity beyond the reserved capacity is given to queue A with priority.
+  Formulate a set of recursions to analyze this situation.
 
   Let $r_A$ be the reserved capacity for queue A, and likewise for
    $r_B$. We assume of course that $c_k\geq r_A + r_B$, for all $k$.
