@@ -10,7 +10,7 @@
 In this section we provide motivation for the use of the Poisson process as an arrival process of customers or jobs at a shop, service station, or machine, to receive service.  In the exercises we derive numerous  properties of  this exceedingly important distribution; in the rest of the book we will use these results time and again.
 
 Consider a stream of customers that enter a shop over time.
-Let us write $N(t)$ for the number of customers that entered during the time interval $[0,t]$ and, with this, $N(s, t] = N(t)-N(s)$.
+Let us write $N(t)$ for the number of customers that enter during the time interval $[0,t]$ and $N(s, t] = N(t)-N(s)$ for the number that arrive in the time period $(s, t]$.
 Clearly, as we do not know in advance how many customers will enter, we model the set $\{N(t), t\geq 0\}$ as a family of  random variables.
 
 Our first assumption is that the rate at which customers enter stays constant over time. Then it is reasonable to assume that
@@ -36,11 +36,8 @@ By our second assumption, the arrival rate is constant over time.
 Therefore, the probability~$p$ of an arrival in each interval should be constant.
 Moreover, if the time intervals are very small, we can safely neglect the probability that two or more customers arrive in one interval.
 
-As a consequence, then, we can model the occurrence of an arrival in
-some period $i$ as a Bernoulli distributed random variable $B_i$ such
-that $p=\P{B_i =1}$ and $\P{B_i=0} = 1-\P{B_i = 1}$, and we assume that
-$\{B_i\}$ are independent. The total number of arrivals $N_n(t)$ that
-occur in $n$ intervals is then \recall{binomially distributed}, i.e., 
+As a consequence, then, we can model the occurrence of an arrival in some period $i$ as a Bernoulli distributed random variable $B_i$ such that $p=\P{B_i =1}$ and $\P{B_i=0} = 1-\P{B_i = 1}$, and we assume that $B_i$ and $B_j$ are independent whenever $i\neq j$.
+The total number of arrivals $N_n(t)$ that occur in $n$ intervals is then \recall{binomially distributed}, i.e.,
 \begin{equation}\label{eq:bin}
   \P{N_n(t) = k} = {n \choose k} p^k (1-p)^{n-k}.
 \end{equation}
@@ -123,118 +120,6 @@ The process is an uncountable set of random variables indexed by $t\in \R^+$, no
 
 
 In the remainder of this section we derive a number of  properties of the Poisson process that we will use time and again.
-
-\begin{exercise}\label{ex:2}
-  Show that if $N(t)\sim P(\lambda t)$, the expected number of arrivals during $[0,t]$ is
-  \begin{equation*}
-  \E{N(t)} = \lambda t.
-  \end{equation*}
-\begin{hint}
-Use~\cref{eq:66}. Note  that the term with $n=0$ does not contribute in the following summation
-\begin{equation*}
-\sum_{n=0}^\infty n \frac{\lambda^n}{n!} = \sum_{n=1}^\infty n \frac{\lambda^n}{n!} = \sum_{n=1}^\infty \frac{\lambda^n}{(n-1)!} = \lambda \sum_{n=0}^\infty \frac{\lambda^n}{n!} = \lambda e^{\lambda},
-\end{equation*}
-where we apply a change of notation in the second to last step.
-\end{hint}
-\begin{solution} 
-    When a random variable~$N$ is Poisson distributed with parameter
-    $\lambda t$,
-    \begin{align*}
-      \E N 
-&= \sum_{n=0}^\infty n e^{-\lambda t}\frac{(\lambda t)^n}{n!}  \\
-&= \sum_{n=1}^\infty n e^{-\lambda t}\frac{(\lambda t)^n}{n!} \\ 
-&= e^{-\lambda t} \lambda t \sum_{n=1}^\infty \frac{(\lambda t)^{n-1}}{(n-1)!} \\
-&= e^{-\lambda t} \lambda t \sum_{n=0}^\infty \frac{(\lambda t)^{n}}{n!} \\
-&= e^{-\lambda t} \lambda t e^{\lambda t} \\
-&= \lambda t.
-    \end{align*}
-\end{solution}
-\end{exercise}
-
-
-\begin{extra}
-  Show that if $N(t)\sim P(\lambda t)$, the variance of the number of arrivals during $[0,t]$ is
-  \begin{equation*}
-\V{N(t)} = \lambda t.
-  \end{equation*}
-\begin{hint} Use~\cref{eq:68}. Compute $\E{N^2}$ and use~\cref{ex:2}.
-\end{hint}
-\begin{solution} 
-
-    \begin{align*}
-      \E{N^2}
-&= \sum_{n=0}^\infty n^2 e^{-\lambda t}\frac{(\lambda t)^n}{n!}  \\
-&= e^{-\lambda t} \sum_{n=1}^\infty n \frac{(\lambda t)^n}{(n-1)!}  \\
-&= e^{-\lambda t} \sum_{n=0}^\infty (n+1) \frac{(\lambda t)^{n+1}}{n!}  \\
-&= e^{-\lambda t} \lambda t \sum_{n=0}^\infty n \frac{(\lambda t)^{n}}{n!}  +e^{-\lambda t}\lambda t \sum_{n=0}^\infty\frac{(\lambda t)^{n}}{n!}  \\
-&\quad\text{now use the hint to simplify the first summation} \\
-&= (\lambda t)^2  + \lambda t.
-\end{align*}
-Hence, $\V N = \E{N^2} - (\E N)^2 = (\lambda t)^2 + \lambda t - (\lambda t)^2 = \lambda t$.
-\end{solution}
-\end{extra}
-
-\begin{extra}\label{ex:53}
-Show that the moment-generating function of the random variable~$N(t)\sim P(\lambda t)$ is
-\begin{equation*}
-M_{N(t)}(s) 
-%=  \E{e^{sN(t)}}  
-= \exp{(\lambda t(e^s-1))}.
-\end{equation*}
-\begin{hint}
-Use~\cref{eq:66} with $f(x) = e^{sx}$.  \end{hint}
-\begin{solution}
-Since $N(t)$ is Poisson distributed with parameter $\lambda t$, 
-\begin{align*}
-M_{N(t)}(s)
-&=  \E{e^{s N(t)}} \\
-&= \sum_{k=0}^\infty e^{s k} \P{N(t)=k} \\
-%&\quad\text{where we use that $\E{f(N(t))}=\sum_{n=0}^\infty f(n) \P{N(t)=n}$}\\
-&= \sum_{k=0}^\infty e^{s k} \frac{(\lambda t)^k}{k!} e^{-\lambda t}  \\
-&= e^{-\lambda t} \sum_{k=0}^\infty  \frac{(e^s \lambda t)^k}{k!}  \\
-&= \exp(-\lambda t + e^s \lambda t) =\exp(\lambda t(e^s - 1)).
-\end{align*}
-\end{solution}
-\end{extra}
-
-\begin{exercise}
-Use  the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(t)}$ and $\V{N(t)}$. 
-\begin{hint}
-Use~\cref{eq:69} and~\cref{eq:64}. 
-\end{hint}
-\begin{solution}
-Using the expression for the moment-generating function of~\cref{ex:53},
-  \begin{equation*}
-    M_{N(t)}'(s) = \lambda t e^s \exp(\lambda t(e^s - 1)).
-  \end{equation*}
-Hence $\E{N(t)} = M_{N(t)}'(0) = \lambda t $. Next, 
-  \begin{equation*}
-    M_{N(t)}''(s) = (\lambda t e^s + (\lambda t e^s)^2) \exp(\lambda t(e^s - 1)),
-  \end{equation*}
-hence $\E{(N(t))^2} = M''(0) = \lambda t + (\lambda t)^2$. And thus, 
-\begin{equation*}
-\V{N(t)} =\E{(N(t))^2}-(\E{N(t)})^2 = \lambda t + (\lambda t)^2 - (\lambda t)^2 = \lambda t.
-\end{equation*}
-\end{solution}
-\end{exercise}
-
-Define the \recall{square coefficient  of variation} (\recall{SCV}) of a random variable~$X$ as 
-\begin{equation}\label{eq:62}
-  C^2= \frac{\V X}{(\E X)^2}.
-\end{equation}
-As  will become clear later, the SCV is a very important concept in
-  queueing theory. Memorize it as a measure of \emph{relative
-  variability}.
-
-\begin{exercise}
-Show that   the SCV of $N(t)\sim P(\lambda t)$ is equal to $1/(\lambda t)$.  What does this mean for $t$ large?
-\begin{solution}
-    \begin{equation*}
-SCV = \frac{\V{N(t)}}{(\E{N(t)})^2} = \frac{\lambda t}{(\lambda t)^2} = \frac1{\lambda t}.
-    \end{equation*}
-The relative variability of the Poisson process goes down as $t\to\infty$.  
-\end{solution}
-\end{exercise}
 
 
 \begin{exercise}\label{ex:35}
@@ -353,13 +238,126 @@ From the hint,
 \end{solution}
 \end{extra}
  
+\begin{exercise}\label{ex:2}
+  Show that if $N(t)\sim P(\lambda t)$, the expected number of arrivals during $[0,t]$ is
+  \begin{equation*}
+  \E{N(t)} = \lambda t.
+  \end{equation*}
+\begin{hint}
+Use~\cref{eq:66}. Note  that the term with $n=0$ does not contribute in the following summation
+\begin{equation*}
+\sum_{n=0}^\infty n \frac{\lambda^n}{n!} = \sum_{n=1}^\infty n \frac{\lambda^n}{n!} = \sum_{n=1}^\infty \frac{\lambda^n}{(n-1)!} = \lambda \sum_{n=0}^\infty \frac{\lambda^n}{n!} = \lambda e^{\lambda},
+\end{equation*}
+where we apply a change of notation in the second to last step.
+\end{hint}
+\begin{solution} 
+    When a random variable~$N$ is Poisson distributed with parameter
+    $\lambda t$,
+    \begin{align*}
+      \E N 
+&= \sum_{n=0}^\infty n e^{-\lambda t}\frac{(\lambda t)^n}{n!}  \\
+&= \sum_{n=1}^\infty n e^{-\lambda t}\frac{(\lambda t)^n}{n!} \\ 
+&= e^{-\lambda t} \lambda t \sum_{n=1}^\infty \frac{(\lambda t)^{n-1}}{(n-1)!} \\
+&= e^{-\lambda t} \lambda t \sum_{n=0}^\infty \frac{(\lambda t)^{n}}{n!} \\
+&= e^{-\lambda t} \lambda t e^{\lambda t} \\
+&= \lambda t.
+    \end{align*}
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}
+  Show that if $N(t)\sim P(\lambda t)$, the variance of the number of arrivals during $[0,t]$ is
+  \begin{equation*}
+\V{N(t)} = \lambda t.
+  \end{equation*}
+\begin{hint} Use~\cref{eq:68}. Compute $\E{N^2}$ and use~\cref{ex:2}.
+\end{hint}
+\begin{solution} 
+
+    \begin{align*}
+      \E{N^2}
+&= \sum_{n=0}^\infty n^2 e^{-\lambda t}\frac{(\lambda t)^n}{n!}  \\
+&= e^{-\lambda t} \sum_{n=1}^\infty n \frac{(\lambda t)^n}{(n-1)!}  \\
+&= e^{-\lambda t} \sum_{n=0}^\infty (n+1) \frac{(\lambda t)^{n+1}}{n!}  \\
+&= e^{-\lambda t} \lambda t \sum_{n=0}^\infty n \frac{(\lambda t)^{n}}{n!}  +e^{-\lambda t}\lambda t \sum_{n=0}^\infty\frac{(\lambda t)^{n}}{n!}  \\
+&\quad\text{now use the hint to simplify the first summation} \\
+&= (\lambda t)^2  + \lambda t.
+\end{align*}
+Hence, $\V N = \E{N^2} - (\E N)^2 = (\lambda t)^2 + \lambda t - (\lambda t)^2 = \lambda t$.
+\end{solution}
+\end{extra}
+
+\begin{extra}\label{ex:53}
+Show that the moment-generating function of the random variable~$N(t)\sim P(\lambda t)$ is
+\begin{equation*}
+M_{N(t)}(s) 
+%=  \E{e^{sN(t)}}  
+= \exp{(\lambda t(e^s-1))}.
+\end{equation*}
+\begin{hint}
+Use~\cref{eq:66} with $f(x) = e^{sx}$.  \end{hint}
+\begin{solution}
+Since $N(t)$ is Poisson distributed with parameter $\lambda t$, 
+\begin{align*}
+M_{N(t)}(s)
+&=  \E{e^{s N(t)}} \\
+&= \sum_{k=0}^\infty e^{s k} \P{N(t)=k} \\
+%&\quad\text{where we use that $\E{f(N(t))}=\sum_{n=0}^\infty f(n) \P{N(t)=n}$}\\
+&= \sum_{k=0}^\infty e^{s k} \frac{(\lambda t)^k}{k!} e^{-\lambda t}  \\
+&= e^{-\lambda t} \sum_{k=0}^\infty  \frac{(e^s \lambda t)^k}{k!}  \\
+&= \exp(-\lambda t + e^s \lambda t) =\exp(\lambda t(e^s - 1)).
+\end{align*}
+\end{solution}
+\end{extra}
+
+\begin{exercise}
+Use  the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(t)}$ and $\V{N(t)}$. 
+\begin{hint}
+Use~\cref{eq:69} and~\cref{eq:64}. 
+\end{hint}
+\begin{solution}
+Using the expression for the moment-generating function of~\cref{ex:53},
+  \begin{equation*}
+    M_{N(t)}'(s) = \lambda t e^s \exp(\lambda t(e^s - 1)).
+  \end{equation*}
+Hence $\E{N(t)} = M_{N(t)}'(0) = \lambda t $. Next, 
+  \begin{equation*}
+    M_{N(t)}''(s) = (\lambda t e^s + (\lambda t e^s)^2) \exp(\lambda t(e^s - 1)),
+  \end{equation*}
+hence $\E{(N(t))^2} = M''(0) = \lambda t + (\lambda t)^2$. And thus, 
+\begin{equation*}
+\V{N(t)} =\E{(N(t))^2}-(\E{N(t)})^2 = \lambda t + (\lambda t)^2 - (\lambda t)^2 = \lambda t.
+\end{equation*}
+\end{solution}
+\end{exercise}
+
+Define the \recall{square coefficient  of variation} (\recall{SCV}) of a random variable~$X$ as 
+\begin{equation}\label{eq:62}
+  C^2= \frac{\V X}{(\E X)^2}.
+\end{equation}
+As  will become clear later, the SCV is a very important concept in
+  queueing theory. Memorize it as a measure of \emph{relative
+  variability}.
+
+\begin{exercise}
+Show that   the SCV of $N(t)\sim P(\lambda t)$ is equal to $1/(\lambda t)$.  What does this mean for $t$ large?
+\begin{solution}
+    \begin{equation*}
+SCV = \frac{\V{N(t)}}{(\E{N(t)})^2} = \frac{\lambda t}{(\lambda t)^2} = \frac1{\lambda t}.
+    \end{equation*}
+The relative variability of the Poisson process goes down as $t\to\infty$.  
+\end{solution}
+\end{exercise}
+
+
 
 
 \recall{Merging} Poisson processes occurs often in practice.
 We have two Poisson processes, for instance, the arrival processes $N_\lambda$ of men and $N_\mu$ women at a shop.
 In the figure below, each cross represents an arrival, in the upper line it corresponds to a man, in the middle line to a woman and in the lower line to an arrival of a general customer at the shop.
 Thus, the shop `sees' the superposition of these two arrival processes.
-In fact, this merged process $N_{\lambda+\mu}$ is also a Poisson process whose rate is the sum of the rates of the two original Poisson processes.
+In fact, this merged process $N_{\lambda+\mu}$ is also a Poisson process with rate $\lambda+\mu$.
 
 
   \begin{center}
@@ -388,7 +386,7 @@ In fact, this merged process $N_{\lambda+\mu}$ is also a Poisson process whose r
 
 \begin{exercise}
 If the Poisson arrival processes $N_\lambda$ and $N_\mu$  are independent, show with a conditioning argument that
-$N_\lambda + N_\mu$ is  a Poisson process with rate $(\lambda + \mu)t$. 
+$N_\lambda + N_\mu$ is  a Poisson process with rate $\lambda + \mu$. 
 \begin{hint}
     Use sets $\{N_\lambda(t) = i\}$ to decompose $\{N_\lambda(t) + N_\mu(t) = n\}$. With this observe that
       \begin{equation*}
@@ -582,8 +580,11 @@ Suppose the departure stream of a machine splits into two sub-streams, e.g., a f
 Then we can model the arrival stream at the second machine as a thinned stream (with probability $p$) of the departures of the first machine.
 Merging occurs where the output streams of various stations arrive at another station.
 
-\begin{extra}
-Use the solution of~\cref{ex:1} to prove the result of~\cref{ex:31}. 
+\begin{exercise}[\cref{C-ex:96}] \label{ex:96}
+  Use moment-generating functions to prove that $N_n(t)$ converges to $N$, that is, the right-hand-side in~\cref{eq:bin} converges to the Poisson distribution~\cref{eq:pois} when $n\to \infty, p\to 0$ such that $p n=\lambda t$ remains constant.
+\begin{hint}
+Solve~\cref{ex:53} and \cref{ex:1} first. Perhaps~\cref{ex:31} is also useful.
+\end{hint}
 \begin{solution}
 Take $Y=\sum_{i=1}^n Z_i$ with $Z_i\sim B(p)$. Then, 
 \begin{equation*}
@@ -593,10 +594,10 @@ Recall that $p= \lambda t/ n$. Then, with~\cref{eq:65},
 \begin{equation*}
 \lim_{n\to\infty}  \left(1 + \frac{\lambda t}{n} (e^s - 1)\right)^n = \exp{\lambda t (e^s-1)}. 
 \end{equation*}
-
+Thus, the limit becomes equal to the moment-generating function of the Poisson distribution. 
 \end{solution}
 
-\end{extra}
+\end{exercise}
 
 
 \opt{solutionfiles}{

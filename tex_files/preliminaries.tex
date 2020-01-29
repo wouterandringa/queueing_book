@@ -29,7 +29,7 @@ where the last equation defines an \recall{indicator variable}.
 
 The function $f(h)=o(h)$ means that $f$ is such $f(h)/h \to 0$ as $h\to 0$.
 If we write $f(h) = o(h)$ it is implicit that $|h| \ll 1$.
-We call this \recall{Small $o$ notation}.
+We call this \recall{small $o$ notation}.
 \begin{exercise}%\[faCalculator]
   Let $c$ be a constant (in $\R$) and the functions $f$ and $g$ both of $o(h)$. Then show that (1) $f(h) \to 0$ when $h\to 0$, (2) $c\cdot f = o(h)$, (3) $f+g=o(h)$, and (4) $f\cdot g=o(h)$. 
 \begin{solution}
@@ -50,7 +50,7 @@ For (4), use  the Algebraic Limit Theorem,
 \end{exercise}
 
 
-You should know that
+You should know that:
 \begin{subequations}
   \begin{align}
     (a+b)^n &= \sum_{i=0}^n {n \choose i} a^{n-i} b^i, \label{eq:71}\\
@@ -87,14 +87,14 @@ To see~\cref{eq:77}, note first that $X\1{X=n} = n\1{X=n}$ because $X=n$ when $\
 \end{extra}
 
 \begin{exercise}
-Define  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
+Define the  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
 \begin{equation*}
   G(k) = \sum_{m=0}^\infty \1{m>k} f(m).
 \end{equation*}
 As you will see, this idea  makes the computation of certain expressions quite a bit easier. 
 \end{exercise}
 
-\begin{extra}
+\begin{exercise}
   Express the probability mass  $f(k)$ and the survivor function $G(k)$ in terms of the \recall{distribution function} $F(k)=\P{X\leq k}$ of $X$.
 \begin{hint}
 This exercise is just meant to become familiar with the notation.
@@ -105,7 +105,7 @@ This exercise is just meant to become familiar with the notation.
     G(k) &= \P{X>k} = 1 - \P{X\leq k} = 1-F(k).        
     \end{align*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 \begin{extra}
   Which of the following is true: $G(k) = 1-F(k)$, $G(k) = 1-F(k-1)$, or $G(k) = 1-F(k+1)$?
@@ -191,10 +191,10 @@ $\E X = \int_0^\infty x \d F(x)  = \int_0^\infty \int_0^\infty 1_{y\leq x} \d y 
 \end{solution}
 \end{exercise}
 
-You should be able to use indicator functions and integration by parts to show that $\E{X^2} = 2\int_0^\infty y G(y) \d y$, where $G(x) = 1- F(x)$, provide the second moment exists.
+You should be able to use indicator functions and integration by parts to show that $\E{X^2} = 2\int_0^\infty y G(y) \d y$, where $G(x) = 1- F(x)$, provided the second moment exists.
 
 \begin{extra}
-  Use indicator functions to prove that for a continuous non-negative random variable $X$ with distribution function $F$, $ \E{X^2} = \int_0^\infty x^2 \d F(x) = 2 \int_0^\infty y G(y) \d y,$ where $G(x) = 1 - F(x)$.
+  Use indicator functions to prove that for a continuous non-negative random variable~$X$ with distribution function $F$, $ \E{X^2} = \int_0^\infty x^2 \d F(x) = 2 \int_0^\infty y G(y) \d y,$ where $G(x) = 1 - F(x)$.
 \begin{hint}
 $\int_0^\infty y G(y) \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d x \d y$.
 \end{hint}
@@ -210,8 +210,11 @@ $\int_0^\infty y G(y) \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d 
 \end{extra}
 
 \begin{exercise}
-  Now use integration by parts to show that for a continuous non-negative random variable $X$ with distribution function $F$ and survivor function $G=1-F$, $\int_0^\infty y G(y) \d y = \E{X^2}/2$.
-\begin{solution}
+  Show that $\E{X^2}/2 = \int_0^\infty y G(y) \d y$  for a continuous non-negative random variable $X$ with survivor function $G$.
+ \begin{solution}
+   \begin{hint}
+ Use integration by parts.     
+   \end{hint}
   \begin{equation}
       \int_0^\infty y G(y) \d y 
 = \frac{y^2}2 G(y) \bigg|_0^\infty  - \int_0^\infty \frac{y^2}2 g(y)\d y = \int_0^\infty \frac{y^2}2 f(y)\d y = \frac{\E{X^2}}2,
@@ -221,14 +224,14 @@ $\int_0^\infty y G(y) \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d 
 \end{exercise}
 
 
-You should know that for  the \recall{moment-generating function}  $M_X(s)$ of a random variable~$X$ and~$s$ a real number sufficiently small  that the expectation(s) below exists: 
+You should know that for  the \recall{moment-generating function}  $M_X(s)$ of a random variable~$X$ and~$s\in \mathbb{R}$  sufficiently small is defined as: 
 \begin{subequations}
 \begin{align}
   M_X(s) &= \E{e^{s X}}, \\
-  M_X(s) \text{uniquely characterizes the distribution of $X$}, \label{eq:75}\\
+  M_X(s) & \text{ uniquely characterizes the distribution of $X$}, \label{eq:75}\\
   \E{X} &= M_{X}'(0) = \left.\frac{\d M_{X}(s)}{d s}\right|_{s=0},\label{eq:69}\\
 \E{(X^2} &= M_{X}''(0), \label{eq:64}\\
-M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{  if $X$ and $Y$ are independent}, \label{eq:73}
+M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{  if $X$ and $Y$ are independent}. \label{eq:73}
 \end{align}
 \end{subequations}
 
@@ -241,10 +244,10 @@ M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{  if $X$ and $Y$ are independent},
 
 To help you recall the concept of \recall{conditional probability} consider the following question.
 \begin{exercise}%\[faPhoto]
-  We have  one gift to give to one of three children. As we cannot
+  We have  one gift to give to one out of three children. As we cannot
   divide the gift into parts, we decide to let `fate decide'. That
   is, we choose a random number in the set $\{1, 2, 3\}$. The first
-  child that guesses the number wins the gift. Show that the
+  child that guesses this number wins the gift. Show that the
   probability of winning the gift is the same for each child.
 \begin{hint}
     For the second child, condition on the event that the first does not choose the right number.
