@@ -35,7 +35,7 @@ To illustrate:
   = \delta.  
 \end{equation*}
 Hence, when $L(t)/t\to0$, the \recall{up crossing rate} $\lim_{t \to \infty} A(t)/t = \lambda$ is equal to the \emph{down-crossing rate} $\lim_{t \to \infty} D(t)/t = \delta$.
-We will generalize these notions of up- and downcrossing in this section to derive the \emph{stationary}, or \emph{long-run time average} or \emph{steady-state}, distribution $p(n)$ that the system contains $n$ jobs.
+We will generalize these notions of up- and down-crossing in this section to derive the \emph{stationary}, or \emph{long-run time average}, or \emph{steady-state}, distribution $p(n)$ that the system contains $n$ jobs.
 
 \begin{extra}\clabel{ex:90}
   If $L(t)/t \to 0$ as $t\to\infty$, can it still be true that $\E{L}>0$? 
@@ -81,14 +81,14 @@ The system \emph{crosses} level $n$ at time $t$ when its state changes from $n$ 
   one, level $1$ (the dotted line  separating states 1 and 2) is crossed from below.  Similarly, $D(1,t)$ counts the number of
   departures that leave 1 job behind, and just before such departures the system contains 2 jobs. Hence, level $1$ is crossed from above. 
 It is evident that the number of times this
-  level is crossed from below must be the same (plus or minus 1) the
+  level is crossed from below must be the same (plus or minus 1) as the
   number of times it is crossed from above. (We introduce $\lambda(n)$, $\mu(n)$ and $p(n)$ below.) }
 \label{fig:A_n_t}
 \end{figure}
 
 
 To establish the section's main result~\cref{eq:12} we need a few definitions that are quite subtle and might seem a bit abstract, but below we will provide intuitive interpretations in terms of system KPIs.
-Once we have the proper definitions, the above result will follow straightaway.
+Once we have the proper definitions, the above results will follow straightaway.
 \Cref{fig:summaries} at the end of the section summarizes all concepts we develop here.
 
 \paragraph{Level crossing}
@@ -101,7 +101,7 @@ Define
 \begin{equation}\label{eq:19} 
   A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}
 \end{equation}
-as the number of arrivals up to time $t$ that saw $n$ customers in the system at their arrival.
+as the number of arrivals up to time $t$ that saw $n$ customers in the system upon their arrival.
 
 \begin{extra}
   Why do we  take $L(A_k-)=n$ rather than $L(A_k)$ in the definition of $A(n,t)$?
