@@ -34,15 +34,9 @@
 
 \ifshowextra
 \newenvironment{extra}{\begin{exercise}}{\end{exercise}}
-% In the companion book we include all extra exercises.
-% If the companion book we don't need a reference to the exercise in the companion book. Therefore we make reftocompanion empty.
-  \newcommand{\reftocompanion}[1]{}
 \else
   % In the queueing book we exclude the extra exercises.
   \excludecomment{extra}
-  %But in the queueing book we want that each exercise has a reference to the exercise in the companion book, 
-  % cref*: the * prevents to use a hyperfef, and this is what we want because in the queueing book we don't need hyperrefs to the companion book
-  \newcommand{\reftocompanion}[1]{[\cref*{C-#1}]}
 \fi
 
 \opt{solutionfiles}{
@@ -71,12 +65,27 @@
 
 \usepackage[capitalize]{cleveref}
 \crefname{equation}{}{}
-% The command below makes the reference look like Ex. 1.23, i.e., there is a space between Ex. and the number, and I don't want that.
-%\crefname{exercise}{Ex.}{}
-%\crefname{extra}{Ex.}{}
-% With the commands below I get a reference with numbers in  boldface and between [ ], and no spaces. The manual of cleveref says that we need to use the string #2#1#3. 
-\crefformat{exercise}{\bf{#2#1#3}}
-\crefformat{extra}{\bf{#2#1#3}}
+
+
+\ifshowextra
+% If the companion book we don't need a reference to the exercise in the companion book. Therefore we make reftocompanion empty.
+  \newcommand{\clabel}[1]{\label{#1}}
+  %\newcommand{\reftocompanion}[1]{}
+  % The command below makes the reference look like Ex. 1.23, i.e., there is a space between Ex. and the number, and I don't want that.
+  \crefname{exercise}{Ex.}{}
+  \crefname{extra}{Ex.}{}
+\else
+  % With the commands below I get a reference with numbers in  boldface and between [ ], and no spaces. The manual of cleveref says that we need to use the string #2#1#3. 
+  % In the queueing book we want that each exercise has a reference to the exercise in the companion book, 
+  % cref*: the * prevents to use a hyperfef, and this is what we want because in the queueing book we don't need hyperrefs to the companion book
+  \newcommand{\clabel}[1]{\label{#1}[\cref*{C-#1}]}
+  \crefformat{exercise}{\bf{#2#1#3}}
+  % \crefformat{extra}{\bf{#2#1#3}}
+  \usepackage{xr}
+  \externaldocument[C-]{companion}
+\fi
+
+
 
 \theoremstyle{definition} % font type for theorems and related environments
 \newtheorem{theorem}{Theorem}[section]

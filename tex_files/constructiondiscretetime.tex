@@ -106,7 +106,7 @@ $L_2=6-6+4=4$, $d_3 = 4$, $L_3=4-4+9=9$, and so on.
 \end{extra}
 
 
-\begin{exercise}\label{ex:24}
+\begin{exercise}\clabel{ex:24}
   Show that the scheme
 \begin{equation}\label{eq:5}
   \begin{split}
@@ -273,7 +273,7 @@ For this reason, most of the exercises below focus on obtaining recursions for m
   So, let's be pragmatic: the aim is that you practice with modeling, and that you learn from the solutions.
   If you obtain \emph{reasonable} recursions, but they are different from mine, then your answer is just as good.}
 
-\begin{exercise}[Queue with Blocking] 
+\begin{exercise}[Queue with Blocking]\clabel{ex:l-115} 
 A queueing system
   under daily review, i.e., at the end of the day the queue length is
   measured. We assume that at the end of the day no jobs are still in
@@ -289,7 +289,7 @@ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[Estimating the lead time distribution] \label{ex:19} 
+\begin{exercise}[Estimating the lead time distribution] \clabel{ex:19} 
 Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO sequence.
   Find an expression for the shortest possible waiting time $W_{-,k}$ of a job that arrives at time $k$, and an expression for the largest possible waiting time $W_{+,k}$.
 \begin{hint}
@@ -324,7 +324,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 \end{solution}
 \end{exercise}
 
-\begin{extra}[Yield loss]\label{ex:88}
+\begin{extra}[Yield loss]\clabel{ex:88}
   A machine produces items to serve customer demand.
   A fraction $p$ of the items produced in a period turns out to be faulty, and has to be made anew.
   Develop a set of recursions to model the queue of customers waiting to be served from the machine.
@@ -345,7 +345,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 \end{solution}
 \end{extra}
 
-\begin{extra}[Rework] \label{ex:52}
+\begin{extra}[Rework] \clabel{ex:52}
 
   A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
   Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
@@ -379,7 +379,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 \end{extra}
 
 
-\begin{exercise}[Cost models]
+\begin{exercise}[Cost models]\clabel{ex:l-116}
  A single-server queueing station
   processes customers. At the start of a period the server capacity is
   chosen, so that for period $k$ the capacity is $c_k$. Demand that
@@ -454,7 +454,7 @@ we need. The total cost up to time $T$ becomes:
 
 
 
-\begin{extra}[Queue length dependent server capacity]\label{ex:50}
+\begin{extra}[Queue length dependent server capacity]\clabel{ex:50}
   How would you model (in terms of recursions) a server whose capacity
   depends on the queue length? Consider, as an example, a rule such
   that the server only works if the queue is larger than a threshold $t$. 
@@ -466,7 +466,7 @@ we need. The total cost up to time $T$ becomes:
 \end{solution}
 \end{extra}
 
-\begin{extra}[Fair queueing] \label{ex:51}
+\begin{extra}[Fair queueing] \clabel{ex:51}
   One server serves two queues.
   Each queue receives service capacity in proportion to the queue length.
   Derive a set of recursions to analyze this situation.
@@ -486,7 +486,7 @@ and likewise for the other queue.
 \end{solution}
 \end{extra}
 
-  \begin{exercise}[Priority queueing] 
+\begin{exercise}[Priority queueing]\clabel{ex:l-117}] 
     An interesting situation is a system with two queues served by one server, but such that one queue, queue $A$, gets priority over the other queue.
     Again find a set of recursions to describe this case.
 \begin{solution}
@@ -543,7 +543,7 @@ If there are less patients of some group, then the capacity can be planned/given
 \end{extra}
 
 
-\begin{exercise}[Queue with protected service capacity and lost capacity] 
+\begin{exercise}[Queue with protected service capacity and lost capacity]\clabel{ex:l-118} 
   Consider a single-server that serves two parallel queues $A$ and $B$.
   Each queue receives a minimal service capacity every period.
   Reserved capacity unused for one queue cannot be used to serve the other queue.
@@ -584,7 +584,7 @@ but not always, applies to service capacity.
 
 
 
-\begin{exercise}[Tandem  networks]
+\begin{exercise}[Tandem  networks]\clabel{ex:l-119}
   Consider a production network with two production stations in tandem, that is, the jobs processed by station A are in the next period to the downstream Station B.
   Extend the recursions of~\cref{eq:31} to simulate this situation.
 \begin{solution}
@@ -635,7 +635,7 @@ There is still  a small problem: What if for the first initial periods  $M<L^B_{
 \end{solution}
 \end{extra}
 
-\begin{exercise}[Merging departure streams]
+\begin{exercise}[Merging departure streams]\clabel{ex:l-120}
   Consider another production situation with two machines, A and B
   say, that send their products to Station C. Derive a set of
   recursion relations to simulate this system. 
@@ -740,7 +740,7 @@ It is then sensible to set
 
 
 
-\begin{extra}[\faRocket\/ Queue with setups]
+\begin{extra}[Queue with setups, not obligatory]
   One server serves two parallel queues, one at a time. After serving
    one queue until it is empty,  the server moves to the other
   queue. The change of queue requires one period setup time. 

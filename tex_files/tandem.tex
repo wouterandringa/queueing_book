@@ -13,7 +13,7 @@
 
 Consider two $M/M/1$ stations in tandem. Suppose we can remove the variability in the service processing times at one, but not both, of the servers. Which one is the better one to spend it on, in terms of reducing waiting times?  After we obtained some insights into this question, we will provide a model to approximate the waiting time in a tandem  of $G/G/1$ queues.
 
-\begin{exercise}\label{ex:94}
+\begin{exercise}\clabel{ex:94}
 Assuming that jobs arrive at the first station at rate $\lambda$, and are served at rate $\mu_i$ at station $i$, show that the average queueing time for the tandem of two $M/M/1$ queues is given by
 \begin{equation}
 \E{W_Q}  = \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
@@ -52,7 +52,7 @@ where $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$.
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-121}
 Suppose we can remove all variability of  service process at the second station. Show that  in this case  the total time in queue is equal to
 \begin{equation*}
   \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
@@ -94,7 +94,7 @@ Thus, the total time in queue for this scenario becomes:
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-122}
 Suppose now that we reduce the variability of the service process of the first station.
 Motivate that 
 \begin{equation*}
@@ -152,7 +152,7 @@ which is half the waiting time of the two $M/M/1$ stations in tandem, but also s
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-123}
   What do you conclude from the above exercises?
 \begin{hint}
     What would you do if there would be a third station in this tandem network?
@@ -181,14 +181,14 @@ Based on this, we interpolate between these two extremes to get the approximatio
 \end{equation}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-124}
 What is $C_d^2$ for the $D/D/1$ queue according to~\cref{eq:40}?
 \begin{solution}
   Since the inter-arrival times and the service times are deterministic, $C_a^2=C_s^2=0$. Hence $C_d^2=0$. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-125}
 What is $C_d^2$ for the $M/M/1$ queue according to~\cref{eq:40}?  
 
 \begin{solution}
@@ -196,14 +196,14 @@ What is $C_d^2$ for the $M/M/1$ queue according to~\cref{eq:40}?
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-126}
   Use~\cref{eq:40} to show for the $G/D/1$ that $C_d^2 < C_a^2$. 
 \begin{solution}
 As $C_s^2 = 0$ for the $G/D/1$ queue, $C_d^2 = (1-\rho^2) C_a^2 < C_a^2$, as $\rho<1$. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-127}
 Consider two $G/G/1$ stations in tandem. Suppose $\lambda=2$ per hour, $C_{a,1}^2=2$ at station~1, $C_s^2=0.5$ at both stations, and $\E{S_1}=20$ minutes and $\E{S_2}=25$ minutes. What is the total time jobs spend on average in the system? What is the average number of jobs in the network?
 
 \begin{solution}
@@ -259,7 +259,7 @@ For a $G/G/c$ queue, we can use the following approximation
   C_{d,i}^2 = 1 + (1-\rho_i^2)(C_{a,i}^2-1) + \frac{\rho_i^2}{\sqrt{c_i}}(C_{s,i}^2-1).
 \end{equation}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-128}
   Show that~\cref{eq:57} reduces to~\cref{eq:40} for the $G/G/1$ queue.
 \begin{solution}
     Since $c=1$ for the $G/G/1$ queue, we get

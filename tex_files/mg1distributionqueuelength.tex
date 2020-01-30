@@ -24,7 +24,7 @@ An important role below is played by  the number of  arrivals $Y_k$ during the s
  $f(j) = \P{Y = j}$; write $G(j) = \P{Y_k > j}$ for the survivor function.
 
 
-\begin{extra}\label{ex:75}
+\begin{extra}\clabel{ex:75}
  Explain that if the service time is constant and equal to $s$, then
 \begin{equation}\label{eq:4}
   \P{Y_k = j\given S=s} = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
@@ -38,7 +38,7 @@ See the hint.  The period during which the arrivals occur is $s$.
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-224}
  Explain that 
 \begin{equation}\label{eq:10}
   \P{Y_k = j} = \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!}\, \d F(x),
@@ -141,7 +141,7 @@ Hence,
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:74}
+\begin{extra}\clabel{ex:74}
  If $S\sim \Exp(\mu)$, show that 
   \begin{equation} \label{eq:41}
 f(j) = \P{Y_k = j} = \frac{\mu}{\lambda+\mu}\left(\frac{\lambda}{\lambda+\mu}\right)^j.
@@ -183,7 +183,7 @@ $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-225}
  If $S\sim \Exp(\mu)$, show that 
   \begin{equation}
 G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1}.
@@ -204,7 +204,7 @@ G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\label{ex:30} 
+\begin{exercise}\clabel{ex:30} 
 Design a suitable numerical method to evaluate~\cref{eq:10} for more general distribution functions $F$.
 \begin{hint}
 Discretize time to  a grid of points, and   approximate the integral by a summation over the grid.
@@ -310,7 +310,7 @@ Consequently, the number of down-crossings of level $n$ up to time $t$ is
   \end{split}
 \end{equation*}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-226}
 Show that 
 \begin{equation*}
   \lim_{t\to\infty} \frac{  D(n+1, 0, t)}t  = \delta \delta(n+1) f(0),
@@ -374,7 +374,7 @@ $L(D_{k-1})$.
 \end{figure}
 
 Before we deal with the up-crossing, it is important to do the next exercise.
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-227}
   Suppose that $L(D_{k-1})>0$.
   Why is $D_k = D_{k-1} + S_{k}$?
   However, if $L(D_{k-1}) = 0$, the time between $D_{k-1}$ and $D_k$ is \emph{not} equal to $S_k$.
@@ -447,7 +447,7 @@ Noting that $\pi(n) = \delta(n)$, which follows from~\cref{eq:39} and the fact t
 Clearly, we have again obtained a recursion by which we can compute, iteratively, the state probabilities. 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-228}
   Provide the details behind the derivation of~\cref{eq:555}.
 \begin{hint}
 Define for $m=1,\ldots, n$
@@ -482,7 +482,7 @@ With the definition of the hint,
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-229}
   Clearly, the $M/M/1$ queue is a special case of the $M/G/1$ queue.
   Check that the queue length distribution of the $M/M/1$ queue satisfies~\cref{eq:72}.
 \begin{hint}

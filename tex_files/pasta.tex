@@ -57,7 +57,7 @@ Thus, for the $M/M/1$ queue in particular,
   \pi(n) = p(n) = (1-\rho)\rho^n.
 \end{equation*}
 
-\begin{exercise}\label{ex:8} 
+\begin{exercise}\clabel{ex:8} 
 Show for the case of~\cref{ex:112} that $\pi(0)=1$ and $\pi(n)=0$, for $n>0$.
 \begin{solution}
   All arrivals see an empty system. Hence $A(0,t)/A(t) \approx (t/2)/(t/2) = 1$, and $A(n,t)=0$ for $n>0$. Thus, $\pi(0) = \lim_t A(0,t)/A(t) = 1$ and $\pi(n)=0$ for $n>0$. Recall from the other exercises that $p(0)=1/2$. Hence, time average statistics are not the same as statistics at arrival moments. 
@@ -65,7 +65,7 @@ Show for the case of~\cref{ex:112} that $\pi(0)=1$ and $\pi(n)=0$, for $n>0$.
 
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-152}
   Check that~\cref{eq:13}  holds for the system of~\cref{ex:8}.
 \begin{solution}
 From the relevant previous exercises, $\lambda = \lim_t A(t)/t = 1/2$. $\lambda(0)=1$, $p(0)=1/2$, and $\pi(0)=1$. Hence,
@@ -104,7 +104,7 @@ Thus, if the system is rate-stable, statistics obtained  by arrivals is the same
 \end{equation}
 
 
-\begin{exercise}\label{ex:26}
+\begin{exercise}\clabel{ex:26}
   When $\lambda\neq \delta$, is $\pi(n)\geq \delta(n)$? 
 \begin{hint}
     Use that    $\lambda \geq \delta$ always holds. Thus, when $\lambda \neq \delta$, it must be that $\lambda > \delta$. What are the consequences of this inequality; how does the queue length behave as a function of time?
@@ -137,7 +137,7 @@ Check all definitions of $Y(n,t)/t$ and so on.
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:58}
+\begin{extra}\clabel{ex:58}
   Use PASTA and the balance equations of the $M/M/1$ queue to derive that $(\lambda + \mu) \pi(n) = \lambda \pi(n-1) + \mu \pi(n+1)$.
 \begin{hint}
     Consider some state $n$ (not a level) and count all transitions that `go in and out of' this state.
@@ -169,7 +169,7 @@ that $p(n) = \pi(n)$. We are done.
 
 
 
-\begin{exercise}\label{ex:18}
+\begin{exercise}\clabel{ex:18}
   There is a subtle problem in the transition from~\cref{eq:jaap} to~\cref{eq:132} and the derivation of~\cref{eq:1333}: $\pi(n)$ is defined as a limit over arrival epochs while in $A(n,t)/t$ we take the limit over time.
   Now the observant reader might ask why these limits should relate at all.
   Use the renewal reward theorem to show that~\cref{eq:132} is valid.
@@ -204,7 +204,7 @@ Thus,~\cref{eq:1333} follows from the renewal reward theorem.
 With the PASTA property we can determine the distribution of the inter-departure times of the $M/M/1$ queue.
 Observing that in a network of queues the departures from one queueing station form the arrivals at another station, we can use this result to analyze networks of queues
 
-\begin{exercise}\label{ex:burke}
+\begin{exercise}\clabel{ex:burke}
   Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
 \begin{solution}
   It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
@@ -219,7 +219,7 @@ Consequently, the departures times form a Poisson process with rate $\lambda$.
 
 
 
-\begin{extra}\label{ex:dep}
+\begin{extra}\clabel{ex:dep}
 Why is the output rate of the (stable) $M/M/1$ queue equal to~$\lambda$ and not~$\mu$?
 \begin{solution}
 Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover,  jobs can never leave faster than they arrive.
@@ -239,7 +239,7 @@ We will focus on departure moments and use~\cref{eq:39}, in particular that depa
 
 
 
-\begin{extra}\label{ex:28}
+\begin{extra}\clabel{ex:28}
 Show that the probability that a job leaves behind a busy station is $\rho$, hence $1-\rho$ is the probability to leave an idle server behind.
 \begin{solution}
 Observe that $\rho$ is the fraction of time the server is busy. Then, from  PASTA, the fraction of jobs that see a busy server is also $\rho$.  This fraction of jobs is $\sum_{n=1}^\infty \pi(n)$. Finally, $\delta(n) = \pi(n)$ , a fraction $\rho$ of the departures leaves a busy system behind.
@@ -248,7 +248,7 @@ Observe that $\rho$ is the fraction of time the server is busy. Then, from  PAST
 \end{extra}
 
 
-\begin{extra}\label{ex:17}
+\begin{extra}\clabel{ex:17}
  If job $n-1$, say, leaves behind an empty system, show that the expected time until the next departure is $\E{D_n - D_{n-1}} = 1/\lambda + 1/\mu$. 
 \begin{hint}
       After job $n-1$ left, job $n$ has to arrive, so we need to wait first for this inter-arrival time. Then job $n$ must be served. This adds up to $1/\lambda + 1/\mu$. 
@@ -310,7 +310,7 @@ After the departure, the server can start right away with the job at the head of
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:63}
+\begin{extra}\clabel{ex:63}
 Use conditioning on the server being idle or busy at a departure to show that  the density of  the inter-departure time is $\lambda e^{-\lambda t}$.
 \begin{hint}
 Conditioning leads to 

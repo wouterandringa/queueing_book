@@ -74,7 +74,7 @@ C_s^2 &= (\alpha^2/12)/(\alpha^2/4) = 1/3,\\
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-240}
   A queueing system receives Poisson arrivals at the rate of 5 per hour.
   The single server has a uniform service time distribution, with a range of 4 minutes to 6 minutes.
   Determine $\E{L_Q}$, $\E L$, $\E{W_Q}$, $\E W$.
@@ -112,7 +112,7 @@ L
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-241}
   Consider a workstation with just one machine.
   We model the job arrival process as a Poisson process with rate $\lambda=3$ per day.
   The average service time $\E S = 2$ hours, $C^2_s = 1/2$, and the shop is open for 8 hours.
@@ -134,7 +134,7 @@ L
 \end{exercise}
 
 
-\begin{exercise}[Hall 5.16] \label{ex:46}
+\begin{exercise}[Hall 5.16] \clabel{ex:46}
 The manager of a small firm would like to determine which of two people to hire.
   One employee is fast, on average, but somewhat inconsistent.
   The other is a bit slower, but very consistent.
@@ -259,7 +259,7 @@ To derive the PK-formula, suppose at first that we know the expected \recall{rem
 
 
 
-\begin{extra}\label{ex:32}
+\begin{extra}\clabel{ex:32}
 Show for the $M/G/1$ queue  that the expected time in queue is
 \begin{equation}\label{eq:24}
   \E{W_Q} = \E{S_r} + \E{L_Q} \E S.
@@ -280,7 +280,7 @@ jobs in queue perceived by arriving customers is also the
 \end{extra}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-242}
 Show that, given $\E{S_r}$, 
 \begin{equation}\label{eq:35}
   \E{W_Q} = \frac{\E{S_r}}{1-\rho}.% = \frac{\rho}{1-\rho} \E{S_r\given S_r>0}.
@@ -307,7 +307,7 @@ Just like in~\cref{sec:mxm1-queue:-expected} we use the renewal reward theorem.
 Consider the $k$th job of some sample path of the $M/G/1$ queueing process.
 Let its service time start at time $\tilde A_k$ so that it departs at time $D_k=\tilde A_k + S_k$.
 
-\begin{exercise}\label{ex:13}
+\begin{exercise}\clabel{ex:13}
   Use~\cref{fig:mg1remainingservicetime} to explain that the remaining service time of job $k$ at time $s$ is given by
 \begin{equation*}
 R_k(s) = (D_k-s)\1{\tilde A_k \leq s < D_k}.
@@ -349,7 +349,7 @@ is the total remaining service time as seen by the server up to $t$.
   \label{fig:mg1remainingservicetime}
 \end{figure}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-243}
 Apply the renewal reward theorem to the result of~\cref{ex:13} to prove that 
 \begin{equation}\label{eq:34}
 \E{S_r} = \frac{\lambda}2 \E{S^2}. 
@@ -368,7 +368,7 @@ Then simplify to get~\cref{eq:710}.
 \end{solution}
 \end{exercise}
 
-\begin{extra}\label{ex:65}
+\begin{extra}\clabel{ex:65}
 Use $C_s^2 = \V S / (\E S)^2$ to show that $\lambda \E{S^2} = (1+C_s^2)\rho\E S$
 \begin{solution}
 Use that 
@@ -425,7 +425,7 @@ Realize again that $\E{S_r}$ includes the jobs that arrive at an empty system.
 
 
 
-\begin{exercise} \label{ex:9}
+\begin{exercise} \clabel{ex:9}
 Show from~\cref{eq:34} that 
 \begin{equation}\label{eq:55}
 \E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S}.
@@ -444,7 +444,7 @@ Hence,
 \end{exercise}
 
 
-\begin{extra}\label{ex:45}
+\begin{extra}\clabel{ex:45}
 \begin{equation*}
 \E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S} 2
 \end{equation*}
@@ -491,7 +491,7 @@ Now use~\cref{eq:55}.
 \end{extra}
 
 
-\begin{extra}\label{ex:49}
+\begin{extra}\clabel{ex:49}
   A machine serves two types of jobs.
   The processing time of jobs of type $i$, $i=1,2$, is exponentially distributed with parameter $\mu_i$.
   The type $T$ of a job is random and independent of anything else, and such that $\P{T=1} = p = 1-q = 1-\P{T=2}$.

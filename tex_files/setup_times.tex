@@ -71,7 +71,7 @@ Here we assume that jobs can leave right after being served, consequently,
 \E{R}  + \frac{B+1}{2}\E{S_0}.
 \end{equation}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-137}
 Show that the requirement $\rho < 1$ leads to the following constraint on the minimal batch size~$B$ 
   \begin{equation*}
  B>\frac{\lambda \E R}{1-\lambda \E{S_0}}.
@@ -81,7 +81,7 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-138}
   What important insights do the above formulas provide about setting proper batch sizes?
 \begin{solution}
     Overall, batch sizes need to be tuned to minimize average sojourn times.
@@ -92,7 +92,7 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-139}
   Jobs arrive at $\lambda=3$ per hour at a machine with $C_a^2=1$; service times are exponential with average 15 minutes.  Assume $\lambda_r = 0.5$ per hour, hence $\lambda_b = 3-0.5=2.5$ per hour. Between any two batches, the machine requires a cleanup of 2 hours, with a standard deviation of $1$ hour, during which it is unavailable for service.
   What is the smallest batch size that can be allowed?
 
@@ -163,14 +163,14 @@ total
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\label{ex:85}
+\begin{exercise}\clabel{ex:85}
   Derive~\cref{eq:81}--\cref{eq:85}.
 \begin{solution}
     See~\cref{ex:48} to~\cref{ex:85}.
 \end{solution}
 \end{exercise}
 
-\begin{extra}\label{ex:48}
+\begin{extra}\clabel{ex:48}
   Derive~\cref{eq:79}.
 \begin{hint}
  Show that the total time to form a red batch is $(B-1)/\lambda_r$. 

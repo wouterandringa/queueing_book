@@ -37,7 +37,7 @@ To illustrate:
 Hence, when $L(t)/t\to0$, the \recall{up crossing rate} $\lim_{t \to \infty} A(t)/t = \lambda$ is equal to the \emph{down-crossing rate} $\lim_{t \to \infty} D(t)/t = \delta$.
 We will generalize these notions of up- and downcrossing in this section to derive the \emph{stationary}, or \emph{long-run time average} or \emph{steady-state}, distribution $p(n)$ that the system contains $n$ jobs.
 
-\begin{extra}\label{ex:90}
+\begin{extra}\clabel{ex:90}
   If $L(t)/t \to 0$ as $t\to\infty$, can it still be true that $\E{L}>0$? 
 \begin{solution}
     \begin{equation*}
@@ -116,7 +116,7 @@ Recall that $L(t)$ is \emph{right-continuous}.
 \end{solution}  
 \end{extra}
 
-\begin{extra}\label{ex:36}
+\begin{extra}\clabel{ex:36}
 If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum_{n=0}^\infty A(n,t)$?
 \begin{solution}
   $A(t)$ counts all customers that arrive up to time $t$, i.e., during
@@ -141,7 +141,7 @@ If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:38}
+\begin{extra}\clabel{ex:38}
 If $\lambda>\delta$ it can happen that  $ \lim_{t\to\infty} A(n,t)/t > 0$ for some (finite) $n$. 
 \begin{solution}
     If $\lambda > \delta$, then $L(t)\to\infty$.
@@ -164,7 +164,7 @@ be  the total time the system contains $n$ jobs during $[0,t]$, and
 \end{subequations}
 be the fraction of time that $L(s) =n$ in $[0,t]$. ~\Cref{fig:Y_1_t} illustrates the relation between $Y(n,t)$ and $A(n,t)$.
   
- \begin{exercise} \label{ex:111} 
+ \begin{exercise} \clabel{ex:111} 
 Consider the following (silly) queueing process.
    At times $0, 2,4, \ldots$ customers arrive, each customer requires $1$ unit of service, and there is one server.
    Find an expression for $A(n,t)$.
@@ -185,7 +185,7 @@ Consider the following (silly) queueing process.
 \end{exercise}
 
 
-\begin{exercise}[Continuation of~\cref{ex:111}] \label{ex:112} 
+\begin{exercise}[Continuation of~\cref{ex:111}] \clabel{ex:112} 
   Find an expression for $Y(n,t)$.
 \begin{solution}
       Next, to get $Y(n,t)$, observe that the system never contains
@@ -302,7 +302,7 @@ sees $n$ jobs in the system just prior to its arrival. Thus, just as
 $A(t)/t$ is the total number of arrivals during $[0,t]$ divided by~$t$, $A(n,t)/Y(n,t)$ is the number of arrivals that see $n$ jobs divided by
 the time the system contains $n$ jobs.
 
-\begin{exercise}[Continuation of~\cref{ex:112}] \label{ex:113} 
+\begin{exercise}[Continuation of~\cref{ex:112}] \clabel{ex:113} 
 Compute $p(n)$ and $\lambda(n)$.
 \begin{solution}
     From the other exercises:
@@ -329,7 +329,7 @@ as \emph{ the departure rate from state $n+1$}.
 (It is easy to get confused here: to leave $n$ jobs behind, the system must contain $n+1$ jobs just prior to the departure.)
 \Cref{fig:A_n_t} shows how $A(n,t)$ and~$\lambda(n)$ relate to $D(n+1,t)$ and $\mu(n)$.
 
-\begin{extra}\label{ex:39}
+\begin{extra}\clabel{ex:39}
 Should  we take $D(n-1,t)$ or  $D(n,t)$ in the definition of $\mu(n)$?
 \begin{solution}
       $D(n-1,t)$ counts the departures that leave $n-1$ behind. Thus,
@@ -338,7 +338,7 @@ Should  we take $D(n-1,t)$ or  $D(n,t)$ in the definition of $\mu(n)$?
 \end{solution}
 \end{extra}
 
-\begin{exercise}[Continuation of~\cref{ex:113}] \label{ex:4}
+\begin{exercise}[Continuation of~\cref{ex:113}] \clabel{ex:4}
 Compute 
 $D(n,t)$ and $\mu(n+1)$ for $n\geq 0$.
 \begin{solution}
@@ -379,7 +379,7 @@ Combining this with~\cref{eq:15} we arrive at the \recall{level crossing equatio
   \lambda(n) p(n) = \mu(n+1)p(n+1).
 \end{equation}
 
-\begin{exercise}[Continuation of~\cref{ex:4}]
+\begin{exercise}[Continuation of~\cref{ex:4}]\clabel{ex:l-110}
  Compute $\lambda(n) p(n)$ for $n\geq 0$, and check $\lambda(n) p(n) = \mu(n+1) p(n+1)$.
 \begin{solution}
   $\lambda(0)p(0)=1\cdot 1/2 = 1/2$, $\lambda(n)p(n)= 0$ for $n>1$, as $\lambda(n)=0$ for $n>0$.
@@ -427,7 +427,7 @@ and the long-run fraction of time the system contains at least $n$ jobs is
   \P{ L \geq n} = \sum_{i=n}^\infty p(i).
 \end{equation*}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-111}
   Derive  $\E L = \sum_{n=0}^\infty n p(n)$ from~\cref{eq:46}. 
 \begin{solution}
 As $L(s)$ counts the number of jobs in the system at time $s$ (thus $L(s)$ is an integer),
@@ -458,7 +458,7 @@ the above), the result follows.
 
 Finally, the following two exercises show that level crossing arguments extend well beyond the queueing systems modeled by~\cref{fig:A_n_t}.
 
-\begin{exercise}\label{ex:67}
+\begin{exercise}\clabel{ex:67}
 Consider a single server that serves one queue and serves only in batches of 2 jobs at a time (so never 1 job or more than 2 jobs), i.e., the $M/M^2/1/3$ queue.
   Single jobs arrive at rate $\lambda$ and the inter-arrival times are exponentially distributed so that we can assume that $\lambda(n) = \lambda$.
   The batch service times are exponentially distributed with mean $1/\mu$.
@@ -488,7 +488,7 @@ See the figure below.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-112}
   Use the graph of~\cref{ex:67} and a level crossing argument to express the steady-state probabilities $p(n), n=0,\ldots, 3$ in terms of $\lambda$ and $\mu$.
 \begin{hint}
 First balance the rates across the levels. Then solve this in terms of $p(0)$.

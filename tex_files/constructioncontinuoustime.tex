@@ -76,7 +76,7 @@ The following mappings are correct:
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:22}
+\begin{extra}\clabel{ex:22}
   In view of the above, can  $A(t)$ be defined as $\min\{k : A_k \geq t\}$ or as $\min\{k: A_k > t\}$?
 \begin{hint}
 Compare this to the definition in~\cref{eq:2}.
@@ -178,7 +178,7 @@ node[midway, fill=white] {$X_{k}$};
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-148}
   If $S\sim U[0,7]$ and $X\sim U[0,10]$, where $U[I]$ stands for the
   uniform distribution concentrated on the interval $I$, compute
   $\P{S-X\leq u}$, for  $S$ and $X$ independent.
@@ -359,7 +359,7 @@ D
 
 
 
-\begin{extra}\label{ex:25}
+\begin{extra}\clabel{ex:25}
  Assume that $X_k = 10$ minutes and $S_k = 11$ minutes for all
     $k$, i.e., $X_k$ and $S_k$ are deterministic and constant. What
     are $\lambda$ and $\mu$?  Compute $A_k$, $W_k$, $D_k$ as functions of $k$. Then find expressions for $A(t)$, $D(t)$, and  $L(A_k-)$. 
@@ -447,7 +447,7 @@ Great! Our handiwork matches with the computer's results.
 
 
 
-\begin{exercise} 
+\begin{exercise}\clabel{ex:l-149} 
 Explain the following recursions for the $G/G/1$ queue:
 \begin{equation}
   \label{eq:45}
@@ -474,7 +474,7 @@ The \recall{virtual waiting time process} $\{V(t)\}$ is the amount of waiting th
 To construct $\{V(t)\}$, we simply draw lines that start at points $(A_k, W_k)$ and have slope -1, unless the line hits the $x$-axis, in which case the virtual waiting time remains zero until the next arrival occurs.
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-150}
   Provide a specification of the virtual waiting time process $\{V(t)\}$ for
     all $t$.
 \begin{hint}Make a plot of the function $A_{A(t)}-t$. What is the meaning of $V(A_{A(t)})?$ What is
@@ -605,7 +605,7 @@ L_s(t) &= \tilde A(t) - D(t) = L(t) - L_Q(t).
 \end{extra}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-151}
   Show that, when the system starts empty, $L(t) = \sum_{k=1}^\infty \1{A_k \leq t < D_k}$.
 \begin{hint}
     Use Boolean algebra.
@@ -672,7 +672,7 @@ Define the number of jobs in the system as seen by the $k$th arrival  as
 (Since in queueing systems we are concerned with processes with jumps, we need to be quite particular about left and right limits at jump epochs.)
 
 
-\begin{exercise}\label{ex:55}
+\begin{exercise}\clabel{ex:55}
   Explain the following (algorithmic efficient) procedure to compute the number of jobs in the system as seen by arrivals:
   \begin{equation*}
     L(A_k-) = L(A_{k-1}-)+1 - \sum_{i= k-1 - L(A_{k-1}-)}^{k-1} \1{D_i< A_k}.
@@ -719,7 +719,7 @@ Define the number of jobs in the system as seen by the $k$th arrival  as
 
 
 
-\begin{extra}[\faRocket] Try to extend the recursions~\cref{eq:45}  to a situation in which one queue is
+\begin{extra}[Not obligatory] Try to extend the recursions~\cref{eq:45}  to a situation in which one queue is
   served by two servers.  
 \begin{hint} The problem is
       that in a multi-server queueing systems, unlike for

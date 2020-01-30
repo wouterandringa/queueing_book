@@ -46,7 +46,7 @@ and for $s\leq T$,
 L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s < D_k}.
 \end{equation*}
 
-\begin{exercise}\label{ex:62}
+\begin{exercise}\clabel{ex:62}
   Prove Little's law under the assumptions that $A(T_i) = D(T_i)$ for an infinite number of times $\{T_i\}$ such $T_i\to\infty$ and that all limits exist. 
 \begin{solution}
     See~\cref{ex:59}--\cref{ex:61}. 
@@ -54,7 +54,7 @@ L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s <
 \end{exercise}
 
 
-\begin{extra}\label{ex:59}
+\begin{extra}\clabel{ex:59}
   Show that 
 \begin{equation*}
   \int_0^T L(s)\, \d s  =  \sum_{k=1}^{A(T)} W_k.
@@ -73,7 +73,7 @@ L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s <
 \end{extra}
 
 
-\begin{extra}\label{ex:60}
+\begin{extra}\clabel{ex:60}
   Use the result of the previous exercise to show~\cref{eq:53}. 
 \begin{hint}
   Divide both sides by $T$. At the right-hand side use that $1/T =  A(T)/T \cdot 1/A(T)$. Take limits.
@@ -97,7 +97,7 @@ we obtain  Little's law.
 
 
 
-\begin{extra}\label{ex:61}
+\begin{extra}\clabel{ex:61}
  Which assumptions have we used to prove Little's law?
 \begin{solution}
     We assumed first that $A(t)/t \to \lambda$ as $t\to \infty$, i.e., $A(t)/t$ has a limit as $t$ converges to $\infty$.
@@ -148,7 +148,7 @@ Hence, Little's law follows.
 \end{extra}
 
 
-\begin{extra}\label{ex:42}
+\begin{extra}\clabel{ex:42}
   Use the dimensions of the components of Little's law to check that $\E{W} \neq \lambda \E{L}$.
 \begin{hint}
 Checking the dimensions in the formula  prevents painful mistakes.
@@ -164,7 +164,7 @@ Checking the dimensions in the formula  prevents painful mistakes.
 
 
 
-\begin{extra}\label{ex:37}
+\begin{extra}\clabel{ex:37}
   Consider the server of the $G/G/1$ queue as a system by itself.
   The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
   It follows from Little's law that $\rho = \lambda \E S$.
@@ -176,7 +176,7 @@ Checking the dimensions in the formula  prevents painful mistakes.
 \end{extra}
 
 
-\begin{extra}\label{ex:43}
+\begin{extra}\clabel{ex:43}
   For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=5$ per hour and are served at rate $\mu=6$ per hour.
   What is the average time customers spend in the system?
 \begin{hint}
@@ -189,7 +189,7 @@ Start with checking the units when applying Little's law.
 \end{solution}
 \end{extra}
 
-\begin{exercise}\label{ex:44}
+\begin{exercise}\clabel{ex:44}
   For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=5$ per hour and are served at rate $\mu=6$ per hour.
   Suppose that at the moment you join the system, the number of customers in the system is 10.
   What is your expected time in the system?
@@ -217,7 +217,7 @@ By the PASTA property we have for the $M/M/1$ queue that
 \end{equation}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-215}
 Use Little's law to show for the $M/M/1$ queue that 
   \begin{align*}
     \E W &= \frac{\E S}{1-\rho}, & \E L &= \frac\rho{1-\rho}, \\
@@ -237,7 +237,7 @@ Use Little's law to show for the $M/M/1$ queue that
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-216}
 Why is~\cref{eq:wqes} \emph{not} true in general for the $M/G/1$ queue? 
 \begin{solution}
   By the memoryless property of the (exponential) distributed service times of the $M/M/1$ queue, the duration of a job in service, if any, is $\Exp(\mu)$ also at an arrival moment.
@@ -712,7 +712,7 @@ Wq # time in queue
 \end{solution}
 \end{extra}
 
-\begin{exercise}[Hall 5.10] 
+\begin{exercise}[Hall 5.10]\clabel{ex:l-217} 
 A repair/maintenance facility would like to determine how many employees should be working in its tool crib.
   The service time is exponential, with mean 4 minutes, and customers arrive by a Poisson process with rate 28 per hour.
   The customers are actually maintenance workers at the facility, and are compensated at the same rate as the tool crib employees.
@@ -830,7 +830,7 @@ Clearly, $c=3$ should do.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[Hall 5.22]\label{ex:95}
+\begin{exercise}[Hall 5.22]\clabel{ex:95}
   At a large hotel, taxi cabs arrive at a rate of 15 per hour, and parties of riders arrive at the rate of 12 per hour.
   Whenever taxicabs are waiting, riders are served immediately upon arrival.
   Whenever riders are waiting, taxicabs are loaded immediately upon arrival.
@@ -1024,7 +1024,7 @@ Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\
 
 
 
-\begin{exercise}[Continuation of~\cref{ex:95}]
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-218}
   Did you have to use the PASTA property to solve ~\cref{ex:95}? If so, how did you use it? If not, why not?
 \begin{solution}
   Actually, you don't have to use PASTA.
@@ -1041,7 +1041,7 @@ Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\
 \end{exercise}
 
 
-\begin{exercise}[Continuation of~\cref{ex:95}]
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-219}
  Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
   Parties of riders have the same destination, so riders of different parties cannot be served by one taxi.
   Provide a set of recursions to simulate this system.
@@ -1122,7 +1122,7 @@ Thus, to be able to apply Little's law to such more general situations we should
 The aim of this set of questions is to find an educated guess for a more general assumption under which Little's law can hold.
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-220}
   Motivate in words (or with a derivation, if you prefer this) why the following is true:
   \begin{equation*}
     \sum_{k=1}^{A(t)} W_k \geq \int_0^t L(s) \d s \geq  \sum_{k=1}^{D(t)} W_k.
@@ -1139,7 +1139,7 @@ The aim of this set of questions is to find an educated guess for a more general
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-221}
 Take suitable limits (and assume all these limits exist) to show that 
   \begin{equation*}
 \lambda \E W  \geq \E L \geq  \delta \E W.
@@ -1155,7 +1155,7 @@ Take suitable limits (and assume all these limits exist) to show that
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-222}
   Suppose that $A(t) = \lambda t$ and $D(t)= [A(t) - 10]^+$.
   Explain that for this system the above assumption on $\{T_k\}$ is violated. Show that Little's law is still true.
 \begin{solution}
@@ -1165,7 +1165,7 @@ Take suitable limits (and assume all these limits exist) to show that
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-223}
   Based on the above formulate an educated guess for more general conditions under which Little's law holds.
   (You don't have to prove Little's law under your condition; postpone that to after the exam.)
 \begin{solution}

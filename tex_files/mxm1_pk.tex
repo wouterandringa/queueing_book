@@ -30,7 +30,7 @@ Thus, the average time to serve the entire batch is $\E B \E S$.
 Henceforth we require that $\rho< 1$.
 
 
-\begin{exercise} 
+\begin{exercise}\clabel{ex:l-167} 
 Use the renewal reward theorem to explain that work arrives at rate $\lambda \E B$.
 \begin{hint}
 Observe that the total number of items is given by
@@ -60,7 +60,7 @@ Thus, to compute the average number of items in the system, we only need to know
 
 
 
-\begin{extra}\label{ex:5}
+\begin{extra}\clabel{ex:5}
   Show that  when the batch size is 1, the expression $\E{L(M^X/M/1)}$, i.e., the system length for the $M^X/M/1$ queue, reduces to
   $\E{L(M/M/1)}$, i.e., the system length for the $M/M/1$ queue. 
 \begin{hint}
@@ -89,7 +89,7 @@ Use~\cref{eq:43}. What are $\E{B^2}$, $\E B$ and $\V B$ for this case?
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-168}
   If the batch size is $p$ geometrically distributed, what is $\E L$?
 \begin{hint}
 $f_k=q^{k-1}p$ with $q=1-p$. Use generating functions to compute $\E B$ and $\E{B^2}$.
@@ -117,7 +117,7 @@ queue. The result is at least consistent with earlier work.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\label{ex:64}
+\begin{exercise}\clabel{ex:64}
   A common operational problem is a machine that receives batches of
   various sizes. Management likes to know how a reduction of the
   variability of the batch sizes would affect the average queueing time.
@@ -163,7 +163,7 @@ Once the batch moves to the server, the server processes the items one after ano
 
 Suppose that we know $\E{L_S}$, i.e., the average number of items of a batch at the server.
 
-\begin{exercise}\label{ex:57}
+\begin{exercise}\clabel{ex:57}
 Show that
   \begin{equation*}
   \E{W_{Q}} = \frac{\E{L_S}}{1-\rho}\E{S}.
@@ -195,7 +195,7 @@ Let $L_S(s)$ be the number of items (of the batch in service) at the server, so 
 \end{equation*}
 is the total time up to $t$  there are~$i$ items at the server. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-169}
   Let $\tilde A_k$ be the moment the $k$th batch moves to the server and $D_k$ its departure time.
   Use~\cref{fig:remainingservicetime} to explain that
 \begin{equation*}
@@ -272,7 +272,7 @@ Only if $B_k \geq i$ there can be an $i$th item of the batch, and then the time 
 \end{figure}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-170}
   Now use the renewal reward theorem to show that the (time-average) fraction of time there are~$i$ items at the server is equal to
   \begin{equation*}
     \P{L_S = i} = \lambda \E{S} G(i-1) = \rho \frac{G(i-1)}{\E B}.
@@ -291,7 +291,7 @@ Conclude that
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-171}
   Brush up the above expression for $\E{L_S}$  to arrive at~\cref{eq:32}.
 \begin{solution}
     See~\cref{ex:ER}--\cref{q:batch}.
@@ -299,7 +299,7 @@ Conclude that
 \end{exercise}
 
 
-\begin{extra}\label{ex:ER}
+\begin{extra}\clabel{ex:ER}
   Show that
   \begin{equation*}
   \sum_{i=1}^\infty i G(i-1)= \frac{\E{B^2} + \E B}{2},
@@ -343,7 +343,7 @@ We have
 \end{extra}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-172}
   Show that $\E{W_Q(M^X/M/1)} \geq \E{W_Q(M/M/1)}$ when the loads are the same.
   What do you conclude?
 \begin{hint}

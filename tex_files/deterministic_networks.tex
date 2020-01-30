@@ -29,14 +29,14 @@ station with the highest utilization. We write $r_b$ for the processing rate of 
 
 In the next set of exercises we illustrate the above concepts by means of a network with $n$ single-server stations in tandem and all stations have the same service time $S$. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-195}
 Suppose we would release just one job at a time in the above tandem system, that is,  only when a job has visited all stations, the next job is released. What is the throughput of the network?
 \begin{solution}
 In this case, the throughput $\mu$ of the network is $1/T_0$: only one server at a time is serving a job, the rest of the servers are forced to be idle as we only allow one job at a time in the network. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-196}
 Motivate that if we are prepared to release $w$ jobs, the throughput of the network becomes
 \begin{equation*}
   \mu(w) = \min\{w, n\} \frac 1{T_0}.
@@ -49,7 +49,7 @@ If there is one job in the system, $\mu(1) = 1/T_0$. If there are two, both jobs
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-197}
 Show that  only when $w\geq n$.
 \begin{equation*}
 \mu(w) = \frac 1S,
@@ -64,7 +64,7 @@ in which case the maximal capacity of the network is achieved.
 
 Thus, for given $w$  the largest arrival rate the network  can handle is  $\lambda = \mu(w)$, and the maximal rate at which it can process jobs is $r_b=1/S$. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-198}
   Show that when $\lambda=\mu(w)$,  the waiting time in the network is 
 \begin{equation*}
   \E W = 
@@ -91,7 +91,7 @@ Thus, for given $w$  the largest arrival rate the network  can handle is  $\lamb
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-199}
   What do you conclude from the above exercises?
 \begin{hint}
    If $w<n$, then what happens? If $w>n$, what are the $w-n$ jobs doing?
@@ -119,7 +119,7 @@ here\footnote{Warning, these problems are quite challenging, despite their appar
 I got the answer right, I often tried to find at least two different ways to
 solve the same problem.}.
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-200}
   A production system consists of 2 separate stations. Jobs never go
   from one machine to another. The processing times are
   $(t_1, t_2) = (1, 2)$ hours. The arrival rates are
@@ -133,7 +133,7 @@ solve the same problem.}.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-201}
 In the network of the previous exercise, what are $T_0$ and $W_0$? 
 \begin{solution}
 Since these machines are not related by a routing (jobs going from
@@ -159,7 +159,7 @@ Can we see this in another way? Yes, because $2$ out of $3$ jobs have service ti
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-202}
   A production network consists of 3 single-machine stations in
   tandem, i.e., in series, like the sketch below.  The
   processing times are $(2, 3, 2)$ hours respectively, i.e., constant
@@ -203,7 +203,7 @@ queuei/.pic={
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-203}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network by adding one extra machine to station 2, with processing
@@ -236,7 +236,7 @@ Is the new machine placed in parallel or in series?
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-204}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network by adding one extra machine to station 2 with
@@ -318,7 +318,7 @@ all machines are idle).
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-205}
 Why does the critical WIP change in the different cases above? 
 \begin{solution}
   Because $T_0$ increases and/or the bottleneck rate increases. In
@@ -327,7 +327,7 @@ Why does the critical WIP change in the different cases above?
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-206}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network by adding one extra machine to station 2 with 
@@ -351,7 +351,7 @@ Taking  $T_2=(1+3)/2=2$ is plainly silly.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-207}
   In the previous question, it might seem that one machine at the
   second station is superfluous. Which one, and why? Would you remove
   this superfluous machine in a real production network?
@@ -369,7 +369,7 @@ Taking  $T_2=(1+3)/2=2$ is plainly silly.
 % hours? Then you simply cannot give half of the jobs to the slow
 % machine; it will overflow.
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-208}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network by adding one extra machine to station 2 with processing
@@ -390,7 +390,7 @@ W_0 &= r_b T_0.
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-209}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network such that $2/3$ of the jobs \emph{ leave after the first}
@@ -438,7 +438,7 @@ which agrees with our earlier result.
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-210}
   A production network consists of 3 single-machine stations in tandem
   with processing times $(2, 3, 2)$ hours.  Suppose we modify this
   network such that 4/5 of the jobs \emph{bypass the second} station,
@@ -456,7 +456,7 @@ W_0 = r_b T_0 = \frac 12 \frac{23}5 = \frac{23}{10}.
 \end{solution}
 \end{exercise}
 
-% \begin{exercise}
+\begin{exercise}\clabel{ex:l-211}e}
 %   Building up on the previous question, which stations would you
 %   include anyway in a CONWIP loop, and why?
 % \end{exercise}

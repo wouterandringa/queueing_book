@@ -25,7 +25,7 @@ Moreover, we can use the probabilistic tools that have been developed for the ra
 One example is the distribution of the time until an especially large queue length is reached; these times can be formulated as \emph{hitting times} of the random walk.
 Another example is the average time it takes to clear a large queue.
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-133}
 Show that  $L_k$ satisfies the relation
 \begin{equation}\label{eq:reich1}
   L_k = Z_k - \min_{1\leq i \leq k} Z_i\wedge 0,
@@ -103,7 +103,7 @@ Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the r
 With~\cref{eq:reich1},  we see that a random walk $\{Z_k\}$ can be converted into a queueing
 process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.  For this, we first relate the random walk of the type~\cref{eq:51} to a random walk in continuous time. 
 
-\begin{exercise}\label{ex:89}
+\begin{exercise}\clabel{ex:89}
   Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$, show that the random variable
   \begin{equation*}
     N_\lambda(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
@@ -129,7 +129,7 @@ With the processes $N_\lambda$ and $N_\mu$ constructed above from the sequence $
 \end{equation*}
 Thus, we let $N_\lambda$ correspond to job  arrivals and $N_\mu$ to departures. Observe that the times $\{T_k\}$ at which $Z$ makes jumps are such that $T_k-T_{k-1}$ have exponential distribution with mean $1/(\lambda+\mu)$. At the jump times, $Z(T_k) = Z_k$, where $Z_k$ satisfies~\cref{eq:51} with $\P{a_k = 1} = \lambda/(\lambda+\mu)$.  We call $Z$ the \emph{free} $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-134}
   Show that
 \begin{equation*}
     \P{Z(t)=n}_m 
@@ -187,7 +187,7 @@ Taking these limits warrants two questions: what type of limit is actually meant
 In these notes we sidestep all these fundamental issues, as the details require measure theory and more advanced probability theory than we can deal with in this course.
 
 
-\begin{extra}[\faRocket]
+\begin{extra}[Not obligatory]
 Sketch a mathematical framework to answer  these questions. 
 
 \begin{solution}
@@ -250,7 +250,7 @@ stationary state will occupy us for the rest of the book.
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-135}
   Suppose that $X_k\in\{1,3\}$ such that $\P{X_k=1}=\P{X_k=3}$ and
   $S_k\in\{1,2\}$ with $\P{S_k=1}=\P{S_k=2}$. Write a computer program
   to see how fast the distributions of $W_{Q,k}$ converge to a limiting distribution function.
@@ -270,7 +270,7 @@ If you make a plot, you will see that after some 10 customers the distribution h
 \end{solution}
   \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-136}
   Validate the results of~\cref{fig:convergence} with simulation.
 \begin{solution}
     The code is in the file \pyv{waiting_time_simulation.py} at my github repo.

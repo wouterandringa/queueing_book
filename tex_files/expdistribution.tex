@@ -63,7 +63,7 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 \end{solution}
 \end{exercise}
 
-\begin{extra}\label{ex:15} 
+\begin{extra}\clabel{ex:15} 
   If $X\sim\Exp(\lambda)$, show that its second moment $\E{X^2} =  \frac{2}{\lambda^2}$.
 \begin{hint}
   \begin{equation*}
@@ -103,14 +103,14 @@ $\V X = \lambda^{-2}$.
 %   M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
 % \end{equation}
 
-\begin{extra}\label{ex:11}
+\begin{extra}\clabel{ex:11}
   Suppose $X\sim\Exp(\lambda)$.
   Only when $t < \lambda$ the moment-generating function $M_X(t)$ is finite.
 \begin{solution} The claim is true. 
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:33}
+\begin{extra}\clabel{ex:33}
  If $X\sim\Exp(\lambda)$, show that its moment-generating function is equal to
     \begin{equation*}
     M_X(t) = \frac{\lambda}{\lambda-t}.
@@ -131,7 +131,7 @@ $\V X = \lambda^{-2}$.
 \end{solution}
   \end{extra}
 
-\begin{exercise}\label{ex:21}
+\begin{exercise}\clabel{ex:21}
 Use the moment-generating function  of $X\sim\Exp(\lambda)$  to show that
     \begin{align*}
       \E{X} &=\frac1\lambda, & 
@@ -145,7 +145,7 @@ Use~\cref{eq:69} and~\cref{eq:64}.
 \end{solution}
   \end{exercise}
 
-\begin{extra}\label{ex:29}
+\begin{extra}\clabel{ex:29}
 When  $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
 \begin{hint}
   Use~\cref{eq:62} 
@@ -161,7 +161,7 @@ When  $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
 We now provide a number of relations between the Poisson distribution and the exponential distribution  to conclude that a process $N_\lambda$ is a Poisson process with rate $\lambda$ iff the inter-arrival times $\{X_i\}$ between individual jobs are i.i.d. $\sim\Exp(\lambda)$. 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-212}
   If $N_\lambda$ is a Poisson process with rate $\lambda$, show that the time $X_1$ to the first arriving job is $\Exp(\lambda$).
 \begin{hint}
     What is the meaning of $\P{N(t)=0}$?
@@ -193,7 +193,7 @@ The simplest way to obtain the answer is to use that the expectation is a linear
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:54}
+\begin{extra}\clabel{ex:54}
     Let $A_i$ be the arrival time of customer $i$ and set $A_0=0$.
     Assume that the inter-arrival times $\{X_i\}$ are i.i.d.
     with exponential distribution with mean $1/\lambda$ for some $\lambda>0$.
@@ -259,7 +259,7 @@ What if we would use the moment-generating function, as derived by the previous 
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-213}
   If the inter-arrival times $\{X_i\}$ are i.i.d.
   $\sim \Exp(\lambda)$, prove that the number $N(t)$ of arrivals during interval $[0,t]$ is Poisson distributed.
 \begin{hint}
@@ -290,7 +290,7 @@ A random variable $X$ is called \recall{memoryless} when it satisfies
 \end{equation*}
 In words, the probability that $X$ is larger than some time $t+h$, conditional on it being larger than a time~$t$, is equal to the probability that $X$ is larger than $h$.
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-214}
   Show that $X\sim \Exp(\lambda)$ is memoryless.
 
 \begin{hint}
@@ -313,7 +313,7 @@ In fact, it can be shown that only exponential random variables have the memoryl
 The proof of this fact requires quite some work; we refer the reader to the literature if s/he wants to check this, see e.g.
 \citet[Appendix 3]{yushkevich69:_markov_proces}.
 
-\begin{extra}\label{ex:10}
+\begin{extra}\clabel{ex:10}
   If $X\sim\Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are
   independent, show that 
   \begin{equation*}
@@ -336,7 +336,7 @@ Use that $X$ and $S$ are independent to get
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:3}
+\begin{extra}\clabel{ex:3}
    If $X\sim \Exp(\lambda)$, $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, show that 
     \begin{equation*}
       \P{X\leq S} = \frac{\lambda}{\lambda+\mu}.

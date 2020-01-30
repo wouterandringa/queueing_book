@@ -25,7 +25,7 @@ for some function $f:\N\to [0,\infty)$. Next, since $D_{D(A_k)+1}$ is the time u
 if $L(A_k)=n$ (not $L(A_k-)=n$) for some function $g:\N \to [0,\infty)$. 
 
 
-  \begin{exercise}
+\begin{exercise}\clabel{ex:l-244}
     Model the $M/M/1/K$ queue in terms of an $M(n)/M(n)/1$ queue and compute $p(K)$, i.e., the fraction of time that the system is full.
 \begin{hint}
   Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\cref{eq:38}.
@@ -45,7 +45,7 @@ p(K) &= \frac{1-\rho}{1-\rho^{K+1}} \rho^K.
 \end{solution}
 \end{exercise}
 
-\begin{extra}\label{ex:40}
+\begin{extra}\clabel{ex:40}
    Show that as $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
 \begin{hint}
 Use that $\sum_{i=0}^n x^i = (1-x^{n+1})/(1-x)$. BTW, is it
@@ -69,7 +69,7 @@ performance measures (which are derived from $p(n)$) must be the same.
 \end{solution}
 \end{extra}
 
-\begin{exercise}\label{ex:7}
+\begin{exercise}\clabel{ex:7}
     Model the $M/M/c$ queue in terms of an $M(n)/M(n)/1$ queue and compute $\E{L_Q}$. 
 \begin{hint}
 Take $\lambda(n) = \lambda,$ and $\mu(n) = \min\{n, c\} \mu$. 
@@ -202,7 +202,7 @@ Everything is in accordance to the formulas we derived earlier for the $M/M/1$ q
 \end{extra}
 
 
-\begin{exercise}\label{ex:27}
+\begin{exercise}\clabel{ex:27}
   It should be clear that the $M/M/c$ queue is a bit harder to analyze than the $M/M/1$ queue, at least the expressions are more extensive.
   It is tempting to approximate the $M/M/c$ queue by an $M/M/1$ queue with a server that works $c$ times as fast.
   As we now have the formulas for the $M/M/c$ queue and the $M/M/q$ queue we can use these to obtain some basic understanding of the difference.
@@ -289,7 +289,7 @@ The  code can be found on \texttt{github} in the \texttt{progs} directory.
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-245}
   Model the $M/M/c/c$ queue in terms of an $M(n)/M(n)/1$ queue and determine the performance measures.
   This model is also known as the Erlang $B$-formula and is often used to determine the number of beds at hospitals, where the beds act as servers and the patients as jobs.
 \begin{solution} Take,
@@ -314,7 +314,7 @@ This can be explained as follows: $\lambda(1-p(c))$ is the rate of accepted jobs
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-246}
   Take the limit $c\to \infty$ in the $M/M/c$ queue (or the $M/M/c/c$ queue) and obtain the performance measures for the $M/M/\infty$ queue, i.e., a queueing system with ample servers.
 \begin{hint}
 Use that for any $x$, $x^n/n!\to 0$ as $n\to\infty$.
@@ -435,7 +435,7 @@ p(0) = (1+\rho + \rho^2/2 + \rho^3/4)^{-1}.
 \end{extra}
 
 
-\begin{extra}[Multi-server queue with blocking]\label{ex:41}
+\begin{extra}[Multi-server queue with blocking]\clabel{ex:41}
   Consider the $M/M/c/c+K$ queue in which at most $c$ jobs can be in service and $K$ in queue.
   Try to derive the steady state probabilities $p(0)$, $p(1), \ldots$.
   You do not have to compute the normalization constant $G$.
@@ -471,7 +471,7 @@ The normalization is trivial, numerically at least.
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-247}
   Derive the steady state probabilities $p(n)$ for a single-server queue with a finite calling population with $N$ jobs, i.e., jobs that are in service cannot arrive to the system.
   Check the answer you obtained for the cases $N=1$ and $N=2$. What happens if $N\to\infty$? 
   Interpret the results.
@@ -506,7 +506,7 @@ I asked WolframAlpha to simplify this, but the answer I got was not particularly
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-248}
  Give an example of a system with a finite calling population.
 \begin{solution}
     A finite calling population occurs for instance at a factory with a number of machines.
@@ -562,7 +562,7 @@ As a consequence, the performance measure $\P{L\leq n}$ is not necessarily in ac
 To relate these two `views', i.e., time-average versus observer-average, we need a new concept, \emph{PASTA}, to be developed in~\cref{sec:poisson-arrivals-see}.
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-249}
   In what way is a queueing system with balking, at level $b$ say, different from a queueing system with finite calling population of size $b$?
 \begin{solution}
   In a queueing system with balking, customers may decide to balk at a level $b$.

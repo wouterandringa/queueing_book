@@ -37,7 +37,7 @@ $\E{L_i} = \lambda_i\E{W_i}$. Filling this into the above,
 where we recognize the visit ratios.
 
 
-\begin{exercise}[Linear algebra refresher] 
+\begin{exercise}[Linear algebra refresher]\clabel{ex:l-186} 
 Can you find an example to
   show for two matrices $A$ and $B$ that $AB\neq BA$, hence
   $x A \neq A x$.
@@ -87,7 +87,7 @@ ones are to the left of a matrix, and the vertical ones to the right.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[Linear algebra refresher 2]
+\begin{exercise}[Linear algebra refresher 2]\clabel{ex:l-187}
  Suppose the matrix $A$
   has an eigenvalue $0$. What is the geometric meaning of this fact? 
 \begin{solution}
@@ -136,14 +136,14 @@ y\\
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-188}
 Zijm.Ex.2.2.1
 \begin{solution}
 Jobs arrive at rate $\lambda$. We always require rate-stability, i.e.,  $\lambda<\mu_1$. Thus, (unless jobs are created at the server (which is not the case)),  the departure rate from station 1 must be $\lambda$. When there are jobs present at station 1, they leave at rate $\mu_1$. (Note that when there are no jobs at the station, there are no departures.) Likewise, the departure rate of station 2 is $\lambda$. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-189}
 Zijm.Ex.2.2.2
 \begin{solution}
   Observe from~\cref{ex:dep} that the inter-departure times of the $M/M/1$ queue are also independent and identically exponentially distributed with rate $\lambda$.
@@ -154,7 +154,7 @@ Zijm.Ex.2.2.2
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-190}
 Zijm.Ex.2.2.3 
 \begin{solution}
   The question is not well specified. We know from Burke's law, see~\cref{ex:burke}, that
@@ -168,7 +168,7 @@ Zijm.Ex.2.2.3
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-191}
 Zijm.Ex.2.2.4
 \begin{solution}
   Simple algebra.  (I am not going to write it out here. If you are
@@ -176,7 +176,7 @@ Zijm.Ex.2.2.4
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\label{ex:93}
+\begin{exercise}\clabel{ex:93}
   Zijm.Ex.2.2.5. The problem is not entirely correctly formulated. It
   should be, if for at least one $i$, $\sum_{j=1}^M P_{i j} <1$ \ldots
 \begin{solution}
@@ -207,8 +207,7 @@ Hence, a Markov chain induced by $P$ cannot be irreducible, because for this to 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
-\label{ex:20}
+\begin{exercise}\clabel{ex:20}
 Zijm.Ex.2.2.6
 \begin{solution}
   Since $M$ is finite, and $k\leq M$, the set of numbers $P^{M+1}_{k0}$ is finite.
@@ -266,8 +265,7 @@ But then, by Gerschgorin's theorem, all eigenvalues of $P$ also lie strictly in 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
-\label{ex:23}
+\begin{exercise}\clabel{ex:23}
   Show that Zijm.Eq.2.13 and 2.14 can be written as
   \begin{equation*}
     f_i(n_i) = \frac{1}{G(i)}\frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}}\left( \frac{\lambda_i}{\mu_i}\right)^{n_i}.
@@ -282,7 +280,7 @@ But then, by Gerschgorin's theorem, all eigenvalues of $P$ also lie strictly in 
 \end{exercise}
 
 
-\begin{exercise}\label{ex:47}
+\begin{exercise}\clabel{ex:47}
   We have a two-station single-server open network.
   Jobs enter the network at the first station with rate $\gamma$.
   A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2. At station 2 a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1.  Compute $\lambda$. What happens if $\alpha\to 1$ or $\beta_1\to 0$? 
@@ -331,7 +329,7 @@ If $\beta_1=0$ no jobs are sent from node 2 to node 1.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-194}
 Zijm.Ex.2.2.8
 \begin{solution}
   Yes, the network remains a Jackson network. By Burke's law, see~\cref{ex:burke}, the

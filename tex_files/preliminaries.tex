@@ -30,7 +30,7 @@ where the last equation defines an \recall{indicator variable}.
 The function $f(h)=o(h)$ means that $f$ is such $f(h)/h \to 0$ as $h\to 0$.
 If we write $f(h) = o(h)$ it is implicit that $|h| \ll 1$.
 We call this \recall{small $o$ notation}.
-\begin{exercise}%\[faCalculator]
+\begin{exercise}\clabel{ex:l-104}
   Let $c$ be a constant (in $\R$) and the functions $f$ and $g$ both of $o(h)$. Then show that (1) $f(h) \to 0$ when $h\to 0$, (2) $c\cdot f = o(h)$, (3) $f+g=o(h)$, and (4) $f\cdot g=o(h)$. 
 \begin{solution}
      In fact (1) is trivial: $|f(h)| \leq |f(h)/h|$ when $|h| < 1$.
@@ -60,7 +60,7 @@ e^x &= \lim_{n\to\infty} (1+x/n)^n, \label{eq:65}\\
 \end{align}
 \end{subequations}
 
-\begin{extra}\label{ex:87}
+\begin{extra}\clabel{ex:87}
   Why is $e^{x} = 1 +x + o(x)$?
 \begin{solution}
     When $|x|\ll 1$, the  terms with $n\geq 2$ in~\cref{eq:76} are $x^n = o(x)$. Then applying $x^n + x^m = o(x)$ to the Taylor series gives the result.
@@ -86,7 +86,7 @@ To see~\cref{eq:77}, note first that $X\1{X=n} = n\1{X=n}$ because $X=n$ when $\
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-105}
 Define the  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
 \begin{equation*}
   G(k) = \sum_{m=0}^\infty \1{m>k} f(m).
@@ -94,7 +94,7 @@ Define the  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
 As you will see, this idea  makes the computation of certain expressions quite a bit easier. 
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-106}
   Express the probability mass  $f(k)$ and the survivor function $G(k)$ in terms of the \recall{distribution function} $F(k)=\P{X\leq k}$ of $X$.
 \begin{hint}
 This exercise is just meant to become familiar with the notation.
@@ -119,7 +119,7 @@ This exercise is just meant to become familiar with the notation.
 \end{extra}
 
 
-\begin{extra}\label{ex:6}
+\begin{extra}\clabel{ex:6}
  Use indicator functions to prove that $\E X =  \sum_{k=0}^\infty G(k)$.
 \begin{hint}
 Write 
@@ -144,7 +144,7 @@ Check Fubini's theorem for more on this if you are interested.)
 \end{solution}
 \end{extra}
 
-\begin{exercise}\label{ex:66}
+\begin{exercise}\clabel{ex:66}
  Use indicator functions to prove that
 $\sum_{i=0}^\infty i G(i) =  \E{X^2}/2 - \E{X}/2.$
 \begin{hint}
@@ -175,7 +175,7 @@ for the expectation of $X$. Here $\d F(x)$ acts as a shorthand for $f(x) \d x$\f
 
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-107}
  Use indicator functions to prove that 
 $   \E X = \int_0^\infty x \d F(x)  = \int_0^\infty G(y) \d y,$
 where $G(x) = 1 - F(x)$. 
@@ -209,7 +209,7 @@ $\int_0^\infty y G(y) \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d 
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-108}
   Show that $\E{X^2}/2 = \int_0^\infty y G(y) \d y$  for a continuous non-negative random variable $X$ with survivor function $G$.
  \begin{solution}
    \begin{hint}
@@ -243,7 +243,7 @@ M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{  if $X$ and $Y$ are independent}.
 \end{extra}
 
 To help you recall the concept of \recall{conditional probability} consider the following question.
-\begin{exercise}%\[faPhoto]
+\begin{exercise}\clabel{ex:l-109}
   We have  one gift to give to one out of three children. As we cannot
   divide the gift into parts, we decide to let `fate decide'. That
   is, we choose a random number in the set $\{1, 2, 3\}$. The first

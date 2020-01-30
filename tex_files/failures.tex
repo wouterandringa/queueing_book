@@ -46,7 +46,7 @@ hence the server load increases due to failures.
 
 Before deriving the above expressions, let us see how to apply them. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-157}
   Suppose we have a machine with memoryless failure behavior, with a mean-time-to-fail of $3$ hours. Regular service times are deterministic with an average of 10 minutes, jobs arrive as a Poisson process with rate of 4 per hour.  Repair times are exponential with a mean duration of 30 minutes. What is the average sojourn time?
 \begin{hint}
     Mind to work in a consistent set of units, e.g., hours. It is easy to make mistakes. 
@@ -99,7 +99,7 @@ The average time in queue reduces from $\approx 0.6$ to $\approx 0.17$ hours, a 
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:79}
+\begin{extra}\clabel{ex:79}
   Provide an intuitive explanation for $\E S = \E{S_0}/A$.
 \begin{solution}
 An intuitive way to obtain this result is by noting that $A$ is the fraction of time the server is working. As the total service time of a job is $\E S$, the net work done is $ A\E S$. But this must be the time needed to do the real job, hence $A \E S = \E{S_0}$.  
@@ -107,7 +107,7 @@ An intuitive way to obtain this result is by noting that $A$ is the fraction of 
 \end{extra}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-158}
   Show that $\E{S} = \E{S_0} + \E R \E N$; then show~\cref{eq:83}.
 \begin{solution}
 Write  $S_N = \sum_{i=1}^N R_i$ for the total duration of the interruptions, so that the total job duration becomes $S = S_0 + S_N$.    
@@ -116,7 +116,7 @@ Write  $S_N = \sum_{i=1}^N R_i$ for the total duration of the interruptions, so 
 \end{exercise}
 
 
-\begin{extra}\label{ex:84}
+\begin{extra}\clabel{ex:84}
   Suppose that $N=n$, show that $\E{S_n}=n\E R$.
 \begin{hint}
     Is it relevant  for the expectation of $S_n$ that $R_1,\ldots, R_n$ are mutually independent?
@@ -131,7 +131,7 @@ since by assumption $\E{R_1} = \cdots = \E{R_n}$.
 \end{extra}
 
 
-\begin{extra}\label{ex:16}
+\begin{extra}\clabel{ex:16}
   Use~\cref{ex:84} to show that $\E{S_N}=\E R \E N$.
   This result is known as \recall{Wald's equation}.
 \begin{hint}
@@ -150,7 +150,7 @@ Since $\E{S_n} = n \E R$,
 \end{extra}
 
 
-\begin{extra}\label{ex:80}
+\begin{extra}\clabel{ex:80}
   Show that  for our model of interruptions,
   \begin{equation*}
 A=\frac 1{1+\lambda_f \E R}
@@ -181,7 +181,7 @@ The time to fail is the time in between two interruptions. We assume that these 
 \end{extra}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-159}
   The derivation of $C_s^2$ is a bit more involved.
   To see this, explain that $\V{S} \neq \V{S_0} + \V{\sum_{i=0}^N R_i}$.
 \begin{solution}
@@ -191,7 +191,7 @@ The time to fail is the time in between two interruptions. We assume that these 
 
 
 
-\begin{extra}\label{ex:81}
+\begin{extra}\clabel{ex:81}
 Show that 
 \begin{equation*}
   \E{S^2} = \E{S_0^2} + 2\E{S_0 \sum_{i=1}^N R_i} + \E{\sum_{i=1}^N R_i^2} + \E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j}.
@@ -239,7 +239,7 @@ Now $\E{N^2\given S_0}=\lambda_f^2 S_0^2 +\lambda_f S_0$ and $\E{N\given S_0} = 
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:82}
+\begin{extra}\clabel{ex:82}
   Combine the above to see that
     $\E{S^2\given S_0} = \frac{S_0^2}{A^2} + \lambda_f \E{R^2} S_0$. From this, 
   \begin{equation*}
@@ -254,7 +254,7 @@ Assemble all terms with $S_0^2$ and observe that $(1/A) = 1+\lambda_f \E R$. For
 \end{solution}
 \end{extra}
 
-\begin{extra}\label{ex:83}
+\begin{extra}\clabel{ex:83}
 Show that  
   \begin{equation*}
     \V{S} = \frac{\V{S_0}}{A^2} + \lambda_f \E{R^2} \E{S_0}.
@@ -267,7 +267,7 @@ Show that
 \end{solution}
 \end{extra}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-160}
 Show that
   \begin{equation*}
     C_s^2 = \frac{\V{S}}{(\E S)^2} = C_0^2 + \frac{\lambda_f \E{R^2} A^2}{\E{S_0}},
@@ -285,7 +285,7 @@ C_s^2 &= \frac{\V{S}}{(\E S)^2} =\frac{V(S) A^2}{(\E{S_0})^2} \\
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-161}
 With the above assumption on the distribution of $R$, show that
   \begin{equation*}
     C_s^2 = C_0^2 + 2 A(1-A) \frac{\E{R}}{\E{S_0}}.

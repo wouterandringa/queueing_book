@@ -88,7 +88,7 @@ Define the \recall{load} or \recall{utilization} as the limiting fraction of tim
   \rho = \lim_{t\to\infty} \frac 1 t \int_0^t \1{L(s)>0} \d s.
 \end{equation*}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-162}
 Use the renewal reward theorem to prove that $\rho = \lambda \E S$.
 \begin{hint}
   Define $Y(t) = \int_0^t \1{L(s)>0} \d s$ as the total amount of time the server has been busy up to the time $t$.
@@ -104,7 +104,7 @@ Use the renewal reward theorem to prove that $\rho = \lambda \E S$.
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-163}
   We can derive the relation $\rho = \lambda \E S$ in a somewhat more direct way by considering the fact that
 \begin{equation*}
   \sum_{k=1}^{A(t)} S_k \geq \int_0^t \1{L(s)>0} \d s \geq   \sum_{k=1}^{D(t)} S_k.
@@ -145,7 +145,7 @@ arrivals, i.e., $\E S < \E X$. In fact, when $\mu < \lambda$, it is easy to chec
 grows roughly linearly with slope $\lambda - \mu$.
 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:l-164}
   Consider a queueing system with $c$ servers with identical production rates $\mu$.
   What would be a reasonable stability criterion for this system?
 \begin{hint}
