@@ -94,9 +94,9 @@ In words, the above states that the arrival rate $\lambda$ is the inverse of the
     \frac{A_{A(t)}} {A(t)}  \leq \frac{t}{A(t)}  <\frac{A_{A(t)+1}}{A(t)} = \frac{A_{A(t)+1}}{A(t)+1}\frac{A(t)+1}{A(t)}.
   \end{equation*}
   Now $A(t)$ is a counting process such that $A(t)\to\infty$ as $t\to\infty$.
-  Therefore, $\lim_t A_{A(t)}/A(t) = \lim_n A_n/n$.
-  Moreover, it is evident that $\lim_t A_{A(t)+1}/(A(t)+1) = \lim_t A_{A(t)}/A(t)$, and that $(A(t)+1)/A(t)\to 1$ as $t\to\infty$.
-  Thus it follows from the above inequalities that $\lim_n A_n/n = \lim_t t/A(t)$.
+  Therefore, $\lim_{t\to\infty} A_{A(t)}/A(t) = \lim_{n\to\infty} A_n/n$.
+  Moreover, it is evident that $\lim_{t\to\infty} A_{A(t)+1}/(A(t)+1) = \lim_{t\to\infty} A_{A(t)}/A(t)$, and that $(A(t)+1)/A(t)\to 1$ as $t\to\infty$.
+  Thus it follows from the above inequalities that $\lim_{n\to\infty} A_n/n = \lim_{t\to\infty} t/A(t)$.
      
   For the right-continuity of $A(t)$, define $f(t) = \1{A_1 \leq t}$.
   Observe first that $f(t)$ is increasing, and $f(t)\in\{0,1\}$.

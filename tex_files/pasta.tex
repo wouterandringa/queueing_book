@@ -60,7 +60,7 @@ Thus, for the $M/M/1$ queue in particular,
 \begin{exercise}\clabel{ex:8} 
 Show for the case of~\cref{ex:112} that $\pi(0)=1$ and $\pi(n)=0$, for $n>0$.
 \begin{solution}
-  All arrivals see an empty system. Hence $A(0,t)/A(t) \approx (t/2)/(t/2) = 1$, and $A(n,t)=0$ for $n>0$. Thus, $\pi(0) = \lim_t A(0,t)/A(t) = 1$ and $\pi(n)=0$ for $n>0$. Recall from the other exercises that $p(0)=1/2$. Hence, time average statistics are not the same as statistics at arrival moments. 
+  All arrivals see an empty system. Hence $A(0,t)/A(t) \approx (t/2)/(t/2) = 1$, and $A(n,t)=0$ for $n>0$. Thus, $\pi(0) = \lim_{t\to\infty} A(0,t)/A(t) = 1$ and $\pi(n)=0$ for $n>0$. Recall from the other exercises that $p(0)=1/2$. Hence, time average statistics are not the same as statistics at arrival moments. 
 \end{solution}
 
 \end{exercise}
@@ -68,7 +68,7 @@ Show for the case of~\cref{ex:112} that $\pi(0)=1$ and $\pi(n)=0$, for $n>0$.
 \begin{exercise}\clabel{ex:l-152}
   Check that~\cref{eq:13}  holds for the system of~\cref{ex:8}.
 \begin{solution}
-From the relevant previous exercises, $\lambda = \lim_t A(t)/t = 1/2$. $\lambda(0)=1$, $p(0)=1/2$, and $\pi(0)=1$. Hence,
+From the relevant previous exercises, $\lambda = \lim_{t\to\infty} A(t)/t = 1/2$. $\lambda(0)=1$, $p(0)=1/2$, and $\pi(0)=1$. Hence,
 \begin{equation*}
   \lambda \pi(0) = \lambda(0) p(0) \implies  \frac 1 2 \times 1 = 1\times \frac 1 2.
 \end{equation*}
@@ -193,9 +193,9 @@ From the definitions in the hint,
 \begin{equation*}
 X= \lim_{m\to\infty} \frac 1 m \sum_{k=1}^m X_k =\lim_{m\to\infty} \frac 1 m \sum_{k=1}^m \1{L(A_k-)=n} = \pi(n).
 \end{equation*}
-Since $Y=\lim_t Y(t)/t = \lim_t A(n,t)/t$ it follows from the renewal reward theorem that
+Since $Y=\lim_{t\to\infty} Y(t)/t = \lim_{t\to\infty} A(n,t)/t$ it follows from the renewal reward theorem that
 \begin{equation*}
-  Y=\lambda X \implies \lim_t \frac{A(n,t)} t = \lambda X = \lambda \pi(n).
+  Y=\lambda X \implies \lim_{t\to\infty} \frac{A(n,t)} t = \lambda X = \lambda \pi(n).
 \end{equation*}
 Thus,~\cref{eq:1333} follows from the renewal reward theorem.
 \end{solution}
