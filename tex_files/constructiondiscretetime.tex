@@ -11,7 +11,7 @@
 We start with a description of a case to provide motivation to study queueing systems.
 Then we develop a set of recursions of fundamental importance to construct and simulate queueing systems.
 With these recursions we analyze the efficacy of several suggestions to improve the case system.
-We close the section with a large number of exercises to develop recursions for a large number of different queueing systems, and illustrate how powerful this approach is.
+To illustrate the power of this approach we close the section with a large number of exercises in which you develop recursions for many different queueing situations.
 
 \subsection*{Case}
 \label{sec:case}
@@ -51,7 +51,7 @@ For instance, to study queueing processes at a supermarket, a period can consist
 Let us define:
 \begin{itemize}
     \item[$a_k =$] number of jobs that arrive \textit{in} period $k$,
-    \item[$c_k= $] the capacity, i.e., the maximal number of jobs that can be served, during period $k$,
+    \item[$c_k= $] the capacity, i.e., the maximal number of jobs that can be served, during period~$k$,
     \item[$d_k =$] number of jobs that depart \textit{in} period $k$,
     \item[$L_k =$] number of jobs in the system at the \textit{end} of period $k$.
 \end{itemize}
@@ -64,12 +64,12 @@ Let us define:
 %     L_k &= \text{number of jobs in the system  at the \textit{end} of period $k$}.\\
 %   \end{split}
 % \end{equation}
-In the sequel we also call $a_k$ the size of the batch arriving in period $k$.
-The definition of $a_k$ is a bit subtle: we may assume that the arriving jobs arrive either at the start or at the end of the period.
+In the sequel we also call $a_k$ the \emph{size of the batch} arriving in period $k$.
+Note that the definition of $a_k$ is a bit subtle: we may assume that the arriving jobs arrive either at the start or at the end of the period.
 In the first case, the jobs can be served in period $k$, in the latter case, they \emph{cannot} be served in period~$k$.
 
 
-Let $L_{k-1}$ be the queue length at the end of period $k-1$, it must also be the number of customers at the start of period $k$.
+Since $L_{k-1}$ is the queue length at the \emph{end} of period $k-1$, it must also be the number of customers at the \emph{start} of period $k$.
 Assuming that jobs arriving in period $k$ cannot be served in period~$k$, the number of customers that depart in period $k$ is
 \begin{subequations}\label{eq:31}
 \begin{equation}\label{eq:d_k}
@@ -141,7 +141,10 @@ At any rate, from this point on we assume that it is easy, by means of computers
 \subsection*{Case analysis}
 \label{sec:case-analysis}
 
-As a first step we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
+Here we continue with case of the five psychiatrists and analyze the proposed rules to improve the performance of the system.
+We mainly want to reduce the long waiting times.
+
+As a first step in the analysis we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
 The duration of a period is taken to be a week.
 The average number of arrivals per period, based on data of the company, was slightly less than~12 per week; in the simulation we set it to $\lambda= 11.8$ per week.
 We model the capacity in the form of a matrix such that row $i$ corresponds to the weekly capacity of psychiatrist $i$:
@@ -174,7 +177,7 @@ C =
 \end{equation*}
 
 Next, we include the effects of holidays on the capacity. This is
-easily done by setting the capacity of a certain psychiatrist to 0 in
+easily done by setting the capacity of a certain psychiatrist to~$0$ in
 a certain week. Let's assume that just one psychiatrist is on leave in
 a week, each psychiatrist has one week per five weeks off, and the
 psychiatrists' holiday schemes rotate. To model this, we set
@@ -216,9 +219,9 @@ It is apparent that Suggestions 1 and 2 above do not significantly affect the be
 
 
 Now we consider Suggestion 3, which comes down to doing more intakes when it is busy, and fewer when it is quiet.
-A simple rule to implement this is by considering last week's queue $L_{n-1}$: if $L_{n-1}<12$, i.e., the service capacity of one week, then do $e$ intakes less.
-When $L_{n-1}>24$, i.e., larger than two weeks of intakes, do $e$ intakes more.
-Here, $e=1$ or $2$, or perhaps a larger number; it corresponds to the amount of control we want to exercise.
+A simple rule would be to use week's queue $L_{n-1}$: if $L_{n-1}<12$, serve $e$ intakes less (in other, when the service capacity of week~$k$ is larger than the queue length serve $e$ less), when $L_{n-1}>24$, serve~$e$ more.
+Here, $e=1$ or $2$, or perhaps a larger number.
+The larger $e$, the larger the control we exercise.
 
 Let's consider three different control levels, $e=1$, $e=2$, and $e=5$; thus in the last case all psychiatrists do five extra intakes.
 The previous simulation shows that it is safe to disregard the holiday plans, so just assume a flat service capacity of 12 intakes a week.

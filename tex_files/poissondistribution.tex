@@ -74,7 +74,7 @@ What is the difference between $N_n(t)$ and $N(t)$?
 \end{solution}
 \end{extra}
 
-\begin{extra}\clabel{ex:31}
+\begin{extra} \clabel{ex:31}
   Show that the binomial distribution in~\cref{eq:bin} converges to the Poisson distribution, i.e., 
  \begin{equation*}\label{eq:52}
    \lim_{n\to\infty} {n \choose k} \left(\frac{\lambda t}{n}\right)^k \left(1-\frac{\lambda t}n\right)^{n-k} = e^{-\lambda t} \frac{(\lambda t)^k}{k!},
@@ -122,7 +122,7 @@ The process is an uncountable set of random variables indexed by $t\in \R^+$, no
 In the remainder of this section we derive a number of  properties of the Poisson process that we will use time and again.
 
 
-\begin{exercise}\clabel{ex:35}
+\begin{exercise} \clabel{ex:35}
   Show that 
   \begin{equation*}
 \P{N(t+h) = n \given N(t) = n} = 1-\lambda h + o(h).
@@ -238,7 +238,7 @@ From the hint,
 \end{solution}
 \end{extra}
  
-\begin{exercise}\clabel{ex:2}
+\begin{exercise} \clabel{ex:2}
   Show that if $N(t)\sim P(\lambda t)$, the expected number of arrivals during $[0,t]$ is
   \begin{equation*}
   \E{N(t)} = \lambda t.
@@ -288,7 +288,7 @@ Hence, $\V N = \E{N^2} - (\E N)^2 = (\lambda t)^2 + \lambda t - (\lambda t)^2 = 
 \end{solution}
 \end{extra}
 
-\begin{extra}\clabel{ex:53}
+\begin{extra} \clabel{ex:53}
 Show that the moment-generating function of the random variable~$N(t)\sim P(\lambda t)$ is
 \begin{equation*}
 M_{N(t)}(s) 
@@ -311,7 +311,8 @@ M_{N(t)}(s)
 \end{solution}
 \end{extra}
 
-\begin{exercise}\clabel{ex:l-101}Use  the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(t)}$ and $\V{N(t)}$. 
+\begin{exercise} \clabel{ex:l-101}
+ Use  the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(t)}$ and $\V{N(t)}$. 
 \begin{hint}
 Use~\cref{eq:69} and~\cref{eq:64}. 
 \end{hint}
@@ -339,7 +340,8 @@ As  will become clear later, the SCV is a very important concept in
   queueing theory. Memorize it as a measure of \emph{relative
   variability}.
 
-\begin{exercise}\clabel{ex:l-102}Show that   the SCV of $N(t)\sim P(\lambda t)$ is equal to $1/(\lambda t)$.  What does this mean for $t$ large?
+\begin{exercise} \clabel{ex:l-102}
+ Show that   the SCV of $N(t)\sim P(\lambda t)$ is equal to $1/(\lambda t)$.  What does this mean for $t$ large?
 \begin{solution}
     \begin{equation*}
 SCV = \frac{\V{N(t)}}{(\E{N(t)})^2} = \frac{\lambda t}{(\lambda t)^2} = \frac1{\lambda t}.
@@ -382,7 +384,8 @@ In fact, this merged process $N_{\lambda+\mu}$ is also a Poisson process with ra
 
 
 
-\begin{exercise}\clabel{ex:l-103}If the Poisson arrival processes $N_\lambda$ and $N_\mu$  are independent, show with a conditioning argument that
+\begin{exercise}\clabel{ex:l-103} 
+If the Poisson arrival processes $N_\lambda$ and $N_\mu$  are independent, show with a conditioning argument that
 $N_\lambda + N_\mu$ is  a Poisson process with rate $\lambda + \mu$. 
 \begin{hint}
     Use sets $\{N_\lambda(t) = i\}$ to decompose $\{N_\lambda(t) + N_\mu(t) = n\}$. With this observe that
@@ -424,8 +427,7 @@ The last expression is the moment-generating function of a Poisson random variab
 
 
 \begin{extra}
-If the Poisson arrival processes $N_\lambda$ and $N_\mu$  are independent, show 
-that 
+  If the Poisson arrival processes $N_\lambda$ and $N_\mu$ are independent, show that
  \begin{equation*}
     \P{N_\lambda(h) = 1 | N_\lambda(h) + N_\mu(h) = 1} =
 \frac{\lambda}{\lambda+\mu}.
@@ -577,7 +579,7 @@ Suppose the departure stream of a machine splits into two sub-streams, e.g., a f
 Then we can model the arrival stream at the second machine as a thinned stream (with probability $p$) of the departures of the first machine.
 Merging occurs where the output streams of various stations arrive at another station.
 
-\begin{exercise}\clabel{ex:96}
+\begin{exercise} \clabel{ex:96}
   Use moment-generating functions to prove that $N_n(t)$ converges to $N$, that is, the right-hand-side in~\cref{eq:bin} converges to the Poisson distribution~\cref{eq:pois} when $n\to \infty, p\to 0$ such that $p n=\lambda t$ remains constant.
 \begin{hint}
 Solve~\cref{ex:53} and \cref{ex:1} first. Perhaps~\cref{ex:31} is also useful.
