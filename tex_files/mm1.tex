@@ -329,7 +329,7 @@ As yet another simplification, we change the objective somewhat such that the nu
 
 We now find a formula to convert the demand profile into the \emph{load profile}, which is the minimal number of servers per hour needed to meet the service objective. We already know for the $M/M/1$ that $\P{L>10}=\rho^{11}$.  Combining this with the objective $\P{L>10}\leq 1\%$, we get that $\rho^{11}\leq 0.01$, which  translates into $\rho \leq 0.67$. Using that $\rho = \lambda \E S/c$ and our estimate $\E{S}=1.5$ minutes,  we get  the following rough bound on $c$:
 \begin{equation*}
-c \geq \frac{\lambda \E S}{0.67} \approx \frac{3}2 \cdot \lambda \cdot 1.5  \approx 2.25 \lambda,
+c \geq \frac{\lambda \E S}{0.67} \approx \frac{3}2 \cdot \lambda \cdot 1.5  = 2.25 \lambda,
 \end{equation*}
 where $\lambda$ is the arrival rate (per minute, \emph{not} per hour).
 For instance, for the hour from 12 to 13, we read in  the demand profile in~\cref{fig:loadprofile} that $\lambda= 120$ customers per hour, hence $c=2.25 \cdot 120/60 = 4.5$. With this formula, the conversion of the demand profile to the load profile becomes trivial: divide the hourly arrival rate by $60$ and multiply by
@@ -349,7 +349,7 @@ plans are available
 \item $++-+++$
 \item $+++-++$,
 \end{enumerate}
-where a $+$ indicate a working hour and $-$ a break of an hour. Then
+where a $+$ indicates a working hour and $-$ a break of an hour. Then
 generate shift types for each of these plans with starting times
 $8$am, $9$am, and so on, until the end of the day. Thus, a shift type
 is a shift plan that starts at a certain hour. Let $x_i$ be the number
