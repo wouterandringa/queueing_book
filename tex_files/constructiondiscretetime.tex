@@ -246,35 +246,29 @@ However, controlling the service rate as a function of the queue length improves
 \subsection*{Conclusion}
 \label{sec:conclusion}
 
-Observe that, even with these (deceitfully) simple recursions, we can obtain considerable insight into this, otherwise, very complicated controlled queueing process\footnote{If the reader doubts the value of simulation, s/he should try to develop a mathematical method to analyze multi-server queueing systems with vacations, of which this case is an example.}.
-As a matter of fact, with such simple recursions we can analyze many practical queueing situations.
-Together with students the author applied it numerous times, for instance:
-\begin{itemize}
-\item Should a certain hospital invest in a new MRI scanner to reduce
-  waiting times?
-\item When to switch on and off a tin bath at an electronics component factory?
-\item How to route post parcels in a post sorting center?
-\end{itemize}
-
+From the above case we learn that even with these (deceitfully) simple recursions, we can obtain considerable insight into the behavior and performance of this quite complicated controlled queueing system\footnote{If you doubts the value of simulation, try to develop a mathematical method to analyze multi-server queueing systems with vacations, of which this case is an example.}.
 In general, the study of queueing systems is focused on studying the probabilistic properties of the queueing length process and related concepts such as waiting time, server occupancy, fraction of customers lost, and so on.
 Once we have constructed the queueing process we can compute all performance measures of relevance, such as the average waiting time.
 If it turns out that the performance of the system is not according to what we desire, we can change parts of the system with the aim to improve the situation and assess the effect of this change.
-For instance, if the average waiting time is too long, we might add service capacity.
-With simulation it is easy to study the effect of, hence evaluate, such decisions.
+For instance, if the average waiting time is too long, we might want to add service capacity.
+With simulation it is easy to study, hence evaluate, the effect of such decisions.
 
 \subsection*{Exercises}
 \label{sec:exercises-1}
 
 
-The reader should understand from the above case that, once we have the recursions, we can analyze the system and make plots to evaluate suggestions for improvement.
-Thus, getting the recursions is crucial to construct, i.e., model, queueing processes.
-For this reason, most of the exercises below focus on obtaining recursions for many different queueing systems.\footnote{It may be that the recursions you find are not identical to the recursions in the solution; the reason is that the assumptions you make might not be equal to the ones I make.
-  I don't quite know how to get out of this paradoxical situation.
-  In a sense, to completely specify the model, we need the recursions.
-  However, if the problem statement would contain the recursions, there would be nothing left to practice anymore.
-  Another way is to make the problem description five times as long, but this is also undesirable.
-  So, let's be pragmatic: the aim is that you practice with modeling, and that you learn from the solutions.
-  If you obtain \emph{reasonable} recursions, but they are different from mine, then your answer is just as good.}
+The reader should understand from the above case that, once we have the recursions, we can analyze the system and make for instance plots to evaluate suggestions for improvement.
+Thus, formulating the recursions is crucial to construct queueing processes.
+For this reason, many  of the exercises below concentrate on obtaining recursions for specific queueing systems.
+
+It may be that the recursions you find are not identical to the recursions in the solution.
+The reason is that the assumptions you make might not be equal to the ones I make.
+I don't quite know how to get out of this paradoxical situation.
+In a sense, to completely specify the model, we need the recursions.
+However, if the problem statement would contain the recursions, there would be nothing left to practice anymore.
+Another way is to make the problem description five times as long, but this is also undesirable.
+So, let's be pragmatic: the aim is that you practice with modeling, and that you learn from the solutions.
+If you obtain \emph{reasonable} recursions, but they are different from mine, then your answer is just as good.
 
 \begin{exercise}[Queue with Blocking]\clabel{ex:l-115} 
 A queueing system
@@ -284,9 +278,7 @@ A queueing system
   in day $k$. The queue length cannot exceed level $K$.  Formulate a
   set of recursions to cover this case. What is the loss per period? What is the fraction of jobs lost?
 \begin{solution}
-
-    All jobs that arrive such that the queue becomes larger than $K$
-    must be dropped. 
+  All jobs that arrive such that the queue becomes larger than $K$ must be dropped.
 
 First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$. 
 \end{solution}
