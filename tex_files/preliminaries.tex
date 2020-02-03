@@ -91,7 +91,13 @@ Define the  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
 \begin{equation*}
   G(k) = \sum_{m=0}^\infty \1{m>k} f(m).
 \end{equation*}
-As you will see, this idea  makes the computation of certain expressions quite a bit easier. 
+As you will see below, this idea  makes the computation of certain expressions quite a bit easier.
+\begin{solution}
+  This is just rewriting the definition:
+\begin{equation*}
+G(k) = \P{X>k} = \sum_{m=k+1}^\infty \P{X=m} = \sum_{m=k+1}^\infty f(m)=\sum_{m=0}^\infty \1{m>k}f(m).
+\end{equation*}
+\end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-106}
