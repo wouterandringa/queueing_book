@@ -14,7 +14,7 @@ As it turns out, many more single-server queueing situations than the $M/M/1$ qu
 For these queueing systems we just present the results.
 In the exercises we ask you to derive the formulas---the main challenge is not to make computational errors.
 
-It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may  depend on the number of the jobs in the system. Specifically, consider the departure time $D_k$ of the $k$th job, so that $A_{A(D_k)+1}$ is the arrival time of the next job. If $L(D_k)=n$, then we require that for every $k$ 
+It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may  depend on the number of jobs in the system. Specifically, consider the departure time $D_k$ of the $k$th job, so that $A_{A(D_k)+1}$ is the arrival time of the next job. If $L(D_k)=n$, then we require that for every $k$ 
 \begin{equation*}
   \P{A_{A(D_k)+1} - D_k \leq x} = 1-e^{-f(n) \lambda x},
 \end{equation*}
