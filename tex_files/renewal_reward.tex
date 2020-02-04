@@ -69,13 +69,13 @@ node[pos=0.5, xshift=0.6cm]  {$X_k$};
 ] (5,1.8) -- (5,3)
 node[pos=0.5, xshift=0.7cm]  {$X_{k+1}$}; 
 
-\node[right] at (0.5,4) {$\frac{Y(t)}t \approx \frac{\sum_i^n X_i}{\sum_{i}^n T_i} = \frac{n}{\sum_{i}^n T_i} \frac{\sum_i^n X_i}n $};
+\node[right] at (0.5,4) {$\frac{Y(t)}t \approx \frac{\sum_i^n X_i}{T_n} = \frac{n}{T_n} \frac{\sum_i^n X_i}n $};
 
 
 \draw[dotted,<->, =stealth] (7,0.05)--(7,3.35) node[midway, rotate=90, fill=white] {$\sum_{i=1}^n X_i$};
-\draw[dotted,<->, =stealth] (0.05,0.5)--(6.95,0.5) node[pos=0.85, fill=white] {$\sum_{i=1}^n T_i$};
+\draw[dotted,<->, =stealth] (0.05,0.5)--(6.95,0.5) node[pos=0.85, fill=white] {$T_n$};
 \end{tikzpicture}
-\caption{A graphical `proof' of $Y=\lambda X$. Here $Y(t)/t\to Y$, $n/\sum^n_i T_i\to \lambda$ and $n^{-1}\sum_i^n X_i \to X$.  (Observe that in the
+\caption{A graphical `proof' of $Y=\lambda X$. Here $Y(t)/t\to Y$, $n/T_n\to \lambda$ and $n^{-1}\sum_i^n X_i \to X$.  (Observe that in the
   figure $X_k$ does not represent an inter-arrival time; instead it
   corresponds to the increment of (the graph of) $Y(t)$ between two
   consecutive epochs $T_{k-1}$ and $T_k$ at which $Y(t)$ is
