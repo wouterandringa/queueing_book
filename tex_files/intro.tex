@@ -13,7 +13,7 @@ Fast food restaurants also deal with many interesting queueing situations.
 Consider, for instance, the preparation of hamburgers.
 Typically, hamburgers are made-to-stock, in other words, they are prepared before the actual demand has arrived.
 Thus, hamburgers in stock can be interpreted as customers in queue waiting for service, where the service time is the time between the arrival of two customers that buy hamburgers.
-The hamburgers have a typical lifetime, and they have to be scrapped if they remain on the shelf longer than some amount of time.
+The hamburgers have a typical lifetime, and they have to be scrapped if they remain on the shelf longer than a specified amount of time.
 Thus, the waiting time of hamburgers has to be closely monitored.
 Of course, it is easy to achieve zero scrap cost, simply by keeping no stock at all.
 However, to prevent lost-sales it is very important to maintain a certain amount of hamburgers in stock.
@@ -24,13 +24,13 @@ Service systems, such as hospitals, call centers, courts, and so on,
 have a certain capacity available to serve customers. The performance
 of such systems is, in part, measured by the total number of jobs
 processed per year and the fraction of jobs processed within a certain
-time between receiving and closing the job. Here the problem is to
+time frame between receiving and closing the job. Here the problem is to
 organize the capacity such that the sojourn time, i.e., the typical
 time a job spends in the system, does not exceed some threshold, and
 such that the system achieves a certain throughput, i.e., jobs served
 per year. 
 
-Clearly, all the above systems can be seen as queueing systems that
+Clearly, all of the above systems can be seen as queueing systems that
 have to be monitored and controlled to achieve a certain
 performance. The performance analysis of such systems can, typically,
 be characterized by the following performance measures:
@@ -47,7 +47,7 @@ as a queue, the server(s), an entire court, patients waiting for
 an MRI scan in a hospital, and so on.
 
 It is important to realize that a queueing system can, typically, be
-decomposed into \emph{two subsystems}, the queue itself and the
+decomposed into \emph{two subsystems}: the queue itself and the
 service system. Thus, we are concerned with three types of waiting:
 waiting in queue, i.e., \emph{queueing time}, waiting while being in
 service, i.e., the \emph{service time}, and the total waiting time in
@@ -60,7 +60,7 @@ In these notes we will be primarily concerned with making models of queueing sys
 
 In~\cref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time.
 By implementing these constructions in Python code we can then simulate and analyze such systems.
-Besides that, simulation provides ample motivation of why and how we deal with queueing systems, simulation is useful to analyzing realistic systems, as mathematical models have severe shortcomings in such cases.
+Besides that, simulation provides ample motivation for why and how we deal with queueing systems and is useful for analyzing realistic systems, as mathematical models have severe shortcomings in such cases.
 Consider, for example, the service process at a check-in desk of KLM.
 Business customers and economy customers are served by two separate queueing systems.
 The business customers are served by one server, server A say, while the economy class customers by three servers, say.
@@ -79,7 +79,7 @@ In fact, the performance measures defined for sample paths are precisely those w
 
 In~\cref{sec:notes-relat-chapt2}  we construct algorithms to analyze open and closed queueing networks.
 Many of the sample path results developed for the single-station case can be applied to these networks.
-Thus, with sample-path methods we relate the theory, algorithms and simulation of queueing systems.
+Thus, with sample-path methods we relate the theory, algorithms, and simulation of queueing systems.
 For this part we refer to the book of Prof.
 Zijm; the present set of notes augments the discussion there.
 
