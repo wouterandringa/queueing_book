@@ -4,7 +4,7 @@ Queueing systems abound, and the analysis and control of queueing systems are ma
 
 At my local supermarket, for instance, any customer that joins a queue of 4 or more customers gets his/her groceries for free.
 Of course, there are some constraints: at least one of the cashier facilities has to be unoccupied by a server and the customers in queue should be equally divided over the cashiers that are open (and perhaps there are some further rules, of which I am unaware).
-Given the fraction of customers $\pi(n)$ that 'see upon arrival' the system with n customers, \footnote{$\pi(n)$ can also be interpreted as the stationary probability that an arrival sees n jobs in the system.} the manager that controls the occupation of the cashier positions is focused on keeping $\pi(4)+\pi(5)+\cdots$, i.e., the fraction of customers that see upon arrival a queue length exceeding~3, very small.
+When $\pi(n)$ denotes fraction of customers that 'see upon arrival' the system with n customers, the manager that controls the occupation of the cashier positions is focused on keeping $\pi(4)+\pi(5)+\cdots$, i.e., the fraction of customers that see upon arrival a queue length exceeding~3, very small.
 In a sense, this is easy enough: just hire many cashiers.
 However, the cost of personnel may then outweigh the yearly average cost of paying the customer penalties.
 Thus, the manager's problem becomes to plan and control the service capacity in such a way that both the penalties and the personnel cost are small.
@@ -58,7 +58,7 @@ the system, i.e., the \emph{sojourn time}.
 
 In these notes, we will be primarily concerned with making models of queueing systems such that we can compute or estimate the above-mentioned performance measures.
 
-In~\cref{cha:single-stat-queu}, we construct queueing systems in discrete time and continuous time.
+In~\cref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time.
 By implementing these constructions in Python code, we can then simulate and analyze such systems.
 Besides that, simulation provides ample motivation for why and how we deal with queueing systems and is useful for analyzing realistic systems, as mathematical models have severe shortcomings in such cases.
 Consider, for example, the service process at a check-in desk of KLM.
@@ -77,10 +77,10 @@ In fact, simulation of a queueing system offers us one (or more) sample path(s),
 In fact, the performance measures defined for sample paths are precisely those we compute with simulation.
 
 
-In~\cref{sec:notes-relat-chapt2}  we construct algorithms to analyze open and closed queueing networks.
+In~\cref{sec:notes-relat-chapt2} we construct algorithms to analyze open and closed queueing networks.
 Many of the sample path results developed for the single-station case can be applied to these networks.
-Thus, with sample-path methods, we relate the theory, algorithms, and simulation of queueing systems.
-For this part, we refer to the book of Prof.
+Thus, via sample-path methods we relate the theory, algorithms, and simulation of queueing systems.
+For this part we refer to the book of Prof.
 Zijm; the present set of notes augments the discussion there.
 
 
@@ -121,7 +121,7 @@ I urge you to try to make as many exercises as possible.
 The main text contains hardly any examples or derivations: the exercises \emph{illustrate} the material and force you to \textit{think} about the technical parts.
 The exercises require many of the tools you learned previously in courses on calculus, probability, and linear algebra.
 Here you can see them applied.
-Moreover, many of these tools will be useful for other future courses.
+Moreover, many of these tools will be useful for other, future, courses.
 Thus, the investments made here will pay off for the rest of your (student) career.
 
 You'll notice that some of these problems are quite difficult, often not because the problem itself is difficult, but because you need to combine a substantial amount of knowledge all at the same time.
