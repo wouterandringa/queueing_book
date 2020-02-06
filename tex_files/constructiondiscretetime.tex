@@ -239,7 +239,7 @@ The queue does not explode any more, and already taking $e=1$ has a large influe
 \end{figure}
 
 
-From this simulation experiment we learn that changing holiday plans or spreading the work over multiple servers, i.e., psychiatrists, does not significantly affect the queueing behavior.
+From this simulation experiment, we learn that changing holiday plans or spreading the work over multiple servers, i.e., psychiatrists, does not significantly affect the queueing behavior.
 However, controlling the service rate as a function of the queue length improves the situation quite dramatically.
 
 
@@ -248,7 +248,7 @@ However, controlling the service rate as a function of the queue length improves
 
 From the above case we learn that even with these (deceitfully) simple recursions, we can obtain considerable insight into the behavior and performance of this quite complicated controlled queueing system\footnote{If you doubt the value of simulation, try to develop a mathematical method to analyze multi-server queueing systems with vacations, of which this case is an example.}.
 In general, the study of queueing systems is focused on studying the probabilistic properties of the queueing length process and related concepts such as waiting time, server occupancy, fraction of customers lost, and so on.
-Once we have constructed the queueing process we can compute all relevant performance measures, such as the average waiting time.
+Once we have constructed the queueing process, we can compute all relevant performance measures, such as the average waiting time.
 If it turns out that the performance of the system is not according to what we desire, we can change parts of the system with the aim to improve the situation and assess the effect of this change.
 For instance, if the average waiting time is too long, we might want to add service capacity.
 With simulation it is easy to study, hence evaluate, the effect of such decisions.
@@ -257,7 +257,7 @@ With simulation it is easy to study, hence evaluate, the effect of such decision
 \label{sec:exercises-1}
 
 
-The reader should understand from the above case that, once we have the recursions, we can analyze the system and make for instance plots to evaluate suggestions for improvement.
+The reader should understand from the above case that, once we have the recursions, we can analyze the system and make, for instance, plots to evaluate suggestions for improvement.
 Thus, formulating the recursions is crucial to construct queueing processes.
 For this reason, many  of the exercises below concentrate on obtaining recursions for specific queueing systems.
 
@@ -335,7 +335,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 
   Can you use these recursions to show that the long-run average service capacity $n^{-1}\sum_{i=1}^n c_i$ must be larger than $\lambda(1+p)$?
 
-  If you like you can incorporate time-dependent failure rates $\{p_k\}$ too.
+  If you like, you can incorporate time-dependent failure rates $\{p_k\}$ too.
   Whether this makes practical sense depends on the context of course.
 \end{solution}
 \end{extra}
@@ -498,7 +498,7 @@ and likewise for the other queue.
 \end{equation*}
 
 As an aside, another interesting rule to distribute the capacity $c_k$ over the queues could be based on the principle of \textit{ equal division of the contested sum}.
-This principle is based on game theoretic ideas.
+This principle is based on game-theoretic ideas.
 Aumann and Maschler applied this principle to clarify certain division rules discussed in the Talmud to divide the legacy among a number of inheritors, each having a different claim size.
 \end{solution}
 \end{exercise}
