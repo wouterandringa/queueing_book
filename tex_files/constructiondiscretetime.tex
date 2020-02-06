@@ -681,11 +681,11 @@ L_k &= L_{k-1}+a_k^a + a_k^b - d_k.
 
     Another way is to give priority to $a$ customers, but only for the jobs that arrive in this period.
     (Hence, this is different from the priority queue.
-    There priority customers can overtake customers that arrived earlier.
+    In that case priority customers can overtake customers that arrived earlier.
     In the present case this is not allowed, jobs of type $a$ that arrive in period $k$ cannot overtake $b$ jobs that arrived prior to period $k$.)
     Making this completely explicit (so that the recursion can be fed to the computer) requires a bit of work however.
     It is important to understand the trick we will discuss now because we will use it to model queueing systems with batching.
-    Observe that the first job of the $a$ stream only has to wait for $W_{k,-}$, the second job must wait $W_{k,-}+1$, and so on.
+    Observe that the first job of the $a$ stream only has to wait for $W_{k,-}$, the second job must wait for $W_{k,-}+1$, and so on.
     Thus, the waiting time $W_{k}^a$ for the $a_k^a$ items is such that
     \begin{equation*}
 W_{k,-}^a:= \lfloor L_{k-1}/c \rfloor \leq  W_{k}^a \leq \lfloor (L_{k-1}+a_k^a)/c \rfloor =: W_{k,+}^a.
