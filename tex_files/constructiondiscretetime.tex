@@ -26,7 +26,7 @@ suggestions.
 \item Not all psychiatrists have the same amount of time available per week to do intakes.
   This is not a problem during weeks when all psychiatrists are present; however, psychiatrists tend to take holidays, visit conferences, and so on.
   So, if the psychiatrist with the most intakes per week would go on leave, this might affect the behavior of the queue length considerably.
-  This raises the question about the difference in allocation of capacity allotted to the psychiatrists.
+  This raises the question about the difference in the allocation of capacity allotted to the psychiatrists.
   What are the consequences on the distribution and average of the waiting times if they would all have the same weekly capacity?
 \item The psychiatrists tend to plan their holidays consecutively, to reduce the variation in the service capacity.
   What if they would synchronize their holidays, to the extent possible, rather than spread their holidays?
@@ -43,7 +43,7 @@ Interestingly, the structure of the simulation is very simple, so simple that it
 
 Let us start with discussing the essentials of the simulation of a queueing system.
 The easiest way to construct queueing processes is to `chop up' time in periods and develop recursions for the behavior of the queue from period to period.
-Using fixed sized periods has the advantage that we do not have to specify specific inter-arrival times or service times of individual customers; only the number of arrivals in a period and the number of potential services are relevant.
+Using fixed-sized periods has the advantage that we do not have to specify specific inter-arrival times or service times of individual customers; only the number of arrivals in a period and the number of potential services are relevant.
 Note that the length of such a period depends on the context for which the model is developed.
 For instance, to study queueing processes at a supermarket, a period can consist of $5$ minutes, while for a production environment, e.g., a job shop, it can be a day, or even a week.
 
@@ -134,17 +134,17 @@ Starting from ,
 
 Of course we are not going to carry out these computations by hand.
 Typically we use company data to model the arrival process $\{a_k\}_{k=1,2,\ldots}$ and the capacity $\{c_k\}_{k=1,2,\ldots}$ and feed this data into a computer to carry out the recursions~\cref{eq:31}.
-If we do not have sufficient data we make a probability model for these data and use the computer to generate random numbers with, hopefully, similar characteristics as the real data.
-At any rate, from this point on we assume that it is easy, by means of computers, to obtain numbers $a_1,\ldots, a_n$ for $n\gg 1000$, and so on.
+If we do not have sufficient data, we make a probability model for these data and use the computer to generate random numbers with, hopefully, similar characteristics as the real data.
+At any rate, from this point on, we assume that it is easy, by means of computers, to obtain numbers $a_1,\ldots, a_n$ for $n\gg 1000$, and so on.
 
 
 \subsection*{Case analysis}
 \label{sec:case-analysis}
 
-Here we continue with case of the five psychiatrists and analyze the proposed rules to improve the performance of the system.
+Here we continue with the case of the five psychiatrists and analyze the proposed rules to improve the performance of the system.
 We mainly want to reduce the long waiting times.
 
-As a first step in the analysis we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
+As a first step in the analysis, we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
 The duration of a period is taken to be a week.
 The average number of arrivals per period, based on data of the company, was slightly less than~12 per week; in the simulation we set it to $\lambda= 11.8$ per week.
 We model the capacity in the form of a matrix such that row $i$ corresponds to the weekly capacity of psychiatrist $i$:
@@ -178,7 +178,7 @@ C =
 
 Next, we include the effects of holidays on the capacity. This is
 easily done by setting the capacity of a certain psychiatrist to~$0$ in
-a certain week. Let's assume that just one psychiatrist is on leave in
+a certain week. Let us assume that just one psychiatrist is on leave in
 a week, each psychiatrist has one week per five weeks off, and the
 psychiatrists' holiday schemes rotate. To model this, we set
 $C_{1,1}=C_{2,2}=\cdots=C_{1,6}=C_{2,7} =\cdots = 0$, i.e.,
@@ -226,7 +226,7 @@ The larger $e$, the larger the control we exercise.
 Let's consider three different control levels, $e=1$, $e=2$, and $e=5$; thus in the last case all psychiatrists do five extra intakes.
 The previous simulation shows that it is safe to disregard the holiday plans, so just assume a flat service capacity of 12 intakes a week.
 The results, see~\cref{fig:intakes}, show a striking difference indeed.
-The queue does not explode any more, and already taking $e=1$ has a large influence.
+The queue does not explode anymore, and already taking $e=1$ has a large influence.
 
 
 \begin{figure}[ht]
