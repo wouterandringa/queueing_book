@@ -210,10 +210,10 @@ It is apparent that Suggestions 1 and 2 above do not significantly affect the be
   \centering
 % progs/intake_control.py
 \input{progs/balanced} 
-\caption{Effect of capacity and holiday plans. We plot for each time point
-  the maximum and the minimum queue length for each of the
-  policies. Apparently, the effect of each of these policies is, for
-  all practical purposes, negligible.  }
+\caption{  Effect of capacity and holiday plans.
+  We plot for each time point the maximum and the minimum queue length for each of the policies.
+  Apparently, the effect of each of these policies is, for all practical purposes, negligible.
+}
 \label{fig:balanced}
 \end{figure}
 
@@ -300,11 +300,12 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
   Now, if $L_{k-1}-c_k \geq 0$, there are still people in front of the tagged customer, either in queue or in service.
   In fact, as long as $c_k+c_{k+1}+\cdots +c_m \leq L_{k-1}$, there are still customers in front of the tagged customer.
   Therefore, when the tagged customer leaves the system, the inequality $c_k+c_{k+1}+\cdots +c_m > L_{k-1}$ must hold.
+  (To check your understanding, explain that $c_k+c_{k+1}+\cdots +c_m \geq L_{k-1}$ is not correct.)
 
   We can also tag the last customer that arrives in period $k$.
   This customer will certainly have left if $m$ is such that $c_k+\cdots+c_m \geq L_{k-1}+a_k$.
 
-  In formulas the above comes down to the following.
+  In formulas, the above comes down to the following.
   A job that arrives in period $k$ cannot be served before period
     \begin{equation*}
     W_{-,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i > L_{k-1}\right\},

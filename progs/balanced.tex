@@ -1,24 +1,26 @@
-% This file was created by matplotlib2tikz v0.5.15.
+% This file was created by tikzplotlib v0.9.1.
 \begin{tikzpicture}
 
-\definecolor{color1}{rgb}{0.203921568627451,0.541176470588235,0.741176470588235}
 \definecolor{color0}{rgb}{0.886274509803922,0.290196078431373,0.2}
+\definecolor{color1}{rgb}{0.203921568627451,0.541176470588235,0.741176470588235}
 
 \begin{axis}[
-xmin=-49.95, xmax=1048.95,
-ymin=-9.35, ymax=196.35,
-width=15cm,
-height=6cm,
-tick align=outside,
-xmajorgrids,
-x grid style={white},
-ymajorgrids,
-y grid style={white},
+axis background/.style={fill=white!89.8039215686275!black},
 axis line style={white},
-axis background/.style={fill=white!89.803921568627459!black},
 legend cell align={left},
-legend entries={{min},{max}},
-legend style={at={(0.03,0.97)}, anchor=north west, draw=white!80.0!black, fill=white!89.803921568627459!black}
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.03,0.97)}, anchor=north west, draw=white!80!black, fill=white!89.8039215686275!black},
+tick align=outside,
+tick pos=left,
+x grid style={white},
+xlabel={time (weeks)},
+xmajorgrids,
+xmin=-49.95, xmax=1048.95,
+xtick style={color=white!33.3333333333333!black},
+y grid style={white},
+ylabel={Q},
+ymajorgrids,
+ymin=-9.35, ymax=196.35,
+ytick style={color=white!33.3333333333333!black}
 ]
 \addplot [semithick, color0]
 table {%
@@ -1023,6 +1025,7 @@ table {%
 998 53
 999 55
 };
+\addlegendentry{min}
 \addplot [semithick, color1]
 table {%
 0 0
@@ -2026,6 +2029,7 @@ table {%
 998 56
 999 61
 };
+\addlegendentry{max}
 \end{axis}
 
 \end{tikzpicture}
