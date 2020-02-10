@@ -31,32 +31,32 @@ The down-crossing rate is easy: just as in~\cref{fig:A_n_t} there is just one ar
 However, level~$n$ can be up-crossed from below from many states, in fact from any level $m, 0\leq m <n$.
 More formally, to count the number of up-crossings define
 \begin{equation*}
-  A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
+ A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
 \end{equation*}
 as the number of jobs up to time $t$ that see $m$ in the system upon arrival and have batch size larger than $n-m$.
 % With this, the total number of times level $n$ is up-crossed up to time~$t$ becomes
-%  \begin{equation*}
-% A(n, t) =  \sum_{m=0}^n A(m,n,t).
+% \begin{equation*}
+% A(n, t) = \sum_{m=0}^n A(m,n,t).
 % \end{equation*}
 
 
 % Observe that $\1{L(A_k-)\leq n}=1$ only when the $k$th job sees~$n$ or less items in the system, and $\1{L(A_k) > n}=1$ only after the $k$th arrival the system contains more than $n$ items.
 % Thus, $\1{L(A_k-) \leq n}\1{ L(A_k)>n}=1$ iff the $k$th arrival generates an up-crossing of level~$n$.
 
-% %  Hence
+% % Hence
 % % \begin{equation*}
-% %   \sum_{k=1}^{A(t)} \1{L(A_k-) \leq n}\,\1{L(A_k)>n}
+% % \sum_{k=1}^{A(t)} \1{L(A_k-) \leq n}\,\1{L(A_k)>n}
 % % \end{equation*}
-% % counts all up-crossings  of level $n$ up to time $t$.
+% % counts all up-crossings of level $n$ up to time $t$.
 
 
 % From~\cref{fig:levelcrossing} we see that an up-crossing can be decomposed into:
 % \begin{equation*}
-%   \begin{split}
-% &\1{L(A_k-) \leq n}\1{L(A_k)>n}  \\
-% &=  \1{L(A_k-) =n}\, \1{B_k >0} + \1{L(A_k-) =n-1}\1{ B_k >1} +\cdots + \1{L(A_k-) =0}\1{B_k > n} \\
+% \begin{split}
+% &\1{L(A_k-) \leq n}\1{L(A_k)>n} \\
+% &= \1{L(A_k-) =n}\, \1{B_k >0} + \1{L(A_k-) =n-1}\1{ B_k >1} +\cdots + \1{L(A_k-) =0}\1{B_k > n} \\
 % &= \sum_{m=0}^n \1{L(A_k-) =m}\1{B_k > n-m}.
-%   \end{split}
+% \end{split}
 % \end{equation*}
 % In other words, sample paths that up-cross level $n$ require that any job that
 % sees $m$ ($m\leq n$) in the system upon arrival must bring a batch larger
@@ -70,28 +70,28 @@ as the number of jobs up to time $t$ that see $m$ in the system upon arrival and
 % units. We need to generalize this inequality.
 
 \begin{figure}[ht]
-  \centering
+ \centering
 \begin{tikzpicture}[scale=1,
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for boxes
-    circ/.style={
-      circle, 
-      draw=black,
-      thick,
-      minimum size=1.cm,
-      inner sep=0pt,
-      text centered
-    },
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt}
+ %Define standard arrow tip
+ >=stealth',
+ %Define style for boxes
+ circ/.style={
+ circle, 
+ draw=black,
+ thick,
+ minimum size=1.cm,
+ inner sep=0pt,
+ text centered
+ },
+ % Define arrow style
+ pil/.style={
+ ->,
+ thick,
+ shorten <=2pt,
+ shorten >=2pt}
 ]
 
-\draw[dashed, thick] node at (5,-1.5) [below]  {level $n$} 
+\draw[dashed, thick] node at (5,-1.5) [below] {level $n$} 
 (5,-1.5) -- (5,3);
 
 \node[circ] (n-2) {$n-2$};
@@ -100,47 +100,47 @@ as the number of jobs up to time $t$ that see $m$ in the system upon arrival and
 \node[circ, right=of n-2] (n-1) {$n-1$};
 
 \node[circ, right=of n-1] (n) {$ n $}
-   edge[pil,<-, bend left=45] node[below] {$\lambda f(1)$} (n-1.south east);
+ edge[pil,<-, bend left=45] node[below] {$\lambda f(1)$} (n-1.south east);
 \node[circ, right=of n] (n+1) {$n+1$}
-   edge[pil,bend left=45] node[midway, fill=white] {$\mu$} (n.south east);
+ edge[pil,bend left=45] node[midway, fill=white] {$\mu$} (n.south east);
 \node[above=of n+1] (inf) {}
-   edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(0)$} (n.north east)
-   edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(1)$} (n-1.north east)
-   edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(2)$} (n-2.north east)
+ edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(0)$} (n.north east)
+ edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(1)$} (n-1.north east)
+ edge[pil, <-, bend right=45] node[midway, fill=white] {$\lambda G(2)$} (n-2.north east)
 ;
 \end{tikzpicture}
-%  \begin{tabular}
-%    \includegraphics[scale=0.9]{mxm1_2}
+% \begin{tabular}
+% \includegraphics[scale=0.9]{mxm1_2}
 %&
-%    \includegraphics[scale=0.9]{mxm1_1}
-%  \end{tabular}
+% \includegraphics[scale=0.9]{mxm1_1}
+% \end{tabular}
 \caption{Level crossing of level $n$.
-  Observe that when the system is in state $n-2$, the arrival of any batch larger than $2$ ensures that level $n$ is crossed from below.
-  The rate at which such events happen is $\lambda \pi(n-2) G(2)$.
-  Similarly, in state $n-1$ the arrival of any batch larger than one item ensures that level $n$ is crossed, and this occurs with rate $\lambda \pi(n-1) G(1)$, and so on.
+ Observe that when the system is in state $n-2$, the arrival of any batch larger than $2$ ensures that level $n$ is crossed from below.
+ The rate at which such events happen is $\lambda \pi(n-2) G(2)$.
+ Similarly, in state $n-1$ the arrival of any batch larger than one item ensures that level $n$ is crossed, and this occurs with rate $\lambda \pi(n-1) G(1)$, and so on.
 }
-  \label{fig:levelcrossing}
+ \label{fig:levelcrossing}
 \end{figure}
 
 \begin{extra}
-   Show that $A(n, n,t) = A(n,t)$, where $A(n,t)$ is defined by~\cref{eq:19}.
+ Show that $A(n, n,t) = A(n,t)$, where $A(n,t)$ is defined by~\cref{eq:19}.
 \begin{solution}
  $A(n,n,t)$ counts all jobs up to time $t$ that see $n$ items
-    and bring at least $n-n+1=1$ unit of work. As each job brings at
-    least 1 item, $A(n,n,t)$ counts all jobs that see $n$ items at
-    arrival.
+ and bring at least $n-n+1=1$ unit of work. As each job brings at
+ least 1 item, $A(n,n,t)$ counts all jobs that see $n$ items at
+ arrival.
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:70}
 Assuming that the limits exist, show that
 \begin{equation*}
-\lim_{t\to\infty}   \frac{A(m,n,t)}t = \lambda \pi(m) G(n-m).
+\lim_{t\to\infty} \frac{A(m,n,t)}t = \lambda \pi(m) G(n-m).
 \end{equation*}
 \begin{solution}
 For this purpose, observe that we can write
 \begin{equation}\label{eq:16}
-  \frac{A(m,n,t)}t =   \frac{A(t)}t \frac{A(m,t)}{A(t)}\frac{A(m,n,t)}{A(m,t)}.
+ \frac{A(m,n,t)}t = \frac{A(t)}t \frac{A(m,t)}{A(t)}\frac{A(m,n,t)}{A(m,t)}.
 \end{equation}
 By the assumptions of~\cref{sec:poisson-arrivals-see}, $A(t)/t\to\lambda$ and $A(m,t)/A(t)\to\pi(m)$.
 Next, apply the results of~\cref{ex:68} to~\cref{ex:69}.
@@ -166,43 +166,43 @@ where the random variable $L(A-)$ denotes the number in the system seen by an ar
 \begin{extra}\clabel{ex:69}
 Show that $\P{B>n-m\given L(A-)=m}=\P{B>n-m}$.
 \begin{hint}
-    Realize that $B$ and $L(A-)$ are assumed to be independent.
+ Realize that $B$ and $L(A-)$ are assumed to be independent.
 \end{hint}
 \begin{solution}
 \begin{equation*}
-  \begin{split}
+ \begin{split}
 \P{B>n-m\given L(A-)=m} &=
 \frac{\P{B>n-m,L(A-)=m}}{\P{L(A-)=m}}\\
 &=\frac{\P{B>n-m}\P{L(A-)=m}}{\P{L(A-)=m}} \\
 &= \P{B>n-m} =G(n-m).
-  \end{split}
+ \end{split}
 \end{equation*}
 \end{solution}
 \end{extra}
 
-Equating the number of up- and down-crossing gives $\sum_{m=0}^n A(m,n,t) \approx  D(n,t)$. 
-Then, dividing by~$t$,  taking the limit $t\to\infty$, and using~\cref{ex:70} results in the level-crossing equation for the $M^X/M/1$ queue:
+Equating the number of up- and down-crossing gives $\sum_{m=0}^n A(m,n,t) \approx D(n,t)$. 
+Then, dividing by~$t$, taking the limit $t\to\infty$, and using~\cref{ex:70} results in the level-crossing equation for the $M^X/M/1$ queue:
 \begin{equation}\label{eq:42}
-\lambda  \sum_{m=0}^n \pi(m) G(n-m) = \mu \pi(n+1).
+\lambda \sum_{m=0}^n \pi(m) G(n-m) = \mu \pi(n+1).
 \end{equation}
 
 \begin{exercise}\clabel{ex:l-153}
 Provide an interpretation of~\cref{eq:42} in terms of a thinned Poisson arrival process.
 \begin{solution}
-  \Cref{eq:16} has the interpretation that the rate at which level $n$ is crossed from below from state $m$ is equal to the rate at which jobs arrive times the fraction of jobs that see $m$ jobs in the system times the fraction of jobs with batch size larger than $n-m$.
-  Observe that the stream of jobs with batch size larger than $n-m$ is a Poisson process thinned at rate $G(n-m)$.
+ \Cref{eq:16} has the interpretation that the rate at which level $n$ is crossed from below from state $m$ is equal to the rate at which jobs arrive times the fraction of jobs that see $m$ jobs in the system times the fraction of jobs with batch size larger than $n-m$.
+ Observe that the stream of jobs with batch size larger than $n-m$ is a Poisson process thinned at rate $G(n-m)$.
 \end{solution}
 \end{exercise}
 
 
 \begin{extra}
-  Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
+ Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
 \begin{solution}
-    The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
-    In the $M/M/1$ queue, all batches have size $1$.
-    Thus, $\P{B=1} = f(1)=1$ and $f(k)=0$ for $k\neq 1$.
-    Thus, $G(0)=1$ and $G(1)=G(2)=\cdots = 0$.
-    Thus, $\sum_{m=0}^n G(n-m) \pi(m) = G(0)\pi(n)=\pi(n)$.
+ The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
+ In the $M/M/1$ queue, all batches have size $1$.
+ Thus, $\P{B=1} = f(1)=1$ and $f(k)=0$ for $k\neq 1$.
+ Thus, $G(0)=1$ and $G(1)=G(2)=\cdots = 0$.
+ Thus, $\sum_{m=0}^n G(n-m) \pi(m) = G(0)\pi(n)=\pi(n)$.
 \end{solution}
 \end{extra}
 
@@ -218,8 +218,8 @@ While this is a practical approach, getting formal bounds on a proper size of $N
 Once again with $\pi(n)$ we can compute all performance measures we need, and study the influence on the batch size distribution and $\lambda$ and $\mu$ on the system's performance.
 
 \begin{exercise}\clabel{ex:l-154}
-  Why is~\cref{eq:39}, i.e., $\pi(n)=\delta(n)$, not true for the $M^X/M/1$ batch queue?
-  Provide an example.
+ Why is~\cref{eq:39}, i.e., $\pi(n)=\delta(n)$, not true for the $M^X/M/1$ batch queue?
+ Provide an example.
 \begin{solution}
  Because arrivals do not occur in single units, but in batches.
 \end{solution}
@@ -228,49 +228,49 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \begin{exercise}\clabel{ex:73}
  Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\cref{eq:43}.
 \begin{solution}
-    We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
+ We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
 \end{solution}
 \end{exercise}
 
 \begin{extra}\clabel{ex:71}
-  Step 1 of~\cref{ex:73}.
-  Show that
+ Step 1 of~\cref{ex:73}.
+ Show that
 \begin{equation}\label{eq:67}
-  \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2  + \lambda \E B \E L +\lambda \frac{\E B}2.
+ \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2 + \lambda \E B \E L +\lambda \frac{\E B}2.
 \end{equation}
 \begin{hint}
-  Substitute the recursion, and carry on with the algebra.
-  Use also the results of the exercises of~\cref{sec:mxm1-queue:-expected}.
+ Substitute the recursion, and carry on with the algebra.
+ Use also the results of the exercises of~\cref{sec:mxm1-queue:-expected}.
 \end{hint}
 \begin{solution}
-  We use that $\mu \pi(n) =\lambda \sum_{i=0}^{n-1} \pi(i) G(n-1-i)$ and the results of the exercises of~\cref{sec:mxm1-queue:-expected} to see that
+ We use that $\mu \pi(n) =\lambda \sum_{i=0}^{n-1} \pi(i) G(n-1-i)$ and the results of the exercises of~\cref{sec:mxm1-queue:-expected} to see that
 \begin{align*}
-  \mu \E L
-  &=\sum_{n=0}^\infty n\, \mu \pi(n), \quad \text{now substitute for $\mu \pi(n)$ the recursion~\cref{eq:42}}, \\
+ \mu \E L
+ &=\sum_{n=0}^\infty n\, \mu \pi(n), \quad \text{now substitute for $\mu \pi(n)$ the recursion~\cref{eq:42}}, \\
 & =\lambda \sum_{n=0}^\infty n \sum_{i=0}^{n-1} \pi(i) G(n-1-i) 
-  =\lambda \sum_{n=0}^\infty n \sum_{i=0}^\infty \1{i<n} \pi(i) G(n-1-i) \\
+ =\lambda \sum_{n=0}^\infty n \sum_{i=0}^\infty \1{i<n} \pi(i) G(n-1-i) \\
 & =\lambda \sum_{i=0}^\infty \pi(i) \sum_{n=0}^\infty \1{i<n} n G(n-1-i) 
-  =\lambda \sum_{i=0}^\infty \pi(i) \sum_{n=i+1}^\infty n G(n-1-i) \\
+ =\lambda \sum_{i=0}^\infty \pi(i) \sum_{n=i+1}^\infty n G(n-1-i) \\
 & =\lambda \sum_{i=0}^\infty \pi(i) \sum_{n=0}^\infty (n+i+1) G(n) 
-  =\lambda \sum_{i=0}^\infty \pi(i) \left[\sum_{n=0}^\infty n G(n) +(i+1) \sum_{n=0}^\infty G(n)\right]  \\
-  &=\lambda \sum_{i=0}^\infty \pi(i)\sum_{n=0}^\infty n G(n) +\lambda  \E B \sum_{i=0}^\infty \pi(i) (i+1)  \\ 
-  &=\lambda \sum_{i=0}^\infty \pi(i) \frac{\E{B^2} -\E B}2  + \lambda \E B (\E L +1)  \\ 
-  &= \lambda \frac{\E{B^2} -\E B}2  + \lambda \E B \E L +\lambda \E B \\
-  &= \lambda \frac{\E{B^2} }2  + \lambda \E B \E L +\lambda \frac{\E B}2.
+ =\lambda \sum_{i=0}^\infty \pi(i) \left[\sum_{n=0}^\infty n G(n) +(i+1) \sum_{n=0}^\infty G(n)\right] \\
+ &=\lambda \sum_{i=0}^\infty \pi(i)\sum_{n=0}^\infty n G(n) +\lambda \E B \sum_{i=0}^\infty \pi(i) (i+1) \\ 
+ &=\lambda \sum_{i=0}^\infty \pi(i) \frac{\E{B^2} -\E B}2 + \lambda \E B (\E L +1) \\ 
+ &= \lambda \frac{\E{B^2} -\E B}2 + \lambda \E B \E L +\lambda \E B \\
+ &= \lambda \frac{\E{B^2} }2 + \lambda \E B \E L +\lambda \frac{\E B}2.
 \end{align*}
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:72}
-  Step 2 of~\cref{ex:73}.
-  Use~\cref{eq:67} and the definition $\rho=\lambda \E B/\mu$ to show that
+ Step 2 of~\cref{ex:73}.
+ Use~\cref{eq:67} and the definition $\rho=\lambda \E B/\mu$ to show that
 \begin{equation*}
 (1- \rho) \E L = \frac{\lambda}\mu \frac{\E{B^2}}2 + \frac\rho2.
 \end{equation*}
 \begin{solution}
-  Dividing both sides of~\cref{eq:67} by $\mu$ and using that $\lambda \E B/\mu = \rho$,
+ Dividing both sides of~\cref{eq:67} by $\mu$ and using that $\lambda \E B/\mu = \rho$,
 \begin{equation*}
-  \E L = \frac{\lambda}{\mu}  \frac{\E{B^2}}2 + \rho \E L + \frac\rho2.
+ \E L = \frac{\lambda}{\mu} \frac{\E{B^2}}2 + \rho \E L + \frac\rho2.
 \end{equation*}
 \end{solution}
 \end{extra}
@@ -278,16 +278,16 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 
 
 \begin{exercise}\clabel{ex:l-155}
-  Implement the recursion~\cref{eq:42} in a computer program for the case $f(1)=f(2)=f(3)=1/3$.
-  Take $\lambda =1$ and $\mu = 3$.
+ Implement the recursion~\cref{eq:42} in a computer program for the case $f(1)=f(2)=f(3)=1/3$.
+ Take $\lambda =1$ and $\mu = 3$.
 \begin{solution}
-    The recursion for $n$ becomes
+ The recursion for $n$ becomes
 \begin{equation*}
 \pi(n) = \frac \lambda \mu \sum_{i=0}^{n-1} \pi(n-1-i)G(i).
 \end{equation*}
 Since $G(i) =0$ for $i\geq 3$ we rewrite this to 
 \begin{equation*}
-  \pi(n) = \frac\lambda \mu \sum_{i=0}^{\min\{n-1,\text{len } G\}} \pi(n-1-i)G(i),
+ \pi(n) = \frac\lambda \mu \sum_{i=0}^{\min\{n-1,\text{len } G\}} \pi(n-1-i)G(i),
 \end{equation*}
 where $\text{len } G$ is the largest possible batch size.
 
@@ -308,8 +308,8 @@ num = 4
 p = np.ones(num)
 
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
-    print(n, p[n], (labda / mu)**n)
+ p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
+ print(n, p[n], (labda / mu)**n)
 
 \end{pyconsole}
 The test is convincing. So now we'll move on the real problem. 
@@ -322,9 +322,9 @@ G = np.ones_like(F) - F
 num = 30 # stop at 80
 p = np.ones(num)
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
+ p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
 
-p /= p.sum()  # normalize
+p /= p.sum() # normalize
 \end{pyconsole}
 
 Now that we have the probabilities we can do all experiments we like. 
@@ -355,9 +355,9 @@ num = 100
 p = np.ones(num)
 
 for n in range(1, num):
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
+ p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
 
-p /= p.sum()  # normalize
+p /= p.sum() # normalize
 EL = sum(n*p[n] for n in range(len(p)))
 print(EL)
 \end{pyconsole}
@@ -376,100 +376,100 @@ Three common rules are
 \end{enumerate}
 
 \begin{exercise}\clabel{ex:l-156}
-  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete rejection.
+ Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete rejection.
 \begin{solution}
-  Suppose a batch of size $k$ arrives when the system contains $n$ jobs.
-  When $k+n \leq K$, the batch can be accepted since the entire batch will fit into the queue.
-  When, however, $k+n> K$, the batch has to be rejected.
+ Suppose a batch of size $k$ arrives when the system contains $n$ jobs.
+ When $k+n \leq K$, the batch can be accepted since the entire batch will fit into the queue.
+ When, however, $k+n> K$, the batch has to be rejected.
 
-  Now consider an imaginary line between states with $n$ and $n+1$ jobs in the system.
-  This imaginary line separates the state space into two disjoint part: one part with states $0, 1, \ldots, n$ and the other part with states $n+1, n+2, \ldots, K$.
-  We call this imaginary line `level $n$'.
-  We call an `up-crossing' a transition from some state $m\leq n$ to a state $l> n$.
-  Likewise, a `down-crossing' of level~$n$ is a transition from some state $l> n$ to some state $m\leq n$.
+ Now consider an imaginary line between states with $n$ and $n+1$ jobs in the system.
+ This imaginary line separates the state space into two disjoint part: one part with states $0, 1, \ldots, n$ and the other part with states $n+1, n+2, \ldots, K$.
+ We call this imaginary line `level $n$'.
+ We call an `up-crossing' a transition from some state $m\leq n$ to a state $l> n$.
+ Likewise, a `down-crossing' of level~$n$ is a transition from some state $l> n$ to some state $m\leq n$.
 
-  If the system contains $n$ jobs, level $n$ is crossed from below with rate $\lambda \pi(n) \P{B \leq K-n}$.
-  More generally, when the system is in state $m\leq n$, we need a batch of at least $n+1-m$ to cross level~$n$.
-  Moreover, any batch larger than $K-m$ gets rejected.
-  Thus, when the system contains $m \leq n $ jobs, the rate at which level $n$ is crossed from below is
-  \begin{equation*}
-  \lambda \pi(m) \P{n+1-m\leq B \leq K-m}  = \lambda \pi(m)
-  [G(n-m)-G(K-m)],
-  \end{equation*}
+ If the system contains $n$ jobs, level $n$ is crossed from below with rate $\lambda \pi(n) \P{B \leq K-n}$.
+ More generally, when the system is in state $m\leq n$, we need a batch of at least $n+1-m$ to cross level~$n$.
+ Moreover, any batch larger than $K-m$ gets rejected.
+ Thus, when the system contains $m \leq n $ jobs, the rate at which level $n$ is crossed from below is
+ \begin{equation*}
+ \lambda \pi(m) \P{n+1-m\leq B \leq K-m} = \lambda \pi(m)
+ [G(n-m)-G(K-m)],
+ \end{equation*}
 where we use that
 \begin{align*}
 \P{n+1-m\leq B \leq K-m} 
-&= \P{B \leq K-m} - \P{B \leq n-m}  \\
+&= \P{B \leq K-m} - \P{B \leq n-m} \\
 &= \P{B > n-m} - \P{B > K-m} \\
 &= G(n-m)-G(K-m).
 \end{align*}
 
-  Since the server serves only single items, level $n$ can only be
-  crossed from above from state $n+1$. This happens at rate $\mu p(n+1)$. With PASTA this is equal to $\mu \pi(n+1)$.
+ Since the server serves only single items, level $n$ can only be
+ crossed from above from state $n+1$. This happens at rate $\mu p(n+1)$. With PASTA this is equal to $\mu \pi(n+1)$.
 
-  Finally, since in the long run the number of up- and down-crossings must
-  be the same, the up- and down-crossing rates must match. This implies
-  that the balance equations becomes
-  \begin{equation*}
-    \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m)   [G(n-m)-G(K-m)],
-  \end{equation*}
-  for $n=0,\ldots, K-1$. 
+ Finally, since in the long run the number of up- and down-crossings must
+ be the same, the up- and down-crossing rates must match. This implies
+ that the balance equations becomes
+ \begin{equation*}
+ \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) [G(n-m)-G(K-m)],
+ \end{equation*}
+ for $n=0,\ldots, K-1$. 
 
-  Before we continue with the other acceptance rules, it is important
-  to check this result.  In general, off-by-one errors are easily, and
-  commonly, made, so we need to test the above on simple cases. 
-  \begin{itemize}
-  \item  If $K\to \infty$, then $G(K-m)=\P{B>K-m}\to 0$, so we get our earlier result. 
-  \item Take $n=K$. Then $G(n-m)-G(K-m)=0$ for all $m$. Then the right-hand side is 0, as it should.
-  \item Taken $n=0$ and $K=1$, then $\mu \pi(1)= \lambda \pi(0)$. This also makes sense. 
-  \item Take $n$ much smaller than $K$. If the batch size is maximally
-    $2$, then for small $n$ the entire batch must fit. Let's see if
-    this holds in the above formula. If $n$ much smaller than $K$,
-    then also $m$ is much smaller than $K$ (since in the right-hand
-    size, $m\leq n$). But then $G(K-m) \leq G(2) = 0$, as it
-    should. (Observe that $G$ is a decreasing function of its argument;
-    its a survival function.)
-  \end{itemize}
+ Before we continue with the other acceptance rules, it is important
+ to check this result. In general, off-by-one errors are easily, and
+ commonly, made, so we need to test the above on simple cases. 
+ \begin{itemize}
+ \item If $K\to \infty$, then $G(K-m)=\P{B>K-m}\to 0$, so we get our earlier result. 
+ \item Take $n=K$. Then $G(n-m)-G(K-m)=0$ for all $m$. Then the right-hand side is 0, as it should.
+ \item Taken $n=0$ and $K=1$, then $\mu \pi(1)= \lambda \pi(0)$. This also makes sense. 
+ \item Take $n$ much smaller than $K$. If the batch size is maximally
+ $2$, then for small $n$ the entire batch must fit. Let's see if
+ this holds in the above formula. If $n$ much smaller than $K$,
+ then also $m$ is much smaller than $K$ (since in the right-hand
+ size, $m\leq n$). But then $G(K-m) \leq G(2) = 0$, as it
+ should. (Observe that $G$ is a decreasing function of its argument;
+ its a survival function.)
+ \end{itemize}
 \end{solution}
 \end{exercise}
 
 
 \begin{extra}
-  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete acceptance.
+ Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with complete acceptance.
 \begin{solution}
-  The complete-acceptance policy is actually quite simple. As any
-  batch will be accepted when $n\leq K$, the queue length is not
-  bounded.  Only when the number of jobs in the system is larger than
-  $K$, we do not accept jobs. 
-  \begin{equation*}
-    \mu \pi(n+1) = 
-    \begin{cases}
-      \lambda \sum_{m=0}^n \pi(m) G(n-m), & \text{ for } n\leq K,\\
-      \lambda \sum_{m=0}^K \pi(m) G(n-m), & \text{ for } n> K.
-    \end{cases}
-  \end{equation*}
+ The complete-acceptance policy is actually quite simple. As any
+ batch will be accepted when $n\leq K$, the queue length is not
+ bounded. Only when the number of jobs in the system is larger than
+ $K$, we do not accept jobs. 
+ \begin{equation*}
+ \mu \pi(n+1) = 
+ \begin{cases}
+ \lambda \sum_{m=0}^n \pi(m) G(n-m), & \text{ for } n\leq K,\\
+ \lambda \sum_{m=0}^K \pi(m) G(n-m), & \text{ for } n> K.
+ \end{cases}
+ \end{equation*}
 \end{solution}
 \end{extra}
 
 \begin{extra}
-  Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with partial acceptance.
+ Derive a set of recursions, analogous to~\cref{eq:42}, to compute $\pi(n)$ for the $M^X/M/1/K$ queue with partial acceptance.
 \begin{solution}
-  For the partial acceptance case, any job is accepted, but the system only admits whatever fits.
-  As level $n\in {0,1,...,K-1}$ is still up-crossed by any batch of size at least $n-m$ when the system is in state $m$, the formula for the up-crossing rate is identical to the case without this acceptance policy.
-  Moreover, nothing changes to the formula for the down-crossing rate.
-  Hence,
-  \begin{equation*}
-    \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) G(n-m), 
-  \end{equation*}
-  for $n=0,1,\ldots, K-1$. 
+ For the partial acceptance case, any job is accepted, but the system only admits whatever fits.
+ As level $n\in {0,1,...,K-1}$ is still up-crossed by any batch of size at least $n-m$ when the system is in state $m$, the formula for the up-crossing rate is identical to the case without this acceptance policy.
+ Moreover, nothing changes to the formula for the down-crossing rate.
+ Hence,
+ \begin{equation*}
+ \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) G(n-m), 
+ \end{equation*}
+ for $n=0,1,\ldots, K-1$. 
 \end{solution}
 \end{extra}
 
 
 \begin{extra}[Batch services, not obligatory]
-  An interesting extension is a queueing process with batch services, i.e., the $M/M^Y/1$ queue.
-  Constructing a recursion for the steady-state probabilities $\pi(n)$ for this case is not hard, in fact, mostly analogous to~\cref{eq:42}.
-  However, solving the recursion appears to be quite a bit harder. 
+ An interesting extension is a queueing process with batch services, i.e., the $M/M^Y/1$ queue.
+ Constructing a recursion for the steady-state probabilities $\pi(n)$ for this case is not hard, in fact, mostly analogous to~\cref{eq:42}.
+ However, solving the recursion appears to be quite a bit harder. 
 \end{extra}
 
 

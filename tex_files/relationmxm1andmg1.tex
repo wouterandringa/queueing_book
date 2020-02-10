@@ -1,6 +1,6 @@
 \section
-[A Relation Between the $M^X/M/1$ and $M/G/1$  Queue]
-{A Relation Between the $\mathbf{M^X/M/1}$ and $\mathbf{M/G/1}$  Queue}
+[A Relation Between the $M^X/M/1$ and $M/G/1$ Queue]
+{A Relation Between the $\mathbf{M^X/M/1}$ and $\mathbf{M/G/1}$ Queue}
 \label{sec:relat-batch-queu}
 
 
@@ -28,7 +28,7 @@ of a batch of small units of work. To make this more specific, assume
 that the distribution of the service time $S$ is given. Use a grid of
 size $1/n$ and take
 \begin{equation}\label{eq:69}
-  \P{B^{(n)} = i} = \P{ S\in\left(\frac in, \frac{i+1}n\right]}
+ \P{B^{(n)} = i} = \P{ S\in\left(\frac in, \frac{i+1}n\right]}
 \end{equation}
 as the distribution of the batch size $B^{(n)}$. Let the service time
 of one unit of the batch be exponentially distributed with mean $1/n$.
@@ -41,16 +41,16 @@ that, in some sense, $B^{(n)}/n \to S$\footnote{For the interested, this is conv
 \begin{exercise}\clabel{ex:l-230}
 Why do we consider $\P{B^{(n)} = i} = \P{ S\in(i/n, (i+1)/n]}$ rather than
 \begin{equation*}
-\P{B^{(n)} = i} = \P{S\in[i/n, (i+1)/n]},  
+\P{B^{(n)} = i} = \P{S\in[i/n, (i+1)/n]}, 
 \end{equation*}
 i.e., we use a half open interval $(,]$ rather than the closed
 interval $[,]$?
 \begin{solution}
-  Starting from the distribution function $\P{S\leq x}$, we define
-  \begin{equation*}
-  \P{B^{(n)} = i} = \P{ S\leq (i+1)/n} - \P{S\leq i/n} = \P{
-  S\in(i/n, (i+1)/n]}.
-     \end{equation*}
+ Starting from the distribution function $\P{S\leq x}$, we define
+ \begin{equation*}
+ \P{B^{(n)} = i} = \P{ S\leq (i+1)/n} - \P{S\leq i/n} = \P{
+ S\in(i/n, (i+1)/n]}.
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
@@ -58,15 +58,15 @@ interval $[,]$?
 Let us see how this limit can be used to show that the expected
 waiting in queue for the batch queue leads to the
 Pollaczek-Khinchine equation, i.e., the expected waiting time in
-queue for the $M/G/1$ queue.  Writing $\E{L^{(n)}}$ for the batch
+queue for the $M/G/1$ queue. Writing $\E{L^{(n)}}$ for the batch
 queue with grid size $1/n$, we use~\cref{eq:43} to see that
 \begin{align}\label{eq:1pp}
 \frac{\E{L^{(n)}}}{n}
-= \frac{\rho}{1-\rho}\cdot \frac12\left(1 + \frac{\V{B^{(n)}}}{(\E{B^{(n)}})^2}\right) \frac{\E{B^{(n)}}}n +  \frac1{2n}\frac{\rho}{1-\rho}.
+= \frac{\rho}{1-\rho}\cdot \frac12\left(1 + \frac{\V{B^{(n)}}}{(\E{B^{(n)}})^2}\right) \frac{\E{B^{(n)}}}n + \frac1{2n}\frac{\rho}{1-\rho}.
 \end{align}
 By assumption\footnote{ Here we interchange limits and expectations. A
-  formal approach should pay due attention to the validity of all
-  these interchanges.}:
+ formal approach should pay due attention to the validity of all
+ these interchanges.}:
 \begin{align*}
 \frac{B^{(n)}}n &\to S \\
 \intertext{so that must be that
@@ -75,23 +75,23 @@ By assumption\footnote{ Here we interchange limits and expectations. A
 \intertext{and}
 \E{\frac{(B^{(n)})^2}{n^2}} &\to \E{S^2},
 \end{align*}
-as $n\to \infty$.  
+as $n\to \infty$. 
 Hence, 
 \begin{equation*}
-  \begin{split}
+ \begin{split}
 \frac{\V{B^{(n)}}}{n^2} 
-&=  
+&= 
 \frac{\E{(B^{(n)})^2} - (\E{B^{(n)}})^2}{n^2} = 
 \E{\frac{(B^{(n)})^2}{n^2}} - \left(\E{\frac{B^{(n)}}{n}}\right)^2 \\
-&\to \E{S^2} - (\E{S})^2  =  \V{S}.
-  \end{split}
+&\to \E{S^2} - (\E{S})^2 = \V{S}.
+ \end{split}
 \end{equation*}
 from which
 \begin{equation*}
 \frac{\V{B^{(n)}}} {(\E{B^{(n)}})^2} = \frac{\V{B^{(n)}}}{n^2}\frac{n^2}{(\E{B^{(n)}})^2} \to 
 \frac{\V S}{(\E S)^2} = C_s^2,
 \end{equation*}
-as $n\to \infty$.  Moreover, we \emph{expect} that
+as $n\to \infty$. Moreover, we \emph{expect} that
 \begin{equation*}
 \frac{\E{L^{(n)}}}n \to \E{W_Q},
 \end{equation*}
@@ -100,36 +100,36 @@ larger as $n$ increases, but the service time of one item is $1/n$,
 which becomes ever smaller. Now, taking the limit $n\to\infty$
 in~\cref{eq:1pp} we obtain
 \begin{equation*}
-  \frac{\E{L^{(n)}}}{n}
-  \to \frac{\rho}{1-\rho}  \frac{1 + C_s^2}2\E{S}.
+ \frac{\E{L^{(n)}}}{n}
+ \to \frac{\rho}{1-\rho} \frac{1 + C_s^2}2\E{S}.
 \end{equation*}
-Thus, based on this  limit we expect that 
+Thus, based on this limit we expect that 
 \begin{equation*}
-\E{W_Q}=  \frac{\E{L^{(n)}}}{n}
-  \to \frac{\rho}{1-\rho}  \frac{1 + C_s^2}2\E{S},
+\E{W_Q}= \frac{\E{L^{(n)}}}{n}
+ \to \frac{\rho}{1-\rho} \frac{1 + C_s^2}2\E{S},
 \end{equation*}
 but this is the same as Eq.~\cref{eq:710}!
 
 \begin{exercise}\clabel{ex:l-231}
-  Why do we consider $\E{L^{(n)}}/n \to \E{W_Q}$, and not
-  $\E{L^{(n)}}/n \to \E W$? 
+ Why do we consider $\E{L^{(n)}}/n \to \E{W_Q}$, and not
+ $\E{L^{(n)}}/n \to \E W$? 
 \begin{hint}
 What is the expected service time of one
-  unit of a job in the $M^X/M/1$ queue in the limiting case?
+ unit of a job in the $M^X/M/1$ queue in the limiting case?
 \end{hint}
 \begin{solution}
-    The time it takes to serve one unit is $1/n$. Thus, the fraction
-    of time an item spends in service in the batch queue becomes negligible compared
-    to the time in queue. Another way to see this, is to use 
-    \begin{equation*}
-      \frac{\E{L^{(n)}}}n = 
-      \frac{\E{L^{(n)}_Q}}n + \frac{\E{L^{(n)}_s}}n.
-    \end{equation*}
+ The time it takes to serve one unit is $1/n$. Thus, the fraction
+ of time an item spends in service in the batch queue becomes negligible compared
+ to the time in queue. Another way to see this, is to use 
+ \begin{equation*}
+ \frac{\E{L^{(n)}}}n = 
+ \frac{\E{L^{(n)}_Q}}n + \frac{\E{L^{(n)}_s}}n.
+ \end{equation*}
 Since $L^{(n)}_s \leq 1$, $\E{L^{(n)}}/n \approx \E{L^{(n)}_Q}/n$ for $n$ large.
 \end{solution}
 \end{exercise}
 
-  
+ 
 \begin{exercise}[Not obligatory]\clabel{ex:l-232}
 Can you model the $M^X/M/1$ as an $M/G/1$ queue, thereby deriving Eq.~\cref{eq:43} from Eq.~\cref{eq:710}? 
 \begin{solution}
@@ -137,7 +137,7 @@ I guess this is a bit hard, so I include a partial answer for the interested.
 
 
 Starting from the $M/G/1$ queue, suppose first that the service time
-$S$ is an exponential random variable with mean $1/\mu$.  Then the
+$S$ is an exponential random variable with mean $1/\mu$. Then the
 $M/G/1$ reduces to the $M/M/1$ queue, which is evidently equal to
 the $M^1/M/1$ queue in which the jobs arrive as single units. Next, if
 $S$ consists of the sum of $k$ i.i.d. exponential random variables
@@ -145,7 +145,7 @@ $S_i$ with mean $1/\mu$, i.e., $S=\sum_{i=1}^k S_i$, then the
 $M^k/M/1$ queue results. Generalizing still further, we can take a
 random batch $B$ of i.i.d. exponentials so that $S = \sum_{i=1}^B S_i$. Now
 \begin{equation*}
-  \P{S\leq x}
+ \P{S\leq x}
 = \sum_{k=1}^\infty \P{S \leq x\given B=k}\P{B=k}
 = \sum_{k=1}^\infty f(k) \P{\sum_{i=1}^B X_i \leq x}
 \end{equation*}

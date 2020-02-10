@@ -10,7 +10,7 @@
 
 Suppose the following limit exists:
 \begin{equation}\label{eq:jaap}
-  \pi(n) 
+ \pi(n) 
 = \lim_{m\to\infty} 
 \frac1m\sum_{k=1}^m \1{L(A_k-) = n},
 \end{equation}
@@ -22,17 +22,17 @@ In this section we will derive the famous \recall{Poisson arrivals see time aver
 %We can make some progress by rewriting $\pi(n)$ in the following way.
 Since $A(t)\to \infty$ as $t\to\infty$, it is reasonable that (see~\cref{ex:18} for a proof)
 \begin{equation}\label{eq:132}
-  \begin{split}
-  \pi(n) &= \lim_{t\to\infty} \frac1{A(t)}\sum_{k=1}^{A(t)} \1{L(A_k-) = n} 
+ \begin{split}
+ \pi(n) &= \lim_{t\to\infty} \frac1{A(t)}\sum_{k=1}^{A(t)} \1{L(A_k-) = n} 
 = \lim_{t\to\infty} \frac1{A(t)}\sum_{k=1}^\infty \1{A_k \leq t, L(A_k-) = n} \\
-  &= \lim_{t\to\infty} \frac{A(n,t)}{A(t)},
-  \end{split}
+ &= \lim_{t\to\infty} \frac{A(n,t)}{A(t)},
+ \end{split}
 \end{equation}
-where we use~\cref{eq:19} in the last row. But,  with~\cref{eq:3}, 
+where we use~\cref{eq:19} in the last row. But, with~\cref{eq:3}, 
 \begin{equation}\label{eq:1333}
  \frac{A(n,t)}{t} 
 = \frac{A(t)}t \frac{A(n,t)}{A(t)}
-\to \lambda  \pi(n), \quad\text{as } t \to \infty, 
+\to \lambda \pi(n), \quad\text{as } t \to \infty, 
 \end{equation}
 while by ~\cref{eq:21}, 
 \begin{equation*}
@@ -40,11 +40,11 @@ while by ~\cref{eq:21},
 \end{equation*}
 Thus
 \begin{equation}\label{eq:13}
-\lambda  \pi(n) = \lambda(n) p(n).
+\lambda \pi(n) = \lambda(n) p(n).
 \end{equation}
 This leads to our final result:
 \begin{equation*}
-  \lambda(n) = \lambda \iff \pi(n) = p(n).
+ \lambda(n) = \lambda \iff \pi(n) = p(n).
 \end{equation*}
 This means that if the arrival rate does not depend on the state of the system, i.e., $\lambda(n)=\lambda$, the sample average is equal to the time-average.
 In other words, the customer perception at arrival moments is the same as the server perception.
@@ -54,23 +54,23 @@ However, when the arrival process is Poisson we have that $\lambda(n)=\lambda$.
 This fact is typically called PASTA: Poisson Arrivals See Time Averages.
 Thus, for the $M/M/1$ queue in particular,
 \begin{equation*}
-  \pi(n) = p(n) = (1-\rho)\rho^n.
+ \pi(n) = p(n) = (1-\rho)\rho^n.
 \end{equation*}
 
 \begin{exercise}\clabel{ex:8} 
 Show for the case of~\cref{ex:112} that $\pi(0)=1$ and $\pi(n)=0$, for $n>0$.
 \begin{solution}
-  All arrivals see an empty system. Hence $A(0,t)/A(t) \approx (t/2)/(t/2) = 1$, and $A(n,t)=0$ for $n>0$. Thus, $\pi(0) = \lim_{t\to\infty} A(0,t)/A(t) = 1$ and $\pi(n)=0$ for $n>0$. Recall from the other exercises that $p(0)=1/2$. Hence, time average statistics are not the same as statistics at arrival moments. 
+ All arrivals see an empty system. Hence $A(0,t)/A(t) \approx (t/2)/(t/2) = 1$, and $A(n,t)=0$ for $n>0$. Thus, $\pi(0) = \lim_{t\to\infty} A(0,t)/A(t) = 1$ and $\pi(n)=0$ for $n>0$. Recall from the other exercises that $p(0)=1/2$. Hence, time average statistics are not the same as statistics at arrival moments. 
 \end{solution}
 
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-152}
-  Check that~\cref{eq:13}  holds for the system of~\cref{ex:8}.
+ Check that~\cref{eq:13} holds for the system of~\cref{ex:8}.
 \begin{solution}
 From the relevant previous exercises, $\lambda = \lim_{t\to\infty} A(t)/t = 1/2$. $\lambda(0)=1$, $p(0)=1/2$, and $\pi(0)=1$. Hence,
 \begin{equation*}
-  \lambda \pi(0) = \lambda(0) p(0) \implies  \frac 1 2 \times 1 = 1\times \frac 1 2.
+ \lambda \pi(0) = \lambda(0) p(0) \implies \frac 1 2 \times 1 = 1\times \frac 1 2.
 \end{equation*}
 For $n>0$ it's easy, everything is 0.
 \end{solution}
@@ -83,8 +83,8 @@ For $n>0$ it's easy, everything is 0.
 With the above reasoning, we can also establish a relation between $\pi(n)$ and the statistics of the system as obtained by the departures.
 Define, analogous to~\cref{eq:132}, 
 \begin{equation}
-  \label{eq:33}
-  \delta(n) = \lim_{t\to\infty} \frac{D(n,t)}{D(t)}
+ \label{eq:33}
+ \delta(n) = \lim_{t\to\infty} \frac{D(n,t)}{D(t)}
 \end{equation}
 as the long-run fraction of jobs that leave $n$ jobs \emph{behind}.
 From~\cref{eq:15}
@@ -94,70 +94,70 @@ From~\cref{eq:15}
 \end{equation*}
 Taking limits at the left and right, and using~\cref{eq:28}, we obtain for (queueing) systems in which customers arrive and leave as single units that
 \begin{equation}
-  \label{eq:36}
-  \lambda \pi(n) = \delta \delta(n).
+ \label{eq:36}
+ \lambda \pi(n) = \delta \delta(n).
 \end{equation}
-Thus, if the system is rate-stable, statistics obtained  by arrivals is the same as statistics obtained by departures, i.e., 
+Thus, if the system is rate-stable, statistics obtained by arrivals is the same as statistics obtained by departures, i.e., 
 \begin{equation}
-  \label{eq:39}
-\lambda = \delta \iff  \pi(n) = \delta(n).
+ \label{eq:39}
+\lambda = \delta \iff \pi(n) = \delta(n).
 \end{equation}
 
 
 \begin{exercise}\clabel{ex:26}
-  When $\lambda\neq \delta$, is $\pi(n)\geq \delta(n)$? 
+ When $\lambda\neq \delta$, is $\pi(n)\geq \delta(n)$? 
 \begin{hint}
-    Use that    $\lambda \geq \delta$ always holds. Thus, when $\lambda \neq \delta$, it must be that $\lambda > \delta$. What are the consequences of this inequality; how does the queue length behave as a function of time?
+ Use that $\lambda \geq \delta$ always holds. Thus, when $\lambda \neq \delta$, it must be that $\lambda > \delta$. What are the consequences of this inequality; how does the queue length behave as a function of time?
 \end{hint}
 \begin{solution}
-    The assumptions lead us to conclude that $\lambda > \delta$. As a consequence, the queue length must increase in the long run (jobs come in faster than they leave). Therefore, $A(n,t)/t \to 0$ for all $n$, and also $D(n,t)/t\to 0$. Consequently, $\pi(n) = \delta(n) = 0$, which is the only sensible reconciliation with~\cref{eq:36}. 
+ The assumptions lead us to conclude that $\lambda > \delta$. As a consequence, the queue length must increase in the long run (jobs come in faster than they leave). Therefore, $A(n,t)/t \to 0$ for all $n$, and also $D(n,t)/t\to 0$. Consequently, $\pi(n) = \delta(n) = 0$, which is the only sensible reconciliation with~\cref{eq:36}. 
 \end{solution}
 \end{exercise}
 
 \begin{extra}
 Show that 
 \begin{equation*}
-\lambda  \pi(n) = \lambda(n) p(n) = \mu(n+1) p(n+1) = \delta \delta(n).
+\lambda \pi(n) = \lambda(n) p(n) = \mu(n+1) p(n+1) = \delta \delta(n).
 \end{equation*}
 What is the important condition for this to be true?
 \begin{hint}
 Check all definitions of $Y(n,t)/t$ and so on.
 \end{hint}
 \begin{solution}
-  The important condition is that transitions occur as single
-  steps. In other words, the relation is true for processes with
-  \recall{one-step transitions}, i.e., when $|A(n,t) - D(n,t)|\leq 1$.
-  In  that case, 
+ The important condition is that transitions occur as single
+ steps. In other words, the relation is true for processes with
+ \recall{one-step transitions}, i.e., when $|A(n,t) - D(n,t)|\leq 1$.
+ In that case, 
 \begin{align*}
-  \frac{A(n,t)}{t} &=   \frac{A(n,t)}{A(t)} \frac{A(t)}{t} \to \pi(n) \lambda\\
-  \frac{A(n,t)}{t} &=   \frac{A(n,t)}{Y(n,t)} \frac{Y(n,t)}{t} \to \lambda(n)p(n)\\
-  \frac{D(n,t)}{t} &=   \frac{D(n,t)}{Y(n+1,t)} \frac{Y(n+1,t)}{t} \to \mu(n+1)p(n+1)\\
-  \frac{D(n,t)}{t} &=   \frac{D(n,t)}{D(t)} \frac{D(t)}{t} \to \delta(n)\delta. \\
+ \frac{A(n,t)}{t} &= \frac{A(n,t)}{A(t)} \frac{A(t)}{t} \to \pi(n) \lambda\\
+ \frac{A(n,t)}{t} &= \frac{A(n,t)}{Y(n,t)} \frac{Y(n,t)}{t} \to \lambda(n)p(n)\\
+ \frac{D(n,t)}{t} &= \frac{D(n,t)}{Y(n+1,t)} \frac{Y(n+1,t)}{t} \to \mu(n+1)p(n+1)\\
+ \frac{D(n,t)}{t} &= \frac{D(n,t)}{D(t)} \frac{D(t)}{t} \to \delta(n)\delta. \\
 \end{align*}
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:58}
-  Use PASTA and the balance equations of the $M/M/1$ queue to derive that $(\lambda + \mu) \pi(n) = \lambda \pi(n-1) + \mu \pi(n+1)$.
+ Use PASTA and the balance equations of the $M/M/1$ queue to derive that $(\lambda + \mu) \pi(n) = \lambda \pi(n-1) + \mu \pi(n+1)$.
 \begin{hint}
-    Consider some state $n$ (not a level) and count all transitions that `go in and out of' this state.
-    Specifically, $A(n,t) + D(n-1,t)$ counts all transitions out of state $n$: $A(n,t)$ counts the number of arrivals that see $n$ in the system upon arrival, hence immediately after such arrivals the system contains $n+1$ jobs; likewise, $D(n-1,t)$ counts all jobs that leave $n-1$ jobs behind, hence immediately before such jobs depart the system contains $n$ jobs.
-    In a similar way, $A(n-1,t) + D(n,t)$ counts all transitions into state $n$ (Recall once again, $D(n,t)$ counts the jobs that leave $n$ behind.
-    Hence, when such departures occur, state $n$ is entered).
-    Now use that `what goes in must go out'.
+ Consider some state $n$ (not a level) and count all transitions that `go in and out of' this state.
+ Specifically, $A(n,t) + D(n-1,t)$ counts all transitions out of state $n$: $A(n,t)$ counts the number of arrivals that see $n$ in the system upon arrival, hence immediately after such arrivals the system contains $n+1$ jobs; likewise, $D(n-1,t)$ counts all jobs that leave $n-1$ jobs behind, hence immediately before such jobs depart the system contains $n$ jobs.
+ In a similar way, $A(n-1,t) + D(n,t)$ counts all transitions into state $n$ (Recall once again, $D(n,t)$ counts the jobs that leave $n$ behind.
+ Hence, when such departures occur, state $n$ is entered).
+ Now use that `what goes in must go out'.
 \end{hint}
 \begin{solution}
-By  the hint,  the difference between the `out
-    transitions' and the `in transitions' is at most 1 for all $t$. Thus,  we can write
-    \begin{align*}
+By the hint, the difference between the `out
+ transitions' and the `in transitions' is at most 1 for all $t$. Thus, we can write
+ \begin{align*}
 \text{transitions out } &\approx \text{transitions in } \iff \\
-      A(n,t) + D(n-1,t) &\approx A(n-1,t) + D(n,t)  \iff \\
-      \frac{A(n,t) + D(n-1,t)}t &\approx \frac{A(n-1,t) + D(n, t)}t \iff \\
-      \frac{A(n,t)}t + \frac{D(n-1,t)}t &\approx \frac{A(n-1,t)}t + \frac{D(n,t)}t.
-    \end{align*}
+ A(n,t) + D(n-1,t) &\approx A(n-1,t) + D(n,t) \iff \\
+ \frac{A(n,t) + D(n-1,t)}t &\approx \frac{A(n-1,t) + D(n, t)}t \iff \\
+ \frac{A(n,t)}t + \frac{D(n-1,t)}t &\approx \frac{A(n-1,t)}t + \frac{D(n,t)}t.
+ \end{align*}
 Using the ideas of~\cref{sec:level-cross-balance} this becomes for $t\to\infty$, 
 \begin{equation*}
-  (\lambda(n) +\mu(n))p(n) = \lambda(n-1)p(n-1) + \mu(n+1)p(n+1).
+ (\lambda(n) +\mu(n))p(n) = \lambda(n-1)p(n-1) + \mu(n+1)p(n+1).
 \end{equation*}
 Since we are concerned here with the $M/M/1$ queue we have that
 $ \lambda(n) = \lambda$ and $\mu(n) = \mu$, and using PASTA we have
@@ -170,32 +170,32 @@ that $p(n) = \pi(n)$. We are done.
 
 
 \begin{exercise}\clabel{ex:18}
-  There is a subtle problem in the transition from~\cref{eq:jaap} to~\cref{eq:132} and the derivation of~\cref{eq:1333}: $\pi(n)$ is defined as a limit over arrival epochs while in $A(n,t)/t$ we take the limit over time.
-  Now the observant reader might ask why these limits should relate at all.
-  Use the renewal reward theorem to show that~\cref{eq:132} is valid.
+ There is a subtle problem in the transition from~\cref{eq:jaap} to~\cref{eq:132} and the derivation of~\cref{eq:1333}: $\pi(n)$ is defined as a limit over arrival epochs while in $A(n,t)/t$ we take the limit over time.
+ Now the observant reader might ask why these limits should relate at all.
+ Use the renewal reward theorem to show that~\cref{eq:132} is valid.
 \begin{hint}
-Check that the conditions of the renewal reward theorem are satisfied in the above proof of~\cref{eq:1333}. Then define  
+Check that the conditions of the renewal reward theorem are satisfied in the above proof of~\cref{eq:1333}. Then define 
 \begin{align*}
-  Y(t) &:= A(n,t) = \sum_{k=1}^{A(t)} \1{L(A_k-) = n} \\
+ Y(t) &:= A(n,t) = \sum_{k=1}^{A(t)} \1{L(A_k-) = n} \\
 X_k &:= Y(A_k) - Y(A_{k-1}) = A(n, A_k) - A(n, A_{k-1}) = \1{L(A_k-)=n}.
 \end{align*}
 
 \end{hint}
 \begin{solution}
-First we check the conditions.  The counting process here is $\{A(t)\}$ and the epochs at which
-    $A(t)$ increases are $\{A_k\}$. By assumption, $A_k\to\infty$,
-    hence $A(t)\to\infty$ as $t\to\infty$. Moreover, by assumption
-    $A(t)/t \to \lambda$. Also $A(n,t)$ is evidently non-decreasing and
-    $A(n,t)\to\infty$ as $t\to\infty$.
+First we check the conditions. The counting process here is $\{A(t)\}$ and the epochs at which
+ $A(t)$ increases are $\{A_k\}$. By assumption, $A_k\to\infty$,
+ hence $A(t)\to\infty$ as $t\to\infty$. Moreover, by assumption
+ $A(t)/t \to \lambda$. Also $A(n,t)$ is evidently non-decreasing and
+ $A(n,t)\to\infty$ as $t\to\infty$.
 
 
-From the definitions in the hint,   
+From the definitions in the hint, 
 \begin{equation*}
 X= \lim_{m\to\infty} \frac 1 m \sum_{k=1}^m X_k =\lim_{m\to\infty} \frac 1 m \sum_{k=1}^m \1{L(A_k-)=n} = \pi(n).
 \end{equation*}
 Since $Y=\lim_{t\to\infty} Y(t)/t = \lim_{t\to\infty} A(n,t)/t$ it follows from the renewal reward theorem that
 \begin{equation*}
-  Y=\lambda X \implies \lim_{t\to\infty} \frac{A(n,t)} t = \lambda X = \lambda \pi(n).
+ Y=\lambda X \implies \lim_{t\to\infty} \frac{A(n,t)} t = \lambda X = \lambda \pi(n).
 \end{equation*}
 Thus,~\cref{eq:1333} follows from the renewal reward theorem.
 \end{solution}
@@ -205,10 +205,10 @@ With the PASTA property we can determine the distribution of the inter-departure
 Observing that in a network of queues the departures from one queueing station form the arrivals at another station, we can use this result to analyze networks of queues
 
 \begin{exercise}\clabel{ex:burke}
-  Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
+ Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
 \begin{solution}
-  It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
-  It can also be shown that the inter-departure times are independent.
+ It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
+ It can also be shown that the inter-departure times are independent.
 
 Thus, the inter-departures times form a set of i.i.d.
 exponentially distributed random variables with mean $1/\lambda$.
@@ -222,17 +222,17 @@ Consequently, the departures times form a Poisson process with rate $\lambda$.
 \begin{extra}\clabel{ex:dep}
 Why is the output rate of the (stable) $M/M/1$ queue equal to~$\lambda$ and not~$\mu$?
 \begin{solution}
-Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover,  jobs can never leave faster than they arrive.
+Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover, jobs can never leave faster than they arrive.
 \end{solution}
 \end{extra}
 
 
 \begin{extra}
-  Why is $\mu e^{-\mu t}$ not a reasonable density for the inter-departure times?
-  In fact, the simplest guess for the inter-departure density might be $\lambda e^{-\lambda t}$; so this is what we will try to prove below.
+ Why is $\mu e^{-\mu t}$ not a reasonable density for the inter-departure times?
+ In fact, the simplest guess for the inter-departure density might be $\lambda e^{-\lambda t}$; so this is what we will try to prove below.
 We will focus on departure moments and use~\cref{eq:39}, in particular that departures `see' what arrivals `see', i.e., $\delta(n)= \pi(n)$, and PASTA.
 \begin{solution}
-         Because jobs do not leave at rate $\mu$. 
+ Because jobs do not leave at rate $\mu$. 
 \end{solution}
 \end{extra}
 
@@ -242,7 +242,7 @@ We will focus on departure moments and use~\cref{eq:39}, in particular that depa
 \begin{extra}\clabel{ex:28}
 Show that the probability that a job leaves behind a busy station is $\rho$, hence $1-\rho$ is the probability to leave an idle server behind.
 \begin{solution}
-Observe that $\rho$ is the fraction of time the server is busy. Then, from  PASTA, the fraction of jobs that see a busy server is also $\rho$.  This fraction of jobs is $\sum_{n=1}^\infty \pi(n)$. Finally, $\delta(n) = \pi(n)$ , a fraction $\rho$ of the departures leaves a busy system behind.
+Observe that $\rho$ is the fraction of time the server is busy. Then, from PASTA, the fraction of jobs that see a busy server is also $\rho$. This fraction of jobs is $\sum_{n=1}^\infty \pi(n)$. Finally, $\delta(n) = \pi(n)$ , a fraction $\rho$ of the departures leaves a busy system behind.
 
 \end{solution}
 \end{extra}
@@ -251,86 +251,86 @@ Observe that $\rho$ is the fraction of time the server is busy. Then, from  PAST
 \begin{extra}\clabel{ex:17}
  If job $n-1$, say, leaves behind an empty system, show that the expected time until the next departure is $\E{D_n - D_{n-1}} = 1/\lambda + 1/\mu$. 
 \begin{hint}
-      After job $n-1$ left, job $n$ has to arrive, so we need to wait first for this inter-arrival time. Then job $n$ must be served. This adds up to $1/\lambda + 1/\mu$. 
+ After job $n-1$ left, job $n$ has to arrive, so we need to wait first for this inter-arrival time. Then job $n$ must be served. This adds up to $1/\lambda + 1/\mu$. 
 \end{hint}
 \begin{solution}
 With the hint, we first have to wait for an inter-arrival
-    time $X_n$. Then, since job $n$'s service starts right away, it
-    leaves when $D_n = D_{n-1}+X_n + S_n$. Now observe that, due to the memoryless property of the inter-arrival times, $\E{X_n} = \E{A_n - D_{n-1}} = 1/\lambda$. Thus, the expected duration is $\E{X_n + S_n}=1/\lambda + 1/\mu$. 
+ time $X_n$. Then, since job $n$'s service starts right away, it
+ leaves when $D_n = D_{n-1}+X_n + S_n$. Now observe that, due to the memoryless property of the inter-arrival times, $\E{X_n} = \E{A_n - D_{n-1}} = 1/\lambda$. Thus, the expected duration is $\E{X_n + S_n}=1/\lambda + 1/\mu$. 
 \end{solution}
 \end{extra}
 
 \begin{extra}
 Show that the density of $D_{n} - D_{n-1}$ is
-    \begin{equation*}
-    f_{X+S}(t) = \frac{\lambda \mu}{\lambda - \mu} (e^{-\mu t} - e^{-\lambda t})
-    \end{equation*}
+ \begin{equation*}
+ f_{X+S}(t) = \frac{\lambda \mu}{\lambda - \mu} (e^{-\mu t} - e^{-\lambda t})
+ \end{equation*}
 if the server is idle after $D_{n-1}$.
 \begin{solution}
-      By the previous point, the density of $D_{n} - D_{n-1}$ is the
-      same as the density of $X_n + S_n$.  Since $\{X_n\}$ and $\{S_n\}$ are both i.i.d. sequences, the problem becomes to find the density of $X+S$.  We will use two ways of computing this. 
+ By the previous point, the density of $D_{n} - D_{n-1}$ is the
+ same as the density of $X_n + S_n$. Since $\{X_n\}$ and $\{S_n\}$ are both i.i.d. sequences, the problem becomes to find the density of $X+S$. We will use two ways of computing this. 
 
 Since $X\sim \Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, their joint density is $f_{X,S}(x,y) = \lambda \mu e^{-\lambda x - \mu y}$. With this,
-  \begin{align*}
+ \begin{align*}
 \P{X+S\leq t } 
 &= \lambda \mu \int_0^\infty \int_0^\infty e^{-\lambda x - \mu y} \1{x+y\leq t} \d x \d y \\
 &= \lambda \mu \int_0^t \int_0^{t-x} e^{-\lambda x - \mu y} \d y \d x \\
 &= \lambda \mu \int_0^t e^{-\lambda x} \int_0^{t-x} e^{- \mu y} \d y \d x \\
-&= \lambda \int_0^t e^{-\lambda x} (1-e^{- \mu (t-x)} ) \d x  \\
-&= \lambda \int_0^t e^{-\lambda x}  \d x - \lambda e^{-\mu t} \int_0^t e^{(\mu-\lambda) x} \d x \\
+&= \lambda \int_0^t e^{-\lambda x} (1-e^{- \mu (t-x)} ) \d x \\
+&= \lambda \int_0^t e^{-\lambda x} \d x - \lambda e^{-\mu t} \int_0^t e^{(\mu-\lambda) x} \d x \\
 &= 1- e^{-\lambda t} - \frac{\lambda}{\mu-\lambda} e^{-\mu t} ( e^{(\mu-\lambda) t} -1) \\
 &= 1- e^{-\lambda t} - \frac{\lambda}{\mu-\lambda} e^{-\lambda t} + \frac{\lambda}{\mu-\lambda} e^{-\mu t} \\ 
 &= 1 - \frac{\mu}{\mu-\lambda} e^{-\lambda t} + \frac{\lambda}{\mu-\lambda} e^{-\mu t}. \\
-  \end{align*}
+ \end{align*}
 The density $f_{X+S}(t)$ is the derivative of this expression with respect to~$t$, hence,
 \begin{align*}
-  f_{X+S}(t) 
-&= \frac{\lambda\mu}{\mu-\lambda} e^{-\lambda t}  - \frac{\mu \lambda}{\mu-\lambda} e^{-\mu t} \\
+ f_{X+S}(t) 
+&= \frac{\lambda\mu}{\mu-\lambda} e^{-\lambda t} - \frac{\mu \lambda}{\mu-\lambda} e^{-\mu t} \\
 &= \frac{\lambda\mu}{\lambda -\mu}(e^{-\mu t} - e^{-\lambda t}). \\
 \end{align*}
 
 Conditioning is much faster, but requires the concept of conditional density. You can skip the rest if you are not interested. 
-    \begin{align*}
-    f_{X+S}(t) 
+ \begin{align*}
+ f_{X+S}(t) 
 &= \P{X+S\in \d{t}} \\
 &= \int \P{S+x\in \d{t}}\P{X\in \d{x}} \\
 &=\int_0^t f_S(t-x) f_X(x) \d{x} \\
-     &= \int_0^t \mu e^{-\mu(t-x)} \lambda e^{-\lambda x} \d{x} \\
-     &= \lambda \mu e^{-\mu t} \int_0^t  e^{x(\mu-\lambda)} \d{x} \\
+ &= \int_0^t \mu e^{-\mu(t-x)} \lambda e^{-\lambda x} \d{x} \\
+ &= \lambda \mu e^{-\mu t} \int_0^t e^{x(\mu-\lambda)} \d{x} \\
 &= \frac{\lambda \mu}{\lambda - \mu}\left(e^{-\mu t} - e^{-\lambda t}\right).
-    \end{align*}
+ \end{align*}
 \end{solution}
 \end{extra}
 
 
 \begin{extra}
-Show  that when the queue is not empty at a departure time, the density of the next inter-departure time is $f_D(t) = \mu e^{-\mu t}$.
+Show that when the queue is not empty at a departure time, the density of the next inter-departure time is $f_D(t) = \mu e^{-\mu t}$.
 \begin{solution}
 After the departure, the server can start right away with the job at the head of the queue. The inter-departure time of this job is $\Exp(\mu)$.
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:63}
-Use conditioning on the server being idle or busy at a departure to show that  the density of  the inter-departure time is $\lambda e^{-\lambda t}$.
+Use conditioning on the server being idle or busy at a departure to show that the density of the inter-departure time is $\lambda e^{-\lambda t}$.
 \begin{hint}
 Conditioning leads to 
 \begin{equation*}
-    f_D(t) = f_{X+S}(t) \P{\text{server is idle}} + f_S(t) \P{\text{ server is busy }}= (1-\rho) f_{X+S}(t) +
-    \rho \mu e^{-\mu t}.
+ f_D(t) = f_{X+S}(t) \P{\text{server is idle}} + f_S(t) \P{\text{ server is busy }}= (1-\rho) f_{X+S}(t) +
+ \rho \mu e^{-\mu t}.
 \end{equation*}
-    Now use the above exercises to simplify.
+ Now use the above exercises to simplify.
 \end{hint}
 \begin{solution}
-       \begin{align*}
-    f_D(t) 
-&= (1-\rho) f_{X+S}(t) +    \rho \mu e^{-\mu t} \\
-&= (1-\rho) \frac{\mu\lambda}{\lambda-\mu} \left(e^{-\mu t}-e^{-\lambda t}\right) +    \rho \mu e^{-\mu t} \\
-&= \left(1-\frac{\lambda}\mu\right) \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right)  +    \rho \mu e^{-\mu t} \\
-&= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right)  +    \frac\lambda \mu \mu e^{-\mu t} \\
-% &= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right)  +    \lambda e^{-\mu t} \\
-&= - \lambda\left(e^{-\mu t}-e^{-\lambda t}\right)  +    \lambda e^{-\mu t} \\
-&=  \lambda e^{-\lambda t}.
-      \end{align*}
+ \begin{align*}
+ f_D(t) 
+&= (1-\rho) f_{X+S}(t) + \rho \mu e^{-\mu t} \\
+&= (1-\rho) \frac{\mu\lambda}{\lambda-\mu} \left(e^{-\mu t}-e^{-\lambda t}\right) + \rho \mu e^{-\mu t} \\
+&= \left(1-\frac{\lambda}\mu\right) \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \rho \mu e^{-\mu t} \\
+&= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \frac\lambda \mu \mu e^{-\mu t} \\
+% &= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \lambda e^{-\mu t} \\
+&= - \lambda\left(e^{-\mu t}-e^{-\lambda t}\right) + \lambda e^{-\mu t} \\
+&= \lambda e^{-\lambda t}.
+ \end{align*}
 \end{solution}
 \end{extra}
 

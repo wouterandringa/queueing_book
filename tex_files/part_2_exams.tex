@@ -9,7 +9,7 @@ Define
 \begin{equation*}
 \alpha = \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n L(A_k).
 \end{equation*}
-For the $M/G/1$ queue we can use PASTA to see  that $1-\rho = \alpha$.
+For the $M/G/1$ queue we can use PASTA to see that $1-\rho = \alpha$.
 
 \begin{solution} Answer = B.
 We should define
@@ -23,109 +23,109 @@ We should define
 \begin{exercise}[201703]
 For the $G/G/1$ queue,
 \begin{equation}
-  \frac{D(n-1,t)}t =   \frac{D(n-1,t)}{Y(n,t)}\frac{Y(n,t)}t \to \mu(n) p(n),
+ \frac{D(n-1,t)}t = \frac{D(n-1,t)}{Y(n,t)}\frac{Y(n,t)}t \to \mu(n) p(n),
 \end{equation}
 if $n\geq 1$.
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 %13
 \begin{exercise}[201703]
-  For the $M/M/1$ queue with $\lambda=3$, $\mu=5$, $\E{L_Q} \leq 1$
+ For the $M/M/1$ queue with $\lambda=3$, $\mu=5$, $\E{L_Q} \leq 1$
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 
-    \begin{equation*}
+ \begin{equation*}
 \E{L_Q} = \frac{\rho^2}{1-\rho}.
-    \end{equation*}
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
 %14
 \begin{exercise}[201703]
 \begin{equation*}
-  \begin{split}
-    \sum_{n=0}^\infty n^2 \rho^n 
-&=    \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n}  - n\right)\rho^n 
-=    \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n  - \sum_{n=0}^\infty n\rho^n \\
-&=    \sum_{i=0}^\infty 2i \sum_{n=i}^\infty \rho^n  - \frac{\E L}{1-\rho} 
-=    \sum_{i=0}^\infty 2i \rho^i \sum_{n=0}^\infty \rho^n  - \frac{\E L}{1-\rho} \\
-&=    \frac2{1-\rho} \sum_{i=0}^\infty i \rho^i   - \frac{\E L}{1-\rho} 
-=    \frac2{(1-\rho)^2} \E L - \frac{\E L}{1-\rho} \\
-&=    \frac{\E L}{1-\rho}  \left(\frac2{1-\rho}  - 1\right) 
-=    \frac{\E L}{1-\rho}  \frac{1+\rho}{1-\rho} \\
-&=    \frac{\rho}{1-\rho}  \frac{1+\rho}{(1-\rho)^2}.
+ \begin{split}
+ \sum_{n=0}^\infty n^2 \rho^n 
+&= \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n} - n\right)\rho^n 
+= \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n - \sum_{n=0}^\infty n\rho^n \\
+&= \sum_{i=0}^\infty 2i \sum_{n=i}^\infty \rho^n - \frac{\E L}{1-\rho} 
+= \sum_{i=0}^\infty 2i \rho^i \sum_{n=0}^\infty \rho^n - \frac{\E L}{1-\rho} \\
+&= \frac2{1-\rho} \sum_{i=0}^\infty i \rho^i - \frac{\E L}{1-\rho} 
+= \frac2{(1-\rho)^2} \E L - \frac{\E L}{1-\rho} \\
+&= \frac{\E L}{1-\rho} \left(\frac2{1-\rho} - 1\right) 
+= \frac{\E L}{1-\rho} \frac{1+\rho}{1-\rho} \\
+&= \frac{\rho}{1-\rho} \frac{1+\rho}{(1-\rho)^2}.
 \end{split}
 \end{equation*}
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 % 15
 \begin{exercise}[201703]
-  For the $M/G/1$ queue with $G=U[0,A]$, i.e., the uniform
-  distribution on $[0,A]$: 
-  \begin{equation*}
+ For the $M/G/1$ queue with $G=U[0,A]$, i.e., the uniform
+ distribution on $[0,A]$: 
+ \begin{equation*}
 C_s^2 = \frac 13.
-  \end{equation*}
+ \end{equation*}
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%7
-  Consider the following queueing process. At times
-  $0, 2,4, \ldots$ customers arrive, each customer requires $1$ unit
-  of service, and there is one server.  Then, for $t\in[0,3)$
-    \begin{equation*}
-      Y(1,t) = \int_0^t \1{L(s) = 1}\d s = 
-      \begin{cases}
-        t & t\in[0,1), \\
-        1 & t\in[1,2), \\
-        1+(t-2) & t\in[2,3), \\
-      \end{cases}
-    \end{equation*}
+ Consider the following queueing process. At times
+ $0, 2,4, \ldots$ customers arrive, each customer requires $1$ unit
+ of service, and there is one server. Then, for $t\in[0,3)$
+ \begin{equation*}
+ Y(1,t) = \int_0^t \1{L(s) = 1}\d s = 
+ \begin{cases}
+ t & t\in[0,1), \\
+ 1 & t\in[1,2), \\
+ 1+(t-2) & t\in[2,3), \\
+ \end{cases}
+ \end{equation*}
 \begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%8
 For the $M/M/c$ queue with $\rho= c \lambda/\mu$, 
-    \begin{equation*}
-       p(n+1) = \frac{\Pi_{k=1}^{n+1}\min\{c, k\}}\rho^{n+1} p(0).
-    \end{equation*}
+ \begin{equation*}
+ p(n+1) = \frac{\Pi_{k=1}^{n+1}\min\{c, k\}}\rho^{n+1} p(0).
+ \end{equation*}
 \begin{solution} Answer = B. $\rho= \lambda/ (c\mu)$, and the rest of the formula is also wrong:
-    \begin{align*}
-        p(n+1) 
+ \begin{align*}
+ p(n+1) 
 &= \frac{\lambda}{\mu(n+1)}p(n) 
 = \frac{\lambda}{\min\{c, n+1\} \mu }p(n)
-    \end{align*}
+ \end{align*}
 etc.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%9
-  Consider a queueing system in which each customer requires precisely
-  59 minutes of service. At the start of each hour, one customer arrives. Then
-  $\pi(0) = 1/60$.
+ Consider a queueing system in which each customer requires precisely
+ 59 minutes of service. At the start of each hour, one customer arrives. Then
+ $\pi(0) = 1/60$.
 \begin{solution} Answer = B. $\pi(0)=1$.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%10
-For  the $G/G/1$ queue, when $T$ is a moment in time in which the system is empty, we have
+For the $G/G/1$ queue, when $T$ is a moment in time in which the system is empty, we have
 \begin{equation*}
-  \begin{split}
-  \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} 1\{A_k \leq s < D_k\} \, \d s \\
-& =  \sum_{k=1}^{A(T)}\int_0^T  1\{A_k \leq s < D_k\} \, \d s =  \sum_{k=1}^{A(T)} W_k.
-  \end{split}
+ \begin{split}
+ \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} 1\{A_k \leq s < D_k\} \, \d s \\
+& = \sum_{k=1}^{A(T)}\int_0^T 1\{A_k \leq s < D_k\} \, \d s = \sum_{k=1}^{A(T)} W_k.
+ \end{split}
 \end{equation*}
 In words, the area between the graphs of $A(s)$ and $D(s)$ must
 be equal to the total waiting time spent by all jobs in the system
@@ -135,18 +135,18 @@ until $T$.
 \end{exercise}
 
 \begin{exercise}[201704]%11
-  For the number of jobs in the system $L$ for the $M/G/1$ queue we have that
+ For the number of jobs in the system $L$ for the $M/G/1$ queue we have that
 \begin{equation*}
-  \phi(z) = \E{z^L} = \sum_{n=0}^\infty z^n p(n) = (1-\rho) \sum_{n=0}^\infty (\rho z)^n = \frac{1-\rho}{1-\rho z}.
+ \phi(z) = \E{z^L} = \sum_{n=0}^\infty z^n p(n) = (1-\rho) \sum_{n=0}^\infty (\rho z)^n = \frac{1-\rho}{1-\rho z}.
 \end{equation*}
 Then 
 \begin{equation*}
-  \E L = \left.\frac d {dz} \phi(z)\right|_{z=0}.
+ \E L = \left.\frac d {dz} \phi(z)\right|_{z=0}.
 \end{equation*}
 
 \begin{solution} Answer = B.
 \begin{equation*}
-  \E L = \left.\frac d {dz} \phi(z)\right|_{z=1} = \frac{\rho}{1-\rho}.
+ \E L = \left.\frac d {dz} \phi(z)\right|_{z=1} = \frac{\rho}{1-\rho}.
 \end{equation*}
 \end{solution}
 \end{exercise}
@@ -155,30 +155,30 @@ Then
 \begin{exercise}[201704]%12
 For the $M^X/M/1$ queue, 
 \begin{equation*}
-  \begin{split}
-  \frac{\lambda}\mu \E{B^2} 
-%&=   \frac{\lambda\E B}{\mu} \frac{\E{B^2}}{(\E B)^2} \E B  = \rho \frac{\E{B^2}}{(\E B)^2} \E B \\
+ \begin{split}
+ \frac{\lambda}\mu \E{B^2} 
+%&= \frac{\lambda\E B}{\mu} \frac{\E{B^2}}{(\E B)^2} \E B = \rho \frac{\E{B^2}}{(\E B)^2} \E B \\
 &= \rho \frac{\V B}{(\E B)^2}\E B = \rho C_s^2\E B.
-  \end{split}
+ \end{split}
 \end{equation*}
 \begin{solution} Answer = B.
 We have
 \begin{equation*}
-  \begin{split}
-  \frac{\lambda}\mu \E{B^2} 
-&=   \frac{\lambda\E B}{\mu} \frac{\E{B^2}}{(\E B)^2} \E B  = \rho \frac{\E{B^2}}{(\E B)^2} \E B \\
+ \begin{split}
+ \frac{\lambda}\mu \E{B^2} 
+&= \frac{\lambda\E B}{\mu} \frac{\E{B^2}}{(\E B)^2} \E B = \rho \frac{\E{B^2}}{(\E B)^2} \E B \\
 &= \rho \frac{(\E B)^2+\V B}{(\E B)^2}\E B = \rho (1+C_s^2)\E B.
-  \end{split}
+ \end{split}
 \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]%13
-  For the $M^X/M/1$ queue with $G(n) = \P{B> n}$, 
+ For the $M^X/M/1$ queue with $G(n) = \P{B> n}$, 
 \begin{align*}
 \sum_{n=0}^\infty G(n) 
 &= \sum_{n=0}^\infty \P{B>n} 
-= \sum_{n=0}^\infty \sum_{i=n+1}^\infty \P{B=i}  \\
+= \sum_{n=0}^\infty \sum_{i=n+1}^\infty \P{B=i} \\
 & = \sum_{n=0}^\infty \sum_{i=0}^\infty 1\{n<i\} \P{B=i} 
 = \sum_{i=0}^\infty \sum_{n=0}^\infty 1 \{n<i\} \P{B=i} \\
 &= \sum_{i=0}^\infty i \P{B=i} = \E B.
@@ -188,25 +188,25 @@ We have
 \end{exercise}
 
 \begin{exercise}[201704]%14
-  We model a workstation with just one machine as a $G/G/1$ queue. The coefficient of variation of the interarrival times of the jobs is $1$ and the arrival rate $\lambda=3/8$ per hour. The
-  average service time $\E S = 2$ hours, $C^2_s = 1/2$.  Then, $\E{W_Q} \in [4, 5]$ hours. 
+ We model a workstation with just one machine as a $G/G/1$ queue. The coefficient of variation of the interarrival times of the jobs is $1$ and the arrival rate $\lambda=3/8$ per hour. The
+ average service time $\E S = 2$ hours, $C^2_s = 1/2$. Then, $\E{W_Q} \in [4, 5]$ hours. 
 \begin{solution} Answer = A.
 
 $\rho=\lambda \E S = 6/8 = 3/4$. Hence, $\rho/(1-\rho)=3$.
-  \begin{equation*}
-    \E{W_Q}= \frac{1+1/2}2 3 \E S = 3/4 \cdot 3 \cdot 2 = 9/2 = 4.5
-  \end{equation*}
+ \begin{equation*}
+ \E{W_Q}= \frac{1+1/2}2 3 \E S = 3/4 \cdot 3 \cdot 2 = 9/2 = 4.5
+ \end{equation*}
 \end{solution}
 
 \end{exercise}
 
 
 \begin{exercise}[201802]
-Let $A_1$ be the arrival time of the first job at a queueing system. Assume $L(A_1-)=0$. Suppose that the $n+1$th job is the first job after $A_1$ that sees an empty system.  Thus,
- $L(D_n)=0$.  The fraction of time that the server has been busy during $[A_1, A_{n+1})$     is
-        \begin{equation*}
+Let $A_1$ be the arrival time of the first job at a queueing system. Assume $L(A_1-)=0$. Suppose that the $n+1$th job is the first job after $A_1$ that sees an empty system. Thus,
+ $L(D_n)=0$. The fraction of time that the server has been busy during $[A_1, A_{n+1})$ is
+ \begin{equation*}
 \frac{\sum_{i=1}^n S_i}{A_{n+1}-A_1} 
-        \end{equation*}
+ \end{equation*}
 
 \begin{solution}
 Answer = A.
@@ -221,16 +221,16 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201802]
-In a discrete-time queueing model, $L_k$ is the number of jobs in the system at the end of period~$k$. Thus, $\sum_{k=1}^n \1{L_k > m}$ is  the number of jobs that see more than $m$ jobs in the system upon arrival. 
+In a discrete-time queueing model, $L_k$ is the number of jobs in the system at the end of period~$k$. Thus, $\sum_{k=1}^n \1{L_k > m}$ is the number of jobs that see more than $m$ jobs in the system upon arrival. 
 \begin{solution}
 Answer = B. When $a_k=0$, there are no job arrivals, but still $L_k$ can be positive.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
-In a level-crossing analysis of a queueing system,  the departure rate from state $n$ is 
+In a level-crossing analysis of a queueing system, the departure rate from state $n$ is 
 \begin{equation*}
-  \mu(n) = \lim_{t\to\infty} \frac{D(n-1,t)}{Y(n,t)},
+ \mu(n) = \lim_{t\to\infty} \frac{D(n-1,t)}{Y(n,t)},
 \end{equation*}
 
 \begin{solution}
@@ -243,12 +243,12 @@ To obtain the \emph{ balance equations} we do not count the number of up- and do
 
 \begin{center}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
-                    semithick]
-  \node[state] (0) {$p(0)$} ;
-  \node[state] (1) [right of=0] {$p(1)$};
-  \node[state] (2) [right of=1] {$p(2)$};
-  \node[state] (3) [right of=2] {$p(3)$};
-  \node[state] (4) [right of=3] {$\cdots$};
+ semithick]
+ \node[state] (0) {$p(0)$} ;
+ \node[state] (1) [right of=0] {$p(1)$};
+ \node[state] (2) [right of=1] {$p(2)$};
+ \node[state] (3) [right of=2] {$p(3)$};
+ \node[state] (4) [right of=3] {$\cdots$};
 
 \draw[dashed] (2.6,-1.2) rectangle (4.5,1.2);
 
@@ -262,14 +262,14 @@ To obtain the \emph{ balance equations} we do not count the number of up- and do
  (3) edge [bend left] node[above] {$\lambda(3)$} (4)
  (4) edge [bend left] node[below] {$\mu(4)$} (3);
 \end{tikzpicture}
-  \end{center}
+ \end{center}
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201802]
-The process  $L(t)$ that counts the number of jobs in system is \emph{right-continuous}.
+The process $L(t)$ that counts the number of jobs in system is \emph{right-continuous}.
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -279,15 +279,15 @@ Answer = A.
 \begin{exercise}[201803]
 If the limit exists, 
 \begin{equation*}
-  \frac{1}{t} \sum_{k=1}^{A(t)} \1{W_k \leq x} \to \P{W\leq w},
+ \frac{1}{t} \sum_{k=1}^{A(t)} \1{W_k \leq x} \to \P{W\leq w},
 \end{equation*}
 as $t\to \infty$. 
 \begin{solution}
 Answer = B.
 
 \begin{equation*}
-  \frac{1}{t} \sum_{k=1}^{A(t)} \1{W_k \leq x}  = 
-  \frac{A(t)}{t} \frac 1{A(t)}\sum_{k=1}^{A(t)} \1{W_k \leq x} \to \lambda \P{W\leq x}.
+ \frac{1}{t} \sum_{k=1}^{A(t)} \1{W_k \leq x} = 
+ \frac{A(t)}{t} \frac 1{A(t)}\sum_{k=1}^{A(t)} \1{W_k \leq x} \to \lambda \P{W\leq x}.
 \end{equation*}
 Moreover, the last $w$ in the equation in the exercise is also wrong, and should be an $x$.
 \end{solution}
@@ -296,7 +296,7 @@ Moreover, the last $w$ in the equation in the exercise is also wrong, and should
 \begin{exercise}[201803]
 Using the definitions of the book, for the $M/M/1$ queue and $t>0$, 
 \begin{equation*}
-\left|  \frac{A(n,t)}{Y(n,t)}\frac{Y(n,t)}t - \frac{D(n,t)}{Y(n+1,t)}\frac{Y(n+1,t)}t \right| \leq 1. 
+\left| \frac{A(n,t)}{Y(n,t)}\frac{Y(n,t)}t - \frac{D(n,t)}{Y(n+1,t)}\frac{Y(n+1,t)}t \right| \leq 1. 
 \end{equation*}
 \begin{solution}
 Answer = A.
@@ -306,15 +306,15 @@ Answer = A.
 \begin{exercise}[201803]
 For the $M/M/1$ queue, the following reasoning leads to the expected number of jobs in the system.
 \begin{equation*}
-  \begin{split}
-  M_L(s) 
+ \begin{split}
+ M_L(s) 
 &= \E{e^{s L}} = \sum_{n=0}^\infty e^{s n}p(n) = (1-\rho) \sum_n e^{s n} \rho^n \\
 &=\frac{1-\rho}{1-e^{s}\rho},
-  \end{split}
+ \end{split}
 \end{equation*}
 where we assume that $s$ is such that $e^s \rho < 1$. Then, 
 \begin{equation*}
-  M_L'(s) = (1-\rho) \frac{1}{(1-e^s\rho)^2} e^s \rho.
+ M_L'(s) = (1-\rho) \frac{1}{(1-e^s\rho)^2} e^s \rho.
 \end{equation*}
 Hence, $\E L = M_L'(0) = \rho/(1-\rho)$.
 \begin{solution}
@@ -339,7 +339,7 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201803]
-A queueing system with balking, at level $b$ say, behaves the same as a queueing system with finite calling   population of size $b$.
+A queueing system with balking, at level $b$ say, behaves the same as a queueing system with finite calling population of size $b$.
 \begin{solution}
 Answer = B. There were some questions about this. So lets explain this a bit better. In a system with finite calling population, $b$ say, the arrival rate is $\lambda(n) = \lambda(b-n)$ when there are $n$ jobs in service or in queue. For a queueing system with balking \emph{at} level $b$, $\lambda(n)=\lambda$ for all $n<b$, and $\lambda(n)=0$ for $n\geq b$. Thus, the arrival processes are different, hence the queueing systems must behave differently.
 \end{solution}
@@ -347,16 +347,16 @@ Answer = B. There were some questions about this. So lets explain this a bit bet
 
 \begin{exercise}[201803]
 Consider the $M/G/1$ queue. 
-By the PASTA property, a fraction~$\rho$, $\rho<1$,  of the arrivals sees the server occupied, while a fraction $1-\rho$ sees a free server.  
+By the PASTA property, a fraction~$\rho$, $\rho<1$, of the arrivals sees the server occupied, while a fraction $1-\rho$ sees a free server. 
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201803]
-For the $M/G/1$ queue we can   use the PASTA property to see that the expected waiting time in the
-  system is equal to
-  $\E W = \sum_{n=0}^\infty \E{W_Q \given N=n} \pi(n) + \E S$.
+For the $M/G/1$ queue we can use the PASTA property to see that the expected waiting time in the
+ system is equal to
+ $\E W = \sum_{n=0}^\infty \E{W_Q \given N=n} \pi(n) + \E S$.
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -365,17 +365,17 @@ Answer = A.
 \begin{exercise}[201803]
 The following computation is correct for the $M/M/1$ queue:
 \begin{equation*}
-  \begin{split}
-    \sum_{n=0}^\infty n^2 \rho^n 
-&=    \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n}  - n\right)\rho^n 
-=    \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n  - \sum_{n=0}^\infty n\rho^n \\
-&=    \sum_{i=0}^\infty 2i \sum_{n=i}^\infty \rho^n  - \frac{\E L}{1-\rho} 
-=    \sum_{i=0}^\infty 2i \rho^i \sum_{n=0}^\infty \rho^n  - \frac{\E L}{1-\rho} \\
-&=    \frac2{1-\rho} \sum_{i=0}^\infty i \rho^i   - \frac{\E L}{1-\rho} 
-=    \frac2{(1-\rho)^2} \E L - \frac{\E L}{1-\rho} \\
-&=    \frac{\E L}{1-\rho}  \left(\frac2{1-\rho}  - 1\right) 
-=    \frac{\E L}{1-\rho}  \frac{1+\rho}{1-\rho} \\
-&=    \frac{\rho}{1-\rho}  \frac{1+\rho}{(1-\rho)^2}.
+ \begin{split}
+ \sum_{n=0}^\infty n^2 \rho^n 
+&= \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n} - n\right)\rho^n 
+= \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n - \sum_{n=0}^\infty n\rho^n \\
+&= \sum_{i=0}^\infty 2i \sum_{n=i}^\infty \rho^n - \frac{\E L}{1-\rho} 
+= \sum_{i=0}^\infty 2i \rho^i \sum_{n=0}^\infty \rho^n - \frac{\E L}{1-\rho} \\
+&= \frac2{1-\rho} \sum_{i=0}^\infty i \rho^i - \frac{\E L}{1-\rho} 
+= \frac2{(1-\rho)^2} \E L - \frac{\E L}{1-\rho} \\
+&= \frac{\E L}{1-\rho} \left(\frac2{1-\rho} - 1\right) 
+= \frac{\E L}{1-\rho} \frac{1+\rho}{1-\rho} \\
+&= \frac{\rho}{1-\rho} \frac{1+\rho}{(1-\rho)^2}.
 \end{split}
 \end{equation*}
 
@@ -415,21 +415,21 @@ Answer = B.
 \begin{exercise}[201803]
 For the $M/G/1$ queue the following is true:
 \begin{equation}
-  \lambda \E{S^2} = (1+C_s^2)\E S, \quad\text{where } C_s^2 = \frac{\V S }{(\E S)^2}
+ \lambda \E{S^2} = (1+C_s^2)\E S, \quad\text{where } C_s^2 = \frac{\V S }{(\E S)^2}
 \end{equation}
 is the \recall{square coefficient of variation}.
 \begin{solution}
 Answer = B.
 
 \begin{equation}
-  \lambda \E{S^2} = (1+C_s^2)\rho\E S, \quad\text{where }
+ \lambda \E{S^2} = (1+C_s^2)\rho\E S, \quad\text{where }
  C_s^2 = \frac{\V S }{(\E S)^2}
 \end{equation}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201803]
-If a job arrives at time $A$, and $\{L(t)\}$ the queue length process, then the random variable $L(A)$   denotes the number in the system seen by this job upon arrival.
+If a job arrives at time $A$, and $\{L(t)\}$ the queue length process, then the random variable $L(A)$ denotes the number in the system seen by this job upon arrival.
 \begin{solution}
 Answer = B. It should be $L(A-)$.
 \end{solution}
@@ -438,22 +438,22 @@ Answer = B. It should be $L(A-)$.
 \begin{exercise}[201803]
 For the $M^X/M/1$ queue, define 
 \begin{equation*}
-  A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
+ A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
 \end{equation*}
 as the number of jobs up to time $t$ that see $m$ in the system upon
-arrival and have batch size larger than $n-m$.  Then, $A(n-1, n, t)$ is the number of batches that arrived up to time $t$. 
+arrival and have batch size larger than $n-m$. Then, $A(n-1, n, t)$ is the number of batches that arrived up to time $t$. 
 \begin{solution}
 Answer = B. It should be $A(n, n,t)$.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201803]
-Consider the $M^X/M/1$ queue with partial acceptance: the system can contain at most $K$ jobs, so that when a batch arrives,  accept whatever fits in the queue, and reject the rest.
+Consider the $M^X/M/1$ queue with partial acceptance: the system can contain at most $K$ jobs, so that when a batch arrives, accept whatever fits in the queue, and reject the rest.
 The level crossing equations are then as follows:
-  \begin{equation*}
-    \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) G(n-m), 
-  \end{equation*}
-  for $n=0,1,\ldots, K-1$, where $G(n-m)=\P{B>n-m}$ is the survivor function of the random batch size $B$.
+ \begin{equation*}
+ \mu \pi(n+1) = \lambda \sum_{m=0}^n \pi(m) G(n-m), 
+ \end{equation*}
+ for $n=0,1,\ldots, K-1$, where $G(n-m)=\P{B>n-m}$ is the survivor function of the random batch size $B$.
 \begin{solution}
 Answer = A.
 
@@ -461,25 +461,25 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201804]
-For the $G/G/1$ queue,  the average number of
+For the $G/G/1$ queue, the average number of
 jobs in the system as seen by arrivals is given by
 \begin{equation}\label{eq:11}
-\frac 1 t\int_0^t L(s)\d s =  \frac 1 t\int_0^t (A(s)-D(s)) \d s,
+\frac 1 t\int_0^t L(s)\d s = \frac 1 t\int_0^t (A(s)-D(s)) \d s,
 \end{equation}
 where we use that $L(s)=A(s) - D(s) + L(0)$ is the total number of jobs in
 the system at time $s$ and $L(0)=0$.
 \begin{solution}
-Answer = B.  The expressions become (in the limit $t\to\infty$) to the time-average of the number of jobs in the system.  In general, this time-average is not what the jobs see upon arrival.
+Answer = B. The expressions become (in the limit $t\to\infty$) to the time-average of the number of jobs in the system. In general, this time-average is not what the jobs see upon arrival.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201804]
-  Consider the $M^2/M^2/1/3$ queue.  The graph below shows all relevant transitions.
+ Consider the $M^2/M^2/1/3$ queue. The graph below shows all relevant transitions.
 
-  \begin{center}
+ \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$0$}; 
 \node[state] (1) [right of=0] {$1$}; 
 \node[state] (2) [right of=1] {$2$}; 
@@ -492,14 +492,14 @@ Answer = B.  The expressions become (in the limit $t\to\infty$) to the time-aver
 (3) edge [bend left] node[below] {$\mu$} (1)
 (2) edge [bend left] node[below] {$\mu$} (0);
 \end{tikzpicture}
-  \end{center}
+ \end{center}
 \begin{solution}
 Answer = B. The figure sketches the $M/M^2/1/3$ queue.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
-For the $M/M/1$ queue, when the server is busy at time $0$,  the  time to the next departure has density $f_D(t) = \mu e^{-\mu t}$.
+For the $M/M/1$ queue, when the server is busy at time $0$, the time to the next departure has density $f_D(t) = \mu e^{-\mu t}$.
 \begin{solution}
 Answer = A. When the server is busy at time $0$, we need to wait until the job in service departs, as this is the next departure. As service times are $\exp(\mu)$ and memoryless, the expression follows.
 \end{solution}
@@ -507,14 +507,14 @@ Answer = A. When the server is busy at time $0$, we need to wait until the job i
 
 \begin{exercise}[201804]
 When $X\sim \exp(\lambda)$ and $S\sim\exp(\mu)$, and $X$ and $S$ are independent, their joint density is $f_{X,S}(x,y) = \lambda \mu e^{-\lambda x - \mu y}$. With this,
-  \begin{align*}
+ \begin{align*}
 \P{X+S\leq t } 
 &= \lambda \mu \int_0^\infty \int_0^\infty e^{-\lambda x - \mu y} \1{x+y\leq t} \d x \d y \\
 %&= \lambda \mu \int_0^t \int_0^{t-x} e^{-\lambda x - \mu y} \d x \d y \\
 &= \lambda \mu \int_0^t e^{-\lambda x} \int_0^{t-x} e^{- \mu y} \d y \d x \\
-&= \lambda \int_0^t e^{-\lambda x} (1-e^{- \mu (t-x)} ) \d x  \\
-&= \lambda \int_0^t e^{-\lambda x}  \d x - \lambda e^{-\mu t} \int_0^t e^{(\mu-\lambda) x} \d x \\
-  \end{align*}
+&= \lambda \int_0^t e^{-\lambda x} (1-e^{- \mu (t-x)} ) \d x \\
+&= \lambda \int_0^t e^{-\lambda x} \d x - \lambda e^{-\mu t} \int_0^t e^{(\mu-\lambda) x} \d x \\
+ \end{align*}
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -530,7 +530,7 @@ Answer = B. Its precisely the other way around.
 \begin{exercise}[201804]
 For the $M^X/M/1$ queue, if $B_r$ is the number of items of the batch currently at the server and $L_{Q,b}$ the number of batches in queue, then
 \begin{equation*}
-  \E{L} = \E{L_{Q,b}}\E B + \E{B_r}.
+ \E{L} = \E{L_{Q,b}}\E B + \E{B_r}.
 \end{equation*}
 \begin{solution}
 Answer = A.
@@ -539,31 +539,31 @@ Answer = A.
 
 \begin{exercise}[201804]
 For the $M^X/M/1$ queue, 
-Let $\tilde A_k$ be the moment the $k$th batch moves to the server and $D_k$ its departure time.  When $S_{k,i}$ is the service time of the $i$th item of batch~$k$,  
+Let $\tilde A_k$ be the moment the $k$th batch moves to the server and $D_k$ its departure time. When $S_{k,i}$ is the service time of the $i$th item of batch~$k$, 
 \begin{equation*}
-  \int_{\tilde A_k}^{D_k} \1{L_S(s)=i} \d s = S_{k,i} \1{B_k \geq i}.
+ \int_{\tilde A_k}^{D_k} \1{L_S(s)=i} \d s = S_{k,i} \1{B_k \geq i}.
 \end{equation*}
 \begin{solution}
-I decided to accept any answer to this exercise, as it is possible to read it in two ways, which I did not realize at first. One way is that the $i$th item is the one such that still $i$ items remain (in which case the equation is correct). The other is that $i-1$ items have been served, and that the server is processing the $i$th item in the sequence, in which case the system contains $B-i-1$.   
+I decided to accept any answer to this exercise, as it is possible to read it in two ways, which I did not realize at first. One way is that the $i$th item is the one such that still $i$ items remain (in which case the equation is correct). The other is that $i-1$ items have been served, and that the server is processing the $i$th item in the sequence, in which case the system contains $B-i-1$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
 For the $M/G/1$ queue and $S\sim \exp(\mu)$,
-    \begin{align*}
+ \begin{align*}
 \E{S^2} 
 &= \mu \int_0^\infty x^2 e^{- \mu x} \,\d x = \left. x^2 e^{-\mu x} \right|_0^\infty + 2 \int_0^\infty x e^{-\mu x} \, \d x \\
 &= \left. 2\frac x \mu e^{-\mu x} \right|_0^\infty + \frac 2 \mu\int_0^\infty e^{-\mu x} \, \d x =\frac2{\mu^2}.
-    \end{align*}
+ \end{align*}
 \begin{solution}
 Answer = B.
 It should be this:
-    \begin{align*}
+ \begin{align*}
 \E{S^2} 
 &= \mu \int_0^\infty x^2 e^{- \mu x} \,\d x = -\left. x^2 e^{-\mu x} \right|_0^\infty + 2 \int_0^\infty x e^{-\mu x} \, \d x \\
 &= -\left. 2\frac x \mu e^{-\mu x} \right|_0^\infty + \frac 2 \mu\int_0^\infty e^{-\mu x} \, \d x \\
-&= - \frac 2 \mu  \left. e^{-\mu x}\right|_0^\infty = \frac2{\mu^2}.
-    \end{align*}
+&= - \frac 2 \mu \left. e^{-\mu x}\right|_0^\infty = \frac2{\mu^2}.
+ \end{align*}
 Note the minus signs.
 \end{solution}
 \end{exercise}
@@ -571,16 +571,16 @@ Note the minus signs.
 \begin{exercise}[201804]
 For the $M/G/1$ queue, define for $m=1,\ldots, n,$
 \begin{equation*}
-  D(m, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=m}\1{Y_k>n-m+1},
+ D(m, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=m}\1{Y_k>n-m+1},
 \end{equation*}
 with $Y_k$ the number of arrivals during the service time of the $k$th job. 
 Then,
 \begin{align*}
-  \lim_{t\to\infty} \frac{  D(m, n, t)}t 
-&=   \lim_{t\to\infty}  \frac{D(t)}t\frac{ D(m, n, t)}{D(t)} \\
-&=   \delta \lim_{t\to\infty} \frac{ D(m, n, t)}{D(t)} \\
-&=   \delta \P{Y>n-m+1}\\
-& = \delta  G(n-m+1),
+ \lim_{t\to\infty} \frac{ D(m, n, t)}t 
+&= \lim_{t\to\infty} \frac{D(t)}t\frac{ D(m, n, t)}{D(t)} \\
+&= \delta \lim_{t\to\infty} \frac{ D(m, n, t)}{D(t)} \\
+&= \delta \P{Y>n-m+1}\\
+& = \delta G(n-m+1),
 \end{align*}
 where $G$ is the survivor function of $Y$ and $\delta$ the departure rate.
 \begin{solution}
@@ -600,7 +600,7 @@ Answer = B.
 \begin{exercise}[201807]
 To prove Little's law for any input-output system we claim that we need for all $T\geq 0$ the property 
 \begin{equation*}
-  \int_0^T L(s)\, \d s  =  \sum_{k=1}^{A(T)} W_k.
+ \int_0^T L(s)\, \d s = \sum_{k=1}^{A(T)} W_k.
 \end{equation*}
 \begin{solution}
 Answer = B. This only holds at times $T$ at which the system is empty.
@@ -608,7 +608,7 @@ Answer = B. This only holds at times $T$ at which the system is empty.
 \end{exercise}
 
 \begin{exercise}[201807]
-For the $M/M/1$ queue we claim  that $\E{L_Q} = \sum_{n=1}^\infty (n-1)\pi(n)$.
+For the $M/M/1$ queue we claim that $\E{L_Q} = \sum_{n=1}^\infty (n-1)\pi(n)$.
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -616,19 +616,19 @@ Answer = A.
 
 \begin{exercise}[201807]
  A repair/maintenance facility would like to determine
-  how many employees should be working in its tool crib. The service
-  time is exponential, with mean 4 minutes, and customers arrive by a
-  Poisson process with rate 28 per hour. With one employee we claim that the system is not rate stable.
+ how many employees should be working in its tool crib. The service
+ time is exponential, with mean 4 minutes, and customers arrive by a
+ Poisson process with rate 28 per hour. With one employee we claim that the system is not rate stable.
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]
-  In the notes we derived that
-    \begin{equation*}
-    \frac{\E{L(M^X/M/1)}}{\E{L(M/M/1)}} = \frac{\E{B^2}}{2\E B} + \frac 12,
-    \end{equation*}
+ In the notes we derived that
+ \begin{equation*}
+ \frac{\E{L(M^X/M/1)}}{\E{L(M/M/1)}} = \frac{\E{B^2}}{2\E B} + \frac 12,
+ \end{equation*}
 when the loads in both queueing systems are the same. We claim that this implies for such systems that
 $\E{L(M^X/M/1)}\geq \E{L(M/M/1)}$.
 \begin{solution}
@@ -639,21 +639,21 @@ Answer = A.
 
 \begin{exercise}[201807] 
 For the $G/G/1$ the difference between the number of `out
-    transitions' and the number of `in transitions' is at most 1 for all $t$. As a consequence,
-    \begin{align*}
+ transitions' and the number of `in transitions' is at most 1 for all $t$. As a consequence,
+ \begin{align*}
 \text{transitions out } &\approx \text{transitions in } \iff \\
-      A(n,t) + D(n-1,t) &\approx A(n-1,t) + D(n,t)  \iff \\
-      \frac{A(n,t) + D(n-1,t)}t &\approx \frac{A(n-1,t) + D(n, t)}t \iff \\
-      \frac{A(n,t)}t + \frac{D(n-1,t)}t &\approx \frac{A(n-1,t)}t + \frac{D(n,t)}t.
-    \end{align*}
+ A(n,t) + D(n-1,t) &\approx A(n-1,t) + D(n,t) \iff \\
+ \frac{A(n,t) + D(n-1,t)}t &\approx \frac{A(n-1,t) + D(n, t)}t \iff \\
+ \frac{A(n,t)}t + \frac{D(n-1,t)}t &\approx \frac{A(n-1,t)}t + \frac{D(n,t)}t.
+ \end{align*}
 Thus, under proper technical assumptions (which you can assume to be satisfied) this becomes for $t\to\infty$, 
 \begin{equation*}
-  (\lambda(n) +\mu(n))p(n) = \lambda(n-1)p(n-1) + \mu(n+1)p(n+1).
+ (\lambda(n) +\mu(n))p(n) = \lambda(n-1)p(n-1) + \mu(n+1)p(n+1).
 \end{equation*}
 We claim that if we specialize this result for the $M/D/1$ queue we have that
 $ \lambda(n) = \lambda$ and $\mu(n) = \mu$, hence using PASTA, 
 \begin{equation*}
-  (\lambda +\mu)\pi(n) = \lambda\pi(n-1) + \mu\pi(n+1).
+ (\lambda +\mu)\pi(n) = \lambda\pi(n-1) + \mu\pi(n+1).
 \end{equation*}
 \begin{solution}
 Answer = B.
@@ -663,9 +663,9 @@ Answer = B.
 \begin{exercise}[201807]
 For the $M^X/M/1$ queue we have shown in the notes that 
 \begin{equation*}
-  \mu \E L = \lambda \frac{\E{B^2}}2  + \lambda \E B \E L +\lambda \frac{\E B}2,
+ \mu \E L = \lambda \frac{\E{B^2}}2 + \lambda \E B \E L +\lambda \frac{\E B}2,
 \end{equation*}
-With a proper definition for the load  $\rho$ we claim that it can be rewritten to 
+With a proper definition for the load $\rho$ we claim that it can be rewritten to 
 \begin{equation*}
 (1- \rho) \E L = \frac \rho2 \left( \frac{\E{B^2}}{\E B} + 1\right).
 \end{equation*}
@@ -677,22 +677,22 @@ Answer = A.
 
 \begin{exercise}[201807]
 For the $M/G/1$ queue, let us concentrate on a down-crossing of level $n$; recall that level $n$ lies between states $n$
-and $n+1$.  We claim that job $k$  only generates a down-crossing of level $n$ this job  leaves $n$ jobs behind right after its service completion.
+and $n+1$. We claim that job $k$ only generates a down-crossing of level $n$ this job leaves $n$ jobs behind right after its service completion.
 \begin{solution}
 Answer = B.
 In fact, two events must be satisfied: 
  \begin{equation*}
-   \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = 1.
+ \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = 1.
  \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]
-In the notes we derive a recursion to be satisfied by the queue length distribution of  the $M/G/1$ queue. To check whether this recursion holds for the $M/M/1$ we are lead to the computation below. 
+In the notes we derive a recursion to be satisfied by the queue length distribution of the $M/G/1$ queue. To check whether this recursion holds for the $M/M/1$ we are lead to the computation below. 
 Given that $\alpha = \rho/(1+\rho)$, we claim that the computation below entirely correct. 
 \begin{align*}
-\alpha^{n+1} + \sum_{m=1}^n \rho^m \alpha^{n-m+2}  
-&= \alpha^{n+1} + \alpha^{n+2}\sum_{m=1}^n (\rho/\alpha)^m  \\
+\alpha^{n+1} + \sum_{m=1}^n \rho^m \alpha^{n-m+2} 
+&= \alpha^{n+1} + \alpha^{n+2}\sum_{m=1}^n (\rho/\alpha)^m \\
 &= \alpha^{n+1} + \alpha^{n+1}\rho \sum_{m=0}^{n-1} (\rho/\alpha)^m \\
 &= \alpha^{n+1} + \alpha^{n+1}\rho \frac{1-(\rho/\alpha)^n}{1-\rho/\alpha}\\
 &= \alpha^{n+1} - \alpha^{n+1}\frac{\rho}{\alpha}(1-(\rho/\alpha)^n).
@@ -706,23 +706,23 @@ Answer = B. The last line should be
 \end{exercise}
 
 \begin{exercise}[201807]
-  (Hall 5.22). At a large hotel, taxi cabs arrive at a rate of 15 per
-  hour, and parties of riders arrive at the rate of 12 per
-  hour. Whenever taxicabs are waiting, riders are served immediately
-  upon arrival. Whenever riders are waiting, taxicabs are loaded
-  immediately upon arrival. A maximum of three cabs can wait at a time (other cabs must go elsewhere). Let $p(i,j)$ be the steady-state probability of there being $i$ parties of riders and $j$ taxicabs waiting at the hotel. Claim: the transitions are modeled by the graph below.
+ (Hall 5.22). At a large hotel, taxi cabs arrive at a rate of 15 per
+ hour, and parties of riders arrive at the rate of 12 per
+ hour. Whenever taxicabs are waiting, riders are served immediately
+ upon arrival. Whenever riders are waiting, taxicabs are loaded
+ immediately upon arrival. A maximum of three cabs can wait at a time (other cabs must go elsewhere). Let $p(i,j)$ be the steady-state probability of there being $i$ parties of riders and $j$ taxicabs waiting at the hotel. Claim: the transitions are modeled by the graph below.
 
-    \begin{center}
+ \begin{center}
 
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
-                    semithick]
-  \node[state] (0) {$p(0,3)$} ;
-  \node[state] (1) [right of=0] {$p(0,2)$};
-  \node[state] (2) [right of=1] {$p(0,1)$};
-  \node[state] (3) [right of=2] {$p(0,0)$};
-  \node[state] (4) [right of=3] {$p(1,0)$};
-  \node[state] (5) [right of=4] {$p(2,0)$};
-  \node[state] (6) [right of=5] {$p(\cdot, 0)$};
+ semithick]
+ \node[state] (0) {$p(0,3)$} ;
+ \node[state] (1) [right of=0] {$p(0,2)$};
+ \node[state] (2) [right of=1] {$p(0,1)$};
+ \node[state] (3) [right of=2] {$p(0,0)$};
+ \node[state] (4) [right of=3] {$p(1,0)$};
+ \node[state] (5) [right of=4] {$p(2,0)$};
+ \node[state] (6) [right of=5] {$p(\cdot, 0)$};
 
 \path 
  (0) edge [bend left] node {$\lambda$} (1)
@@ -739,14 +739,14 @@ Answer = B. The last line should be
  (6) edge [bend left] node {$\mu$} (5)
 ;
 \end{tikzpicture}
-    \end{center}
+ \end{center}
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]
-Just  assume that the  figure in the previous question is correct. Claim: the balance equations are as follows:
+Just assume that the figure in the previous question is correct. Claim: the balance equations are as follows:
 \begin{align*}
 \lambda p(0,3) &= \mu p(0,2) \\
 (\lambda+\mu) p(0,2) &= \mu p(0,1) + \lambda p(0,3)\\
@@ -764,9 +764,9 @@ Answer = A.
 \begin{exercise}[201902]
 A machine produces items, but a fraction $p$ of the
 items produced in each period turns out to be faulty. Faulty items have to be repaired. The service time of faulty items is just as long as entirely new items.
-Repaired items are always ok, in other words, they cannot be faulty again.  To keep the system stable, the average service capacity must satisfy
-  \begin{equation*}
-\lim_{n\to \infty}   n^{-1}\sum_{i=1}^n c_i > \lambda (1+p)
+Repaired items are always ok, in other words, they cannot be faulty again. To keep the system stable, the average service capacity must satisfy
+ \begin{equation*}
+\lim_{n\to \infty} n^{-1}\sum_{i=1}^n c_i > \lambda (1+p)
 \end{equation*}
 where $\lambda$ is the arrival rate of requests for items. 
 \begin{solution}
@@ -784,24 +784,24 @@ Answer = A.
 
 \begin{exercise}[201902]
 The number of jobs in the system at time $t$ is equal to 
-  \begin{equation*}
-      L(t)= A(t) - D(t) = \sum_{k=1}^\infty \1{D_k < t < A_k}.
-  \end{equation*}
+ \begin{equation*}
+ L(t)= A(t) - D(t) = \sum_{k=1}^\infty \1{D_k < t < A_k}.
+ \end{equation*}
 
 \begin{solution}
-Answer = B.  $D_k \geq A_k$ always. 
-  \begin{equation*}
-      L(t)= A(t) - D(t) \sum_{k=1}^\infty \1{A_k \leq t} -  \sum_{k=1}^\infty \1{D_k \leq t}.
-  \end{equation*}
+Answer = B. $D_k \geq A_k$ always. 
+ \begin{equation*}
+ L(t)= A(t) - D(t) \sum_{k=1}^\infty \1{A_k \leq t} - \sum_{k=1}^\infty \1{D_k \leq t}.
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$,  the random variable
-  \begin{equation*}
-    N(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
-  \end{equation*}
-is  Poisson distributed with rate $\mu t$. 
+ Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$, the random variable
+ \begin{equation*}
+ N(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
+ \end{equation*}
+is Poisson distributed with rate $\mu t$. 
 
 \begin{solution}
 Answer = B. It is Poisson distributed with rate $\lambda t$.
@@ -809,7 +809,7 @@ Answer = B. It is Poisson distributed with rate $\lambda t$.
 \end{exercise}
 
 \begin{exercise}[201902]
-We consider the $M/G/1$ queue such that $\E X > \E S$. In general the expected busy time of the server is  $\E B = \rho$. (Recall, $\rho$ is the long-run fraction of time the server is busy.)
+We consider the $M/G/1$ queue such that $\E X > \E S$. In general the expected busy time of the server is $\E B = \rho$. (Recall, $\rho$ is the long-run fraction of time the server is busy.)
 \begin{solution}
 Answer = B. The server utilization is $\rho$. Check exercise 1.7.10. 
 \end{solution}
@@ -817,9 +817,9 @@ Answer = B. The server utilization is $\rho$. Check exercise 1.7.10.
 
 \begin{exercise}[201902]
 Consider a $G/G/1$ queue that is rate-stable. The distribution of the waiting times at
-  arrival times can be sensibly defined as
+ arrival times can be sensibly defined as
 \begin{equation*}
-  \P{W \leq x}  = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
+ \P{W \leq x} = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
 \end{equation*}
 
 \begin{solution}
@@ -830,11 +830,11 @@ Answer = A.
 \begin{exercise}[201903]
 Consider the $G/G/1$ queue of the previous exercise. Define
 \begin{equation*}
-  U(t) = \max\{n: D_n \leq t\}.
+ U(t) = \max\{n: D_n \leq t\}.
 \end{equation*}
  The service rate is 
 \begin{equation*}
-  \mu = \lim_{t\to\infty} \frac{U(t)}t.
+ \mu = \lim_{t\to\infty} \frac{U(t)}t.
 \end{equation*}
 
 \begin{solution}
@@ -854,7 +854,7 @@ Answer = A.
 \begin{exercise}[201903]
 For the $G/G/1$ queue define 
 \begin{equation*}
-  A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n},
+ A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n},
 \end{equation*}
 where $L(s)$ is the number of customers in the system at time $s$.
 Then $A(n,t)$ counts the number of arrivals up to time $t$ that saw $n$ customers in the system at their arrival.
@@ -866,8 +866,8 @@ Answer = A.
 
 
 \begin{exercise}[201903]
-  The data below specifies the arrival time of customers, e.g., Jan arrives at time 21.
-  The following code is guaranteed to print the customers in order of arrival
+ The data below specifies the arrival time of customers, e.g., Jan arrives at time 21.
+ The following code is guaranteed to print the customers in order of arrival
 \begin{pyverbatim}
 from heapq import heappop, heappush
 
@@ -880,7 +880,7 @@ heappush(stack, (18, "Klara"))
 heappush(stack, (25, "Cynthia"))
 
 print(stack)
-  \end{pyverbatim}
+ \end{pyverbatim}
 \begin{solution}
 Answer = B.
 
@@ -904,14 +904,14 @@ print(stack)
 
 \begin{exercise}[201903]
 For the $M/M/c$ queue we can take
-  \begin{align*}
+ \begin{align*}
 \lambda(n) &= \lambda, \\
-    \mu(n) &= 
-  \begin{cases}
-    n\mu, &\text{ if } n \leq c, \\
-    c\mu, &\text{ if } n \geq c.
-  \end{cases}
-  \end{align*}
+ \mu(n) &= 
+ \begin{cases}
+ n\mu, &\text{ if } n \leq c, \\
+ c\mu, &\text{ if } n \geq c.
+ \end{cases}
+ \end{align*}
 Then $p(n) = p(0) (c\rho)^n/n!$ for all $n$. 
 \begin{solution}
 Answer = B.
@@ -919,42 +919,42 @@ Answer = B.
 \end{exercise}
 
 \begin{exercise}[201903]
-  We can use the PASTA property to conclude that $\sum_{n=0}^\infty n p(n) = \sum_{n=0}^\infty n \pi(n)$ for any $G/M/1$ queue. 
+ We can use the PASTA property to conclude that $\sum_{n=0}^\infty n p(n) = \sum_{n=0}^\infty n \pi(n)$ for any $G/M/1$ queue. 
 \begin{solution}
-Answer = B. In the $G/M/1$ queue  jobs don't arrive as a Poisson process. 
+Answer = B. In the $G/M/1$ queue jobs don't arrive as a Poisson process. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
-  When $\lambda > \delta$, then $\pi(n) < \delta(n)$.
+ When $\lambda > \delta$, then $\pi(n) < \delta(n)$.
 
 \begin{solution}
-  Answer = B.
+ Answer = B.
 
-  In fact, if $\lambda>\delta$, then $p(n) = 0 = \delta(n)$ for all $n$. 
+ In fact, if $\lambda>\delta$, then $p(n) = 0 = \delta(n)$ for all $n$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
-  For the $M/G/1$ queue, 
-  \begin{equation*}
-    \E{W_Q} = \E L \E S,
-  \end{equation*}
-  that is, the expected time in queue is the expected number of customers in the system times the expected service time of these customers. 
+ For the $M/G/1$ queue, 
+ \begin{equation*}
+ \E{W_Q} = \E L \E S,
+ \end{equation*}
+ that is, the expected time in queue is the expected number of customers in the system times the expected service time of these customers. 
 \begin{solution}
-Answer = B.  In the $M/G/1$ queue the remaining service time of the job in service (if there is any), is not $\E S$.
+Answer = B. In the $M/G/1$ queue the remaining service time of the job in service (if there is any), is not $\E S$.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
-  For the $M/M/1$ queue we have that $\P{L=n} = (1-\rho)\rho^n$.  We can use the relation 
-  $\sum_{i=1}^n i= n(n+1)/2$ to see  that $n^2 = -n + 2\sum_{i=1}^n i$. Using this result it follows that
+ For the $M/M/1$ queue we have that $\P{L=n} = (1-\rho)\rho^n$. We can use the relation 
+ $\sum_{i=1}^n i= n(n+1)/2$ to see that $n^2 = -n + 2\sum_{i=1}^n i$. Using this result it follows that
 \begin{equation*}
 \begin{split}
-\E{L^2} &=  
-    (1-\rho)\sum_{n=0}^\infty n^2 \rho^n  \\
-&=    (1-\rho) \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n}  - n\right)\rho^n \\
-&=    (1-\rho) \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n  - \sum_{n=0}^\infty n\rho^n. 
+\E{L^2} &= 
+ (1-\rho)\sum_{n=0}^\infty n^2 \rho^n \\
+&= (1-\rho) \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n} - n\right)\rho^n \\
+&= (1-\rho) \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n - \sum_{n=0}^\infty n\rho^n. 
 \end{split}
 \end{equation*}
 
@@ -963,10 +963,10 @@ Answer = B.
 
 \begin{equation*}
 \begin{split}
-\E{L^2} &=  
-    (1-\rho)\sum_{n=0}^\infty n^2 \rho^n \\
-&=    (1-\rho) \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n}  - n\right)\rho^n \\
-&=    (1-\rho) \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n  - (1-\rho) \sum_{n=0}^\infty n\rho^n. 
+\E{L^2} &= 
+ (1-\rho)\sum_{n=0}^\infty n^2 \rho^n \\
+&= (1-\rho) \sum_{n=0}^\infty \left(\sum_{i=1}^\infty 2i \1{i\leq n} - n\right)\rho^n \\
+&= (1-\rho) \sum_{n=0}^\infty \sum_{i=0}^\infty 2i\1{i\leq n}\rho^n - (1-\rho) \sum_{n=0}^\infty n\rho^n. 
 \end{split}
 \end{equation*}
 
@@ -977,11 +977,11 @@ Answer = B.
 
 \begin{exercise}[201903]
  A single-server queueing system is known to have Poisson
-  arrivals and exponential service times. However, the arrival rate
-  and service time are state dependent. The manager observes that when the queue becomes longer,
-  servers work faster, and the arrival rate declines. The following choice for $\lambda(n)$ and $\mu(n)$ are consistent with the manager's observation:
-  $\lambda(0) = 5$, $\lambda(1)=3$, $\lambda(2)=2$,
-  $\lambda(n)=0, n\geq 3$, $\mu(0) = 0$, $\mu(1)=2$, $\mu(2)=3$, $\mu(n)=4, n\geq 3$. 
+ arrivals and exponential service times. However, the arrival rate
+ and service time are state dependent. The manager observes that when the queue becomes longer,
+ servers work faster, and the arrival rate declines. The following choice for $\lambda(n)$ and $\mu(n)$ are consistent with the manager's observation:
+ $\lambda(0) = 5$, $\lambda(1)=3$, $\lambda(2)=2$,
+ $\lambda(n)=0, n\geq 3$, $\mu(0) = 0$, $\mu(1)=2$, $\mu(2)=3$, $\mu(n)=4, n\geq 3$. 
 
 \begin{solution}
 Answer = A.
@@ -989,7 +989,7 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201903]
-  Consider the $G/G/2$ queue with $P(0) = 0.4$, $P(1)=0.3$, $P(2)= 0.2$, $P(3)=0.05$, $P(4)=0.05$. (Here, $P(n)$ is the fraction of time the system contains $n$ jobs.)
+ Consider the $G/G/2$ queue with $P(0) = 0.4$, $P(1)=0.3$, $P(2)= 0.2$, $P(3)=0.05$, $P(4)=0.05$. (Here, $P(n)$ is the fraction of time the system contains $n$ jobs.)
 Then with the following code we can compute the (time) average number of jobs in queue.
 \begin{pyconsole}
 P = [0.4, 0.3, 0.2, 0.05, 0.05]
@@ -1002,11 +1002,11 @@ Answer = B. It's the number of jobs in the system, not in queue.
 \end{exercise}
 
 \begin{exercise}[201903]
-  Consider a queueing system in which we normally have 1 server working at rate $\mu=4$.
-  When the queue becomes longer than a threshold at 20, we hire one extra server that also works at rate $\mu=4$, and when the queue is empty again, we send the extra servers home, until the queue hits 20 again, and so on.
-  The following code implements this behavior of the extra server in a correct way.
+ Consider a queueing system in which we normally have 1 server working at rate $\mu=4$.
+ When the queue becomes longer than a threshold at 20, we hire one extra server that also works at rate $\mu=4$, and when the queue is empty again, we send the extra servers home, until the queue hits 20 again, and so on.
+ The following code implements this behavior of the extra server in a correct way.
 
-    \begin{pyverbatim}
+ \begin{pyverbatim}
 import numpy as np
 
 from scipy.stats import poisson
@@ -1020,14 +1020,14 @@ d = np.zeros_like(a)
 threshold = 20
 
 for i in range(1, len(a)):
-    if Q[i-1] < threshold:
-        c = poisson(mu).rvs()
-    elif Q[i-1] >= threshold:
-        c = poisson(2*mu).rvs()
-    d[i] = min(Q[i-1],c)
-    Q[i] = Q[i-1] + a[i] - d[i]
-    
-    \end{pyverbatim}
+ if Q[i-1] < threshold:
+ c = poisson(mu).rvs()
+ elif Q[i-1] >= threshold:
+ c = poisson(2*mu).rvs()
+ d[i] = min(Q[i-1],c)
+ Q[i] = Q[i-1] + a[i] - d[i]
+ 
+ \end{pyverbatim}
 
 \begin{solution}
 Answer = B. The extra server switches off when the queue length becomes below 20.
@@ -1035,9 +1035,9 @@ Answer = B. The extra server switches off when the queue length becomes below 20
 \end{exercise}
 
 \begin{exercise}[201903]
-  Consider the $M^X/M/1$ queue with $B$ denoting the batch size of an arriving batch. Then
+ Consider the $M^X/M/1$ queue with $B$ denoting the batch size of an arriving batch. Then
 \begin{equation*}
-  \frac{\E{B^2}}{\E{B}} = (1+C_s^2)\E B, \quad\text{where }
+ \frac{\E{B^2}}{\E{B}} = (1+C_s^2)\E B, \quad\text{where }
 C_s^2 = \frac{\V B}{(\E B)^2},
 \end{equation*}
 
@@ -1058,19 +1058,19 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201904]
-  A machine serves two types of jobs.
-  The processing time of jobs of type $i$, $i=1,2$, is exponentially distributed with parameter $\mu_i$.
-  The type $T$ of a job is random and independent of anything else, and such that $\P{T=1} = p = 1-q = 1-\P{T=2}$. Then,
+ A machine serves two types of jobs.
+ The processing time of jobs of type $i$, $i=1,2$, is exponentially distributed with parameter $\mu_i$.
+ The type $T$ of a job is random and independent of anything else, and such that $\P{T=1} = p = 1-q = 1-\P{T=2}$. Then,
 \begin{align*}
-  \E{S} &= p/\mu_1 + q/\mu_2.
-  \end{align*}
+ \E{S} &= p/\mu_1 + q/\mu_2.
+ \end{align*}
 \begin{solution}
 Answer = A,~\cref{ex:49}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-The  $M/G/c/K$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
+The $M/G/c/K$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
 \begin{solution} Answer = B.~\cref{ex:29}
 \end{solution}
 \end{exercise}
@@ -1078,20 +1078,20 @@ The  $M/G/c/K$ shorthand means that jobs arrive as a Poisson process, job servic
 
 \begin{exercise}[201904]
  Consider the server of the $G/G/1$ queue as a system by itself.
-  The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
-  It follows from Little's law that the fraction of time the server is busy is $\lambda \E S$.
+ The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
+ It follows from Little's law that the fraction of time the server is busy is $\lambda \E S$.
 \begin{solution} Answer = A,~\cref{ex:37}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
- If   $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is  $A(t) =\sum_{n=0}^\infty A(n,t)$?
+ If $A(n,t) = \sum_{k=1}^\infty \1{A_k \leq t}\1{L(A_k-) = n}$, is $A(t) =\sum_{n=0}^\infty A(n,t)$?
 \begin{solution} Answer = A,~\cref{ex:36}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-If $\lambda>\delta$ it can happen that  $ \lim_{t\to\infty} A(n,t)/t > 0$ for some (finite) $n$. 
+If $\lambda>\delta$ it can happen that $ \lim_{t\to\infty} A(n,t)/t > 0$ for some (finite) $n$. 
 \begin{solution} Answer = B,~\cref{ex:38}
 \end{solution}
 \end{exercise}
@@ -1099,12 +1099,12 @@ If $\lambda>\delta$ it can happen that  $ \lim_{t\to\infty} A(n,t)/t > 0$ for so
 \begin{exercise}[201904]
 Let
 \begin{align*}
-    D(n,t) &= \sum_{k=1}^\infty \1{D_k \leq t} \1{L(D_k) = n}, &    Y(n,t) &= \int_0^t  \1{L(s) = n} \d s
-  \end{align*}
-  denote the number of departures up to time $t$ that leave $n$ customers behind and the total time the system contains $n$ jobs during $[0,t]$.
-  Then, the departure rate from state $n+1$ is
+ D(n,t) &= \sum_{k=1}^\infty \1{D_k \leq t} \1{L(D_k) = n}, & Y(n,t) &= \int_0^t \1{L(s) = n} \d s
+ \end{align*}
+ denote the number of departures up to time $t$ that leave $n$ customers behind and the total time the system contains $n$ jobs during $[0,t]$.
+ Then, the departure rate from state $n+1$ is
 \begin{equation*}
-  \mu(n+1) = \lim_{t\to\infty} \frac{D(n+1,t)}{Y(n+1,t)},
+ \mu(n+1) = \lim_{t\to\infty} \frac{D(n+1,t)}{Y(n+1,t)},
 \end{equation*}
 \begin{solution} Answer = B,~\cref{ex:39}
 \end{solution}
@@ -1120,7 +1120,7 @@ As $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of 
 
 
 \begin{exercise}[201904] 
-To model the  $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lambda(n) = \lambda$ for all $n$.
+To model the $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lambda(n) = \lambda$ for all $n$.
 \begin{solution} Answer = B,~\cref{ex:41}
 \end{solution}
 \end{exercise}
@@ -1128,21 +1128,21 @@ To model the  $M/M/c/c+K$ queue as an $M(n)/M(n)/1$ queue we need to take $\lamb
 \newpage
 
 \begin{exercise}[201904]
-  Take
-  \begin{align*}
-    \pi(n) &= \lim_{t\to\infty} \frac{A(n,t)}{A(t)}, & 
-    \delta(n) &= \lim_{t\to\infty} \frac{D(n,t)}{D(t)}. 
-  \end{align*}
-  Then, $\lambda\neq \delta \implies \pi(n) > \delta(n)$.
+ Take
+ \begin{align*}
+ \pi(n) &= \lim_{t\to\infty} \frac{A(n,t)}{A(t)}, & 
+ \delta(n) &= \lim_{t\to\infty} \frac{D(n,t)}{D(t)}. 
+ \end{align*}
+ Then, $\lambda\neq \delta \implies \pi(n) > \delta(n)$.
 \begin{solution} Answer = B,~\cref{ex:26}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  Consider a $M/D/1$ queue with $\lambda=1$ and $\E S = 0.10$. Then the SCV of its departure process is smaller than $0.5$.
+ Consider a $M/D/1$ queue with $\lambda=1$ and $\E S = 0.10$. Then the SCV of its departure process is smaller than $0.5$.
 \begin{solution}
-    Answer = B.
-    \begin{pyconsole}
+ Answer = B.
+ \begin{pyconsole}
 labda = 1
 ES = 0.10
 Ca = 1
@@ -1151,23 +1151,23 @@ rho = labda*ES
 rho
 Cd = (1-rho*rho)*Ca + rho*rho*Cs
 Cd
-      
-    \end{pyconsole}
+ 
+ \end{pyconsole}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904] 
 For a given single-server queueing system the average number of customers in the system is $\E L = 10$, customers arrive at rate $\lambda=4$ per hour and are served at rate $\mu=5$ per hour.
-  At the moment you join the system, the number of customers in the system is 10.
-  Your expected time in the system is, by Little's law, $\E W = \E L /\lambda = 2.5$ hour.
+ At the moment you join the system, the number of customers in the system is 10.
+ Your expected time in the system is, by Little's law, $\E W = \E L /\lambda = 2.5$ hour.
 \begin{solution} Answer = B,~\cref{ex:44}.
-    Depending on the service distribution, the expected time can be $10/2$, but it can also be something else.
-    This depends on the distribution of the remaining service time of the job in service at the moment you arrive.
+ Depending on the service distribution, the expected time can be $10/2$, but it can also be something else.
+ This depends on the distribution of the remaining service time of the job in service at the moment you arrive.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  When $\V{S} = 0$, it follows for the remaining service time $S_r$ that
+ When $\V{S} = 0$, it follows for the remaining service time $S_r$ that
 \begin{equation*}
 \E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S}2
 \end{equation*}
@@ -1177,27 +1177,27 @@ For a given single-server queueing system the average number of customers in the
 
 
 \begin{exercise}[201907]
-  For the $M/G/1$ queue with rate $\lambda=1$ per hour, $\P{A_k= k \text{ for all $k$}} > 0$.  
+ For the $M/G/1$ queue with rate $\lambda=1$ per hour, $\P{A_k= k \text{ for all $k$}} > 0$. 
 \begin{solution}
 Answer = B. $\P{A_k= k \text{ for all $k$}} = 0$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  For the computation of the waiting time of the single-server queue we assume that all random variables in the sequences $\{X_k\}$ and $\{S_k\}$ are independent.
-  This a necessary condition to compute the set of waiting times $\{W_k\}$.
+ For the computation of the waiting time of the single-server queue we assume that all random variables in the sequences $\{X_k\}$ and $\{S_k\}$ are independent.
+ This a necessary condition to compute the set of waiting times $\{W_k\}$.
 \begin{solution}
-  Answer = B.
-  Of course this is not necessary.
-  For instance, in a simulation these random variables are not independent. 
+ Answer = B.
+ Of course this is not necessary.
+ For instance, in a simulation these random variables are not independent. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \mu/(\lambda+\mu)=1-\P{a_k=0}$,  the random variable
-  \begin{equation*}
-    N(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
-  \end{equation*}
+ Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \mu/(\lambda+\mu)=1-\P{a_k=0}$, the random variable
+ \begin{equation*}
+ N(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
+ \end{equation*}
 has a Poisson distribution with rate $\lambda t$. 
 \begin{solution}
 Answer = B,~\cref{ex:89}
@@ -1212,29 +1212,29 @@ Answer = B. It is zero. Note that the services are described by an $M$, hence th
 \end{exercise}
 
 \begin{exercise}[201907]
-  If $L(t)/t \to 0$ as $t\to\infty$ it can still be true that  $0<\E L<\infty$.
+ If $L(t)/t \to 0$ as $t\to\infty$ it can still be true that $0<\E L<\infty$.
 \begin{solution}
 Answer = A,~\cref{ex:90}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  Consider the (stable) $M/G/1$ queue. The density $f_D$ of the interdeparture times is equal to the density $f_S$ of the service times. 
+ Consider the (stable) $M/G/1$ queue. The density $f_D$ of the interdeparture times is equal to the density $f_S$ of the service times. 
 \begin{solution}
 Answer = B,~\cref{ex:63}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  Suppose there are 10 jobs present at the $M/M/1$ queue with arrival rate $\lambda=3$ and service rate $\mu=4$ per hour.
-  The time to clear the system follows from Little's law and is $3\cdot 10 = 30$ hours.
+ Suppose there are 10 jobs present at the $M/M/1$ queue with arrival rate $\lambda=3$ and service rate $\mu=4$ per hour.
+ The time to clear the system follows from Little's law and is $3\cdot 10 = 30$ hours.
 \begin{solution}
 Answer = B.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  For the $M^X/M/1$ we have the recursion
+ For the $M^X/M/1$ we have the recursion
 \begin{equation*}
 \pi(n) = \frac \lambda \mu \sum_{i=0}^{n-1} \pi(n-1-i)G(i).
 \end{equation*}
@@ -1245,7 +1245,7 @@ The following code can be used to compute the \emph{unnormalized} probabilities 
 p[0] = 1
 G = [1, 0]
 for n in range(1, 5): # this goes up to, but does not include, 5
-    p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
+ p[n] = labda / mu * sum(p[n - 1 - i] * G[i] for i in range(min(n, len(G))))
 
 \end{pyverbatim}
 
@@ -1255,7 +1255,7 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201907]
-For the $M/G/1$ queue  the  up-crossing rate of level $n$ is equal to 
+For the $M/G/1$ queue the up-crossing rate of level $n$ is equal to 
 \begin{equation}
 \delta \delta(0) G(n) + \delta \sum_{m=1}^n \delta(m) G(n-m+1),
 \end{equation}
@@ -1266,12 +1266,12 @@ Answer = A, see~\cref{eq:555}.
 \end{exercise}
 
 \begin{exercise}[201907]
-  Consider a single-server queueing in discrete time, $k=0,1,\ldots$.
-  The machine can switch between a high and a slow production speed.
-  When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to a high speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the low speed $c_- < c_+$, otherwise the machine's speed remains the same.
-  The  variable $I_k$  keeps track of the state of the server and satisfies
+ Consider a single-server queueing in discrete time, $k=0,1,\ldots$.
+ The machine can switch between a high and a slow production speed.
+ When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to a high speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the low speed $c_- < c_+$, otherwise the machine's speed remains the same.
+ The variable $I_k$ keeps track of the state of the server and satisfies
 \begin{equation*}
-  I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_-\1{Q_k \leq m}.
+ I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_-\1{Q_k \leq m}.
 \end{equation*}
 \begin{solution}
 Answer = A.
@@ -1286,22 +1286,22 @@ Answer = A.
 \end{solution}
 \end{exercise}
 
-  
+ 
 \subsection{Open Questions}
 
 \begin{exercise}[201704] 
 Show with a level-crossing argument that
-  \begin{equation}\label{eq:90}
-  \lambda \pi(n) = \mu(n+1) p(n+1)
-  \end{equation}
-  for a queueing system in which jobs arrive and depart in single
-  units.
+ \begin{equation}\label{eq:90}
+ \lambda \pi(n) = \mu(n+1) p(n+1)
+ \end{equation}
+ for a queueing system in which jobs arrive and depart in single
+ units.
 \begin{solution}
-    $|A(n,t)-D(n,t)| \leq 1$. Hence
-    \begin{equation*}
-      \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
-      \frac{D(n+1, t)}{Y(n+1,t)} \frac{Y(n+1,t)}{t}.
-    \end{equation*}
+ $|A(n,t)-D(n,t)| \leq 1$. Hence
+ \begin{equation*}
+ \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
+ \frac{D(n+1, t)}{Y(n+1,t)} \frac{Y(n+1,t)}{t}.
+ \end{equation*}
 Now take the limit $t\to \infty$.
 
 Just saying that level-crossing implies $\lambda \pi(n) = \mu(n+1)p(n+1)$ is of course not a good answer. 
@@ -1309,42 +1309,42 @@ Just saying that level-crossing implies $\lambda \pi(n) = \mu(n+1)p(n+1)$ is of 
 \end{exercise}
 
 \begin{exercise}[201704]
-  What condition should be satisfied in the above Equation~\eqref{eq:90} so that PASTA holds? 
+ What condition should be satisfied in the above Equation~\eqref{eq:90} so that PASTA holds? 
 \begin{solution}
-    \begin{equation*}
-\frac{A(n,t)}t =  \frac{A(t)}{t} \frac{A(n,t)}{A(t)}   \frac{A(n, t)}{Y(n,t)} \frac{Y(n,t)}{t}.
-    \end{equation*}
+ \begin{equation*}
+\frac{A(n,t)}t = \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \frac{A(n, t)}{Y(n,t)} \frac{Y(n,t)}{t}.
+ \end{equation*}
 Now take the limit $t\to \infty$ to get
-    \begin{equation*}
+ \begin{equation*}
 \lambda \pi(n) = \lambda(n)p(n).
-    \end{equation*}
+ \end{equation*}
 Hence, when $\lambda=\lambda(n)$ for all $n$, $\pi(n)=p(n)$, which is the PASTA property.
 
 
-Some students said that $p(n)=\pi(n)$, but this is the meaning of PASTA, not the condition for PASTA. (For the curious, there is an Anti-PASTA theorem.)  
+Some students said that $p(n)=\pi(n)$, but this is the meaning of PASTA, not the condition for PASTA. (For the curious, there is an Anti-PASTA theorem.) 
 
 If you would just have said something like `Poisson arrivals', or `exponential interarrival times', I gave one point. The answer is not complete. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]
-  The server of an $M/M/1$ queue fails, with constant failure rate, once per 10 days.
-  The repair times are exponentially distributed with a mean of one day.
-  The job service times without failures have a mean of $2$ days.
-  Jobs arrive with rate $\lambda=1/3$ per day.
-  What is $\E{W}$?
+ The server of an $M/M/1$ queue fails, with constant failure rate, once per 10 days.
+ The repair times are exponentially distributed with a mean of one day.
+ The job service times without failures have a mean of $2$ days.
+ Jobs arrive with rate $\lambda=1/3$ per day.
+ What is $\E{W}$?
 \begin{solution}
-  The availability is $A=9/10$. Hence, $\E{S_e} = 2/(9/10)) = 20/9$. We also have
+ The availability is $A=9/10$. Hence, $\E{S_e} = 2/(9/10)) = 20/9$. We also have
 \begin{equation*}
-   C_e^2 = C_0^2 + 2A(1-A)\frac{m_r}{\E{S_0}} = 1 + 2\frac{9}{10}\frac1{10}\frac{2}.
+ C_e^2 = C_0^2 + 2A(1-A)\frac{m_r}{\E{S_0}} = 1 + 2\frac{9}{10}\frac1{10}\frac{2}.
  \end{equation*}
 Now,
 \begin{equation*}
-  \rho = \lambda \E{S_e} = \frac13 \frac{20}9 = \frac{20}{27}
+ \rho = \lambda \E{S_e} = \frac13 \frac{20}9 = \frac{20}{27}
 \end{equation*}
 and
 \begin{equation*}
-  \E{W_Q} = \frac{1 + C_e^2}2 \frac{\rho}{1-\rho} \E S = \frac{1 + C_e^2}2 \frac{20/27}{7/27} \frac{20}9
+ \E{W_Q} = \frac{1 + C_e^2}2 \frac{\rho}{1-\rho} \E S = \frac{1 + C_e^2}2 \frac{20/27}{7/27} \frac{20}9
 \end{equation*}
 Finally, $E W = \E{W_Q} + \E{S_e}$.
 
@@ -1353,24 +1353,24 @@ It is essential that you should that both $\E S$ and $C_e^2$ are affected by fai
 \end{exercise}
 
 \begin{exercise}[201704]%15
-  Consider the $M^X/M/1$ queue with $G(n) = \P{B>n}$.
-  With level crossing arguments we \emph{nearly} get
+ Consider the $M^X/M/1$ queue with $G(n) = \P{B>n}$.
+ With level crossing arguments we \emph{nearly} get
 \begin{equation*}
-\lambda  \sum_{m=0}^n G(n-1-m) \pi(m) = \mu \pi(n+1).
+\lambda \sum_{m=0}^n G(n-1-m) \pi(m) = \mu \pi(n+1).
 \end{equation*}
 What is wrong with this formula, and repair it.
 \begin{solution}
 \begin{equation*}
-\lambda  \sum_{m=0}^n G(n-m) \pi(m) = \mu \pi(n+1).
+\lambda \sum_{m=0}^n G(n-m) \pi(m) = \mu \pi(n+1).
 \end{equation*}
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201706]
- Show that an  exponentially distributed random variable is memoryless.
+ Show that an exponentially distributed random variable is memoryless.
 \begin{solution}
-  See the book.
+ See the book.
 
 No points if you do not explicitly use the exponential distribution.
 \end{solution}
@@ -1380,7 +1380,7 @@ No points if you do not explicitly use the exponential distribution.
 \begin{exercise}[201706]
  Suppose an $M/M/1$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
 \begin{solution}
-  See the book. $\P{\min\{X, S\} > x} = \exp{-(\mu+\lambda) x}$. 
+ See the book. $\P{\min\{X, S\} > x} = \exp{-(\mu+\lambda) x}$. 
 
 A number of students don't seem to understand the difference between time and number. The time to the next event is exponentially distributed. The fact that the number of jobs arriving in a certain amount of time is Poisson distributed is not the same as that the time to the next event is Poisson distributed. 
 
@@ -1391,63 +1391,63 @@ Stating that the time is $\min\{X,Y\}$ where $X$ and $Y$ are exp. distr. random 
 \begin{exercise}[201706]
  Suppose an $M/M/4$ queue contains $5$ jobs at time some $t>0$. Jobs arrive at rate $\lambda$ and have average service time $\mu^{-1}$. What is the distribution of the time until the next event (arrival or departure epoch)?
 \begin{solution}
-  See the book. $\P{\min\{X, S_1,\ldots, S_4\} > x} = \exp{-(4\mu+\lambda) x}$. 
+ See the book. $\P{\min\{X, S_1,\ldots, S_4\} > x} = \exp{-(4\mu+\lambda) x}$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
-  If the inter-arrival times $\{X_i\}$ are i.i.d. and exponentially
-  distributed with mean $1/\lambda$, prove that the number $N(t)$ of
-  arrivals during interval $[0,t]$ is Poisson distributed.
-Use that $\P{A_{k} \leq t}  = \int_0^t \lambda e^{-\lambda s} \frac{(\lambda s)^{k-1}}{(k-1)!} \d s$, where $A_k$ is the arrival time of the $k$th arrival.
+ If the inter-arrival times $\{X_i\}$ are i.i.d. and exponentially
+ distributed with mean $1/\lambda$, prove that the number $N(t)$ of
+ arrivals during interval $[0,t]$ is Poisson distributed.
+Use that $\P{A_{k} \leq t} = \int_0^t \lambda e^{-\lambda s} \frac{(\lambda s)^{k-1}}{(k-1)!} \d s$, where $A_k$ is the arrival time of the $k$th arrival.
 \begin{solution}
 See the book.
 
-      We want to show that
-    \begin{equation*}
-      \P{N(t)=k} = e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
-    \end{equation*}
-    Now observe that
-    $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.  Using the
-    density of $A_{k+1}$ as obtained previously and applying partial
-    integration leads to
+ We want to show that
+ \begin{equation*}
+ \P{N(t)=k} = e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
+ \end{equation*}
+ Now observe that
+ $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$. Using the
+ density of $A_{k+1}$ as obtained previously and applying partial
+ integration leads to
 \begin{equation*}
-  \begin{split}
+ \begin{split}
 \P{A_{k+1} \leq t} 
 &= \lambda \int_0^t \frac{(\lambda s)^{k}}{k!}e^{-\lambda s}\, \d s \\
 &= \lambda \frac{(\lambda s)^{k}}{k!}\frac{e^{-\lambda s}}{-\lambda} \Big|_{0}^t + \lambda \int_0^t \frac{(\lambda s)^{k-1}}{(k-1)!}e^{-\lambda s}\, \d s \\
 &= - \frac{(\lambda t)^{k}}{k!} e^{-\lambda t} + \P{A_k \leq t}
-  \end{split}
+ \end{split}
 \end{equation*}
 We are done.
 
-Half point for stating that we are looking for $\P{A_k\leq t} - \P{A_{k+1}\leq t}$.  Some students reversed these two probabilities. It is simple to see that that is wrong.
+Half point for stating that we are looking for $\P{A_k\leq t} - \P{A_{k+1}\leq t}$. Some students reversed these two probabilities. It is simple to see that that is wrong.
 
 For a full point I also wanted to see the algebra that leads to the final answer. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
-  Consider a single-server queueing in discrete time, $k=0,1,\ldots$.
-  The machine can switch between a high and a low production speed.
-  When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to the high speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the low speed $c_- < c_+$, otherwise the machine's speed remains the same.
-  The arrival process is given by $\{a_k\}$.
-  Assuming the arrivals $a_k$ in period $k$ cannot be served on day $k$, establish a set of recursions to enable a simulation of this system.
-  Assume that $Q_0=0$.
+ Consider a single-server queueing in discrete time, $k=0,1,\ldots$.
+ The machine can switch between a high and a low production speed.
+ When the queue is larger than or equal to $M$ at the start of period $k$, the machine switches to the high speed $c_+$; when the queue becomes smaller or equal to $m$, $0\leq m<M$, the machine switches to the low speed $c_- < c_+$, otherwise the machine's speed remains the same.
+ The arrival process is given by $\{a_k\}$.
+ Assuming the arrivals $a_k$ in period $k$ cannot be served on day $k$, establish a set of recursions to enable a simulation of this system.
+ Assume that $Q_0=0$.
 \begin{solution}
-    First we need to implement the switching policy. For this we need an extra
-    variable to keep track of the state of the server. Let $I_k=c_+$ if the machine is working fast in period $k$ and $I_k=c_-$ if it is working slowly. Then $\{I_k\}$ must satisfy the relation
-    \begin{equation*}
-      I_{k+1} =
-      \begin{cases}
-        c_+ & \text{ if } Q_{k} \geq M,\\
-        c_- & \text{ if }  Q_{k} <= m,\\
-        I_k & \text{ else. }
-      \end{cases}
-    \end{equation*}
+ First we need to implement the switching policy. For this we need an extra
+ variable to keep track of the state of the server. Let $I_k=c_+$ if the machine is working fast in period $k$ and $I_k=c_-$ if it is working slowly. Then $\{I_k\}$ must satisfy the relation
+ \begin{equation*}
+ I_{k+1} =
+ \begin{cases}
+ c_+ & \text{ if } Q_{k} \geq M,\\
+ c_- & \text{ if } Q_{k} <= m,\\
+ I_k & \text{ else. }
+ \end{cases}
+ \end{equation*}
 and assume that $I_0 =c_+$ at the start, i.e., the machine if off. Thus, we can write:
 \begin{equation*}
-  I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_- \1{Q_k \leq m}.
+ I_{k+1} = c_+ \1{Q_k\geq M} + I_k \1{m<Q_k<M} + c_- \1{Q_k \leq m}.
 \end{equation*}
 With $I_k$ it follows that $d_k =\min\{Q_{k-1}, I_k \}$, from which
 $Q_k$ follows, and so on.
@@ -1461,18 +1461,18 @@ I want to see an update rule for the state of the machine. If that is missing or
 For the previous problem, provide a formula to compute (count) the number of times the machine switches to the fast state during the first $n$ periods. 
 \begin{solution}
 \begin{equation*}
-  \sum_{k=1}^n \1{I_{k-1}=c_- ,\/ I_k = c_+}.
+ \sum_{k=1}^n \1{I_{k-1}=c_- ,\/ I_k = c_+}.
 \end{equation*}
 
 The expression 
 \begin{equation*}
-  \sum_{k=1}^n \1{Q_k > m} 
+ \sum_{k=1}^n \1{Q_k > m} 
 \end{equation*}
 counts too many periods.
 
 This,
 \begin{equation*}
-  \sum_{k=1}^n (\1{I_{k-1}=c_-} - \1{I_k = c_+})^2
+ \sum_{k=1}^n (\1{I_{k-1}=c_-} - \1{I_k = c_+})^2
 \end{equation*}
 counts all changes in speed.
 
@@ -1481,14 +1481,14 @@ counts all changes in speed.
 
 
 \begin{exercise}[201706] 
-Related to the previous problem, assuming that the average arrival rate of jobs $ a = \lim_{n\to\infty} 1/n \sum_k^n a_k$ is such that $c_- <  a <c_+$. What is the average cycle time, i.e., the average time  between two moments the machine switches to the fast state?   (More specifically, let $\tau_n$ be the $n$th time the machine switches to the fast state. What is $\lim_{n\to\infty} n^{-1} \E{\tau_n}$?)
+Related to the previous problem, assuming that the average arrival rate of jobs $ a = \lim_{n\to\infty} 1/n \sum_k^n a_k$ is such that $c_- < a <c_+$. What is the average cycle time, i.e., the average time between two moments the machine switches to the fast state? (More specifically, let $\tau_n$ be the $n$th time the machine switches to the fast state. What is $\lim_{n\to\infty} n^{-1} \E{\tau_n}$?)
 \begin{solution}
-  The time $T_1$ to move from slow to fast satisfies $(a-c_-) T_1 = M-m$, and the time to move from fast to slow satisfies $(c_+-a)T_2 = M - m$. The total cycle time is $T_1 + T_2$. 
+ The time $T_1$ to move from slow to fast satisfies $(a-c_-) T_1 = M-m$, and the time to move from fast to slow satisfies $(c_+-a)T_2 = M - m$. The total cycle time is $T_1 + T_2$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
-  Provide a real-world example for the queueing model of the previous three problems.
+ Provide a real-world example for the queueing model of the previous three problems.
 \begin{solution} A machine that needs to be warm/hot to produce. When there are no jobs, it is better to switch it off ($m=0$ case); only switch it on when the queue length in front of it is longer than $M$. If $m>0$, assume that the machine can work at two speeds, but the higher speed requires more power. 
 \end{solution}
 \end{exercise}
@@ -1496,10 +1496,10 @@ Related to the previous problem, assuming that the average arrival rate of jobs 
 
 
 \begin{exercise}[201706]
-  Can you make an arrival process such that $\frac{A(t)}t$ as $t\to\infty$ does not have a
-  limit?  
+ Can you make an arrival process such that $\frac{A(t)}t$ as $t\to\infty$ does not have a
+ limit? 
 \begin{solution}
-For instance, let  $a_k$ be the number of arrivals in period $k$. Then take $a_1=1$, $a_2=a_3 = 0$, $a_4=a_5=1$, and then we have 3 period with no arrivals, and 3 periods with 1 arrivals and then 4 without and 4 with 1 arrival, and so on. 
+For instance, let $a_k$ be the number of arrivals in period $k$. Then take $a_1=1$, $a_2=a_3 = 0$, $a_4=a_5=1$, and then we have 3 period with no arrivals, and 3 periods with 1 arrivals and then 4 without and 4 with 1 arrival, and so on. 
 
 
 I accepted the following suggestion $A(t)=t^2$. However, formally the limit does exist, it is $\lim_{t\to\infty} t^2/t = \infty$. 
@@ -1507,12 +1507,12 @@ I accepted the following suggestion $A(t)=t^2$. However, formally the limit does
 \end{exercise}
 
 \begin{exercise}[201706]
-  Consider the $M/M/1$ queue with arrival rate $\lambda=3$ per hour and average service times $\E S = 10$ minutes. What is the value of
-  \begin{equation*}
-    \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n \1{L(A_k-) = 3}?
-  \end{equation*}
+ Consider the $M/M/1$ queue with arrival rate $\lambda=3$ per hour and average service times $\E S = 10$ minutes. What is the value of
+ \begin{equation*}
+ \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n \1{L(A_k-) = 3}?
+ \end{equation*}
 \begin{solution}
-  By the PASTA property, arrivals of an $M/G/n$ queue see the time average stationary distribution. Thus, we can focus on the time-average probability that the system contains 3 jobs. This is $(1-\rho)\rho^3$. Here, $\rho = 3\cdot 10/60 = 1/2$.  Clearly, $\rho<1$, hence the system is stable. 
+ By the PASTA property, arrivals of an $M/G/n$ queue see the time average stationary distribution. Thus, we can focus on the time-average probability that the system contains 3 jobs. This is $(1-\rho)\rho^3$. Here, $\rho = 3\cdot 10/60 = 1/2$. Clearly, $\rho<1$, hence the system is stable. 
 \end{solution}
 \end{exercise}
 
@@ -1520,7 +1520,7 @@ I accepted the following suggestion $A(t)=t^2$. However, formally the limit does
 \begin{exercise}[201706]
 State explicitly all relevant assumptions you needed to make in the previous problem to obtain an answer.
 \begin{solution}
-  See the previous problem: pasta + stability. Just mentioning PASTA is ok. 
+ See the previous problem: pasta + stability. Just mentioning PASTA is ok. 
 \end{solution}
 \end{exercise}
 
@@ -1528,40 +1528,40 @@ State explicitly all relevant assumptions you needed to make in the previous pro
 
 \begin{exercise}[201706]
  The queueing system at a fast-food stand behaves in a
-  peculiar fashion. When there is no one in the queue, people are
-  reluctant to use the stand, fearing that the food is
-  unsavory. People are also reluctant to use the stand when the queue
-  is long. This yields the following arrival rates (in numbers per hour): $\lambda(0) = 10$, $\lambda(1)=15$, $\lambda(2)=15$, $\lambda(3)=10$, $\lambda(4)=5$, $\lambda(n)=0, n\geq 5$. The stand has two servers, each of which can operate at 5 customers per hour. Service times are exponential, and the arrival process is Poisson. 
+ peculiar fashion. When there is no one in the queue, people are
+ reluctant to use the stand, fearing that the food is
+ unsavory. People are also reluctant to use the stand when the queue
+ is long. This yields the following arrival rates (in numbers per hour): $\lambda(0) = 10$, $\lambda(1)=15$, $\lambda(2)=15$, $\lambda(3)=10$, $\lambda(4)=5$, $\lambda(n)=0, n\geq 5$. The stand has two servers, each of which can operate at 5 customers per hour. Service times are exponential, and the arrival process is Poisson. 
  Calculate the steady state probabilities.
 \begin{solution}
-  See the book. Note that the rate from state 1 to 0 is $5$, not $10$. 
+ See the book. Note that the rate from state 1 to 0 is $5$, not $10$. 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201706]
-  For the previous question, customers spend 10 Euro on average on an order.
-  What is the rate at which the stand makes money?
-  What theorem(s) do you need to use to compute this?
+ For the previous question, customers spend 10 Euro on average on an order.
+ What is the rate at which the stand makes money?
+ What theorem(s) do you need to use to compute this?
 \begin{solution}
 see the book. 
-    The rate at which customers are accepted is $\sum_{n} \lambda_n p_n$. Multiply this by 10 to get the rate at which the system makes money. Note that this is not $10 \E L$. Customers pay to get served, not to stay in the line\ldots
+ The rate at which customers are accepted is $\sum_{n} \lambda_n p_n$. Multiply this by 10 to get the rate at which the system makes money. Note that this is not $10 \E L$. Customers pay to get served, not to stay in the line\ldots
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201804] 
-Show with a level-crossing argument  that for the $M/M/1$ queue 
-  \begin{equation}\label{eq:91}
-  \pi(n) = \delta(n).
-  \end{equation}
+Show with a level-crossing argument that for the $M/M/1$ queue 
+ \begin{equation}\label{eq:91}
+ \pi(n) = \delta(n).
+ \end{equation}
 
 \begin{solution}
-    $A(n,t) \approx D(n,t)$. Hence
-    \begin{equation*}
-      \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
-      \frac{D(n, t)}{D(t)} \frac{D(t)}{t}.
-    \end{equation*}
+ $A(n,t) \approx D(n,t)$. Hence
+ \begin{equation*}
+ \frac{A(t)}{t} \frac{A(n,t)}{A(t)} \approx 
+ \frac{D(n, t)}{D(t)} \frac{D(t)}{t}.
+ \end{equation*}
 Now take the limit $t\to \infty$ to get $\lambda \pi(n) = \delta(n) \delta$. 
 
 Using $D(n,t)/Y(n,t) \cdot Y(n,t)/t$ is plain wrong (check the book). $-1/2$. 
@@ -1569,7 +1569,7 @@ Using $D(n,t)/Y(n,t) \cdot Y(n,t)/t$ is plain wrong (check the book). $-1/2$.
 \end{exercise}
 
 \begin{exercise}[201804]
-  What condition should be satisfied in~\cref{eq:91} so that it holds? 
+ What condition should be satisfied in~\cref{eq:91} so that it holds? 
 \begin{solution}
 Rate stability, i.e., $\lambda = \delta$. 
 \end{solution}
@@ -1578,7 +1578,7 @@ Rate stability, i.e., $\lambda = \delta$.
 \begin{exercise}[201804]
 Does~\cref{eq:91} also hold for the $G/G/1$ queue (motivate).
 \begin{solution}
-Sure, to derive~\cref{eq:91}, we only used counting arguments, but nothing  in particular about the interarrival times. 
+Sure, to derive~\cref{eq:91}, we only used counting arguments, but nothing in particular about the interarrival times. 
 
 Some students say no, because it is not true in case of batch arrivals. Ok. but recall, by assumption we are dealing here with $G/G/1$ queue\ldots
 \end{solution}
@@ -1588,9 +1588,9 @@ Some students say no, because it is not true in case of batch arrivals. Ok. but 
 Does~\cref{eq:91} imply the PASTA property (motivate).
 \begin{solution}
 No, for PASTA we need more. 
-    \begin{equation*}
-      \frac{A(t)}{t} \frac{A(n,t)}{A(t)}  = \frac{A(n, t)}{Y(n, t)} \frac{Y(n,t)}{t}
-    \end{equation*}
+ \begin{equation*}
+ \frac{A(t)}{t} \frac{A(n,t)}{A(t)} = \frac{A(n, t)}{Y(n, t)} \frac{Y(n,t)}{t}
+ \end{equation*}
 Taking limits gives $\lambda \pi(n) = \lambda(n) p(n)$. When $\lambda(n)=\lambda$, arrivals see time averages. In particular, when the arrival process is Poisson, $\lambda(n)=\lambda$. 
 
 Some students seem to think that if you use PASTA to prove that $\pi(n)=\delta(n)$ (which is a bit convoluted), that this $\pi(n)=\delta(n)$ then implies PASTA. This, however, is a simple logical failure: note that $p\implies q$ is not the same as $q\implies p$. (A dog is an animal with four legs, an animal with four legs is not necessarily a dog\ldots)
@@ -1599,11 +1599,11 @@ Some students seem to think that if you use PASTA to prove that $\pi(n)=\delta(n
 \end{exercise}
 
 \begin{exercise}[201804]
-  Use the Pollack-Khintchine equation to show for the $M/M/1$ queue that $\E{L}=\rho/(1-\rho)$. 
+ Use the Pollack-Khintchine equation to show for the $M/M/1$ queue that $\E{L}=\rho/(1-\rho)$. 
 \begin{solution}
-    \begin{equation*}
-    \E{W_q}= \frac{1+C_a^2}2 \frac \rho{1-\rho} \E S = \frac \rho{1-\rho} \E S,
-    \end{equation*}
+ \begin{equation*}
+ \E{W_q}= \frac{1+C_a^2}2 \frac \rho{1-\rho} \E S = \frac \rho{1-\rho} \E S,
+ \end{equation*}
 since for the $M/M/1$ queue, $C_a^2=1$. Next, $\E W=\E{W_q} + \E S$. Thus, with Little's law, 
 \begin{equation*}
 \E L = \lambda \E W = \frac{\rho^2}{1-\rho} + \rho.
@@ -1615,11 +1615,11 @@ Not using the PK-formula: no point.
 \end{exercise}
 
 \begin{exercise}[201807]\label{ex:86}
-Consider the queueing system below. Jobs arrive as a Poisson process with rate $\lambda$. Service times are exponential service with  mean $(2\mu)^{-1}$ when there are two jobs in the system, and mean $\mu^{-1}$ when there are 3 jobs. What is $p(2)$ if $\lambda=\mu=1$?
+Consider the queueing system below. Jobs arrive as a Poisson process with rate $\lambda$. Service times are exponential service with mean $(2\mu)^{-1}$ when there are two jobs in the system, and mean $\mu^{-1}$ when there are 3 jobs. What is $p(2)$ if $\lambda=\mu=1$?
 
 \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$0$}; 
 \node[state] (1) [right of=0] {$1$}; 
 \node[state] (2) [right of=1] {$2$}; 
@@ -1638,13 +1638,13 @@ Consider the queueing system below. Jobs arrive as a Poisson process with rate $
 
 
 \begin{solution}
-The  level crossing equations are like this:
-  \begin{align*}
-    \lambda p(0)  &= 2\mu p(2) \\
-    \lambda p(1)  &= 2\mu p(2) +\mu p(3) \\
-    \lambda p(2)  &= \mu p(3) 
-  \end{align*}
-Since $\lambda=\mu$,  $p(0) = 2p(2)$, $p(2) = p(3)$. But then, from the second equation: $p(1) = 3p(2)$. Finally, since $\sum p(i) = 1$, we get that $p(2)(2+3+1+1)=7$. Hence $p(2)=1/7$. 
+The level crossing equations are like this:
+ \begin{align*}
+ \lambda p(0) &= 2\mu p(2) \\
+ \lambda p(1) &= 2\mu p(2) +\mu p(3) \\
+ \lambda p(2) &= \mu p(3) 
+ \end{align*}
+Since $\lambda=\mu$, $p(0) = 2p(2)$, $p(2) = p(3)$. But then, from the second equation: $p(1) = 3p(2)$. Finally, since $\sum p(i) = 1$, we get that $p(2)(2+3+1+1)=7$. Hence $p(2)=1/7$. 
 \end{solution}
 \end{exercise}
 
@@ -1652,23 +1652,23 @@ Since $\lambda=\mu$,  $p(0) = 2p(2)$, $p(2) = p(3)$. But then, from the second e
 \begin{exercise}[201807] 
 What is the fraction of lost jobs?
 \begin{solution}
-    First use PASTA to see that $\pi(n) = p(n)$. Then, conclude that $\pi(3) = p(3) = 1/7$. 
+ First use PASTA to see that $\pi(n) = p(n)$. Then, conclude that $\pi(3) = p(3) = 1/7$. 
 
 You need to mention that you used PASTA. Its not evident that $p(n)=\pi(n)$. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201807]  
+\begin{exercise}[201807] 
 Suppose the manager is unsatisfied with the loss rate. Writing $x=\lambda/\mu$ for ease, what condition should $x$ satisfy such that the loss probability is less than some threshold $\alpha$? (Just show the condition on $x$; you do not have to solve for $x$.) 
 \begin{solution}
-    Now, 
-    \begin{align*}
-      p(2) &= \frac 2 x p(1) & p(3) &= x p(2)= \frac{x^2}2 p(0) \\
+ Now, 
+ \begin{align*}
+ p(2) &= \frac 2 x p(1) & p(3) &= x p(2)= \frac{x^2}2 p(0) \\
 p(1)&=\frac 2 x p(2) + \frac 1 x p(3) = p(0)(1+\frac x 2).
-    \end{align*}
+ \end{align*}
 Hence
 \begin{align*}
-  p(0) (1+1 + \frac x 2 + \frac x 2 + \frac{x^2} 2)  =1.
+ p(0) (1+1 + \frac x 2 + \frac x 2 + \frac{x^2} 2) =1.
 \end{align*}
 With this we have, for given $x$, found $p(0)$. Then we want $x$ to be such that
 \begin{align*}
@@ -1683,7 +1683,7 @@ With this we have, for given $x$, found $p(0)$. Then we want $x$ to be such that
  Assume again that $\lambda=\mu=1$. Would the loss be reduced if the manager extends the system to four $4$ positions like this:
 \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$0$}; 
 \node[state] (1) [right of=0] {$1$}; 
 \node[state] (2) [right of=1] {$2$}; 
@@ -1713,23 +1713,23 @@ In simple terms, if there is a waiting room with 3 seats, and you add an extra s
 
 
 \begin{exercise}[201807]
-  Consider the $G/G/n/K$ queue (specifically, the system can contain at most $K$ jobs).
-  Let $\lambda$ be the arrival rate, $\mu$ the service rate, $\beta$ the long-run fraction of customers lost, and $\rho$ the average number of busy/occupied servers Show that
-  \begin{equation}\label{eq:86}
-    \beta = 1 - \rho\frac{\mu}{\lambda}.
-  \end{equation}
+ Consider the $G/G/n/K$ queue (specifically, the system can contain at most $K$ jobs).
+ Let $\lambda$ be the arrival rate, $\mu$ the service rate, $\beta$ the long-run fraction of customers lost, and $\rho$ the average number of busy/occupied servers Show that
+ \begin{equation}\label{eq:86}
+ \beta = 1 - \rho\frac{\mu}{\lambda}.
+ \end{equation}
 \begin{solution}
-    Jobs arrive at rate $\lambda$.
-    The fraction accepted is $(1-\beta)$.
-    Hence, the rate at which jobs enter is $\lambda(1-\beta)$. The average time jobs stay in the system is $1\\mu$. Thus, by Little's law, the average number of jobs in the system $\rho=\lambda(1-\beta)/\mu$. 
+ Jobs arrive at rate $\lambda$.
+ The fraction accepted is $(1-\beta)$.
+ Hence, the rate at which jobs enter is $\lambda(1-\beta)$. The average time jobs stay in the system is $1\\mu$. Thus, by Little's law, the average number of jobs in the system $\rho=\lambda(1-\beta)/\mu$. 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201807]
-  Explain why~\cref{eq:86} not applicable for the queueing system of question~\cref{ex:86}.
+ Explain why~\cref{eq:86} not applicable for the queueing system of question~\cref{ex:86}.
 \begin{solution}
-    The service times are not i.i.d., they depend on the number of jobs in the system, in other words, the service rate in state 2 is $2\mu$, while in state 1 it is 0 and in state 3 it is $\mu$. Its simply not a $G/G/n/K$ queue, even though there is loss. 
+ The service times are not i.i.d., they depend on the number of jobs in the system, in other words, the service rate in state 2 is $2\mu$, while in state 1 it is 0 and in state 3 it is $\mu$. Its simply not a $G/G/n/K$ queue, even though there is loss. 
 
 
 Interestingly, quite a number of students mess up the concepts of $G/G/1$ and so on. Note that the the $M/M/1$ queue is a special case of the $M/M/1$ queue, and this in turn is a special case of the $G/G/n$ queue. Check out the definitions in the book.
@@ -1745,23 +1745,23 @@ In the $M/M/c$ queue it is assumed that all servers work at the same rate.
 However, in practice, this is not always the case.
 In this section, from~\cref{ex1}--\cref{ex:2}, we make a model by which we can analyze the effects of servers with different speeds.
 
-  A station has two parallel servers, the service times of the first are $\Exp(\mu_1)$ and of the second $\Exp(\mu_2)$.
-  Jobs arrive as a Poisson process with rate $\lambda$.
-  %The queue can contain at most one job.
-  The queue cannot contain a job, hence any job arriving when both servers are busy is rejected.
-  When the system is empty, jobs are routed to the first server.
-  %When there is a job in the queue, the job is served by the server that becomes free the earliest.
+ A station has two parallel servers, the service times of the first are $\Exp(\mu_1)$ and of the second $\Exp(\mu_2)$.
+ Jobs arrive as a Poisson process with rate $\lambda$.
+ %The queue can contain at most one job.
+ The queue cannot contain a job, hence any job arriving when both servers are busy is rejected.
+ When the system is empty, jobs are routed to the first server.
+ %When there is a job in the queue, the job is served by the server that becomes free the earliest.
 
 \begin{exercise}[201904] \label{ex1}
-  Explain that the figure below contains all the relevant states.
+ Explain that the figure below contains all the relevant states.
 
-% Consider the queueing system below. Jobs arrive as a Poisson process with rate $\lambda$. Service times are exponential service with  mean $(2\mu)^{-1}$ when there are two jobs in the system, and mean $\mu^{-1}$ when there are 3 jobs. What is $p(2)$ if $\lambda=\mu=1$?
+% Consider the queueing system below. Jobs arrive as a Poisson process with rate $\lambda$. Service times are exponential service with mean $(2\mu)^{-1}$ when there are two jobs in the system, and mean $\mu^{-1}$ when there are 3 jobs. What is $p(2)$ if $\lambda=\mu=1$?
 
 \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$0,0$}; 
-\node[state] (1) [above right  of=0] {$1,0$}; 
+\node[state] (1) [above right of=0] {$1,0$}; 
 \node[state] (2) [below right of=0] {$0, 1$}; 
 \node[state] (3) [right of=0] {$1, 1$}; 
 
@@ -1776,20 +1776,20 @@ In this section, from~\cref{ex1}--\cref{ex:2}, we make a model by which we can a
 \end{tikzpicture}
 \end{center}
 \begin{solution}
-  $(0,0)$ both servers are empty, $(1,0)$ first server is busy, $(0,1)$ second server is busy, $(1,1)$ both servers are busy.
-  As no jobs can be in queue, these are all possible states.
+ $(0,0)$ both servers are empty, $(1,0)$ first server is busy, $(0,1)$ second server is busy, $(1,1)$ both servers are busy.
+ As no jobs can be in queue, these are all possible states.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  Add arrows to the figure of the state space to indicate the possible transitions and add the rates.
+ Add arrows to the figure of the state space to indicate the possible transitions and add the rates.
 
 \begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=1,->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$0,0$}; 
-\node[state] (1) [above right  of=0] {$1,0$}; 
+\node[state] (1) [above right of=0] {$1,0$}; 
 \node[state] (2) [below right of=0] {$0, 1$}; 
 \node[state] (3) [right of=0] {$1, 1$}; 
 
@@ -1806,50 +1806,50 @@ In this section, from~\cref{ex1}--\cref{ex:2}, we make a model by which we can a
 \end{tikzpicture}
 \end{center}
 There cannot be an arrow from $(1,1)$ to $(0,0)$, nor from $(0,0)$ to $(0,1)$ (Besides that this is not in line with the problem specification, why would you join the slow server if the fast is free?)
-    
+ 
 \end{solution}
 \end{exercise}
 
 %To simplify the computations, assume henceforth that $\mu_1=2\mu_2$.
 
 \begin{exercise}[201904]
-  Find an expression for the long-run fraction of time the system is empty. (You might want to use balance equations here.)
+ Find an expression for the long-run fraction of time the system is empty. (You might want to use balance equations here.)
 \begin{solution}
-    For ease, call $p(0,0)=a$, $p(1,0)=b$, $p(1,1)=c$, $p(0,1)=d$.
-    Balance equations:
-    \begin{align*}
-      \lambda a &= \mu_1b + \mu_2 d\\
-      (\lambda +\mu_1) b &=  \lambda a + \mu_2 c\\
-      (\mu_1 +\mu_2) c &=  \lambda b + \lambda d\\
-      (\lambda  +\mu_2) d &=  \mu_1 c.
-    \end{align*}
-    Thus, from (4) we have $d$ as function of $c$. With (3) we get $c$ as function of $b$. With (2) we get $b$ as function of $a$. Then normalize to get $a$.
+ For ease, call $p(0,0)=a$, $p(1,0)=b$, $p(1,1)=c$, $p(0,1)=d$.
+ Balance equations:
+ \begin{align*}
+ \lambda a &= \mu_1b + \mu_2 d\\
+ (\lambda +\mu_1) b &= \lambda a + \mu_2 c\\
+ (\mu_1 +\mu_2) c &= \lambda b + \lambda d\\
+ (\lambda +\mu_2) d &= \mu_1 c.
+ \end{align*}
+ Thus, from (4) we have $d$ as function of $c$. With (3) we get $c$ as function of $b$. With (2) we get $b$ as function of $a$. Then normalize to get $a$.
 
-    This is NOT a Jackson network\ldots
+ This is NOT a Jackson network\ldots
 \end{solution}
 \end{exercise}
 
 \newpage
 
 \begin{exercise}[201904]
-  Express the long-run fraction of lost jobs in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. Explain your reasoning.
+ Express the long-run fraction of lost jobs in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. Explain your reasoning.
 \begin{solution}
-  Jobs arrive at rate $\lambda$.
-  By PASTA $\lambda p(1, 1)$ is the rate at which jobs are lost.
-  Hence, the loss fraction is $p(1, 1)$.
-  Note, that $\lambda p(1,1) \neq p(1,1)$, but somehow, many students give the answer $\lambda p(1,1)$.
-  Even by checking the units (number per unit time versus just number) it is apparent that $\lambda p(1,1)$ must be wrong.
-  You need to mention that you used PASTA.
-  Its not evident that it is $p(1, 1)$.
+ Jobs arrive at rate $\lambda$.
+ By PASTA $\lambda p(1, 1)$ is the rate at which jobs are lost.
+ Hence, the loss fraction is $p(1, 1)$.
+ Note, that $\lambda p(1,1) \neq p(1,1)$, but somehow, many students give the answer $\lambda p(1,1)$.
+ Even by checking the units (number per unit time versus just number) it is apparent that $\lambda p(1,1)$ must be wrong.
+ You need to mention that you used PASTA.
+ Its not evident that it is $p(1, 1)$.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201904]
-  By making the simplifying assumption that $\mu_1 = \mu_2$ the above system reduces to a simpler queueing system for which we have closed-form solutions for the state probabilities.
+ By making the simplifying assumption that $\mu_1 = \mu_2$ the above system reduces to a simpler queueing system for which we have closed-form solutions for the state probabilities.
 What is this simpler queueing system?
 \begin{solution}
-  If $\mu_2=\mu_1$ and the queue can contain no job, then the above system reduces to the $M/M/2/2$ queue. It is not the $M/M/1$ or $M/M/2$ or $M/M/1/2$ queue. 
+ If $\mu_2=\mu_1$ and the queue can contain no job, then the above system reduces to the $M/M/2/2$ queue. It is not the $M/M/1$ or $M/M/2$ or $M/M/1/2$ queue. 
 \end{solution}
 \end{exercise}
 
@@ -1859,16 +1859,16 @@ Suppose we can extend the system such that one job can be queued.
 \begin{exercise}[201904] 
 Make a sketch of the state space and include the transitions and rates. 
 \begin{solution}
-  Add a state $(1)$ to the right of $(1,1)$. There is an arrow $\lambda$ from $(1,1)$ to $(1)$, and an arrow $\mu_1 + \mu_2$ in the other direction.
+ Add a state $(1)$ to the right of $(1,1)$. There is an arrow $\lambda$ from $(1,1)$ to $(1)$, and an arrow $\mu_1 + \mu_2$ in the other direction.
 
-  Some students made two queues, one for each server. But why would you wait for a server when another server is free? 
+ Some students made two queues, one for each server. But why would you wait for a server when another server is free? 
 
-  Also, this is not an $M/M/2/3$ queue, because the servers are not identical.
+ Also, this is not an $M/M/2/3$ queue, because the servers are not identical.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  Show how you can use level-crossing arguments to express the probability to find a job in queue in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. 
+ Show how you can use level-crossing arguments to express the probability to find a job in queue in terms of one of the probabilities $p(0,0)$, $p(1,0)$, $p(0, 1)$, $p(1, 1)$. 
 \begin{solution}
 $p(1) = p(1,1) \lambda /( \mu_1+\mu_2)$. 
 \end{solution}
@@ -1876,42 +1876,42 @@ $p(1) = p(1,1) \lambda /( \mu_1+\mu_2)$.
 
 
 \begin{exercise}[201904]
-  Suppose now that the queue is infinite so that jobs are never lost.
-  Approximate the queueing system by a suitable $G/G/c$ queue and use Sakasegawa's formula to estimate $\E{W_Q}$.
-  Take $\mu_1=6$, $\mu_2=3$, $\lambda=8$.
+ Suppose now that the queue is infinite so that jobs are never lost.
+ Approximate the queueing system by a suitable $G/G/c$ queue and use Sakasegawa's formula to estimate $\E{W_Q}$.
+ Take $\mu_1=6$, $\mu_2=3$, $\lambda=8$.
 \begin{solution}
-  $C_a^2=1$. $c=2$. However, $C_s^2\neq 1$ (you should realize this as soon as you read the problem.). As an approximation
-  \begin{align*}
-  \E S &= \frac 1 3 \frac 1 3 + \frac 2 3 \frac 1 6, \\
-  \E{S^2} &= \frac 1 3 \frac 1 3^2 + \frac 2 3 \frac 1 6^2.
-  \end{align*}
-  This gives $\V S$, and then $C_s^2$.
+ $C_a^2=1$. $c=2$. However, $C_s^2\neq 1$ (you should realize this as soon as you read the problem.). As an approximation
+ \begin{align*}
+ \E S &= \frac 1 3 \frac 1 3 + \frac 2 3 \frac 1 6, \\
+ \E{S^2} &= \frac 1 3 \frac 1 3^2 + \frac 2 3 \frac 1 6^2.
+ \end{align*}
+ This gives $\V S$, and then $C_s^2$.
 
-  The real problem is more interesting than this.
-  The fraction of orders served by the fast server should depend on $\lambda$.
-  Think about this.
+ The real problem is more interesting than this.
+ The fraction of orders served by the fast server should depend on $\lambda$.
+ Think about this.
 
-  Some students think that $\E S = 1/(3+6)$. 
+ Some students think that $\E S = 1/(3+6)$. 
 \end{solution}
 \end{exercise}
 
 
 
 \begin{exercise}[201904]
-  For the $M^X/M/1$ queue  we derived the expression that $p(n)$, i.e., the fraction of time the system contains $n$ jobs, must satisfy
-  \begin{equation}
-  \lambda \sum_{m=0}^n G(n-m) p(m) = \mu p(n+1),  
-  \end{equation}
-  where $G(k) = \P{B>k}$.
-  Explain this formula, by a drawing or in words (or both).
+ For the $M^X/M/1$ queue we derived the expression that $p(n)$, i.e., the fraction of time the system contains $n$ jobs, must satisfy
+ \begin{equation}
+ \lambda \sum_{m=0}^n G(n-m) p(m) = \mu p(n+1), 
+ \end{equation}
+ where $G(k) = \P{B>k}$.
+ Explain this formula, by a drawing or in words (or both).
 
 \begin{solution}
-    See the section in the book.
+ See the section in the book.
 
-    Some students say that $A(m,n,t) \approx D(n,t)$.
-    Others say that $\lambda G(n-m)p(m)$ is the rate at which state $n+1$ is entered from state $m$.
-    Why is this wrong?
-    Yet others just say that up-crossings are down-crossings, and leave it at that.
+ Some students say that $A(m,n,t) \approx D(n,t)$.
+ Others say that $\lambda G(n-m)p(m)$ is the rate at which state $n+1$ is entered from state $m$.
+ Why is this wrong?
+ Yet others just say that up-crossings are down-crossings, and leave it at that.
 \end{solution}
 
 \end{exercise}
@@ -1921,26 +1921,26 @@ $p(1) = p(1,1) \lambda /( \mu_1+\mu_2)$.
 \begin{exercise}[201904]
 For the $M^X/M/1$ queue we have that
 \begin{equation}
-  \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2  + \lambda \E B \E L +\lambda \frac{\E B}2.
+ \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2 + \lambda \E B \E L +\lambda \frac{\E B}2.
 \end{equation}
 Show that this reduces to $\E L = \rho/(1-\rho)$ for the $M/M/1$ queue.
 \begin{solution}
-  $B=1$, hence  $\E B = \E{B^2} = 1$. Substitute and simplify.
+ $B=1$, hence $\E B = \E{B^2} = 1$. Substitute and simplify.
 
-  Some students show that $\E L = \sum_n np(n)=\rho/(1-\rho)$, but that is not the answer to the question.
+ Some students show that $\E L = \sum_n np(n)=\rho/(1-\rho)$, but that is not the answer to the question.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201904]
-  Explain (briefly) why checks such as in the previous exercise are important.
+ Explain (briefly) why checks such as in the previous exercise are important.
 \begin{solution}
-    Formulas of general model should reduce to formulas for special cases of the general model. If not, the formula for the general model is wrong.
+ Formulas of general model should reduce to formulas for special cases of the general model. If not, the formula for the general model is wrong.
 
-    Some students say that such checks prove that the general formula is correct.
-    In other words, they reverse the logic.
-    Others say that it is important to `connect the systems'.
-    This is of course not the answer to the question.
+ Some students say that such checks prove that the general formula is correct.
+ In other words, they reverse the logic.
+ Others say that it is important to `connect the systems'.
+ This is of course not the answer to the question.
 \end{solution}
 \end{exercise}
 

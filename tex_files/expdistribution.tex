@@ -16,12 +16,12 @@ Besides explaining this relation, we derive many useful properties of the expone
 
 We say that $X$ is an \recall{exponentially distributed} random variable with mean $1/\lambda$ if 
 \begin{equation*}
-  \P{X \leq t} = 1- e^{-\lambda t},
+ \P{X \leq t} = 1- e^{-\lambda t},
 \end{equation*}
-and then  we write $X\sim \Exp(\lambda)$.
+and then we write $X\sim \Exp(\lambda)$.
 
 
-The Poisson process $N$ and exponentially distributed inter-arrival times are intimately related: A counting process $\{N(t)\}$ is a \emph{Poisson process} with rate $\lambda$ if and only if  the inter-arrival times $\{X_i\}$ are \recall{i.i.d.} (\recall{independent and identically distributed}) and exponentially distributed with mean $1/\lambda$,  in short, 
+The Poisson process $N$ and exponentially distributed inter-arrival times are intimately related: A counting process $\{N(t)\}$ is a \emph{Poisson process} with rate $\lambda$ if and only if the inter-arrival times $\{X_i\}$ are \recall{i.i.d.} (\recall{independent and identically distributed}) and exponentially distributed with mean $1/\lambda$, in short, 
 \begin{equation*}
 X_i\sim \Exp(\lambda) \Leftrightarrow N(t) \sim P(\lambda t).
 \end{equation*}
@@ -33,10 +33,10 @@ We next provide further relations between the Poisson distribution and the expon
 \begin{extra}
 In the above expression for $\P{X\leq t}$ we require that $\lambda>0$. What would happen if you would allow $\lambda$ to be zero or negative?
 \begin{hint}
-  The interpretation of the function $1-e^{-\lambda t}$ is a probability. What are the consequences of this? What happens if $\lambda=0$?
+ The interpretation of the function $1-e^{-\lambda t}$ is a probability. What are the consequences of this? What happens if $\lambda=0$?
 \end{hint}
 \begin{solution}
-  If $\lambda<0$, then $1-e^{-\lambda t}$ grows to $-\infty$ if $t\to \infty$. Just by itself this is not a problem. However, in our case $1-e^{-\lambda t}$ has the interpretation of a distribution function. Now, recall that a distribution function is bounded to values in the interval $[0,1]$.
+ If $\lambda<0$, then $1-e^{-\lambda t}$ grows to $-\infty$ if $t\to \infty$. Just by itself this is not a problem. However, in our case $1-e^{-\lambda t}$ has the interpretation of a distribution function. Now, recall that a distribution function is bounded to values in the interval $[0,1]$.
 
 Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean that the probability of a finite inter-arrival time between any two customers is zero. So, no customers can arrive in this case. 
 \end{solution}
@@ -44,127 +44,127 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 
 
 \begin{exercise}\label{exer:lambda}
-  If the random variable $X\sim\Exp(\lambda)$, show that its mean $\E X = \frac{1}\lambda$. 
+ If the random variable $X\sim\Exp(\lambda)$, show that its mean $\E X = \frac{1}\lambda$. 
 \begin{hint}
  \begin{equation*}
-    \E X = \int_0^\infty t f(t)\, \d t =
-    \int_0^\infty t \lambda e^{-\lambda t}\, \d t,
-  \end{equation*}
-  where~$f(t)=\lambda e^{-\lambda t}$ is the density function of the distribution function $F$ of $X$. Now solve the integral.
+ \E X = \int_0^\infty t f(t)\, \d t =
+ \int_0^\infty t \lambda e^{-\lambda t}\, \d t,
+ \end{equation*}
+ where~$f(t)=\lambda e^{-\lambda t}$ is the density function of the distribution function $F$ of $X$. Now solve the integral.
 \end{hint}
 \begin{solution}
-    \begin{align*}
+ \begin{align*}
 \E{X} 
 &= \int_0^\infty t \lambda e^{-\lambda t} \d t, \quad\text{density is } \lambda e^{-\lambda t} \\
-&=   \lambda^{-1} \int_0^\infty u e^{-u}\, \d u, \quad \text{ by  change of variable $u=\lambda t$},   \\
-&=  -\lambda^{-1}\left. t e^{- t}\right|_0^\infty + \lambda^{-1} \int_0^\infty e^{- t} \d t\\
-&=  - \lambda^{-1} \left. e^{- t} \right|_0^\infty =  \frac1\lambda.
-    \end{align*}
+&= \lambda^{-1} \int_0^\infty u e^{-u}\, \d u, \quad \text{ by change of variable $u=\lambda t$}, \\
+&= -\lambda^{-1}\left. t e^{- t}\right|_0^\infty + \lambda^{-1} \int_0^\infty e^{- t} \d t\\
+&= - \lambda^{-1} \left. e^{- t} \right|_0^\infty = \frac1\lambda.
+ \end{align*}
 \end{solution}
 \end{exercise}
 
 \begin{extra}\clabel{ex:15} 
-  If $X\sim\Exp(\lambda)$, show that its second moment $\E{X^2} =  \frac{2}{\lambda^2}$.
+ If $X\sim\Exp(\lambda)$, show that its second moment $\E{X^2} = \frac{2}{\lambda^2}$.
 \begin{hint}
-  \begin{equation*}
-  \E{X^2}= \int_0^\infty t^2 \lambda e^{-\lambda t}\, \d t =  \frac{2}{\lambda^2}.
-  \end{equation*}
+ \begin{equation*}
+ \E{X^2}= \int_0^\infty t^2 \lambda e^{-\lambda t}\, \d t = \frac{2}{\lambda^2}.
+ \end{equation*}
 \end{hint}
 \begin{solution}
-    \begin{align*}
+ \begin{align*}
 \E{X^2} 
 &= \int_0^\infty t^2 \lambda e^{-\lambda t} \d t \\
-&=   \lambda^{-2} \int_0^\infty u^2 e^{-u}\, \d u, \quad \text{ by  change of variable $u=\lambda t$},   \\
+&= \lambda^{-2} \int_0^\infty u^2 e^{-u}\, \d u, \quad \text{ by change of variable $u=\lambda t$}, \\
 &= -\lambda^{-2}\left. t^2 e^{- t}\right|_0^\infty + 2\lambda^{-2}\int_0^\infty t e^{- t} \d t \\
-&=  -2\lambda^{-2}\left. t e^{- t}\right|_0^\infty + 2\lambda^{-2} \int_0^\infty e^{- t} \d t\\
-&=  - 2\lambda^{-2} \left. e^{- t} \right|_0^\infty \\
-&=  2/\lambda^2.
-    \end{align*}
+&= -2\lambda^{-2}\left. t e^{- t}\right|_0^\infty + 2\lambda^{-2} \int_0^\infty e^{- t} \d t\\
+&= - 2\lambda^{-2} \left. e^{- t} \right|_0^\infty \\
+&= 2/\lambda^2.
+ \end{align*}
 \end{solution}
 \end{extra}
 
 
 \begin{extra}
-  If $X\sim\Exp(\lambda)$, show that the \recall{variance}
+ If $X\sim\Exp(\lambda)$, show that the \recall{variance}
 $\V X = \lambda^{-2}$.
 \begin{hint} Use~\cref{eq:68}. 
-  % , and memorize, the very practical formula
-  % \begin{equation*}
-  % \V X = \E{X^2} - (\E X)^2.
-  % \end{equation*}
+ % , and memorize, the very practical formula
+ % \begin{equation*}
+ % \V X = \E{X^2} - (\E X)^2.
+ % \end{equation*}
 \end{hint}
 \begin{solution}
-    By the previous problems, $\E{X^2}=2/\lambda^2$ and $\E X = 1/\lambda$. Hence the variance $\V X = \E{X^2} - (\E X)^2 = \frac{2}{\lambda^2} - (\frac{1}{\lambda})^2 = \lambda^{-2}.$
+ By the previous problems, $\E{X^2}=2/\lambda^2$ and $\E X = 1/\lambda$. Hence the variance $\V X = \E{X^2} - (\E X)^2 = \frac{2}{\lambda^2} - (\frac{1}{\lambda})^2 = \lambda^{-2}.$
 \end{solution}
 \end{extra}
 
-% The  above exercises can also be easily solved with the moment-generating function of $X$:
+% The above exercises can also be easily solved with the moment-generating function of $X$:
 % \begin{equation}\label{eq:60}
-%   M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
+% M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
 % \end{equation}
 
 \begin{extra}\clabel{ex:11}
-  Suppose $X\sim\Exp(\lambda)$.
-  Only when $t < \lambda$ the moment-generating function $M_X(t)$ is finite.
+ Suppose $X\sim\Exp(\lambda)$.
+ Only when $t < \lambda$ the moment-generating function $M_X(t)$ is finite.
 \begin{solution} The claim is true. 
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:33}
  If $X\sim\Exp(\lambda)$, show that its moment-generating function is equal to
-    \begin{equation*}
-    M_X(t) = \frac{\lambda}{\lambda-t}.
-    \end{equation*}
+ \begin{equation*}
+ M_X(t) = \frac{\lambda}{\lambda-t}.
+ \end{equation*}
 \begin{hint}
-    \begin{equation*}
-      M_X(t) = \E{\exp(t X)} =\int_0^\infty e^{t x} f(x) \,\d x.
+ \begin{equation*}
+ M_X(t) = \E{\exp(t X)} =\int_0^\infty e^{t x} f(x) \,\d x.
 \end{equation*}
 \end{hint}
 \begin{solution}
-    \begin{align*}
-      M_X(t) &= \E{\exp(t X)}  
+ \begin{align*}
+ M_X(t) &= \E{\exp(t X)} 
 =\int_0^\infty e^{tx} f(x) \,\d x 
-=\int_0^\infty e^{tx} \lambda e^{-\lambda x} \,\d x  \\
+=\int_0^\infty e^{tx} \lambda e^{-\lambda x} \,\d x \\
 &=\lambda \int_0^\infty e^{(t-\lambda)x} \,\d x 
 =\frac{\lambda}{\lambda -t}.
-    \end{align*}
+ \end{align*}
 \end{solution}
-  \end{extra}
+ \end{extra}
 
 \begin{exercise}\clabel{ex:21}
-Use the moment-generating function  of $X\sim\Exp(\lambda)$  to show that
-    \begin{align*}
-      \E{X} &=\frac1\lambda, & 
-      \E{X^2} &=\frac2{\lambda^2}.
-    \end{align*}
+Use the moment-generating function of $X\sim\Exp(\lambda)$ to show that
+ \begin{align*}
+ \E{X} &=\frac1\lambda, & 
+ \E{X^2} &=\frac2{\lambda^2}.
+ \end{align*}
 \begin{hint}
 Use~\cref{eq:69} and~\cref{eq:64}.
 \end{hint}
 \begin{solution} By~\cref{ex:33}, 
-  $ M_X'(t)=\lambda/(\lambda-t)^2$. Hence, $M_X'(0)=1/\lambda$. Next, $M_X''(t)=2\lambda/(\lambda-t)^3$, hence $\E{X^2}=M_X''(0)=2\lambda/\lambda^3=2\lambda^{-2}$. 
+ $ M_X'(t)=\lambda/(\lambda-t)^2$. Hence, $M_X'(0)=1/\lambda$. Next, $M_X''(t)=2\lambda/(\lambda-t)^3$, hence $\E{X^2}=M_X''(0)=2\lambda/\lambda^3=2\lambda^{-2}$. 
 \end{solution}
-  \end{exercise}
+ \end{exercise}
 
 \begin{extra}\clabel{ex:29}
-When  $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
+When $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
 \begin{hint}
-  Use~\cref{eq:62} 
+ Use~\cref{eq:62} 
 \end{hint}
 \begin{solution}
-  By the previous problems, $\V X = 1/\lambda^2$ and $\E X=1/\lambda$, hence
-  \begin{equation*}
-    C^2= \frac{\V X}{(\E X)^2} = \frac{1/\lambda^2}{1/\lambda^2} = 1.
-  \end{equation*}
+ By the previous problems, $\V X = 1/\lambda^2$ and $\E X=1/\lambda$, hence
+ \begin{equation*}
+ C^2= \frac{\V X}{(\E X)^2} = \frac{1/\lambda^2}{1/\lambda^2} = 1.
+ \end{equation*}
 \end{solution}
 \end{extra}
 
-We now provide a number of relations between the Poisson distribution and the exponential distribution  to conclude that a process $N_\lambda$ is a Poisson process with rate $\lambda$ iff the inter-arrival times $\{X_i\}$ between individual jobs are i.i.d. $\sim\Exp(\lambda)$. 
+We now provide a number of relations between the Poisson distribution and the exponential distribution to conclude that a process $N_\lambda$ is a Poisson process with rate $\lambda$ iff the inter-arrival times $\{X_i\}$ between individual jobs are i.i.d. $\sim\Exp(\lambda)$. 
 
 
 \begin{exercise}\clabel{ex:l-212}
-  If $N_\lambda$ is a Poisson process with rate $\lambda$, show that the time $X_1$ to the first arriving job is $\Exp(\lambda$).
+ If $N_\lambda$ is a Poisson process with rate $\lambda$, show that the time $X_1$ to the first arriving job is $\Exp(\lambda$).
 \begin{hint}
-    What is the meaning of $\P{N(t)=0}$?
+ What is the meaning of $\P{N(t)=0}$?
 \end{hint}
 \begin{solution}
 If there are no arrivals in some interval $[0,t]$, then it
@@ -176,8 +176,8 @@ must be that $N(t) = 0$. Hence, for the first inter-arrival time $X_1$:
 \end{exercise}
 
 \begin{extra}
-    Assume that inter-arrival times $\{X_i\}$ are i.i.d. and $\sim\Exp(\lambda)$. Let
-the arrival time of the $i$th job be  $A_i=\sum_{k=1}^i X_k$. Show that %We do not need the MGF here.
+ Assume that inter-arrival times $\{X_i\}$ are i.i.d. and $\sim\Exp(\lambda)$. Let
+the arrival time of the $i$th job be $A_i=\sum_{k=1}^i X_k$. Show that %We do not need the MGF here.
  \begin{equation*}
 \E{A_i} = \frac i\lambda.
  \end{equation*}
@@ -194,27 +194,27 @@ The simplest way to obtain the answer is to use that the expectation is a linear
 \end{extra}
 
 \begin{extra}\clabel{ex:54}
-    Let $A_i$ be the arrival time of customer $i$ and set $A_0=0$.
-    Assume that the inter-arrival times $\{X_i\}$ are i.i.d.
-    with exponential distribution with mean $1/\lambda$ for some $\lambda>0$.
-    Prove that $A_i$ has density
+ Let $A_i$ be the arrival time of customer $i$ and set $A_0=0$.
+ Assume that the inter-arrival times $\{X_i\}$ are i.i.d.
+ with exponential distribution with mean $1/\lambda$ for some $\lambda>0$.
+ Prove that $A_i$ has density
 \begin{equation*}
 f_{A_i}(t) = \lambda e^{-\lambda t} \frac{(\lambda t)^{i-1}}{(i-1)!}.
 \end{equation*}
 \begin{hint}
  Check the result for $i=1$ by filling in $i=1$ (just to be
-     sure that you have read the formula right), and compare the result
-     to the exponential density. Then write $A_i =\sum_{k=1}^i X_k$, and compute the moment
-     generating function for $A_i$ and use that the inter-arrival times
-     $X_i$ are independent. Use the moment-generating function  of $X_i$.
+ sure that you have read the formula right), and compare the result
+ to the exponential density. Then write $A_i =\sum_{k=1}^i X_k$, and compute the moment
+ generating function for $A_i$ and use that the inter-arrival times
+ $X_i$ are independent. Use the moment-generating function of $X_i$.
 \end{hint}
 \begin{solution}
-  One way to find the distribution of $A_i$ is by using the moment-generating function $M_{A_i}(t) = \E{e^{t A_i}}$ of $A_i$.
-  Let $X_i$ be the inter-arrival time between customers $i$ and $i-1$, and $M_X(t)$ the associated moment-generating function.
-  Using the i.i.d.
-  property of the $\{X_i\}$,
+ One way to find the distribution of $A_i$ is by using the moment-generating function $M_{A_i}(t) = \E{e^{t A_i}}$ of $A_i$.
+ Let $X_i$ be the inter-arrival time between customers $i$ and $i-1$, and $M_X(t)$ the associated moment-generating function.
+ Using the i.i.d.
+ property of the $\{X_i\}$,
 \begin{align*}
-  M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i} X_k\right)} \\
+ M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i} X_k\right)} \\
 & = \prod_{k=1}^{i} \E{e^{tX_k}} = 
 \prod_{k=1}^{i} M_{X_k}(t) = 
 \prod_{k=1}^{i} \frac{\lambda}{\lambda -t }
@@ -226,29 +226,29 @@ $A_i \sim \Gamma(i,\lambda)$, i.e., $A_i$ is Gamma distributed.
 \end{extra}
 
 \begin{extra}
-  Use the density $f_{A_i}$ of~\cref{ex:54} to show that $\E{A_i}=i/\lambda$. 
+ Use the density $f_{A_i}$ of~\cref{ex:54} to show that $\E{A_i}=i/\lambda$. 
 \begin{hint}
 Use the standard integral 
-    $\int_0^\infty x^n e^{-\alpha x} \d x =
-    \alpha^{-n-1}n!$. 
-    Another way would be to use that, once you have the moment
-    generating function of some random variable $X$,
-    $\E X = \frac{\d}{\d t} M_X(t) |_{t=0}$. 
+ $\int_0^\infty x^n e^{-\alpha x} \d x =
+ \alpha^{-n-1}n!$. 
+ Another way would be to use that, once you have the moment
+ generating function of some random variable $X$,
+ $\E X = \frac{\d}{\d t} M_X(t) |_{t=0}$. 
 \end{hint}
 \begin{solution}
-  \begin{equation*}
-\E{A_i} = \int_0^\infty t f_{A_i} (t) \, \d t  = 
-\int_0^\infty t  \lambda e^{-\lambda t} \frac{(\lambda t)^{i-1}}{(i-1)!}\, \d t.
-  \end{equation*}
+ \begin{equation*}
+\E{A_i} = \int_0^\infty t f_{A_i} (t) \, \d t = 
+\int_0^\infty t \lambda e^{-\lambda t} \frac{(\lambda t)^{i-1}}{(i-1)!}\, \d t.
+ \end{equation*}
 Thus, 
-  \begin{equation*}
-\E{A_i} = \frac{1}{(i-1)!} \int_0^\infty   e^{-\lambda t} (\lambda t)^i\,\d t = \frac{i!}{(i-1)!\lambda}=\frac{i}\lambda,
-  \end{equation*}
-  where we used the hint.
+ \begin{equation*}
+\E{A_i} = \frac{1}{(i-1)!} \int_0^\infty e^{-\lambda t} (\lambda t)^i\,\d t = \frac{i!}{(i-1)!\lambda}=\frac{i}\lambda,
+ \end{equation*}
+ where we used the hint.
 
 What if we would use the moment-generating function, as derived by the previous exercise?
 \begin{align*}
-    \E{A_i} 
+ \E{A_i} 
 &= \left.\frac{\d}{\d t} M_{A_i}(t)\right|_{t=0} \\
 &= \left.\frac{\d}{\d t} \left(\frac{\lambda}{\lambda-t}\right)^i\right|_{t=0} \\
 &= i \left.\left(\frac{\lambda}{\lambda-t}\right)^{i-1}\frac{\lambda}{(\lambda-t)^2}\right|_{t=0} 
@@ -260,19 +260,19 @@ What if we would use the moment-generating function, as derived by the previous 
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-213}
-  If the inter-arrival times $\{X_i\}$ are i.i.d.
-  $\sim \Exp(\lambda)$, prove that the number $N(t)$ of arrivals during the interval $[0,t]$ is Poisson distributed.
+ If the inter-arrival times $\{X_i\}$ are i.i.d.
+ $\sim \Exp(\lambda)$, prove that the number $N(t)$ of arrivals during the interval $[0,t]$ is Poisson distributed.
 \begin{hint}
-  Realize that
-    $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.
+ Realize that
+ $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.
 \end{hint}
 \begin{solution}
-      We want to show that
-    \begin{equation*}
-      \P{N(t)=k} = e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
-    \end{equation*}
-    Now observe that $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.
-    Using the density of $A_{k+1}$ and applying partial integration leads to
+ We want to show that
+ \begin{equation*}
+ \P{N(t)=k} = e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
+ \end{equation*}
+ Now observe that $\P{N(t)=k} = \P{A_k \leq t} - \P{A_{k+1} \leq t}$.
+ Using the density of $A_{k+1}$ and applying partial integration leads to
 \begin{align*}
 \P{A_{k+1} \leq t} 
 &= \lambda \int_0^t \frac{(\lambda s)^{k}}{k!}e^{-\lambda s}\, \d s \\
@@ -286,20 +286,20 @@ We are done.
 We now introduce another fundamental concept.
 A random variable $X$ is called \recall{memoryless} when it satisfies
 \begin{equation*}
-  \P{X > t+h | X>t} = \P{X>h}.
+ \P{X > t+h | X>t} = \P{X>h}.
 \end{equation*}
 In words, the probability that $X$ is larger than some time $t+h$, conditional on it being larger than a time~$t$, is equal to the probability that $X$ is larger than $h$.
 
 \begin{exercise}\clabel{ex:l-214}
-  Show that $X\sim \Exp(\lambda)$ is memoryless.
+ Show that $X\sim \Exp(\lambda)$ is memoryless.
 
 \begin{hint}
 Condition on the event ${X>t}$. 
 \end{hint}
 \begin{solution}
-By  the definition of conditional probability
+By the definition of conditional probability
 \begin{equation*}
-  \P{X>t+h|X>t} = \frac{\P{X>t+h, X>t}}{\P{X>t}} = \frac{\P{X>t+h}}{\P{X>t}} = \frac{e^{-\lambda(t+h)}}{e^{-\lambda t}} = e^{-\lambda h} = \P{X>h}.
+ \P{X>t+h|X>t} = \frac{\P{X>t+h, X>t}}{\P{X>t}} = \frac{\P{X>t+h}}{\P{X>t}} = \frac{e^{-\lambda(t+h)}}{e^{-\lambda t}} = e^{-\lambda h} = \P{X>h}.
 \end{equation*}
 
 Thus, no matter how long we have been waiting for the next arrival to occur, the probability that it will occur in the next $h$ seconds remains the same.
@@ -314,51 +314,51 @@ The proof of this fact requires quite some work; we refer the reader to the lite
 \citet[Appendix 3]{yushkevich69:_markov_proces}.
 
 \begin{extra}\clabel{ex:10}
-  If $X\sim\Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are
-  independent, show that 
-  \begin{equation*}
+ If $X\sim\Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are
+ independent, show that 
+ \begin{equation*}
 Z=\min\{X,S\}\sim\Exp(\lambda+\mu),
-  \end{equation*}
+ \end{equation*}
 hence $\E Z = (\lambda+\mu)^{-1}$.
 \begin{hint}
-Use that if $Z=\min\{X, S\}>x$,  it then must be that $X>x$
-  and $S>x$. Then use independence of $X$ and $S$.
+Use that if $Z=\min\{X, S\}>x$, it then must be that $X>x$
+ and $S>x$. Then use independence of $X$ and $S$.
 \end{hint}
 \begin{solution}
 Use that $X$ and $S$ are independent to get
-    \begin{equation*}
-      \begin{split}
-      \P{Z>x} 
+ \begin{equation*}
+ \begin{split}
+ \P{Z>x} 
 &= \P{\min\{X,S\}>x} = \P{X>x\text{ and } S>x} = \P{X>x}\P{S>x} \\
 &= e^{-\lambda x} e^{-\mu x} = e^{-(\lambda+\mu)x}.
-      \end{split}
-    \end{equation*}
+ \end{split}
+ \end{equation*}
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:3}
-   If $X\sim \Exp(\lambda)$, $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, show that 
-    \begin{equation*}
-      \P{X\leq S} = \frac{\lambda}{\lambda+\mu}.
-    \end{equation*}
+ If $X\sim \Exp(\lambda)$, $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, show that 
+ \begin{equation*}
+ \P{X\leq S} = \frac{\lambda}{\lambda+\mu}.
+ \end{equation*}
 \begin{hint}
-     Define the joint distribution of $X$ and $S$ and carry out
-      the computations, or use conditioning, or use the result of the
-      previous exercise.
+ Define the joint distribution of $X$ and $S$ and carry out
+ the computations, or use conditioning, or use the result of the
+ previous exercise.
 \end{hint}
 \begin{solution}
-There is more than one way to show that $\P{X\leq S} = \lambda/(\lambda+\mu)$.  
+There is more than one way to show that $\P{X\leq S} = \lambda/(\lambda+\mu)$. 
 
 Observe first that $X$ and $S$, being
 exponentially distributed, have a density. Moreover, as they are
-independent,  the joint density takes the form
+independent, the joint density takes the form
 \begin{equation*}
 f_{X,S}(x,y) = f_X(x)f_S(y) = \lambda \mu e^{-\lambda x} e^{-\mu
-  y}.
+ y}.
 \end{equation*}
 With this,
 \begin{align*}
-    \P{X\leq S} 
+ \P{X\leq S} 
 &= \E{\1{X\leq S}} \\
 &= \int_0^\infty \int_0^\infty \1{x\leq y} f_{X,S}(x,y)\, \d y\,\d x\\
 &= \lambda \mu \int_0^\infty \int_0^\infty \1{x\leq y} e^{-\lambda x} e^{-\mu y} \, \d y\,\d x\\
@@ -384,7 +384,7 @@ With this,
 \input{ans}
 }
 
-%\clearpage  
+%\clearpage 
 
 
 %%% Local Variables:

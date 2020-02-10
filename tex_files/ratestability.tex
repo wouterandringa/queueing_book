@@ -18,44 +18,44 @@ We will use these concepts throughout the remainder of the book.
 We first formalize the \emph{arrival rate} and \emph{departure rate} in terms of the \emph{counting processes} $\{A(t)\}$ and $\{D(t)\}$.
 The \recall{arrival rate} is the long-run average number of jobs that arrive per unit time, i.e.,
 \begin{equation}
-  \label{eq:3}
-  \lambda = \lim_{t\to\infty} \frac{A(t)}t.
+ \label{eq:3}
+ \lambda = \lim_{t\to\infty} \frac{A(t)}t.
 \end{equation}
 We remark in passing that this limit does not necessarily exist if $A(t)$ is some pathological function.
 If, however, the inter-arrival times $\{X_k\}$ are the basic data, and $\{X_k\}$ are \emph{independent and identically distributed (i.i.d.)}
 and distributed as a generic random variable $X$ with finite mean $\E{X}$, we can construct $\{A_k\}$ and $\{A(t)\}$ as described in~\cref{sec:constr-gg1-queu}; the strong law of large numbers then guarantees that the above limit exists.
 
 \begin{extra}
-  Can you make an arrival process such that $A(t)/t$ does not have a
-  limit?  
+ Can you make an arrival process such that $A(t)/t$ does not have a
+ limit? 
 \begin{hint}
 As a start, the function $\sin(t)$ does not have a limit as
-    $t\to\infty$. However, the time-average $\sin(t)/t \to 0$.  Now
-    you need to make some function whose time-average does not
-    converge, hence it should grow fast, or fluctuate wilder and
-    wilder.
+ $t\to\infty$. However, the time-average $\sin(t)/t \to 0$. Now
+ you need to make some function whose time-average does not
+ converge, hence it should grow fast, or fluctuate wilder and
+ wilder.
 \end{hint}
 \begin{solution}
  If $A(t) = 3 t^2$, then clearly $A(t)/t = 3t$. This does not
-    converge to a limit. 
+ converge to a limit. 
 
-  Another example, let the arrival rate $\lambda(t)$ be given as
-    follows:
-    \begin{equation*}
-      \lambda(t) = 
-    \begin{cases}
-      1 & \text{if } 2^{2k} \leq t < 2^{2k+1} \\
-      0 & \text{if } 2^{2k+1} \leq t < 2^{2(k+1)},
-    \end{cases}
-    \end{equation*}
-    for $k=0,1,2,\ldots$. Let $A(t) = \lambda(t) t$. Then $A(t)/t$
-    does not have limit. Of course, these examples are quite
-    pathological, and are not representable for `real life cases'.
-    (Although this is also quite vague. What, then, is a real life
-    case?)
+ Another example, let the arrival rate $\lambda(t)$ be given as
+ follows:
+ \begin{equation*}
+ \lambda(t) = 
+ \begin{cases}
+ 1 & \text{if } 2^{2k} \leq t < 2^{2k+1} \\
+ 0 & \text{if } 2^{2k+1} \leq t < 2^{2(k+1)},
+ \end{cases}
+ \end{equation*}
+ for $k=0,1,2,\ldots$. Let $A(t) = \lambda(t) t$. Then $A(t)/t$
+ does not have limit. Of course, these examples are quite
+ pathological, and are not representable for `real life cases'.
+ (Although this is also quite vague. What, then, is a real life
+ case?)
 
 For the mathematically interested, we seek a
-    function for which its Ces\`aro limit does not exist.
+ function for which its Ces\`aro limit does not exist.
 \end{solution}
 \end{extra}
 
@@ -66,83 +66,83 @@ Thus,
 % by applying the definition of $A(t)$ at the epochs $A_n$,
 we see that $A(A_n) = n$, and therefore
 \begin{equation*}
-  \frac{1}n\sum_{k=1}^n X_k = \frac{A_n}n = \frac{A_n}{A(A_n)}. 
+ \frac{1}n\sum_{k=1}^n X_k = \frac{A_n}n = \frac{A_n}{A(A_n)}. 
 \end{equation*}
 But since $A_n\to\infty$ if $n\to\infty$, it follows from~\cref{eq:3} that the average inter-arrival time between two consecutive jobs is
 \begin{equation}\label{eq:54}
-  \E X = \lim_{n\to\infty}  \frac{1}n\sum_{k=1}^n X_k = \lim_{n\to \infty} \frac{A_n}{A(A_n)} = \lim_{t\to\infty} \frac t{A(t)} = \frac 1 \lambda,
+ \E X = \lim_{n\to\infty} \frac{1}n\sum_{k=1}^n X_k = \lim_{n\to \infty} \frac{A_n}{A(A_n)} = \lim_{t\to\infty} \frac t{A(t)} = \frac 1 \lambda,
 \end{equation}
 where we take $t=A_n$ in the limit for $t\to\infty$.
 In words, the above states that the arrival rate $\lambda$ is the inverse of the expected inter-arrival time.
 
 \begin{extra}[Not obligatory]
-  In~\cref{eq:54} we replaced the limit with respect to $n$ by a limit with respect to $t$.
-  Use the notation $A_{A(t)}$ to show that this is allowed.
-  Show next that the function $t\to A(t)$ as defined by~\cref{eq:2} is right-continuous.
+ In~\cref{eq:54} we replaced the limit with respect to $n$ by a limit with respect to $t$.
+ Use the notation $A_{A(t)}$ to show that this is allowed.
+ Show next that the function $t\to A(t)$ as defined by~\cref{eq:2} is right-continuous.
 \begin{hint}
-      Use that $A_{A(t)} \leq t < A_{A(t)+1}$.
-      Divide by $A(t)$ and take suitable limits.
-      BTW, such type of proof is used quite often to show that the existence of one limit implies, and is implied by, the existence of another type of limit.
+ Use that $A_{A(t)} \leq t < A_{A(t)+1}$.
+ Divide by $A(t)$ and take suitable limits.
+ BTW, such type of proof is used quite often to show that the existence of one limit implies, and is implied by, the existence of another type of limit.
 \end{hint}
 \begin{solution}
-   This exercise is meant to provide some insight into what needs to be done to put everything on solid ground.
+ This exercise is meant to provide some insight into what needs to be done to put everything on solid ground.
 
 
-   Observing that $A_{A(t)}$ is the arrival time of the last job before time $t$ and that $A_{A(t)+1}$ is the arrival time of the first job after time $t$:
-  \begin{equation*}
-    A_{A(t)}  \leq t  < A_{A(t)+1} \Leftrightarrow 
-    \frac{A_{A(t)}} {A(t)}  \leq \frac{t}{A(t)}  <\frac{A_{A(t)+1}}{A(t)} = \frac{A_{A(t)+1}}{A(t)+1}\frac{A(t)+1}{A(t)}.
-  \end{equation*}
-  Now $A(t)$ is a counting process such that $A(t)\to\infty$ as $t\to\infty$.
-  Therefore, $\lim_{t\to\infty} A_{A(t)}/A(t) = \lim_{n\to\infty} A_n/n$.
-  Moreover, it is evident that $\lim_{t\to\infty} A_{A(t)+1}/(A(t)+1) = \lim_{t\to\infty} A_{A(t)}/A(t)$, and that $(A(t)+1)/A(t)\to 1$ as $t\to\infty$.
-  Thus it follows from the above inequalities that $\lim_{n\to\infty} A_n/n = \lim_{t\to\infty} t/A(t)$.
-     
-  For the right-continuity of $A(t)$, define $f(t) = \1{A_1 \leq t}$.
-  Observe first that $f(t)$ is increasing, and $f(t)\in\{0,1\}$.
-  Thus, if $f(t)=1$ then $f(u)=1$ for all $u\geq t$, and if $f(t)=0$ then $f(u) = 0$ for all $u\leq t$.
+ Observing that $A_{A(t)}$ is the arrival time of the last job before time $t$ and that $A_{A(t)+1}$ is the arrival time of the first job after time $t$:
+ \begin{equation*}
+ A_{A(t)} \leq t < A_{A(t)+1} \Leftrightarrow 
+ \frac{A_{A(t)}} {A(t)} \leq \frac{t}{A(t)} <\frac{A_{A(t)+1}}{A(t)} = \frac{A_{A(t)+1}}{A(t)+1}\frac{A(t)+1}{A(t)}.
+ \end{equation*}
+ Now $A(t)$ is a counting process such that $A(t)\to\infty$ as $t\to\infty$.
+ Therefore, $\lim_{t\to\infty} A_{A(t)}/A(t) = \lim_{n\to\infty} A_n/n$.
+ Moreover, it is evident that $\lim_{t\to\infty} A_{A(t)+1}/(A(t)+1) = \lim_{t\to\infty} A_{A(t)}/A(t)$, and that $(A(t)+1)/A(t)\to 1$ as $t\to\infty$.
+ Thus it follows from the above inequalities that $\lim_{n\to\infty} A_n/n = \lim_{t\to\infty} t/A(t)$.
+ 
+ For the right-continuity of $A(t)$, define $f(t) = \1{A_1 \leq t}$.
+ Observe first that $f(t)$ is increasing, and $f(t)\in\{0,1\}$.
+ Thus, if $f(t)=1$ then $f(u)=1$ for all $u\geq t$, and if $f(t)=0$ then $f(u) = 0$ for all $u\leq t$.
 
-  You may skip the rest of the proof below, but the above is essential to memorize; make a plot of $f(t)$, in particular the behavior around $A_1$ is important.
+ You may skip the rest of the proof below, but the above is essential to memorize; make a plot of $f(t)$, in particular the behavior around $A_1$ is important.
 
-  We need to prove, for right-continuity, that $f(u)\to f(t) $ as $u\downarrow t$.
-  When $f(t)=1$, $f(u)=1$ for any $u>1$, by the definition of $f(x)$.
-  When $f(t)=0$ we have to do a bit more work.
-  Formally, we have to prove that, for fixed $t$ and for all $\epsilon > 0$, there is a $\delta>0$ such that $u\in(t, t+\delta) \Rightarrow |f(u) -f(t)| < \epsilon$.
-  (Note the differences with the regular definition of continuity.)
-  Since, by assumption, $t$ is such that $f(t)=0$, and $f\in\{0,1\}$ we need to show that $f(u)=0$ for $u\in(t, t+\delta)$.
-  Now, clearly, $f(t)=0$ only if $t < A_1$.
-  But, then for any $u\in(t, A_1)$, we have that $f(u) = 0$.
-  Thus, taking $\delta = A_1 - t$ suffices.
+ We need to prove, for right-continuity, that $f(u)\to f(t) $ as $u\downarrow t$.
+ When $f(t)=1$, $f(u)=1$ for any $u>1$, by the definition of $f(x)$.
+ When $f(t)=0$ we have to do a bit more work.
+ Formally, we have to prove that, for fixed $t$ and for all $\epsilon > 0$, there is a $\delta>0$ such that $u\in(t, t+\delta) \Rightarrow |f(u) -f(t)| < \epsilon$.
+ (Note the differences with the regular definition of continuity.)
+ Since, by assumption, $t$ is such that $f(t)=0$, and $f\in\{0,1\}$ we need to show that $f(u)=0$ for $u\in(t, t+\delta)$.
+ Now, clearly, $f(t)=0$ only if $t < A_1$.
+ But, then for any $u\in(t, A_1)$, we have that $f(u) = 0$.
+ Thus, taking $\delta = A_1 - t$ suffices.
 
-  The next step is to observe that $A(t)$ is a sum of right-continuous functions whose steps do not overlap since by assumption $0<A_1 < A_2 < \cdots$.
-  As $A$ is (almost surely) a finite sum of bounded, increasing and right-continuous functions, it is also right-continuous.
+ The next step is to observe that $A(t)$ is a sum of right-continuous functions whose steps do not overlap since by assumption $0<A_1 < A_2 < \cdots$.
+ As $A$ is (almost surely) a finite sum of bounded, increasing and right-continuous functions, it is also right-continuous.
 
-    If you like, you can try to prove this last step too. 
+ If you like, you can try to prove this last step too. 
 
-    Hopefully this problem, and its solution, clarifies that even such small details require attention.
-    If we want to make some progress with respect to developing some queueing theory, we have to skip most of the proofs and mathematical problems; we simply don't have enough time in this course to be concerned with all theorems and proofs.
+ Hopefully this problem, and its solution, clarifies that even such small details require attention.
+ If we want to make some progress with respect to developing some queueing theory, we have to skip most of the proofs and mathematical problems; we simply don't have enough time in this course to be concerned with all theorems and proofs.
 
-    % For finite sums it is simple. Suppose that $f$ and $g$ are
-    % right-continuous, then
-    % \begin{equation*}
-    %   |f(u) + g(u) - f(t) - g(t)| \leq |f(u)-f(t)|+|g(u)-g(t)|.
-    % \end{equation*}
-    % Since both terms at the right-hand side can be made arbitrarily
-    % small, the left-hand side can also be made as small as we
-    % like. With this we can see that the function
-    % $F_N(t) = \sum_{n=1}^N f_n(x)$ is right-continuous if all $f_n$
-    % are right-continuous, and also that $F_{N+1} = F_N + f_{N+1}$ is
-    % right-continuous. As this applies for all $N$, it follows from
-    % induction that $\lim_N F_N$ is right-continuous, provided this
-    % limit exists. When $f_n$ are all increasing, which is the case for
-    % our situation by taking $f_n(t) = 1\{A_n \leq t\}$, then this
-    % limit certainly exists.
+ % For finite sums it is simple. Suppose that $f$ and $g$ are
+ % right-continuous, then
+ % \begin{equation*}
+ % |f(u) + g(u) - f(t) - g(t)| \leq |f(u)-f(t)|+|g(u)-g(t)|.
+ % \end{equation*}
+ % Since both terms at the right-hand side can be made arbitrarily
+ % small, the left-hand side can also be made as small as we
+ % like. With this we can see that the function
+ % $F_N(t) = \sum_{n=1}^N f_n(x)$ is right-continuous if all $f_n$
+ % are right-continuous, and also that $F_{N+1} = F_N + f_{N+1}$ is
+ % right-continuous. As this applies for all $N$, it follows from
+ % induction that $\lim_N F_N$ is right-continuous, provided this
+ % limit exists. When $f_n$ are all increasing, which is the case for
+ % our situation by taking $f_n(t) = 1\{A_n \leq t\}$, then this
+ % limit certainly exists.
 \end{solution}
 \end{extra}
 
 The development of the departure times $\{D_k\}$ is entirely analogous to that of the arrival times; define the \recall{departure rate} as
 \begin{equation}\label{eq:28}
-  \delta = \lim_{t\to\infty} \frac{D(t)}t.
+ \delta = \lim_{t\to\infty} \frac{D(t)}t.
 \end{equation}
 
 \begin{extra}
@@ -157,26 +157,26 @@ U_n = \sum_{k=1}^n S_k
 as the total service time required by the first $n$ jobs. With this,
 let 
 \begin{equation*}
-  U(t) = \max\{n: U_n \leq t\}
+ U(t) = \max\{n: U_n \leq t\}
 \end{equation*}
-and  define the \recall{service rate} or \recall{processing rate} as
+and define the \recall{service rate} or \recall{processing rate} as
 \begin{equation*}
-  \mu = \lim_{t\to\infty} \frac{U(t)}t.
+ \mu = \lim_{t\to\infty} \frac{U(t)}t.
 \end{equation*}
 In the same way as we derived that $\E X= 1/\lambda$, we obtain for the expected (or average) service time required by an individual job
 \begin{equation*}
-  \E S = \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n S_k = \lim_{n\to\infty} \frac{U_n}{n} = \lim_{n\to\infty} \frac{U_n}{U(U_n)} = \lim_{t\to\infty} \frac t{U(t)} = \frac 1 \mu.
+ \E S = \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n S_k = \lim_{n\to\infty} \frac{U_n}{n} = \lim_{n\to\infty} \frac{U_n}{U(U_n)} = \lim_{t\to\infty} \frac t{U(t)} = \frac 1 \mu.
 \end{equation*}
 
 Now observe that, if the system is empty at time $0$, it must be that
 at any time the number of departures must be smaller than or equal to the number
 of arrivals, i.e., $D(t) \leq A(t)$ for all $t$. Therefore,
 \begin{equation}\label{eq:26}
-\delta =   \lim_{t\to\infty} \frac{D(t)}t \leq \lim_{t\to\infty} \frac{A(t)}t = \lambda.
+\delta = \lim_{t\to\infty} \frac{D(t)}t \leq \lim_{t\to\infty} \frac{A(t)}t = \lambda.
 \end{equation}
 We call a system \recall{rate stable} if
 \begin{equation*}
-  \lambda = \delta,
+ \lambda = \delta,
 \end{equation*}
 in other words, the system is stable if, in the long run, jobs leave
 the system just as fast as they arrive. Of course, if
@@ -187,7 +187,7 @@ It is also evident that jobs cannot depart faster than they can be
 served, hence, $D(t) \leq U(t)$ for all~$t$. Combining this with the
 fact that $\delta \leq \lambda$, we get
 \begin{equation*}
-  \delta \leq \min\{\lambda, \mu\}.
+ \delta \leq \min\{\lambda, \mu\}.
 \end{equation*}
 When $\mu \geq \lambda$ the above inequality reduces to $\delta = \lambda$ for rate-stable systems\footnote{\hspace{0.1em}It would be interesting to prove this.}.
 As it turns out, when $\mu = \lambda$ and the variance of the service time $\V{S} > 0$ or $\V{X} >0$ the queue length process can behave in a very peculiar way.
@@ -197,14 +197,14 @@ For this reason we henceforth (and implicitly) require that $\mu > \lambda$.
 
 \begin{extra}
 Define the random variables $\{\tilde X_k,k=1,\ldots\}$ as $\tilde X_k = S_{k-1}-X_k$.
-  For stability of the queueing process it is essential that
-  $\tilde X_k$ has negative expectation, i.e.,
-  $\E{\tilde X_k} = \E{S_{k-1}-X_k} < 0$.  What is the conceptual
-  meaning of this inequality?
+ For stability of the queueing process it is essential that
+ $\tilde X_k$ has negative expectation, i.e.,
+ $\E{\tilde X_k} = \E{S_{k-1}-X_k} < 0$. What is the conceptual
+ meaning of this inequality?
 \begin{solution}
  That the average time customers spend in service is smaller
-      than the average time between the arrival of two subsequent
-      jobs. 
+ than the average time between the arrival of two subsequent
+ jobs. 
 \end{solution}
 \end{extra}
 
@@ -215,56 +215,56 @@ Define $\tilde X_k = S_{k-1}-X_k$.
 Remember that $\{X_k\}$ and $\{S_k\}$ are sequences of i.i.d. random variables. What are the implications for the expectations?
 \end{hint}
 \begin{solution}
-  $0> \E{\tilde X_k} = \E {S_{k-1}-X_k} =  \E{ S_{k-1}}- \E {X_k} = \E S - \E X$, where we use the fact that the $\{S_k\}$ and $\{X_k\}$ are i.i.d. sequences. Hence, 
-  \begin{equation*}
-    \E X > \E S \iff \frac 1{\E S} > \frac1{\E X} \iff \mu > \lambda.
-  \end{equation*}
+ $0> \E{\tilde X_k} = \E {S_{k-1}-X_k} = \E{ S_{k-1}}- \E {X_k} = \E S - \E X$, where we use the fact that the $\{S_k\}$ and $\{X_k\}$ are i.i.d. sequences. Hence, 
+ \begin{equation*}
+ \E X > \E S \iff \frac 1{\E S} > \frac1{\E X} \iff \mu > \lambda.
+ \end{equation*}
 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}\clabel{ex:l-254}
-  Consider a paint factory which contains a paint mixing machine that serves two classes of jobs, A and B.
-  The processing times of jobs of types A and B are constant and require $t_A$ and $t_B$ hours.
-  The job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type $B$ jobs.
-  It takes a setup time of $S$ hours to clean the mixing station when changing from paint type A to type B, and there is no time required to change from type B to A.
+ Consider a paint factory which contains a paint mixing machine that serves two classes of jobs, A and B.
+ The processing times of jobs of types A and B are constant and require $t_A$ and $t_B$ hours.
+ The job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type $B$ jobs.
+ It takes a setup time of $S$ hours to clean the mixing station when changing from paint type A to type B, and there is no time required to change from type B to A.
 
-  To keep the system (rate) stable, it is necessary to produce the jobs in batches, for otherwise the server, i.e., the mixing machine, spends a too large fraction of time on setups, so that $\mu < \lambda$.
-  Thus, it is necessary to identify minimal batch sizes to ensure that $\mu > \lambda$.
-  Motivate that the following linear program can be used to determine the minimal batch sizes:
+ To keep the system (rate) stable, it is necessary to produce the jobs in batches, for otherwise the server, i.e., the mixing machine, spends a too large fraction of time on setups, so that $\mu < \lambda$.
+ Thus, it is necessary to identify minimal batch sizes to ensure that $\mu > \lambda$.
+ Motivate that the following linear program can be used to determine the minimal batch sizes:
 \begin{equation*}
-  \text{minimize }  T
+ \text{minimize } T
 \end{equation*}
-such that $ T=  k_A t_A + S + k_B t_B$, $\lambda_A T < k_A$ and $\lambda_B T < k_B$.
+such that $ T= k_A t_A + S + k_B t_B$, $\lambda_A T < k_A$ and $\lambda_B T < k_B$.
 \begin{hint}
 Here are some questions to help you interpret this formulation.
 \begin{enumerate}
-\item   What are the decision variables for this problem? In other words, what are the `things' we can control/change?
+\item What are the decision variables for this problem? In other words, what are the `things' we can control/change?
 \item What are the interpretations of $k_A t_A$, and $S+k_B t_B$?
-\item What is the meaning of the first constraint?  Realize that $T$
-  represents one production cycle. After the completion of one such
-  cycle, we start another cycle. Hence, the start of every cycle can
-  be seen as a restart of the entire system.
-\item   What is the meaning of the other two constraints?
+\item What is the meaning of the first constraint? Realize that $T$
+ represents one production cycle. After the completion of one such
+ cycle, we start another cycle. Hence, the start of every cycle can
+ be seen as a restart of the entire system.
+\item What is the meaning of the other two constraints?
 \item Why do we minimize the cycle time $T$?
-\item Solve for $k_A$ and $k_B$ in terms of $S$,  $\lambda_A, \lambda_B$ and $t_A, t_B$. 
+\item Solve for $k_A$ and $k_B$ in terms of $S$, $\lambda_A, \lambda_B$ and $t_A, t_B$. 
 \item Generalize this to $m$ job classes and such that the cleaning
-  time between jobs of class $i$ and $j$ is given by $S_{i j}$. (Thus,
-  the setup times are sequence dependent.) 
+ time between jobs of class $i$ and $j$ is given by $S_{i j}$. (Thus,
+ the setup times are sequence dependent.) 
 \end{enumerate}
 \end{hint}
 
 \begin{solution}
-    Realize that the machine works in cycles. A cycle starts with
-    processing $k_A$ jobs of type A, then does a setup, and processes
-    $k_B$ jobs of type B, and then a new cycle starts again.  The time
-    it takes to complete one such cycle is $T=k_A t_A + S + k_B t_B$.
-    The number of jobs of type A processed during one such cycle is,
-    of course, $k_A$. Observe next that the average number of jobs
-    that arrive during one cycle is $\lambda_A T$. We of course want
-    that $\lambda_A T< k_A$, i.e., less jobs of type A arrive on
-    average per cycle than what we can process.
+ Realize that the machine works in cycles. A cycle starts with
+ processing $k_A$ jobs of type A, then does a setup, and processes
+ $k_B$ jobs of type B, and then a new cycle starts again. The time
+ it takes to complete one such cycle is $T=k_A t_A + S + k_B t_B$.
+ The number of jobs of type A processed during one such cycle is,
+ of course, $k_A$. Observe next that the average number of jobs
+ that arrive during one cycle is $\lambda_A T$. We of course want
+ that $\lambda_A T< k_A$, i.e., less jobs of type A arrive on
+ average per cycle than what we can process.
 \end{solution}
 \end{exercise}
 

@@ -12,20 +12,20 @@
 }
 
 \begin{exercise}\clabel{ex:l-233}
-  Provide an interpretation of a single-server queueing server with a
-  finite calling population in terms of a closed network.
+ Provide an interpretation of a single-server queueing server with a
+ finite calling population in terms of a closed network.
 \begin{solution}
-  Consider a closed-queueing network with two stations.
-  Station 1 is a single-server station with exponentially distributed service times with mean $\mu$; station 2 has $N$ parallel exponential servers, each working at rate $\lambda$.
-  If station 1 contains $n$ jobs, then Station 2 contains $N-n$ jobs.
-  The rate at which jobs move from Station 2 to Station 1 is $(N-n)\lambda$, since $N-n$ of the $N$ servers of Station 2 are occupied.
-  Jobs move from Station 1 to Station 2 at rate $\mu$, provided $n\geq1$.
+ Consider a closed-queueing network with two stations.
+ Station 1 is a single-server station with exponentially distributed service times with mean $\mu$; station 2 has $N$ parallel exponential servers, each working at rate $\lambda$.
+ If station 1 contains $n$ jobs, then Station 2 contains $N-n$ jobs.
+ The rate at which jobs move from Station 2 to Station 1 is $(N-n)\lambda$, since $N-n$ of the $N$ servers of Station 2 are occupied.
+ Jobs move from Station 1 to Station 2 at rate $\mu$, provided $n\geq1$.
 \end{solution}
 \end{exercise}
 
 The formula with the visit ratios should be like this:
 \begin{equation*}
-  V_k = \sum_{j=0}^M V_j P_{jk}, 
+ V_k = \sum_{j=0}^M V_j P_{jk}, 
 \end{equation*}
 i.e., the sum should start at index 0. This is to include the
 load/unload station.
@@ -40,26 +40,26 @@ meant to be carried out by computers. Thus the results will be
 numerical, not in terms of formulas.
 
 Mind the order of $V$ and $P$ in the computation of the visit ratios:
-do not mix up $VP=V$ with $P V=V$, as in general, $VP \neq P V$.  We use
+do not mix up $VP=V$ with $P V=V$, as in general, $VP \neq P V$. We use
 $VP=V$.
 
 
 \begin{exercise}\clabel{ex:mva}
-  Compute the visit ratios for a network with three stations such that all jobs from station 0 move to station 1, from station 1 all move to station 2, and from station 2 half of the jobs move to station 0 and the other half to station 1. 
+ Compute the visit ratios for a network with three stations such that all jobs from station 0 move to station 1, from station 1 all move to station 2, and from station 2 half of the jobs move to station 0 and the other half to station 1. 
 \begin{solution}
-    The routing matrix $P$ is
-    \begin{equation*}
-      P = 
-      \begin{pmatrix}
-        0 & 1 & 0 \\
+ The routing matrix $P$ is
+ \begin{equation*}
+ P = 
+ \begin{pmatrix}
+ 0 & 1 & 0 \\
 0& 0 & 1 \\
 1/2 & 1/2 & 0
-      \end{pmatrix}.
-    \end{equation*}
-    Solving $V=VP$ leads to
-    $(V_0, V_1, V_2) = (V_2/2, V_0 + V_2/2, V_1)$. Thus, from the last
-    item, $V_2 = V_1$, and from the first $V_0 = V_2/2$. Since
-    $V_0=1$, it follows that $V_2 = 2V_0$ and $V_1=V_2=2 V_0$.
+ \end{pmatrix}.
+ \end{equation*}
+ Solving $V=VP$ leads to
+ $(V_0, V_1, V_2) = (V_2/2, V_0 + V_2/2, V_1)$. Thus, from the last
+ item, $V_2 = V_1$, and from the first $V_0 = V_2/2$. Since
+ $V_0=1$, it follows that $V_2 = 2V_0$ and $V_1=V_2=2 V_0$.
 \end{solution}
 \end{exercise}
 
@@ -75,13 +75,13 @@ Zijm.Ex.3.1.2
 \begin{solution}
 Let's number the states from 1 to 4. If station 1 feeds into station 2, and so on, and station 4 into station 1, then 
 \begin{equation*}
-  P = 
-  \begin{pmatrix}
-    0 & 1 & 0 & 0\\
-    0 & 0 & 1 & 0\\
-    0 & 0 & 0 & 1\\
-    1 & 0 & 0 & 0\\
-  \end{pmatrix}.
+ P = 
+ \begin{pmatrix}
+ 0 & 1 & 0 & 0\\
+ 0 & 0 & 1 & 0\\
+ 0 & 0 & 0 & 1\\
+ 1 & 0 & 0 & 0\\
+ \end{pmatrix}.
 \end{equation*}
 The visit ratios are, of course, $V_1= V_2 = V_3 = V_4$. 
 \end{solution}
@@ -90,17 +90,17 @@ The visit ratios are, of course, $V_1= V_2 = V_3 = V_4$.
 \begin{exercise}\clabel{ex:l-236}
 Zijm.Ex.3.1.3
 \begin{solution}
-We number  station a as 1, and so on.
+We number station a as 1, and so on.
 \begin{equation*}
-  P = 
-  \begin{pmatrix}
-     0 & 1 & 0 & 0 & 0 &0 \\
-     1/5 & 0 & 4/5 & 0 & 0 & 0\\
-     0& 0 & 0 & 1/3 & 2/3 & 0 \\
-     0 & 0 & 0 & 0 & 0 & 1\\
-     0 & 0 & 0 & 0 & 0 & 1\\
-     1 & 0 & 0 & 0 & 0 & 0\\
-  \end{pmatrix}.
+ P = 
+ \begin{pmatrix}
+ 0 & 1 & 0 & 0 & 0 &0 \\
+ 1/5 & 0 & 4/5 & 0 & 0 & 0\\
+ 0& 0 & 0 & 1/3 & 2/3 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 1\\
+ 0 & 0 & 0 & 0 & 0 & 1\\
+ 1 & 0 & 0 & 0 & 0 & 0\\
+ \end{pmatrix}.
 \end{equation*}
 We now solve for $V$ in the equation $V = VP$.
 Since, by definition, node $f$ is the load/unload node, we set $V_6=1$, and then we express the other visit ratios in terms of $V_6$.
@@ -122,11 +122,11 @@ Thus, at least one row or column of the matrix $1-P$ is superfluous to solve for
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-237}
-  Relate Zijm.Eq.3.3 to the form of the steady-state distribution of
-  the number of jobs in an $M/M/c$ queue.
+ Relate Zijm.Eq.3.3 to the form of the steady-state distribution of
+ the number of jobs in an $M/M/c$ queue.
 \begin{solution}
-    Except for the normalization constant, the expressions are the
-    same as equations 1.36 and 1.37 of Zijm's book.
+ Except for the normalization constant, the expressions are the
+ same as equations 1.36 and 1.37 of Zijm's book.
 \end{solution}
 \end{exercise}
 
@@ -135,23 +135,23 @@ Zijm.Ex.3.1.4
 \begin{solution}
 Consider network one with routing $1\to3\to4\to2\to1$, each transition occurring with probability one, i.e.,
 \begin{equation*}
-  P =
-  \begin{pmatrix}
-    0 & 0 & 1 & 0  \\
-    1 & 0 & 0 & 0  \\
-    0 & 0 & 0 & 1  \\
-    0 & 1 & 0 & 0  \\
-  \end{pmatrix}.
+ P =
+ \begin{pmatrix}
+ 0 & 0 & 1 & 0 \\
+ 1 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 1 \\
+ 0 & 1 & 0 & 0 \\
+ \end{pmatrix}.
 \end{equation*}
-All nodes are is visited equally often. Another network could correspond to the routing $1\to2\to3\to4\to1$.  Yet another would be this:
+All nodes are is visited equally often. Another network could correspond to the routing $1\to2\to3\to4\to1$. Yet another would be this:
 \begin{equation*}
-  P =
-  \begin{pmatrix}
-    1/2 & 0   & 1/2 & 0  \\
-    1/2 & 1/2 & 0 & 0  \\
-    0   & 1/2 & 0 & 1/2  \\
-    0   & 0   & 1/2 & 1/2  \\
-  \end{pmatrix}.
+ P =
+ \begin{pmatrix}
+ 1/2 & 0 & 1/2 & 0 \\
+ 1/2 & 1/2 & 0 & 0 \\
+ 0 & 1/2 & 0 & 1/2 \\
+ 0 & 0 & 1/2 & 1/2 \\
+ \end{pmatrix}.
 \end{equation*}
 Observe that I choose the rate such that each node receives the same
 fraction of traffic.
@@ -168,28 +168,28 @@ eigenvalue 1.
 \begin{exercise}\clabel{ex:l-239}
 Zijm.Ex.3.1.5
 \begin{hint}
- First write down all  different states, and then use Zijm.Eq.3.2 and 3.3.
+ First write down all different states, and then use Zijm.Eq.3.2 and 3.3.
 \end{hint}
 \begin{solution}
-  Since $M=2$, we have three stations: Stations 0, 1, and 2. We also
-  have $N=2$ jobs. Thus, the states are $(2,0,0)$ (meaning that the
-  load/unload station has 2 jobs, and stations 1 and 2 no jobs),
-  $(0,2,0)$, $(0,0,2)$, $(1,1,0)$, $(1,0,1)$, and $(0,1,1)$. Note that
-  the routing matrix $P$ is not given, so that we cannot compute the
-  visit ratios. Hence I leave them unspecified. Now, realize that for
-  a fixed $\vec n=(n_0, n_1, n_2)$,
-  $\Pi_i f_i(n_i) = f_0(n_0)f_1(n_1)f_2(n_2)$, so that if 
-  \begin{align*}
-    \vec n &= (2,0,0) & f_0(2)f_1(0)f_2(0) &= \left(\frac{V_0}{\mu_0}\right)^2, \\
-    \vec n &= (0,0,2) & f_0(0)f_1(0)f_2(2) &= \left(\frac{V_2}{\mu_2}\right)^2, \\
-    \vec n &= (0,2,0) & f_0(0)f_1(2)f_2(0) &= \frac12\left(\frac{V_1}{\mu_1}\right)^2.
-  \end{align*}
-  Note that in this last result we use that Station 1 has two servers. For the other combinations, 
-  \begin{align*}
-    \vec n &= (1,1,0) & f_0(1)f_1(1)f_2(0) &= \frac{V_0}{\mu_0}\frac{V_1}{\mu_1}, \\
-    \vec n &= (1,0,1) & f_0(1)f_1(0)f_2(1) &= \frac{V_0}{\mu_0}\frac{V_2}{\mu_2}, \\
-    \vec n &= (0,1,1) & f_0(0)f_1(1)f_2(1) &= \frac{V_1}{\mu_1}\frac{V_2}{\mu_2}.
-  \end{align*}
+ Since $M=2$, we have three stations: Stations 0, 1, and 2. We also
+ have $N=2$ jobs. Thus, the states are $(2,0,0)$ (meaning that the
+ load/unload station has 2 jobs, and stations 1 and 2 no jobs),
+ $(0,2,0)$, $(0,0,2)$, $(1,1,0)$, $(1,0,1)$, and $(0,1,1)$. Note that
+ the routing matrix $P$ is not given, so that we cannot compute the
+ visit ratios. Hence I leave them unspecified. Now, realize that for
+ a fixed $\vec n=(n_0, n_1, n_2)$,
+ $\Pi_i f_i(n_i) = f_0(n_0)f_1(n_1)f_2(n_2)$, so that if 
+ \begin{align*}
+ \vec n &= (2,0,0) & f_0(2)f_1(0)f_2(0) &= \left(\frac{V_0}{\mu_0}\right)^2, \\
+ \vec n &= (0,0,2) & f_0(0)f_1(0)f_2(2) &= \left(\frac{V_2}{\mu_2}\right)^2, \\
+ \vec n &= (0,2,0) & f_0(0)f_1(2)f_2(0) &= \frac12\left(\frac{V_1}{\mu_1}\right)^2.
+ \end{align*}
+ Note that in this last result we use that Station 1 has two servers. For the other combinations, 
+ \begin{align*}
+ \vec n &= (1,1,0) & f_0(1)f_1(1)f_2(0) &= \frac{V_0}{\mu_0}\frac{V_1}{\mu_1}, \\
+ \vec n &= (1,0,1) & f_0(1)f_1(0)f_2(1) &= \frac{V_0}{\mu_0}\frac{V_2}{\mu_2}, \\
+ \vec n &= (0,1,1) & f_0(0)f_1(1)f_2(1) &= \frac{V_1}{\mu_1}\frac{V_2}{\mu_2}.
+ \end{align*}
 Finally, add up all the above numbers to make $G(M,N)$. 
 \end{solution}
 \end{exercise}

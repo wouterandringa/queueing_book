@@ -31,7 +31,7 @@ Zijm.Ex.1.12.2
 \begin{solution}
 
 \begin{pyconsole}
-  
+ 
 N = 50
 VarSs = 0 # fixed setup time
 ES0 = 1/mu
@@ -53,19 +53,19 @@ rho
 When inspecting the SCV, I find it a bit small. To see whether I made a mistake, I'll try to make Figure 1.6 of Zijm.
 
 \begin{pyconsole}
-  
+ 
 VarSs = 0
 ES0 = 1 / mu
-VarS0 = 1 / mu**2  # M/M/1, hence exponential service times
+VarS0 = 1 / mu**2 # M/M/1, hence exponential service times
 
 for N in range(31, 120, 5):
-    ESb = ESs + N * ES0  # Eq.1.64 Zijm
-    Csb2 = (VarSs + N * VarS0) / ESb**2
-    labdaB = labda / N
-    rho = labdaB * ESb  # Eq.1.65
-    Cab2 = 1 / N  # recall that Ca2=1 for M/M/1
-    W = (Cab2 + Csb2) / 2 * rho / (1 - rho) * ESb + ESb
-    print("{} {:f} {:f} {:f} {:f}".format(N, ESb, Csb2, rho, W))
+ ESb = ESs + N * ES0 # Eq.1.64 Zijm
+ Csb2 = (VarSs + N * VarS0) / ESb**2
+ labdaB = labda / N
+ rho = labdaB * ESb # Eq.1.65
+ Cab2 = 1 / N # recall that Ca2=1 for M/M/1
+ W = (Cab2 + Csb2) / 2 * rho / (1 - rho) * ESb + ESb
+ print("{} {:f} {:f} {:f} {:f}".format(N, ESb, Csb2, rho, W))
 
 \end{pyconsole}
 
@@ -77,14 +77,14 @@ inspecting my results above, I can't find a mistake\ldots Perhaps you see what's
 \begin{exercise}\clabel{ex:l-252}
 Zijm.Ex.1.12.3
 \begin{solution}
-   Definitely bigger. Observe that the waiting time is very sensitive
-   to the batch size, hence to the estimates of all involved
-   parameters such as the arrival rate, service times, setup time, and
-   so on. Since, in general, it is very hard to obtain good estimates
-   of these data (the order portfolio changes continuously, personnel
-   does not always produce the same quality, rework may result, and so
-   on and so forth), one must stay away from such situations. It is
-   much better to be on the safe side of things.
+ Definitely bigger. Observe that the waiting time is very sensitive
+ to the batch size, hence to the estimates of all involved
+ parameters such as the arrival rate, service times, setup time, and
+ so on. Since, in general, it is very hard to obtain good estimates
+ of these data (the order portfolio changes continuously, personnel
+ does not always produce the same quality, rework may result, and so
+ on and so forth), one must stay away from such situations. It is
+ much better to be on the safe side of things.
 \end{solution}
 \end{exercise}
 

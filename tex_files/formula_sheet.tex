@@ -1,6 +1,6 @@
 \begin{flalign*}
 &\rho = \lambda \frac{\E S}{c} \\
-&\E{W_Q} = \frac{C_a^2 + C_s^2}{2} \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S  \\
+&\E{W_Q} = \frac{C_a^2 + C_s^2}{2} \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S \\
 &\text{Batching: } C_{sB}^2 = \frac{B \V{S_0}+\V{T}}{(B\E{S_0}+\E{T})^2} \\ 
 &\text{Nonpreemptive: } \V{S} = \V{S_0} + \frac{\V{T}}{B} + \frac{B -1}{B^2}(\E{T})^2\\
 &\text{Preemptive: } A = \frac{m_f}{m_r+m_f}, C_s^2 = C_0^2 + 2A(1-A)\frac{m_r}{\E{S_0}} \\
@@ -11,10 +11,10 @@
 %C_{ij}^2 = P_{ij}C_{di}^2 + 1 - P_{ij}
 \\
 & f_i(n_i) = 
-            \begin{cases}
-              G(i)^{-1} (c_i\rho_i)^{n_i}(n_i!)^{-1}, &\text{ if } n_i < c_i, \\ 
-              G(i)^{-1} c_i^{c_i}\rho_i^{n_i}(c_i!)^{-1}, &\text{ if } n_i \geq c_i \\ 
-            \end{cases} \\
+ \begin{cases}
+ G(i)^{-1} (c_i\rho_i)^{n_i}(n_i!)^{-1}, &\text{ if } n_i < c_i, \\ 
+ G(i)^{-1} c_i^{c_i}\rho_i^{n_i}(c_i!)^{-1}, &\text{ if } n_i \geq c_i \\ 
+ \end{cases} \\
 &\quad \text{with } G(i) = \sum_{n=0}^{c_i-1} \frac{(c_i\rho_i)^n}{n!} + \frac{(c_i\rho_i)^{c_i}}{c_i!}\frac{1}{1-\rho_i} \\
 & \E{L_i} = \frac{(c_i\rho_i)^{c_i}}{c_i!G(i)}\frac{\rho_i}{(1-\rho_i)^2} + c_i \rho_i &\quad
 % C_{si}^2 = \max\{C_{si}^2, 0.2\} 
@@ -24,10 +24,10 @@
 % v_j = \left(\sum_{i=0}^M Q_{ij}^2\right)^{-1}, \, j=1,\ldots, M,\\
 & f_{i}(n_i) = \frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}}\left(\frac{V_i}{\mu_i}\right)^{n_i}, i=0\ldots M \\
 & V_i = (V P)_i = \sum_{j=0}^M V_j P_{ji}\\
-%& G(m,n) = \sum_{k=0}^n f_m(k) G(m-1, n-k) &\quad  G(m,0) = 1, G(0,n) = \mu_0^{-n}, \\
+%& G(m,n) = \sum_{k=0}^n f_m(k) G(m-1, n-k) &\quad G(m,0) = 1, G(0,n) = \mu_0^{-n}, \\
 %& \E{W_j(n)} = \E{L_j(n-1) + 1} \E{S_j} &\quad \E{L_j(n)} = \TH_j(n) \E{W_j(n)} \\
-%& \TH_0(n) = \frac{n}{\sum_{j=0}^M V_j \E{W_j(n)}}  &\quad  \TH_j(n) = V_j \TH_0(n) \\
-%&  p_j(0|0) = 1  &\quad \E{W_j(n)} = \sum_{k=c_j}^{n-1} \frac{k-c_j+1}{c_j \mu_j} p_j(k|n-1) + \frac{1}{\mu_j} \\
+%& \TH_0(n) = \frac{n}{\sum_{j=0}^M V_j \E{W_j(n)}} &\quad \TH_j(n) = V_j \TH_0(n) \\
+%& p_j(0|0) = 1 &\quad \E{W_j(n)} = \sum_{k=c_j}^{n-1} \frac{k-c_j+1}{c_j \mu_j} p_j(k|n-1) + \frac{1}{\mu_j} \\
 %& p_j(k|n) = \frac{\TH_j(n)}{\mu_j \min\{c_j,k\}} p_j(k-1|n-1), k=1\ldots N &\quad p_j(0|n) = 1 - \sum_{k=1}^n p_j(k|n).
 \end{flalign*}
 

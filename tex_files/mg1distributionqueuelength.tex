@@ -20,148 +20,148 @@ Thus, for the $M/G/1$ queue we need to focus on moments in time in which the sys
 As we will see below the appropriate moments are job departure epochs.
 All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and~\cref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
 
-An important role below is played by  the number of  arrivals $Y_k$ during the service time of the $k$th job.  Since the service times of the jobs form an i.i.d. sequence of random variables, the sequence $\{Y_k\}$ is also i.i.d. Let $Y$ be the common random variable with probability mass
+An important role below is played by the number of arrivals $Y_k$ during the service time of the $k$th job. Since the service times of the jobs form an i.i.d. sequence of random variables, the sequence $\{Y_k\}$ is also i.i.d. Let $Y$ be the common random variable with probability mass
  $f(j) = \P{Y = j}$; write $G(j) = \P{Y_k > j}$ for the survivor function.
 
 
 \begin{extra}\clabel{ex:75}
  Explain that if the service time is constant and equal to $s$, then
 \begin{equation}\label{eq:4}
-  \P{Y_k = j\given S=s} = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
+ \P{Y_k = j\given S=s} = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
 \end{equation}
 \begin{hint}
 If $s$ is deterministic, the number of arrivals during a fixed
-    period of time with length $s$ must be Poisson distributed.
+ period of time with length $s$ must be Poisson distributed.
 \end{hint}
 \begin{solution}
-See the hint.  The period during which the arrivals occur is $s$. 
+See the hint. The period during which the arrivals occur is $s$. 
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-224}
  Explain that 
 \begin{equation}\label{eq:10}
-  \P{Y_k = j} = \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!}\, \d F(x),
+ \P{Y_k = j} = \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!}\, \d F(x),
 \end{equation}
 where $F$ is the distribution of the service times.
 \begin{hint}
-  Use~\cref{ex:75}.
+ Use~\cref{ex:75}.
 \end{hint}
 \begin{solution}
-  We use a conditioning argument to arrive at this result. The
-  probability that the service time is $x$ units long is written in
-  various ways in the literature: $F(\d x) = \d F(x) = \P{S\in \d x}$,
-  but this all means the same thing, it is only the notation that
-  differs.  (As an aside, to properly define this we need measure
-  theory). When $F$ has a density $f$, then
-  $\d F(x) = f(x) \d x$.  Note that when $S$ is discrete, it does not
-  have a density everywhere. With this,
-    \begin{equation*}
-    \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x}\P{S\in \d x} =
-    \int_0^\infty \P{Y_k =j\given S=x} \d F(x).
-    \end{equation*}
-    Using the answer of the previous problem we arrive at the result.
+ We use a conditioning argument to arrive at this result. The
+ probability that the service time is $x$ units long is written in
+ various ways in the literature: $F(\d x) = \d F(x) = \P{S\in \d x}$,
+ but this all means the same thing, it is only the notation that
+ differs. (As an aside, to properly define this we need measure
+ theory). When $F$ has a density $f$, then
+ $\d F(x) = f(x) \d x$. Note that when $S$ is discrete, it does not
+ have a density everywhere. With this,
+ \begin{equation*}
+ \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x}\P{S\in \d x} =
+ \int_0^\infty \P{Y_k =j\given S=x} \d F(x).
+ \end{equation*}
+ Using the answer of the previous problem we arrive at the result.
 \end{solution}
 \end{exercise}
 
 \begin{extra}
-  If $S$ is deterministic and equal to $s$, show that~\cref{eq:10} reduces to~\cref{eq:4}.  
+ If $S$ is deterministic and equal to $s$, show that~\cref{eq:10} reduces to~\cref{eq:4}. 
 \begin{hint}
  $S=s$ then
-    $\P{S=s}=1$, i.e., all probability mass lies at $s$. Thus, all
-    arrivals must occur during $[0,s]$.
+ $\P{S=s}=1$, i.e., all probability mass lies at $s$. Thus, all
+ arrivals must occur during $[0,s]$.
 \end{hint}
 \begin{solution}
-    Let us first attack this problem from a general point of
-    view. Suppose the service time $S$ can take values
-    $s_1<s_2<\cdots <s_n$, and $\P{S=s_i}=\alpha_i$. Then of course we
-    want that $\P{S\leq s_n} = \sum_{i=1}^n \alpha_i = 1$. The
-    distribution function $F$ of $S$ is in this case a step function,
-    with steps at the points $s_1, s_2, \ldots$, and step sizes
-    $\alpha_1, \alpha_2, \ldots$. Thus, $F(s_i)-F(s_i-)=\alpha_i$. We
-    say that such a distribution function has \emph{atoms} at the
-    points $s_1, s_2, \ldots$. In this case we write
-  \begin{equation*}
-    \int_0^\infty g(x) \d F(x) = \sum_{i=1}^n g(s_i) \alpha_i.
-  \end{equation*}
-  Thus, the integral of $g$ with respect to $F$ is the sum of $g$ at
-  the points at which $F$ makes a jump times the weight of $F$ at
-  these points. 
+ Let us first attack this problem from a general point of
+ view. Suppose the service time $S$ can take values
+ $s_1<s_2<\cdots <s_n$, and $\P{S=s_i}=\alpha_i$. Then of course we
+ want that $\P{S\leq s_n} = \sum_{i=1}^n \alpha_i = 1$. The
+ distribution function $F$ of $S$ is in this case a step function,
+ with steps at the points $s_1, s_2, \ldots$, and step sizes
+ $\alpha_1, \alpha_2, \ldots$. Thus, $F(s_i)-F(s_i-)=\alpha_i$. We
+ say that such a distribution function has \emph{atoms} at the
+ points $s_1, s_2, \ldots$. In this case we write
+ \begin{equation*}
+ \int_0^\infty g(x) \d F(x) = \sum_{i=1}^n g(s_i) \alpha_i.
+ \end{equation*}
+ Thus, the integral of $g$ with respect to $F$ is the sum of $g$ at
+ the points at which $F$ makes a jump times the weight of $F$ at
+ these points. 
 
-  As an example, in case $S\equiv 10$ (the service time is always 10
-  time units long) the distribution function $F$ makes just one jump
-  at $s_1=10$ of size $\alpha_1 = F(10)-F(10-) =1$, i.e., $F$ has the
-  form
-    \begin{equation*}
-      F(x) = 
-      \begin{cases}
-        0, &\quad x< 10, \\
-        1, &\quad x\geq 10.
-      \end{cases}
-    \end{equation*}
+ As an example, in case $S\equiv 10$ (the service time is always 10
+ time units long) the distribution function $F$ makes just one jump
+ at $s_1=10$ of size $\alpha_1 = F(10)-F(10-) =1$, i.e., $F$ has the
+ form
+ \begin{equation*}
+ F(x) = 
+ \begin{cases}
+ 0, &\quad x< 10, \\
+ 1, &\quad x\geq 10.
+ \end{cases}
+ \end{equation*}
 With this, 
 \begin{equation*}
-  \int_0^\infty g(x) \d F(x) = \sum_{i=1}^n g(s_i) \alpha_i = g(s_1) \alpha_1 = g(10) \cdot 1 = g(10).
+ \int_0^\infty g(x) \d F(x) = \sum_{i=1}^n g(s_i) \alpha_i = g(s_1) \alpha_1 = g(10) \cdot 1 = g(10).
 \end{equation*}
 Thus, the integral of $g$ with respect to this distribution $F$ is
-$g(10)$.  More generally, when $F$ puts all probability mass at the
+$g(10)$. More generally, when $F$ puts all probability mass at the
 single point $s$ (rather than at the point $10$), then
 \begin{equation*}
-  \int_0^\infty g(x) \d F(x) = g(s).
+ \int_0^\infty g(x) \d F(x) = g(s).
 \end{equation*}
 
-    Let us now copy the formula of the previous problem:
-    \begin{equation*}
-    \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x).
-    \end{equation*}
-    We see that here the integrand is the function
-    $g(x) = \P{Y_k=j\given S=x}$. It is given in the question that $F$
-    puts all mass on the point $s$. Therefore,
-    \begin{equation*}
-    \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x) = 
+ Let us now copy the formula of the previous problem:
+ \begin{equation*}
+ \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x).
+ \end{equation*}
+ We see that here the integrand is the function
+ $g(x) = \P{Y_k=j\given S=x}$. It is given in the question that $F$
+ puts all mass on the point $s$. Therefore,
+ \begin{equation*}
+ \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x) = 
 \int_0^\infty g(x) \d F(x) = g(s). \qquad \star
-    \end{equation*}
+ \end{equation*}
 
-    Now we also know that if the service time takes precisely $x$ time
-    units, the number of arrivals is Poisson distributed. Therefore
-    \begin{equation*}
-    \P{Y_k =j\given S=x} = e^{-\lambda x}\frac{(\lambda x)^j}{j!}.
-    \end{equation*}
+ Now we also know that if the service time takes precisely $x$ time
+ units, the number of arrivals is Poisson distributed. Therefore
+ \begin{equation*}
+ \P{Y_k =j\given S=x} = e^{-\lambda x}\frac{(\lambda x)^j}{j!}.
+ \end{equation*}
 Hence, 
-    \begin{equation*}
-    g(x) = \P{Y_k =j\given S=x} = e^{-\lambda x}\frac{(\lambda x)^j}{j!}.
-    \end{equation*}
+ \begin{equation*}
+ g(x) = \P{Y_k =j\given S=x} = e^{-\lambda x}\frac{(\lambda x)^j}{j!}.
+ \end{equation*}
 
 
-    Finally, using $(\star)$, and taking $x=s$ in the above expression of $g$, we get
-    \begin{equation*}
-    \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x) = 
-    g(s) = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
-    \end{equation*}
+ Finally, using $(\star)$, and taking $x=s$ in the above expression of $g$, we get
+ \begin{equation*}
+ \P{Y_k=j} = \int_0^\infty \P{Y_k =j\given S=x} \d F(x) = 
+ g(s) = e^{-\lambda s}\frac{(\lambda s)^j}{j!}.
+ \end{equation*}
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:74}
  If $S\sim \Exp(\mu)$, show that 
-  \begin{equation} \label{eq:41}
+ \begin{equation} \label{eq:41}
 f(j) = \P{Y_k = j} = \frac{\mu}{\lambda+\mu}\left(\frac{\lambda}{\lambda+\mu}\right)^j.
-  \end{equation}
+ \end{equation}
 \begin{hint}
 Use the ideas of~\cref{ex:15} to simplify the standard integral.
 \end{hint}
 \begin{solution}
 Use conditional probability to see that 
 \begin{align*}
-  \P{Y_n = j} 
+ \P{Y_n = j} 
 &= \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!}\, \d F(x) = \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!} \mu e^{-\mu x}\, \d x \\
 &= \frac{\mu}{j!}\lambda^j \int_0^\infty e^{-(\lambda+\mu) x}x^j\,\d x = \frac{\mu}{j!}\left(\frac{\lambda}{\lambda+\mu}\right)^j \int_0^\infty e^{-(\lambda+\mu) x}((\lambda+\mu)x)^j\,\d x \\
 &= \frac{\mu}{j!}\left(\frac{\lambda}{\lambda+\mu}\right)^j \frac{j!}{\lambda+\mu}.
 \end{align*}
 In the last integral, we use the hint. Specifically, 
 \begin{align*}
-  \int_0^\infty e^{-\alpha x} (\alpha x)^j \d x 
-&=  \alpha^{-1} \int_0^\infty e^{- x} x^j \d x  
-=  \alpha^{-1} \left(-e^{-x}x^j |_0^\infty + j \int_0^\infty e^{- x} x^{j-1} \d x \right) \\
+ \int_0^\infty e^{-\alpha x} (\alpha x)^j \d x 
+&= \alpha^{-1} \int_0^\infty e^{- x} x^j \d x 
+= \alpha^{-1} \left(-e^{-x}x^j |_0^\infty + j \int_0^\infty e^{- x} x^{j-1} \d x \right) \\
 &= \alpha^{-1} j \int_0^\infty e^{- x} x^{j-1} \d x 
 = \alpha^{-1} j(j-1) \int_0^\infty e^{- x} x^{j-2} \d x \\
 &= \alpha^{-1} j! \int_0^\infty e^{- x} \d x 
@@ -176,7 +176,7 @@ $\lambda+\mu$ that arises when the arrival and service process are
 merged. The probability that an arrival corresponds to an epoch of the
 merged process is $\lambda/(\lambda+\mu)$ and the probability that a
 departure corresponds to an epoch of the merged process is
-$\mu/(\lambda+\mu)$.  The probability that $j$ arrivals occur before a
+$\mu/(\lambda+\mu)$. The probability that $j$ arrivals occur before a
 service occurs, is the same as the probability that a geometrically
 distributed random variable with success probability
 $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
@@ -185,18 +185,18 @@ $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
 
 \begin{exercise}\clabel{ex:l-225}
  If $S\sim \Exp(\mu)$, show that 
-  \begin{equation}
-G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1}.
-  \end{equation}
+ \begin{equation}
+G(j) = \sum_{k=j+1}^\infty f(k) = \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1}.
+ \end{equation}
 \begin{hint}
-    Use~\cref{ex:74}.
+ Use~\cref{ex:74}.
 \end{hint}
 \begin{solution}
-  Take $\alpha = \lambda/(\lambda+\mu)$ so that
-  $f(j) = (1-\alpha) \alpha^j$.
+ Take $\alpha = \lambda/(\lambda+\mu)$ so that
+ $f(j) = (1-\alpha) \alpha^j$.
 \begin{align*}
-  G(j) 
-&= \sum_{k=j+1}^\infty f(k)  = (1-\alpha) \sum_{k=j+1}^\infty \alpha^k \\
+ G(j) 
+&= \sum_{k=j+1}^\infty f(k) = (1-\alpha) \sum_{k=j+1}^\infty \alpha^k \\
 & = (1-\alpha) \sum_{k=0}^\infty \alpha^{k+j+1}, \text{ by change of variable}\\
 & = (1-\alpha) \sum_{k=0}^\infty \alpha^{k}\alpha^{j+1}= (1-\alpha)\alpha^{j+1} \sum_{k=0}^\infty \alpha^k \\
 &= (1-\alpha)\alpha^{j+1} \frac{1}{1-\alpha} = \alpha^{j+1}.
@@ -207,19 +207,19 @@ G(j) = \sum_{k=j+1}^\infty f(k) =  \left(\frac{\lambda}{\lambda+\mu}\right)^{j+1
 \begin{exercise}\clabel{ex:30} 
 Design a suitable numerical method to evaluate~\cref{eq:10} for more general distribution functions $F$.
 \begin{hint}
-Discretize time to  a grid of points, and   approximate the integral by a summation over the grid.
+Discretize time to a grid of points, and approximate the integral by a summation over the grid.
 \end{hint}
 \begin{solution}
-    A simple numerical method is as follows.
-    Make a grid of size $\d x$, for some small number $\d x$, e.g.
-    $\d x=1/100$, and write $f_i = \P{S\in(i\d x, (i+1)\d x]} = F((i+1)\d x) - F(i\d x)$.
-    Then
-  \begin{equation*}
-    \begin{split}
-  \P{Y_k = j} 
+ A simple numerical method is as follows.
+ Make a grid of size $\d x$, for some small number $\d x$, e.g.
+ $\d x=1/100$, and write $f_i = \P{S\in(i\d x, (i+1)\d x]} = F((i+1)\d x) - F(i\d x)$.
+ Then
+ \begin{equation*}
+ \begin{split}
+ \P{Y_k = j} 
 &= \int_0^\infty e^{-\lambda x}\frac{(\lambda x)^j}{j!} \d F(x) 
 \approx \sum_{i=1}^\infty e^{-\lambda i \d x}\frac{(\lambda i\d x)^j}{j!} f_i \d x.
-    \end{split}
+ \end{split}
 \end{equation*}
 
 Let's try a numerical experiment. 
@@ -234,18 +234,18 @@ dx = 1 / 100
 
 
 def F(x):
-    return 1 - np.exp(-mu * x)
+ return 1 - np.exp(-mu * x)
 
 
 def f(x):
-    return F(x + dx) - F(x)
+ return F(x + dx) - F(x)
 
 
 def term(i):
-    res = np.exp(-labda * i * dx)
-    res *= (labda * i * dx)**j / np.math.factorial(j)
-    res *= f(i*dx) * dx
-    return res
+ res = np.exp(-labda * i * dx)
+ res *= (labda * i * dx)**j / np.math.factorial(j)
+ res *= f(i*dx) * dx
+ return res
 
 \end{pyconsole}
 
@@ -274,7 +274,7 @@ cruncher.
 from scipy.integrate import quad
 
 def g(x):
-    return np.exp(-labda*x) * (labda*x)**j/np.math.factorial(j) * f(x)
+ return np.exp(-labda*x) * (labda*x)**j/np.math.factorial(j) * f(x)
 
 print(quad(g, 0, np.inf))
 \end{pyconsole}
@@ -288,32 +288,32 @@ Let us concentrate on a down-crossing of level $n$, see~\cref{fig:mg1_2}; recall
 For job $k$ to generate a down-crossing of level $n$, two events must take place: job `$k-1$' must leave $n+1$ jobs behind after its service completion, and job $k$ must leave $n$ jobs behind.
 Thus,
  \begin{equation*}
-   \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = 1.
+ \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = 1.
  \end{equation*}
 Let us write this in another
 way. Observe that if $L(D_{k-1})=n+1$ and no other jobs arrive during
 the service time $S_k$ of job $k$, i.e., when $Y_k=0$, it must also be
 that job $k$ leaves $n$ jobs behind. If, however, $Y_k>0$, then
-$L(D_k)\geq n+1$.  Thus, we see that
+$L(D_k)\geq n+1$. Thus, we see that
  \begin{equation*}
-   \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{Y_k=0} = 1.
+ \text{Down-crossing of level $n$} \iff \1{L(D_{k-1}) = n+1}\1{Y_k=0} = 1.
  \end{equation*}
 % \begin{equation*}
-%   \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} =  \1{L(D_{k-1}) = n+1}\1{Y_k=0}.
+% \1{L(D_{k-1}) = n+1}\1{L(D_k)=n} = \1{L(D_{k-1}) = n+1}\1{Y_k=0}.
 % \end{equation*}
 Consequently, the number of down-crossings of level $n$ up to time $t$ is
 \begin{equation*}
-  \begin{split}
-  D(n+1, 0, t) 
+ \begin{split}
+ D(n+1, 0, t) 
 %&= \sum_{k=1}^\infty \1{D_{k}\leq t}\1{L(D_{k})=n} \\
 &= \sum_{k=1}^{D(t)}\1{L(D_{k-1})=n+1}\1{Y_k=0}.
-  \end{split}
+ \end{split}
 \end{equation*}
 
 \begin{exercise}\clabel{ex:l-226}
 Show that 
 \begin{equation*}
-  \lim_{t\to\infty} \frac{  D(n+1, 0, t)}t  = \delta \delta(n+1) f(0),
+ \lim_{t\to\infty} \frac{ D(n+1, 0, t)}t = \delta \delta(n+1) f(0),
 \end{equation*}
 where $f(0)=\P{Y=0}$.
 \begin{hint}
@@ -322,10 +322,10 @@ Use a similar derivation as in~\cref{eq:1332}.
 \begin{solution}
 By using the definitions and limits developed in~\cref{sec:rate-stability,sec:poisson-arrivals-see},
 \begin{align*}
-  \lim_{t\to\infty} \frac{  D(n+1, 0, t)}t 
-&=   \lim_{t\to\infty}  \frac{D(t)}t \frac{D(n+1, t)}{D(t)}\frac{ D(n+1, 0, t)}{D(n+1,t)} \\
-&=   \delta \delta(n+1) \lim_{t\to\infty} \frac{ D(n+1, 0, t)}{D(n+1,t)} \\
-&=   \delta \delta(n+1) \P{Y=0}\\
+ \lim_{t\to\infty} \frac{ D(n+1, 0, t)}t 
+&= \lim_{t\to\infty} \frac{D(t)}t \frac{D(n+1, t)}{D(t)}\frac{ D(n+1, 0, t)}{D(n+1,t)} \\
+&= \delta \delta(n+1) \lim_{t\to\infty} \frac{ D(n+1, 0, t)}{D(n+1,t)} \\
+&= \delta \delta(n+1) \P{Y=0}\\
 & = \delta \delta(n+1) f(0),
 \end{align*}
 where the last limit follows from the independence of $Y_k$ and
@@ -334,10 +334,10 @@ $L(D_{k-1})$.
 \end{exercise}
 
 \begin{figure}[tb]
-  \centering
-                  
+ \centering
+ 
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+ semithick]
 \node[state] (0) {$\delta(0)$}; 
 \node[state] (1) [right of=0] {$\delta(1)$}; 
 \node[state] (2) [right of=1] {$\delta(2)$}; 
@@ -361,74 +361,74 @@ $L(D_{k-1})$.
 (4) edge [bend left] node[below, near start] {$f(0)$} (3);
 
 % \node[circ, right=of n-2] (n-1) {$n-1$}
-% edge[loop below, thick]  node[midway, fill=white] {$\lambda f(0)$} (n-1); 
+% edge[loop below, thick] node[midway, fill=white] {$\lambda f(0)$} (n-1); 
 
 \draw[-, dotted, gray] (9.7,-1)--(9.7, 4.0) node[below, black] {level $3$};
 
 
 \end{tikzpicture}
 \caption{Level $3$ is crossed from below with rate
-  $\delta\delta(0)G(3) + \delta\delta(1)G(3) + \cdots \delta \delta(3) G(1)$ and crossed
-  from above with rate $\delta\delta(4) f(0)$. }
+ $\delta\delta(0)G(3) + \delta\delta(1)G(3) + \cdots \delta \delta(3) G(1)$ and crossed
+ from above with rate $\delta\delta(4) f(0)$. }
 \label{fig:mg1_2}
 \end{figure}
 
 Before we deal with the up-crossing, it is important to do the next exercise.
 \begin{exercise}\clabel{ex:l-227}
-  Suppose that $L(D_{k-1})>0$.
-  Why is $D_k = D_{k-1} + S_{k}$?
-  However, if $L(D_{k-1}) = 0$, the time between $D_{k-1}$ and $D_k$ is \emph{not} equal to $S_k$.
-  Why not?
-  Can you find an expression for the distribution of $D_k-D_{k-1}$ in case $L(D_{k-1})=0$?
+ Suppose that $L(D_{k-1})>0$.
+ Why is $D_k = D_{k-1} + S_{k}$?
+ However, if $L(D_{k-1}) = 0$, the time between $D_{k-1}$ and $D_k$ is \emph{not} equal to $S_k$.
+ Why not?
+ Can you find an expression for the distribution of $D_k-D_{k-1}$ in case $L(D_{k-1})=0$?
 \begin{hint}
-    You might find some inspiration in~\cref{ex:17}.
+ You might find some inspiration in~\cref{ex:17}.
 
-    Realize that if $L(D_{k-1})=0$, job $k-1$ leaves behind an empty system.
-    Thus, before job $k$ can leave, it has to arrive.
-    In other words, $D_{k-1}<A_k$.
-    Since job $k$ arrives to an empty system, his service starts right away, to that the time between $A_k$ and $D_k$ is equal to the service time of job $k$.
+ Realize that if $L(D_{k-1})=0$, job $k-1$ leaves behind an empty system.
+ Thus, before job $k$ can leave, it has to arrive.
+ In other words, $D_{k-1}<A_k$.
+ Since job $k$ arrives to an empty system, his service starts right away, to that the time between $A_k$ and $D_k$ is equal to the service time of job $k$.
 \end{hint}
 \begin{solution}
-  When $L(D_{k-1})>0$, job $k$ is already in the system when job $k-1$
-  finishes its service and leaves. Thus, at the departure time
-  $D_{k-1}$ of job $k-1$, the service of job $k$ can start right away
-  at $D_{k-1}$. Then, $D_k=D_{k-1}+S_k$.
+ When $L(D_{k-1})>0$, job $k$ is already in the system when job $k-1$
+ finishes its service and leaves. Thus, at the departure time
+ $D_{k-1}$ of job $k-1$, the service of job $k$ can start right away
+ at $D_{k-1}$. Then, $D_k=D_{k-1}+S_k$.
 
 
-    When job $k-1$ leaves an empty system behind, $D_k= A_k + S_k$,
-    since job $k$ sees an empty system, hence its service can start
-    right away after its arrival time at time $A_k$. Since the arrival
-    process is Poisson by assumption, the time to the next arrival
-    after $D_{k-1}$ is exponentially distributed with rate
-    $\lambda$. (Recall the memoryless property of the inter-arrival
-    times.) Thus, $A_k - D_{k-1}$ has the same distribution as $X_k$,
-    so that $\P{D_k - D_{k-1} \leq x} = \P{X_k + S_k\leq x}$. 
+ When job $k-1$ leaves an empty system behind, $D_k= A_k + S_k$,
+ since job $k$ sees an empty system, hence its service can start
+ right away after its arrival time at time $A_k$. Since the arrival
+ process is Poisson by assumption, the time to the next arrival
+ after $D_{k-1}$ is exponentially distributed with rate
+ $\lambda$. (Recall the memoryless property of the inter-arrival
+ times.) Thus, $A_k - D_{k-1}$ has the same distribution as $X_k$,
+ so that $\P{D_k - D_{k-1} \leq x} = \P{X_k + S_k\leq x}$. 
 \end{solution}
 \end{exercise}
 
-For the up-crossings, assume first that $L(D_{k-1})=n>0$.  Then an up-crossing of level $n>0$  must have occurred when $L(D_k)>n$, i.e., 
+For the up-crossings, assume first that $L(D_{k-1})=n>0$. Then an up-crossing of level $n>0$ must have occurred when $L(D_k)>n$, i.e., 
  \begin{equation*}
- \1{L(D_{k-1}) = n}\1{L(D_k)>n} = 1 \implies   \text{Up-crossing of level $n$}.
+ \1{L(D_{k-1}) = n}\1{L(D_k)>n} = 1 \implies \text{Up-crossing of level $n$}.
  \end{equation*}
-Again, we can convert this into a statement about  the number of
-arrivals $Y_k$ that occurred during the service time $S_k$ of job $k$.  If $Y_k=0$, then
+Again, we can convert this into a statement about the number of
+arrivals $Y_k$ that occurred during the service time $S_k$ of job $k$. If $Y_k=0$, then
 job $k$ must leave $n-1$ jobs behind, so no up-crossing can
 happen. Next, if $Y_k=1$, then job $k$ leaves $n$ jobs behind, so
-still no up-crossing occurs. In fact, level $n$ can only be  up-crossed from level $n$ if
+still no up-crossing occurs. In fact, level $n$ can only be up-crossed from level $n$ if
 more than one job arrives during the service of job $k$, i.e.,
 \begin{equation*}
-\1{L(D_{k-1})=n} \1{Y_{k}>1} = 1 \implies   \text{Up-crossing of level $n$}.
+\1{L(D_{k-1})=n} \1{Y_{k}>1} = 1 \implies \text{Up-crossing of level $n$}.
 \end{equation*}
 More generally, level $n$ is up-crossed from level $m$, $0<m\leq n$ whenever
 \begin{equation*}
-\1{L(D_{k-1})=m} \1{Y_{k}>n-m+1} = 1 \implies   \text{Up-crossing of level $n$}.
+\1{L(D_{k-1})=m} \1{Y_{k}>n-m+1} = 1 \implies \text{Up-crossing of level $n$}.
 \end{equation*}
-However,  if $m=0$ (think about this),
+However, if $m=0$ (think about this),
 \begin{equation*}
-\1{L(D_{k})>n} = \1{L(D_{k-1})=0} \1{Y_{k}>n}   \implies   \text{Up-crossing of level $n$}.
+\1{L(D_{k})>n} = \1{L(D_{k-1})=0} \1{Y_{k}>n} \implies \text{Up-crossing of level $n$}.
 \end{equation*}
 
-Again we define proper counting functions,  divide by $t$, and take suitable limits to find for up-crossing rate
+Again we define proper counting functions, divide by $t$, and take suitable limits to find for up-crossing rate
 \begin{equation}\label{eq:555}
 \delta \delta(0) G(n) + \delta \sum_{m=1}^n \delta(m) G(n-m+1).
 \end{equation}
@@ -437,44 +437,44 @@ Again we define proper counting functions,  divide by $t$, and take suitable lim
 Equating the down-crossing and up-crossing rates and dividing
 by $\delta$ gives
 \begin{equation*}
-  f(0) \delta(n+1) = \delta(0) G(n) + \sum_{m=1}^{n} \delta(m) G(n+1-m).
+ f(0) \delta(n+1) = \delta(0) G(n) + \sum_{m=1}^{n} \delta(m) G(n+1-m).
 \end{equation*}
 Noting that $\pi(n) = \delta(n)$, which follows from~\cref{eq:39} and the fact that the $M/G/1$ queue length process has one-step transitions, we arrive at
 \begin{equation}\label{eq:72}
-  f(0) \pi(n+1) = \pi(0) G(n) + \sum_{m=1}^{n} \pi(m) G(n+1-m).
+ f(0) \pi(n+1) = \pi(0) G(n) + \sum_{m=1}^{n} \pi(m) G(n+1-m).
 \end{equation}
 
 Clearly, we have again obtained a recursion by which we can compute, iteratively, the state probabilities. 
 
 
 \begin{exercise}\clabel{ex:l-228}
-  Provide the details behind the derivation of~\cref{eq:555}.
+ Provide the details behind the derivation of~\cref{eq:555}.
 \begin{hint}
 Define for $m=1,\ldots, n$
 \begin{equation*}
-  D(m, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=m}\1{Y_k>n-m+1},
+ D(m, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=m}\1{Y_k>n-m+1},
 \end{equation*}
 and 
 \begin{equation*}
-  D(0, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=0}\1{Y_k>n}.
+ D(0, n, t) = \sum_{k=1}^{D(t)}\1{L(D_{k-1})=0}\1{Y_k>n}.
 \end{equation*}
 Then, divide by $D(n,t)$ and $D(t)$ and take limits.
 \end{hint}
 \begin{solution}
 With the definition of the hint, 
 \begin{align*}
-  \lim_{t\to\infty} \frac{  D(0, n, t)}t 
-&=   \lim_{t\to\infty}  \frac{D(t)}t \frac{D(0, t)}{D(t)}\frac{ D(0, n, t)}{D(0,t)} \\
-&=   \delta \delta(0) \lim_{t\to\infty} \frac{ D(0, n, t)}{D(0,t)} \\
-&=   \delta \delta(0) \P{Y>n}\\
+ \lim_{t\to\infty} \frac{ D(0, n, t)}t 
+&= \lim_{t\to\infty} \frac{D(t)}t \frac{D(0, t)}{D(t)}\frac{ D(0, n, t)}{D(0,t)} \\
+&= \delta \delta(0) \lim_{t\to\infty} \frac{ D(0, n, t)}{D(0,t)} \\
+&= \delta \delta(0) \P{Y>n}\\
 & = \delta \delta(0) G(n).
 \end{align*}
 
 \begin{align*}
-  \lim_{t\to\infty} \frac{  D(m, n, t)}t 
-&=   \lim_{t\to\infty}  \frac{D(t)}t \frac{D(m, t)}{D(t)}\frac{ D(m, n, t)}{D(m,t)} \\
-&=   \delta \delta(m) \lim_{t\to\infty} \frac{ D(m, n, t)}{D(m,t)} \\
-&=   \delta \delta(m) \P{Y>n-m+1}\\
+ \lim_{t\to\infty} \frac{ D(m, n, t)}t 
+&= \lim_{t\to\infty} \frac{D(t)}t \frac{D(m, t)}{D(t)}\frac{ D(m, n, t)}{D(m,t)} \\
+&= \delta \delta(m) \lim_{t\to\infty} \frac{ D(m, n, t)}{D(m,t)} \\
+&= \delta \delta(m) \P{Y>n-m+1}\\
 & = \delta \delta(m) G(n-m+1).
 \end{align*}
 \end{solution}
@@ -483,42 +483,42 @@ With the definition of the hint,
 
 
 \begin{exercise}\clabel{ex:l-229}
-  Clearly, the $M/M/1$ queue is a special case of the $M/G/1$ queue.
-  Check that the queue length distribution of the $M/M/1$ queue satisfies~\cref{eq:72}.
+ Clearly, the $M/M/1$ queue is a special case of the $M/G/1$ queue.
+ Check that the queue length distribution of the $M/M/1$ queue satisfies~\cref{eq:72}.
 \begin{hint}
-    To simplify the computations, define shorthands such as $\alpha=\lambda/(\lambda+\mu)$, so that $1-\alpha = \mu/(\lambda+\mu)$, and $\alpha/(1-\alpha) = \lambda /\mu = \rho$.
-    Then, with~\cref{eq:41}, $f(n) = \alpha^n(1-\alpha)$ and $G(n) = \alpha^{n+1}$.
-    (These results do not 'come for free'.
-    Of course, it's just algebra, but please try to derive this yourself.
-    It's good to hone your computational skills.)
+ To simplify the computations, define shorthands such as $\alpha=\lambda/(\lambda+\mu)$, so that $1-\alpha = \mu/(\lambda+\mu)$, and $\alpha/(1-\alpha) = \lambda /\mu = \rho$.
+ Then, with~\cref{eq:41}, $f(n) = \alpha^n(1-\alpha)$ and $G(n) = \alpha^{n+1}$.
+ (These results do not 'come for free'.
+ Of course, it's just algebra, but please try to derive this yourself.
+ It's good to hone your computational skills.)
 \end{hint}
 \begin{solution}
 Use the shorthands of the hint. We work in steps. First we check whether $\pi(0)=1-\rho$ of the $M/M/1$ queue satisfies~\cref{eq:72}, then we check $\pi(1)$, and finally we check the general case with $n\geq 1$. 
 
-Take $n=0$, so that $f(0)=1-\alpha$.  Hence, the left-hand side becomes $f(0) \pi(1) = (1-\alpha)\pi(1)$. The right-hand side is
-      $\pi(0)G(0) = \pi(0)\alpha$. Thus,
-      $\pi(1) = \pi(0)\alpha/(1-\alpha) = \rho \pi(0)$. And indeed, for the $M/M/1$ queue we know that this is true. 
+Take $n=0$, so that $f(0)=1-\alpha$. Hence, the left-hand side becomes $f(0) \pi(1) = (1-\alpha)\pi(1)$. The right-hand side is
+ $\pi(0)G(0) = \pi(0)\alpha$. Thus,
+ $\pi(1) = \pi(0)\alpha/(1-\alpha) = \rho \pi(0)$. And indeed, for the $M/M/1$ queue we know that this is true. 
 
 Now we check it for $n=1$,
 \begin{equation*}
-  \begin{split}
-  (1-\alpha)  \pi(2) 
+ \begin{split}
+ (1-\alpha) \pi(2) 
 &= \pi(0)G(1) + \pi(1)G(1) = \pi(0)G(1)(1+\rho) \\
 &= \pi(0)\alpha^2(1+\rho) = \pi(0)\alpha \alpha (1+\rho) = \pi(0)\alpha \rho.
-  \end{split}
+ \end{split}
 \end{equation*}
 Dividing by $1-\alpha$, we get
 \begin{equation*}
-  \pi(2) = \pi(0)\rho^2.
+ \pi(2) = \pi(0)\rho^2.
 \end{equation*}
 
 Finally, we fill in $\pi(n) = \rho^n \pi(0)$ of the $M/M/1$ queue for $n\geq 1$.
 For ease, we divide both sides by $\pi(0)$ first.
 We are left with checking that
 \begin{align*}
-    (1-\alpha)\rho^{n+1} 
-&= \alpha^{n+1} + \sum_{m=1}^n \rho^m \alpha^{n-m+2}  \\
-&= \alpha^{n+1} + \alpha^{n+2}\sum_{m=1}^n (\rho/\alpha)^m  \\
+ (1-\alpha)\rho^{n+1} 
+&= \alpha^{n+1} + \sum_{m=1}^n \rho^m \alpha^{n-m+2} \\
+&= \alpha^{n+1} + \alpha^{n+2}\sum_{m=1}^n (\rho/\alpha)^m \\
 &= \alpha^{n+1} + \alpha^{n+1}\rho \sum_{m=0}^{n-1} (\rho/\alpha)^m \\
 &= \alpha^{n+1} + \alpha^{n+1}\rho \frac{1-(\rho/\alpha)^n}{1-\rho/\alpha}\\
 &= \alpha^{n+1} - \alpha^{n+1}(1-(\rho/\alpha)^n), \quad\text{as } \rho/\alpha = 1+\rho,\\

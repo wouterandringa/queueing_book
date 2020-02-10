@@ -28,8 +28,8 @@ Now we can analyze the consequences of such decisions without needing to actuall
 
 Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times. They are given by
 \begin{align}
-  \E{S} &= \E{S_0} + \frac{\E R}B, \label{eq:88}\\
-  \V{S} &= \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.\label{eq:89} 
+ \E{S} &= \E{S_0} + \frac{\E R}B, \label{eq:88}\\
+ \V{S} &= \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.\label{eq:89} 
 \end{align}
 Thus, the effective server load including down-times is $\rho = \lambda \E{S}$, and we can compute SCV of the effective job processing times.
 We have now all elements to fill in the $G/G/1$ waiting time formula!
@@ -38,19 +38,19 @@ We have now all elements to fill in the $G/G/1$ waiting time formula!
 
 
 \begin{exercise}\clabel{ex:l-255}
-  A machine requires an adjustment with an average of $5$ hours and standard deviation of $2$ hours.
-  Jobs arrive as a Poisson process with rate $\lambda=9$ per working day.
-  The machine works two $8$ hour shifts a day.
-  Work not processed on a day is carried over to the next day.
-  Job service times are 1.5 hours, on average, with standard deviation of $0.5$ hours.
-  Interruptions occur on average between $30$ jobs.
-  Compute the average waiting time in queue.
+ A machine requires an adjustment with an average of $5$ hours and standard deviation of $2$ hours.
+ Jobs arrive as a Poisson process with rate $\lambda=9$ per working day.
+ The machine works two $8$ hour shifts a day.
+ Work not processed on a day is carried over to the next day.
+ Job service times are 1.5 hours, on average, with standard deviation of $0.5$ hours.
+ Interruptions occur on average between $30$ jobs.
+ Compute the average waiting time in queue.
 \begin{hint}
-  Get the units right. First compute the load, and then compute the rest.
+ Get the units right. First compute the load, and then compute the rest.
 \end{hint}
 \begin{solution}
-  First we determine the load. 
-  \begin{pyconsole}
+ First we determine the load. 
+ \begin{pyconsole}
 B=30
 ES0 = 1.5
 labda = 9./(2*8) # arrival rate per hour
@@ -59,7 +59,7 @@ ESe=ES0+ER/B
 ESe
 rho = labda*ESe
 rho
-  \end{pyconsole}
+ \end{pyconsole}
 So, at least the system is stable.
 
 \begin{pyconsole}
@@ -75,7 +75,7 @@ And now we can fill in the waiting time formula
 \begin{pyconsole}
 Ca2=1 # Poisson arrivals
 EW = (Ca2+Ce2)/2 * rho/(1-rho) * ESe
-EW  
+EW 
 \end{pyconsole}
 \end{solution}
 \end{exercise}
@@ -86,9 +86,9 @@ Show that the average effective processing time is given by~\cref{eq:88}.
 If there is no failure, the service time is $S_0$. If there is a failure, the service of a job is $R + S_0$, since we add the outage time to the service time of the job. 
 \end{hint}
 \begin{solution}
-    \begin{equation*}
-      \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
-    \end{equation*}
+ \begin{equation*}
+ \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
+ \end{equation*}
 since $p=1/B$. 
 \end{solution}
 \end{exercise}
@@ -96,35 +96,35 @@ since $p=1/B$.
 
 %The next step is to compute $\E{S^2}$. 
 \begin{extra}\clabel{ex:78}
-  Show that
-  \begin{equation*}
-    \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
-  \end{equation*}
+ Show that
+ \begin{equation*}
+ \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
+ \end{equation*}
 \begin{solution}
-  \begin{align*}
-    \E{S^2} 
+ \begin{align*}
+ \E{S^2} 
 &= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
-&= (1-p) \E{S_0^2} + p \E{S_0^2}  + 2 p \E{S_0} \E R + p \E{R^2}. 
-  \end{align*}
-  Simplify and substitute $p=1/B$. 
+&= (1-p) \E{S_0^2} + p \E{S_0^2} + 2 p \E{S_0} \E R + p \E{R^2}. 
+ \end{align*}
+ Simplify and substitute $p=1/B$. 
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-257}
 Derive $V(S)$ in~\cref{eq:89}.
 \begin{hint}
-    First compute $\E{S^2}$. See~\cref{ex:78}.
+ First compute $\E{S^2}$. See~\cref{ex:78}.
 \end{hint}
 \begin{solution}
-    \begin{equation*}
-      \begin{split}
+ \begin{equation*}
+ \begin{split}
 \V{S} 
 &=\E{S^2} - (\E{S})^2 \\
-&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B  \\
+&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B \\
 &\quad - (\E{S_0})^2 - 2\E{S_0}\E R \frac 1 B - (\E R)^2\frac1{B^2}\\
-&=  \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
-      \end{split}
-    \end{equation*}
+&= \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
+ \end{split}
+ \end{equation*}
 \end{solution}
 \end{exercise}
 

@@ -11,12 +11,12 @@
 }
 
 
-Consider two $M/M/1$ stations in tandem. Suppose we can remove the variability in the service processing times at one, but not both, of the servers. Which one is the better one to spend it on, in terms of reducing waiting times?  After we obtained some insights into this question, we will provide a model to approximate the waiting time in a tandem  of $G/G/1$ queues.
+Consider two $M/M/1$ stations in tandem. Suppose we can remove the variability in the service processing times at one, but not both, of the servers. Which one is the better one to spend it on, in terms of reducing waiting times? After we obtained some insights into this question, we will provide a model to approximate the waiting time in a tandem of $G/G/1$ queues.
 
 \begin{exercise}\clabel{ex:94}
 Assuming that jobs arrive at the first station at rate $\lambda$, and are served at rate $\mu_i$ at station $i$, show that the average queueing time for the tandem of two $M/M/1$ queues is given by
 \begin{equation}
-\E{W_Q}  = \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
+\E{W_Q} = \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
 \end{equation}
 where $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$. 
 \begin{hint}
@@ -30,7 +30,7 @@ first station, is the same as the arrival process. Consequently, the
 inter-departure times are also exponentially distributed with parameter~$\lambda$. (However, the service times are exponentially distributed
 with parameter $\mu_1$. ) 
 
-What can we say about the second station?  Clearly, the jobs departing
+What can we say about the second station? Clearly, the jobs departing
 at the first station are the arrivals at the second station. Hence,
 the departure process being exponential with rate $\lambda$, the
 inter-arrival times at the second station are also exponential with
@@ -42,10 +42,10 @@ system, i.e., the time spent in both queues, is the sum of the waiting
 times at the first and second station. As each is an $M/M/1$ queue,
 the total waiting time has the form:
 \begin{equation}
-  \begin{split}
-\E{W_Q}  &= \E{W_{Q,1}} + \E{W_{Q,2}} \\
+ \begin{split}
+\E{W_Q} &= \E{W_{Q,1}} + \E{W_{Q,2}} \\
 &= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
-  \end{split}
+ \end{split}
 \end{equation}
 where $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$. 
 \end{solution}
@@ -53,13 +53,13 @@ where $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$.
 
 
 \begin{exercise}\clabel{ex:l-121}
-Suppose we can remove all variability of  service process at the second station. Show that  in this case  the total time in queue is equal to
+Suppose we can remove all variability of service process at the second station. Show that in this case the total time in queue is equal to
 \begin{equation*}
-  \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
-  \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
+ \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
 \end{equation*}
 \begin{hint}
-  If we can reduce all service variability at the second server, the second station can be modeled as an $M/D/1$ queue.
+ If we can reduce all service variability at the second server, the second station can be modeled as an $M/D/1$ queue.
 \end{hint}
 \begin{solution}
 As we reduce the variability of the second server, the service process
@@ -82,14 +82,14 @@ from~\cref{eq:200} by setting $C_{s,2}^2 =0$:
 \begin{equation}\label{eq:300}
 \E{W_{Q,2}} = \frac{1}2\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
 \end{equation}
-Clearly, this is half the waiting time of the  $M/M/1$ queue. 
+Clearly, this is half the waiting time of the $M/M/1$ queue. 
 
 Since we do not change the first station in any way, this is still an
 $M/M/1$ queue. 
 Thus, the total time in queue for this scenario becomes:
 \begin{equation*}
-  \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
-  \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}. 
+ \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}. 
 \end{equation*}
 \end{solution}
 \end{exercise}
@@ -98,12 +98,12 @@ Thus, the total time in queue for this scenario becomes:
 Suppose now that we reduce the variability of the service process of the first station.
 Motivate that 
 \begin{equation*}
-  \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
-  \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}
+ \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}
 \end{equation*}
 is a reasonable approximation of the queueing time. Compare this to the queueing time of the reference situation.
 \begin{hint}
-    Realize that now also the distribution of inter-departure times of the first station changes and becomes more regular.
+ Realize that now also the distribution of inter-departure times of the first station changes and becomes more regular.
 \end{hint}
 \begin{solution}
 Analogous to the previous situation, suppose we can set the coefficient of variation
@@ -117,16 +117,16 @@ Contrary to the $M/M/1$ queue, the inter-departures of the $M/D/1$
 queue are not exponentially distributed. When the first
 server is busy, they are deterministic. When the first server is idle, we first
 need to wait for the next arrival, which is exponentially distributed, and then for this arrival to finish its service, which
-takes $D$. Thus, the time to the next departure is $X+D$.  
+takes $D$. Thus, the time to the next departure is $X+D$. 
 
 However, for the sake of simplicity, let us simply assume in the sequel of this
 example that the departure process \emph{is} deterministic.
 
 As we previously remarked, the departure process of the first station
-forms the arrival process at the second station.  Since the departures
+forms the arrival process at the second station. Since the departures
 are assumed to be deterministic, the arrivals at the second station
-are also deterministic.  The service times at the second station, however, are still
-exponential.  Thus, the second station can be modeled as
+are also deterministic. The service times at the second station, however, are still
+exponential. Thus, the second station can be modeled as
 the $D/M/1$ queue. For this queue we need to derive an expression for
 the waiting time. The simplest approximation follows from an
 expression for the waiting time of the $G/G/1$ queue.
@@ -136,7 +136,7 @@ the approximate form:
 \begin{equation}\label{eq:500}
 \E{W_{Q,2}} = \frac{C_{a,2}^2+C_{s,2}^2}2\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
 \end{equation}
-Clearly, for our case, the coefficient of  variation $C_{a,s}^2$ of the
+Clearly, for our case, the coefficient of variation $C_{a,s}^2$ of the
 arrival process becomes, approximately, $0$, while $C_{s,2}^2 = 1$,
 since the service process is still exponential. Hence,
 \begin{equation}\label{eq:400}
@@ -145,17 +145,17 @@ since the service process is still exponential. Hence,
 
 Combining~\cref{eq:500} and~\cref{eq:400}, the total time in queue becomes:
 \begin{equation*}
-  \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
-  \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}, 
+ \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}, 
 \end{equation*}
 which is half the waiting time of the two $M/M/1$ stations in tandem, but also smaller than the situation in which we reduce the variability at the second station.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-123}
-  What do you conclude from the above exercises?
+ What do you conclude from the above exercises?
 \begin{hint}
-    What would you do if there would be a third station in this tandem network?
+ What would you do if there would be a third station in this tandem network?
 \end{hint}
 \begin{solution}
 As a general guideline, it seems best to reduce the
@@ -168,7 +168,7 @@ than at one.
 \end{solution}
 \end{exercise}
 
-For a tandem network of $G/G/1$ queues, observe that the SCV of the departure process $C_{d,i}^2$ of the $i$th station is the SCV of the arrival process $C_{a,i+1}^2$ at station $i+1$.  Thus, if we have $C_{d,i}^2$ we can compute the average waiting time at station~$i+1$ by means of the $G/G/1$ waiting time approximation. 
+For a tandem network of $G/G/1$ queues, observe that the SCV of the departure process $C_{d,i}^2$ of the $i$th station is the SCV of the arrival process $C_{a,i+1}^2$ at station $i+1$. Thus, if we have $C_{d,i}^2$ we can compute the average waiting time at station~$i+1$ by means of the $G/G/1$ waiting time approximation. 
 
 To obtain an estimate for $C_{d,i}^2$ we reason as follows.
 Suppose that the load $\rho_i$ at station~$i$ is very high.
@@ -176,28 +176,28 @@ Then the server will seldom be idle, so that the departure process must be reaso
 If, however, the load is small, the server will be idle most of the time, and inter-departure times must be approximately distributed as the inter-arrival times.
 Based on this, we interpolate between these two extremes to get the approximation
 \begin{equation}
-  \label{eq:40}
-  C_{d,i}^2 \approx (1-\rho_i^2) C_{a,i}^2 + \rho_i^2 C_{s,i}^2.
+ \label{eq:40}
+ C_{d,i}^2 \approx (1-\rho_i^2) C_{a,i}^2 + \rho_i^2 C_{s,i}^2.
 \end{equation}
 
 
 \begin{exercise}\clabel{ex:l-124}
 What is $C_d^2$ for the $D/D/1$ queue according to~\cref{eq:40}?
 \begin{solution}
-  Since the inter-arrival times and the service times are deterministic, $C_a^2=C_s^2=0$. Hence $C_d^2=0$. 
+ Since the inter-arrival times and the service times are deterministic, $C_a^2=C_s^2=0$. Hence $C_d^2=0$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-125}
-What is $C_d^2$ for the $M/M/1$ queue according to~\cref{eq:40}?  
+What is $C_d^2$ for the $M/M/1$ queue according to~\cref{eq:40}? 
 
 \begin{solution}
-  Since the inter-arrival times and the service times are exponential, $C_a^2=C_s^2=1$. Hence $C_d^2=1$. This is precisely in line with our earlier insights, in which we obtained that the departure process of an $M/M/1$ queue is Poisson.
+ Since the inter-arrival times and the service times are exponential, $C_a^2=C_s^2=1$. Hence $C_d^2=1$. This is precisely in line with our earlier insights, in which we obtained that the departure process of an $M/M/1$ queue is Poisson.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-126}
-  Use~\cref{eq:40} to show for the $G/D/1$ that $C_d^2 < C_a^2$. 
+ Use~\cref{eq:40} to show for the $G/D/1$ that $C_d^2 < C_a^2$. 
 \begin{solution}
 As $C_s^2 = 0$ for the $G/D/1$ queue, $C_d^2 = (1-\rho^2) C_a^2 < C_a^2$, as $\rho<1$. 
 \end{solution}
@@ -256,18 +256,18 @@ L
 
 For a $G/G/c$ queue, we can use the following approximation
 \begin{equation}\label{eq:57}
-  C_{d,i}^2 = 1 + (1-\rho_i^2)(C_{a,i}^2-1) + \frac{\rho_i^2}{\sqrt{c_i}}(C_{s,i}^2-1).
+ C_{d,i}^2 = 1 + (1-\rho_i^2)(C_{a,i}^2-1) + \frac{\rho_i^2}{\sqrt{c_i}}(C_{s,i}^2-1).
 \end{equation}
 
 \begin{exercise}\clabel{ex:l-128}
-  Show that~\cref{eq:57} reduces to~\cref{eq:40} for the $G/G/1$ queue.
+ Show that~\cref{eq:57} reduces to~\cref{eq:40} for the $G/G/1$ queue.
 \begin{solution}
-    Since $c=1$ for the $G/G/1$ queue, we get
+ Since $c=1$ for the $G/G/1$ queue, we get
 \begin{align*}
-  C_{d}^2 
+ C_{d}^2 
 &= 1 + (1-\rho^2)(C_{a}^2-1) + \rho^2(C_{s}^2-1) \\
-&= 1 + C_a^2 - \rho^2 C_{a}^2 -1 + \rho^2  + \rho^2 C_{s}^2 -\rho^2 \\
-&= (1-\rho^2) C_a^2  + \rho^2 C_{s}^2.
+&= 1 + C_a^2 - \rho^2 C_{a}^2 -1 + \rho^2 + \rho^2 C_{s}^2 -\rho^2 \\
+&= (1-\rho^2) C_a^2 + \rho^2 C_{s}^2.
 \end{align*}
 \end{solution}
 \end{exercise}
