@@ -11,14 +11,14 @@
 }
 
 In~\cref{sec:constr-discr-time} we modeled time as progressing in discrete `chunks': minutes, hours, days, and so on.
-For given numbers of arrivals and capacity per period we use the recursions~\cref{eq:31} to compute the departures and queue length per period.
+For given numbers of arrivals and capacity per period, we use the recursions~\cref{eq:31} to compute the departures and queue length per period.
 However, we can also model time in a continuous way, so that jobs can arrive at any moment and have arbitrary service times. 
 In this section, we consider a single-server FIFO queueing process in continuous time.
 
 Assume we are given the \recall{arrival process} $\{A(t); t\geq 0\}$, i.e., the number of jobs that arrived during $[0,t]$.
 Thus, $\{A(t); t\geq 0\}$ is a \emph{counting process}.
 
-From this arrival process we can derive various other interesting concepts, such as the \recall{arrival times} of individual jobs.
+From this arrival process, we can derive various other interesting concepts, such as the \recall{arrival times} of individual jobs.
 Especially, if we know that $A(s) = k-1$ and $A(t) = k$, then the arrival time $A_k$ of the $k$th job must lie somewhere in $(s,t]$.
 Thus, from $\{A(t)\}$, we can define\footnote{If we want to be mathematically precise, we must take $\inf$ rather than $\min$.
  However, in this set of notes we do not want to distinguish between subtleties.}
@@ -379,7 +379,7 @@ D
  \end{equation*}
  The computation is a bit tricky since sometimes arrivals and departures coincide. (Consider for instance $t=120$.)
 
-From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e., $\mu > \lambda$, for otherwise the queue length keeps on increasing (in the long run).
+From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e., $\mu > \lambda$, for otherwise, the queue length keeps on increasing (in the long run).
 \end{solution}
 \end{extra}
 
@@ -640,7 +640,7 @@ L_s(t) &= \tilde A(t) - D(t) = L(t) - L_Q(t).
  \end{split}
  \end{equation*}
  Boolean algebra is actually a really nice way to solve logical puzzles.
- If you are interested you can find some examples on my homepage.
+ If you are interested, you can find some examples on my homepage.
 \end{solution}
 
 \end{exercise}
