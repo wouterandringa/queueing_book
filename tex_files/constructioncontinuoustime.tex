@@ -21,7 +21,7 @@ Thus, $\{A(t); t\geq 0\}$ is a \emph{counting process}.
 From this arrival process we can derive various other interesting concepts, such as the \recall{arrival times} of individual jobs.
 Especially, if we know that $A(s) = k-1$ and $A(t) = k$, then the arrival time $A_k$ of the $k$th job must lie somewhere in $(s,t]$.
 Thus, from $\{A(t)\}$, we can define\footnote{If we want to be mathematically precise, we must take $\inf$ rather than $\min$.
- However, in this set of notes we do not want to distinguish between subtleties.}
+ However, in this book we do not want to distinguish between subtleties.}
 \begin{equation}\label{eq:27}
  A_k = \min\{t: A(t) \geq k\},
 \end{equation}
@@ -41,16 +41,16 @@ From the arrival times $\{A_k\}$ we can, in turn, construct the arrival process 
 \begin{equation} \label{eq:2}
  A(t) = \max\{k: A_k \leq t\}.
 \end{equation}
-Thus, from the inter-arrival times $\{X_k\}$ it is possible to construct $\{A_k\}$ and $\{A(t)\}$, and the other way around, from $\{A(t)\}$ we can find $\{A_k\}$ and $\{X_k\}$.
+Thus, from the inter-arrival times $\{X_k\}$ it is possible to construct $\{A_k\}$ and $\{A(t)\}$, and from $\{A(t)\}$ we can obtain $\{A_k\}$ and $\{X_k\}$.
 
 
-\begin{extra}
+\begin{exercise}
 Show that we can also define $A(t)$ as
 \begin{equation}
  A(t) = \sum_{k=1}^\infty \1{A_k \leq t}.
 \end{equation}
 Thus, we just count all arrivals that occur up to and including time~$t$.
-\end{extra}
+\end{exercise}
 
 
 \begin{extra}
@@ -89,12 +89,14 @@ Compare this to the definition in~\cref{eq:2}.
 \end{solution}
 \end{extra}
 
-We next construct the \recall{waiting time in queue} $\{W_{Q,k}\}$ as seen by the arrivals.
-From~\cref{fig:waitingtimegg1} it is evident that 
+The \emph{service times} of the jobs are given by the sequence $\{S_k\}$.
+Typically we assume that the service times are i.i.d, and also independent of the arrival process $\{A(t)\}$.
+With the arrival times and service times we can construct the \recall{waiting time in queue} $\{W_{Q,k}\}$ as seen by the jobs at the moment they arrive. 
+From~\cref{fig:waitingtimegg1} it is evident that
 \begin{equation}\label{eq:56}
  W_{Q,k} = [W_{Q,k-1} + S_{k-1}-X_k]^+.
 \end{equation}
-To use this, set $W_{Q,0}=0$, from which we can compute $W_{Q,1}$, and then $W_{Q,2}$ and so on.
+With this it is easy to compute the waiting times: from the initial condition $W_{Q,0}=0$ we can obtain $W_{Q,1}$, and then $W_{Q,2}$, and so on.
 
 \begin{extra}
 Explain that $W_{Q,k} = [W_{Q,k-1} + S_{k-1}-X_k]^+$. 
@@ -304,7 +306,7 @@ where each of these equations has its own interpretation.
 
 
 \begin{extra}
- Explain that for the $G/G/1$ the following recursion for~$W_k$ is valid:
+ Explain that the following recursion for~$W_k$ is valid:
 \begin{align}
  \label{eq:59}
  W_{Q,k} &= [W_{k-1} - X_k]^+, &
@@ -448,7 +450,7 @@ Great! Our handiwork matches with the computer's results.
 
 
 \begin{exercise}\clabel{ex:l-149} 
-Explain the following recursions for the $G/G/1$ queue:
+Explain the following recursions for a single server queue: 
 \begin{equation}
  \label{eq:45}
  \begin{split}
@@ -506,7 +508,7 @@ where $L(0)$ is the number of jobs in the system at time $t=0$; typically we ass
 As in a queueing system, jobs can be in queue or in service, we distinguish between the number in the system $L(t)$, the number in queue $L_Q(t)$, and the number of jobs in service $L_s(t)$.
 
 
-In summary, starting from a sequence of inter-arrival times $\{X_k\}$ and service times $\{S_k\}$ we can obtain a set of recursions by which we simulate a queueing process in continuous time, A bit of experimentation with computer programs such as $R$ or Python will reveal that this is easy.
+In summary, starting from a sequence of inter-arrival times $\{X_k\}$ and service times $\{S_k\}$ we can obtain a set of recursions by which we can simulate a queueing process in continuous time, A bit of experimentation with Python (or R perhaps) will reveal that this is easy.
 
 \begin{extra}
  Explain that if we know $\tilde A(t)$, i.e.
@@ -606,7 +608,7 @@ L_s(t) &= \tilde A(t) - D(t) = L(t) - L_Q(t).
 
 
 \begin{exercise}\clabel{ex:l-151}
- Show that, when the system starts empty, $L(t) = \sum_{k=1}^\infty \1{A_k \leq t < D_k}$.
+ Show that $L(t) = \sum_{k=1}^\infty \1{A_k \leq t < D_k}$ when the system starts empty.
 \begin{hint}
  Use Boolean algebra.
  Write, for notational ease, $A=\1{A_k \leq t}$ and $\bar A = 1- A = \1{A_k > t}$, and define something similar for $D$.
@@ -669,11 +671,13 @@ Define the number of jobs in the system as seen by the $k$th arrival as
  \label{eq:Lk}
  L(A_k-).
 \end{equation}
-(Since in queueing systems we are concerned with processes with jumps, we need to be quite particular about left and right limits at jump epochs.)
+Observe that we write $A_k-$, and not $A_k$.
+As we are concerned with a process with jumps, we need to be quite particular about left and right limits at jump epochs.
 
 
 \begin{exercise}\clabel{ex:55}
- Explain the following (algorithmic efficient) procedure to compute the number of jobs in the system as seen by arrivals:
+  With the recursions~\cref{eq:59} it is apparently easy to compute the waiting time (in queue), but it is less simple to compute the number of jobs in queue or in the system.
+  In this exercise we develop an algorithm to compute the number of jobs in the system as seen by arrivals.  Explain why the following (algorithmic efficient) procedure works: 
  \begin{equation*}
  L(A_k-) = L(A_{k-1}-)+1 - \sum_{i= k-1 - L(A_{k-1}-)}^{k-1} \1{D_i< A_k}.
  \end{equation*}

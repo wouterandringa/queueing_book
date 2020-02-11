@@ -100,88 +100,60 @@ Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the r
 \end{figure}
 
 
-With~\cref{eq:reich1}, we see that a random walk $\{Z_k\}$ can be converted into a queueing
-process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former. For this, we first relate the random walk of the type~\cref{eq:51} to a random walk in continuous time. 
+With~\cref{eq:reich1}, we see that a random walk $\{Z_k\}$ can be converted into a queueing process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.
+Suppose that $a_k\sim P(\lambda)$ and $c_k \sim P(\mu)$.
 
 \begin{exercise}\clabel{ex:89}
- Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$, show that the random variable
- \begin{equation*}
- N_\lambda(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
- \end{equation*}
-has a Poisson distribution with rate $\lambda t$. 
+  Show that if $\{a_k\}$ forms an i.i.d.
+sequence of random variables all Poisson distributed $P(\lambda)$ then, $\sum_{j=1}^k a_k = P(\lambda k)$. 
 \begin{hint}
 Use~\cref{ex:1}.
 \end{hint}
-\begin{solution}
- From~\cref{ex:1} we know that thinning a rate $\lambda$ Poisson process with i.i.d. Bernoulli random variables with success probability $p$ leads to another Poisson process with rate $\lambda p$. In the present case, the original Poisson process has rate $\lambda+\mu$ and $p=\lambda/(\lambda+\mu)$. Hence, the random variable $N_{\lambda t}\sim P\left(\frac\lambda{\lambda+\mu} (\lambda+\mu)t\right) = P(\lambda t)$.
+\begin{solution} Write $a$ for the common random variable. Then
+  \begin{equation*}
+    M_a(s) = \E{e^{sa}} = \sum_{j=0}^\infty e^{s j} e^{-\lambda j} \lambda^j/j! = e^{\lambda(e^{s}-1)}. 
+  \end{equation*}
+  Then with $X=\sum_{j=1}^k a_j$, and by independence, 
+  \begin{equation*}
+    M_X(s) = \left(M_a(s)\right)^k = e^{\lambda k (e^{s}-1)}. 
+  \end{equation*}
+  Hence, $X\sim P(\lambda k)$. 
 \end{solution}
 \end{exercise}
 
-Similarly, let
-\begin{equation*}
- N_\mu(t) = N_{\lambda+\mu}(t) - N_\lambda(t) = \sum_{k=1}^\infty (1-a_k) \1{N_{\lambda+\mu}(t) \leq k};
-\end{equation*}
-but this is $N_{\lambda+\mu}(t)$ thinned by the Bernoulli random variables $\{1-a_k\}$. Let $N_\lambda = \{N_\lambda(t)\}$ and $N_\mu = \{N_\mu(t)\}$ be the associated Poisson processes. 
 
-With the processes $N_\lambda$ and $N_\mu$ constructed above from the sequence $\{a_k\}$ and the Poisson process $N_{\lambda+\mu}$ we can define the process $Z=\{Z(t)\}$ such that
+With the above exercise, 
 \begin{equation*}
- Z(t) = Z(0)+N_\lambda(t) - N_\mu(t).
+ Z_k = Z_0+N_{\lambda k} - N_{\mu k},
 \end{equation*}
-Thus, we let $N_\lambda$ correspond to job arrivals and $N_\mu$ to departures. Observe that the times $\{T_k\}$ at which $Z$ makes jumps are such that $T_k-T_{k-1}$ have exponential distribution with mean $1/(\lambda+\mu)$. At the jump times, $Z(T_k) = Z_k$, where $Z_k$ satisfies~\cref{eq:51} with $\P{a_k = 1} = \lambda/(\lambda+\mu)$. We call $Z$ the \emph{free} $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values. 
+and we call $Z=\{Z_k\}$ the \emph{free} (discrete-time) $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values.
 
 \begin{exercise}\clabel{ex:l-134}
- Show that
+ Show that when $n>m$ and $Z_0=m$, 
 \begin{equation*}
- \P{Z(t)=n}_m 
-= e^{-(\lambda+\mu)t} \left(\frac\lambda\mu\right)^{(n-m)/2} \sum_{k=0}^\infty 
-\frac{(t\sqrt{\lambda\mu} )^{2k+m-n}}{k!(k+m-n)!},
+ \P{Z_k=n}
+= e^{-(\lambda+\mu)k} (\lambda k)^{n-m} \sum_{j=0}^\infty 
+\frac{(\lambda\mu k^2)^j} {j!(n-mm+j)!}.
 \end{equation*}
-where $\P{\cdot}_m$ means that the random walk starts at $m$, i.e., $Z(0)=m$.
-As an aside, the summation includes negative factorials when $k+m-n<0$.
-The tacit assumption is to take $n!\in \{\pm \infty\}$ for $n\in \Z_-$.
-Another way to get around this problem is to take $k=\max\{0, m-n\}$.
-\begin{hint}
-It is actually not hard, even though the expression looks
- hard. Use conditioning to see that
- $\P{Z(t)=n}_m = \P{N_\mu(t) - N_\lambda(t) = m - n}$. Then write out
- the definitions of the two Poisson distributions. Assemble
- terms. Then fiddle a bit with the terms to get~$t\sqrt{\lambda\mu}$. 
-\end{hint}
 \begin{solution}
-With this we have a characterization of the queue length process as a
-function of time until it hits zero for the first time. What can we
-say about the distribution of $L(t)$? With the above random walk, 
 \begin{equation}\label{eq:29}
  \begin{split}
- \P{Z(t)=n}_m
-&= \P{m+N_\lambda(t) - N_\mu(t) = n } = \P{N_\lambda(t) - N_\mu(t) = n-m } \\
-&= \P{N_\mu(t) - N_\lambda(t) = m-n } \\
-&= \sum_{k=0}^\infty \P{N_\mu(t) = k - n + m\given N_\lambda(t) = k } \P{N_\lambda(t)=k}\\
-&= \sum_{k=0}^\infty e^{-\mu t} \frac{(\mu t)^{k -n+m}}{(k-n +m)!} e^{-\lambda t} \frac{(\lambda t)^k}{k!} \\
-&= e^{-(\lambda+\mu)t} \sum_{k=0}^\infty \frac{(\lambda t)^k(\mu t)^{k -n + m }}{k!(k-n+m)!}.
+ \P{Z_k=n}
+&= \P{m+N_{\lambda k } - N_{\mu k} = n } \\ 
+&= \P{N_{\lambda k}  - N_{\mu k}  = n - m } \\
+&= \sum_{j=0}^\infty \P{N_{\lambda k}  =  n - m + j, N_{\mu k} =j}\\
+&= \sum_{j=0}^\infty e^{-\lambda k} \frac{(\lambda k )^{n - m + j}}{(n-m+j)!} e^{-\mu k} \frac{(\mu k )^j}{j!} \\
+&= e^{-(\lambda+\mu)k} (\lambda k)^{n-m} \sum_{j=0}^\infty  \frac{(\lambda\mu k^2)^j} {j!(n-m+j)!}.
  \end{split}
 \end{equation}
-We can write this a bit simpler by noting that
-\begin{align*}
- (\lambda t)^k (\mu t) ^{k + m - n} 
-&= \lambda^k t^k\mu^{k + m - n} t^{k+m-n} \\
-&= \lambda^k \mu^{k + m - n} (t\sqrt{\lambda \mu})^{2k+m-n} (\lambda\mu)^{-k + (n-m)/2} \\
-&= (\lambda/\mu)^{(n-m)/2} (t\sqrt{\lambda \mu})^{2k+m-n}.
-\end{align*}
-With this,
-\begin{equation*}
- \P{Z(t)=n}_m 
-= e^{-(\lambda+\mu)t} \left(\frac\lambda\mu\right)^{(n-m)/2} \sum_{k=0}^\infty 
-\frac{(t\sqrt{\lambda\mu} )^{2k+m-n}}{k!(k+m-n)!}.
-\end{equation*}
 \end{solution}
 \end{exercise}
 
 
 The solution of the above exercise shows that there is no simple function by which we can compute the transient distribution of this simple random walk $Z$.
 Since a queueing process is typically a more complicated object (as we need to obtain $L$ from $Z$ via~\cref{eq:reich1}), our hopes of finding anything simple for the transient analysis of the $M/M/1$ queue should not be too high.
-And the $M/M/1$ is but the simplest queueing system; other queueing systems will be more complicated yet.
-We therefore give up the analysis of such transient queueing systems and we henceforth contend ourselves with the analysis of queueing systems in the limit as $t\to\infty$.
+But the $M/M/1$ queue is about the simplest queueing system; other queueing systems are (much) more complicated.
+We therefore give up the analysis of the transient behavior of queueing systems and henceforth contend ourselves with the analysis of queueing systems in the limit as $t\to\infty$.
 The limiting random variable $L$ is known as the \recall{steady-state limit} of the sequence of random variables $\{L_k\}$, and the distribution of~$L$ is known as the \recall{limiting distribution} or \emph{stationary distribution} of $\{L_k\}$.
 Taking these limits warrants two questions: what type of limit is actually meant here, and what is the rate of convergence to this limiting situation?
 Here we sidestep all such fundamental issues, as the details require measure theory and more advanced probability theory than we can deal with here.
@@ -209,8 +181,8 @@ In this sense, then, we can say that~$L_k \to L$.
 \end{extra}
 
 
-We illustrate the rate of convergence to the limiting situation by means of an example.
-Specifically, we consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_L$, where $W_{Q,k}$ is constructed according to the recursion~\cref{eq:56}.
+To provide some intuition about the rate of convergence we consider now an example.
+Specifically, we consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_Q$, where $W_{Q,k}$ is constructed according to the recursion~\cref{eq:56}.
 Suppose that $X_k\sim U\{1,2,4\}$ and $S_k\sim U\{1,2,3\}$.
 Starting with $W_{Q,0}=5$ we use~\cref{eq:56} to compute the \emph{exact} distribution of $W_{Q,k}$ for $k=1,2,\ldots, 20$, cf., the left panel in~\cref{fig:convergence}.
 We see that when $k=5$, the `hump' of $\P{W_{Q,5}=x}$ around $x=5$ is due the starting value of $W_{Q,0}=5$.

@@ -23,6 +23,12 @@ In this notation it is assumed that jobs are served in
 first-in-first-out (FIFO) order; FIFO scheduling is also often called
 first-come-first-serve (FCFS). 
 
+When at an arrival a number of jobs arrive simultaneously (like a bus at a restaurant), we say that a batch arrives.
+Likewise, the server can work in batches, for instance, when an oven processes multiple jobs at the same time.
+We write $A^X/B^Y/c$ to denote that $X$ is the distribution of the arrival batch size and $Y$ is the distribution of the service batch sizes.
+When $X\equiv Y \equiv 1$, i.e., single batch arrivals and single batch services, we suppress the $X$ and $Y$ in the queueing formula.
+
+
 Two inter-arrival and service distributions are the most important in queueing theory: the exponential distribution denoted with the shorthand $M$, as it is memoryless, and a general distribution (with the implicit assumption that its first moment is finite) denoted with $G$. We write $D$ for a deterministic (constant) random variable. 
 
 Familiarize yourself with this notation as it is used continuously in the rest of the book. Here are some exercises to illustrate the notation.
@@ -93,11 +99,10 @@ $M(n)/M(n)/1$: The inter-arrival times are exponential, just as
 \begin{exercise}\clabel{ex:l-144}
  What is the meaning of $M^X/M/1$?
 \begin{solution}
- $M^X/M/1$: Customers arrive with exponentially distributed
- inter-arrival times. However, each customer brings in a number of
- jobs, known as a batch. The number of jobs in each batch is
- distributed as the random variable $X$. Thus, the arrival process of
- work is \recall{compound Poisson}.
+  $M^X/M/1$: Customers arrive with exponentially distributed inter-arrival times.
+  However, each customer brings in a number of jobs, known as a batch.
+  The number of jobs in each batch is distributed as the random variable $X$.
+  Thus, the arrival process of work is \recall{compound Poisson}.
 \end{solution}
 \end{exercise}
 
@@ -143,6 +148,8 @@ $M/G/1$: The inter-arrival times are exponentially distributed,
 \end{solution}
 \end{exercise}
 
+You should also understand the differences between  different scheduling rules. The next exercise should help with this. 
+
 \begin{exercise}\clabel{ex:l-146}
  What are some advantages and disadvantages of using the Shortest Processing Time First (SPTF) rule to serve jobs?
 \begin{hint}
@@ -158,6 +165,8 @@ Look up the relevant
  Also, SPTF does not take due dates into account, thus giving a reliable due date quotation to a customer is hard (near to impossible).
 \end{solution}
 \end{exercise}
+
+When a customer finds a large queue in front of it, s/he can use the normal distribution to estimate the distribution of the time s/he will spend in queue.  The next exercise shows how. 
 
 
 \begin{exercise}\clabel{ex:l-147}
