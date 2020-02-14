@@ -127,6 +127,23 @@ Starting from ,
  &= L_{k-1} + a_k - \min\{L_{k-1}+a_k, c_k\} \\
  &= \max\{L_{k-1} + a_k - c_k, 0 \}.
  \end{align*}
+
+In code it looks like this.
+\begin{pyconsole}
+a = [0, 10, 3, 6]
+c = [0, 5, 5, 5]
+L = [0] * len(a)
+d = [0] * len(a)
+
+for k in range(1, len(a)):
+    L[k] = max(L[k - 1] + a[k] - c[k], 0)
+    d[k] = L[k - 1] + a[k] - L[k]
+
+
+print(L)
+print(d)
+\end{pyconsole}
+ 
 \end{solution}
 \end{exercise}
 
@@ -280,7 +297,27 @@ A queueing system
 \begin{solution}
  All jobs that arrive such that the queue becomes larger than $K$ must be dropped.
 
-First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$. 
+ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$.
+
+\begin{pyconsole}
+a = [0, 10, 3, 6]
+c = [0, 5, 5, 5]
+L = [0] * len(a)
+d = [0] * len(a)
+l = [0] * len(a)  # loss
+
+K = 8
+
+for k in range(1, len(a)):
+    d[k] = min(L[k - 1], c[k])
+    Lp = L[k - 1] + a[k] - d[k]
+    L[k] = min(Lp, K)
+    l[k] = Lp - L[k]
+
+
+print(L)
+print(l)
+\end{pyconsole}
 \end{solution}
 \end{exercise}
 
