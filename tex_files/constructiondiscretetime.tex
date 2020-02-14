@@ -404,6 +404,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
  c_{k,B} &= c_k - d_{k,A}/2, \\
  d_{k,B} &= \min\{L_{k-1, B}, c_{k,B}\}, \\
  a_{k,A} &= p d_{k-1, B}, \\
+ a_{k,B} &= (1 - p) d_{k-1, B}, \\
  L_{k,A} &= L_{k-1, A} + a_{k,A} - d_{k,A}, \\
  L_{k,B} &= L_{k-1, B} + a_{k,B} - d_{k,B}.
  \end{split}
