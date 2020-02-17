@@ -187,7 +187,7 @@ Using the results of~\cref{ex:34} gives
 Show that for the $M/M/1$ queue the SCV of $L$ is $1/\rho$. What do you conclude from this?
 \begin{solution}
 To see how large this variance is, relative to the mean number of jobs
-in the system, we typically consider the square coefficient of
+in the system, we typically consider the squared coefficient of
 variation (SCV). As $\E L = \rho/(1-\rho)$,
 \begin{equation*}
  \frac{\V L}{(\E{L})^2} = \frac 1 \rho.
@@ -273,7 +273,7 @@ The \emph{service objective} is to determine the minimal service
 capacity $c$ (i.e., the number of cashiers) such that the fraction of the time that more than 
 10 people are in queue is less than 1\%. (If the supermarket has 3 cashiers open, 10 people in queue means about 3 people per queue.)
 
-The next step is to find the \emph{relevant data}: the arrival process and the service time distribution. For the arrival process it is reasonable to model it as a Poisson process. There are many potential customers, each choosing with a small probability to go the supermarket at a certain moment in time. Thus, we only have to characterize the arrival rate. Estimating this for a supermarket is relatively easy: the cash registers track all customers
+The next step is to find the \emph{relevant data}: the arrival process and the service time distribution. For the arrival process it is reasonable to model it as a Poisson process. There are many potential customers, each choosing with a small probability to go to the supermarket at a certain moment in time. Thus, we only have to characterize the arrival rate. Estimating this for a supermarket is relatively easy: the cash registers track all customers
 payments. Thus, we know the number of customers that left the shop,
 hence entered the shop. (We neglect the time customers spend in the
 shop.) Based on these data we make a \emph{demand profile}: the
