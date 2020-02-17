@@ -425,7 +425,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 \begin{solution}
 First consider the dynamics of the queue. Since the capacity is chosen at the start of the period (the machine is switched on for $c_k$ units even if there is less demand):
 \begin{align*}
- d_k &= \min\{L_{k-1}+a_k, c_k\} \\
+ d_k &= \min\{L_{k-1}+a_k, c_k\}, \\
 L_k &= L_{k-1}+a_k - d_k.
 \end{align*}
 The cost to operate the server during period $k$ is $\beta c_k$.
