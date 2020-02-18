@@ -80,6 +80,16 @@ Consider a queueing system with constant service and inter-arrival times.
 \end{exercise}
 
 
+\begin{extra}\clabel{ex:90}
+ If $L(t)/t \to 0$ as $t\to\infty$, can it still be true that $\E{L}>0$? 
+\begin{solution}
+ \begin{equation*}
+ \E{L} = \lim_{t\to\infty} \frac 1 t \int_0^t L(s) \d s \neq \lim_{t\to\infty} \frac{L(t)}t.
+ \end{equation*}
+If $L(t)=1$ for all $t$, $\E{L} =1 $, but $L(t)/t \to 0$. 
+\end{solution}
+\end{extra}
+
 
 \begin{exercise}\clabel{ex:l-166}
  Consider a discrete-time model of a queueing system, as we developed in~\cref{sec:constr-discr-time}.

@@ -361,7 +361,7 @@ D
 
 
 
-\begin{extra}\clabel{ex:25}
+\begin{extra}\label{ex:25}
  Assume that $X_k = 10$ minutes and $S_k = 11$ minutes for all
  $k$, i.e., $X_k$ and $S_k$ are deterministic and constant. What
  are $\lambda$ and $\mu$? Compute $A_k$, $W_k$, $D_k$ as functions of $k$. Then find expressions for $A(t)$ and $D(t)$.
@@ -417,6 +417,7 @@ And, then
 
 Typing the solution becomes boring\ldots, let's use the computer\footnote{To run this code, you need to install the lea package. This is a very useful package to help you with all kinds of probability experiments.}.
 
+\begin{comment}
 \begin{pyconsole}
 import lea
 
@@ -435,6 +436,7 @@ W = lea.max_of(W + S - X, 0, fast=True)
 W
 \end{pyconsole}
 Great! Our handiwork matches with the computer's results. 
+\end{comment}
 
 \end{solution}
 \end{extra}
