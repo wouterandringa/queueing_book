@@ -354,6 +354,47 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
  \end{equation*}
  Thus, the waiting time of jobs arriving in period $k$ must lie in
  the interval $[W_{-,k}, W_{+,k}]$.
+
+Here is some code to see how it works. It is less easy then you might think to get the details correct. 
+\begin{pyconsole}
+a = [3] * 10
+c = [7] * len(a)
+L = [0] * len(a)
+d = [0] * len(a)
+
+L[0] = 20
+
+
+for k in range(1, len(a)):
+    d[k] = min(L[k - 1] + a[k], c[k])
+    L[k] = L[k - 1] + a[k] - d[k]
+
+
+print(L)
+
+k = 1
+m = 0
+tot_service = c[k + m]
+print(m, L[k - 1] - tot_service)
+while tot_service <= L[k - 1]:
+    m += 1
+    tot_service += c[k + m]
+    print(m, L[k - 1] - tot_service)
+
+W_min = m
+print(W_min)
+print(L[k - 1] / c[0])
+
+print(m, L[k - 1] + a[k] - tot_service)
+while tot_service <= L[k - 1] + a[k]:
+    m += 1
+    tot_service += c[k + m]
+    print(m, L[k - 1] + a[k] - tot_service)
+
+W_max = m
+print(W_max)
+print((L[k - 1] + a[k]) / c[0])
+\end{pyconsole}
 \end{solution}
 \end{exercise}
 
@@ -375,6 +416,22 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 
  If you like, you can incorporate time-dependent failure rates $\{p_k\}$ too.
  Whether this makes practical sense depends on the context of course.
+
+\begin{pyconsole}
+a = [0, 4, 8, 2, 1]
+c = [3] * len(a)
+L = [0] * len(a)
+d = [0] * len(a)
+p = 0.2
+
+L[0] = 2
+
+for k in range(1, len(a)):
+    d[k] = (1 - p) * min(L[k - 1], c[k])
+    L[k] = L[k - 1] + a[k] - d[k]
+
+print(L)
+\end{pyconsole}
 \end{solution}
 \end{extra}
 
@@ -387,7 +444,7 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
 
 
  We remark that there are of course many different policies to treat rework.
- One possibility is that faulty items are collected until there are $N$, say, and then the entire batch of $N$ is repaired.
+ One possibility is to collect faulty items until there are $N$ items, and then repair the entire batch of $N$ items.
 \begin{solution}
  Suppose again that a fraction $p$ is faulty. Since these faulty
  items require less processing time than a new job, the service
@@ -398,17 +455,41 @@ Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO s
  work of a new job, and the faulty jobs are processed with priority
  over the new jobs. Assume queue $A$ contains the faulty items, and
  queue $B$ the new jobs. Then the recursions become:
-\begin{equation*}
- \begin{split}
- d_{k,A} &= \min\{L_{k-1, A}, 2c_k\}, (\text{ as faulty jobs require half of the processing time})\\
- c_{k,B} &= c_k - d_{k,A}/2, \\
- d_{k,B} &= \min\{L_{k-1, B}, c_{k,B}\}, \\
- a_{k,A} &= p d_{k-1, B}, \\
- a_{k,B} &= (1 - p) d_{k-1, B}, \\
- L_{k,A} &= L_{k-1, A} + a_{k,A} - d_{k,A}, \\
- L_{k,B} &= L_{k-1, B} + a_{k,B} - d_{k,B}.
- \end{split}
-\end{equation*}
+\begin{align*}
+ d_{A,k} &= \min\{L_{A,k-1}, 2c_k\}, (\text{ as faulty jobs require half of the processing time})\\
+ c_{B,k} &= c_k - d_{A,k}/2, \\
+ d_{B,k} &= \min\{L_{B,k-1}, c_{B,k}\}, \\
+ a_{A,k} &= p d_{B,k-1}, \\
+ a_{B,k} &= (1 - p) d_{B,k-1}, \\
+ L_{A,k} &= L_{A,k-1} + a_{A,k} - d_{A,k}, \\
+ L_{B,k} &= L_{B,k-1} + a_{B,k} - d_{B,k}.
+\end{align*}
+
+In code: 
+\begin{pyconsole}
+a = [0, 4, 8, 2, 1]
+c = [3] * len(a)
+L_A = [0] * len(a)
+d_A = [0] * len(a)
+L_B = [0] * len(a)
+d_B = [0] * len(a)
+p = 0.2
+
+L_A[0] = 2
+L_B[0] = 8
+
+for k in range(1, len(a)):
+    d_A[k] = min(L_A[k - 1], 2 * c[k])
+    c_B = c[k] - d_A[k] / 2
+    d_B[k] = min(L_B[k - 1], c_B)
+    a_A = p * d_B[k - 1]
+    a_B = a[k]
+    L_A[k] = L_A[k - 1] + a_A - d_A[k]
+    L_B[k] = L_B[k - 1] + a_B - d_B[k]
+
+print(L_A)
+print(L_B)
+\end{pyconsole}
 \end{solution}
 \end{extra}
 

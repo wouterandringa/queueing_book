@@ -364,24 +364,16 @@ D
 \begin{extra}\clabel{ex:25}
  Assume that $X_k = 10$ minutes and $S_k = 11$ minutes for all
  $k$, i.e., $X_k$ and $S_k$ are deterministic and constant. What
- are $\lambda$ and $\mu$? Compute $A_k$, $W_k$, $D_k$ as functions of $k$. Then find expressions for $A(t)$, $D(t)$, and $L(A_k-)$. 
+ are $\lambda$ and $\mu$? Compute $A_k$, $W_k$, $D_k$ as functions of $k$. Then find expressions for $A(t)$ and $D(t)$.
 \begin{solution}
  $\lambda=6$ per hour, and $\mu=60/11$ per hour. Note that
- $\mu < \lambda$. $A_0 = 0$, $A_1=10$, $A_2=20$, etc., hence
+ $\mu < \lambda$. $A_0 = 0$, $A_1=10$, $A_2=20$, and so on. Hence,
  $A_k = 10k$. $W_{Q,0} = 0$, $W_{Q,1} = \max\{0 + 0-10,0\} = 0$.
  $W_{Q,2} = \max\{0+11-10,0\} =1$.
  $W_{Q,3} = \max\{1+11-10,0\} =2$. Hence, $W_{Q,k} = k-1$ for
  $k\geq1$. Thus, $W_k = k-1+11 = k + 10$ for $k\geq1$, and
  $D_k = 10k + k+10 = 11k+10$. Note that $W_k$ increases linearly
- as a function of $k$.
-
- Now, $A(t) = \lfloor t/10\rfloor$, and $D(t) = \lfloor (t-10)/11 \rfloor$. Hence,
- \begin{equation*}
- L(A_k-) = k-1 - D(A_k-) = k- 1 - D(10k-) = k- 1 - \left \lfloor \frac{(10k-)-10}{11} \right \rfloor.
- \end{equation*}
- The computation is a bit tricky since sometimes arrivals and departures coincide. (Consider for instance $t=120$.)
-
-From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e., $\mu > \lambda$, for otherwise, the queue length keeps on increasing (in the long run).
+ as a function of $k$. All in all, $A(t) = \lfloor t/10\rfloor$, and $D(t) = \lfloor (t-10)/11 \rfloor$.
 \end{solution}
 \end{extra}
 
@@ -507,6 +499,19 @@ Once we have the arrival and departure processes it is easy to compute the \reca
 where $L(0)$ is the number of jobs in the system at time $t=0$; typically we assume that $L(0)=0$.
 As in a queueing system, jobs can be in queue or in service, we distinguish between the number in the system $L(t)$, the number in queue $L_Q(t)$, and the number of jobs in service $L_s(t)$.
 
+\begin{extra}\label{ex:97}
+In~\cref{ex:25},  find an expression for $L(A_k-)$. 
+\begin{solution}
+Recall that $A(t) = \lfloor t/10\rfloor$, and $D(t) = \lfloor (t-10)/11 \rfloor$.
+  Hence,
+ \begin{equation*}
+ L(A_k-) = k-1 - D(A_k-) = k- 1 - D(10k-) = k- 1 - \left \lfloor \frac{(10k-)-10}{11} \right \rfloor.
+ \end{equation*}
+ The computation is a bit tricky since sometimes arrivals and departures coincide. (Consider for instance $t=120$.)
+
+From this example you can infer that it is necessary that the service rate is greater than the arrival rate, i.e., $\mu > \lambda$, for otherwise, the queue length keeps on increasing (in the long run).
+\end{solution}
+\end{extra}
 
 In summary, starting from a sequence of inter-arrival times $\{X_k\}$ and service times $\{S_k\}$ we can obtain a set of recursions by which we can simulate a queueing process in continuous time. A bit of experimentation with Python (or R perhaps) will reveal that this is easy.
 
