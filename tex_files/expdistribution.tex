@@ -43,7 +43,7 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 \end{extra}
 
 
-\begin{exercise}\label{exer:lambda}
+\begin{exercise}\clabel{exer:lambda}
  If the random variable $X\sim\Exp(\lambda)$, show that its mean $\E X = \frac{1}\lambda$. 
 \begin{hint}
  \begin{equation*}
@@ -57,8 +57,8 @@ Suppose $\lambda=0$. Then $\P{X\leq t} = 1-e^{0} = 0$. In words, this would mean
 \E{X} 
 &= \int_0^\infty t \lambda e^{-\lambda t} \d t, \quad\text{density is } \lambda e^{-\lambda t} \\
 &= \lambda^{-1} \int_0^\infty u e^{-u}\, \d u, \quad \text{ by change of variable $u=\lambda t$}, \\
-&= -\lambda^{-1}\left. t e^{- t}\right|_0^\infty + \lambda^{-1} \int_0^\infty e^{- t} \d t\\
-&= - \lambda^{-1} \left. e^{- t} \right|_0^\infty = \frac1\lambda.
+&= -\lambda^{-1}\left. u e^{- u}\right|_0^\infty + \lambda^{-1} \int_0^\infty e^{- u} \d u\\
+&= - \lambda^{-1} \left. e^{- u} \right|_0^\infty = \frac1\lambda.
  \end{align*}
 \end{solution}
 \end{exercise}
@@ -103,7 +103,7 @@ $\V X = \lambda^{-2}$.
 % M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
 % \end{equation}
 
-\begin{extra}\clabel{ex:11}
+\begin{extra}\mc\clabel{ex:11}
  Suppose $X\sim\Exp(\lambda)$.
  Only when $t < \lambda$ the moment-generating function $M_X(t)$ is finite.
 \begin{solution} The claim is true. 
@@ -129,7 +129,7 @@ $\V X = \lambda^{-2}$.
 =\frac{\lambda}{\lambda -t}.
  \end{align*}
 \end{solution}
- \end{extra}
+\end{extra}
 
 \begin{exercise}\clabel{ex:21}
 Use the moment-generating function of $X\sim\Exp(\lambda)$ to show that
@@ -143,9 +143,9 @@ Use~\cref{eq:69} and~\cref{eq:64}.
 \begin{solution} By~\cref{ex:33}, 
  $ M_X'(t)=\lambda/(\lambda-t)^2$. Hence, $M_X'(0)=1/\lambda$. Next, $M_X''(t)=2\lambda/(\lambda-t)^3$, hence $\E{X^2}=M_X''(0)=2\lambda/\lambda^3=2\lambda^{-2}$. 
 \end{solution}
- \end{exercise}
+\end{exercise}
 
-\begin{extra}\clabel{ex:29}
+\begin{extra}\mc\clabel{ex:29}
 When $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
 \begin{hint}
  Use~\cref{eq:62} 

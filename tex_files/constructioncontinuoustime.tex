@@ -53,7 +53,7 @@ Thus, we just count all arrivals that occur up to and including time~$t$.
 \end{exercise}
 
 
-\begin{extra}
+\begin{extra}\mc
 The following mappings are correct:
 \begin{align*}
  A_k : \N \to \R, \quad{\text{job id (integer) to arrival time (real number)}}, \\
@@ -361,7 +361,7 @@ D
 
 
 
-\begin{extra}\label{ex:25}
+\begin{extra}\clabel{ex:25}
  Assume that $X_k = 10$ minutes and $S_k = 11$ minutes for all
  $k$, i.e., $X_k$ and $S_k$ are deterministic and constant. What
  are $\lambda$ and $\mu$? Compute $A_k$, $W_k$, $D_k$ as functions of $k$. Then find expressions for $A(t)$ and $D(t)$.
@@ -501,7 +501,7 @@ Once we have the arrival and departure processes it is easy to compute the \reca
 where $L(0)$ is the number of jobs in the system at time $t=0$; typically we assume that $L(0)=0$.
 As in a queueing system, jobs can be in queue or in service, we distinguish between the number in the system $L(t)$, the number in queue $L_Q(t)$, and the number of jobs in service $L_s(t)$.
 
-\begin{extra}\label{ex:97}
+\begin{extra}\clabel{ex:97}
 In~\cref{ex:25},  find an expression for $L(A_k-)$. 
 \begin{solution}
 Recall that $A(t) = \lfloor t/10\rfloor$, and $D(t) = \lfloor (t-10)/11 \rfloor$.
