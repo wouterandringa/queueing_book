@@ -70,7 +70,7 @@ Assume that
  independent. Then,
  \begin{equation*}
 \P{N_a(t) + N_s(t) = n} 
-= e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!} \\
+= e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!}. \\
  \end{equation*}
 \begin{solution}
  Answer = A.
@@ -132,7 +132,7 @@ A machine can switch on and off. If the queue length
  I_k & \text{ if } 0< Q_{k} <N,\\
  0 & \text{ if } Q_{k} =0,\\
  \end{cases}\\
- I_{k+1} &= \1{Q_k\geq N} + I_k \1{0<Q_k<N} \\
+ I_{k+1} &= \1{Q_k\geq N} + I_k \1{0<Q_k<N}, \\
 d_k &=\min\{Q_{k-1}, c_k\}, \\
 Q_k &= Q_{k-1} - (1-I_k) d_k + a_k.
  \end{align*}
@@ -218,7 +218,7 @@ then
 &= \lambda \mu \int_0^\infty e^{-\mu y} \int_0^y e^{-\lambda x}\, \d x \, \d y \\
 &= \mu \int_0^\infty e^{-\mu y} e^{-\lambda y}\,\d y\\
 &= \mu \int_0^\infty e^{-(\lambda +\mu)y} \,\d y\\
-&= \frac{\mu}{\lambda + \mu} 
+&= \frac{\mu}{\lambda + \mu}.
  \end{split}
 \end{equation*}
 
@@ -470,11 +470,11 @@ Answer = B.
  reserved capacity is given to queue A with priority. The following set
  of recursions suffices to simulate this situation,
 \begin{align*}
- c_{k,A} &= \min\{Q_{ k-1, A}, r_A\}\\
-d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,A}\}\\
-Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A}\\
-d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\} \\
-Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
+ c_{k,A} &= \min\{Q_{ k-1, A}, r_A\},\\
+d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,A}\},\\
+Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A},\\
+d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\}, \\
+Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B},
 \end{align*}
 where $r_A$, $r_B$ are the reserved capacities for each queue, and $c_k$ the total service capacity available in time $k$ and such that $c_k \geq r_A+r_B$.
 
@@ -523,8 +523,8 @@ We have a discrete-time queueing system with a server with capacity $c$ per peri
 when the queue length is 24 or longer, and 1 less when the queue length is less than 12. 
 We can use the following construction to simulate this queueing process:
 \begin{align*}
-c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} \leq 12}\\
- d_n &= \min\{Q_{n-1}, c_n\} \\
+c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} \leq 12},\\
+ d_n &= \min\{Q_{n-1}, c_n\}, \\
 Q_n &= Q_{n-1} + a_n - d_n,
 \end{align*}
 where the notation is the same as in the book.
@@ -612,7 +612,7 @@ Answer = A.
 If $X$ is an exponentially distributed random variable with mean $1/\lambda$ and $Y$ exp. dist. with mean $1/\mu$, and $X$ and $Y$ are independent. Claim:
 \begin{align*}
  \P{X\leq Y} 
-&= 1 - \frac{\lambda}{\lambda + \mu} 
+&= 1 - \frac{\lambda}{\lambda + \mu}.
 \end{align*}
 
 \begin{solution}
@@ -815,7 +815,7 @@ The initial formulation of the question was like this: Take $d_k = \min\{Q_{k-1}
 \begin{exercise}[201902]
  Consider a random walk $Z_k = Z_{k-1} + X_k$ with $\{X_k\}$ a process of i.i.d. random variables such that $\P{X_k=1} = 1-\P{X_k=-1} = p \in (0, 1)$. Then, for large $n$ and $\alpha = 2$
  \begin{equation*}
- \P{Z_n > np + \alpha \sqrt{np(1-p)}} \approx 2.5\%, 
+ \P{Z_n > np + \alpha \sqrt{np(1-p)}} \approx 2.5\%.
  \end{equation*}
 
 
