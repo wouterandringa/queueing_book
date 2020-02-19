@@ -609,11 +609,11 @@ and likewise for the other queue.
  A, i.e., jobs sent into queue A.
 \begin{equation*}
  \begin{split}
- d_{k,A} &= \min\{L_{k-1, A}, c_k\}, \\
- c_{k,B} &= c_k - d_{k,A}, \\
- d_{k,B} &= \min\{L_{k-1, B}, c_{k,B}\}, \\
- L_{k,A} &= L_{k-1, A} + a_{k,A} - d_{k,A}, \\
- L_{k,B} &= L_{k-1, B} + a_{k,B} - d_{k,B}.
+ d_{A,k} &= \min\{L_{A,k-1}, c_k\}, \\
+ c_{B,k} &= c_k - d_{A,k}, \\
+ d_{B,k} &= \min\{L_{B,k-1}, c_{B,k}\}, \\
+ L_{A,k} &= L_{A,k-1} + a_{A,k} - d_{A,k}, \\
+ L_{B,k} &= L_{B,k-1} + a_{B,k} - d_{B,k}.
  \end{split}
 \end{equation*}
 
@@ -634,7 +634,7 @@ Aumann and Maschler applied this principle to clarify certain division rules dis
  First determine how much capacity queue $B$ minimally needs in
  period $k$:
  \begin{equation*}
- c_{k,B} = \min\{L_{ k-1, B}, r_B\}.
+ c_{B,k} = \min\{L_{B,k-1}, r_B\}.
  \end{equation*}
  Observe that, since $c_k \geq r_A + r_B$, this rule ensures that
  queue A receives at least its reserved capacity $r_A$. 
@@ -642,11 +642,11 @@ Aumann and Maschler applied this principle to clarify certain division rules dis
  Since queue A is served with priority, we first give all capacity,
  except what queue B minimally needs, to queue A:
  \begin{equation*}
-d_{k,A} = \min\{L_{k-1, A}, c_k-c_{k,B}\}.
+d_{A,k} = \min\{L_{A,k-1}, c_k-c_{B,k}\}.
 \end{equation*}
 And then we can give any left over capacity to queue B, if needed. 
 \begin{align*}
-d_{k,B} &= \min\{L_{k-1, B}, c_k-d_{k,A}\}.
+d_{B, k} &= \min\{L_{B, k-1}, c_k-d_{A,k}\}.
 \end{align*}
 
 An example is the weekly capacity offered by a psychiatrist at a hospital.
