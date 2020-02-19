@@ -670,19 +670,19 @@ If there are fewer patients of some group, then the capacity can be planned/give
 \begin{solution} Queue A can use all capacity, except what is
  reserved for queue B:
 \begin{equation*}
- d_{k,A} = \min\{L_{A, k-1}, c_k - r_B\}.
+ d_{A, k} = \min\{L_{A, k-1}, c_k - r_B\}.
 \end{equation*}
 Observe that, since $c_k \geq r_A + r_B$, this rule ensures that queue
 A receives at least its reserved capacity $r_A$.
 
 Queue $B$ cannot receive more than $c_k-r_A$, since $r_A$ is allocated
 to queue A, and if queue $A$ does not use all of $r_A$, then the
-surplus is lost. Also, queue $B$ cannot get more than $c_k - d_{k,A}$
+surplus is lost. Also, queue $B$ cannot get more than $c_k - d_{A, k}$
 as this is what remains after serving queue $A$. Thus, letting
-$c_{k,B} = \min\{c_k-r_A, c_k-d_{k,A}\} = c_k - \max\{r_A, d_{k,A}\}$,
+$c_{B, k} = \min\{c_k-r_A, c_k-d_{A, k}\} = c_k - \max\{r_A, d_{A, k}\}$,
 we see that for queue B:
 \begin{equation*}
- d_{k,B} = \min\{L_{B, k-1}, c_{k,B}\}.
+ d_{B, k} = \min\{L_{B, k-1}, c_{B, k}\}.
 \end{equation*}
 
 An example can be the operation room of a hospital.
