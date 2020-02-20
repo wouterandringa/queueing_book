@@ -481,11 +481,11 @@ where $r_A$, $r_B$ are the reserved capacities for each queue, and $c_k$ the tot
 \begin{solution}
 Answer = B. The following is correct: 
 \begin{align*}
- c_{k,B} &= \min\{Q_{ k-1, B}, r_B\}\\
-d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,B}\}\\
-Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A}\\
-d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\}\\
-Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
+ c_{k,B} &= \min\{Q_{ k-1, B}, r_B\},\\
+d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,B}\},\\
+Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A},\\
+d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\},\\
+Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}.
 \end{align*}
 \end{solution}
 \end{exercise}
@@ -531,9 +531,9 @@ where the notation is the same as in the book.
 \begin{solution}
 Answer = B. It should be this:
 \begin{align*}
-c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} < 12}\\
- d_n &= \min\{Q_{n-1}, c_n\} \\
-Q_n &= Q_{n-1} + a_n - d_n,
+c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} < 12},\\
+ d_n &= \min\{Q_{n-1}, c_n\}, \\
+Q_n &= Q_{n-1} + a_n - d_n.
 \end{align*}
 Note the \emph{less than}.
 \end{solution}
@@ -707,7 +707,7 @@ Answer = B. $A_i = A_{i-1} + X_i$. Hence,
 \begin{solution}
 Answer = B. %
 \begin{equation*}
- f_{X S}(x, s) = f_X(x) \cdot f_S(s) = \frac{1}{10} \1{0\leq x \leq 10}\cdot \frac 17 \1{0\leq s \leq 7},
+ f_{X S}(x, s) = f_X(x) \cdot f_S(s) = \frac{1}{10} \1{0\leq x \leq 10}\cdot \frac 17 \1{0\leq s \leq 7}.
 \end{equation*}
 
 \end{solution}
@@ -1074,11 +1074,11 @@ Consider a network of two stations in tandem. Jobs only arrive at station 1. Job
 
 \begin{solution}
  \begin{align*}
-a_{k,1}' &= a_{k,1}\1{Q_{k-1, 1} + Q_{k-1,2} < K} \\
- d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\} \\
- Q_{k,1} &= Q_{k-1,1} + a_{k,1}' - d_{k,1}\\
- d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\} \\
- Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}\\
+a_{k,1}' &= a_{k,1}\1{Q_{k-1, 1} + Q_{k-1,2} < K}, \\
+ d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\}, \\
+ Q_{k,1} &= Q_{k-1,1} + a_{k,1}' - d_{k,1},\\
+ d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\}, \\
+ Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}.\\
  \end{align*}
 
 Some students just model one queue, or do not mention that the arrivals at the second station are the departures of the first station.
