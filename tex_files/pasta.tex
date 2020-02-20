@@ -46,12 +46,12 @@ This leads to our final result:
 \begin{equation*}
  \lambda(n) = \lambda \iff \pi(n) = p(n).
 \end{equation*}
-This means that if the arrival rate does not depend on the state of the system, i.e., $\lambda(n)=\lambda$, the sample average is equal to the time-average.
+This means that if the arrival rate does not depend on the state of the system, i.e., $\lambda(n)=\lambda$, the sample probabilities $\{\pi(n)\}$ are equal to the time-average probabilities $\{p(n)\}$. 
 In other words, the customer perception at arrival moments is the same as the server perception.
 
 As the next exercises show, this property is not satisfied in general.
 However, when the arrival process is Poisson we have that $\lambda(n)=\lambda$.
-This fact is typically called PASTA: Poisson Arrivals See Time Averages.
+This fact is called \emph{PASTA: Poisson Arrivals See Time Averages}.
 Thus, for the $M/M/1$ queue in particular,
 \begin{equation*}
  \pi(n) = p(n) = (1-\rho)\rho^n.

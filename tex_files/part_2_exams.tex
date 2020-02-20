@@ -506,7 +506,7 @@ Answer = A. When the server is busy at time $0$, we need to wait until the job i
 \end{exercise}
 
 \begin{exercise}[201804]
-When $X\sim \exp(\lambda)$ and $S\sim\exp(\mu)$, and $X$ and $S$ are independent, their joint density is $f_{X,S}(x,y) = \lambda \mu e^{-\lambda x - \mu y}$. With this,
+When $X\sim \Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, their joint density is $f_{X,S}(x,y) = \lambda \mu e^{-\lambda x - \mu y}$. With this,
  \begin{align*}
 \P{X+S\leq t } 
 &= \lambda \mu \int_0^\infty \int_0^\infty e^{-\lambda x - \mu y} \1{x+y\leq t} \d x \d y \\
@@ -549,7 +549,7 @@ I decided to accept any answer to this exercise, as it is possible to read it in
 \end{exercise}
 
 \begin{exercise}[201804]
-For the $M/G/1$ queue and $S\sim \exp(\mu)$,
+For the $M/G/1$ queue and $S\sim \Exp(\mu)$,
  \begin{align*}
 \E{S^2} 
 &= \mu \int_0^\infty x^2 e^{- \mu x} \,\d x = \left. x^2 e^{-\mu x} \right|_0^\infty + 2 \int_0^\infty x e^{-\mu x} \, \d x \\

@@ -14,15 +14,15 @@ As it turns out, many more single-server queueing situations than the $M/M/1$ qu
 For these queueing systems we just present the results.
 In the exercises we ask you to derive the formulas---the main challenge is not to make computational errors.
 
-It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may depend on the number of jobs in the system. Specifically, consider the departure time $D_k$ of the $k$th job, so that $A_{A(D_k)+1}$ is the arrival time of the next job. If $L(D_k)=n$, then we require that for every $k$ 
+It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may depend on the number of jobs in the system. Specifically, we require that for all $s$ and $t$,
 \begin{equation*}
- \P{A_{A(D_k)+1} - D_k \leq x} = 1-e^{-f(n) \lambda x},
+ \P{A_{A(t)+1} \leq t+s \given L(t) = n} = 1-e^{-\lambda(n) s},
 \end{equation*}
-for some function $f:\N\to [0,\infty)$. Next, since $D_{D(A_k)+1}$ is the time until the next departure after $A_k$, we assume for all $k$,
+where we use that $A_{A(t)}+g$ is the arrival time of the next job after time $t$.
+Similarly, we assume for all $t$ and $s$,
 \begin{equation*}
- \P{D_{D(A_k)+1} - A_k \leq x} = 1-e^{-g(n) \mu x},
+ \P{D_{D(t)+1} \leq t+s \given L(t)=n} = 1-e^{-\mu(n) s}.
 \end{equation*}
-if $L(A_k)=n$ (not $L(A_k-)=n$) for some function $g:\N \to [0,\infty)$. 
 
 
 \begin{exercise}\clabel{ex:l-244}

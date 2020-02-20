@@ -1,14 +1,10 @@
 \section{$M/G/1$ Queue: The density of the waiting time}
 %{$\mathbf{M/G/1}$ Queue: The density of the waiting time}
 
-Level-crossing analysis is a powerful method to tackle probability
-problems. Here we show how to use this method to derive an integral
-equation that should be satisfied by the steady state density $f_Q$ of
-the waiting time of the M/G/1 queue. This section is included for
-curious readers; it can be safely skipped without interrupting the
-main flow of the course. Most of the derivation below is based on
-hand-waiving arguments, but all can be made mathematically rigorous,
-see, e.g., \cite{brill08:_level_cross_method_stoch_model}.
+Level-crossing analysis is a powerful method to tackle probability problems.
+Here we show how to use this method to derive an integral equation that should be satisfied by the steady state density $f_Q$ of the waiting time of the M/G/1 queue.
+This section is included for curious readers; it can be safely skipped without interrupting the main flow of the course.
+Most of the derivation below is based on hand-waiving arguments, but all can be made mathematically rigorous, see, e.g., \cite{brill08:_level_cross_method_stoch_model}.
 
 The result we want to derive is the functional equation of which the
 density $f_Q$ is the solution:
@@ -151,7 +147,7 @@ right away that
 
 As a last point of interest let's derive the density of the waiting
 time for the $M/M/1$ queue. Assume that the service time
-$S\sim \exp(\mu)$. Filling this in Eq.~\cref{eq:51} we find:
+$S\sim \Exp(\mu)$. Filling this in Eq.~\cref{eq:51} we find:
 \begin{align*}
 f_Q(x) &= \lambda \int_0^x f_Q(y) G(x-y) \,\d y + \lambda p(0) G(x)
 = \lambda \int_0^x f_Q(y) e^{-(x-y)\mu} \,\d y + \lambda p(0) e^{-\mu x}.
