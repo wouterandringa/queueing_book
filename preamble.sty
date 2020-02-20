@@ -31,6 +31,23 @@
 % other packages. I don't know which ones, but at this spot it works.
 \usepackage{pythontex}
 
+\usepackage[strict]{changepage}
+%\begin{adjustwidth}{hleftmargini}{hrightmargini}
+
+% \setlength{\parindent}{0ex}
+% \setlength{\parskip}{1em}
+
+\newenvironment{exercise}
+{
+% \vspace{-1em}
+% \begin{adjustwidth}{0.5cm}{0cm}
+\begin{exer}
+   \slshape
+}
+{
+\end{exer}
+% \end{adjustwidth}
+}
 
 \ifshowextra
 \newenvironment{extra}{\begin{exercise}}{\end{exercise}}
@@ -88,10 +105,12 @@
 
 
 \theoremstyle{definition} % font type for theorems and related environments
+%\theoremstyle{remark} % font type for theorems and related environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}{}[section]
+%\newtheorem{exercise}{}[section]
+\newtheorem{exer}{}[section]
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
