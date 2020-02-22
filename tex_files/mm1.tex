@@ -124,7 +124,7 @@ Hence, $\E L = M_L'(0) = \rho/(1-\rho)$.
 \begin{equation}\label{eq:80}
  \E{L^2}= (1-\rho) \sum_{n=0}^\infty n^2 \rho^n = \frac{2\rho^2}{(1-\rho)^2} + \frac{\rho}{1-\rho}
 \end{equation}
-by differentiation the standard formula for a geometric series twice.
+by differentiating the standard formula for a geometric series twice.
 \begin{solution}
  Starting from the result of~\cref{ex:14}, differentiating and multiplying with $\rho$ a second time yields
 \begin{equation*}
@@ -138,7 +138,11 @@ by differentiation the standard formula for a geometric series twice.
 \end{equation*}
 and hence
 \begin{equation*}
-(1-\rho)\sum_{n=0}^{\infty}n^2\rho^n = \rho\dfrac{1+\rho}{(1-\rho)^2}.
+(1-\rho)\sum_{n=0}^{\infty}n^2\rho^n = \rho\dfrac{1+\rho}{(1-\rho)^2} 
+& = \dfrac{\rho}{(1-\rho)^2} + \dfrac{\rho^2}{(1-\rho)^2} 
+& = \dfrac{2\rho^2}{(1-\rho)^2} + \dfrac{\rho}{(1-\rho)^2} - \dfrac{\rho^2}{(1-\rho)^2}
+& = \dfrac{2\rho^2}{(1-\rho)^2} + \rho\dfrac{(1-\rho)}{(1-\rho)^2}
+& = \dfrac{2\rho^2}{(1-\rho)^2} + \dfrac{\rho}{(1-\rho)^2}.
 \end{equation*}
 Recall that $p(n) = (1-\rho)\rho^n$. 
 \end{solution}
