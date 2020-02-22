@@ -3,7 +3,7 @@
 \Opensolutionfile{ans}
 \subsection{Multiple-choice Questions}
 
-The questions in this sections are actually claims that are either true of false.
+The questions in this section are actually claims that are either true of false.
 It is up to you to decide which of the two alternatives is correct.
 A (in)correct answers (costs) earns you a point.
 
@@ -88,15 +88,15 @@ Answer = B.
 
 Set $t=1$ for notational simplicity. Then
 \begin{equation*}
- M(s) = \E{e^{sN}} = e^{-\lambda}\sum_{n=0}^\infty \frac{\lambda^n}{n!} = \exp{\lambda(e^s-1)}.
+ M(s) = \E{e^{sN}} = e^{-\lambda}\sum_{n=0}^\infty \frac{\lambda^n}{n!} = \exp\{\lambda(e^s-1)\}.
 \end{equation*}
 Then, 
 \begin{equation*}
- M'(s) = \frac{\d}{\d t} M(s) = \exp{\lambda(e^s-1)}\lambda e^s,
+ M'(s) = \frac{\d}{\d t} M(s) = \exp\{\lambda(e^s-1)\}\lambda e^s,
 \end{equation*}
 and 
 \begin{equation*}
- M''(s) = \exp{\lambda(e^s-1)}(\lambda^2 e^{2s} + \lambda e^s).
+ M''(s) = \exp\{\lambda(e^s-1)\}(\lambda^2 e^{2s} + \lambda e^s).
 \end{equation*}
 Finally, 
 $\E{N^2} = M''(0) = \lambda^2+\lambda$. 
