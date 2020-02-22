@@ -1128,7 +1128,7 @@ The aim of this set of questions is to find an educated guess for a more general
  \sum_{k=1}^{A(t)} W_k \geq \int_0^t L(s) \d s \geq \sum_{k=1}^{D(t)} W_k.
  \end{equation*}
 \begin{solution}
- Intuitively, the left hand is all the work that arrived up to time $t$, the middle term is all the work that has been processed, and the right term all the work that left.
+ Intuitively, the left term is all the work that arrived up to time $t$, the middle term is all the work that has been processed, and the right term all the work that left.
  Any job that that is half way its service counts for full at the left, for half in the middle expression, and not in the right.
 
  More formally, for any job $k$ and time $t$, we have $W_k \1{A_k \leq t} \geq \int_0^t \1{A_k \leq s < D_k } \d s \geq W_k \1{D_k \leq t}$. (To see this, fix $k$, and check the three cases $t < A_k, A_k \leq t < D_k, D_k < t$.) Then,
