@@ -1095,7 +1095,7 @@ Q_n &= Q_{n-1} + a_n - d_n,
 \end{align*}
 where the arrivals $a_n$ are i.i.d. and have Poisson distribution with parameter $\lambda=2$, $c_n$ is the service capacity in period $n$ and $d_n$ corresponds to the number of departures. Why is this queueing system unstable?
 \begin{solution}
-This system is in fact unstable. Once $Q_n > 10$, there is a drift upwards with rate $2-1$. Eventually the queue will drift to infinity. 
+This system is in fact unstable. Once $Q_n > 10$, there is a drift upwards with rate $2-1$. Eventually, the queue will drift to infinity. 
 
 Now even when $Qn>10$, it may happen that some time later the queue length gets below 10. This happens when $a_i = 0$ for a sufficient number of consecutive periods. However, whenever the queue is less than 10, the state 10 will be hit with probability one. Eventually there will be time that it does not get back to state 10 again. 
 
