@@ -277,7 +277,7 @@ The \emph{service objective} is to determine the minimal service
 capacity $c$ (i.e., the number of cashiers) such that the fraction of the time that more than 
 10 people are in queue is less than 1\%. (If the supermarket has 3 cashiers open, 10 people in queue means about 3 people per queue.)
 
-The next step is to find the \emph{relevant data}: the arrival process and the service time distribution. For the arrival process it is reasonable to model it as a Poisson process. There are many potential customers, each choosing with a small probability to go to the supermarket at a certain moment in time. Thus, we only have to characterize the arrival rate. Estimating this for a supermarket is relatively easy: the cash registers track all customers
+The next step is to find the \emph{relevant data}: the arrival process and the service time distribution. For the arrival process, it is reasonable to model it as a Poisson process. There are many potential customers, each choosing with a small probability to go to the supermarket at a certain moment in time. Thus, we only have to characterize the arrival rate. Estimating this for a supermarket is relatively easy: the cash registers track all customers
 payments. Thus, we know the number of customers that left the shop,
 hence entered the shop. (We neglect the time customers spend in the
 shop.) Based on these data we make a \emph{demand profile}: the
@@ -344,7 +344,7 @@ This is typically not easy since shifts have to satisfy all kinds of rules, such
 These shifts also have different costs: shifts with hours after 18h are more expensive per hour; when the supermarket covers traveling costs, short shifts have higher marginal traveling costs; and so on.
 
 The usual way to solve such covering problems is by means of an integer
-problem. First generate all (or a subset of the) allowed shift types
+problem. First, generate all (or a subset of the) allowed shift types
 with associated starting times. For instance, suppose only 4 shift
 plans are available
 \begin{enumerate}
@@ -355,7 +355,7 @@ plans are available
 \end{enumerate}
 where a $+$ indicates a working hour and $-$ a break of an hour. Then
 generate shift types for each of these plans with starting times
-$8$am, $9$am, and so on, until the end of the day. Thus, a shift type
+$8$ am, $9$am, and so on, until the end of the day. Thus, a shift type
 is a shift plan that starts at a certain hour. Let $x_i$ be the number
 of shifts of type $i$ and $c_i$ the cost of this type. Write $t\in s_i$ if
 hour $t$ is covered by shift type $i$. Then the problem is to solve
