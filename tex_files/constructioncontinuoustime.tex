@@ -538,8 +538,9 @@ In summary, starting from a sequence of inter-arrival times $\{X_k\}$ and servic
  L_Q(t) &= A(t) - \tilde A(t), \\
 L_s(t) &= \tilde A(t) - D(t) = L(t) - L_Q(t).
 \end{align*}
-\begin{equation*}
-\end{equation*}
+\begin{solution}
+We defined $\tilde A(t)$ as the amount of people that leaved the queue to move to the server up to time t. It is then clear to see that $L_Q(t)$, which is amount of people in queue at time t, is equal to the amount of people that have arrived at the queue until time t minus the amount of people that have left the queue up to time t. Using the same reasoning for $L_s(t)$, which is the amount of people in service at time t, we see that this is equal to the amount of people that went to the queue( $\tilde A(t)$) minus the amount of people that left the system($D(t)$). This is logical. We can also define this as the total amount of people in the system $L(t)$ minus the amount of people in queue ($L_Q(t)$).
+\end{solution}
 \end{extra}
 
 
