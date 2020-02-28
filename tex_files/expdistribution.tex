@@ -103,10 +103,14 @@ $\V X = \lambda^{-2}$.
 % M_X(t) = \E{e^{t X}} = \int_0^\infty e^{t x} \lambda e^{-\lambda x} \d x.
 % \end{equation}
 
-\begin{extra}\mc\clabel{ex:11}
- Suppose $X\sim\Exp(\lambda)$.
- Only when $t < \lambda$, the moment-generating function $M_X(t)$ is finite.
-\begin{solution} The claim is true. 
+\begin{extra}\clabel{ex:11}
+ Suppose $X\sim\Exp(\lambda)$. Show that, only when $t < \lambda$, the moment-generating function $M_X(t)$ is finite.
+\begin{solution} 
+  \begin{align*}
+    M_X(t) &= \E{e^{t X}} = \int_0^\infty e^{t x} f(x) \d x \\
+    &= \lambda \int_0^\infty e^{t x} e^{-\lambda x} \d x = \lambda \int_0^\infty  e^{-(\lambda -t) x} \d x.
+  \end{align*}
+This last integral only converges when $\lambda -t > 0$. 
 \end{solution}
 \end{extra}
 
@@ -145,8 +149,8 @@ Use~\cref{eq:69} and~\cref{eq:64}.
 \end{solution}
 \end{exercise}
 
-\begin{extra}\mc\clabel{ex:29}
-When $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
+\begin{extra}\clabel{ex:29}
+Show that, when $X\sim\Exp(\lambda)$,  the SCV of $X$  is $1$.
 \begin{hint}
  Use~\cref{eq:62} 
 \end{hint}
@@ -155,7 +159,6 @@ When $X\sim\Exp(\lambda)$ the SCV is larger than $1$.
  \begin{equation*}
  C^2= \frac{\V X}{(\E X)^2} = \frac{1/\lambda^2}{1/\lambda^2} = 1.
  \end{equation*}
- Hence, the claim is not true.
 \end{solution}
 \end{extra}
 
