@@ -59,7 +59,6 @@ $D/D/1$: A queueing process with deterministic inter-arrival times, deterministi
 \begin{extra}\mc
 The $M/M/c$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
 \begin{solution}
-True, the definition of a $M/M/c$ queue is stated as below.
 $M/M/c$: A \recall{multi-server} queue with $c$ servers in which
  all servers have the same service capacity. Jobs arrive according to a
  Poisson process and have exponentially distributed service times.
@@ -191,7 +190,8 @@ When a customer finds a large queue in front of it, s/he can use the normal dist
  W_{Q,n} &\approx \mu_n + \mathcal{N}(0,\sigma_n^2) \iff\\
  W_{Q,n} &\approx \mathcal{N}(\mu_n,\sigma_n^2) = \mathcal{N}(n\E X, n \V S)
  \end{align*}
-,where we used in the last equation the fact that the variance of the summation of i.i.d random variables is equal to the summation of the variances.
+ ,where we used in the last equation the fact that the variance of the summation of i.i.d random variables is equal to the summation of   the variances. 
+ #This line is italic in the solution, I can't figure out why. It seems fine in my own latex. The align doesn't seem to end
 \end{solution}
 \end{exercise}
 
