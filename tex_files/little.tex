@@ -46,12 +46,6 @@ and for $s\leq T$,
 L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s < D_k}.
 \end{equation*}
 
-\begin{exercise}\clabel{ex:62}
- Prove Little's law under the assumptions that $A(T_i) = D(T_i)$ for an infinite number of times $\{T_i\}$ such $T_i\to\infty$ and that all limits exist. 
-\begin{solution}
- See~\cref{ex:59}--\cref{ex:61}. 
-\end{solution}
-\end{exercise}
 
 
 \begin{extra}\clabel{ex:59}
@@ -72,14 +66,13 @@ L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s <
 \end{solution}
 \end{extra}
 
-
-\begin{extra}\clabel{ex:60}
- Use the result of the previous exercise to show~\cref{eq:53}. 
+\begin{exercise}\clabel{ex:62}
+ Prove Little's law under the assumptions that $A(T_i) = D(T_i)$ for an infinite number of times $\{T_i\}$ such $T_i\to\infty$ and that all limits exist. 
 \begin{hint}
- Divide both sides by $T$. At the right-hand side use that $1/T = A(T)/T \cdot 1/A(T)$. Take limits.
+In  the result of~\cref{ex:59},  divide both sides by $T$. At the right-hand side use that $1/T = A(T)/T \cdot 1/A(T)$. Take limits.
 \end{hint}
 \begin{solution}
-From the previous exercise:
+  First solve~\cref{ex:59}. Then,
 \begin{equation*}
  \frac 1 T \int_0^T L(s)\, \d s = \frac{A(T)} T \frac{1}{A(T)} \sum_{k=1}^{A(T)} W_k.
 \end{equation*}
@@ -92,9 +85,9 @@ and the following limits exist
 \frac{1}{A(T_i)} \sum_{k=1}^{A(T_i)} W_k &\to \E W,
 \end{align*}
 we obtain Little's law.
-\end{solution}
-\end{extra}
 
+\end{solution}
+\end{exercise}
 
 
 \begin{extra}\clabel{ex:61}
@@ -149,7 +142,8 @@ Hence, Little's law follows.
 
 
 \begin{extra}\clabel{ex:42}
- Use the dimensions of the components of Little's law to check that $\E{W} \neq \lambda \E{L}$.
+  Use the (physical) dimensions of the components of Little's law to check that $\E{W} \neq \lambda \E{L}$.
+  (With this check, you can prevent making an often-made mistake.)
 \begin{hint}
 Checking the dimensions in the formula prevents painful mistakes.
 \end{hint}
@@ -167,7 +161,7 @@ Checking the dimensions in the formula prevents painful mistakes.
 \begin{extra}\clabel{ex:37}
  Consider the server of the $G/G/1$ queue as a system by itself.
  The time jobs stay in this system is $\E S$, and jobs arrive at rate $\lambda$.
- It follows from Little's law that $\rho = \lambda \E S$.
+ Use  Little's law to conclude that  $\lambda \E S = \rho := \lim_{t\to\infty} t^{-1}\int_0^t L_S(s)\d s$.
 \begin{solution}
  The arrival rate at the server must be $\lambda$ and the time a job remains at the server is $\E S$.
  The fraction of time the server is busy is precisely the fraction of time there is a job present at the server.

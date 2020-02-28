@@ -52,26 +52,24 @@ $M/M/1$: The distribution of the inter-arrival times is
 \begin{extra}
 What is the $D/D/1$ queue? 
 \begin{solution}
-$D/D/1$: A queueing process with deterministic inter-arrival times, deterministic service times and 1 server.
+  $D/D/1$: A queueing process with deterministic inter-arrival times, deterministic service times and 1 server.
 \end{solution}
 \end{extra}
 
 \begin{extra}
 Is it true that the $M/M/c$ shorthand means that jobs arrive as a Poisson process, job service times are exponentially distributed, and there are $c$ servers.
 \begin{solution}
-$M/M/c$: A \recall{multi-server} queue with $c$ servers in which
- all servers have the same service capacity. Jobs arrive according to a
- Poisson process and have exponentially distributed service times. Hence, it is true. 
+  $M/M/c$: A \recall{multi-server} queue with $c$ servers in which all servers have the same service capacity.
+  Jobs arrive according to a Poisson process and have exponentially distributed service times.
+  Hence, it is true.
 \end{solution}
 \end{extra}
 
 \begin{extra}
  What is the meaning of $M/M/c/K$?
 \begin{solution}
-$M/M/c/K$: Inter-arrival times and process times are exponential,
- and the \recall{system capacity} is $K$ jobs. Thus, the queue can
- contain at most $K-c$ jobs. 
-
+  $M/M/c/K$: Inter-arrival times and process times are exponential, and the \recall{system capacity} is $K$ jobs.
+  Thus, the queue can contain at most $K-c$ jobs.
 \end{solution}
 \end{extra}
 
@@ -79,19 +77,15 @@ $M/M/c/K$: Inter-arrival times and process times are exponential,
 \begin{extra}
  What is the meaning of $M/M/c/c$?
 \begin{solution}
- $M/M/c/c$: In this system the number of servers is the same as
- the system capacity, thus the queue length is always zero. This
- queueing system is useful to determine the number of beds
- in a hospital; the beds act as servers.
+  $M/M/c/c$: In this system the number of servers is the same as the system capacity, thus the queue length is always zero.
+  This queueing system is useful to determine the number of beds in a hospital; the beds act as servers.
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-143}
  What is the meaning of $M(n)/M(n)/1$?
 \begin{solution}
-$M(n)/M(n)/1$: The inter-arrival times are exponential, just as
- the service times, but the rates of the arrival and service processes
- may depend on the queue length $n$. 
+  $M(n)/M(n)/1$: The inter-arrival times are exponential, just as the service times, but the rates of the arrival and service processes may depend on the queue length $n$.
 \end{solution}
 \end{exercise}
 
@@ -109,9 +103,7 @@ $M(n)/M(n)/1$: The inter-arrival times are exponential, just as
 \begin{extra}
  What is the meaning of $M/G/1$?
 \begin{solution}
-$M/G/1$: The inter-arrival times are exponentially distributed,
- the service times can have any general distribution (with
- finite mean), and there is 1 server.
+  $M/G/1$: The inter-arrival times are exponentially distributed, the service times can have any general distribution (with finite mean), and there is 1 server.
 \end{solution}
 \end{extra}
 
@@ -119,11 +111,9 @@ $M/G/1$: The inter-arrival times are exponentially distributed,
 \begin{extra}
  What is the meaning of $M/G/\infty$?
 \begin{solution}
- $M/G/\infty$: Exponential inter-arrival times, service times can
- have any distribution, and there is an unlimited supply of
- servers. This is also known as an \recall{ample server}. Observe
- that in this queueing process, jobs actually never have to wait in
- queue; upon arrival there is always a free server available.
+  $M/G/\infty$: Exponential inter-arrival times, service times can have any distribution, and there is an unlimited supply of servers.
+  This is also known as an \recall{ample server}.
+  Observe that in this queueing process, jobs actually never have to wait in queue; upon arrival there is always a free server available.
 \end{solution}
 \end{extra}
 
@@ -191,9 +181,8 @@ When a customer finds a large queue in front of it, s/he can use the normal dist
  W_{Q,n} &\approx \mathcal{N}(\mu_n,\sigma_n^2) = \mathcal{N}(n\E X, n \V S),
  \end{align*}
  where we used in the last equation the fact that the variance of a (fixed) sum of i.i.d random variables is equal to the sum of the variances.
- \end{solution}
+\end{solution}
 \end{exercise}
-
 
 \opt{solutionfiles}{
 \Closesolutionfile{hint}

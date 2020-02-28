@@ -221,19 +221,14 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
  Why is~\cref{eq:39}, i.e., $\pi(n)=\delta(n)$, not true for the $M^X/M/1$ batch queue?
  Provide an example.
 \begin{solution}
- Because arrivals do not occur in single units, but in batches.
+Using~\cref{ex:909} that $D(n,t)/t \to \delta \delta(n)$, we see that
+$\lambda \sum_{m=0}^n \pi(m) G(n-m) = \delta \delta(n)$. With rate-stability, $\lambda=\delta$, and therefore 
+$\sum_{m=0}^n \pi(m) G(n-m) = \delta(n)$. The left-hand-side is clearly not equal to $\pi(n)$. 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\clabel{ex:73}
- Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\cref{eq:43}.
-\begin{solution}
- We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
-\end{solution}
-\end{exercise}
 
 \begin{extra}\clabel{ex:71}
- Step 1 of~\cref{ex:73}.
  Show that
 \begin{equation}\label{eq:67}
  \mu \E L =\mu \sum_{n=0}^\infty n \pi(n) = \lambda \frac{\E{B^2}}2 + \lambda \E B \E L +\lambda \frac{\E B}2.
@@ -262,7 +257,6 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \end{extra}
 
 \begin{extra}\clabel{ex:72}
- Step 2 of~\cref{ex:73}.
  Use~\cref{eq:67} and the definition $\rho=\lambda \E B/\mu$ to show that
 \begin{equation*}
 (1- \rho) \E L = \frac{\lambda}\mu \frac{\E{B^2}}2 + \frac\rho2.
@@ -275,6 +269,12 @@ Once again with $\pi(n)$ we can compute all performance measures we need, and st
 \end{solution}
 \end{extra}
 
+\begin{exercise}\clabel{ex:73}
+ Substitute recursion~\cref{eq:42} for $\pi(n)$ into the expression $\E{L} = \sum_{n=0}^\infty n \pi(n)$ and derive~\cref{eq:43}.
+\begin{solution}
+ We chop this up into two steps, see~\cref{ex:71} and~\cref{ex:72}.
+\end{solution}
+\end{exercise}
 
 
 \begin{exercise}\clabel{ex:l-155}

@@ -38,6 +38,9 @@ which we also found in a previous section.
 
 \begin{extra}
  Compute $\E{W_Q}$ and $\E L$ for the $M/D/1$ queue.
+\begin{hint}
+Use that $\V(S)=0$ for the $M/D/1$ queue.    
+\end{hint}
 \begin{solution}
  For the $M/D/1$ the service time is deterministic.
  Thus, the service time $S=T$ always.
@@ -309,9 +312,7 @@ Let its service time start at time $\tilde A_k$ so that it departs at time $D_k=
 
 \begin{exercise}\clabel{ex:13}
  Use~\cref{fig:mg1remainingservicetime} to explain that the remaining service time of job $k$ at time $s$ is given by
-\begin{equation*}
-R_k(s) = (D_k-s)\1{\tilde A_k \leq s < D_k}.
-\end{equation*}
+$(D_k-s)\1{\tilde A_k \leq s < D_k}$.
 With this, explain that
  \begin{equation*}
  Y(t) = \int_0^t (D_{D(s)+1}-s)\1{L(s) > 0} \d s
@@ -445,15 +446,15 @@ Hence,
 
 
 \begin{extra}\clabel{ex:45}
+When $\V{S} = 0$, is it true that
 \begin{equation*}
-\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S} 2,
+\E{S_r\given S_r>0} = \frac{\E{S^2}}{2 \E S} \implies \E {S_r\given S_r>0} = \frac{\E S} 2?
 \end{equation*}
-when $\V{S} = 0$. 
 \begin{hint}
  $\V S = 0$ implies that $S$ is deterministic.
 \end{hint}
 \begin{solution}
- When $S$ is deterministic $\E{S^2} = (\E{S})^2$. Now use~\cref{eq:55}.
+ When $S$ is deterministic $\E{S^2} = (\E{S})^2$. Now use~\cref{eq:55} to see that it is true.
 \end{solution}
 \end{extra}
 

@@ -51,7 +51,7 @@ Show that we can also define $A(t)$ as
 \end{equation}
 Thus, we just count all arrivals that occur up to and including time~$t$.
 \begin{hint}
-  What is $\1{A_k \leq t\}$ if $A_k \leq t$? 
+  What is $\1{A_k \leq t}$ if $A_k \leq t$? 
 \end{hint}
 \begin{solution}
 For every $A_k \leq t$, we have that $\1{A_k \leq t} = 1$, and else the indicator is $0$. Hence, in the summation we count the number of times $A_k \leq t$. 
@@ -324,7 +324,7 @@ from which follows a recursion for $D_k$:
 \begin{solution}
   Suppose $k$ arrives right after job $k-1$.
   Then job $k$ has to wait until job $k-1$ leaves, in other words, the service of job $k$ can start only after job $k-1$ leaves.
-  Consequently, in this case, $W_{Q,k}=W_{k-1$.
+  Consequently, in this case, $W_{Q,k}=W_{k-1}$.
     If there is time $X_k$ between jobs $k$ and $k-1$, then job $k$ has to spend $X_k$ less in queue.
     This explains the first formula.
     The rest follows right away.
