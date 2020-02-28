@@ -50,8 +50,13 @@ Show that we can also define $A(t)$ as
  A(t) = \sum_{k=1}^\infty \1{A_k \leq t}.
 \end{equation}
 Thus, we just count all arrivals that occur up to and including time~$t$.
+\begin{hint}
+  What is $\1{A_k \leq t\}$ if $A_k \leq t$? 
+\end{hint}
+\begin{solution}
+For every $A_k \leq t$, we have that $\1{A_k \leq t} = 1$, and else the indicator is $0$. Hence, in the summation we count the number of times $A_k \leq t$. 
+\end{solution}
 \end{exercise}
-#Solution is missing
 
 \begin{extra}\mc
 The following mappings are correct:
