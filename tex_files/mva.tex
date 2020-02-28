@@ -109,23 +109,23 @@ called. The memoization takes care of all these problems.
 \begin{pyconsole}
 @lru_cache(maxsize=None)
 def EL(j, n):
- if n <= 0:
- return 0
- else:
- return TH(j, n) * EW(j, n)
+   if n <= 0:
+      return 0
+   else:
+      return TH(j, n) * EW(j, n)
 
 
 @lru_cache(maxsize=None)
 def EW(j, n):
- return (EL(j, n - 1) + 1) / mu[j]
+   return (EL(j, n - 1) + 1) / mu[j]
 
 
 @lru_cache(maxsize=None)
 def TH(j, n):
- if j == 0:
- return n / sum(V[j] * EW(j, n) for j in range(len(mu)))
- else:
- return V[j] * TH(0, n)
+   if j == 0:
+        return n / sum(V[j] * EW(j, n) for j in range(len(mu)))
+   else:
+        return V[j] * TH(0, n)
  
 \end{pyconsole}
 This is all!
@@ -136,11 +136,11 @@ Now I print the expected jobs at the stations.
 \begin{pyconsole}
 print(" n EL0 EL1 EL2 EL3 EL4 TH0")
 for n in range(1,30):
- res = "{:3d}".format(n)
- for j in range(len(mu)):
- res += "{:6.2f}".format(float(EL(j, n)))
- res += "{:6.2f}".format(float(TH(0,n)))
- print(res)
+   res = "{:3d}".format(n)
+   for j in range(len(mu)):
+      res += "{:6.2f}".format(float(EL(j, n)))
+      res += "{:6.2f}".format(float(TH(0,n)))
+   print(res)
  
 \end{pyconsole}
 
