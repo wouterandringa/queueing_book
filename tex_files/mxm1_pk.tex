@@ -16,7 +16,7 @@ When the batches arrive as a Poisson process and the individual items within a b
 We derive an expressions for the load and the expected waiting time and queue length for this queueing model. 
 
 Assume that jobs arrive as a Poisson process with rate $\lambda$ and each \emph{job} contains multiple \emph{items}. Let $A_k$ be the arrival time of job $k$ and $A(t)$ the number of (job) arrivals up to time $t$. Denote by $B_k$ the batch size of the $k$th job, i.e., the number of items of job $k$. We assume that $\{B_k\}$ is a sequence of independent discrete random variables each distributed as the generic random variable~$B$. Let $\P{B = k} = f(k)$ be given. % and $G(k)$ the survivor function.
-The service time of each item $\E S$.
+The service time of each item is $\E S$.
 
 \begin{exercise}
   Explain that the average time to serve an entire batch is $\E B \E S$, so that the load must given by $\rho = \lambda \E B \E S$.
