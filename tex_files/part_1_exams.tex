@@ -123,18 +123,18 @@ $\E{N^2} = M''(0) = \lambda^2+\lambda$.
 A machine can switch on and off. If the queue length
  hits $N$, the machine switches on, and if the system becomes empty,
  the machine switches off. Let $I_k=1$ if the machine is on in
- period $k$ and $I_k=0$ if it is off, let $Q_k$ be the number of
+ period $k$ and $I_k=0$ if it is off, let $L_k$ be the number of
  items in the system at the end of period $k$, then, 
  \begin{align*}
  I_{k+1} &=
  \begin{cases}
- 1 & \text{ if } Q_{k} \geq N,\\
- I_k & \text{ if } 0< Q_{k} <N,\\
- 0 & \text{ if } Q_{k} =0,\\
+ 1 & \text{ if } L_{k} \geq N,\\
+ I_k & \text{ if } 0< L_{k} <N,\\
+ 0 & \text{ if } L_{k} =0,\\
  \end{cases}\\
- I_{k+1} &= \1{Q_k\geq N} + I_k \1{0<Q_k<N}, \\
-d_k &=\min\{Q_{k-1}, c_k\}, \\
-Q_k &= Q_{k-1} - (1-I_k) d_k + a_k.
+ I_{k+1} &= \1{L_k\geq N} + I_k \1{0<L_k<N}, \\
+d_k &=\min\{L_{k-1}, c_k\}, \\
+L_k &= L_{k-1} - (1-I_k) d_k + a_k.
  \end{align*}
  Assume that $I_0 =0$ at time $k=0$. 
 
@@ -143,7 +143,7 @@ It is true that the above
 
 \begin{solution}
  Answer = B.
-It should be this: $d_k =I_k \min\{Q_{k-1}, c_k\}$, $Q_k = Q_{k-1} - d_k + a_k$.
+It should be this: $d_k =I_k \min\{L_{k-1}, c_k\}$, $L_k = L_{k-1} - d_k + a_k$.
 
 \end{solution}
 \end{exercise}
@@ -167,15 +167,15 @@ For the $G/G/1$ queue the following recursion is true:
  For the $G/G/1$ queue, suppose that the interarrival times
  $X_k\in\{1,3\}$ such that $\P{X_k=1}=1/5$ (hence, $\P{X_k=3}=4/5$)
  and the service times $S_k\in\{1,2\}$ with $\P{S_k=1}=1/3$ (hence,
- $\P{S_k=2}=2/3$). If $W_{Q,0}=3$,
+ $\P{S_k=2}=2/3$). If $W_{L,0}=3$,
  \begin{equation*}
- \P{W_{Q,1} = 1} =\frac4{15}.
+ \P{W_{L,1} = 1} =\frac4{15}.
  \end{equation*}
 
 \begin{solution}
  Answer = A.
  \begin{equation*}
- \P{W_{Q,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
+ \P{W_{L,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
  \end{equation*}
 
  I asked $<1/2$ in case you would use your calculator which might
