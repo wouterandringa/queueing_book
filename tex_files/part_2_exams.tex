@@ -299,7 +299,11 @@ Using the definitions of the book, for the $M/M/1$ queue and $t>0$,
 \left| \frac{A(n,t)}{Y(n,t)}\frac{Y(n,t)}t - \frac{D(n,t)}{Y(n+1,t)}\frac{Y(n+1,t)}t \right| \leq 1. 
 \end{equation*}
 \begin{solution}
-Answer = A.
+  It is wrong.
+  Suppose that the system starts empty and only one job arrives at $t=1/3$.
+  Consider now a time $t=2/3$.
+  Then $Y(0,t)=1/3$, $Y(1,t)=1/3$, $A(0,t)=1$ and $D(n,t)=0$.
+  Then the expression at the left-hand side becomes $3/2$.  Hence, the statement is not correct for all $t>0$;
 \end{solution}
 \end{exercise}
 
