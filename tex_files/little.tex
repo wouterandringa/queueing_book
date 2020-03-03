@@ -1068,7 +1068,7 @@ Realize that you have model the server process separately from the queueing proc
  Q &=Q + a_k, 
  \intertext{the number of parties in queue (not in the system) just after the arrival of the batches during the $k$th interdeparture time,} p
  d_q &= \min\{Q, \1{Q_s' = 0}\}, 
- \intertext{only move a party from the queue is `the server is free',} 
+ \intertext{only move a party from the queue if `the server is free',} 
  Q &= Q- d_q, 
  \intertext{move the party from the queue to the server, if allowed,} 
  Q_s &= Q_s'\1{Q_s'>0} + B_b\1{Q_s' = 0}, 
