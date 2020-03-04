@@ -17,10 +17,10 @@ However, we cannot simply copy the derivation of the $M^X/M/1$ queue to the $M/G
 
 When job service times are not memoryless, hence do not restart at arrival times, we cannot choose any moment we like to apply level-crossing.
 Thus, for the $M/G/1$ queue we need to focus on moments in time in which the system `restarts'.
-As we will see below the appropriate moments are job departure epochs.
+As we will see below, the appropriate moments are job departure epochs.
 All in all, the argumentation to find the recursion for $\{p(n)\}$ is quite subtle, as it uses an interplay of the PASTA property and~\cref{eq:39} between $\pi(n)$, $p(n)$ and $\delta(n)$.
 
-An important role below is played by the number of arrivals $Y_k$ during the service time of the $k$th job. Since the service times of the jobs form an i.i.d. sequence of random variables, the sequence $\{Y_k\}$ is also i.i.d. Let $Y$ be the common random variable with probability mass
+An important role below is played by the number of arrivals $Y_k$ during the service time of the $k$th job. Since the service times of the jobs form a sequence of i.i.d. random variables, the elements of the sequence $\{Y_k\}$ are also i.i.d. Let $Y$ be the common random variable with probability mass
  $f(j) = \P{Y = j}$; write $G(j) = \P{Y_k > j}$ for the survivor function.
 
 
@@ -428,7 +428,7 @@ However, if $m=0$ (think about this),
 \1{L(D_{k})>n} = \1{L(D_{k-1})=0} \1{Y_{k}>n} \implies \text{Up-crossing of level $n$}.
 \end{equation*}
 
-Again we define proper counting functions, divide by $t$, and take suitable limits to find for up-crossing rate
+Again we define proper counting functions, divide by $t$, and take suitable limits to find for the up-crossing rate
 \begin{equation}\label{eq:555}
 \delta \delta(0) G(n) + \delta \sum_{m=1}^n \delta(m) G(n-m+1).
 \end{equation}
@@ -439,12 +439,12 @@ by $\delta$ gives
 \begin{equation*}
  f(0) \delta(n+1) = \delta(0) G(n) + \sum_{m=1}^{n} \delta(m) G(n+1-m).
 \end{equation*}
-Noting that $\pi(n) = \delta(n)$, which follows from~\cref{eq:39} and the fact that the $M/G/1$ queue length process has one-step transitions, we arrive at
+Noting that $\pi(n) = \delta(n)$, as this holds for any rate-stable $G/G/1$ queue, cf.,~\cref{eq:39}, hence in particular for the $M/G/1$ queue length process, we arrive at
 \begin{equation}\label{eq:72}
  f(0) \pi(n+1) = \pi(0) G(n) + \sum_{m=1}^{n} \pi(m) G(n+1-m).
 \end{equation}
 
-Clearly, we have again obtained a recursion by which we can compute, iteratively, the state probabilities. 
+Clearly, we have again obtained a recursion with which we can compute the state probabilities. 
 
 
 \begin{exercise}\clabel{ex:l-228}

@@ -28,7 +28,7 @@ Thus, upon the arrival of job $k$, all levels between states $3$ and $23$ are cr
 
 The left panel in~\cref{fig:levelcrossing} shows all up- and down-crossings of some level $n$.
 The down-crossing rate is easy: just as in~\cref{fig:A_n_t} there is just one arrow from right to left.
-However, level~$n$ can be up-crossed from below from many states, in fact from any level $m, 0\leq m <n$.
+However, level~$n$ can be up-crossed from below from many states, in fact from any level $m \in \{0, 1, \ldots, n-1\}$. 
 More formally, to count the number of up-crossings define
 \begin{equation*}
  A(m,n,t) = \sum_{k=1}^{A(t)}\1{L(A_k-) = m}\1{B_k > n-m}
@@ -117,7 +117,7 @@ as the number of jobs up to time $t$ that see $m$ in the system upon arrival and
 \caption{Level crossing of level $n$.
  Observe that when the system is in state $n-2$, the arrival of any batch larger than $2$ ensures that level $n$ is crossed from below.
  The rate at which such events happen is $\lambda \pi(n-2) G(2)$.
- Similarly, in state $n-1$ the arrival of any batch larger than one item ensures that level $n$ is crossed, and this occurs with rate $\lambda \pi(n-1) G(1)$, and so on.
+ Similarly, in state $n-1$, the arrival of any batch larger than one item ensures that level $n$ is crossed, and this occurs with rate $\lambda \pi(n-1) G(1)$, and so on.
 }
  \label{fig:levelcrossing}
 \end{figure}
@@ -132,20 +132,6 @@ as the number of jobs up to time $t$ that see $m$ in the system upon arrival and
 \end{solution}
 \end{extra}
 
-\begin{exercise}\clabel{ex:70}
-Assuming that the limits exist, show that
-\begin{equation*}
-\lim_{t\to\infty} \frac{A(m,n,t)}t = \lambda \pi(m) G(n-m).
-\end{equation*}
-\begin{solution}
-For this purpose, observe that we can write
-\begin{equation}\label{eq:16}
- \frac{A(m,n,t)}t = \frac{A(t)}t \frac{A(m,t)}{A(t)}\frac{A(m,n,t)}{A(m,t)}.
-\end{equation}
-By the assumptions of~\cref{sec:poisson-arrivals-see}, $A(t)/t\to\lambda$ and $A(m,t)/A(t)\to\pi(m)$.
-Next, apply the results of~\cref{ex:68} to~\cref{ex:69}.
-\end{solution}
-\end{exercise}
 
 \begin{extra}\clabel{ex:68}
 Provided the limit exists, show that
@@ -180,6 +166,21 @@ Show that $\P{B>n-m\given L(A-)=m}=\P{B>n-m}$.
 \end{solution}
 \end{extra}
 
+\begin{exercise}\clabel{ex:70}
+Assuming that the limits exist, show that
+\begin{equation*}
+\lim_{t\to\infty} \frac{A(m,n,t)}t = \lambda \pi(m) G(n-m).
+\end{equation*}
+\begin{solution}
+For this purpose, observe that we can write
+\begin{equation}\label{eq:16}
+ \frac{A(m,n,t)}t = \frac{A(t)}t \frac{A(m,t)}{A(t)}\frac{A(m,n,t)}{A(m,t)}.
+\end{equation}
+By the assumptions of~\cref{sec:poisson-arrivals-see}, $A(t)/t\to\lambda$ and $A(m,t)/A(t)\to\pi(m)$.
+Next, apply the results of~\cref{ex:68} to~\cref{ex:69}.
+\end{solution}
+\end{exercise}
+
 Equating the number of up- and down-crossing gives $\sum_{m=0}^n A(m,n,t) \approx D(n,t)$. 
 Then, dividing by~$t$, taking the limit $t\to\infty$, and using~\cref{ex:70} results in the level-crossing equation for the $M^X/M/1$ queue:
 \begin{equation}\label{eq:42}
@@ -196,7 +197,7 @@ Provide an interpretation of~\cref{eq:42} in terms of a thinned Poisson arrival 
 
 
 \begin{extra}
- Show that~\cref{eq:42} reduces to $\mu \pi(n+1)=\lambda \pi(n)$ for the $M/M/1$ case.
+ Show that~\cref{eq:42} reduces to $\lambda \pi(n) = \mu \pi(n+1)$ for the $M/M/1$ case.
 \begin{solution}
  The right-hand side of~\cref{eq:42} is identical, so we only have to concentrate on the left-hand side.
  In the $M/M/1$ queue, all batches have size $1$.
@@ -209,13 +210,15 @@ Provide an interpretation of~\cref{eq:42} in terms of a thinned Poisson arrival 
 
 
 It is left to find the normalization constant.
-As this recursion does not lead to a closed form expression for $\pi(n)$, such as~\cref{eq:23}, we need to use a criterion to stop this iterative procedure.
-Finding general conditions when to stop is not directly easy, but a pragmatic approach is simple.
-When the demand is finite, the numbers $\{\pi(k)\}$ should decrease geometrically fast when $k\geq N$ for some (large) $N$\footnote{An interesting question, why should it decrease monotonically after some, large, $N$?}.
-Stop when $\pi(N)\ll \pi(0)$, and take $G=\sum_{i=0}^N \pi(i)$ as the normalization constant.
-While this is a practical approach, getting formal bounds on a proper size of $N$ requires more work than we can do here.
+As the recursion~\cref{eq:42} does not lead to a closed form expression for $\pi(n)$, such as~\cref{eq:23}, we need to use a criterion to stop this iterative procedure.
+It is not so easy to find general conditions when to stop, but we can use a pragmatic approach.
+When the demand is finite, the numbers $\{\pi(k)\}$ should decrease geometrically fast for all $k\geq N$ where $N$\footnote{An interesting question, why should it decrease monotonically after some, large, $N$?}
+is some large number.
+Stop when $\pi(N)\ll \pi(0)$, and take $\sum_{i=0}^N \pi(i)$ as the normalization constant.
 
-Once again with $\pi(n)$ we can compute all performance measures we need, and study the influence on the batch size distribution and $\lambda$ and $\mu$ on the system's performance.
+%While this is a practical approach, getting formal bounds on a proper size of $N$ requires more work than we can do here.
+
+Once we have $\pi(n)$, we can compute the influence on the batch size distribution, $\lambda$, and $\mu$ on the system's performance.
 
 \begin{exercise}\clabel{ex:l-154}
  Why is~\cref{eq:39}, i.e., $\pi(n)=\delta(n)$, not true for the $M^X/M/1$ batch queue?
