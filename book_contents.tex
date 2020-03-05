@@ -104,9 +104,34 @@ For each case we develop a model to analyze the influence of the interruptions o
 \input{tex_files/failures.tex}
 %\input{tex_files/process_batches.tex}
 
-\ifshowextra
-   \input{tex_files/part_3_exams.tex}
-\fi
+
+\chapter{Queueing Control}
+
+The queueing systems we analyzed up to now the server is always present to serve jobs in the system, but this condition is not always satisfied.
+As an example, consider a system in which there is a cost associated with switching on and off the server.
+For instance, in some cases the server has to be set-up for operation; in other cases, the operator of a machine has to move from one place in the factory to another.
+To reduce the cost, a so-called $N$-policy can be used, which works as follows, cf.~\cref{ex:n-policies}.
+As soon as the system becomes empty (and the server idle), we switch off the server.
+Then we wait until $N$ or more jobs arrived and then switch on the server.
+The server processes jobs until the system is empty again, and then switches off again, and so on.
+Thus, we use an $N$-policy to \emph{control} the queueing system, in particular the server, and the task is to find a switching threshold~$N$ that minimizes the long-run average cost.
+
+Observe that under such policies the server occupancy can also increase.
+In fact, this sometimes seems to the policy at dentists or hospitals: wait until the waiting room is quite full, and then start serving patients.
+Like this the server minimizes idle time, and, in the example of a GP, the server (GP) does not have to wait for patients that might be late.
+
+In this chapter we study the $M/M/1$ queue and $M/G/1$ under a $N$-policy, and then consider a $T$-policy.
+We next focus on a policy that controls the server rate as a function of waiting time in the system.
+
+
+We point out that the techniques developed in this chapter extend (way) beyond just queueing theory; they are worth memorizing.
+Moreover, we illustrate many tools and results of the previous chapters.
+
+\input{tex_files/n_policies.tex}
+
+% \ifshowextra
+%    \input{tex_files/part_3_exams.tex}
+% \fi
 
 \chapter{Queueing Networks}
 \label{sec:notes-relat-chapt2}

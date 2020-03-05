@@ -108,18 +108,11 @@ until $T$. Use this to provide a graphical interpretation of the proof of Little
  first time the system is empty. Observe that $A(t)-D(t)$ is the number of jobs in the system. Take some level $k$, and compute $A_k = A^{-1}(k)$ and $D_k = D^{-1}(k)$. Observe that $D_k - A_k = D^{-1}(k) - A^{-1}(k)$ is the waiting time of job $k$.
 \end{hint}
 \begin{solution}
- The area enclosed between the graphs of $A(t)$ and $D(t)$ until
- $T$ can be `chopped up' in two ways: in the horizontal
- and in the vertical direction. (Please make the drawing as you go
- along\ldots) A horizontal line between $A(t)$ and $D(t)$
- corresponds to the waiting time of a job, while a vertical line
- corresponds to the number of jobs in the system at time $t$. Now
- adding all horizontal lines (by integrating along the $y$-axis)
- makes up the total amount of waiting done by all the jobs until
- time $T$. On the other hand, adding the vertical lines (by
- integrating along the $x$-axis) is equal to the summation of all
- jobs in the system. Since the area is the same no matter whether
- you sum it in the horizontal or vertical direction:
+  The area enclosed between the graphs of $A(t)$ and $D(t)$ until $T$ can be `chopped up' in two ways: in the horizontal and in the vertical direction.
+  (Please make the drawing as you go along\ldots) A horizontal line between $A(t)$ and $D(t)$ corresponds to the waiting time of a job, while a vertical line corresponds to the number of jobs in the system at time $t$.
+  Now adding all horizontal lines (by integrating along the $y$-axis) makes up the total amount of waiting done by all the jobs until time $T$.
+  On the other hand, adding the vertical lines (by integrating along the $x$-axis) is equal to the summation of all jobs in the system.
+  Since the area is the same no matter whether you sum it in the horizontal or vertical direction:
  \begin{equation*}
  \sum_{k=1}^{A(T)} W_k = \text{enclosed area} = \int_0^T (A(t)-D(t))\,dt. 
  \end{equation*}

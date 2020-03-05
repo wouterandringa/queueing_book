@@ -527,7 +527,8 @@ long-run average cost is
 \end{solution}
 \end{exercise}
 
-\begin{extra}[ N-policies] A machine can switch on and off.
+\begin{exercise}[N-policies]\clabel{ex:n-policies}
+A machine can switch on and off.
  If the queue length hits $N$, the machine switches on, and if the system becomes empty, the machine switches off.
  It costs $K$ to switch on the machine.
  There is also a cost $\beta$ per unit time while the machine is switched on, and it costs $h$ per unit time per customer in the system.
@@ -564,7 +565,7 @@ we need. The total cost up to time $T$ becomes:
  \sum_{k=1}^T \left(\beta I_k + h L_k + K\max\{I_k - I_{k-1}, 0\}\right).
 \end{equation*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 
