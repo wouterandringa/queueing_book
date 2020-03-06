@@ -20,7 +20,7 @@ Thus, the $M/G/1$ waiting time formula should not be naively applied to approxim
 
 While there is no closed-form expression available to compute the expected waiting time in queue for the $G/G/c$ queue, Sakasegawa's formula provides a reasonable approximation. This takes the form
 \begin{equation}\label{eq:7}
- \E{W_Q} = \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \frac{\E S}c,
+ \E{W_Q} = \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S,
 \end{equation}
 where
 \begin{equation*}
@@ -39,10 +39,7 @@ Roughly:
  very sensitive to the actual value of $\rho$ when $\rho$ is large.
 \item $\E{W_Q} \sim C_a^2$ and $\E{W_Q} \sim C_s^2$.
  Hence, reductions of the variation of the inter-arrival and service times do affect the waiting time, but only linearly.
-\item $\E{W_Q} \sim \E S/c$.
- Thus, working in smaller job sizes reduces the waiting time as well.
- The average queue length does not decrease by working with smaller batches, but jobs are more `uniformly spread' over the queue.
- This effect lies behind the idea of `lot-splitting', i.e., rather than process large jobs, split jobs into multiple small jobs (assuming that setup times are negligible), so that the waiting time per job can be reduced.
+\item $\E{W_Q} \sim \rho^{\sqrt{2c}} \E S/c$. This means that, from the perspective a job in queue, not only the average services are $c$ times as short, the average waiting time decreases faster, due to the $\sqrt{c}$ effect in the power $\rho$ (and $\rho<1$). 
 \end{enumerate}
 
 These insights prove very useful when trying to reduce waiting times in any practical situation.
@@ -103,7 +100,7 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
 \end{extra}
 
 \begin{exercise}\clabel{ex:76}
- Consider the same single-server system as in~\cref{ex:76}, but now the customer service time is stochastic: with probability $1/2$ a customer requires $1$ minute and $20$ seconds of service, and with probability $1/2$ the customer requires only $20$ seconds of service.
+ Consider the same single-server system as in~\cref{ex:77}, but now the customer service time is stochastic: with probability $1/2$ a customer requires $1$ minute and $20$ seconds of service, and with probability $1/2$ the customer requires only $20$ seconds of service.
  What are $\rho$, $C_a^2$, and $C_S^2$?
 \begin{solution}
  Again $\E S$ is 50 seconds, so that $\rho = 5/6$. Also
@@ -117,8 +114,9 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
  \end{split}
  \end{equation*}
 \end{solution}
-It is crucial to remember from the above exercises that knowledge of the utilization is not sufficient to characterize the average queue length.
 \end{exercise}
+
+It is crucial to remember from the above exercises that knowledge of the utilization is not sufficient to characterize the average queue length.
 
 \begin{extra}
  For the $G/G/1$ queue, prove that the fraction of jobs that see $n$ jobs in the system is the same as the fraction of departures that leave $n$ jobs behind.

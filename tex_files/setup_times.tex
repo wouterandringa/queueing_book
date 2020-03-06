@@ -8,68 +8,88 @@
 \Opensolutionfile{ans}
 }
 
-In this section, we focus on the effect of change-over, or setup, times on the average sojourn time of jobs.
+In some cases machines have to be setup before they can start producing items.
 Consider, for instance, a machine that paints red and blue bikes.
-When the machine requires a color change, a clean-up time is necessary.
-As we will see it is necessary in such situations to produce in batches.
-Other examples are ovens that need warm-up or cool-down times when different item types require different production temperatures.
-Yet another example can be seen in service operations settings: when servers have to move from one part of a building to another, the time spent moving cannot be spent on serving customers.
-Thus, the servers have to process jobs (or customers) in batches in one building, then move to another (part of the) building, serve a batch, and so on.
-
-In this section, we first make a model and provide a list of elements required to compute the expected sojourn time of an item.
+When the machine requires a color change, it may be necessary to clean-up the machine.
+Another example is an oven that needs a temperature change when different item types require different production temperatures.
+Service operations form another setting with setup times: when servers (personnel) have to move from one part of a building to another, the time spent moving cannot be spent on serving customers.
+In all such cases, the setups consume a significant amount of time; in fact, setup times of an hour or longer are not uncommon.
+Clearly, inn such situations, it is necessary to produce in batches: a server processes a batch of jobs (or customers) of one type or at one location, then the server change from type or location, starts serve a batch of another type or at another location.
+Once done with one type, the server is setup again, and so on.
+Here we focus on the effect of change-over, or setup, times on the average sojourn time of jobs.
+First we make a model and provide a list of elements required to compute the expected sojourn time of an item.
 Then we illustrate how to use these elements in a concrete case.
-Finally, in an exercise we ask you to derive the formulas yourself.
 
 
-Specifically, we analyze the following queueing situation.
+Specifically, we analyze the following batch queueing situation.
 There are two job families, e.g., red and blue, each served by the same single server.
 Jobs arrive at rate $\lambda_r$ and $\lambda_b$, respectively, so that the arrival rate of jobs is $\lambda= \lambda_b+\lambda_r$.
-The setup times $\{R_i\}$ form an i.i.d.
-sequence with common random variable $R$ and are independent of $S_0$.
-
-The main idea is to convert the effects of the setup times into job service times and then use the $G/G/1$ waiting time formula.
-For this reason we define the \recall{net processing time} $S_0$ of a job as the regular processing time without setups, and we define the \recall{effective processing time} $S$ as the time the server is occupied with processing a job including a potential setup.
-We assume that $S_0$ has the same distribution for all job families.
-A bit of thought. cf.~\cref{ex:85}, will reveal that 
-\begin{equation}\label{eq:81}
- \E{S} = \E{S_0} + \frac{\E{R}} B.
-\end{equation}
-With this the load takes the form
-\begin{equation*}
-\rho = \lambda \left(\E{S_0} + \frac{\E{R}}B\right).
-\end{equation*}
-
-We next consider all steps that make up a sojourn time.
+Jobs of both types require an average \recall{net processing time} of $\E S_0$, provided the server is already setup for the correct job color.
+The setup times $\{R_i\}$ are assumed to form an i.i.d.
+sequence with common random variable $R$ and independent of $S_0$.
+The sojourn time comprises the following steps.
 First, jobs of each color are assembled into batches of size $B$, which we assume to be the same for both colors.
 Once a batch is complete, the batch enters a queue (of batches).
 After some time the batch reaches the head of the queue.
 Then the machine performs a setup, and starts processing each job individually until the batch is complete.
-Finally, once a job is finished, it can leave the system; as a consequence, it does not have to wait for other jobs in the same batch to finish.
+Finally, once a job is finished, it can leave the system; as a consequence, it does not have to wait for other jobs in the same batch to form a new batch.
 
-The average time needed to form (or assemble) a batch is
+
+
+
+\begin{exercise}\clabel{ex:48}
+  Show that the average time needed to form (or assemble) a batch is given by
 \begin{equation}\label{eq:79}
  \E{W_r} = \frac{B-1}{2\lambda_r}.
 \end{equation}
+\begin{hint}
+ Show that the total time to form a red batch is $(B-1)/\lambda_r$. 
+\end{hint}
+\begin{solution}
+ Suppose a batch is just finished. The first job of a new batch needs to wait, on average, $B-1$ inter-arrival times until the batch is complete, the second $B-2$ inter-arrival times, and so on. The last job does not have to wait at all. Thus, the total time to form a batch is $(B-1)/\lambda_r$. 
 
-To apply Sakasegawa's formula to the queue with batches, observe that the service time of a batch is $\E R + B\E{S_0}$.
-The load is given above.
-The SCV of the inter-arrival times of the batches is given by
- \begin{equation}\label{eq:82}
-C_{a,B}^2 = \frac{C_{a}^2}B,
-\end{equation}
-recall that jobs are first assembled into batches, and then these batches are sent to the queue.
-The SCV $C_{s,B}^2$ of the service times of the batches is 
-\begin{equation}\label{eq:84}
-C_{s, B}^2 = \frac{B \V{S_0} + \V{R}}{(B \E{S_0} + \E R)^2}.
-\end{equation}
-With these elements we can compute the average time a batch spends in queue.
+An arbitrary job can be anywhere in the batch, hence the average time a job must wait until the batch is complete is half the total time. 
+\end{solution}
+\end{exercise}
 
-Finally, after a batch is taken into service, we need a rule to determine when the job can leave the system.
-If the job has to wait until all jobs in the batch are served, the time a job spends at the server is $\E R + B \E{S_0}$.
-Here we assume that jobs can leave right after being served, consequently,
-\begin{equation}\label{eq:85}
-\E{R} + \frac{B+1}{2}\E{S_0}.
+Now that we have a batch of jobs, we need to estimate the average time a batch spends in queue.
+For this we can use the $G/G/1$ waiting time formula, but we have to convert the effects of the setup times into job service times.
+Define, to this end, the \recall{effective processing time} $\E S$ as the average time the server is occupied with processing a job from a batch including the setup time required to setup the batch.
+
+\begin{exercise}\clabel{ex:488}
+  Motivate that the effective processing time should be defined as
+\begin{equation}\label{eq:81}
+ \E{S} = \E{S_0} + \frac{\E{R}} B.
 \end{equation}
+Observe then that the load becomes
+\begin{equation*}
+\rho = \lambda \left(\E{S_0} + \frac{\E{R}}B\right).
+\end{equation*}
+\begin{hint}
+ What fraction of the setup time $\E R$ `belongs' to one job?
+\end{hint}
+\begin{solution}
+  The total service time spent on a batch of size $B$ is $B \E{S_0} + \E R$.
+  The effective time per job is then the average, i.e., $(B \E{S_0}+\E R)/B$.
+  Simplifying gives the answer.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}\clabel{ex:489}
+Explain that the load can also be written as
+\begin{equation*}
+\rho = \lambda_B (B \E{S_0} + \E R),
+\end{equation*}
+where $\lambda_B$ is the arrival rate of batches and $B \E{S_0} + \E R$ is the service time an entire batch.
+\begin{solution}
+It is evident that the rate at which batches arrive is 
+\begin{equation*}
+ \lambda_B = \frac \lambda B,
+\end{equation*}
+since both job colors have the same batch size. 
+Then the equality has the interpretation of the batch arrival rate times the work per batch.
+\end{solution}
+\end{exercise}
 
 \begin{exercise}\clabel{ex:l-137}
 Show that the requirement $\rho < 1$ leads to the following constraint on the minimal batch size~$B$ 
@@ -81,16 +101,64 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
 \end{solution}
 \end{exercise}
 
+Observe that we nearly have all elements to apply Sakasegawa's formula to the batch: the service time of a batch is $\E R + B\E{S_0}$ and the load $\rho$ is given above.
+Therefore it remains to find $C_{a,B}^2$ and $C_{s,B}^2$, for the \emph{batches, not the items}.
+
+\begin{exercise}\clabel{ex:490}
+Explain that the SCV of the batch inter-arrival times is given by
+ \begin{equation}\label{eq:82}
+C_{a,B}^2 = \frac{C_{a}^2}B.
+\end{equation}
+\begin{hint}
+Use \cref{eq:95} and \cref{eq:94}.
+\end{hint}
+\begin{solution}
+The variance of the inter-arrival time of batches is $B$ times the variance of job inter-arrival times. The inter-arrival times of batches is also $B$ times the inter-arrival times of jobs. Thus, 
+\begin{equation*}
+ C_{a,B}^2 = \frac{B \V{X}}{(B \E X)^2} = \frac{\V X}{(\E X)^2} \frac 1 B = \frac{C_a^2}{B}.
+\end{equation*}
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}\clabel{ex:491}
+Show that the SCV $C_{s,B}^2$ of the service times of the batches takes the form
+\begin{equation}\label{eq:84}
+C_{s, B}^2 = \frac{B \V{S_0} + \V{R}}{(B \E{S_0} + \E R)^2}.
+\end{equation}
+\begin{hint}
+ What is the variance of a batch service time?
+\end{hint}
+\begin{solution}
+ The variance of a batch is $\V{\sum_{i=1}^B S_{0,i} + R} = B\V{S_0} + \V R$, since the normal service times $S_{0,i}, i=1,\ldots, B$ of the job are independent, and also independent of the setup time $R$ of the batch.
+\end{solution}
+\end{exercise}
+
+Observe that we now have all elements to fill in Sakasegawa's formula.
+Thus, it is left to find a rule to determine what happens to an item once the batch to which the item belongs enters service.
+If the job has to wait until all jobs in the batch are served, the time a item spends at the server is $\E R + B \E{S_0}$.
+
+
+\begin{exercise}\clabel{ex:492}
+Show that, when items can leave right after being served, the time at the server is given by
+\begin{equation}\label{eq:85}
+\E{R} + \frac{B+1}{2}\E{S_0}.
+\end{equation}
+\begin{solution}
+ First, wait until the setup is finished, then wait (on average) for half of the batch (minus the job itself) to be served, and then the job has to be served itself, that is,
+$\E{R} + \frac{B-1}{2}\E{S_0} +\E{S_0}$.
+\end{solution}
+\end{exercise}
+
+
 \begin{exercise}\clabel{ex:l-138}
- What important insights do the above formulas provide about setting proper batch sizes?
+  What important insights can you learn from the above about setting proper batch sizes?
 \begin{solution}
  Overall, batch sizes need to be tuned to minimize average sojourn times.
  When the batch sizes are small, the load $\rho$ is near to one (in other words, the server spends a relatively large fraction of its time on setups), so that the queueing times are long, but the times to form a batch are small, as the times to form and process batches are linear functions of the batch size $B$.
  If, however, the batch sizes are large, the queueing times will be relatively short, but the times to form and unpack batches will be large.
 \end{solution}
 \end{exercise}
-
-
 
 \begin{exercise}\clabel{ex:l-139}
  Jobs arrive at $\lambda=3$ per hour at a machine with $C_a^2=1$; service times are exponential with an average of 15 minutes. Assume $\lambda_r = 0.5$ per hour, hence $\lambda_b = 3-0.5=2.5$ per hour. Between any two batches, the machine requires a cleanup of 2 hours, with a standard deviation of $1$ hour, during which it is unavailable for service.
@@ -163,83 +231,6 @@ total
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\clabel{ex:85}
- Derive~\cref{eq:81}--\cref{eq:85}.
-\begin{solution}
- See~\cref{ex:48} to~\cref{ex:85}.
-\end{solution}
-\end{exercise}
-
-\begin{extra}\clabel{ex:48}
- Derive~\cref{eq:79}.
-\begin{hint}
- Show that the total time to form a red batch is $(B-1)/\lambda_r$. 
-\end{hint}
-\begin{solution}
- Suppose a batch is just finished. The first job of a new batch needs to wait, on average, $B-1$ inter-arrival times until the batch is complete, the second $B-2$ inter-arrival times, and so on. The last job does not have to wait at all. Thus, the total time to form a batch is $(B-1)/\lambda_r$. 
-
-An arbitrary job can be anywhere in the batch, hence the average time a job must wait until the batch is complete is half the total time. 
-\end{solution}
-\end{extra}
-
-
-\begin{extra}
- Derive~\cref{eq:81}.
-\begin{hint}
- What fraction of the setup time $\E R$ `belongs' to one job?
-\end{hint}
-\begin{solution}
- The total service time spent on a batch of size $B$ is $B \E{S_0} + \E R$. The effective time per job is then the average, i.e., $(B \E{S_0}+\E R)/B$. 
-\end{solution}
-\end{extra}
-
-\begin{extra}
-Explain that the load is 
-\begin{equation*}
-\rho = \lambda_B (B \E{S_0} + \E R),
-\end{equation*}
-where $\lambda_B$ is the arrival rate of batches. 
-\begin{solution}
-It is evident that the rate at which batches arrive is 
-\begin{equation*}
- \lambda_B = \frac \lambda B,
-\end{equation*}
-since both job colors have the same batch size. 
-Then the equality has the interpretation of the batch arrival rate times the work per batch.
-\end{solution}
-\end{extra}
-
-
-\begin{extra}
-Derive~\cref{eq:82}.
-\begin{solution}
-The variance of the inter-arrival time of batches is $B$ times the variance of job inter-arrival times. The inter-arrival times of batches is also $B$ times the inter-arrival times of jobs. Thus, 
-\begin{equation*}
- C_{a,B}^2 = \frac{B \V{X}}{(B \E X)^2} = \frac{\V X}{(\E X)^2} \frac 1 B = \frac{C_a^2}{B}.
-\end{equation*}
-\end{solution}
-\end{extra}
-
-
-\begin{extra}
-Derive~\cref{eq:84}.
-\begin{hint}
- What is the variance of a batch service time?
-\end{hint}
-\begin{solution}
- The variance of a batch is $\V{\sum_{i=1}^B S_{0,i} + R} = B\V{S_0} + \V R$, since the normal service times $S_{0,i}, i=1,\ldots, B$ of the job are independent, and also independent of the setup time $R$ of the batch.
-\end{solution}
-\end{extra}
-
-
-
-\begin{extra}
- Derive~\cref{eq:85}.
-\begin{solution}
- First, wait until the setup is finished, then wait (on average) for half of the batch (minus the job itself) to be served, and then the job has to be served itself, that is,
-$\E{R} + \frac{B-1}{2}\E{S_0} +\E{S_0}$.
-\end{solution}
-\end{extra}
 
 
 

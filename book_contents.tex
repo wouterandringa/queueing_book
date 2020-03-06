@@ -13,6 +13,7 @@ Changes:
 \item Moved old intro of \cref{sec:level-cross-balance} to \cref{ex:98}.
 \item Formulas in intro \cref{sec:mnmn1}.
 \item \cref{sec:mxm1-queue:-expected}: rewritten
+\item \cref{sec:setups-batch-proc} restructured
 \end{itemize}
 
 
@@ -105,10 +106,29 @@ For each case we develop a model to analyze the influence of the interruptions o
 %\input{tex_files/process_batches.tex}
 
 
+
+\chapter{Queueing Networks}
+\label{sec:notes-relat-chapt2}
+
+We refer to the relevant sections of Zijm's book for background. Here we just include the solutions and repair a few typos. 
+\input{tex_files/open_single_class.tex}
+\input{tex_files/tandem.tex}
+%\input{tex_files/open_general.tex}
+
+%\input{tex_files/deterministic_networks.tex}
+\input{tex_files/gordon_newell.tex}
+%\input{tex_files/convolution.tex}
+\input{tex_files/mva.tex}
+%\input{tex_files/mda.tex}
+
+\ifshowextra
+   \input{tex_files/part_4_exams.tex}
+\fi
+
 \chapter{Queueing Control}
 
-The queueing systems we analyzed up to now the server is always present to serve jobs in the system, but this condition is not always satisfied.
-As an example, consider a system in which there is a cost associated with switching on and off the server.
+In the queueing systems we analyzed up to now, the server is always present to serve jobs in the system. However, this condition is not always satisfied.
+As an example, consider a queueing system in which there is a cost associated with switching on and off the server.
 For instance, in some cases the server has to be set-up for operation; in other cases, the operator of a machine has to move from one place in the factory to another.
 To reduce the cost, a so-called $N$-policy can be used, which works as follows, cf.~\cref{ex:n-policies}.
 As soon as the system becomes empty (and the server idle), we switch off the server.
@@ -133,23 +153,6 @@ Moreover, we illustrate many tools and results of the previous chapters.
 %    \input{tex_files/part_3_exams.tex}
 % \fi
 
-\chapter{Queueing Networks}
-\label{sec:notes-relat-chapt2}
-
-We refer to the relevant sections of Zijm's book for background. Here we just include the solutions and repair a few typos. 
-\input{tex_files/open_single_class.tex}
-\input{tex_files/tandem.tex}
-%\input{tex_files/open_general.tex}
-
-%\input{tex_files/deterministic_networks.tex}
-\input{tex_files/gordon_newell.tex}
-%\input{tex_files/convolution.tex}
-\input{tex_files/mva.tex}
-%\input{tex_files/mda.tex}
-
-\ifshowextra
-   \input{tex_files/part_4_exams.tex}
-\fi
 
 \backmatter
 
@@ -174,7 +177,8 @@ We refer to the relevant sections of Zijm's book for background. Here we just in
 
 \end{document}
 
+
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: t
+%%% TeX-master: "companion"
 %%% End:
