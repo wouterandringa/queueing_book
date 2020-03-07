@@ -118,26 +118,6 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
 
 It is crucial to remember from the above exercises that knowledge of the utilization is not sufficient to characterize the average queue length.
 
-\begin{extra}
- For the $G/G/1$ queue, prove that the fraction of jobs that see $n$ jobs in the system is the same as the fraction of departures that leave $n$ jobs behind.
- What condition have you used to prove this?
-%\item Motivate that for the $G/M/1$, $\delta(n) = p(n)$, i.e., departures see time averages. 
-\begin{solution}
- All follows straightaway from the definitions in the main text.
- In the $G/G/1$ queue jobs arrive and depart in single units.
- Hence, $|A(n,t)-D(n,t)|\leq 1$, cf.,~\cref{eq:19}.
- Then,
- \begin{equation*}
- \frac{A(t)}{t}\frac{A(n,t)}{A(t)} \approx 
- \frac{D(t)}{t}\frac{D(n,t)}{D(t)}. 
- \end{equation*}
- The left-hand side goes to $\lambda \pi(n)$ as $t\to\infty$, and
- the right-hand side to $\delta \delta(n)$. Use the fact that we
- always assume, implicitly, that the system is stable, so that
- $\lambda = \delta$. As a consequence $\delta(n) = \pi(n)$.
-\end{solution}
-\end{extra}
-
 
 \begin{exercise}\clabel{ex:91}
  (Hall 5.19) When a bus reaches the end of its line, it undergoes a

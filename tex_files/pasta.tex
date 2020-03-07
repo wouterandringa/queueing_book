@@ -91,7 +91,7 @@ Define, analogous to~\cref{eq:132},
  \delta(n) = \lim_{t\to\infty} \frac{D(n,t)}{D(t)}
 \end{equation}
 as the long-run fraction of jobs that leave $n$ jobs \emph{behind}.
-From~\cref{eq:15}
+From~\cref{eq:15},
 \begin{equation*}
 \frac{A(t)}t \frac{A(n,t)}{A(t)} = \frac{A(n,t)}t \approx \frac{D(n,t)}t 
 = \frac{D(t)}t \frac{D(n,t)}{D(t)}.
@@ -106,8 +106,28 @@ Thus, if the system is rate-stable and transitions occur one-by-one, the statist
  \label{eq:39}
 \lambda = \delta \iff \pi(n) = \delta(n).
 \end{equation}
-Note that the derivation of this fact does not depend on the distribution of the inter-arrival or service times.
-Hence, it is true for the rate-stable $G/G/1$ queue.
+
+\begin{exercise}
+ For the $G/G/1$ queue, prove that the fraction of jobs that see $n$ jobs in the system upon arrival is the same as the fraction of departures that leave $n$ jobs behind.
+ What condition have you used to prove this?
+%\item Motivate that for the $G/M/1$, $\delta(n) = p(n)$, i.e., departures see time averages. 
+\begin{hint}
+Note that~\cref{eq:97}  does not depend on the distribution of the inter-arrival or service times.
+\end{hint}
+\begin{solution}
+ All follows straightaway from the definitions in the main text.
+ In the $G/G/1$ queue jobs arrive and depart in single units.
+ Then, from~\cref{eq:97},
+ \begin{equation*}
+ \frac{A(t)}{t}\frac{A(n,t)}{A(t)} \approx 
+ \frac{D(t)}{t}\frac{D(n,t)}{D(t)}. 
+ \end{equation*}
+ The left-hand side goes to $\lambda \pi(n)$ as $t\to\infty$, and
+ the right-hand side to $\delta \delta(n)$. Use the fact that we
+ always assume, implicitly, that the system is stable, so that
+ $\lambda = \delta$. As a consequence $\delta(n) = \pi(n)$ for the $G/G/1$ queue.
+\end{solution}
+\end{exercise}
 
 
 \begin{exercise}\clabel{ex:26}
