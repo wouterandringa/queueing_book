@@ -1,4 +1,4 @@
-# Analysis of queueing systems with sample paths and simulation. 
+# Analysis and simulation of  queueing systems 
 
 The most important file is **queueing_book.pdf**, which contains the text and the most important exercises on my course on queueing theory.
 The **companion.pdf** is a superset of the **queueing_book.pdf** in that it contains many more extra exercises (which I use for inspration for the exams), old exam questions, and hints and solutions for all exercises.
