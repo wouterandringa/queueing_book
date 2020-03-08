@@ -169,17 +169,10 @@ In the last integral, we use the hint. Specifically,
 \end{align*}
 
 
-In hindsight, this result could have been derived in another way, in
-fact by using the result of~\cref{ex:3} in which we analyzed a
-merged Poisson process. Consider the Poisson process with rate
-$\lambda+\mu$ that arises when the arrival and service process are
-merged. The probability that an arrival corresponds to an epoch of the
-merged process is $\lambda/(\lambda+\mu)$ and the probability that a
-departure corresponds to an epoch of the merged process is
-$\mu/(\lambda+\mu)$. The probability that $j$ arrivals occur before a
-service occurs, is the same as the probability that a geometrically
-distributed random variable with success probability
-$\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
+In hindsight, this result could have been derived in another way, in fact by using the result of~\cref{ex:3} in which we analyzed a merged Poisson process.
+Consider the Poisson process with rate $\lambda+\mu$ that arises when the arrival and service process are merged.
+The probability that an arrival corresponds to an epoch of the merged process is $\lambda/(\lambda+\mu)$ and the probability that a departure corresponds to an epoch of the merged process is $\mu/(\lambda+\mu)$.
+The probability that $j$ arrivals occur before a service occurs, is the same as the probability that a geometrically distributed random variable with success probability $\mu/(\lambda+\mu) = 1-p$ takes the value $j$.
 \end{solution}
 \end{extra}
 
@@ -255,20 +248,15 @@ print(sum(term(i) for i in range(500)))
 print(sum(term(i) for i in range(5000)))
 \end{pyconsole}
 
-Since I don't know when to stop the integral I just try a few values;
-of course stopping the integration at $x=50$ is too small, since
-$50\d x=50/100=1/2$, but I include it for illustrative
-purposes. Stopping at $500$ seems OK, since the results of the last
-two integrals are nearly the same. This also suggests that
-$\d x=1/100$ is sufficiently small. In general, however, one must take
-care and try various values for $\d x$ and the integration limits.
+Since I don't know when to stop the integral I just try a few values; of course stopping the integration at $x=50$ is too small, since $50\d x=50/100=1/2$, but I include it for illustrative purposes.
+Stopping at $500$ seems OK, since the results of the last two integrals are nearly the same.
+This also suggests that $\d x=1/100$ is sufficiently small.
+In general, however, one must take care and try various values for $\d x$ and the integration limits.
 
 
-For more complicated situations it is best to use a
-numerical library to compute the above integral. These methods have been
-designed to produce good and reliable results, and, typically, it is
-very hard to improve these methods. Thus, let's try a real number
-cruncher.
+For more complicated situations it is best to use a numerical library to compute the above integral.
+These methods have been designed to produce good and reliable results, and, typically, it is very hard to improve these methods.
+Thus, let's try a real number cruncher.
 
 \begin{pyconsole}
 from scipy.integrate import quad
@@ -283,6 +271,16 @@ This is the same as our earlier answer.
 \end{solution}
 \end{exercise}
 
+\begin{exercise}\label{ex:mg1-3}
+Show that $\E Y = \lambda \E S = \rho$.
+\begin{solution}
+  If $S=s$, then $\E{N(s)} = \lambda s$, by~\eqref{eq:6}. Therefore, $\E Y = \E{\lambda S} = \lambda \E S$. In more detail, we know that the joint distribution of $Y=k, S=s$ is given by $e^{-\lambda s}(\lambda s)^k/k!\cdot g(s)$, where we assume for the sake of simplicity that $S$ has the density $g$. Then,
+  \begin{equation*}
+    \E Y = \int_0^\infty \sum_{k=0}^\infty k e^{-\lambda s}\frac{(\lambda s)^k}{k!} g(s) \d s = \int_0^\infty \lambda s g(s) \d s = \lambda \E S.
+  \end{equation*}
+\end{solution}
+
+\end{exercise}
 
 Let us concentrate on a down-crossing of level $n$, see~\cref{fig:mg1_2}; recall that level $n$ lies between states $n$ and $n+1$.
 For job $k$ to generate a down-crossing of level $n$, two events must take place: job `$k-1$' must leave $n+1$ jobs behind after its service completion, and job $k$ must leave $n$ jobs behind.

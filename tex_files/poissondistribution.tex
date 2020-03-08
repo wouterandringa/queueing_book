@@ -159,7 +159,7 @@ Thus,
 \end{solution}
 \end{exercise}
 
-\begin{extra}
+\begin{exercise}
  Show that
  \begin{equation*}
 \P{N(t+h) = n+1 \given N(t) = n} = \lambda h + o(h)
@@ -176,9 +176,9 @@ when $N(t) \sim P(\lambda t)$ and $h$ is small.
 &= \lambda h + o(h). 
  \end{align*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
-\begin{extra}
+\begin{exercise} \clabel{ex:p-35}
  Show that if $N(t) \sim P(\lambda t)$, we have for small $h$,
  \begin{equation*}
  \P{N(t+h) \geq n+2 \given N(t) = n} = o(h).
@@ -208,7 +208,7 @@ We can also use the results of the previous parts to see that
 &= o(h).
 \end{align*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 \begin{extra}
@@ -265,16 +265,9 @@ where we apply a change of notation in the second to last step.
 \end{solution}
 \end{exercise}
 
-
-\begin{extra}
- Show that if $N(t)\sim P(\lambda t)$, the variance of the number of arrivals during $[0,t]$ is
- \begin{equation*}
-\V{N(t)} = \lambda t.
- \end{equation*}
-\begin{hint} Use~\cref{eq:68}. Compute $\E{N^2}$ and use~\cref{ex:2}.
-\end{hint}
-\begin{solution} 
-
+\begin{exercise}\label{ex:p-1}
+ Show that $\E{(N(t))^2} = \lambda^2 t^2 + \lambda t$ if  $N(t)\sim P(\lambda t)$.
+\begin{solution}
  \begin{align*}
  \E{N^2}
 &= \sum_{n=0}^\infty n^2 e^{-\lambda t}\frac{(\lambda t)^n}{n!} \\
@@ -284,7 +277,15 @@ where we apply a change of notation in the second to last step.
 &\quad\text{now use the hint to simplify the first summation} \\
 &= (\lambda t)^2 + \lambda t.
 \end{align*}
-Hence, $\V N = \E{N^2} - (\E N)^2 = (\lambda t)^2 + \lambda t - (\lambda t)^2 = \lambda t$.
+\end{solution}
+\end{exercise}
+
+\begin{extra}
+  Show that if $N(t)\sim P(\lambda t)$, the variance of the number of arrivals during $[0,t]$ is $\V{N(t)} = \lambda t$.
+\begin{hint} Use~\cref{eq:68}, \cref{ex:p-1},  and~\cref{ex:2}.
+\end{hint}
+\begin{solution} 
+$\V N = \E{N^2} - (\E N)^2 = (\lambda t)^2 + \lambda t - (\lambda t)^2 = \lambda t$.
 \end{solution}
 \end{extra}
 

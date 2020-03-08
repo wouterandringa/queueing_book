@@ -1,0 +1,196 @@
+
+\section{N-policies for the $M/M/1$ queue}
+\label{sec:n-policies}
+
+
+\opt{solutionfiles}{
+\subsection*{Theory and Exercises}
+\Opensolutionfile{hint}
+\Opensolutionfile{ans}
+}
+
+
+Let us consider the $M/M/1$ queue in which the server switches off as soon as it becomes idle and it costs $K$ to switched.
+Supposing that each job charges $h$ Euros per unit time while in the system, it makes sense to build up a queue of jobs while the server is idle, and after some time switch on the server to process jobs until the system is empty again.
+In particular, we analyze the influence of the $N$-policy on the long-run average cost.
+For this we make a cost model in several steps and at the end we discuss how to minimize the cost as a function of the threshold~$N$.
+In passing, we obtain a third way to compute the time-average number $\E L$ of jobs in the system; the first resulted from the analysis of the $M/M/1$ queue in~\cref{sec:mm1}, the second from Little's law, cf.~\cref{ex:l-215}
+
+Suppose the server is on, and there are $q$ jobs in the system.
+Let us write $T(q)$ for the expected time to clear the system.
+Now one of two events happens first.
+Either a new job enters the system, or the job in service leaves.
+It follows from~\cref{ex:3} that $\alpha=\lambda/(\lambda+\mu)$ is the probability the first event occurs and $\beta=\mu/(\lambda+\mu)$ is the probability the second occurs.
+Moreover, from~\cref{ex:10} we see that the expected time to either an arrival or a departure, whichever is first, is $1/(\mu+\lambda)$.
+Therefore, $T(q)$, must satisfy the following recursion:
+\begin{equation}
+  \label{eq:92}
+  T(q) = \alpha T(q+1) + \beta T(q-1) + \frac{1}{\lambda+\mu}. 
+\end{equation}
+The reader should note that this type of recursion is a difference equation.
+Moreover, the ideas behind its derivation are very similar to the ideas used in dynamic programming.
+
+\begin{exercise}\label{ex:aab}
+Provide an intuitive explanation for this formula, and show that $T(q)=q/(\mu-\lambda)$ solves~\cref{eq:92}. 
+\begin{hint}
+We just guess the form $T(q) = aq + b$, i.e., linear in $q$. It is clear that $T(0)=0$: if the system is empty, the time to clear it is zero. Thus, $b=0$, and it remains to solve for $a$. 
+\end{hint}
+
+\begin{solution}
+  Jobs come in at rate $\lambda$ and are served at rate $\mu$.
+  Therefore the systems drains at rate $\mu-\lambda$.
+  When there are $q$ jobs in the system, it must take $q/(\mu-\lambda)$ units of time to serve these jobs.
+
+  We substitute the guess $T(q) = aq$ in ~\cref{eq:92}, and solve for $a$. Specifically,
+  \begin{equation*}
+    a q = \alpha (aq + a) + \beta (a q - a) + 1/(\lambda+\mu). 
+  \end{equation*}
+Noticing that $\alpha + \beta = 1$, this reduces to $0 = a(\alpha - \beta) + 1/(\lambda + \mu)$. The rest is trivial.
+\end{solution}
+\end{exercise}
+
+
+With the same line of reasoning we can compute the expected cost $V(q)$ to clear the system.
+Noting that the queueing cost is $hq$ per unit time when there are $q$ jobs in the system, $V(q)$ must satisfy the relation
+\begin{equation}\label{eq:93}
+  V(q) = \alpha V(q+1) + \beta V(q-1) + h\frac{q}{\lambda + \mu}.
+\end{equation}
+%because $1/(\lambda + \mu)$ is the expected time we have to wait until either an arrival or a departure occurs.
+
+
+To solve this, observe that in~\cref{eq:92} the last term is a constant, and that $T(q)$ is a linear function in~$q$.
+In the recursion for $V(q)$ we see that the last term is linear in $q$ which leads us to the guess $a q^2 + b q + c$ for $V(q)$.
+Thus, we substitute this into the above expression and then try to solve for $a,b$ and $c$.\footnote{The reader might wonder about the uniqueness of the solution.
+  Noting that $V(q+1)$ follows directly from $V(q)$ and $V(q-1)$, there can be just one solution.}
+As $V(0)=0$, it follows already that $c=0$.
+Thus, it remains to find $a$ and $b$.
+
+\begin{exercise}
+  Use the ideas of~\cref{ex:aab} to show that
+  \begin{equation*}
+    V(q) = a q^2 + b q = \frac h 2 \frac 1 {\mu -\lambda} q^2 + \frac h 2 \frac{\lambda + \mu}{(\mu - \lambda)^2}q.
+  \end{equation*}
+
+\begin{hint}
+  Fill in our guess $V(q) = aq^2 + bq$ in the recursion~\cref{eq:93}.
+  Then, match the coefficients of $q^2$, $q$ and the constants, and use that $\alpha + \beta = 1$.
+\end{hint}
+
+\begin{solution}
+ Filling our guess $V(q) = aq^2 + bq$ in the recursion~\cref{eq:93}  gives
+  \begin{equation*}
+    aq^2 + b q = \alpha a (q^2 + 2q + 1) + \alpha b (q+1) + \beta a (q^2 - 2q + 1) + \beta b (q - 1) + hq/(\lambda + \mu). 
+  \end{equation*}
+  Matching the coefficients of $q^2$, $q$ and the constants, and using that $\alpha + \beta = 1$, we obtain
+  \begin{align*}
+    a &= \alpha a + \beta a &\implies a &= a, \\
+    b &= \alpha a 2 + \alpha b - \beta a 2 + \beta b + h/(\lambda + \mu), & \implies a &= \frac h 2 \frac 1 {\mu -\lambda},\\
+    0 &= \alpha a + \alpha b + \beta a - \beta b, & \implies b &= \frac a {\beta - \alpha}. 
+  \end{align*}
+By combining the last two equations we get the answer. 
+\end{solution}
+\end{exercise}
+
+
+Interestingly, the above turns out to be immediately useful.
+Suppose we switch on the server when $N=1$, that is, directly at the arrival of the first job after the system became empty.
+Write $C(1)$ for the duration of a cycle that starts when the system becomes idle and stops when the system becomes idle again (and after at least one job has arrived).
+In other words, the cycle consists of an idle and a busy period.
+
+\begin{exercise}
+Explain that $C(1)=1/\lambda + T(1)$ for the $M/M/1$ queue.
+\begin{hint}
+  What is the expected  time to a job just after the server becomes idle? (Use the memoryless property.)
+\end{hint}
+\begin{solution}
+  After clearing the system, we have to wait for a new job.
+  The expected time for this job arrival is $1/\lambda$.
+  (How do we use the memoryless property here?)
+  Once the job arrived, the busy period starts with this one job, and the expected busy time is $T(1)$.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}
+Use the renewal-reward theorem to explain this the following relation:
+\begin{equation*}
+  \frac{V(1)}{C(1)} = \frac{V(1)}{1/\lambda + T(1)} = h \E L,
+\end{equation*}
+where $\E L$ is given by~\cref{eq:el}. Then use the above expressions for $V(1)$ and $C(1)$ to verify this.
+\begin{hint}
+  What is the cost of one cycle? What is the duration of one cycle? 
+\end{hint}
+\begin{solution}
+  First the explanation.
+  On the one hand, the cost of the jobs in the system during one cycle must be $V(1)$.
+  The duration of one cycle is $C(1)$.
+  By the renewal-reward theorem, the time-average cost must then by $V(1)/C(1)$.
+  On the other hand, if the time-average number of jobs in the system is $\E L$, and each job pays $h$ per unit time, the time-average cost must be $h \E L$.
+
+  Now the check; it's plain algebra:
+\begin{align*}
+  \frac{V(1)}{1/\lambda + T(1)}
+  &= \frac{a+b}{1/\lambda + 1/(\mu-\lambda)} \\
+  &= \left(\frac h 2 \frac 1 {\mu -\lambda} + \frac h 2 \frac{\lambda + \mu}{(\mu - \lambda)^2}\right)\frac{\lambda(\mu-\lambda)}{\mu}\\
+&=\frac{h}2 \rho \left(1 + \frac{\lambda+\mu}{\mu-\lambda}\right) = \frac h 2 \frac{2\mu}{\mu-\lambda}  \\
+&= h \frac{\rho}{1-\rho} = h \E L. \\
+\end{align*}
+\end{solution}
+\end{exercise}
+
+It remains to generalize to a general threshold $N$; just above we already covered the case with $N=1$.
+As we already have expressions for the cost and time for the time the server is on, we only have to consider the cost and time while the server is off.
+Note that right after the server switches off, we need $N$ independent inter-arrival times to reach level $N$.
+By~\cref{ex:54}, the expected time  to switch on must be equal to $N/\lambda$.
+
+For the cost while building up the queue, we use again a recursive procedure.
+Write $W(q)$ for the accumulated queueing cost from the moment the server becomes idle up to the arrival time of the $q$th job (the job that sees $q-1$ jobs in the system).
+Then, by the next exercise,
+\begin{equation}\label{eq:99}
+  W(q) = W(q-1) + h\frac{q-1}{\lambda} = h \frac{q(q-1)}{2\lambda}.
+\end{equation}
+
+\begin{exercise}
+Explain the above recursion, and derive the right-hand side.
+\begin{hint}
+  Use~\cref{eq:61}.
+\end{hint}
+\begin{solution}
+  The cost up to the $q$th job is the cost up to the arrival of job $q-1$ plus the cost while there are $q-1$ jobs in the system.
+  The time between the arrival of job $q-1$ and $q$ is $1/\lambda$.
+
+  It is clear that $W(0)=0$. Therefore, $W(q) = h\sum_{i=1}^q (i-1) = hq(q-1)/2\lambda$. 
+\end{solution}
+\end{exercise}
+
+It remains to assemble all results. Let us assume that the switching cost is $K$. Then, by the renewal-reward theorem, the time-average cost of the $N$-policy is equal to
+\begin{equation*}
+  \frac{W(N)+K+V(N)}{C(N)},
+\end{equation*}
+where $C(N) = N/\lambda + T(N)$.
+(We choose not to specify this in terms of $N$, as not much insight will be gained from this.)
+
+Finding the optimal $N$ is easy (from a practical point): just plot the time-average cost a function of $N$, and identify the minimum.
+(It is easy to turn the above procedure into a computer program.)
+It is possible to find more efficient algorithms, but we do not discuss this here.
+Besides, and again from a practical point of view, it seems unlikely to use an $N$-policy when we expect that $N$ is a very large number.
+Typically, the optimal $N$ will less than $100$, or so; hence, we just need to compute $100$ or so cost functions.
+
+
+
+
+\opt{solutionfiles}{
+\Closesolutionfile{hint}
+\Closesolutionfile{ans}
+\subsection*{Hints}
+\input{hint}
+\subsection*{Solutions}
+\input{ans}
+}
+
+%\clearpage 
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../companion"
+%%% End:
