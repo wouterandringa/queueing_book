@@ -67,12 +67,6 @@ Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201904]
- For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
-\begin{solution} Answer = B.
- The claim applies to closed queueing networks.
-\end{solution}
-\end{exercise}
 
 \begin{exercise}[201904]
  We have a two-station single-server open network.
@@ -268,44 +262,6 @@ and
 \end{exercise}
 
 
-We have a closed network with two single-server stations and two jobs. Jobs from station 0 go to station 1, and from station 1 to station 0. Services times are exponentially distributed with mean $1/\mu_i$ at station $i, i=0,1$.
-
-\begin{exercise}[201704]
-What are the visit ratios at each station?
-\begin{solution}
- Clearly, $V_0=V_1=1$.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[201704]
- Use the convolution algorithm to determine the value of the
- normalization constant for this network.
-\begin{solution}
- From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
- that $M=1$, since there just two stations. Since there are $N=2$
- jobs, we need $G(1,2)$. 
- \begin{equation*}
- \begin{split}
- G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
- &= 1\cdot \mu_0^{-2} + \frac1{\mu_1} \frac{\mu_0} + \frac{\mu_1^2} 1 \\
- &= \frac 1{16} + \frac1{12} + \frac{9}.
- \end{split}
- \end{equation*}
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[201704]
- What is the fraction of jobs that see the load/unload station idle
- when moving to this station?
-\begin{solution}
- When the load/unload station is idle, there are no jobs, hence we need
- $\P{n_0=0}$. Clearly, when $n_0=0$, $n_1 = 2$. Hence,
- \begin{equation*}
-\pi(0, 2) = \frac1{G(1,2)} f_0(0) f_1(2).
- \end{equation*}
-Since $f_0(0) = 1$ and $f_1(2) = \mu_1^{-2}$, the answer follows.
-\end{solution}
-\end{exercise}
 
 We have a network with two single-server stations in tandem. Jobs
 arrive at the first station as a Poisson process with rate $\lambda$,
@@ -489,7 +445,7 @@ It is actually interesting to also consider the limit $\mu_1\to\infty$, rather t
 \end{exercise}
 
 
-
+\begin{comment}
 
 \subsection{Closed Queueing Networks}
 \label{sec:queueing-networks}
@@ -596,8 +552,6 @@ Show that on the boundary $n_1\geq0, n_2=0$, the stationary distribution $\pi(n_
 \end{exercise}
 
 
-\begin{comment}
-
 The solution is in the formula sheet!
 
  \begin{center}
@@ -630,7 +584,6 @@ edge[pil, ->] node[midway, left] {$\mu_2$} (0);
 \end{tikzpicture}
  
  \end{center}
-\end{comment}
 
 % \subsection{Closed Queueing Networks}
 % \label{sec:queueing-networks}
@@ -850,6 +803,53 @@ Why is an event stack useful in discrete-event simulation?
 \end{solution}
 \end{exercise}
 
+\begin{exercise}[201904]
+ For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
+\begin{solution} Answer = B.
+ The claim applies to closed queueing networks.
+\end{solution}
+\end{exercise}
+
+We have a closed network with two single-server stations and two jobs. Jobs from station 0 go to station 1, and from station 1 to station 0. Services times are exponentially distributed with mean $1/\mu_i$ at station $i, i=0,1$.
+
+\begin{exercise}[201704]
+What are the visit ratios at each station?
+\begin{solution}
+ Clearly, $V_0=V_1=1$.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201704]
+ Use the convolution algorithm to determine the value of the
+ normalization constant for this network.
+\begin{solution}
+ From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
+ that $M=1$, since there just two stations. Since there are $N=2$
+ jobs, we need $G(1,2)$. 
+ \begin{equation*}
+ \begin{split}
+ G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
+ &= 1\cdot \mu_0^{-2} + \frac1{\mu_1} \frac{\mu_0} + \frac{\mu_1^2} 1 \\
+ &= \frac 1{16} + \frac1{12} + \frac{9}.
+ \end{split}
+ \end{equation*}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201704]
+ What is the fraction of jobs that see the load/unload station idle
+ when moving to this station?
+\begin{solution}
+ When the load/unload station is idle, there are no jobs, hence we need
+ $\P{n_0=0}$. Clearly, when $n_0=0$, $n_1 = 2$. Hence,
+ \begin{equation*}
+\pi(0, 2) = \frac1{G(1,2)} f_0(0) f_1(2).
+ \end{equation*}
+Since $f_0(0) = 1$ and $f_1(2) = \mu_1^{-2}$, the answer follows.
+\end{solution}
+\end{exercise}
+
+\end{comment}
 
 \Closesolutionfile{ans}
 \subsection*{Solutions}
