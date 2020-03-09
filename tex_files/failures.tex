@@ -16,6 +16,7 @@ However, in many situations this assumption is not satisfied: a person might rec
 In this section, we develop a model to compute the influence on the mean waiting time of such \emph{preemptive outages}, i.e., interruptions that occur \emph{during} a service.
 As in~\cref{sec:non-preempt-interr}, to use the $G/G/1$ waiting time formula it suffices to find expressions for $\E S$ and $\V S$.
 Thus, this will be our task for the rest of the section.
+We will first present the main formulas; in the exercises as the end we will derive them.
 We remark in passing that the results and the derivation are of general interest.
 
 Supposing that $N$ interruptions occur during the net service time $S_0$ of a job, the effective service time will be
@@ -211,7 +212,8 @@ S_0 \E{\sum_{i=1}^N R_i\given S_0} = S_0 \E R \E N = \lambda_f \E R S_0^2$.
 \end{solution}
 \end{extra}
 
-\begin{extra} Now show that $\E{\sum_{i=1}^N R_i^2\given S_0} = \lambda_f S_0 \E{R^2}$.
+\begin{extra}\clabel{ex:f-82}
+ Now show that $\E{\sum_{i=1}^N R_i^2\given S_0} = \lambda_f S_0 \E{R^2}$.
 \begin{hint}
  Use Wald's equation, which we derived in~\cref{ex:16}.
 \end{hint}

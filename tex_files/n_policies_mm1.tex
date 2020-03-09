@@ -30,7 +30,7 @@ Therefore, $T(q)$, must satisfy the following recursion:
 The reader should note that this type of recursion is a difference equation.
 Moreover, the ideas behind its derivation are very similar to the ideas used in dynamic programming.
 
-\begin{exercise}\label{ex:aab}
+\begin{exercise}\clabel{ex:aab}
 Provide an intuitive explanation for this formula, and show that $T(q)=q/(\mu-\lambda)$ solves~\cref{eq:92}. 
 \begin{hint}
 We just guess the form $T(q) = aq + b$, i.e., linear in $q$. It is clear that $T(0)=0$: if the system is empty, the time to clear it is zero. Thus, $b=0$, and it remains to solve for $a$. 
@@ -65,7 +65,7 @@ Thus, we substitute this into the above expression and then try to solve for $a,
 As $V(0)=0$, it follows already that $c=0$.
 Thus, it remains to find $a$ and $b$.
 
-\begin{exercise}\label{ex:nmm-2}
+\begin{exercise}\clabel{ex:nmm-2}
   Use the ideas of~\cref{ex:aab} to show that
   \begin{equation*}
     V(q) = a q^2 + b q = \frac h 2 \frac 1 {\mu -\lambda} q^2 + \frac h 2 \frac{\lambda + \mu}{(\mu - \lambda)^2}q.
@@ -97,7 +97,7 @@ Suppose we switch on the server when $N=1$, that is, directly at the arrival of 
 Write $C(1)$ for the duration of a cycle that starts when the system becomes idle and stops when the system becomes idle again (and after at least one job has arrived).
 In other words, the cycle consists of an idle and a busy period.
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:nmm-3}
 Explain that $C(1)=1/\lambda + T(1)$ for the $M/M/1$ queue.
 \begin{hint}
   What is the expected  time to a job just after the server becomes idle? (Use the memoryless property.)
@@ -110,7 +110,7 @@ Explain that $C(1)=1/\lambda + T(1)$ for the $M/M/1$ queue.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:nmm5}
 Use the renewal-reward theorem to explain the  relation
 \begin{equation*}
   \frac{V(1)}{C(1)} = \frac{V(1)}{1/\lambda + T(1)} = h \E L,
@@ -151,7 +151,7 @@ Then, by the next exercise,
   W(q) = W(q-1) + h\frac{q-1}{\lambda} = h \frac{q(q-1)}{2\lambda}.
 \end{equation}
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:nmm-4}
 Explain the above recursion, and derive the right-hand side.
 \begin{hint}
   Use~\cref{eq:61}.

@@ -24,17 +24,71 @@ Hence, our assumption implies that the occurrence of an adjustment between jobs 
 
 With the model, we can obtain quantitative insights into the effects of reducing adjustment times or the variability of these adjustments times.
 For instance, we might decide to do fewer adjustments, so that $p$ decreases, but at the expense of larger average outage times.
-Now we can analyze the consequences of such decisions without needing to actually do the experiments in real life. 
+Thus, without needing to actually do the experiments in real life, we can evaluate the influence of such decisions.
 
-Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times. They are given by
-\begin{align}
- \E{S} &= \E{S_0} + \frac{\E R}B, \label{eq:88}\\
- \V{S} &= \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.\label{eq:89} 
-\end{align}
-Thus, the effective server load including down-times is $\rho = \lambda \E{S}$, and we can compute SCV of the effective job processing times.
-We have now all elements to fill in the $G/G/1$ waiting time formula!
+Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times.
+From~\cref{ex:l-256,ex:l-257} it follows that
+\begin{exercise}\clabel{ex:l-256}
+Show that the average effective processing time is given by
+\begin{equation} \label{eq:88}
+ \E{S} = \E{S_0} + \frac{\E R}B
+\end{equation}
+
+\begin{hint}
+If there is no failure, the service time is $S_0$. If there is a failure, the service of a job is $R + S_0$, since we add the outage time to the service time of the job. Relate this insight to~\cref{ex:49}. In that exercise, take $p=(B-1)/B$ as the probability of a short job of size $\E{S_0}$ and $q=1/B$ as the probability of a long job of $\E{S_0} + \E{R}$. 
+\end{hint}
+\begin{solution}
+ \begin{equation*}
+ \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
+ \end{equation*}
+since $p=1/B$. 
+\end{solution}
+\end{exercise}
 
 
+%The next step is to compute $\E{S^2}$. 
+\begin{extra}\clabel{ex:78}
+ Show that
+ \begin{equation*}
+ \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
+ \end{equation*}
+\begin{hint}
+  Again, use~\cref{ex:49}.
+\end{hint}
+\begin{solution}
+ \begin{align*}
+ \E{S^2} 
+&= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
+&= (1-p) \E{S_0^2} + p \E{S_0^2} + 2 p \E{S_0} \E R + p \E{R^2}. 
+ \end{align*}
+ Simplify and substitute $p=1/B$. 
+\end{solution}
+\end{extra}
+
+\begin{exercise}\clabel{ex:l-257}
+Derive 
+\begin{equation}\label{eq:89} 
+ \V{S} = \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.
+\end{equation}
+\begin{hint}
+ First compute $\E{S^2}$. See~\cref{ex:78}.
+\end{hint}
+\begin{solution}
+ \begin{equation*}
+ \begin{split}
+\V{S} 
+&=\E{S^2} - (\E{S})^2 \\
+&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B \\
+&\quad - (\E{S_0})^2 - 2\E{S_0}\E R \frac 1 B - (\E R)^2\frac1{B^2}\\
+&= \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
+ \end{split}
+ \end{equation*}
+\end{solution}
+\end{exercise}
+
+
+Thus, the effective server load including down-times is $\rho = \lambda \E{S}$, and we can compute the SCV of the effective job processing times.
+With this, we have all elements to fill in the $G/G/1$ waiting time formula!
 
 
 \begin{exercise}\clabel{ex:l-255}
@@ -79,55 +133,6 @@ EW
 \end{pyconsole}
 \end{solution}
 \end{exercise}
-
-\begin{exercise}\clabel{ex:l-256}
-Show that the average effective processing time is given by~\cref{eq:88}. 
-\begin{hint}
-If there is no failure, the service time is $S_0$. If there is a failure, the service of a job is $R + S_0$, since we add the outage time to the service time of the job. 
-\end{hint}
-\begin{solution}
- \begin{equation*}
- \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
- \end{equation*}
-since $p=1/B$. 
-\end{solution}
-\end{exercise}
-
-
-%The next step is to compute $\E{S^2}$. 
-\begin{extra}\clabel{ex:78}
- Show that
- \begin{equation*}
- \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
- \end{equation*}
-\begin{solution}
- \begin{align*}
- \E{S^2} 
-&= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
-&= (1-p) \E{S_0^2} + p \E{S_0^2} + 2 p \E{S_0} \E R + p \E{R^2}. 
- \end{align*}
- Simplify and substitute $p=1/B$. 
-\end{solution}
-\end{extra}
-
-\begin{exercise}\clabel{ex:l-257}
-Derive $V(S)$ in~\cref{eq:89}.
-\begin{hint}
- First compute $\E{S^2}$. See~\cref{ex:78}.
-\end{hint}
-\begin{solution}
- \begin{equation*}
- \begin{split}
-\V{S} 
-&=\E{S^2} - (\E{S})^2 \\
-&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B \\
-&\quad - (\E{S_0})^2 - 2\E{S_0}\E R \frac 1 B - (\E R)^2\frac1{B^2}\\
-&= \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
- \end{split}
- \end{equation*}
-\end{solution}
-\end{exercise}
-
 
 
 

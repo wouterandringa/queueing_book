@@ -231,7 +231,12 @@ total
 \end{solution}
 \end{exercise}
 
-
+\begin{remark}
+A much more interesting and realistic problem is to assume that we have many families such that items of family~$i$ arrive at rate $\lambda_i$ and require service time $S_i$.
+Typically, the setup-time depends on the sequence in which the families are produced; let this be given by $R_{ij}$ when the machine switched from producing family~$i$ to family~$j$.
+Often, in practice, $R_{ij} \neq R_{ji}$, for example, a switch in color from white to black takes less cleaning time and cost than from black to white.
+Then the problem becomes to determine a good schedule in which to produce the families and the batch size $B_i$, which may be depend on the family. 
+\end{remark}
 
 
 \opt{solutionfiles}{
