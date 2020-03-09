@@ -65,7 +65,7 @@ Thus, we substitute this into the above expression and then try to solve for $a,
 As $V(0)=0$, it follows already that $c=0$.
 Thus, it remains to find $a$ and $b$.
 
-\begin{exercise}
+\begin{exercise}\label{ex:nmm-2}
   Use the ideas of~\cref{ex:aab} to show that
   \begin{equation*}
     V(q) = a q^2 + b q = \frac h 2 \frac 1 {\mu -\lambda} q^2 + \frac h 2 \frac{\lambda + \mu}{(\mu - \lambda)^2}q.
@@ -111,11 +111,13 @@ Explain that $C(1)=1/\lambda + T(1)$ for the $M/M/1$ queue.
 \end{exercise}
 
 \begin{exercise}
-Use the renewal-reward theorem to explain this the following relation:
+Use the renewal-reward theorem to explain the  relation
 \begin{equation*}
   \frac{V(1)}{C(1)} = \frac{V(1)}{1/\lambda + T(1)} = h \E L,
 \end{equation*}
 where $\E L$ is given by~\cref{eq:el}. Then use the above expressions for $V(1)$ and $C(1)$ to verify this.
+
+With this result, we have found yet another way to compute the expected number of jobs in the system.  
 \begin{hint}
   What is the cost of one cycle? What is the duration of one cycle? 
 \end{hint}
@@ -167,14 +169,10 @@ It remains to assemble all results. Let us assume that the switching cost is $K$
   \frac{W(N)+K+V(N)}{C(N)},
 \end{equation*}
 where $C(N) = N/\lambda + T(N)$.
-(We choose not to specify this in terms of $N$, as not much insight will be gained from this.)
 
-Finding the optimal $N$ is easy (from a practical point): just plot the time-average cost a function of $N$, and identify the minimum.
-(It is easy to turn the above procedure into a computer program.)
-It is possible to find more efficient algorithms, but we do not discuss this here.
-Besides, and again from a practical point of view, it seems unlikely to use an $N$-policy when we expect that $N$ is a very large number.
-Typically, the optimal $N$ will less than $100$, or so; hence, we just need to compute $100$ or so cost functions.
-
+Finding the optimal $N$ is easy (from a practical point).
+Observe that $V(N)$ and $W(N)$ are quadratic in $N$, while $C(N)$ is linear in $N$.
+Hence, the average cost is a convex function of $N$, and locating the minimizer of a one-dimensional convex function is simple.
 
 
 
