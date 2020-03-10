@@ -59,8 +59,8 @@ L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s <
 \begin{solution}
 \begin{equation*}
  \begin{split}
- \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} 1\{A_k \leq s < D_k\} \, \d s \\
-& = \sum_{k=1}^{A(T)}\int_0^T 1\{A_k \leq s < D_k\} \, \d s = \sum_{k=1}^{A(T)} W_k.
+ \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} \1{A_k \leq s < D_k}\, \d s \\
+& = \sum_{k=1}^{A(T)}\int_0^T \1{A_k \leq s < D_k}\, \d s = \sum_{k=1}^{A(T)} W_k.
  \end{split}
 \end{equation*}
 \end{solution}
