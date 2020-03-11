@@ -49,12 +49,14 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
 
 
 \begin{exercise}\clabel{ex:l-184}
- Show that the approximation~\cref{eq:7} reduces to the result known for the $M/M/1$ and $M/G/1$ queues.
-\begin{hint}
- Take $c=1$.
-\end{hint}
+ Show that for the  $M/M/1$ and $M/G/1$ queue  the approximation~\cref{eq:7} reduces to
+\begin{align*}
+  \E{W_Q(M/G/1) &= \frac{1+C_s^^2}2\frac{\rho}{1-\rho} \E S, & 
+  \E{W_Q(M/M/1) &= \frac{\rho}{1-\rho} \E S.
+\end{align*}
+In fact, as we will see in~\cref{sec:mm1},\cref{sec:littles-law}, and \cref{sec:mg1}, these results are exact. 
 \begin{solution}
- If $c=1$, as is the case for the $M/M/1$ queue, $\sqrt{2(c+1)} - 1=2-1=1$, so that~\cref{eq:7} reduces to $\E{W_Q} = \rho/(1-\rho) \E S$. Recall that $C_a^2=C_s^2=1$ for the $M/M/1$. 
+For the $M/G/1$ queue, $C_a^2=1$. Then take $c=1$ in Sakasegawa's formula. Next, realize that $C_s^2=1$ for the $M/M/1$ queue. 
 \end{solution}
 \end{exercise}
 

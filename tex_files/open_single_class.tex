@@ -9,6 +9,145 @@
 \Opensolutionfile{ans}
 }
 
+
+
+With the PASTA property we can determine the distribution of the inter-departure times of the $M/M/1$ queue.
+Observing that in a network of queues the departures from one queueing station form the arrivals at another station, we can use this result to analyze networks of queues
+
+
+
+
+\begin{extra}\clabel{ex:dep}
+Why is the output rate of the (stable) $M/M/1$ queue equal to~$\lambda$ and not~$\mu$?
+\begin{solution}
+Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover, jobs can never leave faster than they arrive.
+\end{solution}
+\end{extra}
+
+
+\begin{extra}
+ Why is $\mu e^{-\mu t}$ not a reasonable density for the inter-departure times?
+ In fact, the simplest guess for the inter-departure density might be $\lambda e^{-\lambda t}$; so this is what we will try to prove below.
+We will focus on departure moments and use~\cref{eq:39}, in particular that departures `see' what arrivals `see', i.e., $\delta(n)= \pi(n)$, and PASTA.
+\begin{solution}
+ Because jobs do not leave at rate $\mu$. 
+\end{solution}
+\end{extra}
+
+
+
+
+\begin{extra}\clabel{ex:28}
+Show that the probability that a job leaves behind a busy station is $\rho$, hence $1-\rho$ is the probability to leave an idle server behind.
+\begin{solution}
+Observe that $\rho$ is the fraction of time the server is busy. Then, from PASTA, the fraction of jobs that see a busy server is also $\rho$. This fraction of jobs is $\sum_{n=1}^\infty \pi(n)$. Finally, $\delta(n) = \pi(n)$ , a fraction $\rho$ of the departures leaves a busy system behind.
+
+\end{solution}
+\end{extra}
+
+
+\begin{extra}\clabel{ex:17}
+ If job $n-1$, say, leaves behind an empty system, show that the expected time until the next departure is $\E{D_n - D_{n-1}} = 1/\lambda + 1/\mu$. 
+\begin{hint}
+ After job $n-1$ left, job $n$ has to arrive, so we need to wait first for this inter-arrival time. Then job $n$ must be served. This adds up to $1/\lambda + 1/\mu$. 
+\end{hint}
+\begin{solution}
+With the hint, we first have to wait for an inter-arrival
+ time $X_n$. Then, since job $n$'s service starts right away, it
+ leaves when $D_n = D_{n-1}+X_n + S_n$. Now observe that, due to the memoryless property of the inter-arrival times, $\E{X_n} = \E{A_n - D_{n-1}} = 1/\lambda$. Thus, the expected duration is $\E{X_n + S_n}=1/\lambda + 1/\mu$. 
+\end{solution}
+\end{extra}
+
+\begin{extra}
+Show that the density of $D_{n} - D_{n-1}$ is
+ \begin{equation*}
+ f_{X+S}(t) = \frac{\lambda \mu}{\lambda - \mu} (e^{-\mu t} - e^{-\lambda t})
+ \end{equation*}
+if the server is idle after $D_{n-1}$.
+\begin{solution}
+ By the previous point, the density of $D_{n} - D_{n-1}$ is the
+ same as the density of $X_n + S_n$. Since $\{X_n\}$ and $\{S_n\}$ are both i.i.d. sequences, the problem becomes to find the density of $X+S$. We will use two ways of computing this. 
+
+Since $X\sim \Exp(\lambda)$ and $S\sim\Exp(\mu)$, and $X$ and $S$ are independent, their joint density is $f_{X,S}(x,y) = \lambda \mu e^{-\lambda x - \mu y}$. With this,
+ \begin{align*}
+\P{X+S\leq t } 
+&= \lambda \mu \int_0^\infty \int_0^\infty e^{-\lambda x - \mu y} \1{x+y\leq t} \d x \d y \\
+&= \lambda \mu \int_0^t \int_0^{t-x} e^{-\lambda x - \mu y} \d y \d x \\
+&= \lambda \mu \int_0^t e^{-\lambda x} \int_0^{t-x} e^{- \mu y} \d y \d x \\
+&= \lambda \int_0^t e^{-\lambda x} (1-e^{- \mu (t-x)} ) \d x \\
+&= \lambda \int_0^t e^{-\lambda x} \d x - \lambda e^{-\mu t} \int_0^t e^{(\mu-\lambda) x} \d x \\
+&= 1- e^{-\lambda t} - \frac{\lambda}{\mu-\lambda} e^{-\mu t} ( e^{(\mu-\lambda) t} -1) \\
+&= 1- e^{-\lambda t} - \frac{\lambda}{\mu-\lambda} e^{-\lambda t} + \frac{\lambda}{\mu-\lambda} e^{-\mu t} \\ 
+&= 1 - \frac{\mu}{\mu-\lambda} e^{-\lambda t} + \frac{\lambda}{\mu-\lambda} e^{-\mu t}. \\
+ \end{align*}
+The density $f_{X+S}(t)$ is the derivative of this expression with respect to~$t$, hence,
+\begin{align*}
+ f_{X+S}(t) 
+&= \frac{\lambda\mu}{\mu-\lambda} e^{-\lambda t} - \frac{\mu \lambda}{\mu-\lambda} e^{-\mu t} \\
+&= \frac{\lambda\mu}{\lambda -\mu}(e^{-\mu t} - e^{-\lambda t}). \\
+\end{align*}
+
+Conditioning is much faster, but requires the concept of conditional density. You can skip the rest if you are not interested. 
+ \begin{align*}
+ f_{X+S}(t) 
+&= \P{X+S\in \d{t}} \\
+&= \int \P{S+x\in \d{t}}\P{X\in \d{x}} \\
+&=\int_0^t f_S(t-x) f_X(x) \d{x} \\
+ &= \int_0^t \mu e^{-\mu(t-x)} \lambda e^{-\lambda x} \d{x} \\
+ &= \lambda \mu e^{-\mu t} \int_0^t e^{x(\mu-\lambda)} \d{x} \\
+&= \frac{\lambda \mu}{\lambda - \mu}\left(e^{-\mu t} - e^{-\lambda t}\right).
+ \end{align*}
+\end{solution}
+\end{extra}
+
+
+\begin{extra}
+Show that when the queue is not empty at a departure time, the density of the next inter-departure time is $f_D(t) = \mu e^{-\mu t}$.
+\begin{solution}
+After the departure, the server can start right away with the job at the head of the queue. The inter-departure time of this job is $\Exp(\mu)$.
+\end{solution}
+\end{extra}
+
+\begin{extra}\clabel{ex:63}
+Use conditioning on the server being idle or busy at a departure to show that the density of the inter-departure time is $\lambda e^{-\lambda t}$.
+\begin{hint}
+Conditioning leads to 
+\begin{equation*}
+ f_D(t) = f_{X+S}(t) \P{\text{server is idle}} + f_S(t) \P{\text{ server is busy }}= (1-\rho) f_{X+S}(t) +
+ \rho \mu e^{-\mu t}.
+\end{equation*}
+ Now use the above exercises to simplify.
+\end{hint}
+\begin{solution}
+ \begin{align*}
+ f_D(t) 
+&= (1-\rho) f_{X+S}(t) + \rho \mu e^{-\mu t} \\
+&= (1-\rho) \frac{\mu\lambda}{\lambda-\mu} \left(e^{-\mu t}-e^{-\lambda t}\right) + \rho \mu e^{-\mu t} \\
+&= \left(1-\frac{\lambda}\mu\right) \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \rho \mu e^{-\mu t} \\
+&= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \frac\lambda \mu \mu e^{-\mu t} \\
+% &= \frac{\mu-\lambda}\mu \frac{\mu\lambda}{\lambda-\mu}\left(e^{-\mu t}-e^{-\lambda t}\right) + \lambda e^{-\mu t} \\
+&= - \lambda\left(e^{-\mu t}-e^{-\lambda t}\right) + \lambda e^{-\mu t} \\
+&= \lambda e^{-\lambda t}.
+ \end{align*}
+\end{solution}
+\end{extra}
+
+
+\begin{exercise}\clabel{ex:burke}
+ Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
+\begin{solution}
+ It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
+ It can also be shown that the inter-departure times are independent.
+
+Thus, the inter-departures times form a set of i.i.d.
+exponentially distributed random variables with mean $1/\lambda$.
+Consequently, the departures times form a Poisson process with rate $\lambda$.
+
+\end{solution}
+\end{exercise}
+
+
+
 The remark above Zijm.Eq.2.11 is not entirely correct. Remove the
 sentence: `These visit ratios satisfy \ldots up to a multiplicative
 constant'.

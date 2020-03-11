@@ -56,6 +56,34 @@ We assume that you  \emph{know all} results of~\cref{sec:preliminaries}.
 % \fi
 
 
+\chapter{Approximate Models}
+\label{cha:approximate-models}
+In the first section of this chapter we present and apply Sakasegawa's formula to approximate the expected waiting time in queue at an $G/G/c$ queue, and in the last section we provide a formula to show how variability propagates in networks.
+We might say that these two formulas are the most important formulas to understand the behavior of queueing systems.
+With a bit of exaggeration, it is justified to say that the entire philosophy behind lean manufacturing and the world-famous Toyota production system are based on the principles that can be derived from these two formulas. These principles come down to: focus on the reduction of load and processing time variability, and realize that the size of production batches has a major effect on waiting times.
+
+The idea behind this chapter is to familiarize the reader with a set of typical queueing (business) problems that can be addressed with these approximations.
+In other words, here we take these formulas for granted, but focus on the insights they provide and how to use them to guide improvement procedures for queueing problems that are, in some or another, often encountered in production and service systems.
+In later sections, most notably~\cref{sec:mg1}, we will provide the background of Sakasegawa's formula and show that it is an exact result for the $M/G/1$ queue,
+
+In~\cref{sec:gg1} we introduce and discuss the main insights of Sakasegawa's formula.
+In the subsequent sections we illustrate how to use this formula to estimate waiting time in three examples in which the service process is interrupted.
+In the first case the server has to produce jobs from different families, and there is a change-over time required to switch from one production family to another.
+As such setups reduce the time the server has available to serve jobs, the load must increase.
+In fact, to reduce the load, the server produces in batches of fixed sizes.
+In the second case, the server sometimes requires small adjustments, for instance, to prevent the production quality to degrade below a certain level.
+Clearly, such adjustments are typically not required during a job's service; however, they can occur at arbitrary moments in time.
+Thus, this is different from batch production in which the batch sizes are constant.
+In the third example, quality problems or break downs can occur during a job's service.
+For each case we develop a model to analyze the influence of the interruptions on average job sojourn times.
+
+
+\input{tex_files/gg1.tex}
+\input{tex_files/setup_times.tex}
+\input{tex_files/adjustments.tex}
+\input{tex_files/failures.tex}
+%\input{tex_files/process_batches.tex}
+\input{tex_files/tandem.tex}
 
 \chapter{Analytical Models}
 \label{cha:analytical-models}
@@ -88,25 +116,6 @@ As a reminder, we keep the discussion in these notes mostly at an intuitive leve
 %    \input{tex_files/part_2_exams.tex}
 % \fi
 
-\chapter{Approximate Models}
-\label{cha:approximate-models}
-In this chapter we first consider the very useful formula of Sakasegawa to approximate the average waiting time in queue for the $G/G/c$ queue.
-We then illustrate how to use this formula to estimate waiting time in three examples in which the service process is interrupted.
-In the first case the server has to produce jobs from different families, and there is a change-over time required to switch from one production family to another.
-As such setups reduce the time the server has available to serve jobs, the load must increase.
-In fact, to reduce the load, the server produces in batches of fixed sizes.
-In the second case, the server sometimes requires small adjustments, for instance, to prevent the production quality to degrade below a certain level.
-Clearly, such adjustments are typically not required during a job's service; however, they can occur at arbitrary moments in time.
-Thus, this is different from batch production in which the batch sizes are constant.
-In the third example, quality problems or break downs can occur during a job's service.
-For each case we develop a model to analyze the influence of the interruptions on average job sojourn times.
-
-
-\input{tex_files/gg1.tex}
-\input{tex_files/setup_times.tex}
-\input{tex_files/adjustments.tex}
-\input{tex_files/failures.tex}
-%\input{tex_files/process_batches.tex}
 
 
 \chapter{Queueing Control}
@@ -145,7 +154,6 @@ Moreover, the concepts we introduce here can be generalized to (optimal) stoppin
 
 We refer to the relevant sections of Zijm's book for background. Here we just include the solutions and repair a few typos. 
 \input{tex_files/open_single_class.tex}
-\input{tex_files/tandem.tex}
 %\input{tex_files/open_general.tex}
 
 %\input{tex_files/deterministic_networks.tex}
