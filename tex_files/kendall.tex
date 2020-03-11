@@ -184,6 +184,61 @@ When a customer finds a large queue in front of it, s/he can use the normal dist
 \end{solution}
 \end{exercise}
 
+
+\begin{extra}\clabel{ex:49}
+ A machine serves two types of jobs.
+ The processing time of jobs of type $i$, $i=1,2$, is exponentially distributed with parameter $\mu_i$.
+ The type $T$ of a job is random and independent of anything else, and such that $\P{T=1} = p = 1-q = 1-\P{T=2}$.
+ (An example is a desk serving men and women, both requiring different average service times, and $p$ is the probability that the customer in service is a man.)
+ Show that the expected processing time and variance are given by
+\begin{align*}
+ \E S &= p \E{S_1} + q \E{S_2} \\
+\V S &= p \V{S_1} + q \V{S_2} + pq(\E{S_1} - \E{S_2})^2.
+ \end{align*}
+ Observe that, even if $\V{S_1} = \V{S_2} = 0$, still $\V S > 0$ if $\E{S_1} \neq \E{S_2}$.
+ Thus, mixing jobs of constant size still leads to variability in the service process.
+
+
+ Interestingly, we will use these results in also in~\cref{sec:non-preempt-interr} when we discuss the effects of failures on average waiting times in the system
+
+\begin{hint}
+ Let $S$ be the processing (or service) time at the server, and
+ $S_i$ the service time of a type $i$ job. Then, 
+ \begin{equation*}
+ S = \1{T=1} S_1 + \1{T=2} S_2.
+ \end{equation*}
+\end{hint}
+\begin{solution}
+With the hint, 
+\begin{align*}
+ \E S 
+&= \E{\1{T=1} S_1} + \E{\1{T=2} S_2} \\
+&= \E{\1{T=1}} \E{ S_1} + \E{\1{T=2}} \E{S_2}, \text{ by the independence of $T$}, \\
+&= \P{T=1}\E{S_1} + \P{T=2} \E{S_2} \\
+&= p \E{S_1} + q \E{S_2}.
+\end{align*}
+
+For the variance, we need some algebra. Since, 
+\begin{equation*}
+\1{T=1}\1{T=2} = 0 \text{ and } \1{T=1}^2 = \1{T=1},
+\end{equation*}
+we get
+\begin{align*}
+ \V S 
+&= \E{S^2} - (\E S)^2 \\
+&= \E{\left(\1{T=1} S_1 + \1{T=2} S_2\right)^2} - \left(\E{S}\right)^2 \\
+&= \E{\1{T=1} S_1^2 + \1{T=2} S_2^2} - \left(\E S \right)^2 \\ 
+&= p \E{S_1^2} + q \E{S_2^2} - \left(\E S \right)^2 \\ 
+&= p \V{S_1} + p (\E{S_1})^2 + q \V{S_2} + q(\E{ S_2})^2 - \left(\E S\right)^2 \\ 
+&= p \V{S_1} + p (\E{S_1})^2 + q \V{S_2} + q(\E{ S_2})^2 - p^2 (\E{S_1})^2 - q^2 (\E{S_2})^2 - 2pq \E{S_1}\E{S_2} \\ 
+&= p \V{S_1} + q \V{S_2} + pq \E{S_1})^2 +pq (\E{S_2})^2 - 2pq \E{S_1}\E{S_2}, \quad\text{ as } p = 1-q\\ 
+&= p \V{S_1} + q \V{S_2} + pq(\E{S_1} - \E{S_2})^2.
+\end{align*}
+\end{solution}
+\end{extra}
+
+
+
 \opt{solutionfiles}{
 \Closesolutionfile{hint}
 \Closesolutionfile{ans}

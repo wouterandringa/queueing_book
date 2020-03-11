@@ -120,17 +120,17 @@ It is crucial to remember from the above exercises that knowledge of the utiliza
 
 
 \begin{exercise}\clabel{ex:91}
- (Hall 5.19) When a bus reaches the end of its line, it undergoes a
- series of inspections. The entire inspection takes 5 minutes on
- average, with a standard deviation of 2 minutes. Buses arrive with
- inter-arrival times uniformly distributed on $[3,9]$ minutes.
+  (Hall 5.19) When a bus reaches the end of its line, it undergoes a series of inspections.
+  The entire inspection takes 5 minutes on average, with a standard deviation of 2 minutes.
+  Buses arrive with inter-arrival times uniformly distributed on $[3,9]$ minutes.
 
-As a first case, assuming a single server, estimate $\E{W_Q}$ with the $G/G/1$ waiting time formula. As a second case, compare this result to an $M/G/1$ system with arrival rate 10 per hour and the same service time distribution. Explain why your previous answer is smaller. 
+  As a first case, assuming a single server, estimate $\E{W_Q}$ with the $G/G/1$ waiting time formula.
+  As a second case, compare this result to an $M/G/1$ system with arrival rate 10 per hour and the same service time distribution.
+  Explain why your previous answer is smaller.
 \begin{solution}
 First the $G/G/1$ case. Observe that in this case, the inter-arrival time $X\sim U[3,9]$, that is, never smaller than 3 minutes, and never longer than 9 minutes. 
 
 \begin{pyconsole}
- 
 a = 3.
 b = 9. 
 EX = (b+a)/2. # expected inter-arrival time
@@ -161,9 +161,8 @@ Wq = (1.+CS2)/2. * rho/(1.-rho) * ES
 Wq
 \end{pyconsole}
 
-The arrival process with uniform inter-arrival times is much more
-regular than a Poisson process. In the first case, bus arrivals are
-spaced in time at least with 3 minutes.
+The arrival process with uniform inter-arrival times is much more regular than a Poisson process.
+In the first case, bus arrivals are spaced in time at least with 3 minutes.
 \end{solution}
 \end{exercise}
 
