@@ -10,9 +10,23 @@
 }
 
 
+Up to now our analysis focused on single-station queueing systems.
+In many practical situations, however, jobs in a factory or patients in a hospital have to undergo several process steps before they are `finished'.
+One of the simplest models to analyze such situations is to assume that jobs arrive as a Poisson processes, and the service times are exponentially distributed.
+We will see that it is possible to obtain closed-form expressions for the distribution of jobs at each station.
+To establish this we will first concentrate on two stations in tandem, and then extend to general networks.
+We remark that in~\cref{sec:tandem-queues} we considered tandem networks of $G/G/c$ queues, but there we could only obtain insight in the expected times, not the full distribution of the number of jobs at each station.
 
-With the PASTA property we can determine the distribution of the inter-departure times of the $M/M/1$ queue.
-Observing that in a network of queues the departures from one queueing station form the arrivals at another station, we can use this result to analyze networks of queues
+\paragraph{Tandem Queues}
+
+In~\cref{ex:burke} (and the intermediate exercises leading to that result) we (ask you to) prove that the inter-departure times of an $M/M/1$ queue are also exponentially distributed with rate $\lambda$.
+This is useful because when the first station is an $M/M/1$ queue, this implies that the arrival process at the second station is also an $M/M/1$ queue.
+And if there is a third station with exponentially distributed service times, this also behaves as an $M/M/1$ queue, and so on.
+With this insight, it is easy to see that the average total waiting time in a tandem network of $M$ stations equals
+\begin{equation*}
+  \E{W} = \sum_{i=1}^M \frac{\E{S_i}}{1-\rho_i},
+\end{equation*}
+where $\rho_i = \lambda \E{S_i}$, and $\E{S_i}/(1-\rho_i)$ is the expected waiting time at station~$i$; note that the arrival rate at each station is $\lambda$, due to the topology of the network, i.e., a tandem network.
 
 
 
@@ -134,18 +148,42 @@ Conditioning leads to
 
 
 \begin{exercise}\clabel{ex:burke}
- Try to prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
+Assuming that  inter-departure times are independent,  prove \recall{Burke's law} which states that the departure process of the $M/M/1$ queue is a Poisson process with rate $\lambda$.
 \begin{solution}
- It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density, i.e., $\lambda e^{-\lambda t}$.
- It can also be shown that the inter-departure times are independent.
-
-Thus, the inter-departures times form a set of i.i.d.
-exponentially distributed random variables with mean $1/\lambda$.
-Consequently, the departures times form a Poisson process with rate $\lambda$.
-
+  It follows from~\cref{ex:dep} to~\cref{ex:63} that inter-departures times have the same density function $\lambda e^{-\lambda t}$.
+  The independence of inter-departure times is assumed.
+  These two facts combined imply that the departure process forms a Poisson process with rate $\lambda$.
 \end{solution}
 \end{exercise}
 
+
+\paragraph{Networks of $M/M/1$ queues}
+
+It is possible to obtain stronger results for more general networks of stations of $M/M/1$ queues than the above expression for the expected waiting times.
+To describe such a network we assume that the probability that a job after its service completion at station~$i$ moves to station~$j$ is independent of anything else and is given by the number $P_{i j}\in[0,1]$.
+%We also allow a job to leave the network: the probability of this is given by $P_{i 0}$.
+We can assemble all these probabilities in the \emph{routing matrix} $P$, such that the element of $P$ on the $i$th row and $j$th column is given by $P_{i j}$.
+
+\begin{exercise}
+Why do we require that $\sum_{j=1}^M P_{i j} \in [0, 1]$ for each row $i$? What is the interpretation when $1-\sum_{i=1}^M P_{i j}$? 
+\begin{solution}
+  A job leaving station $i$ has to go somewhere, either to another station or perhaps to station $i$ again, or it leaves the network altogether.
+  When the summation is less than~$1$, jobs are allowed to leave the network.
+  As $\sum_{i=1}^MP_{i j}$ is the probability to be sent to some station in the network, $1$ minus this sum is the probability to leave the network.
+\end{solution}
+\end{exercise}
+
+We can now use the results of~\cref{ex:1} that says that when a Poisson process with rate $\lambda_i$ is split into sub-processes with Bernoulli random variables $P_{i j}$, these sub-processes are again Poisson processes with rate $\lambda_i P_{i j}$.
+Moreover, by~\cref{ex:l-103}, merging Poisson processes results again in a Poisson process with the combined rate of the individual processes.
+Now consider a single station, $i$ say, and assume that jobs arrive as a Poisson process with rate $\lambda_i$ and the service times are exponentially distributed with mean $\E{S_i}$.
+Then, by the previous section, its departure process departure process is also Poisson with rate $\lambda_i$.
+The jobs are sent with probability $P_{i j}$ to station~$j$, independent of anything else.
+Hence, these jobs arrive as a Poisson process with rate $\lambda_i P_{i j}$ at station~$j$.
+Extending this reasoning to all other stations, and merging all these Poisson processes into a new Poisson process, it follows that these jobs arrive at station~$j$ as a Poisson with rate $\sum_{i=1}^M \lambda_i P_{i j}$.
+Finally, assuming that new jobs arrive at station~$j$ as a Poisson process with rate~$\gamma_j$, we can merge these new jobs with the jobs that depart from the other stations.
+With this, we conclude that the arrival process of station~$j$ is Poisson with rate $\gamma_j + \sum_{i=1}^M \lambda_i P_{i j}$.
+But then, since jobs arrive at station~$j$ as a Poisson process and service times are exponential, the departure process is again Poisson, and so on.
+Thus, it is intuitively clear that we can model this network as a set of $M/M/1$ queues. 
 
 
 The remark above Zijm.Eq.2.11 is not entirely correct. Remove the
@@ -483,6 +521,23 @@ Zijm.Ex.2.2.8
  inter-arrival times and Burke's law are essential for the argument.
 \end{solution}
 \end{exercise}
+
+
+
+\paragraph{Stationary distributions}
+
+
+We can show that the stationary probability that the system contains $n=(n_1,n_2, \ldots, n_M)$ at stations $1,\ldots, M$ takes the form
+\begin{equation*}
+  \P(N_1=n_1, \ldots, N_M=n_M) = p(n_1,\ldots,n_M) = \Pi_{i=1}^M (1-\rho_i)\rho_i^{n_i};
+\end{equation*}
+in other words, $p(n_1, \ldots, n_M)$ is the product of the probabilities $(1-\rho_i)\rho_i^{n_i}$ of all of the stations $i=1,\ldots,M$.
+But, this implies that the stationary distribution of the number of jobs at each station~$i$ is \emph{independent} of the state of the other stations.
+For notational ease, we will prove this for the case of two stations, and refer to the literature for a general proof of this fact.
+
+
+
+
 
 
 

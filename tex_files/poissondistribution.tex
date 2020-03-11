@@ -137,13 +137,11 @@ Use the definition of the conditional probability and small $o$ notation.
 \end{hint}
 \begin{solution}
 Write $N(s, t]$ for the number of arrivals in the interval $(s,t]$. First we make a few simple observations: $N(t+h]= N(t) + N(t, t+h]$, hence
-\begin{equation*}
- \begin{split}
+\begin{align*}
  \1{N(t+h)=n, N(t)=n}
 &= \1{N(t) + N(t, t+h] = n, N(t)=n} = \\
 &\1{N(t, t+h] = 0, N(t)=n}.
- \end{split}
-\end{equation*}
+\end{align*}
 Thus, 
  \begin{align*}
  \P{N(t+h) = n | N(t) = n} 
