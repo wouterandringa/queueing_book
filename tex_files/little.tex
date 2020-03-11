@@ -59,8 +59,8 @@ L(s) = \sum_{k=1}^\infty \1{A_k \leq s < D_k} = \sum_{k=1}^{A(T)}\1{A_k \leq s <
 \begin{solution}
 \begin{equation*}
  \begin{split}
- \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} 1\{A_k \leq s < D_k\} \, \d s \\
-& = \sum_{k=1}^{A(T)}\int_0^T 1\{A_k \leq s < D_k\} \, \d s = \sum_{k=1}^{A(T)} W_k.
+ \int_0^T L(s)\, \d s & = \int_0^T \sum_{k=1}^{A(T)} \1{A_k \leq s < D_k}\, \d s \\
+& = \sum_{k=1}^{A(T)}\int_0^T \1{A_k \leq s < D_k}\, \d s = \sum_{k=1}^{A(T)} W_k.
  \end{split}
 \end{equation*}
 \end{solution}
@@ -217,7 +217,7 @@ Use Little's law to show for the $M/M/1$ queue that
 \begin{align*}
  \E W &= \E L \E S + \E S = \lambda \E W \E S + \E S= \rho \E W + \E S, \\
  \E L &= \lambda \E W = \frac{\lambda \E S}{1-\rho} = \frac\rho{1-\rho}, \\
- \E{W_q} &= \E W - \E S = \frac{\E S}{1-\rho} - \E S = \frac{\rho}{1-\rho} \E S,\\
+ \E{W_Q} &= \E W - \E S = \frac{\E S}{1-\rho} - \E S = \frac{\rho}{1-\rho} \E S,\\
  \E{L_Q} &= \lambda \E{W_Q} = \frac{\rho^2}{1-\rho}, \\
  \E{L_s} &= \E L - \E{L_Q} = \frac{\rho}{1-\rho} - \frac{\rho^2}{1-\rho} = \rho, 
 \end{align*}
