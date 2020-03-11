@@ -135,7 +135,17 @@ EW
 \end{exercise}
 
 
+\begin{remark}
+  Let us compare the results of this section to those of~\cref{sec:non-preempt-interr}.
+  In both cases the expected service time is the same: an amount $\E R/ B$ gets added to the net processing time $\E{S_0}$.
+  However, the impact on the SCV is different.
+  Unexpected interruptions must have a larger effect on variability than expected interruptions.
 
+  In more general terms, we can use part of the model of~\cref{sec:setups-batch-proc} to analyze the effect of planned maintenance---do an adjustment after every $B$ jobs.
+  In the model of this section, adjustments arrive completely unexpectedly.
+  With these two models we can compare the influence on waiting times of doing planned adjustments more often (take $B$ a bit small), but remove the unexpected interruptions.
+  Hence, we have another set of tools to compare different scenarios to organize production systems.
+\end{remark}
 
 \opt{solutionfiles}{
 \Closesolutionfile{hint}
