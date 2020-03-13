@@ -4,21 +4,6 @@
 \frontmatter
 \maketitle
 
-Changes:
-\begin{itemize}
-\item Figure 8
-\item Section~\ref{sec:queu-proc-as}.
-\item Section \ref{sec:constr-discr-time}, added python code to a few exercises to show how to implement the recursions.
-\item Moved part of \cref{ex:25} to \cref{ex:97}.
-\item Moved old intro of \cref{sec:level-cross-balance} to \cref{ex:98}.
-\item Formulas in intro \cref{sec:mnmn1}.
-\item \cref{sec:mxm1-queue:-expected}: rewritten
-\item \cref{sec:setups-batch-proc} restructured
-\item Added \cref{ex:mg1-3}. Will not be used in the midterm.
-\item Changed the location of \cref{ex:49}
-\end{itemize}
-
-
 \tableofcontents
 
 \chapter{Introduction}
@@ -50,11 +35,6 @@ We assume that you  \emph{know all} results of~\cref{sec:preliminaries}.
 \input{tex_files/constructioncontinuoustime.tex}
 \input{tex_files/kendall.tex}
 \input{tex_files/random_walk.tex}
-
-% \ifshowextra
-%    \input{tex_files/part_1_exams.tex}
-% \fi
-
 
 \chapter{Approximate Models}
 \label{cha:approximate-models}
@@ -113,13 +93,9 @@ As a reminder, we keep the discussion in these notes mostly at an intuitive leve
 %\input{tex_files/mg1density.tex}
 \input{tex_files/figure_summaries.tex}
 
-% \ifshowextra
-%    \input{tex_files/part_2_exams.tex}
-% \fi
 
-
-
-\chapter{Queueing Control}
+\chapter{Queueing Control and Open Networks}
+\label{cha:queu-contr-open}
 
 In the queueing systems we analyzed up to now, the server is always present to serve jobs in the system. However, this condition is not always satisfied.
 As an example, consider a queueing system in which there is a cost associated with switching on and off the server.
@@ -145,28 +121,16 @@ Moreover, the concepts we introduce here can be generalized to (optimal) stoppin
 
 \input{tex_files/n_policies_mm1.tex}
 \input{tex_files/n_policies_mg1.tex}
-
-% \ifshowextra
-%    \input{tex_files/part_3_exams.tex}
-% \fi
-
-\chapter{Queueing Networks}
-\label{sec:notes-relat-chapt2}
-
-We refer to the relevant sections of Zijm's book for background. Here we just include the solutions and repair a few typos. 
 \input{tex_files/open_single_class.tex}
-%\input{tex_files/open_general.tex}
+\input{tex_files/gershgorin.tex}
+
+
 
 %\input{tex_files/deterministic_networks.tex}
 %\input{tex_files/gordon_newell.tex}
 %\input{tex_files/convolution.tex}
 %\input{tex_files/mva.tex}
 %\input{tex_files/mda.tex}
-
-% \ifshowextra
-%    \input{tex_files/part_4_exams.tex}
-% \fi
-
 
 
 \backmatter

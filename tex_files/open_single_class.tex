@@ -13,7 +13,7 @@
 Up to now our analysis focused on single-station queueing systems.
 In many practical situations, however, jobs in a factory or patients in a hospital have to undergo several process steps before they are `finished'.
 One of the simplest models to analyze such situations is to assume that jobs arrive as a Poisson processes, and the service times are exponentially distributed.
-We will see that it is possible to obtain closed-form expressions for the distribution of jobs at each station.
+We will see that it is possible to obtain closed-form expressions for the stationary distribution of jobs at each station.
 To establish this we will first concentrate on two stations in tandem, and then extend to general networks.
 We remark that in~\cref{sec:tandem-queues} we considered tandem networks of $G/G/c$ queues, but there we could only obtain insight in the expected times, not the full distribution of the number of jobs at each station.
 
@@ -21,20 +21,22 @@ We remark that in~\cref{sec:tandem-queues} we considered tandem networks of $G/G
 
 In~\cref{ex:burke} (and the intermediate exercises leading to that result) we (ask you to) prove that the inter-departure times of an $M/M/1$ queue are also exponentially distributed with rate $\lambda$.
 This is useful because when the first station is an $M/M/1$ queue, this implies that the arrival process at the second station is also an $M/M/1$ queue.
-And if there is a third station with exponentially distributed service times, this also behaves as an $M/M/1$ queue, and so on.
+Stated differently, from the perspective of the second station, it is as if there is no first station.
+And, if there is a third station with exponentially distributed service times, this also behaves as an $M/M/1$ queue, and so on.
 With this insight, it is easy to see that the average total waiting time in a tandem network of $M$ stations equals
 \begin{equation*}
   \E{W} = \sum_{i=1}^M \frac{\E{S_i}}{1-\rho_i},
 \end{equation*}
 where $\rho_i = \lambda \E{S_i}$, and $\E{S_i}/(1-\rho_i)$ is the expected waiting time at station~$i$; note that the arrival rate at each station is $\lambda$, due to the topology of the network, i.e., a tandem network.
 
-
-
-
 \begin{extra}\clabel{ex:dep}
 Why is the output rate of the (stable) $M/M/1$ queue equal to~$\lambda$ and not~$\mu$?
 \begin{solution}
-Jobs arrive at rate $\lambda$. For a stable queue, $\mu>\lambda$. Moreover, jobs can never leave faster than they arrive.
+  Jobs arrive at rate $\lambda$.
+  For a stable queue, $\mu>\lambda$.
+  Moreover, jobs can never leave faster than they arrive.
+  Note that, when there are jobs \emph{present} at station 1, jobs do leave at rate $\mu_1$.
+  However, there are not always jobs in service, and during such times, there are no job departures.
 \end{solution}
 \end{extra}
 
@@ -157,310 +159,88 @@ Assuming that  inter-departure times are independent,  prove \recall{Burke's law
 \end{exercise}
 
 
-\paragraph{Networks of $M/M/1$ queues}
-
-It is possible to obtain stronger results for more general networks of stations of $M/M/1$ queues than the above expression for the expected waiting times.
-To describe such a network we assume that the probability that a job after its service completion at station~$i$ moves to station~$j$ is independent of anything else and is given by the number $P_{i j}\in[0,1]$.
-%We also allow a job to leave the network: the probability of this is given by $P_{i 0}$.
-We can assemble all these probabilities in the \emph{routing matrix} $P$, such that the element of $P$ on the $i$th row and $j$th column is given by $P_{i j}$.
+\paragraph{Open Networks of $M/M/1$ queues}
+It is not difficult to extend the above result for tandem networks to general networks  of $M/M/1$ queues.
+For this, we first need to model such networks more formally.
+In particular, we assume that the probability that a job moves to station~$j$ after completing its service at station~$i$ is independent of anything else, and is given by the number $P_{i j}\in[0,1]$.
+(This is called Markov routing.)
+We assemble all these probabilities in a \emph{routing matrix} $P$ such that $P_{i j}$ is the element of $P$ on the $i$th row and $j$th column.
+We require that $\sum_{j=1}^M P_{i j} \in [0, 1]$ for each row $i$. 
 
 \begin{exercise}
-Why do we require that $\sum_{j=1}^M P_{i j} \in [0, 1]$ for each row $i$? What is the interpretation when $1-\sum_{i=1}^M P_{i j}$? 
+  Why do we require this?
+  What is the interpretation of $P_{i 0} = 1-\sum_{i=1}^M P_{i j}$? What does it mean when $P_{i 0 } > 0$?
 \begin{solution}
   A job leaving station $i$ has to go somewhere, either to another station or perhaps to station $i$ again, or it leaves the network altogether.
   When the summation is less than~$1$, jobs are allowed to leave the network.
-  As $\sum_{i=1}^MP_{i j}$ is the probability to be sent to some station in the network, $1$ minus this sum is the probability to leave the network.
+  As $\sum_{i=1}^MP_{i j}$ is the probability to be sent to some station in the network, $P_{i 0} $ is the probability a job leaves the network.
+  When $P_{i 0} > 0$, jobs do leave from station~$i$.
 \end{solution}
 \end{exercise}
 
-We can now use the results of~\cref{ex:1} that says that when a Poisson process with rate $\lambda_i$ is split into sub-processes with Bernoulli random variables $P_{i j}$, these sub-processes are again Poisson processes with rate $\lambda_i P_{i j}$.
-Moreover, by~\cref{ex:l-103}, merging Poisson processes results again in a Poisson process with the combined rate of the individual processes.
-Now consider a single station, $i$ say, and assume that jobs arrive as a Poisson process with rate $\lambda_i$ and the service times are exponentially distributed with mean $\E{S_i}$.
-Then, by the previous section, its departure process departure process is also Poisson with rate $\lambda_i$.
-The jobs are sent with probability $P_{i j}$ to station~$j$, independent of anything else.
-Hence, these jobs arrive as a Poisson process with rate $\lambda_i P_{i j}$ at station~$j$.
-Extending this reasoning to all other stations, and merging all these Poisson processes into a new Poisson process, it follows that these jobs arrive at station~$j$ as a Poisson with rate $\sum_{i=1}^M \lambda_i P_{i j}$.
-Finally, assuming that new jobs arrive at station~$j$ as a Poisson process with rate~$\gamma_j$, we can merge these new jobs with the jobs that depart from the other stations.
-With this, we conclude that the arrival process of station~$j$ is Poisson with rate $\gamma_j + \sum_{i=1}^M \lambda_i P_{i j}$.
-But then, since jobs arrive at station~$j$ as a Poisson process and service times are exponential, the departure process is again Poisson, and so on.
-Thus, it is intuitively clear that we can model this network as a set of $M/M/1$ queues. 
 
-
-The remark above Zijm.Eq.2.11 is not entirely correct. Remove the
-sentence: `These visit ratios satisfy \ldots up to a multiplicative
-constant'.
-
-
-I don't like the derivation of Zijm.Eq.2.20. The appearance of the
-visit ratios $\lambda_i/\gamma$ seems to come out of thin air. The
-argument should be like this. Consider the entire queueing network as
-one `box' in which jobs enter at rate $\gamma=\sum_{i=1}^M
-\gamma_i$.
-Assuming that there is sufficient capacity at each station, i.e.,
-$\lambda_i < c_i \mu_i$ at each station $i$, the output rate of the `box' must also be $\gamma$. Thus, by applying Little's law to the `box', we have that 
+Consider station $i$, say, and assume that jobs arrive as a Poisson process with rate $\lambda_i$.
+Since service times are exponentially distributed, it follows from the previous section that the departure process is also Poisson with rate $\lambda_i$.
+Then, after departure, jobs are sent with probability $P_{i j}$ to station~$j$, independent of anything else.
+But then we can use~\cref{ex:1} to conclude that the jobs sent to station~$j$ form a Poisson processes with rate $\lambda_i P_{i j}$.
+Now take the perspective of some station~$j$.
+Suppose this station receives such thinned Poisson `streams' from all other stations.
+Then observe that, by~\cref{ex:l-103}, this merged process is also a Poisson process with the combined rate of the individual `streams'.
+Assuming that new jobs arrive at station~$j$ as a Poisson process with rate~$\gamma_j$, we can merge this process with the departure processes of the other stations to obtain the total arrival process at station~$j$, and this must again be Poisson and has rate
 \begin{equation*}
- \E L = \gamma \E W. 
+\gamma_j + \sum_{i=1}^M \lambda_i P_{i j}.
 \end{equation*}
-It is also evident that the average total number of jobs must be equal
-to the sum of the average number of jobs at each station: 
+Finally, since jobs arrive at station~$j$ as a Poisson process, and service times are exponential, the departure process of this station is also Poisson, and so on for all the stations in the network.
+Thus, it is intuitively clear that we can model this network as a set of $M/M/1$ queues; below we will give a formal proof of this fact for two stations.
+Note that we allow for external jobs arriving at any station.
+Therefore this network is \recall{open}.
+This differs from so-called \emph{emph} closed networks; in such networks jobs do not enter or leave.
+
+It is evident that, when the network is stable (so that queues do not keep on increasing over time), all jobs that enter the network must eventually leave.
+This insight leads us to the \recall{traffic (rate) equations}, which state that for all stations $i$, 
+\begin{equation}
+  \label{eq:101}
+  \lambda_i = \gamma_i + \sum_{j=1}^M \lambda_j P_{j i}, \quad i = 1, \ldots, M,
+\end{equation}
+where the left-hand side represents the rate at which jobs depart and the right-hand side the rate at which jobs arrive. 
+
+Let us for the moment assume that we can solve the traffic equations, in other words, we can find a set of numbers $\lambda =(\lambda_1, \ldots, \lambda_M)$ such that \cref{eq:101} is satisfied for given $\gamma =(\gamma_1, \ldots, \gamma_M)$ and routing matrix~$P$, cf.
+\cref{sec:lambda-=-gamma}.
+Then, we can define the load at station $i$ as $\rho_i = \lambda_i \E{S_i}$.
+Clearly, we assume that $\rho_i < 1$ for all stations~$i$.
+Moreover, station~$i$ being an $M/M/1$ queue, it follows that the sojourn time is $\E{W_i} = \E{S_i}/(1-\rho_i)$.
+Write $|\gamma|= \sum_{i=1}^M \gamma_i$ as the total external arrival rate.
+Then, using that the average total number of jobs is equal to the sum of the average number of jobs at each station, it must follow that
 \begin{equation*}
  \E L = \sum_{i=1}^M \E{L_i}.
 \end{equation*}
-Applying Little's law to each station separately we get that
-$\E{L_i} = \lambda_i\E{W_i}$. Filling this into the above,
+Then with an application of Little's law to the network as a whole and to each station individually, we get
 \begin{equation*}
-\E W = \frac{\E L}{\gamma} = \sum_{i=1}^M \frac{\E{L_i}}\gamma = \sum_{i=1}^M \frac{\lambda_i \E{ W_i}}\gamma, 
+  |\gamma| \E W = \E L = \sum_{i=1}^M \E{L_i} = \sum_{i=1}^M \lambda_i \E{W_i}. 
 \end{equation*}
-where we recognize the visit ratios.
+As a last step, by dividing by $|\gamma|$, we can express the average sojourn time in the network in terms of the \emph{visiting ratios} $\lambda_i/|\gamma|$ as
+\begin{equation*}
+ \E W = \sum_{i=1}^M \frac{\lambda_i}{|\gamma|} \E{W_i}. 
+\end{equation*}
 
-
-\begin{exercise}[Linear algebra refresher]\clabel{ex:l-186} 
-Can you find an example to
- show for two matrices $A$ and $B$ that $AB\neq BA$, hence
- $x A \neq A x$.
+\begin{exercise}
+  Provide an interpretation for the above expression.
 \begin{hint}
- Let 
- \begin{equation*}
-A =
- \begin{pmatrix}
- 1 & 1 \\ 
-0&1
- \end{pmatrix},
-\quad B=
- \begin{pmatrix}
- 1 & 0 \\ 
-1&1
- \end{pmatrix}.
- \end{equation*}
+    What  is the intuition behind the visit ratios?
 \end{hint}
-
 \begin{solution}
- \begin{equation*}
- AB = 
- \begin{pmatrix}
- 2 & 1 \\ 
-1&1
- \end{pmatrix} 
-\neq
- \begin{pmatrix}
- 1 & 1 \\ 
-1&2
- \end{pmatrix} 
-= BA.
- \end{equation*}
-
-Take $x=(1,1)$, then $x A=(1,2)$. Now, taking $x=
-\begin{pmatrix}
- 1 \\
-1
-\end{pmatrix}
-$, we get $Ax = 
-\begin{pmatrix}
- 2 \\
-1
-\end{pmatrix}. $
-Recall, horizontal vectors are not vertical vectors. The horizontal
-ones are to the left of a matrix, and the vertical ones to the right.
+  The visit ratio $\lambda_i/|\gamma|$ tells how often station $i$ is visited relative to the total number of arrivals.
+  Thus, $\lambda_i\|\gamma| \E{W_i}$ is the amount of time an `average' job spends at station~$i$ before leaving.
 \end{solution}
 \end{exercise}
-
-\begin{exercise}[Linear algebra refresher 2]\clabel{ex:l-187}
- Suppose the matrix $A$
- has an eigenvalue $0$. What is the geometric meaning of this fact? 
-\begin{solution}
- Many students think that a matrix is just a bunch of numbers ordered in a grid.
- This is, in my opinion, the most unproductive way to think about matrices.
- A much more useful way is to see a matrix as an \emph{operator}.
- For instance, take $A$ to be a $3\times3$ matrix.
- Then it can be seen as a \emph{mapping} from $\R^3$ to $\R^3$; it takes a vector $x\in\R^3$ and changes $x$ into a new vector $Ax\in \R^3$.
- Thus, a square matrix $A$ typically changes the length and direction of a vector $x$.
-
- The next example is meant to illustrate what happens when a matrix has an eigenvalue 0. Consider the simple example with
- \begin{equation*}
-A =
- \begin{pmatrix}
- 1 & 0 & 0 \\ 
- 0 & 1 & 0 \\ 
- 0 & 0 & 0 \\ 
- \end{pmatrix}.
- \end{equation*}
-Clearly, $A$ has an eigenvalue $0$. Now take $v=(x,y,z)$, so that
- \begin{equation*}
-A v = A
- \begin{pmatrix}
-x\\
-y\\
-z
- \end{pmatrix}
-= \begin{pmatrix}
-x\\
-y\\
-0
- \end{pmatrix}.
- \end{equation*}
- We see that $A$ removes any information about the $z$-direction from the vector $v$.
- (It projects $v$ on the $x-y$ plane, and throws away the $z$ component of $v$.)
- But then, for a given vector $w=(x,y,0)$ in the $x-y$ plane, it is impossible to use $A$ to retrieve the original vector $v=(x,y,z)$.
- Thus, $A$ cannot have an inverse on all of $\R^3$.
-
- So, hopefully, with this example, you can memorize that for any matrix $A$ to have an inverse, it is essential that it has no zero eigenvalues.
- When the \emph{operator} $A$ (don't think of a matrix as a set of numbers) throws away part of the dimension of the space on which it operates (i.e., it has one or more eigenvalue(s) $0$), it is impossible to retrieve the part of the space it throws away.
- Hence, its inverse cannot be used to get this part of the space back.
-
-\end{solution}
-
-
-\end{exercise}
-
-
-\begin{exercise}\clabel{ex:l-188}
-Zijm.Ex.2.2.1
-\begin{solution}
-Jobs arrive at rate $\lambda$. We always require rate-stability, i.e., $\lambda<\mu_1$. Thus, (unless jobs are created at the server (which is not the case)), the departure rate from station 1 must be $\lambda$. When there are jobs present at station 1, they leave at rate $\mu_1$. (Note that when there are no jobs at the station, there are no departures.) Likewise, the departure rate of station 2 is $\lambda$. 
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:l-189}
-Zijm.Ex.2.2.2
-\begin{solution}
- Observe from~\cref{ex:dep} that the inter-departure times of the $M/M/1$ queue are also independent and identically exponentially distributed with rate $\lambda$.
- Since the arrival process at the second station is the departure process of the first station, it must be that the arrival process at the second station is also Poisson with rate $\lambda$.
- Interestingly, from the perspective of the second station it is as if there is no first station.
-\end{solution}
-\end{exercise}
-
-
-
-\begin{exercise}\clabel{ex:l-190}
-Zijm.Ex.2.2.3 
-\begin{solution}
- The question is not well specified. We know from Burke's law, see~\cref{ex:burke}, that
- the arrival \emph{process} at the second station is Poisson. If,
- however, we know that station 1 is empty, then it is unlikely that a
- job will arrive at station 2 in the very near future.
-
- Note that only the steady-state distributions of the queue lengths
- are independent. Once you have information about the state of one of
- the queues, then certainly this is not in `steady-state'.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:l-191}
-Zijm.Ex.2.2.4
-\begin{solution}
- Simple algebra. (I am not going to write it out here. If you are
- willing to provide me the answer in \LaTeX\/ I'll include it.)
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:93}
- Zijm.Ex.2.2.5. The problem is not entirely correctly formulated. It
- should be, if for at least one $i$, $\sum_{j=1}^M P_{i j} <1$ \ldots
-\begin{solution}
-Linear algebra is quite useful here!
-
-Observe that $P_{i j}$ is the probability that a job, after completing its service at node $i$, moves to node $j$.
-Then $\sum_{j=1}^M P_{i j}$ is the probability that a job moves from node $i$ to another node in the network, i.e., stays in the network, while $P_{i0}$ is the probability that a job leaving node $i$ departs the network, in other words, the job is finished.
-When $\sum_{j=1}^M P_{i j} < 1$, then more jobs enter node $i$ from the network than that node $i$ sends `back' into the network.
-Conceptually, node $i$ `leaks jobs'.
-
-Now, consider some node $k$ such that $P_{ki} > 0$, then the probability that a job that starts at node $k$, moves to node $i$ and then leaves the network is equal to $P_{ki}P_{i0}$.
-Thus, since $P_{ki}>0$ and $P_{i0}>0$, the probability that a job leaves the network from node $k$ in two steps is positive.
-More specifically, $P^2_{k0} = \sum_{j=0}^M P_{kj}P_{j0} \geq P_{ki}P_{i0} > 0$.
-
-The irreducibility assumption implies that in at most $M$ steps it is possible to reach, with positive probability, any node from any other node in the network.
-Thus, for any node $j$ to any other node $k$ there is a sequence of nodes $j_1, j_2, \ldots , j_{M-1}$ such that $P^{M}_{jk} \geq P_{j j_1}P_{j_1 j_2}\cdots P_{j_{M-1}k} > 0$.
-
-
-Thus, if there is a node $i$ such that $P_{i0}>0$, then it is possible from any node that sends jobs to node $i$ directly to leave the network in two steps.
-Likewise, when node $i$ can be reached from node $k$ in $n$ steps, say, then $P^{n+1}_{k0} \geq P^n_{ki}P_{i0} > 0$, i.e., in at most $n+1$ steps it is possible to leave the network from such node $k$.
-This implies, in particular, that for all nodes $k=1,2,\ldots, M$, i.e., all nodes in the network, $P^{M+1}_{k0} >0$.
-For this reason we consider $P^{M+1}$ in the hint.
-
-
-As a final remark for students with knowledge of Markov chains, observe that the routing matrix $P$ does not correspond to the transition matrix of a recurrent Markov chain.
-Since for at least one row $i$, $\sum_{j=1}^N P_{i j}<1$, the matrix $P$ is sub-stochastic.
-Hence, a Markov chain induced by $P$ cannot be irreducible, because for this to happen, the chain must stay in some absorbing set with probability 1.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:20}
-Zijm.Ex.2.2.6
-\begin{solution}
- Since $M$ is finite, and $k\leq M$, the set of numbers $P^{M+1}_{k0}$ is finite.
- This, together with the fact that $P^{M+1}_{k0}>0$ for all $k$, implies that there is some number $\epsilon>0$ such that $P^{M+1}_{k0}>\epsilon$.
- Hence, for all entries $k=1, 2, \ldots, M$, we have that $P^{M+1}_{kj} < 1- \epsilon$.
- This, in turn, implies that $P^{2(M+1)}_{kj} < (1- \epsilon)^2$, and so on, so that for any $n$, $P^{n(M+1)}_{kj} < (1- \epsilon)^n$.
- This implies, in more general terms, that the entries of $P^n$ decrease geometrically fast to $0$.
-
- It is well known that for any bounded sequence $x_i$ and $0\leq \alpha < 1$, $ \sum_{i=0}^\infty x_i \alpha^i < \infty$.
- By applying this insight to the entries of $P^n$ it follows that $\sum_{n=0}^\infty P^n_{jk} < \infty$.
-
-Finally, applying $\lambda = \gamma + \lambda P$ recursively, we get
-\begin{equation*}
- \lambda = \gamma + \lambda P = \gamma + (\gamma + \lambda P)P = \gamma (1+P) + \lambda P^2 = \gamma(1+P+P^2) + \lambda P^3 \to \gamma \sum_{n=0}^\infty P^n.
-\end{equation*}
-By the above reasoning, this last sum is well defined and finite.
-(For math aficionados: the above argument is not necessarily valid for matrices $P$ that are infinite, since then $\inf\{P^{M}_{ik}\}$ need not be strictly positive.)
-
-Another interesting way to see all this is by making the simplifying assumption that $P$ is a diagonalizable matrix.
-(The argument can be generalized to include matrices reduced to Jordan normal form, but this gives optimal clutter, but does not change the line of reasoning in any fundamental way.)
-In that case, there exists an invertible matrix $V$ with the (left) eigenvectors of $P$ as its rows and a diagonal matrix $\Lambda$ with the eigenvalues on its diagonal such that
-\begin{equation*}
- V P = \Lambda V.
-\end{equation*}
-Hence, premultiplying with $V^{-1}$, 
-\begin{equation*}
- P = V^{-1}\Lambda V.
-\end{equation*}
-But then
-\begin{equation*}
-P^2 = V^{-1}\Lambda V \cdot V^{-1}\Lambda V= V^{-1}\Lambda^2 V,
-\end{equation*}
-and in general $P^n = V^{-1}\Lambda^n V$.
-If each eigenvalue $\lambda_i$ is such that its modulus $|\lambda_i| < 1$, then $\Lambda^n \to 0$ geometrically fast, hence $P^n\to 0$ geometrically fast, hence the sequence of partial sums $\sum_{n=0}^N P^n$ converges to a matrix with finite elements as $N\to\infty$.
-
-So, we are left with proving that the eigenvalues of $P$ must have modulus less than $1$.
-This fact follows from Gerschgorin's disk theorem, which I include for the interested student.
-Define the disk $B(a,r)=\{z\in \mathbb{C} | |z-a|\leq r\}$, i.e., the set of complex numbers such that the distance to the center $a\in \mathbb{C} $ is less than or equal to the radius $r$.
-With this, the Gerschgorin disks of a matrix are defined as $B(a_{ii}, \sum_{j\neq i} |a_{i j}|)$, i.e., disks with center at the diagonal elements $a_{ii}$ of $A$ and radius equal to the sum of the (modulus of the) elements of $A$ on the $i$th row except $a_{ii}$.
-Then Gerschgorin's theorem says that all eigenvalues of $A$ lie in the union of these disks, i.e., all eigenvalues $\lambda_i \in \bigcup_i B({a_{ii}, \sum_{j\neq i}|a_{i j}})$.
-
-Assume for notational simplicity that for each row $i$ of $P$ we have
-that $\sum_{j} a_{i j}<1$. (Otherwise apply the argument to $P^{M+1}$.)
-Then this implies for all $i$ that
-\begin{equation*}
- a_{ii} + \sum_{j\neq i} a_{i j} < 1. 
-\end{equation*}
-Since all elements of $P$ are non-negative, this also implies that
-\begin{equation*}
--1 < a_{ii} - \sum_{j\neq i} a_{i j} \leq a_{ii} + \sum_{j\neq i} a_{i j} < 1. 
-\end{equation*}
-With this and using that $a_{ii}$ is a real number (so that it lies on the real number axis) it follows that all elements in the disk $B(a_{ii}, \sum_{j\neq i} a_{i j})$ have modulus smaller than 1.
-As this applies to any row $i$, all disks lie strictly within the complex unit circle.
-But then, by Gerschgorin's theorem, all eigenvalues of $P$ also lie strictly in the unit circle, hence all eigenvalues have modulus smaller than 1.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:23}
- Show that Zijm.Eq.2.13 and 2.14 can be written as
- \begin{equation*}
- f_i(n_i) = \frac{1}{G(i)}\frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}}\left( \frac{\lambda_i}{\mu_i}\right)^{n_i}.
- \end{equation*}
-\begin{solution}
- Take $n_i<c_i$. Then
- $\Pi_{k=1}^{n_i} \min\{k, c_i\} = \Pi_{k=1}^{n_i} k = n_i!$, and
- $(c_i\rho_i)^{n_i} = (\lambda_i/\mu_i)^{n_i}.$ If $n_i\geq c_i$,
- then $\Pi_{k=1}^{n_i} \min\{k, c_i\} = c_i! c_i^{n_i-c_i}$, and
- $(c_i\rho_i)^{n_i} = (\lambda_i/\mu_i)^{n_i} c_i^{n_i}$.
-\end{solution}
-\end{exercise}
-
 
 \begin{exercise}\clabel{ex:47}
- We have a two-station single-server open network.
- Jobs enter the network at the first station with rate $\gamma$.
- A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2. At station 2 a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1. Compute $\lambda$. What happens if $\alpha\to 1$ or $\beta_1\to 0$? 
+We have a two-station single-server open network.
+Jobs enter the network at the first station with rate $\gamma$.
+A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2.
+At station 2 a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1.
+
+First, compute $\lambda$, then analyze what happens if $\alpha\to 1$ or $\beta_1\to 0$.
 \begin{solution}
  \begin{equation*}
  P = 
@@ -506,37 +286,19 @@ If $\beta_1=0$ no jobs are sent from node 2 to node 1.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\clabel{ex:l-194}
-Zijm.Ex.2.2.8
-\begin{solution}
- Yes, the network remains a Jackson network. By Burke's law, see~\cref{ex:burke}, the
- departure process of each node is Poisson. In one of the earlier
- questions we derived that splitting (also known as thinning) and
- merging Poisson streams again lead to Poisson streams. The
- departures from node $j$ to node $k$ forms a thinned Poisson
- stream. The external arrivals plus internal arrivals are merged into
- one Poisson stream, hence the arrivals at a station also form a Poisson stream.
-
- Observe that the exponentiality of the service times and external
- inter-arrival times and Burke's law are essential for the argument.
-\end{solution}
-\end{exercise}
-
-
 
 \paragraph{Stationary distributions}
 
-
-We can show that the stationary probability that the system contains $n=(n_1,n_2, \ldots, n_M)$ at stations $1,\ldots, M$ takes the form
+Above we derived expressions for the average waiting time in a network of $M/M/1$ queues.
+In fact, it is possible to obtain the much stronger result that the stationary probability that the system contains $n=(n_1,n_2, \ldots, n_M)$ at stations $1,\ldots, M$ takes the form
 \begin{equation*}
-  \P(N_1=n_1, \ldots, N_M=n_M) = p(n_1,\ldots,n_M) = \Pi_{i=1}^M (1-\rho_i)\rho_i^{n_i};
+  \P{N_1=n_1, \ldots, N_M=n_M} = p(n) = \Pi_{i=1}^M p(n_i) = \Pi_{i=1}^M (1-\rho_i)\rho_i^{n_i},
 \end{equation*}
-in other words, $p(n_1, \ldots, n_M)$ is the product of the probabilities $(1-\rho_i)\rho_i^{n_i}$ of all of the stations $i=1,\ldots,M$.
-But, this implies that the stationary distribution of the number of jobs at each station~$i$ is \emph{independent} of the state of the other stations.
-For notational ease, we will prove this for the case of two stations, and refer to the literature for a general proof of this fact.
-
-
-
+where $p(n_i)=(1-\rho_i)\rho_i^{n_i}$ is the stationary probability that station~$i$ contains $n_i$ jobs, compare~\cref{eq:23}.
+In words, $p(n)$ is equal to the product of the probabilities $p(n_i)$ of all of the stations $i=1,\ldots,M$.
+But, this implies that $p(n_i)$ is \emph{independent} of the state of the other stations.
+For notational ease, we will prove this for the case of two stations.
+The general result is known as the fact that Jackson networks, i.e., open networks of $M/M/c$ networks, have a product-form solution.
 
 
 
