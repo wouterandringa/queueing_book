@@ -66,32 +66,38 @@ In passing we use some interesting results of probability theory and the Poisson
 %\input{tex_files/process_batches.tex}
 \input{tex_files/tandem.tex}
 
+\chapter{Fundamental tools}
+\label{cha:fundamental-tools}
+
+For the mathematical analysis of queueing systems we need a few concepts that are fundamentally important and have a general interest beyond queueing.
+We start with developing sample-path constructions of queueing systems.
+We then define several performance measures that can be estimated from characteristics of the sample paths, possibly obtained by simulation.
+
+ and level-crossing arguments.
+
+
+\input{tex_files/ratestability.tex}
+\input{tex_files/empiricalperfmeasures.tex}
+\input{tex_files/renewal_reward.tex}
+\input{tex_files/levelcrossing.tex}
+\input{tex_files/pasta.tex}
+\input{tex_files/little.tex}
+\input{tex_files/figure_summaries.tex}
+
 \chapter{Analytical Models}
 \label{cha:analytical-models}
 
 In this chapter we focus on developing analytic models for various queueing systems in steady-state.
-In the analysis we use sample-path and level-crossing arguments to count how often certain events occur as a function of time.
-Then we define probabilities in terms of limits of fractions of these counting processes.
-Like this the performance measures can be explicitly computed for the statistical analysis of (simulations of) queueing systems.
-
-
 As a reminder, we keep the discussion in these notes mostly at an intuitive level, and refer to \cite{el-taha98:_sampl_path_analy_queuein_system} for proofs and further background.
 
-\input{tex_files/ratestability.tex}
-\input{tex_files/renewal_reward.tex}
-\input{tex_files/empiricalperfmeasures.tex}
-\input{tex_files/levelcrossing.tex}
 \input{tex_files/mm1.tex}
 \input{tex_files/mnmn1.tex}
-\input{tex_files/pasta.tex}
-\input{tex_files/little.tex}
 \input{tex_files/mxm1_pk.tex}
 \input{tex_files/mg1.tex}
 \input{tex_files/batcharrivals.tex}
 \input{tex_files/mg1distributionqueuelength.tex}
 % \input{tex_files/relationmxm1andmg1.tex}
 %\input{tex_files/mg1density.tex}
-\input{tex_files/figure_summaries.tex}
 
 
 \chapter{Queueing Control and Open Networks}

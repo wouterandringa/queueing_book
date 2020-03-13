@@ -9,38 +9,34 @@
 \Opensolutionfile{ans}
 }
 
-If the arrival and service processes are such that the queueing system is rate-stable, we can sensibly define other performance measures such as the average waiting time.
-In this section, we define the second most important performance measures; recall that the most important is the utilization $\rho$.
-At the end we provide an overview of the relations between these performance measures in~\cref{fig:constructiongg1}.
+In the previous section we used the arrival, service and departure processes to define the arrival, service and departure rates.
+We can also use these processes to construct a single-server queueing process, cf.~\cref{sec:constr-gg1-queu}, and, once we have the queueing process, we can compute the waiting time process $\{W_{Q,k}\}$, the sojourn time process $\{W_{Q,k}\}$, and the process $\{L(t)\}$ corresponding to the number of the jobs in the system.
+Finally, if the queueing system is rate-stable, we can sensibly define a number of performance measures such as the average waiting time.
+This we do here and refer to \cref{fig:constructiongg1} for an overview of the relations between these performance measures.
 
-
-With the construction of queueing processes in~\cref{sec:constr-gg1-queu} we can compute the waiting time as observed by the first $n$, say, jobs.
-%Thus, the average waiting time of the first $n$ arrivals is given by $n^{-1}\sum_{k=1}^n W_k$.
-We therefore define the \recall{expected waiting time} as
+With $\{W_k\}$ and $\{W_{Q,k}$, define the \recall{expected sojourn time} as
 \begin{equation}\label{eq:49}
  \E W = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n W_k,
 \end{equation}
-and the expected time in queue as
+and the expected waiting time, or time in queue, as
 \begin{equation}\label{eq:50}
  \E{W_Q} = \lim_{n\to\infty} \frac 1 n\sum_{k=1}^n W_{Q,k}.
 \end{equation}
-Note that these performance measures are limits of \emph{empirical} measures.
-Note also that these statistics are as \emph{observed by arriving jobs}: the first job has a waiting time $W_1$ at its arrival epoch, the second a waiting time $W_2$, and so on.
-For this reason, we colloquially say that $\E W$ is the average waiting time as `seen by arrivals'.
-The \emph{distribution of the waiting times at arrival times} can be found by counting:
+Note that these performance measures are limits of \emph{empirical} measures and are obtained at statistics \emph{observed by arriving jobs}: the first job has a sojourn time $W_1$ when it arrives, the second a sojourn time $W_2$, and so on.
+For this reason, we colloquially say that $\E W$ is the average sojourn time as `seen by arrivals'.
+The \emph{distribution of the sojourn times} seen by arrivals can be found by counting:
 \begin{equation}\label{eq:48}
  \P{W \leq x} = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
 \end{equation}
-Finally, the (sample) \recall{average number of jobs} in the system as seen by arrivals is given by
+The (sample) \recall{average number of jobs} in the system as seen by arrivals is given by
 \begin{equation}\label{eq:EQ}
 \E L = \lim_{n\to\infty}\frac 1 n \sum_{k=1}^n L(A_k-),
 \end{equation}
-where $L(A_k-)$ is the number of jobs in the system at the arrival epoch of the $k$th job.
-The \emph{distribution of $\{L(t)\}$ as seen by customers upon arrival}, is
+since $L(A_k-)$ is the number of jobs in the system at the arrival epoch of the $k$th job.
+Finally, the \emph{distribution of $\{L(t)\}$} as seen by arrivals, is given by
 \begin{equation}\label{eq:Qm}
 \P{L\leq m} = \lim_{n\to\infty} \frac 1 n \sum_{k=1}^n \1{L(A_k-) \leq m}.
 \end{equation}
-We call $\P{L > m}$ the \recall{excess probability}.
 
 
 
@@ -68,7 +64,7 @@ Again, this probability need not be the same as what customers see upon arrival.
 
 
 \begin{exercise}\clabel{ex:l-165}
-Design a queueing system to show that the average number of jobs in the system as seen by the server can be very different from what the customers see.
+Design a queueing system to show that the average number of jobs in the system as seen by the server can be very different from what the customers see upon arrival.
 \begin{hint}
 Consider a queueing system with constant service and inter-arrival times.
 \end{hint}

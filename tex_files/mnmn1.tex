@@ -12,7 +12,8 @@
 
 As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level-crossing equations~\cref{eq:25}.
 For these queueing systems, we just present the results.
-In the exercises we ask you to derive the formulas---the main challenge is not to make computational errors.
+In first set of exercises are somewhat technical; we ask you to derive the formulas---the main challenge is not to make computational errors.
+The second set of exercises shows how the combination of PASTA and Little's law allows us to analyze an astonishingly large number of non-trivial practical queueing situations.
 
 It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may depend on the number of jobs in the system. Specifically, we require that for all $s$ and $t$,
 \begin{equation*}
@@ -574,6 +575,787 @@ To relate these two `views', i.e., time-average versus observer-average, we need
 
 
 
+
+% The problems below illustrate how to use Little's law and PASTA to analyze numerous queueing situations\footnote{When a problem is mainly of a computational type, I coded the solutions and show you all the steps in between so that you can check each step in your computations.
+% As the code is typically nearly identical to the mathematical formulas, you should not have any difficulty understanding the code.
+% (In the computations below I typically use the simplest, but often not the most efficient, code.)}.
+
+\begin{extra}[Hall 5.2] \label{exer: Hall} 
+After observing a single-server queue for several days, the following steady-state probabilities have been determined: $p(0)=0.4$, $p(1) = 0.3$, $p(2)=0.2$, $p(3)=0.05$ and $p(4)=0.05$.
+ The arrival rate is 10 customers per hour.
+ \begin{enumerate}
+ \item Determine $\E L$ and $\E{L_Q}$. 
+ \item Using Little's formula, determine $\E W$ and $\E{W_Q}$.
+\item Determine $\V{L}$ and $\V{L_Q}$.
+\item Determine the service time and the utilization.
+ \end{enumerate}
+\begin{solution} First find $\E L$
+
+
+\begin{pyconsole}
+P = [0.4, 0.3, 0.2, 0.05, 0.05]
+EL = sum(n*P[n] for n in range(len(P)))
+EL
+\end{pyconsole}
+
+There can only be a queue when a job is in service. Since there is
+$m=1$ server, we subtract $m$ from the amount of jobs in the system.
+Before we do this, we need to ensure that $n-m$ does not become
+negative. Thus, $\E{L_Q} = \sum_n \max\{n-m, 0\} p(n)$.
+
+\begin{pyconsole}
+m = 1
+ELq = sum(max(n-m,0)*P[n] for n in range(len(P)))
+ELq
+\end{pyconsole}
+
+
+\begin{pyconsole}
+labda = 10./60
+Wq = ELq/labda # in minutes
+Wq
+Wq/60 # in hours
+
+W = EL/labda # in minutes
+W
+W/60 # in hours
+\end{pyconsole}
+
+Let's use the standard definition of the variance, i.e., $\V X = \sum_{i} (x_i-\E X)^2 \P{X=x_i}$, for once.
+
+\begin{pyconsole}
+from math import sqrt
+var_L = sum((n-EL)**2*P[n] for n in range(len(P)))
+var_L
+sqrt(var_L)
+\end{pyconsole}
+
+
+\begin{pyconsole}
+var_Lq = sum((max(n-m,0)-ELq)**2*P[n] for n in range(len(P)))
+var_Lq
+sqrt(var_Lq)
+\end{pyconsole}
+
+
+\begin{pyconsole}
+mu = 1./(W-Wq)
+1./mu # in minutes
+
+rho = labda/mu
+rho
+\end{pyconsole}
+
+\begin{pyconsole}
+rho = EL-ELq
+rho
+\end{pyconsole}
+This checks with the previous line.
+
+The utilization must also by equal to the fraction of time the server is busy. 
+\begin{pyconsole}
+u = 1 - P[0]
+u
+\end{pyconsole}
+
+Yet another way: Suppose we have $m$ servers. If the system is empty,
+all $m$ servers are idle. If the system contains one customer, $m-1$
+servers are idle. Therefore, in general, the average fraction of time
+the server is idle is
+\begin{equation*}
+1- u = \sum_{n=0}^\infty \max\{n-m, 0\} p_n,
+\end{equation*}
+as in the case there are more than $m$ customers in the system, the
+number of idle servers is $0$.
+
+
+\begin{pyconsole}
+idle = sum( max(m-n,0)*P[n] for n in range(len(P)))
+idle
+\end{pyconsole}
+
+\end{solution}
+ 
+\end{extra}
+
+
+
+\begin{extra}
+ (Hall 5.7) A single-server queueing system is known to have Poisson
+ arrivals and exponential service times. However, the arrival rate
+ and service time are state dependent. As the queue becomes longer,
+ servers work faster, and the arrival rate declines, yielding the
+ following functions (all in units of number per hour):
+ $\lambda(0) = 5$, $\lambda(1)=3$, $\lambda(2)=2$,
+ $\lambda(n)=0, n\geq 3$, $\mu(0) = 0$, $\mu(1)=2$, $\mu(2)=3$, $\mu(n)=4, n\geq 3$. 
+ Calculate the state probabilities, i.e., $p(n)$ for $n=0,\ldots$
+
+ Why  $p(n) \neq (1-\rho)\rho^n$?
+\begin{hint}
+Use the level-crossing equations of the $M(n)/M(n)/1$ queue. 
+\end{hint}
+\begin{solution}
+  Note that state $4$ cannot be accessed, because $\lambda(n)=0$ for $n\geq 3$, in particular $\lambda(3)=0$, so there are no arrivals when the system contains $n=3$ jobs.
+
+\begin{pyconsole}
+labda = [5, 3, 2, 0, 0]
+mu = [0, 2, 3, 4, 4]
+
+p = [1, 0, 0, 0]
+
+p[1] = labda[0] * p[0] / mu[1]
+p[2] = labda[1] * p[1] / mu[2]
+p[3] = labda[2] * p[2] / mu[3]
+
+print(p)
+
+norm = sum(p)
+p = [x / norm for x in p]
+print(p)
+\end{pyconsole}
+
+
+$p(n) \neq (1-\rho)\rho^n$ because the arrival rate is not the same in all states, neither is the service rate.
+
+
+\end{solution}
+\end{extra}
+
+\begin{extra}
+ (Hall 5.14) An airline phone reservation line has one server and a buffer for two customers.
+ The arrival rate is 6 customers per hour, and a service rate of just 5 customers per hour.
+ Arrivals are Poisson and service times are exponential.
+ Estimate $\E{L_Q}$ and the average number of customers served per hour.
+ Then, estimate $\E{L_Q}$ for a buffer of size~5.
+ What is the impact of the increased buffer size on the number of customers served per hour?
+\begin{hint}
+This is a queueing system with loss, in particular the $M/M/1/1+2$ queue.
+\end{hint}
+\begin{solution}
+First compute $\E{L_Q}$ for the case with a buffer for $2$ customers.
+
+\begin{pyconsole}
+labda = 6.
+mu = 5.
+rho = labda/mu
+c = 1
+b = 2
+\end{pyconsole} 
+
+Set $p(n) = \rho^n$ initially, and normalize later. Use the
+expressions for the $M(n)/M(n)/1$ queue. Observe that $\rho>1$. Since
+the size of the system is $c+b+1$ is finite, all formulas work for
+this case too.
+
+
+There are 4 states in total: $0,1,2,3$. (The reason to import \pyv{numpy} here and convert the lists to arrays is to fix the output precision to 3, otherwise we get long floats in the output.)
+
+\begin{pyconsole}
+import numpy as np
+np.set_printoptions(precision=3)
+
+P = np.array([rho**n for n in range(c+b+1)])
+P
+
+G = sum(P)
+G
+
+P /= G # normalize
+P
+\end{pyconsole} 
+
+\begin{pyconsole}
+L = sum(n*P[n] for n in range(len(P)))
+L
+
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+\end{pyconsole} 
+
+
+The number of jobs served per hour must be equal to the number of jobs
+accepted, i.e., not lost. The fraction of customers lost is equal to
+the fraction of customers that sees a full system.
+
+\begin{pyconsole}
+lost = labda*P[-1] # the last element of P
+lost
+
+accepted = labda*(1.-P[-1]) # rate at which jobs are accepted
+accepted
+\end{pyconsole} 
+
+Now increase the buffer $b$ to 5.
+
+\begin{pyconsole}
+b = 5
+P = np.array([rho**n for n in range(c+b+1)])
+P
+G = sum(P)
+G
+
+P /= G # normalize
+P
+
+L = sum(n*P[n] for n in range(len(P)))
+L
+
+accepted = labda*(1.-P[-1])
+accepted
+\end{pyconsole} 
+\end{solution}
+\end{extra}
+
+\begin{extra}[Hall 5.3] After observing a queue with two servers for several days, the following steady-state probabilities have been determined: $p(0)=0.4$, $p(1) = 0.3$, $p(2)=0.2$, $p(3)=0.05$ and $p(4)=0.05$.
+ The arrival rate is 10 customers per hour.
+ \begin{enumerate}
+ \item Determine $\E L$ and $\E{L_Q}$. 
+ \item Using Little's formula, determine $\E W$ and $\E{W_Q}$. 
+ \item Determine $\V L$ and $\V{L_Q}$.
+ \item Determine the service time and the utilization.
+ \end{enumerate}
+\begin{solution}
+ Determine $\E L$ and $\E{L_Q}$. 
+
+\begin{pyconsole}
+P = [0.4, 0.3, 0.2, 0.05, 0.05]
+
+c = 2
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+
+L= sum(n*P[n] for n in range(len(P)))
+L
+\end{pyconsole}
+
+ Using Little's formula, determine $\E W$ and $\E{W_Q}$. 
+\begin{pyconsole}
+labda = 10./60
+Wq = Lq/labda # in minutes
+Wq
+Wq/60 # in hours
+
+W = L/labda
+W
+\end{pyconsole} 
+
+ Determine $\V L$ and $\V{L_Q}$.
+\begin{pyconsole}
+from math import sqrt
+var_L = sum((n-L)**2*P[n] for n in range(len(P)))
+var_L
+sqrt(var_L)
+\end{pyconsole}
+
+\begin{pyconsole}
+var_Lq = sum((max(n-c,0)-Lq)**2*P[n] for n in range(len(P)))
+var_Lq
+\end{pyconsole}
+
+Determine the service time and the utilization.
+\begin{pyconsole}
+mu = 1./(W-Wq)
+1./mu # in minutes
+
+rho = labda/mu
+rho
+\end{pyconsole}
+
+\begin{pyconsole}
+rho = L-Lq
+rho
+\end{pyconsole}
+This checks the previous line.
+
+The utilization must also by equal to the fraction of time the server is busy. 
+\begin{pyconsole}
+u = 1 - P[0]
+u
+\end{pyconsole}
+\end{solution}
+\end{extra} 
+
+\begin{extra}[Hall 5.8] The queueing system at a fast-food stand behaves in a peculiar fashion.
+ When there is no one in the queue, people are reluctant to use the stand, fearing that the food is unsavory.
+ People are also reluctant to use the stand when the queue is long.
+ This yields the following arrival rates (in numbers per hour): $\lambda(0) = 10$, $\lambda(1)=15$, $\lambda(2)=15$, $\lambda(3)=10$, $\lambda(4)=5$, $\lambda(n)=0, n\geq 5$.
+ The stand has two servers, each of which can operate at 5 per hour.
+ Service times are exponential, and the arrival process is Poisson.
+ Calculate the steady state probabilities.
+ Next, what is the average arrival rate?
+ Finally, determine $\E L$, $\E{L_Q}$, $\E W$ and $\E{W_Q}$.
+\begin{solution}
+First the service rates.
+\begin{pyconsole}
+import numpy as np
+from math import factorial
+labda = [10., 15., 15., 10., 5.]
+c = 2
+mn = 2*np.ones(len(labda)+1, dtype=int) # number of active servers
+mn[0] = 0 # no service if system is empty
+mn[1] = 1 # one busy server if just one job present
+mu = 5*mn # service rate is 5 times no of active servers
+mu
+\end{pyconsole}
+
+Since there can be arrivals in states $0,\ldots, 4$, the system can contain $0$ to $5$ customers, i.e., $p(0),\ldots, p(5)$.
+
+Use the level-crossing result for the $M(n)/M(n)/1$ queue:
+
+\begin{pyconsole}
+P = [1]*(len(labda)+1)
+for i in range(1,len(P)):
+ P[i] = labda[i-1]/mu[i]*P[i-1]
+
+P = np.array(P) # unnormalized probabilities
+P
+\end{pyconsole}
+
+\begin{pyconsole}
+G = sum(P) # normalization constant
+G
+P /= G # normalize
+P 
+\end{pyconsole} 
+
+$\lambda = \sum_{n}\lambda(n) p(n)$.
+
+\begin{pyconsole}
+labdaBar = sum(labda[n]*P[n] for n in range(len(labda)))
+labdaBar
+\end{pyconsole}
+
+
+The average number in the system is: 
+
+\begin{pyconsole}
+Ls = sum(n*P[n] for n in range(len(P)))
+Ls
+\end{pyconsole}
+
+
+The average number in queue: 
+\begin{pyconsole}
+c = 2
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+\end{pyconsole} 
+
+And now the waiting times:
+
+\begin{pyconsole}
+Ws = Ls/labdaBar
+Ws # time in the system
+
+Wq = Lq/labdaBar
+Wq # time in queue
+\end{pyconsole} 
+
+\end{solution}
+\end{extra}
+
+\begin{exercise}[Hall 5.10]\clabel{ex:l-217} 
+A repair/maintenance facility would like to determine how many employees should be working in its tool crib.
+ The service time is exponential, with mean 4 minutes, and customers arrive by a Poisson process with rate 28 per hour.
+ The customers are actually maintenance workers at the facility, and are compensated at the same rate as the tool crib employees.
+ What is $\E W$ for $c=1, 2, 3$, or $4$ servers?
+ How many employees should work in the tool crib?
+\begin{hint}
+ Realize that we have to control the number of servers.
+ Hence, we are dealing with a multi-server queue, i.e., the $M/M/c$ queue.
+ Use~\cref{ex:7}.
+
+The remark that maintenance workers are compensated at the same rate
+as the tool crib workers confused me a bit at first. Some thought
+revealed that the consequence of this remark is that is it just as
+expensive to let the tool crib workers wait (to help maintenance
+workers) as to let the maintenance workers wait for tools. (Recall, in
+queueing systems always somebody has to wait, either the customer in queue or
+the server being idle. If it is very expensive to let customers wait, the number
+of servers must be high, whereas if servers are relatively expensive, customers have to do the waiting.)
+\end{hint}
+\begin{solution}
+
+ Would one server/person do? 
+\begin{pyconsole}
+labda = 28./60 # arrivals per minute
+ES = 4.
+labda*ES
+\end{pyconsole} 
+
+If $c=1$, the load $\rho=\lambda \E S/c >1$ is clearly undesirable for one server. We need at
+least two servers.
+
+It is not relevant to focus on the time in the system, as time
+ in service needs to be spent anyway. Hence, we focus on the waiting
+ time in queue.
+
+
+I just convert the formulas of~\cref{ex:7} to Python code. This saves
+me time during the computations.
+
+\begin{pyconsole}
+ 
+def WQ(c, labda, ES):
+ from math import factorial
+ rho = labda*ES/c
+ G = sum([(c*rho)**n/factorial(n) for n in range(c)])
+ G += (c*rho)**c/(1.-rho)/factorial(c)
+ Lq = (c*rho)**c/(factorial(c)*G) * rho/(1.-rho)**2
+ return Lq/labda # Wq, Little's law
+
+\end{pyconsole} 
+
+Considering the scenario with one server is superfluous as $\rho>1$ in
+that case.
+
+What is the waiting time for $c=2$ servers?
+
+\begin{pyconsole}
+WQ(2, 28./60, 4) # in minutes
+WQ(2, 28./60, 4)/60. # in hours
+\end{pyconsole}
+
+What is the waiting time for $c=3$ servers?
+
+\begin{pyconsole}
+WQ(3, 28./60, 4) # in minutes
+WQ(3, 28./60, 4)/60. # in hours
+\end{pyconsole}
+
+
+What is the waiting time for $c=4$ servers?
+
+\begin{pyconsole}
+WQ(4, 28./60, 4) # in minutes
+WQ(4, 28./60, 4)/60. # in hours
+\end{pyconsole} 
+
+In the next part of the question we will interpret these numbers.
+
+Since both types of workers cost the same amount of money per unit
+time, it is best to divide the amount of waiting/idleness equally over
+both types of workers. I am inclined to reason as follows. The
+average amount of waiting time done by the maintenance workers per
+hour is $\lambda \E{W_Q}$. To see this, note that maintenance workers arrive at rate $\lambda$, and each worker waits on average $\E{W_Q}$ minutes. Thus, worker time is wasted at rate $\lambda \E{W_Q}$. Interestingly, with Little's law, $\E{L_Q}=\lambda \E{W_Q}$, i.e., the rate at which workers waste capacity (i.e. waiting in queue) is $\E{L_Q}$. On the other hand, the rate of work capacity wasted by the tool crib employees being idle is $c-\lambda \E{S}$, as $\lambda \E S$ is the average number of servers busy, while $c$ crib servers are available.
+
+As both types of
+employees are equally expensive, we need to choose $c$ such that
+the number of maintenance workers waiting (i.e., being idle because they are waiting in queue), is equal to the number of crib workers being idle. In other words, we search for a $c$ such that $\E{L_Q} \approx c- \lambda \E S$ (where, of course, $\E{L_Q}$ depends on $c$).
+
+
+\begin{pyconsole}
+labda = 28./60
+ES = 4.
+c = 2
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+Now the maintenance employees wait more than the tool crib employees.
+
+\begin{pyconsole}
+c = 3
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+
+\begin{pyconsole}
+c = 4
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+
+Clearly, $c=3$ should do.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[Hall 5.22]\clabel{ex:95}
+ At a large hotel, taxi cabs arrive at a rate of 15 per hour, and parties of riders arrive at the rate of 12 per hour.
+ Whenever taxicabs are waiting, riders are served immediately upon arrival.
+ Whenever riders are waiting, taxicabs are loaded immediately upon arrival.
+ A maximum of three cabs can wait at a time (other cabs must go elsewhere).
+ \begin{enumerate}
+ \item Let $p_{ij}$ be the steady-state probability of there being $i$ parties of riders and $j$ taxicabs waiting at the hotel.
+ Write the state transition equation for the system.
+ \item Calculate the expected number of cabs waiting and the expected number of parties waiting.
+ \item Calculate the expected waiting time for cabs and the expected waiting time for parties. (For cabs, compute the average among those that do not go elsewhere.)
+ \item In words, what would be the impact of allowing four cabs to wait at a time?
+ \end{enumerate}
+\begin{solution}
+ Let $p_{ij}$ be the fraction of time that the system contains $i$ riders and $j$ taxi cabs.
+ 
+ I assume that all members of a party of riders can be served by a single cab (that is, the parties do not exceed the capacity of a cab and all members of a party have the same destination).
+ 
+ For clarity, write $\mu$ for the rate at which cabs arrive, and $\lambda$ for the arrival rate of parties of riders.
+ 
+ Then the transitions are as in the figure below.
+ 
+ Suppose first that there are $3$ taxi cabs.
+ 
+ When a group arrives (at rate $\lambda$), there is one taxi less, and so on, until there are no more taxis left.
+ 
+ Finally, if yet more groups arrive, they have to wait.
+ 
+ When a new taxi arrives, the number of groups is reduced by one, and so on, until there are $3$ taxis waiting and no groups of people.
+
+
+ \begin{center}
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+ semithick]
+ \node[state] (0) {$p(0,3)$} ;
+ \node[state] (1) [right of=0] {$p(0,2)$};
+ \node[state] (2) [right of=1] {$p(0,1)$};
+ \node[state] (3) [right of=2] {$p(0,0)$};
+ \node[state] (4) [right of=3] {$p(1,0)$};
+ \node[state] (5) [right of=4] {$p(2,0)$};
+ \node[state] (6) [right of=5] {$p(\cdot, 0)$};
+
+\path 
+ (0) edge [bend left] node {$\lambda$} (1)
+ (1) edge [bend left] node {$\mu$} (0)
+ (1) edge [bend left] node {$\lambda$} (2)
+ (2) edge [bend left] node {$\mu$} (1)
+ (2) edge [bend left] node {$\lambda$} (3)
+ (3) edge [bend left] node {$\mu$} (2)
+ (3) edge [bend left] node {$\lambda$} (4)
+ (4) edge [bend left] node {$\mu$} (3)
+ (4) edge [bend left] node {$\lambda$} (5)
+ (5) edge [bend left] node {$\mu$} (4)
+ (5) edge [bend left] node {$\lambda$} (6)
+ (6) edge [bend left] node {$\mu$} (5)
+;
+\end{tikzpicture}
+ 
+ \end{center}
+
+From this figure, we see that
+\begin{align*}
+\lambda p_{0,3} &= \mu p_{0,2} \\
+(\lambda+\mu) p_{0,2} &= \mu p_{0,1} + \lambda p_{0,3}\\
+(\lambda+\mu) p_{0,1} &= \mu p_{0,0} + \lambda p_{0,2}\\
+(\lambda+\mu) p_{0,0} &= \mu p_{1,0} + \lambda p_{0,1}\\
+(\lambda+\mu) p_{1,0} &= \mu p_{2,0} + \lambda p_{0,0}\\
+(\lambda+\mu) p_{2,0} &= \mu p_{3,0} + \lambda p_{1,0}\\
+\end{align*}
+and so on. Thus, it is left to compute $p_{ij}$. Observe from this
+scheme, or the above figure, that the situation with the taxis
+correspond to an $M/M/1$ queue, only the states have a `different
+name'. Let $q$ be the number of jobs in an M/M/1 queue. Some thought
+will reveal that the queueing system with cabs and parties can be
+mapped to an equivalent M/M/1 queueing system. In fact, consider the
+following table
+\begin{center}
+\begin{tabular}{ccc}
+$j$ & $i$ & $q$\\
+3& 0 & 0\\
+2 & 0& 1\\
+1 & 0& 2\\
+0& 0& 3\\
+0& 1& 4\\
+0& 2& 5\\
+\end{tabular}
+\end{center}
+and so on. Therefore, in general, it must be that 
+
+\begin{equation*}
+q = 3 - j +i.
+\end{equation*}
+From the M/M/1 queue we know right away that $p_q = \rho^q
+(1-\rho)$. With the above relation we can therefore immediately find
+that $p_{ij} = \rho^{3-j+i}(1-\rho)$, save that $i$ and
+$j$ must satisfy the constraints imposed by the model.
+
+Second, the expected number of cabs waiting must be 
+\begin{equation*}
+1p_{0,1} + 2 p_{0,2} + 3p_{0,3}
+\end{equation*}
+and the expected number of parties waiting must be $\sum_{j=1}^\infty j p_{j,0}$.
+
+\begin{pyconsole}
+labda = 12. # per hour
+mu = 15. # per hour
+rho = labda/mu
+
+def p(i,j):
+ q = 3 - j + i
+ return rho**q*(1.-rho)
+
+\end{pyconsole}
+Expected number of cabs waiting:
+\begin{pyconsole}
+Lc = sum(j*p(0,j) for j in range(0,4)) 
+# Recall this sums up to 4, not including 4
+Lc
+ 
+\end{pyconsole}
+
+
+To compute the expected number of parties waiting we formally have to
+sum to infinity. Rather than doing the algebra, I chose to truncate
+the summation at an $i$ such that $\rho^i \ll 1$, i.e.,
+negligible. Truncating at 30 seems reasonable enough:
+
+\begin{pyconsole}
+trunc = 30
+rho**trunc
+\end{pyconsole}
+
+At second thought this is not yet really small. 
+
+\begin{pyconsole}
+trunc = 50
+rho**trunc
+\end{pyconsole}
+
+
+This is better. Now go for what we want to know:
+
+\begin{pyconsole}
+Lp = sum(i*p(i,0) for i in range(trunc))
+Lp
+\end{pyconsole}
+
+For the last part: This is tricky. I first, naively, computed $W_q = L_c/\mu$. This
+seems to make sense, as cabs arrive at rate $\mu$, so that this
+expression follows from a standard application of Little's
+law. However, this is wrong, of course. When using Little's law to
+relate the number of jobs in queue (i.e., in the M/M/1 queue) and the
+queueing time we need to use $\lambda$, not
+$\mu$. Similarly (and more formally by the mapping developed in
+part a), for our cab system we also need to use $\lambda$.
+
+\begin{pyconsole}
+Wq = Lc/labda
+Wq
+\end{pyconsole}
+
+Thinking in templates is often useful, but makes one sloppy\ldots
+
+What would be the impact of allowing 4 cabs? Funny question, and with the above, trivial to answer.
+
+\begin{pyconsole}
+def p(i,j):
+ q = 4 - j + i
+ return rho**q*(1.-rho)
+ 
+\end{pyconsole}
+
+\begin{pyconsole}
+Lc = sum(j*p(0,j) for j in range(0,4))
+Lc
+
+Lp = sum(i*p(i,0) for i in range(trunc))
+Lp
+ 
+\end{pyconsole}
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}[Continuation of~\cref{ex:95}]
+Suppose cabs are not allowed to wait. What is the expected waiting time for a party of riders?
+
+\begin{solution}
+Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\E L$ of the $M/M/1$ queue. We can use Little's law to compute the waiting time.
+\end{solution}
+\end{extra}
+
+
+
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-218}
+ Did you have to use the PASTA property to solve ~\cref{ex:95}? If so, how did you use it? If not, why not?
+\begin{solution}
+ Actually, you don't have to use PASTA.
+ So why is that?
+ For instance, $\sum_{i=1}^3 i p(0, i)$ is the number of taxis waiting, and this is a time average (since we use $p(0, i)$).
+ In the proof of Little's law, it is also clear that the $\E L$ is a time average.
+ Also, in the proof of Little's law, we compute the waiting time as $\E W = \lim_{n\to\infty} n^{-1}\sum_{k=1}^n W_k$, where $W_k$ is the waiting time as perceived by the $k$th job.
+ Thus, here $\E W$ is the average as observed by jobs.
+
+ This was an old exam question.
+ Some students used the PK-formula, see~\cref{sec:mg1}, to compute the average waiting time.
+ The derivation of this \emph{does} depend on the PASTA property.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-219}
+ Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
+ Parties of riders have the same destination, so riders of different parties cannot be served by one taxi.
+ Provide a set of recursions to simulate this system.
+ (This is a real hard exercise, but doable.
+ I asked it at an exam to see who would deserve the highest grade.
+ I was lenient with the grading\ldots)
+
+\begin{hint}
+Realize that you have model the server process separately from the queueing process. 
+\end{hint}
+
+\begin{solution}
+ We concentrate on departure epochs of the taxis.
+ Thus the $k$th period is the time between the departure of taxi $k-1$ and taxi $k$.
+ During the $k$th epoch $a_k$ batches can arrive.
+
+ The system starts with $a_0$ batches in queue.
+
+ Suppose that the first batch contains 5 riders.
+ Then the first taxi takes 4 riders, and 1 rider of the batch remains.
+ This 1 rider will take the next taxi, and no riders of other groups can join because the riders of different parties have different destinations.
+ Once all riders of a party are served, the next party in line can move to the `server' and wait to be served.
+
+ The recursions are as follows; realize that the order in which you carry out these recursions is important. The meaning of each line is explained below the line. 
+\begin{align*}
+ d_s &=\min\{Q_s, 4\}, 
+ \intertext{the number of riders that can depart from the party of riders in service,} 
+ Q_s' &=Q_s - d_s, 
+ \intertext{the remaining of number riders of a party after being served by one taxi,} 
+ Q &=Q + a_k, 
+ \intertext{the number of parties in queue (not in the system) just after the arrival of the batches during the $k$th interdeparture time,} p
+ d_q &= \min\{Q, \1{Q_s' = 0}\}, 
+ \intertext{only move a party from the queue if `the server is free',} 
+ Q &= Q- d_q, 
+ \intertext{move the party from the queue to the server, if allowed,} 
+ Q_s &= Q_s'\1{Q_s'>0} + B_b\1{Q_s' = 0}, 
+ \intertext{if the server is not free, the number of riders is equal to $Q_s'$, otherwise send the $b$th batch to the server,} 
+ b &= b+ \1{Q_s'=0}, 
+ \intertext{if the server is free, move the index of the batch in service to the next batch to be served once the server becomes free again.}
+\end{align*}
+
+
+
+In the code $A_k$ corresponds to a list of batches arriving on the $k$th day, $B_i$ to the size of the $i$th batch, and $a_k$ to the number of batches arriving on the $k$th period.
+I used the \pyv{pysnooper} module to debug the code. It is quite hard to get it right.
+
+\begin{pyverbatim}
+A = [[5, 3, 4], [3], [6], [1, 1], [], [2], [], [], [3], []]
+
+a = [len(A[i]) for i in range(len(A))]
+
+B = [item for sublist in A for item in sublist]
+
+Qs = 0
+b = 0
+Q = 0
+
+for k in range(len(a)):
+ ds = min(Qs, 4)
+ Qs_p = Qs - ds
+ Q += a[k]
+ dq = min(Q, 1 * (Qs_p == 0))
+ Q -= dq
+ Qs = (Qs_p > 0) * Qs_p + (Qs_p == 0) * B[b]
+ b += Qs_p == 0
+ print(f"ds={ds}, Qs_p={Qs_p}, dq={dq}, Q={Q}, Qs={Qs}, b={b}")
+
+\end{pyverbatim}
+
+\end{solution}
+
+\end{exercise}
 
 
 \opt{solutionfiles}{

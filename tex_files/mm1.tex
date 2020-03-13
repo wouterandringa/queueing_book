@@ -261,6 +261,114 @@ Clearly, the probability that the queue length exceeds some threshold decreases 
 If we make the simple assumption that customers decide to leave (or rather, not join) the system when the queue is longer than $9$ say, then $\P{L\geq 10} = \rho^{10}$ is an estimator for the fraction of customers lost.
 
 
+\begin{extra}[Hall 5.6]
+ An $M/M/1$ queue has been found to have an average waiting time in queue of 1 minute. The arrival rate is known to be 5 customers per minute.
+ What are the service rate and utilization? Calculate $\E{L_Q}$, $\E L$ and $\E W$. Finally, 
+ the queue operator would like to provide chairs for waiting customers. He would like to have a sufficient number so that all customers can sit down at least 90 percent of the time. How many chairs should he provide?
+
+\begin{hint}
+$\E{L_Q}$ follows right away from an application of Little's law. For the other quantities we need to find $\E S$. One can use that 
+\begin{equation*}
+\E{W_Q}= \E L \E S = (\E{L_Q} + \E{L_S}) \E S = (\E{L_Q} + \lambda \E{S})\E{S}.
+\end{equation*}
+
+
+Now $\lambda$ and $\E{W_Q}=1$ are given, and $\E{L_Q}$ has just been computed. Hence, $\E{S}$ (which is the unknown here) can computed with the quadratic formula.
+
+Another way is to realize that, for the $M/M/1$-queue, $\E{W_Q} = \frac{1}{\lambda}\frac{\rho^2}{1-\rho}$. Then solve for $\rho$, and since $\lambda$ is known, $\E S$ follows. 
+\end{hint}
+\begin{solution}
+
+
+ $\E{W_Q} = \frac{1}{\lambda}\frac{\rho^2}{1-\rho}$. Since
+ $\E{W_Q}$ and $\lambda$ is given we can use this formula to
+ solve for $\rho$ with the quadratic formula (and using that
+ $\rho > 0$):
+
+\begin{pyconsole}
+labda = 5. # per minute
+Wq = 1.
+a = 1.
+b = labda*Wq
+c = -labda*Wq
+rho = (-b + sqrt(b*b-4*a*c))/(2*a)
+rho 
+
+ES = rho/labda
+ES
+\end{pyconsole} 
+
+
+\begin{pyconsole}
+Lq = labda*Wq
+Lq
+
+W = Wq + ES
+W
+
+L = labda*W
+L
+\end{pyconsole} 
+
+
+The next problem is to find $n$ such that
+ $\sum_{j=0}^n p_j > 0.9$.
+
+\begin{pyconsole} 
+total = 0. 
+j = 0
+while total <= 0.9:
+ total += (1-rho)*rho**j
+ j += 1
+
+total
+j
+n = j- 1 # the number of chairs 
+\end{pyconsole} 
+
+Observe that $j$ is one too high once the condition is satisfied, thus subtract one.
+
+As a check, I use that $(1-\rho) \sum_{j=0}^n \rho^j = 1-\rho^{n+1}$.
+
+\begin{pyconsole}
+1-rho**(n) # this must be too small.
+1-rho**(n+1) # this must be OK.
+\end{pyconsole} 
+
+And indeed, we found the right $n$.
+
+\end{solution}
+\end{extra}
+
+\begin{extra}
+ (Hall 5.5) An $M/M/1$ queue has an arrival rate of 100 per hour and a service rate of 140 per hour.
+ What is $p(n)$?
+ What are $\E{L_Q}$ and $\E L$?
+\begin{solution}
+First, $p(n) = (1-\rho)\rho^n$. Now,
+
+\begin{pyconsole}
+labda = 100. # per hour
+mu = 140. # per hour
+ES = 1./mu
+rho = labda/mu
+rho 
+1-rho
+
+L = rho/(1.-rho)
+L
+Lq = rho**2/(1.-rho)
+Lq
+
+W = 1./(1.-rho) * ES
+W
+Wq = rho/(1.-rho) * ES
+Wq
+\end{pyconsole}
+
+\end{solution}
+\end{extra}
+
 \paragraph{Supermarket Planning}
 
 Let us consider the example of cashier planning of a supermarket to
@@ -365,8 +473,6 @@ such that
 \end{equation*}
 for all hours $t$ the shop is open and $\lambda_t$ is the demand for
 hour $t$.
-
-
 
 
 

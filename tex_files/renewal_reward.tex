@@ -8,12 +8,11 @@
 }
 
 
-We start with stating and proving (graphically) the \recall{renewal reward theorem}.
-In the sequel, we will see many applications of this theorem.
-In this section, we use it to relate the fraction of time the server is busy in a $G/G/1$ queue to the job arrival rate and the expected job service time.
+We state the \recall{renewal reward theorem} and provide graphical motivation for its validity.
+This results proves to be extremely useful: we will apply it regularly in the sequel of the book, and here we use it to develop the concept of load.
 
 
-The renewal reward theorem is very useful and states intuitively that when customers arrive at rate $\lambda$ and each customer pays an average amount $X$, then the system earns money at rate $Y=\lambda X$.
+In essence the renewal reward theorem is very simple: it states that when customers arrive at rate $\lambda$ and each customer pays an average amount $X$, the system earns money at rate $Y=\lambda X$.
 \Cref{fig:renewal} provides graphical motivation about why this theorem is true; \citet{el-taha98:_sampl_path_analy_queuein_system} gives a (simple) proof.
 
 \begin{theorem}[Renewal Reward Theorem, $Y=\lambda X$]
@@ -83,6 +82,7 @@ node[pos=0.5, xshift=0.7cm] {$X_{k+1}$};
  \label{fig:renewal}
 \end{figure}
 
+Let us use this theorem to understand the idea of `load'.
 Define the \recall{load} or \recall{utilization} as the limiting fraction of time the server is busy, i.e.,
 \begin{equation*}
  \rho = \lim_{t\to\infty} \frac 1 t \int_0^t \1{L(s)>0} \d s.
