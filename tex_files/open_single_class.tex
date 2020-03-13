@@ -167,7 +167,7 @@ In particular, we assume that the probability that a job moves to station~$j$ af
 We assemble all these probabilities in a \emph{routing matrix} $P$ such that $P_{i j}$ is the element of $P$ on the $i$th row and $j$th column.
 We require that $\sum_{j=1}^M P_{i j} \in [0, 1]$ for each row $i$. 
 
-\begin{exercise}
+\begin{exercise}\clabel{ex:on:3}
   Why do we require this?
   What is the interpretation of $P_{i 0} = 1-\sum_{i=1}^M P_{i j}$? What does it mean when $P_{i 0 } > 0$?
 \begin{solution}
@@ -223,7 +223,7 @@ As a last step, by dividing by $|\gamma|$, we can express the average sojourn ti
  \E W = \sum_{i=1}^M \frac{\lambda_i}{|\gamma|} \E{W_i}. 
 \end{equation*}
 
-\begin{exercise}
+\begin{exercise}\label{ex:on-5}
   Provide an interpretation for the above expression.
 \begin{hint}
     What  is the intuition behind the visit ratios?
@@ -297,10 +297,68 @@ In fact, it is possible to obtain the much stronger result that the stationary p
 where $p(n_i)=(1-\rho_i)\rho_i^{n_i}$ is the stationary probability that station~$i$ contains $n_i$ jobs, compare~\cref{eq:23}.
 In words, $p(n)$ is equal to the product of the probabilities $p(n_i)$ of all of the stations $i=1,\ldots,M$.
 But, this implies that $p(n_i)$ is \emph{independent} of the state of the other stations.
-For notational ease, we will prove this for the case of two stations.
-The general result is known as the fact that Jackson networks, i.e., open networks of $M/M/c$ networks, have a product-form solution.
+For notational ease, we will prove this for the case of two stations in tandem.
+The general result is known as the fact that \recall{Jackson networks}, i.e., open networks of $M/M/c$ networks, admit a \recall{product-form solution}.
+Note that these probabilities are useful to estimate excess probabilities such as $\P{L_1> n_1, L_2>n_2}$. 
 
 
+Write $p(i,j)=\P{N_1=i, N_2=j}$ for the state of the two-station network to denote that station $1$ contains $i$ jobs and station $2$ contains $j$ jobs.
+We have to show that the probabilities $p(i,j)$ satisfy the balance equations for all $i, j\geq 0$.
+Recall that the balance equations express that, in steady state, the total (probability) rate out of a state must be equal to the (probability) rate into this state, cf.,~\cref{sec:level-cross-balance}.
+
+\begin{extra}
+  Provide the balance equation for state $(0,0)$ and check that this is satisfied by $p(0,0)$.
+\begin{hint}
+  Realize that an arrival is required to leave state $(0,0)$, and a departure at the second queue is necessary to enter state $(0,0)$.
+\end{hint}
+\begin{solution}
+  Since $p(i,j) = (1-\rho_1)(1-\rho_2)\rho_1^i \rho_2^j$, we drop the normalization factor in the checks to come.
+
+  The rate into state $(0,0)$ is $\mu_2 p(0,1) = \mu_2 \rho_2$. The rate out of state $(0,0)$ is $\lambda p(0,0) = \lambda$. Since $\rho_2=\lambda/\mu_2$, these two rates are the same.
+\end{solution}
+\end{extra}
+
+\begin{extra}
+  Provide the balance equations for  states $(i,0)$ with $i\geq 1$ and check that these are satisfied by $p(i,0)$. 
+\begin{solution} We show that the rate out is the rate in.
+  \begin{align*}
+    \text{rate out } &=(\lambda + \mu_1) p(i,0) = \mu_1 \rho_1^i + \lambda \rho_1^i \\
+                     &= \lambda \rho_1^{i-1} + \mu_2 \rho_1^i \rho_2 \\
+    &= \lambda p(i-1,0) + \mu_2 p(i, 1) = \text{ rate in}.
+  \end{align*}
+\end{solution}
+\end{extra}
+
+\begin{extra}
+  Provide the balance equations for states $(0,j)$ with $j\geq 1$ and check that these are satisfied by $p(0, j)$. 
+\begin{solution} We show that the rate out is the rate in.
+  \begin{align*}
+    \text{rate out } &=(\lambda + \mu_2) p(0, j) = \mu_2 \rho_2^j + \lambda \rho_2^j\\
+                     &= \mu_1\rho_1 \rho_2^{j-1} + \mu_2 \rho_2^{j+1} \\
+    &= \mu_1 p(1,j-1) + \mu_2 p(0, j+1) = \text{ rate in}.
+  \end{align*}
+\end{solution}
+\end{extra}
+
+\begin{extra}
+  Provide the balance equations for states $(i,j)$ with $i, j\geq 1$ and check that these are satisfied by $p(i, j)$. 
+\begin{solution} We show that the rate out is the rate in.
+  \begin{align*}
+    \text{rate out } &=(\lambda + \mu_1 + \mu_2) p(i, j) \\
+    &= \lambda  \rho_1^i \rho_2^j + \mu_1 \rho_1^{i} \rho_2^j + \mu_2 \rho_1^i\rho_2^j\\
+    &=\mu_2 \rho_1^{i} \rho_2^{j+1} + \lambda \rho_1^{i-1} \rho_2^j + \mu_1 \rho_1^{i+1}\rho_2^{j-1}\\
+                     &= \mu_2p(i, j+1) + \lambda p(i-1, j) + \mu_1 p(i+1, j-1)\\
+    &= \text{ rate in}.
+  \end{align*}
+\end{solution}
+\end{extra}
+
+\begin{exercise}\label{ex:on-4}
+  Provide the balance equations for states $(i,j)$ with $i, j\geq 0$ and check that these are satisfied by $p(i, j)$ for $i,j\geq 0$.
+\begin{solution}
+See the exercises above.  
+\end{solution}
+\end{exercise}
 
 
 
