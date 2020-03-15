@@ -2,6 +2,13 @@
 \label{sec:jackson-networks}
 
 
+Up to now our analysis focused on single-station queueing systems.
+In many practical situations, however, jobs in a factory or patients in a hospital have to undergo several process steps before they are `finished'.
+One of the simplest models to analyze such situations is to assume that jobs arrive as a Poisson processes, and the service times are exponentially distributed.
+We will see that it is possible to obtain closed-form expressions for the stationary distribution of jobs at each station.
+To establish this we will first concentrate on two stations in tandem, and then extend to general networks.
+We remark that in~\cref{sec:tandem-queues} we considered tandem networks of $G/G/c$ queues, but there we could only obtain insight in the expected times, not the full distribution of the number of jobs at each station.
+
 \subsection*{Theory and Exercises}
 
 \opt{solutionfiles}{
@@ -10,14 +17,8 @@
 }
 
 
-Up to now our analysis focused on single-station queueing systems.
-In many practical situations, however, jobs in a factory or patients in a hospital have to undergo several process steps before they are `finished'.
-One of the simplest models to analyze such situations is to assume that jobs arrive as a Poisson processes, and the service times are exponentially distributed.
-We will see that it is possible to obtain closed-form expressions for the stationary distribution of jobs at each station.
-To establish this we will first concentrate on two stations in tandem, and then extend to general networks.
-We remark that in~\cref{sec:tandem-queues} we considered tandem networks of $G/G/c$ queues, but there we could only obtain insight in the expected times, not the full distribution of the number of jobs at each station.
 
-\paragraph{Tandem Queues}
+\subsubsection{Tandem Queues}
 
 In~\cref{ex:burke} (and the intermediate exercises leading to that result) we (ask you to) prove that the inter-departure times of an $M/M/1$ queue are also exponentially distributed with rate $\lambda$.
 This is useful because when the first station is an $M/M/1$ queue, this implies that the arrival process at the second station is also an $M/M/1$ queue.
@@ -159,7 +160,7 @@ Assuming that  inter-departure times are independent,  prove \recall{Burke's law
 \end{exercise}
 
 
-\paragraph{Open Networks of $M/M/1$ queues}
+\subsubsection{Open Networks of $M/M/1$ queues}
 It is not difficult to extend the above result for tandem networks to general networks  of $M/M/1$ queues.
 For this, we first need to model such networks more formally.
 In particular, we assume that the probability that a job moves to station~$j$ after completing its service at station~$i$ is independent of anything else, and is given by the number $P_{i j}\in[0,1]$.
@@ -230,7 +231,7 @@ As a last step, by dividing by $|\gamma|$, we can express the average sojourn ti
 \end{hint}
 \begin{solution}
   The visit ratio $\lambda_i/|\gamma|$ tells how often station $i$ is visited relative to the total number of arrivals.
-  Thus, $\lambda_i\|\gamma| \E{W_i}$ is the amount of time an `average' job spends at station~$i$ before leaving.
+  Thus, $\lambda_i \E{W_i} /|\gamma|$ is the amount of time an `average' job spends at station~$i$ before leaving.
 \end{solution}
 \end{exercise}
 
@@ -287,7 +288,7 @@ If $\beta_1=0$ no jobs are sent from node 2 to node 1.
 \end{exercise}
 
 
-\paragraph{Stationary distributions}
+\subsubsection*{Stationary distributions}
 
 Above we derived expressions for the average waiting time in a network of $M/M/1$ queues.
 In fact, it is possible to obtain the much stronger result that the stationary probability that the system contains $n=(n_1,n_2, \ldots, n_M)$ at stations $1,\ldots, M$ takes the form

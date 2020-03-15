@@ -1,6 +1,12 @@
 \section{Rates and Rate Stability}
 \label{sec:rate-stability}
 
+In the analysis of any queueing process, the first step should be to check the relations between the arrival, service and departure rates.
+The concept of rate is crucial because it captures our intuition that when, in the long run, jobs arrive faster than they can leave, the system must `explode'.
+As we will see, when the arrival rate is smaller than the service rate, the system is stable.
+Thus, the first performance measure we need to estimate for a queueing system is the ratio between the arrival and service rate.
+In this section, we develop some concepts and notation to formalize these ideas.
+We will use these concepts throughout the remainder of the book.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -8,12 +14,6 @@
 \Opensolutionfile{ans}
 }
 
-In the analysis of any queueing process, the first step should be to check the relations between the arrival, service and departure rates.
-The concept of rate is crucial because it captures our intuition that when, in the long run, jobs arrive faster than they can leave, the system must `explode'.
-As we will see, when the arrival rate is smaller than the service rate, the system is stable.
-Thus, the first performance measure we need to estimate for a queueing system is the ratio between the arrival and service rate.
-In this section, we develop some concepts and notation to formalize these ideas.
-We will use these concepts throughout the remainder of the book.
 
 We first formalize the \emph{arrival rate} and \emph{departure rate} in terms of the \emph{counting processes} $\{A(t)\}$ and $\{D(t)\}$.
 The \recall{arrival rate} is the long-run average number of jobs that arrive per unit time, i.e.,

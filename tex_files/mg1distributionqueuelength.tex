@@ -3,17 +3,17 @@
 \label{sec:distr-queue-length}
 
 
+In~\cref{sec:batch-arrivals} we used level-crossing arguments to find a recursive method to compute the stationary distribution $p(n)$ of the number of items in an $M^X/M/1$ queue.
+Here we apply similar arguments to find $p(n)=\P{L=n}$ for the $M/G/1$ queue.
+However, we cannot simply copy the derivation of the $M^X/M/1$ queue to the $M/G/1$ queue, because in the $M^X/M/1$ queue the service times of the items are exponential, hence memoryless, while in the $M/G/1$ this is not the case.
+
+
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
 \Opensolutionfile{ans}
 }
-
-In~\cref{sec:batch-arrivals} we used level-crossing arguments to find a recursive method to compute the stationary distribution $p(n)$ of the number of items in an $M^X/M/1$ queue.
-Here we apply similar arguments to find $p(n)=\P{L=n}$ for the $M/G/1$ queue.
-However, we cannot simply copy the derivation of the $M^X/M/1$ queue to the $M/G/1$ queue, because in the $M^X/M/1$ queue the service times of the items are exponential, hence memoryless, while in the $M/G/1$ this is not the case.
-
 
 When job service times are not memoryless, hence do not restart at arrival times, we cannot choose any moment we like to apply level-crossing.
 Thus, for the $M/G/1$ queue we need to focus on moments in time in which the system `restarts'.

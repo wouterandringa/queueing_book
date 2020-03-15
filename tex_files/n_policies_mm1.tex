@@ -3,6 +3,12 @@
 \label{sec:n-policies}
 
 
+Let us consider the $M/M/1$ queue in which the server switches off as soon as it becomes idle and it costs $K$ to switched.
+Supposing that each job charges $h$ Euros per unit time while in the system, it makes sense to build up a queue of jobs while the server is idle, and after some time switch on the server to process jobs until the system is empty again.
+In particular, we analyze the influence of the $N$-policy on the long-run average cost.
+For this we make a cost model in several steps and at the end we discuss how to minimize the cost as a function of the threshold~$N$.
+In passing, we obtain a third way to compute the time-average number $\E L$ of jobs in the system; the first resulted from the analysis of the $M/M/1$ queue in~\cref{sec:mm1}, the second from Little's law, cf.~\cref{ex:l-215}
+
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
@@ -10,11 +16,6 @@
 }
 
 
-Let us consider the $M/M/1$ queue in which the server switches off as soon as it becomes idle and it costs $K$ to switched.
-Supposing that each job charges $h$ Euros per unit time while in the system, it makes sense to build up a queue of jobs while the server is idle, and after some time switch on the server to process jobs until the system is empty again.
-In particular, we analyze the influence of the $N$-policy on the long-run average cost.
-For this we make a cost model in several steps and at the end we discuss how to minimize the cost as a function of the threshold~$N$.
-In passing, we obtain a third way to compute the time-average number $\E L$ of jobs in the system; the first resulted from the analysis of the $M/M/1$ queue in~\cref{sec:mm1}, the second from Little's law, cf.~\cref{ex:l-215}
 
 Suppose the server is on, and there are $q$ jobs in the system.
 Let us write $T(q)$ for the expected time to clear the system.

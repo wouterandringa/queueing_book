@@ -3,14 +3,6 @@
 \label{sec:tandem-queues}
 
 
-\subsection*{Theory and Exercises}
-
-\opt{solutionfiles}{
-\Opensolutionfile{hint}
-\Opensolutionfile{ans}
-}
-
-
 Consider two $G/G/1$ stations in tandem.
 Suppose we have the financial means to reduce the variability of the processing times at one of the servers, but not at both.
 Then we like to improve the one that has the most impact on the waiting times.
@@ -19,6 +11,15 @@ As a matter of fact, noting that the output of the first machine forms the input
 Thus, with this formula for the SCV of the inter-departure times, we can model the propagation of variability through a simple network of $G/G/c$ stations in tandem.
 We remark that the liteture contains algorithms that can deal with more complicated networks of $G/G/c$ queues in which the output streams of several stations merge into the input stream of another station and rework is allowed.
 In contrast, when the machines act like $M/M/c$ queues, it is possible to fully analyze the system, see~\cref{sec:jackson-networks}.
+
+\subsection*{Theory and Exercises}
+
+\opt{solutionfiles}{
+\Opensolutionfile{hint}
+\Opensolutionfile{ans}
+}
+
+
 
 Let us write $C_{a,i}^2$ and $C_{d,i}^2$ for the SCV of the inter-arrival and inter-departure times of station $i$ in a tandem network of $G/G/c$ queues.
 Then, as the output of station $i$ forms the input to station $i+1$, we have that $C_{a,i+1}^2= C_{d,i}^2$.

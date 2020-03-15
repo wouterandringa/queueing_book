@@ -1,6 +1,10 @@
 \section{(Limits of) Empirical Performance Measures}
 \label{sec:limits-of-emperical}
 
+In the previous section we used the arrival, service and departure processes to define the arrival, service and departure rates.
+We can also use these processes to construct a single-server queueing process, cf.~\cref{sec:constr-gg1-queu}, and, once we have the queueing process, we can compute the waiting time process $\{W_{Q,k}\}$, the sojourn time process $\{W_{Q,k}\}$, and the process $\{L(t)\}$ corresponding to the number of the jobs in the system.
+Finally, if the queueing system is rate-stable, we can sensibly define a number of performance measures such as the average waiting time.
+This we do here and refer to \cref{fig:constructiongg1} for an overview of the relations between these performance measures.
 
 
 \opt{solutionfiles}{
@@ -9,10 +13,6 @@
 \Opensolutionfile{ans}
 }
 
-In the previous section we used the arrival, service and departure processes to define the arrival, service and departure rates.
-We can also use these processes to construct a single-server queueing process, cf.~\cref{sec:constr-gg1-queu}, and, once we have the queueing process, we can compute the waiting time process $\{W_{Q,k}\}$, the sojourn time process $\{W_{Q,k}\}$, and the process $\{L(t)\}$ corresponding to the number of the jobs in the system.
-Finally, if the queueing system is rate-stable, we can sensibly define a number of performance measures such as the average waiting time.
-This we do here and refer to \cref{fig:constructiongg1} for an overview of the relations between these performance measures.
 
 With $\{W_k\}$ and $\{W_{Q,k}$, define the \recall{expected sojourn time} as
 \begin{equation}\label{eq:49}

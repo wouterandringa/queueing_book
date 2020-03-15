@@ -3,6 +3,9 @@
 \label{sec:batch-arrivals}
 
 
+In~\cref{sec:mxm1-queue:-expected,sec:mg1} we established the Pollaczek-Khinchine formula for the waiting times of the $M^X/M/1$ queue and the $M/G/1$ queue, respectively.
+To compute more difficult performance measures, for instance, the loss probability $\P{L>n}$, we need expressions for the stationary distribution $\pi(n)=\P{L=n}$ of the number of jobs in the system.
+Here we present a numerical, recursive, scheme to compute these probabilities.
 
 
 \opt{solutionfiles}{
@@ -11,9 +14,6 @@
 \Opensolutionfile{ans}
 }
 
-In~\cref{sec:mxm1-queue:-expected,sec:mg1} we established the Pollaczek-Khinchine formula for the waiting times of the $M^X/M/1$ queue and the $M/G/1$ queue, respectively.
-To compute more difficult performance measures, for instance, the loss probability $\P{L>n}$, we need expressions for the stationary distribution $\pi(n)=\P{L=n}$ of the number of jobs in the system.
-Here we present a numerical, recursive, scheme to compute these probabilities.
 
 To find $\pi(n)$, $n=0, 1, \ldots$, we turn again to level-crossing arguments.
 However, the reasoning that led to the level-crossing equation~\cref{eq:15} needs to be generalized.

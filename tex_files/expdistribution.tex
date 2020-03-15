@@ -1,6 +1,10 @@
 \section{Exponential Distribution}
 \label{sec:expon-distr}
 
+In~\cref{sec:poisson-distribution} we introduced the Poisson process as a natural model of the (random) number of jobs arriving during intervals of time.
+As we will see in the sections to come, we can model a single-server queueing system in continuous time if we specify the (probability) distribution of the inter-arrival times, i.e., the time between consecutive arrival epochs of jobs.
+A particularly fruitful model for the distribution of the inter-arrival times is the exponential distribution because, as it turns out, it is intimately related to the Poisson distribution.
+Besides explaining this relation, we derive many useful properties of the exponential distribution, in particular, that it is \emph{memoryless}.
 
 
 \opt{solutionfiles}{
@@ -9,10 +13,6 @@
 \Opensolutionfile{ans}
 }
 
-In~\cref{sec:poisson-distribution} we introduced the Poisson process as a natural model of the (random) number of jobs arriving during intervals of time.
-As we will see in the sections to come, we can model a single-server queueing system in continuous time if we specify the (probability) distribution of the inter-arrival times, i.e., the time between consecutive arrival epochs of jobs.
-A particularly fruitful model for the distribution of the inter-arrival times is the exponential distribution because, as it turns out, it is intimately related to the Poisson distribution.
-Besides explaining this relation, we derive many useful properties of the exponential distribution, in particular, that it is \emph{memoryless}.
 
 We say that $X$ is an \recall{exponentially distributed} random variable with mean $1/\lambda$ if 
 \begin{equation*}

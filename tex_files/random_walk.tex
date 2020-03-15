@@ -2,6 +2,11 @@
 \label{sec:queu-proc-as}
 
 
+In this section, we show how to build the queueing process $\{L_k\}$ from a random walk $\{Z_k\}$ using a device called a \emph{reflection map}, which gives an elegant construction of a queueing process.
+Moreover, we can use the probabilistic tools that have been developed for the random walk to analyze queueing systems.
+One example is the distribution of the time until an especially large queue length is reached; these times can be formulated as \emph{hitting times} of the random walk.
+Another example is the average time it takes to clear a large queue.
+
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -20,10 +25,6 @@ Observe that in~\cref{eq:5} the process $\{L_k\}$ shares a resemblance to a rand
 To see that $\{Z_k\}$ is indeed a random walk, observe that $Z$ makes jumps of size $a_k-c_k, k=1,\ldots$, and $\{a_k-c_k\}$ is a sequence of i.i.d.
 random variables since, by assumption, $\{a_k\}$ and $\{c_k\}$ are i.i.d.
 Clearly, $\{Z_k\}$ is `free', i.e., it can take positive and negative values, but $\{L_k\}$ is restricted to the non-negative integers.
-In this section, we show how to build the queueing process $\{L_k\}$ from the random walk $\{Z_k\}$ using a device called a \emph{reflection map}, which gives an elegant construction of a queueing process.
-Moreover, we can use the probabilistic tools that have been developed for the random walk to analyze queueing systems.
-One example is the distribution of the time until an especially large queue length is reached; these times can be formulated as \emph{hitting times} of the random walk.
-Another example is the average time it takes to clear a large queue.
 
 \begin{exercise}\clabel{ex:l-133}
 Show that $L_k$ satisfies the relation

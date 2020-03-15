@@ -1,6 +1,14 @@
 \section{Level Crossing and Balance Equations}
 \label{sec:level-cross-balance}
 
+Let us say that the system is in \emph{state $n$} at time $t$ when it contains $n$ jobs at that moment, i.e., when $L(t) = n$.
+The system \emph{up-crosses level} $n$ at time $t$ when its state changes from $n$ to $n+1$ due to an arrival, and it \emph{down-crosses level} $n$ when its state changes from $n+1$ to $n$ due to a departure.
+Clearly, the number of up-crossings and down-crossings cannot differ by more than 1, because it is only possible to up-cross level $n$ after a down-crossing (or the other way around).
+This simple idea will prove a key stepping stone in the analysis of queueing systems.
+
+To establish the section's main result~\cref{eq:12}, we need a few definitions that are quite subtle and might seem a bit abstract, but below we will provide intuitive interpretations in terms of system KPIs.
+After this, we will generalize the principle of level-crossing to \emph{balance equations} which allow us to deal with more general types of transitions.
+We refer to \cref{fig:summaries} in which all concepts developed here are summarized.
 
 
 \opt{solutionfiles}{
@@ -10,14 +18,6 @@
 }
 
 
-Let us say that the system is in \emph{state $n$} at time $t$ when it contains $n$ jobs at that moment, i.e., when $L(t) = n$.
-The system \emph{up-crosses level} $n$ at time $t$ when its state changes from $n$ to $n+1$ due to an arrival, and it \emph{down-crosses level} $n$ when its state changes from $n+1$ to $n$ due to a departure.
-Clearly, the number of up-crossings and down-crossings cannot differ by more than 1, because it is only possible to up-cross level $n$ after a down-crossing (or the other way around).
-This simple idea will prove a key stepping stone in the analysis of queueing systems.
-
-To establish the section's main result~\cref{eq:12}, we need a few definitions that are quite subtle and might seem a bit abstract, but below we will provide intuitive interpretations in terms of system KPIs.
-After this, we will generalize the principle of level-crossing to \emph{balance equations} which allow us to deal with more general types of transitions.
-We refer to \cref{fig:summaries} in which all concepts developed here are summarized.
 
 \paragraph{Level Crossing}
 

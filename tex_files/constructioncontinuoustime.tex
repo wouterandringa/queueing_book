@@ -3,17 +3,17 @@
 {Construction of the Single-server Queueing Process in Continuous Time}
 \label{sec:constr-gg1-queu}
 
+In~\cref{sec:constr-discr-time} we modeled time as progressing in discrete `chunks': minutes, hours, days, and so on.
+For given numbers of arrivals and capacity per period, we use the recursions~\cref{eq:31} to compute the departures and queue length per period.
+However, we can also model time in a continuous way, so that jobs can arrive at any moment and have arbitrary service times. 
+In this section, we consider a single-server FIFO queueing process in continuous time.
+
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
 \Opensolutionfile{ans}
 }
-
-In~\cref{sec:constr-discr-time} we modeled time as progressing in discrete `chunks': minutes, hours, days, and so on.
-For given numbers of arrivals and capacity per period, we use the recursions~\cref{eq:31} to compute the departures and queue length per period.
-However, we can also model time in a continuous way, so that jobs can arrive at any moment and have arbitrary service times. 
-In this section, we consider a single-server FIFO queueing process in continuous time.
 
 Assume we are given the \recall{arrival process} $\{A(t); t\geq 0\}$, i.e., the number of jobs that arrived during $[0,t]$.
 Thus, $\{A(t); t\geq 0\}$ is a \emph{counting process}.
@@ -310,7 +310,7 @@ With the above relations we see that
 where each of these equations has its own interpretation. 
 
 
-\begin{extra}
+\begin{exercise}\clabel{ex:con-1}
  Explain that the following recursion for~$W_k$ is valid:
 \begin{align}
  \label{eq:59}
@@ -329,7 +329,7 @@ from which follows a recursion for $D_k$:
     This explains the first formula.
     The rest follows right away.
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 \begin{extra}

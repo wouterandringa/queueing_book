@@ -3,6 +3,10 @@
 %{$\mathbf{M(n)/M(n)/1}$ Queue}
 \label{sec:mnmn1}
 
+As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level-crossing equations~\cref{eq:25}.
+For these queueing systems, we just present the results.
+In first set of exercises are somewhat technical; we ask you to derive the formulas---the main challenge is not to make computational errors.
+The second set of exercises shows how the combination of PASTA and Little's law allows us to analyze an astonishingly large number of non-trivial practical queueing situations.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -10,10 +14,6 @@
 \Opensolutionfile{ans}
 }
 
-As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level-crossing equations~\cref{eq:25}.
-For these queueing systems, we just present the results.
-In first set of exercises are somewhat technical; we ask you to derive the formulas---the main challenge is not to make computational errors.
-The second set of exercises shows how the combination of PASTA and Little's law allows us to analyze an astonishingly large number of non-trivial practical queueing situations.
 
 It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may depend on the number of jobs in the system. Specifically, we require that for all $s$ and $t$,
 \begin{equation*}
