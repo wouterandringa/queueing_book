@@ -7,11 +7,11 @@ When the machine requires a color change, it may be necessary to clean-up the ma
 Another example is an oven that needs a temperature change when different item types require different production temperatures.
 Service operations form another setting with setup times: when servers (personnel) have to move from one part of a building to another, the time spent moving cannot be spent on serving customers.
 In all such cases, the setups consume a significant amount of time; in fact, setup times of an hour or longer are not uncommon.
-Clearly, inn such situations, it is necessary to produce in batches: a server processes a batch of jobs (or customers) of one type or at one location, then the server change from type or location, starts serve a batch of another type or at another location.
+Clearly, in such situations, it is necessary to produce in batches: a server processes a batch of jobs (or customers) of one type or at one location, then the server change from type or location, starts serve a batch of another type or at another location.
 Once done with one type, the server is setup again, and so on.
 Here we focus on the effect of change-over, or setup, times on the average sojourn time of jobs.
-First we make a model and provide a list of elements required to compute the expected sojourn time of an item.
-Then we illustrate how to use these elements in a concrete case.
+
+First we make a model and provide a list of elements required to compute the expected sojourn time of an item, then we illustrate how to use these elements in a concrete case.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -57,7 +57,7 @@ For this we can use the $G/G/1$ waiting time formula, but we have to convert the
 Define, to this end, the \recall{effective processing time} $\E S$ as the average time the server is occupied with processing a job from a batch including the setup time required to setup the batch.
 
 \begin{exercise}\clabel{ex:488}
-  Motivate that the effective processing time should be defined as
+  Motivate that the effective processing time of an \emph{item} should be defined as
 \begin{equation}\label{eq:81}
  \E{S} = \E{S_0} + \frac{\E{R}} B.
 \end{equation}
@@ -80,7 +80,7 @@ Explain that the load can also be written as
 \begin{equation*}
 \rho = \lambda_B (B \E{S_0} + \E R),
 \end{equation*}
-where $\lambda_B$ is the arrival rate of batches and $B \E{S_0} + \E R$ is the service time an entire batch.
+where $\lambda_B$ is the arrival rate of batches and $\E{S_B} = B \E{S_0} + \E R$ is the service time an entire batch.
 \begin{solution}
 It is evident that the rate at which batches arrive is 
 \begin{equation*}
@@ -101,7 +101,12 @@ Show that the requirement $\rho < 1$ leads to the following constraint on the mi
 \end{solution}
 \end{exercise}
 
-Observe that we nearly have all elements to apply Sakasegawa's formula to the batch: the service time of a batch is $\E R + B\E{S_0}$ and the load $\rho$ is given above.
+Observe that we nearly have all elements to apply Sakasegawa's formula to the batch: the service time of a \emph{batch} is
+\begin{equation}
+  \label{eq:90}
+\E{S_B} = \E R + B\E{S_0},
+\end{equation}
+and the load $\rho$ is given above.
 Therefore it remains to find $C_{a,B}^2$ and $C_{s,B}^2$, for the \emph{batches, not the items}.
 
 \begin{exercise}\clabel{ex:490}
@@ -134,8 +139,14 @@ C_{s, B}^2 = \frac{B \V{S_0} + \V{R}}{(B \E{S_0} + \E R)^2}.
 \end{solution}
 \end{exercise}
 
-Observe that we now have all elements to fill in Sakasegawa's formula.
-Thus, it is left to find a rule to determine what happens to an item once the batch to which the item belongs enters service.
+Observe that we now have all elements to fill in Sakasegawa's formula, which now becomes
+\begin{equation*}
+  \E{W_{Q,B}} = \frac{C_{a,B}^2 + C_{s,B}^2}2 \frac \rho{1-\rho} \E{S_B}.
+\end{equation*}
+Observe from~\cref{eq:82} and \cref{eq:84} that the SCVs are $B$ times as small, but in~\cref{eq:90} we see that the batch service time is roughly $B$ times larger.
+Thus, the factor $B$ approximately cancels out, from which we conclude that the most important reason behind batching is to reduce the load.
+
+It is left to find a rule to determine what happens to an item once the batch to which the item belongs enters service.
 If the job has to wait until all jobs in the batch are served, the time a item spends at the server is $\E R + B \E{S_0}$.
 
 
