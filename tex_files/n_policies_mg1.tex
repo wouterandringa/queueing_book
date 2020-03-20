@@ -64,14 +64,14 @@ By the next problem,
 \end{equation*}
 
 \begin{exercise}\clabel{ex:nmg4}
-Assuming that $U(\cdot)$ is differentiable, we can use that $(U)s) - U(s-\delta))\delta \approx U'(s)$.
+Assuming that $U(\cdot)$ is differentiable, we can use that $(U(s) - U(s-\delta))/\delta \approx U'(s)$.
 Use this in the above to arrive at the differential equation $U'(s) = \lambda h s$ that $U$ must satisfy with condition $U(0)=0$ (why is this so?).
 Solve this DE to conclude that $U(s$ is as given above. 
 \begin{solution}
 Is it plain algebra:
 \begin{align*}
   U(s)&=  U(s-\delta) + (1-\lambda \delta)\cdot 0 + \lambda \delta h s + o(\delta) &\implies\\
-  (U(s) -U(s-\delta))/\delta &= \lambda \delta h s + o(\delta) & \implies \\
+  (U(s) -U(s-\delta))/\delta &= \lambda h s + o(\delta) & \implies \\
   U'(s)&= \lambda h s, \quad\text{as } \delta \to 0.
 \end{align*}
 Integrating  both sides with respect to $s$ gives $U(s) - U(0) = \lambda h s^2/2$. As $U(0)=0$, we obtain the final result.
