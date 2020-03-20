@@ -278,14 +278,11 @@ Now $\lambda$ and $\E{W_Q}=1$ are given, and $\E{L_Q}$ has just been computed. H
 Another way is to realize that, for the $M/M/1$-queue, $\E{W_Q} = \frac{1}{\lambda}\frac{\rho^2}{1-\rho}$. Then solve for $\rho$, and since $\lambda$ is known, $\E S$ follows. 
 \end{hint}
 \begin{solution}
-
-
- $\E{W_Q} = \frac{1}{\lambda}\frac{\rho^2}{1-\rho}$. Since
- $\E{W_Q}$ and $\lambda$ is given we can use this formula to
- solve for $\rho$ with the quadratic formula (and using that
- $\rho > 0$):
+  Note that $\E{W_Q} = \frac{1}{\lambda}\frac{\rho^2}{1-\rho}$.
+  Since $\E{W_Q}$ and $\lambda$ are given, we can use this formula to solve for $\rho$ with the quadratic formula (and using that $\rho > 0$):
 
 \begin{pyconsole}
+from math import sqrt
 labda = 5. # per minute
 Wq = 1.
 a = 1.

@@ -5,12 +5,13 @@
 
 Consider two $G/G/1$ stations in tandem.
 Suppose we have the financial means to reduce the variability of the processing times at one of the servers, but not at both.
-Then we like to improve the one that has the most impact on the waiting times.
+Then we like to improve the one that has the most impact on the total waiting time in the system.
 To obtain insight into this problem, we present a formula that approximates the SCV of the inter-departure times of a $G/G/c$ queue.
-As a matter of fact, noting that the output of the first machine forms the input of the second machine, the SCV of the inter-departure times of first station must be the SCV of the inter-arrival times at the second station.
+Noting that the output of the first machine forms the input of the second machine, the SCV of the inter-departure times of first station must then be the SCV of the inter-arrival times at the second station.
 Thus, with this formula for the SCV of the inter-departure times, we can model the propagation of variability through a simple network of $G/G/c$ stations in tandem.
-We remark that the liteture contains algorithms that can deal with more complicated networks of $G/G/c$ queues in which the output streams of several stations merge into the input stream of another station and rework is allowed.
-In contrast, when the machines act like $M/M/c$ queues, it is possible to fully analyze the system, see~\cref{sec:jackson-networks}.
+
+We remark that the literature contains algorithms that can deal with more complicated networks of $G/G/c$ queues in which the output streams of several stations merge into the input stream of another station and rework is allowed.
+However, when the machines act like $M/M/c$ queues, it is possible to fully analyze the system, cf.~\cref{sec:jackson-networks}.
 
 \subsection*{Theory and Exercises}
 
@@ -19,27 +20,17 @@ In contrast, when the machines act like $M/M/c$ queues, it is possible to fully 
 \Opensolutionfile{ans}
 }
 
-
-
-Let us write $C_{a,i}^2$ and $C_{d,i}^2$ for the SCV of the inter-arrival and inter-departure times of station $i$ in a tandem network of $G/G/c$ queues.
-Then, as the output of station $i$ forms the input to station $i+1$, we have that $C_{a,i+1}^2= C_{d,i}^2$.
-Thus, if we have the $C_{d,i}^2$ for all stations, we can use Sakagewa's formula to approximate the average waiting time at each station.
-
-As it turns out, the following approximation works reasonably well for a $G/G/c$ queue: 
+With simulation it has been tested that the SCV of the inter-departure times of a $G/G/c$ queue can be reasonable well approximated by
 \begin{equation}\label{eq:57}
- C_{d,i}^2 = 1 + (1-\rho_i^2)(C_{a,i}^2-1) + \frac{\rho_i^2}{\sqrt{c_i}}(C_{s,i}^2-1).
+ C_{d}^2 = 1 + (1-\rho^2)(C_{a}^2-1) + \frac{\rho^2}{\sqrt{c}}(C_{s}^2-1).
 \end{equation}
-For single-server queues this becomes a bit simpler and can be given an intuitive interpretation.
-Suppose that the load $\rho_i$ at station~$i$ is very high.
-Then the server will seldom be idle, so that the departure process must be reasonably well approximated by the service process.
-If, however, the load is small, the server will be idle most of the time, and the inter-departure times must be approximately distributed as the inter-arrival times.
-The approximation then consists of an interpolation between these two extremes.
+
 
 \begin{exercise}\clabel{ex:l-128}
  Show that~\cref{eq:57}  reduces to the following for the $G/G/1$ queue: 
 \begin{equation}
  \label{eq:40}
- C_{d,i}^2 =  (1-\rho_i^2) C_{a,i}^2 + \rho_i^2 C_{s,i}^2.
+ C_{d}^2 =  (1-\rho^2) C_{a}^2 + \rho^2 C_{s}^2.
 \end{equation}
 \begin{solution}
  Since $c=1$ for the $G/G/c$ queue, we get
@@ -51,6 +42,12 @@ The approximation then consists of an interpolation between these two extremes.
 \end{align*}
 \end{solution}
 \end{exercise}
+
+Clearly, for single-server queues the expression becomes quite simple for which we provide the following intuitive interpretation.
+Suppose that the load $\rho$ is very high.
+Then the server will seldom be idle, so that most of inter-departure times are the same as service times.
+If, however, the load is low, the server will be idle most of the time, and the inter-departure times are approximately equal to the inter-arrival times.
+The approximation then consists of an interpolation between these two extremes.
 
 
 \begin{exercise}\clabel{ex:l-124}
@@ -68,72 +65,11 @@ In fact, in~\cref{ex:burke}  we provide a proof that this is an exact result.
 \end{solution}
 \end{exercise}
 
+The next exercise proves a very useful insight: if we make service times more regular, the departure process also becomes more regular. 
 \begin{exercise}\clabel{ex:l-126}
  Use~\cref{eq:40} to show for the $G/D/1$ that $C_d^2 < C_a^2$.
-In words, this gives a very useful insight: if we make service times more regular, the departure process becomes more regular. 
 \begin{solution}
 As $C_s^2 = 0$ for the $G/D/1$ queue, $C_d^2 = (1-\rho^2) C_a^2 < C_a^2$, as $\rho<1$. 
-\end{solution}
-\end{exercise}
-
-
-Let us apply the above to analyze the performance of a tandem netwerk of two $M/M/1$ queues.
-For this, assume that jobs arrive at the first station at rate $\lambda$, and are served at rate $\mu_i$ at station~$i$, Thus, $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$.
-First we consider the base case, i.e, the system without any improvement at either of the servers.
-Then we assume we can remove all variability at the second station; this is the best that we can possibly do.
-Next, we assume we can remove all variability at the first station.
-The final step is to compare the different improvement scenarios.
-
-\begin{exercise}\clabel{ex:94}
-Use Sakagewa's formula to show that the average queueing time for the tandem of two $M/M/1$ queues is given by
-\begin{equation}
-\E{W_Q} = \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
-\end{equation}
-\begin{solution}
-It follows right away from \cref{ex:l-184}.
-\end{solution}
-\end{exercise}
-
-
-Now suppose we can remove all variability of the service process at the second station. 
-
-\begin{exercise}\clabel{ex:l-121}
-Show that in this case the total time in queue is equal to
-\begin{equation*}
- \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
- \frac12\frac{2-\rho_2}{1-\rho_2} \frac1{\mu_2}.
-\end{equation*}
-\begin{hint}
- The second station becomes an $M/D/1$ queue if $C_{s,2}^2=0$. 
-\end{hint}
-\begin{solution}
-Fill in Sakagewa's formula for the second station with $C_{s,2}^2 = 0$. 
-\end{solution}
-\end{exercise}
-
-Suppose now that we reduce the variability of the service process of the first station.
-\begin{exercise}\clabel{ex:l-122}
-Motivate that 
-\begin{equation*}
- \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
- \frac{\rho_1}2\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}
-\end{equation*}
-is a reasonable approximation of the queueing time in the network.
-\begin{solution}
-  When $C_{s,1}^2=0$, the first station becomes an $M/D/1$ queue.
-  By~\cref{eq:40}, $C_{d,1}^2 = (1-\rho_1)C_{a,1}^2+C_{s,1}^2= 1-\rho_1$, since by assumption $C_{a,1}^2=1$. Then,
-  At the second station, $C_{a,2}^2 + C_{s,2}^2= 1-\rho_1 + 1$.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}\clabel{ex:l-123}
- Comparing these three scenarios,  what do you conclude?
-\begin{hint}
- What would you do if there would be a third station in this tandem network?
-\end{hint}
-\begin{solution}
-  As a general guideline, it seems best to reduce the variability at the first station.
-  The main point to remember is that reducing the variability of the service process at the first station also reduces the variability of its departure process, hence the variability of the arrival processes at the second station becomes also smaller, and so on.  In other words, improving the first station can improve things at the entire chain.
 \end{solution}
 \end{exercise}
 
@@ -181,6 +117,73 @@ W2
 \end{solution}
 \end{exercise}
 
+
+
+
+Let us next  apply the above to analyze the performance of a tandem netwerk of two $M/M/1$ queues.
+For this, assume that jobs arrive at the first station at rate $\lambda$, and are served at rate $\mu_i$ at station~$i$, Thus, $\rho_i = \lambda/\mu_i$ and $\E{S_i} = 1/\mu_i$, for $i=1,2$.
+First we consider the base case, i.e, the system without any improvement at either of the servers.
+Then we assume we can remove all variability at the second station; this is the best that we can possibly do at station 2 Next, we assume we can remove all variability at the first station.
+The final step is to compare the different improvement scenarios.
+
+To analyze this case, observe that the departures of the first station form the arrivals at the second station.
+Thus, the SCV of the inter-arrival times at the second station is the SCV of the inter-departure times of the first station, that is $C_{d,1}^2 = C_{a,2}^6$.
+This idea can of course be used for longer tandem networks.
+
+
+
+\begin{exercise}\clabel{ex:94}
+Use Sakagewa's formula to show that the average queueing time for the tandem of two $M/M/1$ queues is given by
+\begin{equation}
+\E{W_Q} = \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} + \frac{\rho_2}{1-\rho_2} \frac1{\mu_2},
+\end{equation}
+\begin{solution}
+It follows right away from \cref{ex:l-184}.
+\end{solution}
+\end{exercise}
+
+
+Now suppose we can remove all variability of the service process at the second station. 
+
+\begin{exercise}\clabel{ex:l-121}
+Show that in this case the total time in queue is equal to
+\begin{equation*}
+ \E{W_Q}= \frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac12\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}.
+\end{equation*}
+\begin{hint}
+ The second station becomes an $M/D/1$ queue if $C_{s,2}^2=0$. 
+\end{hint}
+\begin{solution}
+Fill in Sakagewa's formula for the second station with $C_{s,2}^2 = 0$. 
+\end{solution}
+\end{exercise}
+
+Suppose now that we reduce the variability of the service process of the first station.
+\begin{exercise}\clabel{ex:l-122}
+Motivate that 
+\begin{equation*}
+ \E{W_Q}= \frac12\frac{\rho_1}{1-\rho_1} \frac1{\mu_1} +
+ \frac{2-\rho_1^2}2\frac{\rho_2}{1-\rho_2} \frac1{\mu_2}
+\end{equation*}
+is a reasonable approximation of the queueing time in the network.
+\begin{solution}
+  When $C_{s,1}^2=0$, the first station becomes an $M/D/1$ queue.
+  By~\cref{eq:40}, $C_{d,1}^2 = (1-\rho_1^2)C_{a,1}^2 + \rho_1^2 C_{s,1}^2= 1-\rho_1^2$, since by assumption $C_{a,1}^2=1$ and $C_{s,1}^2=0$. Then,
+  at the second station, $C_{a,2}^2 + C_{s,2}^2= 1-\rho_1^2 + 1$.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}\clabel{ex:l-123}
+ Comparing these three scenarios,  what do you conclude?
+\begin{hint}
+ What would you do if there would be a third station in this tandem network?
+\end{hint}
+\begin{solution}
+  As a general guideline, it seems best to reduce the variability at the first station.
+  The main point to remember is that reducing the variability of the service process at the first station also reduces the variability of its departure process, hence the variability of the arrival processes at the second station becomes also smaller, and so on.  In other words, improving the first station can improve things at the entire chain.
+\end{solution}
+\end{exercise}
 
 
 

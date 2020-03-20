@@ -50,7 +50,7 @@ We have a two-station Jackson network. If the routing matrix is $P=
 r & 0
 \end{pmatrix}$ the total arrival rate $\lambda_1$ at station 1 is finite only if $r=1$. 
 \begin{solution}
-Answer = B, see Zijm, Page 38.
+Answer = B.
 
 When $r=1$, the matrix $P$ has an eigenvalue 1. Hence, the equation $\lambda = \gamma + \lambda P$ has no inverse in this case.
 \end{solution}
@@ -529,7 +529,6 @@ the service times at station~$i$ is $~\Exp(\mu_i)$.
 \begin{exercise}[201804]
 Make a sketch of the state space and the transition rates.
 \begin{solution}
- See Figure 2.2 in Zijm's book.
 
 Some students came up with very near to trivial networks. In those cases I gave 1/2 for this and the next two problems in total. (Consistently solving trivial problems cannot result in points\ldots)
 \end{solution}
@@ -602,7 +601,7 @@ $. Set $V_0=1$. Then solve for $V_1$ in the equation $V = VP$, where $V=(V_0, V_
 
 If the row sums of $P$ are not 1, this means that jobs leave the network. This is impossible in closed queueing networks. Hence, such $P$'s are wrong. $-1/2$.
 
-You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is in the book of Zijm, and implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
+You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
 
 If you assume that $V_0+V_1=1$: $-1/2$. 
 
@@ -667,7 +666,7 @@ Make a sketch of the transitions; use this to make the routing matrix $P$.
 
 % If the row sums of $P$ are not 1, this means that jobs leave the network. This is impossible in closed queueing networks. Hence, such $P$'s are wrong. $-1/2$.
 
-% You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is in the book of Zijm, and implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
+% You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
 
 \end{solution}
 \end{exercise}

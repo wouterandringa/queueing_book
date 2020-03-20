@@ -61,10 +61,6 @@ Define, to this end, the \recall{effective processing time} $\E S$ as the averag
 \begin{equation}\label{eq:81}
  \E{S} = \E{S_0} + \frac{\E{R}} B.
 \end{equation}
-Observe then that the load becomes
-\begin{equation*}
-\rho = \lambda \left(\E{S_0} + \frac{\E{R}}B\right).
-\end{equation*}
 \begin{hint}
  What fraction of the setup time $\E R$ `belongs' to one job?
 \end{hint}
@@ -75,12 +71,18 @@ Observe then that the load becomes
 \end{solution}
 \end{exercise}
 
+With the previous exercise, the load becomes
+\begin{equation*}
+\rho = \lambda \left(\E{S_0} + \frac{\E{R}}B\right).
+\end{equation*}
+There is another important way to look at the load, see the next exercise.
+
 \begin{exercise}\clabel{ex:489}
 Explain that the load can also be written as
 \begin{equation*}
 \rho = \lambda_B (B \E{S_0} + \E R),
 \end{equation*}
-where $\lambda_B$ is the arrival rate of batches and $\E{S_B} = B \E{S_0} + \E R$ is the service time an entire batch.
+where $\lambda_B=\lambda/B$ is the arrival rate of \emph{batches} and $\E{S_B} = B \E{S_0} + \E R$ is the service time an entire batch.
 \begin{solution}
 It is evident that the rate at which batches arrive is 
 \begin{equation*}
@@ -139,12 +141,10 @@ C_{s, B}^2 = \frac{B \V{S_0} + \V{R}}{(B \E{S_0} + \E R)^2}.
 \end{solution}
 \end{exercise}
 
-Observe that we now have all elements to fill in Sakasegawa's formula, which now becomes
+Observe that we now have all elements to fill in Sakasegawa's formula, which becomes
 \begin{equation*}
   \E{W_{Q,B}} = \frac{C_{a,B}^2 + C_{s,B}^2}2 \frac \rho{1-\rho} \E{S_B}.
 \end{equation*}
-Observe from~\cref{eq:82} and \cref{eq:84} that the SCVs are $B$ times as small, but in~\cref{eq:90} we see that the batch service time is roughly $B$ times larger.
-Thus, the factor $B$ approximately cancels out, from which we conclude that the most important reason behind batching is to reduce the load.
 
 It is left to find a rule to determine what happens to an item once the batch to which the item belongs enters service.
 If the job has to wait until all jobs in the batch are served, the time a item spends at the server is $\E R + B \E{S_0}$.
@@ -161,15 +161,6 @@ $\E{R} + \frac{B-1}{2}\E{S_0} +\E{S_0}$.
 \end{solution}
 \end{exercise}
 
-
-\begin{exercise}\clabel{ex:l-138}
-  What important insights can you learn from the above about setting proper batch sizes?
-\begin{solution}
- Overall, batch sizes need to be tuned to minimize average sojourn times.
- When the batch sizes are small, the load $\rho$ is near to one (in other words, the server spends a relatively large fraction of its time on setups), so that the queueing times are long, but the times to form a batch are small, as the times to form and process batches are linear functions of the batch size $B$.
- If, however, the batch sizes are large, the queueing times will be relatively short, but the times to form and unpack batches will be large.
-\end{solution}
-\end{exercise}
 
 \begin{exercise}\clabel{ex:l-139}
  Jobs arrive at $\lambda=3$ per hour at a machine with $C_a^2=1$; service times are exponential with an average of 15 minutes. Assume $\lambda_r = 0.5$ per hour, hence $\lambda_b = 3-0.5=2.5$ per hour. Between any two batches, the machine requires a cleanup of 2 hours, with a standard deviation of $1$ hour, during which it is unavailable for service.
@@ -203,9 +194,16 @@ So, with $B=30$ we are on the safe side.
 The time to form a red batch is 
 \begin{pyconsole}
 labda_r = 0.5
-EWf = (B-1)/(2*labda_r)
-EWf # in hours
+EW_r = (B-1)/(2*labda_r)
+EW_r # in hours
 \end{pyconsole}
+And the time to form a blue batch is 
+\begin{pyconsole}
+labda_b = labda-labda_r
+EW_b = (B-1)/(2*labda_b)
+EW_b # in hours
+\end{pyconsole}
+
 
 Now the time a batch spends in queue
 \begin{pyconsole}
@@ -235,19 +233,80 @@ ES
 
 The overall time red jobs spend in the system.
 \begin{pyconsole}
-total = EWf + EWq + ES
+total = EW_r + EWq + ES
 total
 \end{pyconsole}
 
 \end{solution}
 \end{exercise}
 
-\begin{remark}
+
+\begin{exercise}\clabel{ex:l-138}
+  What important insights can you learn from the above about setting proper batch sizes?
+\begin{solution}
+  We can derive a number of important insights from this model.
+  First, the time to assemble and unpack batches increases linearly of $B$.
+  Second, observe from~\cref{eq:82} and \cref{eq:84} that the SCVs are $B$ times as small, but in~\cref{eq:90} we see that the batch service time is roughly $B$ times larger.
+  Thus, the factor $B$ approximately cancels out in Sakasegawa's formula.
+  However, the load decreases as a function of $B$, and this is the most important reason to use batch production.
+  Third, since the load decreases as a function of the $B$, the expected time in queue must also decrease.
+  Combining this with the linear batch forming times, there must be a batch size that minimizes the total time in the system.
+  Fourth, with a it of numerical experimentation will show that the minimum in the waiting time is rather insensitive to $B$.
+  However, by making $B$ smaller, the load increases, and we know that queueing times increase very steeply when the load increases.
+  Therefore, by making $B$ small, we `gain' time linearly in batch forming times, but we `pay' hyperbolically in $B$.
+  Given the randomness in practical situations, it is better, when tuning the batch size to minimize the time in the system, to set $B$ a bit too large than too small.
+\end{solution}
+\end{exercise}
+
 A much more interesting and realistic problem is to assume that we have many families such that items of family~$i$ arrive at rate $\lambda_i$ and require service time $S_i$.
 Typically, the setup-time depends on the sequence in which the families are produced; let this be given by $R_{ij}$ when the machine switched from producing family~$i$ to family~$j$.
 Often, in practice, $R_{ij} \neq R_{ji}$, for example, a switch in color from white to black takes less cleaning time and cost than from black to white.
-Then the problem becomes to determine a good schedule in which to produce the families and the batch size $B_i$, which may be depend on the family. 
-\end{remark}
+Then the problem becomes to determine a good schedule in which to produce the families and the batch size $B_i$, which may be depend on the family.
+Here is an exercise to show how to handle a simple case.
+
+\begin{exercise}\clabel{ex:l-254}
+ Consider a paint factory that contains a paint mixing machine that serves two classes of jobs, A and B.
+ The processing times of jobs of types A and B are constant and require $t_A$ and $t_B$ hours.
+ The job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type $B$ jobs.
+ It takes a setup time of $S$ hours to clean the mixing station when changing from paint type A to type B, and there is no time required to change from type B to A.
+
+ To keep the system  stable, it is necessary to produce the jobs in batches, for otherwise the server, i.e., the mixing machine, spends a too large fraction of time on setups.
+ Motivate that the following linear program can be used to determine the minimal batch sizes:
+\begin{equation*}
+ \text{minimize } T
+\end{equation*}
+such that $ T= k_A t_A + S + k_B t_B$, $\lambda_A T < k_A$ and $\lambda_B T < k_B$.
+\begin{hint}
+Here are some questions to help you interpret this formulation.
+\begin{enumerate}
+\item What are the decision variables for this problem? In other words, what are the `things' we can control/change?
+\item What are the interpretations of $k_A t_A$, and $S+k_B t_B$?
+\item What is the meaning of the first constraint? Realize that $T$
+ represents one production cycle. After the completion of one such
+ cycle, we start another cycle. Hence, the start of every cycle can
+ be seen as a restart of the entire system.
+\item What is the meaning of the other two constraints?
+\item Why do we minimize the cycle time $T$?
+\item Solve for $k_A$ and $k_B$ in terms of $S$, $\lambda_A, \lambda_B$ and $t_A, t_B$. 
+\item Generalize this to $m$ job classes and such that the cleaning
+ time between jobs of class $i$ and $j$ is given by $S_{i j}$. (Thus,
+ the setup times are sequence-dependent.) 
+\end{enumerate}
+\end{hint}
+
+\begin{solution}
+ Realize that the machine works in cycles. A cycle starts with
+ processing $k_A$ jobs of type A, then does a setup, and processes
+ $k_B$ jobs of type B, and then a new cycle starts again. The time
+ it takes to complete one such cycle is $T=k_A t_A + S + k_B t_B$.
+ The number of jobs of type A processed during one such cycle is,
+ of course, $k_A$. Observe next that the average number of jobs
+ that arrive during one cycle is $\lambda_A T$. We of course want
+ that $\lambda_A T< k_A$, i.e., fewer jobs of type A arrive on
+ average per cycle than what we can process.
+\end{solution}
+\end{exercise}
+
 
 
 \opt{solutionfiles}{

@@ -242,50 +242,6 @@ Hence, when $L(t)/t\to0$, the \recall{up crossing rate} $\lim_{t \to \infty} A(t
 \end{exercise}
 
 
-\begin{exercise}\clabel{ex:l-254}
- Consider a paint factory that contains a paint mixing machine that serves two classes of jobs, A and B.
- The processing times of jobs of types A and B are constant and require $t_A$ and $t_B$ hours.
- The job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type $B$ jobs.
- It takes a setup time of $S$ hours to clean the mixing station when changing from paint type A to type B, and there is no time required to change from type B to A.
-
- To keep the system (rate) stable, it is necessary to produce the jobs in batches, for otherwise the server, i.e., the mixing machine, spends a too large fraction of time on setups, so that $\mu < \lambda$.
- Thus, it is necessary to identify minimal batch sizes to ensure that $\mu > \lambda$.
- Motivate that the following linear program can be used to determine the minimal batch sizes:
-\begin{equation*}
- \text{minimize } T
-\end{equation*}
-such that $ T= k_A t_A + S + k_B t_B$, $\lambda_A T < k_A$ and $\lambda_B T < k_B$.
-\begin{hint}
-Here are some questions to help you interpret this formulation.
-\begin{enumerate}
-\item What are the decision variables for this problem? In other words, what are the `things' we can control/change?
-\item What are the interpretations of $k_A t_A$, and $S+k_B t_B$?
-\item What is the meaning of the first constraint? Realize that $T$
- represents one production cycle. After the completion of one such
- cycle, we start another cycle. Hence, the start of every cycle can
- be seen as a restart of the entire system.
-\item What is the meaning of the other two constraints?
-\item Why do we minimize the cycle time $T$?
-\item Solve for $k_A$ and $k_B$ in terms of $S$, $\lambda_A, \lambda_B$ and $t_A, t_B$. 
-\item Generalize this to $m$ job classes and such that the cleaning
- time between jobs of class $i$ and $j$ is given by $S_{i j}$. (Thus,
- the setup times are sequence-dependent.) 
-\end{enumerate}
-\end{hint}
-
-\begin{solution}
- Realize that the machine works in cycles. A cycle starts with
- processing $k_A$ jobs of type A, then does a setup, and processes
- $k_B$ jobs of type B, and then a new cycle starts again. The time
- it takes to complete one such cycle is $T=k_A t_A + S + k_B t_B$.
- The number of jobs of type A processed during one such cycle is,
- of course, $k_A$. Observe next that the average number of jobs
- that arrive during one cycle is $\lambda_A T$. We of course want
- that $\lambda_A T< k_A$, i.e., fewer jobs of type A arrive on
- average per cycle than what we can process.
-\end{solution}
-\end{exercise}
-
 
 
 

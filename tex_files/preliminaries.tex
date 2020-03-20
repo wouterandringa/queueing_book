@@ -69,10 +69,10 @@ e^x &= \lim_{n\to\infty} (1+x/n)^n, \label{eq:65}\\
 
 
 You should know that for a non-negative, integer-valued random variable $X$ with \recall{probability mass function} $f(k)= \P{X = k}$, 
-\begin{subequations}
+\begin{subequations}\label{eq:105}
 \begin{align}
 X&=\sum_{n=0}^\infty X\1{X=n} = \sum_{n=0}^\infty n \1{X=n}, \label{eq:77} \\
-\E X &= \sum_{n=0}^\infty n f(n), \\
+\E X &= \E{\sum_{n=0}^\infty n \1{X=n}} = \sum_{n=0}^\infty n \E{\1{X=n}} = \sum_{n=0}^\infty n f(n), \label{eq:p-78} \\
   \E{g(X)} &= \sum_{n=0}^\infty g(n) f(n), \label{eq:66}
 \end{align}             
 \end{subequations}

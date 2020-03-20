@@ -274,12 +274,8 @@ This is the same as our earlier answer.
 \begin{exercise}\clabel{ex:mg1-3}
 Show that $\E Y = \lambda \E S = \rho$.
 \begin{solution}
-  If $S=s$, then $\E{N(s)} = \lambda s$, by~\eqref{eq:6}. Therefore, $\E Y = \E{\lambda S} = \lambda \E S$. In more detail, we know that the joint distribution of $Y=k, S=s$ is given by $e^{-\lambda s}(\lambda s)^k/k!\cdot g(s)$, where we assume for the sake of simplicity that $S$ has the density $g$. Then,
-  \begin{equation*}
-    \E Y = \int_0^\infty \sum_{k=0}^\infty k e^{-\lambda s}\frac{(\lambda s)^k}{k!} g(s) \d s = \int_0^\infty \lambda s g(s) \d s = \lambda \E S.
-  \end{equation*}
+Follows directly from~\cref{ex:f-3}. 
 \end{solution}
-
 \end{exercise}
 
 Let us concentrate on a down-crossing of level $n$, see~\cref{fig:mg1_2}; recall that level $n$ lies between states $n$ and $n+1$.

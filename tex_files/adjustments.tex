@@ -7,6 +7,8 @@ In~\cref{sec:setups-batch-proc} we studied the effect of setup times between job
 However, other types of interruptions can occur, such as a machine requiring random adjustments that can occur between any two jobs.
 This type of outages is \recall{non-preemptive} as the outages do not interrupt the processing of a job in service.
 In this section we develop a simple model to understand the impact of such outages on job sojourn times; we use the same notation as in~\cref{sec:setups-batch-proc} and follow the same line of reasoning.
+With this model, we can analyze the effects of reducing adjustment times or the variability of these adjustments times.
+For instance, we might decide to do fewer adjustments, but the average outage times become longer.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -14,20 +16,14 @@ In this section we develop a simple model to understand the impact of such outag
 \Opensolutionfile{ans}
 }
 
-%See section 1.11 of Zijm's book for the theory.
-
-
 We assume that adjustments $\{R_i\}$ occur geometrically distributed between any two jobs with a mean of $B$ jobs between any two adjustments.
 Consequently, the probability of an outage between any two jobs is $p=1/B$.
 Observe that geometrically distributed random variables satisfy the memoryless property in discrete time.
 Hence, our assumption implies that the occurrence of an adjustment between jobs $i$ and $i+1$ has no effect on the probability that an adjustment is necessary between jobs $i+1$ and $i+2$.
 
-With the model, we can obtain quantitative insights into the effects of reducing adjustment times or the variability of these adjustments times.
-For instance, we might decide to do fewer adjustments, so that $p$ decreases, but at the expense of larger average outage times.
-Thus, without needing to actually do the experiments in real life, we can evaluate the influence of such decisions.
 
 Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times.
-From~\cref{ex:l-256} and \cref{,ex:l-257} it follows that
+%From~\cref{ex:l-256} and \cref{,ex:l-257} it follows that
 \begin{exercise}\clabel{ex:l-256}
 Show that the average effective processing time is given by
 \begin{equation} \label{eq:88}
@@ -48,6 +44,8 @@ since $p=1/B$.
 \end{solution}
 \end{exercise}
 
+Clearly, the effective server load including down-times is $\rho = \lambda \E{S}$.
+Since the adjustments do not affect the job arrival process, we only have to find an expression how it affects~$C_s^2$.
 
 %The next step is to compute $\E{S^2}$. 
 \begin{extra}\clabel{ex:78}
@@ -89,8 +87,6 @@ Derive
 \end{solution}
 \end{exercise}
 
-
-Thus, the effective server load including down-times is $\rho = \lambda \E{S}$, and we can compute the SCV of the effective job processing times.
 With this, we have all elements to fill in the $G/G/1$ waiting time formula!
 
 
@@ -145,8 +141,7 @@ EW
   However, the impact on the SCV is different.
   Unexpected interruptions must have a larger effect on variability than expected interruptions.
 
-  In more general terms, we can use part of the model of~\cref{sec:setups-batch-proc} to analyze the effect of planned maintenance---do an adjustment after every $B$ jobs.
-  In the model of this section, adjustments arrive completely unexpectedly.
+  In more general terms, we can use part of the model of~\cref{sec:setups-batch-proc} to analyze the effect of planned maintenance---do an adjustment after every $B$ jobs---while with the model of this section we consider adjustments that arrive completely unexpectedly.
   With these two models we can compare the influence on waiting times of doing planned adjustments more often (take $B$ a bit small), but remove the unexpected interruptions.
   Hence, we have another set of tools to compare different scenarios to organize production systems.
 \end{remark}
