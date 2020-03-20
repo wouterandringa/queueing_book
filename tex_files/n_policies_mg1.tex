@@ -18,7 +18,7 @@ Analogous to~\cref{eq:92} and using the definition of $f(k)=\P{Y=k}$ as the prob
 \begin{equation*}
   T(q) = \sum_{k=0}^\infty f(k) T(q+k-1) + \E S.
 \end{equation*}
-To see this, observe that when $k=0$ the next level is $q-1$ so that it takes $T(q-1$ time to hit level~$0$.
+To see this, observe that when $k=0$ the next level is $q-1$ so that it takes $T(q-1)$ time to hit level~$0$.
 When $k=1$, the level returns to $q$ after the departure of the job currently in service; consequently, we have not made any progress, hence we still need $T(q)$ units of time,  and so on.
 Similar to the reasoning in~\cref{sec:n-policies}, we guess that $T(q) = a q + b$. Since $T(0)=0$, we already have $b=0$. 
 
