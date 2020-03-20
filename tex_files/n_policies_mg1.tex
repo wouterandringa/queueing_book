@@ -18,14 +18,14 @@ Analogous to~\cref{eq:92} and using the definition of $f(k)=\P{Y=k}$ as the prob
 \begin{equation*}
   T(q) = \sum_{k=0}^\infty f(k) T(q+k-1) + \E S.
 \end{equation*}
-To see this, observe that when $k=0$ the next level is $q-1$ so that it takes $T(q-1$ time to hit level~$0$.
+To see this, observe that when $k=0$ the next level is $q-1$ so that it takes $T(q-1)$ time to hit level~$0$.
 When $k=1$, the level returns to $q$ after the departure of the job currently in service; consequently, we have not made any progress, hence we still need $T(q)$ units of time,  and so on.
 Similar to the reasoning in~\cref{sec:n-policies}, we guess that $T(q) = a q + b$. Since $T(0)=0$, we already have $b=0$. 
 
 \begin{exercise}\clabel{ex:nmg3}
 Substitute $T(q) = a q$ in the above recursion for $T(q)$, and solve for $a$ to obtain
 \begin{equation*}
-  T(q) = \frac{\E S}{1- \E Y} = \frac{\E S}{1-\lambda \E S}.
+  T(q) = \frac{\E S}{1- \E Y}q = \frac{\E S}{1-\lambda \E S}q.
 \end{equation*}
 \begin{hint}
   Use that $\sum_{k=0}^\infty k f(k) = \E Y$. Then use~\cref{ex:mg1-3}. Realize also that $\sum_k f(k) = 1$. 
@@ -64,14 +64,14 @@ By the next problem,
 \end{equation*}
 
 \begin{exercise}\clabel{ex:nmg4}
-Assuming that $U(\cdot)$ is differentiable, we can use that $(U)s) - U(s-\delta))\delta \approx U'(s)$.
+Assuming that $U(\cdot)$ is differentiable, we can use that $(U(s) - U(s-\delta))/\delta \approx U'(s)$.
 Use this in the above to arrive at the differential equation $U'(s) = \lambda h s$ that $U$ must satisfy with condition $U(0)=0$ (why is this so?).
-Solve this DE to conclude that $U(s$ is as given above. 
+Solve this DE to conclude that $U(s)$ is as given above. 
 \begin{solution}
 Is it plain algebra:
 \begin{align*}
   U(s)&=  U(s-\delta) + (1-\lambda \delta)\cdot 0 + \lambda \delta h s + o(\delta) &\implies\\
-  (U(s) -U(s-\delta))/\delta &= \lambda \delta h s + o(\delta) & \implies \\
+  (U(s) -U(s-\delta))/\delta &= \lambda h s + o(\delta) & \implies \\
   U'(s)&= \lambda h s, \quad\text{as } \delta \to 0.
 \end{align*}
 Integrating  both sides with respect to $s$ gives $U(s) - U(0) = \lambda h s^2/2$. As $U(0)=0$, we obtain the final result.
@@ -175,7 +175,7 @@ As in~\cref{sec:n-policies}, show that we can obtain the Pollaczek-Khinchine equ
   Thus, $C(1) = 1/\lambda + T(1)$ is the expected duration of a cycle, and $V(1)$ the expected queueing cost of once cycle.
   The rest is algebra:
   \begin{align*}
-    \frac{V(1)}{T(1)}
+    \frac{V(1)}{1/\lambda + T(1)}
     &= \frac{a + b}{1/\lambda + \E S/(1-\lambda \E S)} \\
     &= \frac{h} 2 \frac{\E S}{1-\rho} \frac{1 + (1+\rho C_s^2 )/(1-\rho)}{1/\lambda + \E S /(1-\rho)} \\
     &= \frac{h} 2 \frac{\E S}{1-\rho} \frac{1-\rho + 1 +\rho C_s^2}{(1-\rho)/\lambda + \E S} \\
