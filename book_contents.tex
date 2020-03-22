@@ -20,6 +20,8 @@
 \chapter{Construction and Simulation of Queueing Systems}
 \label{cha:single-stat-queu}
 
+TODO
+
 In this chapter we start with a discussion of the Poisson process.
 We then construct queueing processes in discrete time and apply the Poisson process to model the number of arrivals in periods of fixed length.
 In~\cref{sec:expon-distr} we relate the exponential distribution to the Poisson distribution.
@@ -35,11 +37,45 @@ We assume that you  \emph{know all} results of~\cref{sec:preliminaries}.
 \input{tex_files/constructiondiscretetime.tex}
 \input{tex_files/expdistribution.tex}
 \input{tex_files/constructioncontinuoustime.tex}
+
+\chapter{From Transient to Steady-state Analysis}
+\label{cha:from-trans-steady}
+
+TODO
+
+
+
+With the tools developed up to now we can simulate queueing processes, but we cannot easily use mathematical models for the analysis of queueing systems.
+In~\cref{sec:queu-proc-as} we will show that the analysis of the transient behavior of even for the simplest queueing system is very complicated.
+For this purpose we focus on queueing systems in steady-state.
+Intuitively speaking, this requires the system to be stable, for otherwise the queue length process grows to infinity.
+
+In the analysis of any queueing process, the first step should be to check the relations between the arrival, service and departure rates.
+The concept of rate is crucial because it captures our intuition that when, in the long run, jobs arrive faster than they can leave, the system must `explode'.
+As we will see, when the arrival rate is smaller than the service rate, the system is stable.
+Thus, the first performance measure we need to estimate for a queueing system is the ratio between the arrival and service rate.
+
+
+To formalize the concept of stability we define in~\cref{sec:rate-stability} the notion of arrival, departure and service rate, which we use in \cref{sec:renew-reward-theor} to define the concept of \emph{load}.
+We then can impose proper conditions on the load to ensure that a sensible queueing process results in steady state.
+Once this is ensured, we can give meaning to a number of limiting performance measures in~\cref{sec:limits-of-emperical}.
+Before introducing these definitions of rate and stability, however, we introduce notational shorthands to characterize the type of queueing process whose behavior we study \emph{in steady state}.
+In~\cref{sec:graphical-summaries_1} we provide an overview of the concepts of this chapter.
+
+
 \input{tex_files/kendall.tex}
 \input{tex_files/random_walk.tex}
+\input{tex_files/ratestability.tex}
+\input{tex_files/empiricalperfmeasures.tex}
+\input{tex_files/figure_summaries_1.tex}
 
-\chapter{Approximate Models}
+
+
+\chapter{Approximate Queueing Models}
 \label{cha:approximate-models}
+
+TODO
+
 In the first section of this chapter we present and apply Sakasegawa's formula to approximate the expected waiting time in queue at an $G/G/c$ queue, and in the last section we provide a formula to show how variability propagates in networks.
 We might say that these two formulas are the most important formulas to understand the behavior of queueing systems.
 With a bit of exaggeration, it is justified to say that the entire philosophy behind lean manufacturing and the world-famous Toyota production system are based on the principles that can be derived from these two formulas. These principles come down to: focus on the reduction of load and processing time variability, and realize that the size of production batches has a major effect on waiting times.
@@ -70,6 +106,8 @@ In passing we use some interesting results of probability theory and the Poisson
 \chapter{Fundamental tools}
 \label{cha:fundamental-tools}
 
+TODO
+
 For the mathematical analysis of queueing systems we need a few concepts that are fundamentally important and have a general interest beyond queueing.
 We start with developing sample-path constructions of queueing systems.
 We then define several performance measures that can be estimated from characteristics of the sample paths, possibly obtained by simulation.
@@ -77,15 +115,14 @@ We then define several performance measures that can be estimated from character
  and level-crossing arguments.
 
 
-\input{tex_files/ratestability.tex}
-\input{tex_files/empiricalperfmeasures.tex}
+
 \input{tex_files/renewal_reward.tex}
 \input{tex_files/levelcrossing.tex}
 \input{tex_files/pasta.tex}
 \input{tex_files/little.tex}
-\input{tex_files/figure_summaries.tex}
+\input{tex_files/figure_summaries_2.tex}
 
-\chapter{Analytical Models}
+\chapter{Exact Queueing Models}
 \label{cha:analytical-models}
 
 In this chapter we focus on developing analytic models for various queueing systems in steady-state.
@@ -103,6 +140,8 @@ As a reminder, we keep the discussion in these notes mostly at an intuitive leve
 
 \chapter{Queueing Control and Open Networks}
 \label{cha:queu-contr-open}
+
+TODO
 
 In the queueing systems we analyzed up to now, the server is always present to serve jobs in the system. However, this condition is not always satisfied.
 As an example, consider a queueing system in which there is a cost associated with switching on and off the server.

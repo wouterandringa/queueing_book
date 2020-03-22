@@ -1,9 +1,7 @@
 \section{(Limits of) Empirical Performance Measures}
 \label{sec:limits-of-emperical}
 
-In the previous section we used the arrival, service and departure processes to define the arrival, service and departure rates.
-We can also use these processes to construct a single-server queueing process, cf.~\cref{sec:constr-gg1-queu}, and, once we have the queueing process, we can compute the waiting time process $\{W_{Q,k}\}$, the sojourn time process $\{W_{Q,k}\}$, and the process $\{L(t)\}$ corresponding to the number of the jobs in the system.
-Finally, if the queueing system is rate-stable, we can sensibly define a number of performance measures such as the average waiting time.
+If the queueing system is rate-stable, we can sensibly define a number of long-run average performance measures such as the load, the average waiting time in queue, and so on. 
 This we do here and refer to \cref{fig:constructiongg1} for an overview of the relations between these performance measures.
 
 
@@ -14,16 +12,20 @@ This we do here and refer to \cref{fig:constructiongg1} for an overview of the r
 }
 
 
-With $\{W_k\}$ and $\{W_{Q,k}$, define the \recall{expected sojourn time} as
+Recall that we constructed a single-server queueing process $\{L(t)\}$ in cf.~\cref{sec:constr-gg1-queu} based on the arrival process $\{A(t)\}$ and service process $\{S(t)\}$.
+Once we have the queueing process, we can compute the waiting time process $\{W_{Q,k}\}$, the sojourn time process $\{W_{Q,k}\}$.
+
+
+Define the \recall{expected sojourn time} as \emph{seen by  arrivals} as
 \begin{equation}\label{eq:49}
- \E W = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n W_k,
+ \E W = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n W_k.
 \end{equation}
-and the expected waiting time, or time in queue, as
+Note that this performance measure is the limit of an \emph{empirical} performance measure as observed by arriving jobs: the first job experiencesa sojourn time $W_1$ when it arrives, the second a sojourn time $W_2$, and so on.
+For this reason, we colloquially say such a performance measure is as `seen by arrivals'.
+Similarly, the \recall{expected waiting time in queue} is defined as
 \begin{equation}\label{eq:50}
  \E{W_Q} = \lim_{n\to\infty} \frac 1 n\sum_{k=1}^n W_{Q,k}.
 \end{equation}
-Note that these performance measures are limits of \emph{empirical} measures and are obtained at statistics \emph{observed by arriving jobs}: the first job has a sojourn time $W_1$ when it arrives, the second a sojourn time $W_2$, and so on.
-For this reason, we colloquially say that $\E W$ is the average sojourn time as `seen by arrivals'.
 The \emph{distribution of the sojourn times} seen by arrivals can be found by counting:
 \begin{equation}\label{eq:48}
  \P{W \leq x} = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
@@ -40,7 +42,7 @@ Finally, the \emph{distribution of $\{L(t)\}$} as seen by arrivals, is given by
 
 
 
-A related set of performance measures follows by tracking the system's behavior over time and taking the \emph{time-average}, rather than the average at sampling (observation) moments.
+A related set of performance measures follows by tracking the system's behavior over time and taking the \emph{time-average}, rather than the average at arrival epochs.
 % Thus, if we simulate the queueing system up to time $t$, 
 % \begin{equation}\label{eq:11}
 % \frac 1 t\int_0^t L(s)\d s = \frac 1 t\int_0^t (A(s)-D(s)) \d s,
@@ -53,7 +55,7 @@ Assuming the limit exists we use~\cref{eq:14} to define the \recall{time-average
  \label{eq:46}
  \E L = \lim_{t\to\infty} \frac 1 t\int_0^t L(s) \d s.
 \end{equation}
-Observe that, notwithstanding that the symbols are the same, this expectation need not be the same as~\cref{eq:EQ}.
+Observe that, notwithstanding that the symbols are the same, this expectation is not necessarily the same as~\cref{eq:EQ}.
 In a loose sense we can say that $\E L$ is the average number in the system as perceived by the \emph{server}.
 Next, define the \emph{time-average fraction of time the system contains at most $m$ jobs} as
 \begin{equation}
@@ -64,7 +66,7 @@ Again, this probability need not be the same as what customers see upon arrival.
 
 
 \begin{exercise}\clabel{ex:l-165}
-Design a queueing system to show that the average number of jobs in the system as seen by the server can be very different from what the customers see upon arrival.
+Design a queueing system to show that the average number of jobs in the system as seen by the server can be very different from what customers see upon arrival.
 \begin{hint}
 Consider a queueing system with constant service and inter-arrival times.
 \end{hint}
@@ -86,13 +88,89 @@ If $L(t)=1$ for all $t$, $\E{L} =1 $, but $L(t)/t \to 0$.
 \end{solution}
 \end{extra}
 
+Taking the above limits requires considerable care, and at least two questions are important.
+What type of limit do we actually mean here?
+And, once such limits are given proper meaning, what is the rate of convergence of, for instance, the random variables $\{L_k\}$ to the limiting random variable~$L$?
+Here we sidestep all such fundamental issues, but see~\cref{rem:em-1}.
+Assuming that the first of these questions is answered, the limiting random variables are known as the \recall{steady-state} or \recall{stationary} limits, and the related distributions are often called \recall{limiting} or \emph{stationary distributions}.
 
-\begin{exercise}\clabel{ex:l-166}
-Consider the discrete-time model of the queueing system specified by~\cref{eq:31}.
+Related to the second question about the convergence rate, we provide some intuition by means on an example.
+We consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_Q$, where $W_{Q,k}$ is constructed according to the recursion~\cref{eq:56}.
+Suppose that $X_k\sim U\{1,2,4\}$ and $S_k\sim U\{1,2,3\}$.
+Starting with $W_{Q,0}=5$ we use~\cref{eq:56} to compute the \emph{exact} distribution of $W_{Q,k}$ for $k=1,2,\ldots, 20$, cf., the left panel in~\cref{fig:convergence}.
+We see that when $k=5$, the `hump' of $\P{W_{Q,5}=x}$ around $x=5$ is due the starting value of $W_{Q,0}=5$.
+However, for $k>10$ the distribution of $W_{Q,k}$ hardly changes, at least not visually.
+Apparently, the convergence of the sequence of distributions of $W_{Q,k}$ is rather fast.
+
+In the middle panel we show the results of a set of \emph{simulations} for increasing simulation length, up to $N=1000$ samples, where we use the \emph{empirical distribution} 
+\begin{equation*}
+\P{W_Q\leq x} = \frac 1n \sum_{k=1}^n \1{W_{Q,k} \leq x}
+\end{equation*}
+to estimate the waiting time distribution. 
+As should be clear from the figure, the simulated distribution also converges quite fast to some limiting function.
+Finally, in the right panel we compare the densities as obtained by the exact method and simulation with $n=1000$.
+Clearly, for all practical purposes, these densities can be treated as the same.
+
+
+The combination of the fast convergence to the steady-state situation and the difficulties with the transient analysis validates, to some extent, that most queueing theory is concerned with the analysis of the system in \emph{stationary} or \emph{steady state}.
+
+\begin{figure}
+ \centering
+% see progs/waiting_time_simulation.py
+\input{progs/waiting_time_1.tex}
+\input{progs/waiting_time_2.tex}
+\input{progs/waiting_time_3.tex}
+% \includegraphics{progs/gg1convergence}
+ \caption{The density of $W_{Q,k}$ for $k=5, 10, 15, 20$ computed by
+ an exact method as compared the density obtained by simulation of
+ different run lengths $N=200, 400, \ldots, 1000$. The right panel
+ compares the exact density of $W_{Q,20}$ to the density obtained by simulation
+ for $N=1000$.}
+\label{fig:convergence}
+\end{figure}
+
+
+
+
+\begin{exercise}\clabel{ex:l-135}
+ Suppose that $X_k\in\{1,3\}$ such that $\P{X_k=1}=\P{X_k=3}$ and
+ $S_k\in\{1,2\}$ with $\P{S_k=1}=\P{S_k=2}$. Write a computer program
+ to see how fast the distributions of $W_{Q,k}$ converge to a limiting distribution function.
+\begin{solution}
+ Here is an example with Python.
+ I compute the difference, i.e., the Kolmogorov-Smirnov statistic, between the distributions of $W_{Q,k-1}$ and $W_{Q,k}$,
+\begin{equation*}
+ \max_x\{ |\P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}|\},
+\end{equation*}
+for $x$ in the support of $W_{Q,k}$. 
+
+The code can be found in the \pyv{exact} function in the file \pyv{waiting_time_simulation.py} at
+my github repo.
+
+If you make a plot, you will see that after some 10 customers the distribution hardly changes any further. 
+
+\end{solution}
+\end{exercise}
+
+% \begin{exercise}\clabel{ex:l-136}
+%  Validate the results of~\cref{fig:convergence} with simulation.
+% \begin{solution}
+%  The code is in the file \pyv{waiting_time_simulation.py} at my github repo.
+% \end{solution}
+% \end{exercise}
+
+
+Up to now, we considered queueing systems in continuous time.
+However, the performance measures for discrete-time queueing models needs some modification, mainly for the reason that multiple jobs can arrive in a single period.
+What statistics do these jobs assemble?
+The next exercise focuses on this problem.
+
+\begin{exercise}\clabel{ex:l-166} Consider the discrete-time model of the queueing system specified by~\cref{eq:31}.
 In such queueing systems, jobs arrive in batches, for instance, when $a_k=3$, three jobs arrive in slot $k$.
 Assuming that $L_{k-1}=5$, what queue length have these 3 arrivals seen?  
 
-Provide one definition similar to~\cref{eq:Qm} for the case in which we say that all arrivals see the same number in the system. Provide a second in which we like to express that the first of a batch of arrivals sees less in the system than the last arrival of a batch. 
+Provide a definition similar to~\cref{eq:Qm} for the case in which we say that all arrivals see the same number in the system.
+Provide another definition to express that the first of a batch of arrivals sees less jobs in the system than the last arrival of a batch. 
 \begin{hint}
 Realize that when jobs arrive in batches, the definition of loss fraction requires some care; not all definitions need to measure the same.
 \end{hint}
@@ -151,6 +229,21 @@ print(res, res / sum(a))
 \end{exercise}
 
 
+
+\begin{remark}\label{rem:em-1}
+The \emph{long-run limiting behavior} of a queueing system (i.e., the first question) is a subtle topic.
+%The underlying question is what happens if we simulate the system for a long time.
+For instance, does there exist a random variable $L$ such that $L_k\to L$ in some sense?
+%The answer to this question is in the affirmative, provided some simple stability conditions are satisfied, see~\cref{sec:rate-stability}.
+The answer to this question requires a considerable amount of mathematics.
+To sketch what has to be done, realize that we first need to define $\{L_k\}$ as a stochastic process (up to now we just considered each $L_k$ as a \emph{number}, i.e., a measurement or simulation of the queue length time of the $k$th period.)
+The construction of $L_k$ as a proper random variable is not as simple as the definition of the service times  $\{S_k\}$, for instance.
+In the latter case, we just assume these random variables to be i.i.d.
+However, in the former case, it is apparent from~\cref{eq:59} that the queue lengths $\{L_k\}$ are \emph{constructed} in terms of recursions, hence they are certainly \emph{not} i.i.d.
+Next, based on these recursions, we need to show that the sequence of distribution functions $\{G_k\}$ associated with the random variables $\{L_k\}$ converges to some limiting distribution function~$G$, say.
+Finally, it is necessary to show that it is possible to construct a random variable~$L$ that has~$G$ as its distribution function.
+In this sense, finally,  we say that~$L_k \to L$. All this can be done, but we refer to the specialized literature for this. 
+\end{remark}
 
 
 \opt{solutionfiles}{

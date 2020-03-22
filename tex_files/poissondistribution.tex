@@ -38,7 +38,7 @@ By our first assumption, the arrival rate is constant over time.
 Therefore, the probability~$p$ of an arrival in each interval should be constant.
 Moreover, if the time intervals are very small, we can safely neglect the probability that two or more customers arrive in one interval.
 
-As a consequence, then, we can model the occurrence of an arrival in some period $i$ as a Bernoulli distributed random variable $B_i$ such that $p=\P{B_i =1}$ and $\P{B_i=0} = 1-\P{B_i = 1}$, and we assume that $B_i$ and $B_j$ are independent whenever $i\neq j$.
+As a consequence, then, we can model the occurrence of an arrival in some period $i$ as a Bernoulli distributed random variable $B_i$. We assume that the $B_i, i=1,\ldots$ are independent and identically distributed (\recall{i.i.d.}) as the common random variable $B$ such that  $p=\P{B =1}$ and $1-p = \P{B=0}$. 
 The total number of arrivals $N_n(t)$ that occur in $n$ intervals is then \recall{binomially distributed}, i.e.,
 \begin{equation}\label{eq:bin}
  \P{N_n(t) = k} = {n \choose k} p^k (1-p)^{n-k}.
@@ -297,7 +297,8 @@ M_{N(t)}(s)
 = \exp{(\lambda t(e^s-1))}.
 \end{equation*}
 \begin{hint}
-Use~\cref{eq:66} with $f(x) = e^{sx}$. \end{hint}
+Use~\cref{eq:66} with $f(x) = e^{sx}$. 
+\end{hint}
 \begin{solution}
 Since $N(t)$ is Poisson distributed with parameter $\lambda t$, 
 \begin{align*}
@@ -311,6 +312,7 @@ M_{N(t)}(s)
 \end{align*}
 \end{solution}
 \end{extra}
+
 
 \begin{exercise} \clabel{ex:l-101}
  Use the moment-generating function of $N(t)\sim P(\lambda t)$ to compute $\E{N(t)}$ and $\V{N(t)}$. 

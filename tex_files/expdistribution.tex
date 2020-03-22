@@ -21,13 +21,9 @@ We say that $X$ is an \recall{exponentially distributed} random variable with me
 and then we write $X\sim \Exp(\lambda)$.
 
 
-The Poisson process $N$ and exponentially distributed inter-arrival times are intimately related: A counting process $\{N(t)\}$ is a \emph{Poisson process} with rate $\lambda$ if and only if the inter-arrival times $\{X_i\}$ are \recall{i.i.d.} (\recall{independent and identically distributed}) and exponentially distributed with mean $1/\lambda$, in short, 
-\begin{equation*}
-X_i\sim \Exp(\lambda) \Leftrightarrow N(t) \sim P(\lambda t).
-\end{equation*}
-
-
-We next provide further relations between the Poisson distribution and the exponential distribution. 
+The Poisson process $N$ and exponentially distributed inter-arrival times are intimately related: A counting process $\{N(t)\}$ is a \emph{Poisson process} with rate $\lambda$ if and only if the inter-arrival times $\{X_i\}$ are i.i.d.
+with common random variable $X\sim \Exp(\lambda)$, in short, $X_i\sim \Exp(\lambda) \Leftrightarrow N(t) \sim P(\lambda t)$.
+We next provide further relations between the Poisson distribution and the exponential distribution.
 
 
 \begin{extra}
