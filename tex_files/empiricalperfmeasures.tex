@@ -193,7 +193,7 @@ Thus,
 counts the number of batches. 
 
 Next, by assumption, $a_k$ items arrive during period $k$.
-The first of these items sees a queue length of $L_{k-1} - d_k$, the second $L_{k-1}-d_k + 1$, and so on until the last item, which sees a queue length of $L_k-1 = L_{k-1} - d_k + a_k -1$.
+The first of these items sees a queue length of $L_{k-1} - d_k$, the second $L_{k-1}-d_k + 1$, and so on, until the last item, which sees a queue length of $L_k-1 = L_{k-1} - d_k + a_k -1$.
 Thus, of all items, the last item sees the largest queue.
 Hence, if $L_k \leq m$, all items of the batch see a queue less than $m$.
 If, however, $L_k > m$, then $L_k -m$ customers saw $m$ or more jobs in the system.
