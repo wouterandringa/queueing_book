@@ -20,18 +20,27 @@
 \chapter{Construction and Simulation of Queueing Systems}
 \label{cha:single-stat-queu}
 
-TODO
 
-In this chapter we start with a discussion of the Poisson process.
-We then construct queueing processes in discrete time and apply the Poisson process to model the number of arrivals in periods of fixed length.
-In~\cref{sec:expon-distr} we relate the exponential distribution to the Poisson distribution.
-The exponential distribution often serves as a good model for inter-arrival times of individual jobs.
-As such, this is a key component of the construction of queueing processes in continuous time.
-As it turns out, both ways to construct queueing processes are easily implemented as computer programs, thereby allowing us to use simulation to analyze queueing systems.
-In passing, we develop a number of performance measures to provide insight into the (transient and average) behavior of queueing processes.
-We then introduce a useful set of shorthands to distinguish between different queueing models, and finish the chapter with a motivation why we focus on a steady-state analysis of queueing systems in the remainder of the book.
+The first step to analyze a queueing system is to model it.
+And for this, there is often not a better start then to build a simulation model.
+Thus, the aim of this chapter is to teach you how to construct and simulate queueing processes.
 
-We assume that you  \emph{know all} results of~\cref{sec:preliminaries}. 
+In~\cref{sec:constr-discr-time} we build discrete-time models of queueing systems, which means that we use the number of jobs that arrive and can be served in a periods to construct the queueing process.
+Such a period can be an hour, or a day; in fact, any amount of time that makes sense in the context in which the model will be used.
+Typically we model the number of arrivals and potential services as random variables, and in many practical settings it is reasonable to take the number of arrivals in a period as Poisson distributed.
+This being the case, we consider the Poisson distribution in~\cref{sec:poisson-distribution}, and once we have an understanding of this, we can use random number generators to generate (Poisson distributed) random numbers of arrivals and services to drive the simulator.
+
+
+In~\cref{sec:constr-gg1-queu} we focus on constructing queueing processes in continuous time.
+In this setting, the inter-arrival times and service times of individual jobs become of importance, and then exponentially distributed random variables play a fundamental role.
+We therefore discuss the properties of the exponential distribution in~\cref{sec:expon-distr}.
+We also mention the interestingly and close relationship between the exponential distribution and the Poisson distribution.
+
+As will become apparent, both types of constructing queueing processes, the discrete-time or continuous-time models, are easy to implement as computer programs.
+We include a large number of exercises to show you the astonishing diversity of queueing systems can be analyzed by simulation.
+In passing, we develop a number of performance measures to provide insight into the (transient and long-run average) behavior of queueing processes.
+
+We expect you to \emph{know all topics} summarized in~\cref{sec:preliminaries}; we use these extensively in~\cref{sec:poisson-distribution} and \cref{sec:expon-distr}, as well as in any other section that introduces some theory.
 
 \input{tex_files/poissondistribution.tex}
 \input{tex_files/constructiondiscretetime.tex}
@@ -41,26 +50,20 @@ We assume that you  \emph{know all} results of~\cref{sec:preliminaries}.
 \chapter{From Transient to Steady-state Analysis}
 \label{cha:from-trans-steady}
 
-TODO
 
-
-
-With the tools developed up to now we can simulate queueing processes, but we cannot easily use mathematical models for the analysis of queueing systems.
-In~\cref{sec:queu-proc-as} we will show that the analysis of the transient behavior of even for the simplest queueing system is very complicated.
-For this purpose we focus on queueing systems in steady-state.
+With the tools developed in~\cref{cha:single-stat-queu}  we can simulate queueing processes, but we cannot easily use mathematical models to analyze queueing systems.
+The aim of this chapter is to make start with this latter subject. 
+However, as we will see in~\cref{sec:queu-proc-as}, the mathematical analysis of the time-dependent behavior of queueing systems is beyond our capabilities; the transient behavior of even the simplest queueing system is already extremely  complicated. Thus, we have to lower our goals, and for this reason we will focus the steady-state behavior of queueing systems.
 Intuitively speaking, this requires the system to be stable, for otherwise the queue length process grows to infinity.
 
-In the analysis of any queueing process, the first step should be to check the relations between the arrival, service and departure rates.
-The concept of rate is crucial because it captures our intuition that when, in the long run, jobs arrive faster than they can leave, the system must `explode'.
+We introduce concepts of stability and load in~\cref{sec:rate-stability} and express these in terms of the arrival, service and departure rates.
+The notions of arrival and service rate are crucial because they capture our intuition that when jobs arrive faster on average than they can leave, the queue must `explode'.
 As we will see, when the arrival rate is smaller than the service rate, the system is stable.
-Thus, the first performance measure we need to estimate for a queueing system is the ratio between the arrival and service rate.
+Once stability is ensured, we can properly define in~\cref{sec:limits-of-emperical} a number of measures to characterize the performance of the queueing system, such as the average waiting time.
+%In the remainder of the book we use arrival rate, and so on, in every queueing model
 
-
-To formalize the concept of stability we define in~\cref{sec:rate-stability} the notion of arrival, departure and service rate, which we use in \cref{sec:renew-reward-theor} to define the concept of \emph{load}.
-We then can impose proper conditions on the load to ensure that a sensible queueing process results in steady state.
-Once this is ensured, we can give meaning to a number of limiting performance measures in~\cref{sec:limits-of-emperical}.
-Before introducing these definitions of rate and stability, however, we introduce notational shorthands to characterize the type of queueing process whose behavior we study \emph{in steady state}.
-In~\cref{sec:graphical-summaries_1} we provide an overview of the concepts of this chapter.
+Before introducing these definitions, however, we need to introduce some notational shorthands to characterize the type of queueing process. This is the topic of~\cref{sec:graphical-summaries_1}.
+To help you, we provide in~\cref{sec:graphical-summaries_1} an overview of the relations we introduce in this chapter. 
 
 
 \input{tex_files/kendall.tex}
