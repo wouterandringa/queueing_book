@@ -234,10 +234,6 @@ These complications can be solved, and with this body of theory we can analyze a
 Let us finish with making a number of remarks on how to extend the material we covered in this book.
 
 \begin{remark}
-It is possible to make the matrix $P$ and the cost vector $H$ depend on an action one can take in certain states. This idea underlies Markov decision theory, which in turn provides the theoretical basis of a number of machine learning tools such as $Q$ learning, reinforcement learning, and so on. 
-\end{remark}
-
-\begin{remark}
   If you happen to know a bit about Markov chains, observe that the routing matrix $P$ does not correspond to the transition matrix of a recurrent Markov chain.
   Since for at least one row $i$, $\sum_{j=1}^N P_{i j}<1$, the matrix $P$ is sub-stochastic.
   Hence, a Markov chain induced by $P$ cannot be irreducible, because for this to happen, the chain must stay in some absorbing set with probability 1.

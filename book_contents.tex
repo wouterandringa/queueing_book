@@ -51,19 +51,21 @@ We expect you to \emph{know all topics} summarized in~\cref{sec:preliminaries}; 
 \label{cha:from-trans-steady}
 
 
-With the tools developed in~\cref{cha:single-stat-queu}  we can simulate queueing processes, but we cannot easily use mathematical models to analyze queueing systems.
-The aim of this chapter is to make start with this latter subject. 
-However, as we will see in~\cref{sec:queu-proc-as}, the mathematical analysis of the time-dependent behavior of queueing systems is beyond our capabilities; the transient behavior of even the simplest queueing system is already extremely  complicated. Thus, we have to lower our goals, and for this reason we will focus the steady-state behavior of queueing systems.
+With the tools developed in~\cref{cha:single-stat-queu} we can simulate queueing processes.
+The next step is to develop mathematical models of queueing systems.
+The aim of this chapter is to make start with this.
+However, as we will see in~\cref{sec:queu-proc-as}, the mathematical analysis of the time-dependent behavior of queueing systems is beyond our capabilities; the transient behavior of even the simplest queueing system is already extremely complicated.
+Thus, we have to lower our goals, and for this reason we will focus the steady-state behavior of queueing systems.
 Intuitively speaking, this requires the system to be stable, for otherwise the queue length process grows to infinity.
 
 We introduce concepts of stability and load in~\cref{sec:rate-stability} and express these in terms of the arrival, service and departure rates.
 The notions of arrival and service rate are crucial because they capture our intuition that when jobs arrive faster on average than they can leave, the queue must `explode'.
 As we will see, when the arrival rate is smaller than the service rate, the system is stable.
 Once stability is ensured, we can properly define in~\cref{sec:limits-of-emperical} a number of measures to characterize the performance of the queueing system, such as the average waiting time.
-%In the remainder of the book we use arrival rate, and so on, in every queueing model
+In~\cref{cha:approximate-models} we will see how to use the load and expected service time to approximate expected waiting times in queue. 
 
-Before introducing these definitions, however, we need to introduce some notational shorthands to characterize the type of queueing process. This is the topic of~\cref{sec:graphical-summaries_1}.
-To help you, we provide in~\cref{sec:graphical-summaries_1} an overview of the relations we introduce in this chapter. 
+Before introducing these definitions, however, we need to introduce some notational shorthands to characterize the type of queueing process, which is the topic of~\cref{sec:kendalls-notation}.
+We provide in~\cref{sec:graphical-summaries_1} an overview of the relations we introduce in this chapter.
 
 
 \input{tex_files/kendall.tex}
@@ -77,28 +79,29 @@ To help you, we provide in~\cref{sec:graphical-summaries_1} an overview of the r
 \chapter{Approximate Queueing Models}
 \label{cha:approximate-models}
 
-TODO
 
-In the first section of this chapter we present and apply Sakasegawa's formula to approximate the expected waiting time in queue at an $G/G/c$ queue, and in the last section we provide a formula to show how variability propagates in networks.
+
+In this chapter we familiarize the reader with Sakasegawa's formula by which the expected queueing time in a $G/G/c$ can be approximated, and another formula by which it is possible to characterize how variability propagates through a tandem network of $G/G/c$ queues.
 We might say that these two formulas are the most important formulas to understand the behavior of queueing systems.
-With a bit of exaggeration, it is justified to say that the entire philosophy behind lean manufacturing and the world-famous Toyota production system are based on the principles that can be derived from these two formulas. These principles come down to: focus on the reduction of load and processing time variability, and realize that the size of production batches has a major effect on waiting times.
+With a bit of exaggeration, it is justified to say that the entire philosophy behind lean manufacturing and the world-famous Toyota production system are based on the principles that can be derived from these two formulas.
 
-The idea behind this chapter is to familiarize the reader with a set of typical queueing (business) problems that can be addressed with these approximations.
-In other words, here we take these formulas for granted, but focus on the insights they provide and how to use them to guide improvement procedures for queueing problems that are, in some way or another, often encountered in production and service systems.
-In later sections, most notably~\cref{sec:mg1}, we will provide the background of Sakasegawa's formula and show that it is an exact result for the $M/G/1$ queue,
+Here we take these formulas for granted and focus on the insights they provide and how to use them to guide improvement procedures for practical queueing problems that are, in some way or another, often encountered in production and service systems.
+In later sections, most notably~\cref{sec:mg1}, we will provide the theoretical background of Sakasegawa's formula.
+
 
 In~\cref{sec:gg1} we introduce and discuss the main insights of Sakasegawa's formula.
-In the subsequent sections we illustrate how to use this formula to estimate waiting time in three examples in which the service process is interrupted.
-In the first case the server has to produce jobs from different families, and there is a change-over time required to switch from one production family to another.
+Then, in the subsequent three sections, we illustrate how to use this formula to estimate waiting times in three queueing settings in which the service process is interrupted.
+In the first case,~\cref{sec:setups-batch-proc}, the server has to produce jobs from different families, and there is a change-over time required to switch from one production family to another.
 As such setups reduce the time the server is available to serve jobs, the load must increase.
 In fact, to reduce the load, the server produces in batches of fixed sizes.
-In the second case, the server sometimes requires small adjustments, for instance, to prevent the production quality to degrade below a certain level.
+In the second case, in~\cref{sec:non-preempt-interr}, the server sometimes requires small adjustments, for instance, to prevent the production quality to degrade below a certain level.
 Clearly, such adjustments are typically not required during a job's service; however, they can occur at arbitrary moments in time.
 Thus, this is different from batch production in which the batch sizes are constant.
-In the third example, quality problems or break downs can occur during a job's service.
-For each case we develop a model to analyze the influence of the interruptions on average job sojourn times.
+In the third example, in~\cref{sec:preempt-interr-serv}, quality problems or break downs can occur during a job's service.
+In the final~\cref{sec:tandem-queues} we concentrate on tandem queues and study the consequences of two different scenarios to improve a simple network of queues.
+With the tools we develop here it becomes possible to analyze various scenarios to organize a process and quantitatively compare the scenarios.
 
-In passing we use some interesting results of probability theory and the Poisson process. 
+In passing we use some interesting results of probability theory and the Poisson process; we will use these again, for instance in~\cref{cha:queu-contr-open}. 
 
 \input{tex_files/gg1.tex}
 \input{tex_files/setup_times.tex}
@@ -109,14 +112,12 @@ In passing we use some interesting results of probability theory and the Poisson
 \chapter{Fundamental tools}
 \label{cha:fundamental-tools}
 
-TODO
 
-For the mathematical analysis of queueing systems we need a few concepts that are fundamentally important and have a general interest beyond queueing.
-We start with developing sample-path constructions of queueing systems.
-We then define several performance measures that can be estimated from characteristics of the sample paths, possibly obtained by simulation.
+To develop mathematical models of queueing systems we need a few concepts that are fundamentally important and have a general interest beyond queueing.
+All of these concepts rely on \emph{sample-path constructions} of queueing, or more general stochastic, systems.
+Thus, sample paths, which are nothing but the output of a simulation, form an elegantly unifying principle. 
 
- and level-crossing arguments.
-
+Here we keep the discussion in these notes mostly at an intuitive level; we refer to \cite{el-taha98:_sampl_path_analy_queuein_system} for proofs and further background.
 
 
 \input{tex_files/renewal_reward.tex}
@@ -128,8 +129,18 @@ We then define several performance measures that can be estimated from character
 \chapter{Exact Queueing Models}
 \label{cha:analytical-models}
 
-In this chapter we focus on developing analytic models for various queueing systems in steady-state.
-As a reminder, we keep the discussion in these notes mostly at an intuitive level, and refer to \cite{el-taha98:_sampl_path_analy_queuein_system} for proofs and further background.
+In this chapter we use the concepts of~\cref{cha:fundamental-tools} to model and analyze a large number of queueing systems in steady state.
+The simplest, non-trivial, case is the $M/M/1$ queue, which is the topic of~\cref{sec:mm1}.
+As the main ideas are based on sample-paths, it turns out to be  nearly trivial to extend the analysis of the $M/M/1$ to the $M(n)/M(n)/1$ queue in~\cref{sec:mnmn1}.
+The $M(n)/M(n)/1$ queue is a very generic model  with which we can find closed-form expressions for the queue length distributions for many other queueing models such as the $M/M/c$ queue or the $M/M/1/K$, i.e., a queueing system with loss,
+
+We then focus on finding the expected queueing time for batch queues, in \cref{sec:mxm1-queue:-expected}, and the $M/G/1$ queue, in~\cref{sec:mg1}. 
+In the last two sections,  \cref{sec:batch-arrivals} and \cref{sec:distr-queue-length}, we derive expressions for the queue length distributions of the batch queue and the $M/G/1$ queue. 
+
+Many of the queueing systems we analyze here are either generalizations of some other model, for instance, the $M(n)/M(n)/1$ generalizes to the $M/M/c$ queue, or reduce to special cases in certain parameter settings, such as that the $M/G/1$ becomes the $M/M/1$ queue when the service times are exponentially distributed.
+Quite a number of exercises in this chapter are targeted on \emph{checking} that the general results reduce to those of the special cases.
+The reader should understand the importance of such checks.
+These exercises are simple in a sense---it is perfectly clear what to do, there is no model to make for instance---, but the algebra can be quite tough at times, and hence it is good practice.
 
 \input{tex_files/mm1.tex}
 \input{tex_files/mnmn1.tex}
@@ -144,28 +155,30 @@ As a reminder, we keep the discussion in these notes mostly at an intuitive leve
 \chapter{Queueing Control and Open Networks}
 \label{cha:queu-contr-open}
 
-TODO
-
 In the queueing systems we analyzed up to now, the server is always present to serve jobs in the system. However, this condition is not always satisfied.
 As an example, consider a queueing system in which there is a cost associated with switching on and off the server.
 For instance, in some cases the server has to be set-up for operation; in other cases, the operator of a machine has to move from one place in the factory to another.
-To reduce the cost, a so-called $N$-policy can be used, which works as follows, cf.~\cref{ex:n-policies}.
+To reduce the cost, the  so-called $N$-policy of~\cref{ex:n-policies} can be used. Recall that this policy works as follows, 
 As soon as the system becomes empty (and the server idle), we switch off the server.
-Then we wait until $N$ or more jobs arrived and then switch on the server.
-The server processes jobs until the system is empty again, and then switches off again, and so on.
+Then we wait until $N$ or more jobs have arrived, and then we switch on the server.
+The server processes jobs until the system is empty again, switches off, and remains idle until a sufficient number of new jobs have arrived,  and so on.
 Thus, we use an $N$-policy to \emph{control} the queueing system, in particular the server, and the task is to find a switching threshold~$N$ that minimizes the long-run average cost.
 
 Observe that under such policies the server occupancy can also increase.
-In fact, this sometimes seems to the policy at dentists or hospitals: wait until the waiting room is quite full, and then start serving patients.
+In fact, this sometimes seems to the policy at dentists or hospitals: do something else until the waiting room is quite full, and then start serving patients.
 Like this the server minimizes idle time, and, in the example of a GP, the server (GP) does not have to wait for patients that might be late.
 
-In this chapter we study the $M/M/1$ queue and $M/G/1$ under a $N$-policy, and then consider a $T$-policy.
-We next focus on a policy that controls the server rate as a function of waiting time in the system.
+In this chapter we first study the $M/M/1$ queue and $M/G/1$ under a $N$-policy.
+As a second topic we study open networks of stations of $M/M/c$ stations and jobs arrive as a Poisson process.
+As we will see, the analysis of the $N$-policy requires to solve an equation of the type $v = c + P v$, where $v$ and $c$ are vectors and $P$ a (stochastic) matrix, while for the network we need to solve an equation of the type $\lambda = \gamma + \lambda P$, where $\lambda$ and $\gamma$ are vectors and $P$ is again a (stochastic) matrix.
+As these equations are (nearly) the same, we therefore concentrate in~\cref{sec:lambda-=-gamma} on the solution.
+The analysis in this chapter allows us to illustrate many tools and results of the previous chapters. In a sense, everything comes together here. 
 
-
-We point out that the techniques developed in this chapter extend (way) beyond just queueing theory; they are worth memorizing.
-Moreover, we illustrate many tools and results of the previous chapters.
-Moreover, the concepts we introduce here can be generalized to (optimal) stopping problems, which find many applications beyond queueing, such in finance, inventory theory, decision theory, and so on.
+We finally point out that the techniques developed in this chapter extend (way) beyond just queueing theory; they are worth memorizing.
+The concepts we introduce here can for instance be generalized to (optimal) stopping problems, which find many applications beyond queueing, such in finance, inventory theory, decision theory, and so on.
+As another set of extensions, it is possible to make the matrix $P$ and the vector $c$ depend on an action one can take in certain states.
+This idea underlies Markov decision theory, which in turn provides the theoretical basis of a number of machine learning tools such as $Q$ learning, reinforcement learning, and so on.
+Thus, while this chapter closes our journey on the study of queueing system, it is a first step toward a much longer journey on the diverse applications of the probability theory. 
 
 
 \input{tex_files/n_policies_mm1.tex}
