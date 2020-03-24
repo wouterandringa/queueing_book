@@ -53,7 +53,7 @@ Clearly, the expected cost of this is $h q \E S$.
 The second component is the cost of new jobs that arrive during the service.
 While this is slightly harder to determine, we can combine the ideas underlying the derivation in~\cref{eq:99} the results of \cref{ex:35} to \cref{ex:p-35}.
 Specifically, assume it is given that the service time is~$s$.
-Then the queueing cost $U(s)$ of the new arrivals must satisfy for some $0<\delta\ll 1$
+Then the expected total queueing cost $U(s)$ of the new arrivals must satisfy for some $0<\delta\ll 1$
 \begin{equation*}
   U(s) = U(s-\delta) + (1-\lambda \delta)\cdot 0 + \lambda \delta h s + o(\delta).
 \end{equation*}
@@ -78,7 +78,8 @@ Integrating  both sides with respect to $s$ gives $U(s) - U(0) = \lambda h s^2/2
 \end{solution}
 \end{exercise}
 
-Since $U(s)$ is the expected cost given that the service time is $s$, it follows from~\cref{ex:mg1-3} that $\E{U(S)} = \lambda h \E{S^2}$ is the expected queueing cost of the new jobs that arrive during the service. By combining the first and second component of $H(q)$, we obtain
+Since $U(s)$ is the expected total cost given that the service time is $s$, it follows from~\cref{ex:mg1-3} that $\E{U(S)} = \lambda h \E{S^2}$ is the expected queueing cost of the new jobs that arrive during the service.
+By combining the first and second component of $H(q)$, we obtain
 \begin{equation*}
   H(q) = h q \E S + \frac 12 \lambda h \E{S^2}.
 \end{equation*}
