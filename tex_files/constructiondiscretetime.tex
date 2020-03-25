@@ -1,4 +1,4 @@
-%\section{Construction of Discrete-Time  Queueing Processes}
+%\section{Construction of Discrete-Time Queueing Processes}
 \section{Queueing Processes in Discrete-Time}
 \label{sec:constr-discr-time}
 
@@ -10,31 +10,31 @@
 
 We start with a description of a case to provide motivation to study queueing systems.
 Then we develop a set of recursions of fundamental importance to construct and simulate queueing systems.
-With these recursions we analyze the efficacy of several suggestions to improve the case system.
-To illustrate the power of this approach we close the section with a large number of exercises in which you develop recursions for many different queueing situations.
+With these recursions, we analyze the efficacy of several suggestions to improve the case system.
+To illustrate the power of this approach, we close the section with a large number of exercises in which you develop recursions for many different queueing situations.
 
 \subsection*{Case}
 \label{sec:case}
 
-At a mental health department five psychiatrists do intakes of future patients to determine the best treatment process for the patients.
+At a mental health department, five psychiatrists do intakes of future patients to determine the best treatment process for the patients.
 There are complaints about the time patients have to wait for their first intake; the desired waiting time is around two weeks, but the realized waiting time is sometimes more than three months.
 The organization considers this to be unacceptably long, but\ldots what to do about it?
 
-To reduce the waiting times the five psychiatrists have various
+To reduce the waiting times, the five psychiatrists have various
 suggestions. 
 \begin{enumerate}
 \item Not all psychiatrists have the same amount of time available per week to do intakes.
-  This is not a problem during weeks when all psychiatrists are present; however, psychiatrists tend to take holidays, visit conferences, and so on.
-  So, if the psychiatrist with the most intakes per week would go on leave, this might affect the behavior of the queue length considerably.
-  This raises the question about the difference in allocation of capacity allotted to the psychiatrists.
-  What are the consequences on the distribution and average of the waiting times if they would all have the same weekly capacity?
+ This is not a problem during weeks when all psychiatrists are present; however, psychiatrists tend to take holidays, visit conferences, and so on.
+ So, if the psychiatrist with the most intakes per week would go on leave, this might affect the behavior of the queue length considerably.
+ This raises the question about the difference in the allocation of capacity allotted to the psychiatrists.
+ What are the consequences on the distribution and average of the waiting times if they would all have the same weekly capacity?
 \item The psychiatrists tend to plan their holidays consecutively, to reduce the variation in the service capacity.
-  What if they would synchronize their holidays, to the extent possible, rather than spread their holidays?
+ What if they would synchronize their holidays, to the extent possible, rather than spread their holidays?
 \item Finally, suppose the psychiatrists would do 2 more intakes per week in busy times and 2 fewer in quiet weeks.
-  Assuming that the system is stable, i.e., the average service capacity is larger than the average demand, then on average the psychiatrists would not do more intakes, i.e., their workload would not increase, but the queue length may be controlled better.
+ Assuming that the system is stable, i.e., the average service capacity is larger than the average demand, then on average the psychiatrists would not do more intakes, i.e., their workload would not increase, but the queue length may be controlled better.
 \end{enumerate}
 
-As this case is too hard to analyze by mathematical means,  we need to develop a model to simulate the queueing system in discrete time. 
+As this case is too hard to analyze by mathematical means, we need to develop a model to simulate the queueing system in discrete time. 
 With this simulator we can evaluate the effect of these suggestions on reducing the queueing dynamics.
 %we need to develop a simple simulator with which we can make a number of plots.
 Interestingly, the structure of the simulation is very simple, so simple that it is also an exceedingly convincing tool to communicate the results of an analysis of a queueing system to managers (and the like).
@@ -43,26 +43,26 @@ Interestingly, the structure of the simulation is very simple, so simple that it
 
 Let us start with discussing the essentials of the simulation of a queueing system.
 The easiest way to construct queueing processes is to `chop up' time in periods and develop recursions for the behavior of the queue from period to period.
-Using fixed sized periods has the advantage that we do not have to specify specific inter-arrival times or service times of individual customers; only the number of arrivals in a period and the number of potential services are relevant.
+Using fixed-sized periods has the advantage that we do not have to specify specific inter-arrival times or service times of individual customers; only the number of arrivals in a period and the number of potential services are relevant.
 Note that the length of such a period depends on the context for which the model is developed.
 For instance, to study queueing processes at a supermarket, a period can consist of $5$ minutes, while for a production environment, e.g., a job shop, it can be a day, or even a week.
 
 
 Let us define:
 \begin{itemize}
-    \item[$a_k =$] number of jobs that arrive \textit{in} period $k$,
-    \item[$c_k= $] the capacity, i.e., the maximal number of jobs that can be served, during period~$k$,
-    \item[$d_k =$] number of jobs that depart \textit{in} period $k$,
-    \item[$L_k =$] number of jobs in the system at the \textit{end} of period $k$.
+ \item[$a_k =$] number of jobs that arrive \textit{in} period $k$,
+ \item[$c_k= $] the capacity, i.e., the maximal number of jobs that can be served, during period~$k$,
+ \item[$d_k =$] number of jobs that depart \textit{in} period $k$,
+ \item[$L_k =$] number of jobs in the system at the \textit{end} of period $k$.
 \end{itemize}
 % \begin{equation}
-%   \label{eq:30}
-%   \begin{split}
-%     a_k &= \text{number of jobs that arrive \textit{in} period $k$},\\
-%     c_k &= \text{the capacity, i.e., the maximal number of jobs that can be served, during period $k$},\\
-%     d_k &= \text{number of jobs that depart  \textit{in} period $k$},\\
-%     L_k &= \text{number of jobs in the system  at the \textit{end} of period $k$}.\\
-%   \end{split}
+% \label{eq:30}
+% \begin{split}
+% a_k &= \text{number of jobs that arrive \textit{in} period $k$},\\
+% c_k &= \text{the capacity, i.e., the maximal number of jobs that can be served, during period $k$},\\
+% d_k &= \text{number of jobs that depart \textit{in} period $k$},\\
+% L_k &= \text{number of jobs in the system at the \textit{end} of period $k$}.\\
+% \end{split}
 % \end{equation}
 In the sequel we also call $a_k$ the \emph{size of the batch} arriving in period $k$.
 Note that the definition of $a_k$ is a bit subtle: we may assume that the arriving jobs arrive either at the start or at the end of the period.
@@ -78,10 +78,10 @@ d_k = \min\{L_{k-1}, c_k\},
 since only the jobs that are present at the start of the period, i.e., $L_{k-1}$, can be served if the capacity exceeds the queue length.
 Now that we know the number of departures, the number at the end of period $k$ is given by
 \begin{equation}
-    L_k = L_{k-1} -d_k + a_k.
+ L_k = L_{k-1} -d_k + a_k.
 \end{equation}
 \end{subequations}
-Like this, if we are given $L_0$,  we can obtain $L_1$, and from this  $L_2$, and so on.
+Like this, if we are given $L_0$, we can obtain $L_1$, and from this $L_2$, and so on.
 
 Note that in this type of queueing system there is not a job in service, we only count the jobs in the system at the end of a period. Thus, the number of jobs in the system and in queue coincide in this model.
 
@@ -96,37 +96,54 @@ $L_2=6-6+4=4$, $d_3 = 4$, $L_3=4-4+9=9$, and so on.
 
 \begin{extra}
  What is the interpretation of setting
-    $d_k = \min\{L_{k-1}+a_k,  c_k\}$ rather than definition~\cref{eq:d_k}?
+ $d_k = \min\{L_{k-1}+a_k, c_k\}$ rather than definition~\cref{eq:d_k}?
 \begin{solution}
  The assumption is that the jobs arrive at the start of period
-    $k$, before service in period $k$ starts, rather than at the end
-    of the period. Therefore the arrivals at period $k$ can also be
-    served during period $k$.
+ $k$, before service in period $k$ starts, rather than at the end
+ of the period. Therefore the arrivals at period $k$ can also be
+ served during period $k$.
 \end{solution}
 \end{extra}
 
 
 \begin{exercise}\clabel{ex:24}
-  Show that the scheme
+ Show that the scheme
 \begin{equation}\label{eq:5}
-  \begin{split}
-  L_k &= [L_{k-1}+a_k - c_k]^+,\\
-  d_k &= L_{k-1} +a_k- L_{k}.
-  \end{split}
+ \begin{split}
+ L_k &= [L_{k-1}+a_k - c_k]^+,\\
+ d_k &= L_{k-1} +a_k- L_{k}.
+ \end{split}
 \end{equation}
 is equivalent to a modification of~\cref{eq:31} in which we assume that jobs can be served in the period they arrive.
 \begin{solution}
 Starting from ,
-  \begin{align*}
-    d_k &= \min\{L_{k-1}+a_k, c_k\}, \\
-    L_k &= L_{k-1} + a_k - d_k,
-  \end{align*}
-  we get
-  \begin{align*}
-    L_k &= L_{k-1} + a_k - d_k \\ 
-        &= L_{k-1} + a_k - \min\{L_{k-1}+a_k, c_k\} \\
-        &= \max\{L_{k-1} + a_k - c_k, 0 \}.
-  \end{align*}
+ \begin{align*}
+ d_k &= \min\{L_{k-1}+a_k, c_k\}, \\
+ L_k &= L_{k-1} + a_k - d_k,
+ \end{align*}
+ we get
+ \begin{align*}
+ L_k &= L_{k-1} + a_k - d_k \\ 
+ &= L_{k-1} + a_k - \min\{L_{k-1}+a_k, c_k\} \\
+ &= \max\{L_{k-1} + a_k - c_k, 0 \}.
+ \end{align*}
+
+In code it looks like this.
+\begin{pyconsole}
+a = [0, 10, 3, 6]
+c = [0, 5, 5, 5]
+L = [0] * len(a)
+d = [0] * len(a)
+
+for k in range(1, len(a)):
+    L[k] = max(L[k - 1] + a[k] - c[k], 0)
+    d[k] = L[k - 1] + a[k] - L[k]
+
+
+print(L)
+print(d)
+\end{pyconsole}
+ 
 \end{solution}
 \end{exercise}
 
@@ -134,29 +151,29 @@ Starting from ,
 
 Of course we are not going to carry out these computations by hand.
 Typically we use company data to model the arrival process $\{a_k\}_{k=1,2,\ldots}$ and the capacity $\{c_k\}_{k=1,2,\ldots}$ and feed this data into a computer to carry out the recursions~\cref{eq:31}.
-If we do not have sufficient data we make a probability model for these data and use the computer to generate random numbers with, hopefully, similar characteristics as the real data.
-At any rate, from this point on we assume that it is easy, by means of computers, to obtain numbers $a_1,\ldots, a_n$ for $n\gg 1000$, and so on.
+If we do not have sufficient data, we make a probability model for these data and use the computer to generate random numbers with, hopefully, similar characteristics as the real data.
+At any rate, from this point on, we assume that it is easy, by means of computers, to obtain numbers $a_1,\ldots, a_n$ for $n\gg 1000$, and so on.
 
 
 \subsection*{Case analysis}
 \label{sec:case-analysis}
 
-Here we continue with case of the five psychiatrists and analyze the proposed rules to improve the performance of the system.
+Here we continue with the case of the five psychiatrists and analyze the proposed rules to improve the performance of the system.
 We mainly want to reduce the long waiting times.
 
-As a first step in the analysis we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
+As a first step in the analysis, we model the arrival process of patients as a Poisson process, cf.~\cref{sec:poisson-distribution}.
 The duration of a period is taken to be a week.
 The average number of arrivals per period, based on data of the company, was slightly less than~12 per week; in the simulation we set it to $\lambda= 11.8$ per week.
 We model the capacity in the form of a matrix such that row $i$ corresponds to the weekly capacity of psychiatrist $i$:
 \begin{equation*}
 C = 
-  \begin{pmatrix}
-    1 & 1 & 1 & \ldots\\
-    1 & 1 & 1 & \ldots\\
-    1 & 1 & 1 & \ldots\\
-    3 & 3 & 3 & \ldots\\
-    9 & 9 & 9 & \ldots\\
-  \end{pmatrix}.
+ \begin{pmatrix}
+ 1 & 1 & 1 & \ldots\\
+ 1 & 1 & 1 & \ldots\\
+ 1 & 1 & 1 & \ldots\\
+ 3 & 3 & 3 & \ldots\\
+ 9 & 9 & 9 & \ldots\\
+ \end{pmatrix}.
 \end{equation*}
 Thus, psychiatrists 1, 2, and 3 do just one intake per week, the
 fourth does 3, and the fifth does 9 intakes per week. The sum over
@@ -167,33 +184,33 @@ With the matrix $C$ it is simple to make other capacity schemes. A
 more balanced scheme would be like this:
 \begin{equation*}
 C = 
-  \begin{pmatrix}
-    2 & 2 & 2 & \ldots\\
-    2 & 2 & 2 & \ldots\\
-    3 & 3 & 3 & \ldots\\
-    4 & 4 & 4 & \ldots\\
-    4 & 4 & 4 & \ldots\\
-  \end{pmatrix}.
+ \begin{pmatrix}
+ 2 & 2 & 2 & \ldots\\
+ 2 & 2 & 2 & \ldots\\
+ 3 & 3 & 3 & \ldots\\
+ 4 & 4 & 4 & \ldots\\
+ 4 & 4 & 4 & \ldots\\
+ \end{pmatrix}.
 \end{equation*}
 
 Next, we include the effects of holidays on the capacity. This is
 easily done by setting the capacity of a certain psychiatrist to~$0$ in
-a certain week. Let's assume that just one psychiatrist is on leave in
+a certain week. Let us assume that just one psychiatrist is on leave in
 a week, each psychiatrist has one week per five weeks off, and the
 psychiatrists' holiday schemes rotate. To model this, we set
 $C_{1,1}=C_{2,2}=\cdots=C_{1,6}=C_{2,7} =\cdots = 0$, i.e.,
 \begin{equation*}
 C = 
-  \begin{pmatrix}
-    0 & 2 & 2 & 2 & 2 & 0 & \ldots \\
-    2 & 0 & 2 & 2 & 2 & 2 & \ldots\\
-    3 & 3 & 0 & 3 & 3 & 3 & \ldots\\
-    4 & 4 & 4 & 0 & 4 & 4 & \ldots\\
-    4 & 4 & 4 & 4 & 0 & 4 & \ldots\\
-  \end{pmatrix}.
+ \begin{pmatrix}
+ 0 & 2 & 2 & 2 & 2 & 0 & \ldots \\
+ 2 & 0 & 2 & 2 & 2 & 2 & \ldots\\
+ 3 & 3 & 0 & 3 & 3 & 3 & \ldots\\
+ 4 & 4 & 4 & 0 & 4 & 4 & \ldots\\
+ 4 & 4 & 4 & 4 & 0 & 4 & \ldots\\
+ \end{pmatrix}.
 \end{equation*}
 Hence, the total average capacity must be $4/5 \cdot (2+2+3+4+4) = 12$
-patients per week.  The other holiday scheme---all psychiatrists take
+patients per week. The other holiday scheme---all psychiatrists take
 holiday in the same week--corresponds to setting entire columns to
 zero, i.e., $C_{i,5}=C_{i,10}=\cdots=0$ for week $5$, $10$, and so
 on. Note that all these variations in holiday schemes result in the
@@ -207,13 +224,13 @@ It is apparent that Suggestions 1 and 2 above do not significantly affect the be
 
 
 \begin{figure}[ht]
-  \centering
+ \centering
 % progs/intake_control.py
 \input{progs/balanced} 
-\caption{Effect of capacity and holiday plans. We plot for each time point
-  the maximum and the minimum queue length for each of the
-  policies. Apparently, the effect of each of these policies is, for
-  all practical purposes, negligible.  }
+\caption{ Effect of capacity and holiday plans.
+ We plot for each time point the maximum and the minimum queue length for each of the policies.
+ Apparently, the effect of each of these policies is, for all practical purposes, negligible.
+}
 \label{fig:balanced}
 \end{figure}
 
@@ -226,20 +243,20 @@ The larger $e$, the larger the control we exercise.
 Let's consider three different control levels, $e=1$, $e=2$, and $e=5$; thus in the last case all psychiatrists do five extra intakes.
 The previous simulation shows that it is safe to disregard the holiday plans, so just assume a flat service capacity of 12 intakes a week.
 The results, see~\cref{fig:intakes}, show a striking difference indeed.
-The queue does not explode any more, and already taking $e=1$ has a large influence.
+The queue does not explode anymore, and already taking $e=1$ has a large influence.
 
 
 \begin{figure}[ht]
-  \centering
+ \centering
 % progs/intake_control.py
-\input{progs/service_control.tex}  
+\input{progs/service_control.tex} 
 \caption{Controlling the number of intakes. Clearly, adapting the
-  service rate `does wonders' to control the queue length.}
+ service rate `does wonders' to control the queue length.}
 \label{fig:intakes}
 \end{figure}
 
 
-From this simulation experiment we learn that changing holiday plans or spreading the work over multiple servers, i.e., psychiatrists, does not significantly affect the queueing behavior.
+From this simulation experiment, we learn that changing holiday plans or spreading the work over multiple servers, i.e., psychiatrists, does not significantly affect the queueing behavior.
 However, controlling the service rate as a function of the queue length improves the situation quite dramatically.
 
 
@@ -248,7 +265,7 @@ However, controlling the service rate as a function of the queue length improves
 
 From the above case we learn that even with these (deceitfully) simple recursions, we can obtain considerable insight into the behavior and performance of this quite complicated controlled queueing system\footnote{If you doubt the value of simulation, try to develop a mathematical method to analyze multi-server queueing systems with vacations, of which this case is an example.}.
 In general, the study of queueing systems is focused on studying the probabilistic properties of the queueing length process and related concepts such as waiting time, server occupancy, fraction of customers lost, and so on.
-Once we have constructed the queueing process we can compute all relevant performance measures, such as the average waiting time.
+Once we have constructed the queueing process, we can compute all relevant performance measures, such as the average waiting time.
 If it turns out that the performance of the system is not according to what we desire, we can change parts of the system with the aim to improve the situation and assess the effect of this change.
 For instance, if the average waiting time is too long, we might want to add service capacity.
 With simulation it is easy to study, hence evaluate, the effect of such decisions.
@@ -257,9 +274,9 @@ With simulation it is easy to study, hence evaluate, the effect of such decision
 \label{sec:exercises-1}
 
 
-The reader should understand from the above case that, once we have the recursions, we can analyze the system and make for instance plots to evaluate suggestions for improvement.
+The reader should understand from the above case that, once we have the recursions, we can analyze the system and make, for instance, plots to evaluate suggestions for improvement.
 Thus, formulating the recursions is crucial to construct queueing processes.
-For this reason, many  of the exercises below concentrate on obtaining recursions for specific queueing systems.
+For this reason, many of the exercises below concentrate on obtaining recursions for specific queueing systems.
 
 It may be that the recursions you find are not identical to the recursions in the solution.
 The reason is that the assumptions you make might not be equal to the ones I make.
@@ -272,121 +289,223 @@ If you obtain \emph{reasonable} recursions, but they are different from mine, th
 
 \begin{exercise}[Queue with Blocking]\clabel{ex:l-115} 
 A queueing system
-  under daily review, i.e., at the end of the day the queue length is
-  measured. We assume that at the end of the day no jobs are still in
-  service. We assume that jobs that arrive at day $k$ cannot be served
-  in day $k$. The queue length cannot exceed level $K$.  Formulate a
-  set of recursions to cover this case. What is the loss per period? What is the fraction of jobs lost?
+ under daily review, i.e., at the end of the day the queue length is
+ measured. We assume that at the end of the day no jobs are still in
+ service. We assume that jobs that arrive at day $k$ cannot be served
+ in day $k$. The queue length cannot exceed level $K$. Formulate a
+ set of recursions to cover this case. What is the loss per period? What is the fraction of jobs lost?
 \begin{solution}
-  All jobs that arrive such that the queue becomes larger than $K$ must be dropped.
+ All jobs that arrive such that the queue becomes larger than $K$ must be dropped.
 
-First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$. 
+ First $d_k = \min\{L_{k-1}, c_k\}$. Then, $L_k' = L_{k-1}+a_k-d_k$ is the queue without blocking. Then $L_k=\min\{L_k', K\}$ is the queue with blocking. Finally, the loss $l_k=L_k'-L_k$, i.e., the excess arrivals. The fraction lost is $l_k/a_k$.
+
+\begin{pyconsole}
+a = [0, 10, 3, 6]
+c = [0, 5, 5, 5]
+L = [0] * len(a)
+d = [0] * len(a)
+l = [0] * len(a)  # loss
+
+K = 8
+
+for k in range(1, len(a)):
+    d[k] = min(L[k - 1], c[k])
+    Lp = L[k - 1] + a[k] - d[k]
+    L[k] = min(Lp, K)
+    l[k] = Lp - L[k]
+
+
+print(L)
+print(l)
+\end{pyconsole}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[Estimating the lead time distribution] \clabel{ex:19} 
 Take $d_k = \min\{L_{k-1}+a_k, c_k\}$, and assume that jobs are served in FIFO sequence.
-  Find an expression for the shortest possible waiting time $W_{-,k}$ of a job that arrives at time $k$, and an expression for the largest possible waiting time $W_{+,k}$.
+ Find an expression for the shortest possible waiting time $W_{-,k}$ of a job that arrives at time $k$, and an expression for the largest possible waiting time $W_{+,k}$.
 \begin{hint}
-  Consider a numerical example.
-  Suppose $L_{k-1}=20$.
-  Suppose that the capacity is $c_k=3$ for all $k$.
-  Then a job that arrives in the $k$th period, must wait at least $20/3$ (plus rounding) periods before it can leave the system.
-  Now generalize this numerical example.
+ Consider a numerical example.
+ Suppose $L_{k-1}=20$.
+ Suppose that the capacity is $c_k=3$ for all $k$.
+ Then a job that arrives in the $k$th period, must wait at least $20/3$ (plus rounding) periods before it can leave the system.
+ Now generalize this numerical example.
 \end{hint}
 \begin{solution}
-  Let's tag the first customer that arrives in period $k$.
-  This tagged customer sees $L_{k-1}$ customers in the system, hence the tagged customer's service can only start after all $L_{k-1}$ customers have been served (assuming FIFO scheduling of course).
-  Now, if $L_{k-1}-c_k \geq 0$, there are still people in front of the tagged customer, either in queue or in service.
-  In fact, as long as $c_k+c_{k+1}+\cdots +c_m \leq L_{k-1}$, there are still customers in front of the tagged customer.
-  Therefore, when the tagged customer leaves the system, the inequality $c_k+c_{k+1}+\cdots +c_m > L_{k-1}$ must hold.
+ Let's tag the first customer that arrives in period $k$.
+ This tagged customer sees $L_{k-1}$ customers in the system, hence the tagged customer's service can only start after all $L_{k-1}$ customers have been served (assuming FIFO scheduling of course).
+ Now, if $L_{k-1}-c_k \geq 0$, there are still people in front of the tagged customer, either in queue or in service.
+ In fact, as long as $c_k+c_{k+1}+\cdots +c_m \leq L_{k-1}$, there are still customers in front of the tagged customer.
+ Therefore, when the tagged customer leaves the system, the inequality $c_k+c_{k+1}+\cdots +c_m > L_{k-1}$ must hold.
+ (To check your understanding, explain that $c_k+c_{k+1}+\cdots +c_m \geq L_{k-1}$ is not correct.)
 
-  We can also tag the last customer that arrives in period $k$.
-  This customer will certainly have left if $m$ is such that $c_k+\cdots+c_m \geq L_{k-1}+a_k$.
+ We can also tag the last customer that arrives in period $k$.
+ This customer will certainly have left if $m$ is such that $c_k+\cdots+c_m \geq L_{k-1}+a_k$.
 
-  In formulas the above comes down to the following.
-  A job that arrives in period $k$ cannot be served before period
-    \begin{equation*}
-    W_{-,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i > L_{k-1}\right\},
-    \end{equation*}
-    and it must have been served before period
-    \begin{equation*}
-      W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
-        L_{k-1}+a_k\right\}.
-    \end{equation*}
-    Thus, the waiting time of jobs arriving in period $k$ must lie in
-    the interval $[W_{-,k}, W_{+,k}]$.
+ In formulas, the above comes down to the following.
+ A job that arrives in period $k$ cannot be served before period
+ \begin{equation*}
+ W_{-,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i > L_{k-1}\right\},
+ \end{equation*}
+ and it must have been served before period
+ \begin{equation*}
+ W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
+ L_{k-1}+a_k\right\}.
+ \end{equation*}
+ Thus, the waiting time of jobs arriving in period $k$ must lie in
+ the interval $[W_{-,k}, W_{+,k}]$.
+
+Here is some code to see how it works. It is less easy then you might think to get the details correct. 
+\begin{pyconsole}
+a = [3] * 10
+c = [7] * len(a)
+L = [0] * len(a)
+d = [0] * len(a)
+
+L[0] = 20
+
+
+for k in range(1, len(a)):
+    d[k] = min(L[k - 1] + a[k], c[k])
+    L[k] = L[k - 1] + a[k] - d[k]
+
+
+print(L)
+
+k = 1
+m = 0
+tot_service = c[k + m]
+print(m, L[k - 1] - tot_service)
+while tot_service <= L[k - 1]:
+    m += 1
+    tot_service += c[k + m]
+    print(m, L[k - 1] - tot_service)
+
+W_min = m
+print(W_min)
+print(L[k - 1] / c[0])
+
+print(m, L[k - 1] + a[k] - tot_service)
+while tot_service <= L[k - 1] + a[k]:
+    m += 1
+    tot_service += c[k + m]
+    print(m, L[k - 1] + a[k] - tot_service)
+
+W_max = m
+print(W_max)
+print((L[k - 1] + a[k]) / c[0])
+\end{pyconsole}
 \end{solution}
 \end{exercise}
 
 \begin{extra}[Yield loss]\clabel{ex:88}
-  A machine produces items to serve customer demand.
-  A fraction $p$ of the items produced in a period turns out to be faulty, and has to be made anew.
-  Develop a set of recursions to model the queue of customers waiting to be served from the machine.
+ A machine produces items to serve customer demand.
+ A fraction $p$ of the items produced in a period turns out to be faulty, and has to be made anew.
+ Develop a set of recursions to model the queue of customers waiting to be served from the machine.
 \begin{solution}
-  The machine amount produced in period $k$ is $d_k$.
-  Thus, $p d_k$ is the amount lost, neglecting rounding errors for the moment.
-  Thus, $(1-p)d_k$ items can be used to serve customer demand.
-  Therefore
-  \begin{align*}
-    d_k &= \min\{L_{k-1}, c_k\}, \\
-    L_k &= L_{k-1}-d_k(1-p) + a_k'.
-  \end{align*}
+ The machine amount produced in period $k$ is $d_k$.
+ Thus, $p d_k$ is the amount lost, neglecting rounding errors for the moment.
+ Thus, $(1-p)d_k$ items can be used to serve customer demand.
+ Therefore
+ \begin{align*}
+ d_k &= \min\{L_{k-1}, c_k\}, \\
+ L_k &= L_{k-1}-d_k(1-p) + a_k'.
+ \end{align*}
 
-  Can you use these recursions to show that the long-run average service capacity $n^{-1}\sum_{i=1}^n c_i$ must be larger than $\lambda(1+p)$?
+ Can you use these recursions to show that the long-run average service capacity $n^{-1}\sum_{i=1}^n c_i$ must be larger than $\lambda(1+p)$?
 
-  If you like you can incorporate time-dependent failure rates $\{p_k\}$ too.
-  Whether this makes practical sense depends on the context of course.
+ If you like, you can incorporate time-dependent failure rates $\{p_k\}$ too.
+ Whether this makes practical sense depends on the context of course.
+
+\begin{pyconsole}
+a = [0, 4, 8, 2, 1]
+c = [3] * len(a)
+L = [0] * len(a)
+d = [0] * len(a)
+p = 0.2
+
+L[0] = 2
+
+for k in range(1, len(a)):
+    d[k] = (1 - p) * min(L[k - 1], c[k])
+    L[k] = L[k - 1] + a[k] - d[k]
+
+print(L)
+\end{pyconsole}
 \end{solution}
 \end{extra}
 
 \begin{extra}[Rework] \clabel{ex:52}
+ A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
+ Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
+ Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
+ Develop a set of recursions to model this case.
 
-  A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
-  Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
-  Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
-  Develop a set of recursions to model this case.
 
-
-  We remark that there are of course many different policies to treat rework.
-  One possibility is that faulty items are collected until there are $N$, say, and then the entire batch of $N$ is repaired.
+ We remark that there are of course many different policies to treat rework.
+ One possibility is to collect faulty items until there are $N$ items, and then repair the entire batch of $N$ items.
 \begin{solution}
-    Suppose again that a fraction $p$ is faulty. Since these faulty
-    items require less processing time than a new job, the service
-    capacity $c_k$, i.e., the number of jobs that can be processed in
-    period $k$, is a bit bigger; part of the capacity is spent on new
-    jobs but another part is spent on the faulty jobs. By the
-    assumptions above, the repair of a faulty requires half of the
-    work of a new job, and the faulty jobs are processed with priority
-    over the new jobs. Assume queue $A$ contains the faulty items, and
-    queue $B$ the new jobs. Then the recursions become:
-\begin{equation*}
-  \begin{split}
-    d_{k,A} &= \min\{L_{k-1, A}, 2c_k\}, (\text{ as faulty jobs require half of the processing time})\\
-    c_{k,B} &= c_k - d_{k,A}/2, \\
-    d_{k,B} &= \min\{L_{k-1, B}, c_{k,B}\}, \\
-    a_{k,A} &= p d_{k-1, B}, \\
-    L_{k,A} &= L_{k-1, A} + a_{k,A} - d_{k,A}, \\
-    L_{k,B} &= L_{k-1, B} + a_{k,B} - d_{k,B}.
-  \end{split}
-\end{equation*}
+ Suppose again that a fraction $p$ is faulty. Since these faulty
+ items require less processing time than a new job, the service
+ capacity $c_k$, i.e., the number of jobs that can be processed in
+ period $k$, is a bit bigger; part of the capacity is spent on new
+ jobs, but another part is spent on the faulty jobs. By the
+ assumptions above, the repair of a faulty requires half of the
+ work of a new job, and the faulty jobs are processed with priority
+ over the new jobs. Assume queue $A$ contains the faulty items, and
+ queue $B$ the new jobs. Then the recursions become:
+\begin{align*}
+ d_{A,k} &= \min\{L_{A,k-1}, 2c_k\}, (\text{ as faulty jobs require half of the processing time})\\
+ c_{B,k} &= c_k - d_{A,k}/2, \\
+ d_{B,k} &= \min\{L_{B,k-1}, c_{B,k}\}, \\
+ a_{A,k} &= p d_{B,k-1}, \\
+ a_{B,k} &= (1 - p) d_{B,k-1}, \\
+ L_{A,k} &= L_{A,k-1} + a_{A,k} - d_{A,k}, \\
+ L_{B,k} &= L_{B,k-1} + a_{B,k} - d_{B,k}.
+\end{align*}
+
+In code: 
+\begin{pyconsole}
+a = [0, 4, 8, 2, 1]
+c = [3] * len(a)
+L_A = [0] * len(a)
+d_A = [0] * len(a)
+L_B = [0] * len(a)
+d_B = [0] * len(a)
+p = 0.2
+
+L_A[0] = 2
+L_B[0] = 8
+
+for k in range(1, len(a)):
+    d_A[k] = min(L_A[k - 1], 2 * c[k])
+    c_B = c[k] - d_A[k] / 2
+    d_B[k] = min(L_B[k - 1], c_B)
+    a_A = p * d_B[k - 1]
+    a_B = a[k]
+    L_A[k] = L_A[k - 1] + a_A - d_A[k]
+    L_B[k] = L_B[k - 1] + a_B - d_B[k]
+
+print(L_A)
+print(L_B)
+\end{pyconsole}
 \end{solution}
 \end{extra}
 
 
 \begin{exercise}[Cost models]\clabel{ex:l-116}
  A single-server queueing station
-  processes customers. At the start of a period the server capacity is
-  chosen, so that for period $k$ the capacity is $c_k$. Demand that
-  arrives in a period can be served in that period. It costs $\beta$
-  per unit time per unit processing capacity to operate the machine,
-  i.e., to have it switched on. There is also a cost $h$ per unit time
-  per job in the system. Make a cost model to analyze the long-run
-  average cost for this case.
+ processes customers. At the start of a period the server capacity is
+ chosen, so that for period $k$ the capacity is $c_k$. Demand that
+ arrives in a period can be served in that period. It costs $\beta$
+ per unit time per unit processing capacity to operate the machine,
+ i.e., to have it switched on. There is also a cost $h$ per unit time
+ per job in the system. Make a cost model to analyze the long-run
+ average cost for this case.
 \begin{solution}
 First consider the dynamics of the queue. Since the capacity is chosen at the start of the period (the machine is switched on for $c_k$ units even if there is less demand):
 \begin{align*}
-  d_k &= \min\{L_{k-1}+a_k, c_k\} \\
+ d_k &= \min\{L_{k-1}+a_k, c_k\}, \\
 L_k &= L_{k-1}+a_k - d_k.
 \end{align*}
 The cost to operate the server during period $k$ is $\beta c_k$.
@@ -394,38 +513,39 @@ Thus, the total cost up to some time $T$ for the server must be
 $\beta \sum_{k=1}^T c_k$. In period $k$ we also have to pay $h L_k$,
 since $h$ is the cost per customer per period in the system. Thus, the
 long-run average cost is
-    \begin{equation*}
-      \frac 1T\sum_{k=1}^T \left(\beta c_k + h L_k\right).
-    \end{equation*}
+ \begin{equation*}
+ \frac 1T\sum_{k=1}^T \left(\beta c_k + h L_k\right).
+ \end{equation*}
 
-    It is an interesting problem to find a policy that minimizes (the
-    expectation of) this cost. The policy is such that the capacity
-    for period $k$ can be chosen based on the queue length $L_{k-1}$
-    and \emph{estimates} of the demands
-    $\hat d_k, \hat d_{k+1}, \ldots$. This problem is not easy, as far as I can see. 
+ It is an interesting problem to find a policy that minimizes (the
+ expectation of) this cost. The policy is such that the capacity
+ for period $k$ can be chosen based on the queue length $L_{k-1}$
+ and \emph{estimates} of the demands
+ $\hat d_k, \hat d_{k+1}, \ldots$. This problem is not easy, as far as I can see. 
 
 \end{solution}
 \end{exercise}
 
-\begin{extra}[ N-policies] A machine can switch on and off.
-  If the queue length hits $N$, the machine switches on, and if the system becomes empty, the machine switches off.
-  It costs $K$ to switch on the machine.
-  There is also a cost $\beta$ per unit time while the machine is switched on, and it costs $h$ per unit time per customer in the system.
-  Make a cost model.
+\begin{exercise}[N-policies]\clabel{ex:n-policies}
+A machine can switch on and off.
+ If the queue length hits $N$, the machine switches on, and if the system becomes empty, the machine switches off.
+ It costs $K$ to switch on the machine.
+ There is also a cost $\beta$ per unit time while the machine is switched on, and it costs $h$ per unit time per customer in the system.
+ Make a cost model.
 \begin{solution}
-    First we need to implement the N-policy. For this we need an extra
-    variable to keep track of the state of the server. Let $I_k=1$ if the machine is on in period $k$ and $I_k=0$ if it is off. Then $\{I_k\}$ must satisfy the relation
-    \begin{equation*}
-      I_{k+1} =
-      \begin{cases}
-        1 & \text{ if } L_{k} \geq N,\\
-        I_k & \text{ if } 0< L_{k} <N,\\
-        0 & \text{ if }  L_{k} =0,\\
-      \end{cases}
-    \end{equation*}
+ First we need to implement the N-policy. For this we need an extra
+ variable to keep track of the state of the server. Let $I_k=1$ if the machine is on in period $k$ and $I_k=0$ if it is off. Then $\{I_k\}$ must satisfy the relation
+ \begin{equation*}
+ I_{k+1} =
+ \begin{cases}
+ 1 & \text{ if } L_{k} \geq N,\\
+ I_k & \text{ if } 0< L_{k} <N,\\
+ 0 & \text{ if } L_{k} =0,\\
+ \end{cases}
+ \end{equation*}
 and assume that $I_0 =0$ at the start, i.e., the machine is off. Thus, we can write:
 \begin{equation*}
-  I_{k+1} = \1{L_k\geq N} + I_k \1{0<L_k<N} + 0\cdot \1{L_k = 0}.
+ I_{k+1} = \1{L_k\geq N} + I_k \1{0<L_k<N} + 0\cdot \1{L_k = 0}.
 \end{equation*}
 With $I_k$ it follows that $d_k =\min\{L_{k-1}, I_k c_k\}$, from which
 $L_k$ follows, and so on.
@@ -441,64 +561,64 @@ machine remains the same, and if $I_k - I_{k-1} = -1$ the machine is
 switched off. In other words $\max\{I_k - I_{k-1},0\}$ captures what
 we need. The total cost up to time $T$ becomes:
 \begin{equation*}
-  \sum_{k=1}^T \left(\beta I_k + h L_k + K\max\{I_k - I_{k-1}, 0\}\right).
+ \sum_{k=1}^T \left(\beta I_k + h L_k + K\max\{I_k - I_{k-1}, 0\}\right).
 \end{equation*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 
 
 \begin{extra}[Queue length dependent server capacity]\clabel{ex:50}
-  How would you model (in terms of recursions) a server whose capacity
-  depends on the queue length? Consider, as an example, a rule such
-  that the server only works if the queue is larger than a threshold $t$. 
+ How would you model (in terms of recursions) a server whose capacity
+ depends on the queue length? Consider, as an example, a rule such
+ that the server only works if the queue is larger than a threshold $t$. 
 \begin{solution}
-    One model could be to let the server only switch on when the queue
-    is larger than some threshold $t$, and when the server is on, it
-    works at rate $c$ per period. In that case,
-    $c_k = c\1{L_{k-1} > t}$.
+ One model could be to let the server only switch on when the queue
+ is larger than some threshold $t$, and when the server is on, it
+ works at rate $c$ per period. In that case,
+ $c_k = c\1{L_{k-1} > t}$.
 \end{solution}
 \end{extra}
 
 \begin{extra}[Fair queueing] \clabel{ex:51}
-  One server serves two queues.
-  Each queue receives service capacity in proportion to the queue length.
-  Derive a set of recursions to analyze this situation.
+ One server serves two queues.
+ Each queue receives service capacity in proportion to the queue length.
+ Derive a set of recursions to analyze this situation.
 \begin{solution}
-    Let $c_k^i$ be the capacity allocated to queue $i$ in period $k$. The fair rule gives that 
-    \begin{equation*}
-      c_k^1 = \frac{L_{k-1}^1}{L_{k-1}^1 + L_{k-1}^2} c = c - c_k^2. 
-    \end{equation*}
+ Let $c_k^i$ be the capacity allocated to queue $i$ in period $k$. The fair rule gives that 
+ \begin{equation*}
+ c_k^1 = \frac{L_{k-1}^1}{L_{k-1}^1 + L_{k-1}^2} c = c - c_k^2. 
+ \end{equation*}
 Then, 
 \begin{equation*}
-  \begin{split}
-      d_k^1 &= \min\{L_{k-1}^1, c^1_k\}, \\
-L_k^1 &= L_{k-1}^1+a_k^1  - d_k^1,
-  \end{split}
+ \begin{split}
+ d_k^1 &= \min\{L_{k-1}^1, c^1_k\}, \\
+L_k^1 &= L_{k-1}^1+a_k^1 - d_k^1,
+ \end{split}
 \end{equation*}
 and likewise for the other queue.
 \end{solution}
 \end{extra}
 
-\begin{exercise}[Priority queueing]\clabel{ex:l-117}] 
-    An interesting situation is a system with two queues served by one server, but such that one queue, queue $A$, gets priority over the other queue.
-    Again find a set of recursions to describe this case.
+\begin{exercise}[Priority queueing]\clabel{ex:l-117}
+ An interesting situation is a system with two queues served by one server, but such that one queue, queue $A$, gets priority over the other queue.
+ Again find a set of recursions to describe this case.
 \begin{solution}
-      The rules below implement a strict priority rule for jobs of type
-      A, i.e., jobs sent into queue A.
+ The rules below implement a strict priority rule for jobs of type
+ A, i.e., jobs sent into queue A.
 \begin{equation*}
-  \begin{split}
-    d_{k,A} &= \min\{L_{k-1, A}, c_k\}, \\
-    c_{k,B} &= c_k - d_{k,A}, \\
-    d_{k,B} &= \min\{L_{k-1, B}, c_{k,B}\}, \\
-    L_{k,A} &= L_{k-1, A} + a_{k,A} - d_{k,A}, \\
-    L_{k,B} &= L_{k-1, B} + a_{k,B} - d_{k,B}.
-  \end{split}
+ \begin{split}
+ d_{A,k} &= \min\{L_{A,k-1}, c_k\}, \\
+ c_{B,k} &= c_k - d_{A,k}, \\
+ d_{B,k} &= \min\{L_{B,k-1}, c_{B,k}\}, \\
+ L_{A,k} &= L_{A,k-1} + a_{A,k} - d_{A,k}, \\
+ L_{B,k} &= L_{B,k-1} + a_{B,k} - d_{B,k}.
+ \end{split}
 \end{equation*}
 
 As an aside, another interesting rule to distribute the capacity $c_k$ over the queues could be based on the principle of \textit{ equal division of the contested sum}.
-This principle is based on game theoretic ideas.
+This principle is based on game-theoretic ideas.
 Aumann and Maschler applied this principle to clarify certain division rules discussed in the Talmud to divide the legacy among a number of inheritors, each having a different claim size.
 \end{solution}
 \end{exercise}
@@ -506,63 +626,63 @@ Aumann and Maschler applied this principle to clarify certain division rules dis
 
 
 \begin{extra} [ Queues with reserved service capacity] Consider a single-server that serves two parallel queues $A$ and $B$.
-  Each queue has a minimal service capacity every period, $r_A$ for queue $A$ and $r_B$ for queue $B$.
-  Reserved capacity unused for one queue can be used to serve the other queue.
-  Any extra capacity beyond the reserved capacity is given to queue A with priority.
-  Formulate a set of recursions to analyze this situation.
+ Each queue has a minimal service capacity every period, $r_A$ for queue $A$ and $r_B$ for queue $B$.
+ Reserved capacity unused for one queue can be used to serve the other queue.
+ Any extra capacity beyond the reserved capacity is given to queue A with priority.
+ Formulate a set of recursions to analyze this situation.
 \begin{solution}
-    First determine how much capacity queue $B$ minimally needs in
-    period $k$:
-    \begin{equation*}
-      c_{k,B} = \min\{L_{ k-1, B}, r_B\}.
-    \end{equation*}
-    Observe that, since $c_k \geq r_A + r_B$, this rule ensures that
-    queue A receives at least its reserved capacity $r_A$. 
+ First determine how much capacity queue $B$ minimally needs in
+ period $k$:
+ \begin{equation*}
+ c_{B,k} = \min\{L_{B,k-1}, r_B\}.
+ \end{equation*}
+ Observe that, since $c_k \geq r_A + r_B$, this rule ensures that
+ queue A receives at least its reserved capacity $r_A$. 
 
-    Since queue A is served with priority, we first give all capacity,
-    except what queue B minimally needs, to queue A:
-    \begin{equation*}
-d_{k,A} = \min\{L_{k-1, A}, c_k-c_{k,B}\}.
+ Since queue A is served with priority, we first give all capacity,
+ except what queue B minimally needs, to queue A:
+ \begin{equation*}
+d_{A,k} = \min\{L_{A,k-1}, c_k-c_{B,k}\}.
 \end{equation*}
-And then we can give any left over capacity to queue B, if needed. 
+And then we can give any leftover capacity to queue B, if needed. 
 \begin{align*}
-d_{k,B} &= \min\{L_{k-1, B}, c_k-d_{k,A}\}.
+d_{B, k} &= \min\{L_{B, k-1}, c_k-d_{A,k}\}.
 \end{align*}
 
 An example is the weekly capacity offered by a psychiatrist at a hospital.
 Part of the weekly capacity is reserved/allocated/assigned to serve certain patient groups.
 For instance, each week the psychiatrist does at most five intakes of new patients, provided there are any, and the rest of the capacity is used to treat other patients.
 The existing patients can also be divided in different groups, each receiving a minimal capacity.
-If there are less patients of some group, then the capacity can be planned/given to other patient groups.
+If there are fewer patients of some group, then the capacity can be planned/given to other patient groups.
 \end{solution}
 \end{extra}
 
 
 \begin{exercise}[Queue with protected service capacity and lost capacity]\clabel{ex:l-118} 
-  Consider a single-server that serves two parallel queues $A$ and $B$.
-  Each queue receives a minimal service capacity every period.
-  Reserved capacity unused for one queue cannot be used to serve the other queue.
-  Any extra capacity beyond the reserved capacity is given to queue A with priority.
-  Formulate a set of recursions to analyze this situation.
+ Consider a single-server that serves two parallel queues $A$ and $B$.
+ Each queue receives a minimal service capacity every period.
+ Reserved capacity unused for one queue cannot be used to serve the other queue.
+ Any extra capacity beyond the reserved capacity is given to queue A with priority.
+ Formulate a set of recursions to analyze this situation.
 
-  Let $r_A$ be the reserved capacity for queue A, and likewise for
-   $r_B$. We assume of course that $c_k\geq r_A + r_B$, for all $k$.
+ Let $r_A$ be the reserved capacity for queue A, and likewise for
+ $r_B$. We assume of course that $c_k\geq r_A + r_B$, for all $k$.
 \begin{solution} Queue A can use all capacity, except what is
-     reserved for queue B:
+ reserved for queue B:
 \begin{equation*}
-  d_{k,A} = \min\{L_{A, k-1}, c_k - r_B\}.
+ d_{A, k} = \min\{L_{A, k-1}, c_k - r_B\}.
 \end{equation*}
 Observe that, since $c_k \geq r_A + r_B$, this rule ensures that queue
 A receives at least its reserved capacity $r_A$.
 
 Queue $B$ cannot receive more than $c_k-r_A$, since $r_A$ is allocated
 to queue A, and if queue $A$ does not use all of $r_A$, then the
-surplus is lost. Also, queue $B$ cannot get more than $c_k - d_{k,A}$
+surplus is lost. Also, queue $B$ cannot get more than $c_k - d_{A, k}$
 as this is what remains after serving queue $A$. Thus, letting
-$c_{k,B} = \min\{c_k-r_A, c_k-d_{k,A}\} = c_k - \max\{r_A, d_{k,A}\}$,
+$c_{B, k} = \min\{c_k-r_A, c_k-d_{A, k}\} = c_k - \max\{r_A, d_{A, k}\}$,
 we see that for queue B:
 \begin{equation*}
-  d_{k,B} = \min\{L_{B, k-1}, c_{k,B}\}.
+ d_{B, k} = \min\{L_{B, k-1}, c_{B, k}\}.
 \end{equation*}
 
 An example can be the operation room of a hospital.
@@ -579,42 +699,42 @@ but not always, applies to service capacity.
 
 
 
-\begin{exercise}[Tandem  networks]\clabel{ex:l-119}
-  Consider a production network with two production stations in tandem, that is, the jobs processed by station A are in the next period to the downstream Station B.
-  Extend the recursions of~\cref{eq:31} to simulate this situation.
+\begin{exercise}[Tandem networks]\clabel{ex:l-119}
+ Consider a production network with two production stations in tandem, that is, the jobs processed by station A are in the next period to the downstream Station B.
+ Extend the recursions of~\cref{eq:31} to simulate this situation.
 \begin{solution}
-  Let $a_k$ be the external arrivals at station A. Then:
+ Let $a_k$ be the external arrivals at station A. Then:
 \begin{equation}
-  \begin{split}
-    d^A_k &= \min\{L_{k-1}^A, c_k^A\}, \\
-    L_k^A &= L_{k-1}^A -d_k^A + a_k.
-  \end{split}
+ \begin{split}
+ d^A_k &= \min\{L_{k-1}^A, c_k^A\}, \\
+ L_k^A &= L_{k-1}^A -d_k^A + a_k.
+ \end{split}
 \end{equation}
 The departures of the first station during period $k$ are the arrivals
 at station $B$ at the end of period $k$, i.e., $a_k^B =
 d_{k}^A$. Thus,
 \begin{equation}
-  \begin{split}
-    a_k^B &= d_{k}^A,\\
-    d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
-    L_k^B &= L_{k-1}^B -d_k^B + a_k^B.
-  \end{split}
+ \begin{split}
+ a_k^B &= d_{k}^A,\\
+ d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
+ L_k^B &= L_{k-1}^B -d_k^B + a_k^B.
+ \end{split}
 \end{equation}
 \end{solution}
 \end{exercise}
 
 \begin{extra}[A tandem queue with blocking]
-  Consider a production network with two production stations in tandem with blocking: when the intermediate queue, i.e., the queue in front of Station B, exceeds some level $M$, then station A has to stop producing, and when $L^B_k < M$ station A is not allowed to produce more than the intermediate queue can contain.
-  Extend the recursions of~\cref{eq:31} to simulate this situation.
+ Consider a production network with two production stations in tandem with blocking: when the intermediate queue, i.e., the queue in front of Station B, exceeds some level $M$, then station A has to stop producing, and when $L^B_k < M$ station A is not allowed to produce more than the intermediate queue can contain.
+ Extend the recursions of~\cref{eq:31} to simulate this situation.
 \begin{solution}
 \begin{equation}
-  \begin{split}
-    d^A_k &= \min\{L_{k-1}^A, c_k^A, M-L^B_{k-1}\}, \\
-    L_k^A &= L_{k-1}^A -d_k^A + a_k, \\
-    a_k^B &= d_{k}^A, \text{ (ensures all jobs first pass station A and then station B)}\\
-    d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
-    L_k^B &= L_{k-1}^B -d_k^B + a_k^B.
-  \end{split}
+ \begin{split}
+ d^A_k &= \min\{L_{k-1}^A, c_k^A, M-L^B_{k-1}\}, \\
+ L_k^A &= L_{k-1}^A -d_k^A + a_k, \\
+ a_k^B &= d_{k}^A, \text{ (ensures all jobs first pass station A and then station B)}\\
+ d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
+ L_k^B &= L_{k-1}^B -d_k^B + a_k^B.
+ \end{split}
 \end{equation}
 This is a bit subtle: since there is room $M-L^B_{k-1}$ at the
 intermediate buffer and $d_k^A \leq M-L^B_{k-1}$, we know that in the
@@ -623,82 +743,82 @@ d_k^A$.
 Thus, we are sure that the queue length of the intermediate queue will
 not exceed $M$.
 
-There is still  a small problem: What if for the first initial periods  $M<L^B_{k-1}$. Then $M-L^B_{k-1}<0$ and then by the specification above, $d_k^A < 0$. This is not what we want. Therefore, 
+There is still a small problem: What if for the first initial periods $M<L^B_{k-1}$. Then $M-L^B_{k-1}<0$ and then by the specification above, $d_k^A < 0$. This is not what we want. Therefore, 
 \begin{equation*}
-  d^A_k = \min\{L_{k-1}^A, c_k^A, \max\{M-L^B_{k-1}, 0\}\}.
+ d^A_k = \min\{L_{k-1}^A, c_k^A, \max\{M-L^B_{k-1}, 0\}\}.
 \end{equation*}
 \end{solution}
 \end{extra}
 
 \begin{exercise}[Merging departure streams]\clabel{ex:l-120}
-  Consider another production situation with two machines, A and B
-  say, that send their products to Station C. Derive a set of
-  recursion relations to simulate this system. 
+ Consider another production situation with two machines, A and B
+ say, that send their products to Station C. Derive a set of
+ recursion relations to simulate this system. 
 \begin{solution}
 Realize that Stations A and B have their own arrivals. 
 \begin{equation}
-  \begin{split}
-    d^A_k &= \min\{L_{k-1}^A, c_k^A\}, \\
-    L_k^A &= L_{k-1}^A -d_k^A + a_k^A, \\
-    d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
-    L_k^B &= L_{k-1}^B -d_k^B + a_k^B, \\
-    a_k^C &= d_{k}^A+d_{k}^B,\\
-    d^C_k &= \min\{L_{k-1}^C, c_k^C\}, \\
-    L_k^C &= L_{k-1}^C -d_k^C + a_k^C.
-  \end{split}
+ \begin{split}
+ d^A_k &= \min\{L_{k-1}^A, c_k^A\}, \\
+ L_k^A &= L_{k-1}^A -d_k^A + a_k^A, \\
+ d^B_k &= \min\{L_{k-1}^B, c_k^B\}, \\
+ L_k^B &= L_{k-1}^B -d_k^B + a_k^B, \\
+ a_k^C &= d_{k}^A+d_{k}^B,\\
+ d^C_k &= \min\{L_{k-1}^C, c_k^C\}, \\
+ L_k^C &= L_{k-1}^C -d_k^C + a_k^C.
+ \end{split}
 \end{equation}
 \end{solution}
 \end{exercise}
 
 
 \begin{extra}[Merging incoming streams]
-  Consider a single-server queue that serves two customer `streams' in a FIFO discipline.
-  Thus, both streams enter one queue that is served by the server.
-  Let $\{a_k^a\}$ be the number of arrivals of stream $a$ in period $k$ and $\{a_k^b\}$ be the number of arrivals of stream $b$.
-  Find a set of recursions by which it becomes possible to analyze the waiting time distribution of each of the streams.
-  Assume that the service capacity $c$ is constant for all periods, and that jobs that arrive in period $k$ can also be served in period $k$.
+ Consider a single-server queue that serves two customer `streams' in a FIFO discipline.
+ Thus, both streams enter one queue that is served by the server.
+ Let $\{a_k^a\}$ be the number of arrivals of stream $a$ in period $k$ and $\{a_k^b\}$ be the number of arrivals of stream $b$.
+ Find a set of recursions by which it becomes possible to analyze the waiting time distribution of each of the streams.
+ Assume that the service capacity $c$ is constant for all periods, and that jobs that arrive in period $k$ can also be served in period $k$.
 \begin{solution}
-    The behavior of the queue length  process is easy: 
-    \begin{equation*}
-      \begin{split}
-      d_k &= \min\{L_{k-1}+a_k^a+a_k^b, c\}, \\
+ The behavior of the queue length process is easy: 
+ \begin{equation*}
+ \begin{split}
+ d_k &= \min\{L_{k-1}+a_k^a+a_k^b, c\}, \\
 L_k &= L_{k-1}+a_k^a + a_k^b - d_k.
-      \end{split}
-    \end{equation*}
+ \end{split}
+ \end{equation*}
 
-    To determine the waiting times, observe that any arrival in period $k$, independent of the stream, has to wait until all jobs at the start of the period in queue, i.e., $L_{k-1}-d_k$, are cleared; note that we assume here that the jobs served in period $k$ depart at the start of the interval.
-    Thus, the minimal waiting time is $W_{k,-} = \lfloor L_{k-1}/c\rfloor$.
-    Similarly, the maximal waiting time is $W_{k,+} = \lfloor (L_{k-1}+a_k^a + a_k^b) /c\rfloor$.
+ To determine the waiting times, observe that any arrival in period $k$, independent of the stream, has to wait until all jobs at the start of the period in queue, i.e., $L_{k-1}-d_k$, are cleared; note that we assume here that the jobs served in period $k$ depart at the start of the interval.
+ Thus, the minimal waiting time is $W_{k,-} = \lfloor L_{k-1}/c\rfloor$.
+ Similarly, the maximal waiting time is $W_{k,+} = \lfloor (L_{k-1}+a_k^a + a_k^b) /c\rfloor$.
 
-    The remaining problem is to make a model to `distribute' the
-    time between $W_{k,-}$ and~$W_{k,+}$ over the two streams. 
+ The remaining problem is to make a model to `distribute' the
+ time between $W_{k,-}$ and~$W_{k,+}$ over the two streams. 
 
-    A simple model is to assume that the waiting time is averaged over
-    the jobs. Then each job perceives a waiting time of
-    \begin{equation*}
-      \frac{W_{k,-} + W_{k,+}}2.
-    \end{equation*}
+ A simple model is to assume that the waiting time is averaged over
+ the jobs. Then each job perceives a waiting time of
+ \begin{equation*}
+ \frac{W_{k,-} + W_{k,+}}2.
+ \end{equation*}
 
-    Another way is to give priority to $a$ customers, but only for the jobs that arrive in this period.
-    (Hence, this is different from the priority queue.
-    There priority customers can overtake customers that arrived earlier.
-    In the present case this is not allowed, jobs of type $a$ that arrive in period $k$ cannot overtake $b$ jobs that arrived prior to period $k$.)
-    Making this completely explicit (so that the recursion can be fed to the computer) requires a bit of work however.
-    It is important to understand the trick we will discuss now because we will use it to model queueing systems with batching.
-    Observe that the first job of the $a$ stream only has to wait for $W_{k,-}$, the second job must wait $W_{k,-}+1$, and so on.
-    Thus, the waiting time $W_{k}^a$ for the $a_k^a$ items is such that
-    \begin{equation*}
-W_{k,-}^a:= \lfloor L_{k-1}/c \rfloor \leq  W_{k}^a \leq \lfloor (L_{k-1}+a_k^a)/c \rfloor =: W_{k,+}^a.
-    \end{equation*}
-    Similarly, for the $b$ jobs must be
-    \begin{equation*}
-W_{k,-}^b := \lfloor (L_{k-1}+a_k^a)/c \rfloor \leq  W_{k}^b \leq \lfloor (L_{k-1}+a_k^a+a_k^b)/c \rfloor =: W_{k,+}^b.
-    \end{equation*}
+ Another way is to give priority to $a$ customers, but only for the jobs that arrive in this period.
+ (Hence, this is different from the priority queue.
+ In that case priority customers can overtake customers that arrived earlier.
+ In the present case this is not allowed, jobs of type $a$ that arrive in period $k$ cannot overtake $b$ jobs that arrived prior to period $k$.)
+ Making this completely explicit (so that the recursion can be fed to the computer) requires a bit of work however.
+ It is important to understand the trick we will discuss now because we will use it to model queueing systems with batching.
+ Observe that the first job of the $a$ stream only has to wait for $W_{k,-}$, the second job must wait for $W_{k,-}+1$, and so on.
+ Thus, the waiting time $W_{k}^a$ for the $a_k^a$ items is such that
+ \begin{equation*}
+W_{k,-}^a:= \lfloor L_{k-1}/c \rfloor \leq W_{k}^a \leq \lfloor (L_{k-1}+a_k^a)/c \rfloor =: W_{k,+}^a.
+ \end{equation*}
+ Similarly, for the $b$ jobs must be
+ \begin{equation*}
+W_{k,-}^b := \lfloor (L_{k-1}+a_k^a)/c \rfloor \leq W_{k}^b \leq \lfloor (L_{k-1}+a_k^a+a_k^b)/c \rfloor =: W_{k,+}^b.
+ \end{equation*}
 Note that $W_{k,+}^a = W_{k,-}^b$. 
 It is then sensible to set 
 \begin{align*}
-  W_{k}^a &= \frac{W_{k,-}^a + W_{k,+}^a}2, \\
-  W_{k}^b &= \frac{W_{k,-}^b + W_{k,+}^b}2.
+ W_{k}^a &= \frac{W_{k,-}^a + W_{k,+}^a}2, \\
+ W_{k}^b &= \frac{W_{k,-}^b + W_{k,+}^b}2.
 \end{align*}
 
 \end{solution}
@@ -707,26 +827,26 @@ It is then sensible to set
 
 
 \begin{extra}[Splitting streams]
-  Consider a machine (a paint mixing machine) that produces products for two separate downstream machines A and B (two different paint packaging machines), each with its own queue.
-  Suppose we want to analyze the queue in front of station A.
-  For this we need to know the arrivals to station A, that is, the departures of the mixing station that go to station A.
-  Provide a set of recursions to simulate this system.
+ Consider a machine (a paint mixing machine) that produces products for two separate downstream machines A and B (two different paint packaging machines), each with its own queue.
+ Suppose we want to analyze the queue in front of station A.
+ For this we need to know the arrivals to station A, that is, the departures of the mixing station that go to station A.
+ Provide a set of recursions to simulate this system.
 \begin{solution}
 \begin{enumerate}
 \item Realize that the recursions of~\cref{eq:31}, applied to the queueing situation at the first machine, provide us with the total number of departures $d_k$ during period $k$.
-  However, it does not tell us about the type of these departures.
-  Thus, to compute the queue in front of station A, we need to know the number of departures of type A, rather than the total number of departures of the first station.
+ However, it does not tell us about the type of these departures.
+ Thus, to compute the queue in front of station A, we need to know the number of departures of type A, rather than the total number of departures of the first station.
 \item It is reasonable that the number of jobs of type $A$ in queue at
-  the first station is equal to
-  \begin{equation*}
-  L_k \frac{\lambda_A}{\lambda_A + \lambda_B}.
-  \end{equation*}
-  It is therefore reasonable to assume that the capacity $c_k$ of the
-  first station is also shared in this proportion to type A and B
-  jobs. Thus, the number of departures to station $A$ is
-  \begin{equation*}
-    d_k(A) = \frac{\lambda_A}{\lambda_A+\lambda_B} \min\left\{ L_{k-1}, c_k\right\}.
-  \end{equation*}
+ the first station is equal to
+ \begin{equation*}
+ L_k \frac{\lambda_A}{\lambda_A + \lambda_B}.
+ \end{equation*}
+ It is therefore reasonable to assume that the capacity $c_k$ of the
+ first station is also shared in this proportion to type A and B
+ jobs. Thus, the number of departures to station $A$ is
+ \begin{equation*}
+ d_k(A) = \frac{\lambda_A}{\lambda_A+\lambda_B} \min\left\{ L_{k-1}, c_k\right\}.
+ \end{equation*}
  The rest of the recursions is very similar to what we did in earlier exercises.
 \end{enumerate}
 \end{solution}
@@ -736,19 +856,19 @@ It is then sensible to set
 
 
 \begin{extra}[Queue with setups, not obligatory]
-  One server serves two parallel queues, one at a time. After serving
-   one queue until it is empty,  the server moves to the other
-  queue. The change of queue requires one period setup time. 
+ One server serves two parallel queues, one at a time. After serving
+ one queue until it is empty, the server moves to the other
+ queue. The change of queue requires one period setup time. 
 \begin{solution}
-We need an extra variable $p_k$ that specifies  which queue is being served. If $p_k=0$, the server is moving from one queue to the other, if $p_k=1$, the server is at queue 1, and if $p_k=2$ it is at queue $2$. Then, with
+We need an extra variable $p_k$ that specifies which queue is being served. If $p_k=0$, the server is moving from one queue to the other, if $p_k=1$, the server is at queue 1, and if $p_k=2$ it is at queue $2$. Then, with
 \begin{align*}
-  d^1_k &= \min\{L^1_{k-1}, c_k^1 \1{p_k=1}\}, \\
-  d^2_k &= \min\{L^2_{k-1}, c_k^2 \1{p_k=2}\},
+ d^1_k &= \min\{L^1_{k-1}, c_k^1 \1{p_k=1}\}, \\
+ d^2_k &= \min\{L^2_{k-1}, c_k^2 \1{p_k=2}\},
 \end{align*}
 we can specify the evolution of the queue length processes. So it remains to deal with $p$. For this, we use a `truth table' to compute $p_{k+1}$ as a function of $p_k$ and whether $L_k^1 > 0$ or not and $L_k^2 > 0$ or not. 
 
 \begin{tabular}{ccc|l}
-  $\1{L^1_k > 0}$ & $\1{L_k^2 > 0}$ & $p_k$ & $p_{k+1}$ \\ \hline
+ $\1{L^1_k > 0}$ & $\1{L_k^2 > 0}$ & $p_k$ & $p_{k+1}$ \\ \hline
 0 & 0 & 0 & 0 \\
 0 & 0 & 1 & 1 \\
 0 & 0 & 2 & 2 \\

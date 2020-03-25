@@ -2,6 +2,10 @@
 \label{sec:preliminaries}
 
 
+Here is an overview of concepts you are supposed to have seen in earlier courses.
+We will use these concepts over and over in the rest of the book.
+
+
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
@@ -9,38 +13,34 @@
 }
 
 
-Here is an overview of concepts you are supposed to have seen in earlier courses.
-We will use these concepts over and over in the rest of the course.
-
-
 We use the notation:
-  \begin{align*}
-  [x]^+ &= \max\{x, 0\}, \\
-  f(x-) &= \lim_{y\uparrow x} f(y),\\
-  f(x+) &= \lim_{y\downarrow x} f(y),\\
-    \1{A} &=
-            \begin{cases}
-              1, & \text{ if $A$ is true}, \\
-              0, & \text{ if $A$ is false}.
-            \end{cases}, 
+ \begin{align*}
+ [x]^+ &= \max\{x, 0\}, \\
+ f(x-) &= \lim_{y\uparrow x} f(y),\\
+ f(x+) &= \lim_{y\downarrow x} f(y),\\
+ \1{A} &=
+ \begin{cases}
+ 1, & \text{ if $A$ is true}, \\
+ 0, & \text{ if $A$ is false}.
+ \end{cases}.
 \end{align*}
-where the last equation defines an \recall{indicator variable}.
+The last equation defines the \recall{indicator function}.
 
 
-The function $f(h)=o(h)$ means that $f$ is such that $f(h)/h \to 0$ as $h\to 0$.
+We write $f(h)=o(h)$ for a function $f$ to say that $f$ is such that $f(h)/h \to 0$ as $h\to 0$.
 If we write $f(h) = o(h)$ it is implicit that $|h| \ll 1$.
 We call this \recall{small $o$ notation}.
 \begin{exercise}\clabel{ex:l-104}
-  Let $c$ be a constant (in $\R$) and the functions $f$ and $g$ both of $o(h)$. Then show that (1) $f(h) \to 0$ when $h\to 0$, (2) $c\cdot f = o(h)$, (3) $f+g=o(h)$, and (4) $f\cdot g=o(h)$. 
+ Let $c$ be a constant (in $\R$) and the functions $f$ and $g$ both of $o(h)$. Then show that (1) $f(h) \to 0$ when $h\to 0$, (2) $c\cdot f = o(h)$, (3) $f+g=o(h)$, and (4) $f\cdot g=o(h)$. 
 \begin{solution}
-     In fact (1) is trivial: $|f(h)| \leq |f(h)/h|$ when $|h| < 1$.
-     But it is given that the right-hand side goes to zero.
-     For (2) and (3):
+ In fact (1) is trivial: $|f(h)| \leq |f(h)/h|$ when $|h| < 1$.
+ But it is given that the right-hand side goes to zero.
+ For (2) and (3):
 \begin{align*}
-\lim_{h\to 0} \frac{c f(h)}{h} &=  c \lim_{h\to 0} \frac{f(h)}{h} = 0, \; \text{as } f = o(h), \\
+\lim_{h\to 0} \frac{c f(h)}{h} &= c \lim_{h\to 0} \frac{f(h)}{h} = 0, \; \text{as } f = o(h), \\
 \lim_{h\to 0} \frac{f(h) + g(h)} h &= \lim_{h\to 0} \frac{f(h)} h + \lim_{h\to 0} \frac{g(h)} h = 0.
 \end{align*}
-For (4), use  the Algebraic Limit Theorem,
+For (4), use the Algebraic Limit Theorem,
 \begin{align*}
 \lim_{h\to 0} \frac{f(h)g(h)}{h} &= \lim_{h\to 0} h \frac{f(h)}{h} \frac{g(h)}{h} \\
 &= \lim_{h\to 0} h \lim_{h\to 0} \frac{f(h)}{h} \lim_{h\to 0} \frac{g(h)}{h} \\
@@ -52,48 +52,54 @@ For (4), use  the Algebraic Limit Theorem,
 
 You should know that:
 \begin{subequations}
-  \begin{align}
-    (a+b)^n &= \sum_{i=0}^n {n \choose i} a^{n-i} b^i, \label{eq:71}\\
+ \begin{align}
+ (a+b)^n &= \sum_{i=0}^n {n \choose i} a^{n-i} b^i, \label{eq:71}\\
 e^x &= \lim_{n\to\infty} (1+x/n)^n, \label{eq:65}\\
-    e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{x^k}{k!}, \label{eq:76}\\
-    \sum_{n=0}^N \alpha^n &= \frac{1-\alpha^{N+1}}{1-\alpha}. \label{eq:61}
+ e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{k=0}^{\infty} \frac{x^k}{k!}, \label{eq:76}\\
+ \sum_{n=0}^N \alpha^n &= \frac{1-\alpha^{N+1}}{1-\alpha}. \label{eq:61}
 \end{align}
 \end{subequations}
 
 \begin{extra}\clabel{ex:87}
-  Why is $e^{x} = 1 +x + o(x)$?
+ Why is $e^{x} = 1 +x + o(x)$?
 \begin{solution}
-    When $|x|\ll 1$, the  terms with $n\geq 2$ in~\cref{eq:76} are $x^n = o(x)$. Then applying $x^n + x^m = o(x)$ to the Taylor series gives the result.
+ When $|x|\ll 1$, the terms with $n\geq 2$ in~\cref{eq:76} are $x^n = o(x)$. Then applying $x^n + x^m = o(x)$ to the Taylor series gives the result.
 \end{solution}
 \end{extra}
 
 
-You should know that for a non-negative, integer-valued random variable $X$ with  \recall{probability mass function} $f(k)= \P{X = k} = f(k)$, 
-\begin{subequations}
+You should know that for a non-negative, integer-valued random variable $X$ with \recall{probability mass function} $f(k)= \P{X = k}$, 
+\begin{subequations}\label{eq:105}
 \begin{align}
-X&=\sum_{n=0}^\infty X\1{X=n} = \sum_{n=0}^\infty n \1{X=n},   \label{eq:77} \\
-\E X &= \sum_{n=0}^\infty n f(n), \\
-\E{g(X)} &= \sum_{n=0}^\infty g(n) f(n),  \label{eq:66}\\
-\E{\1{X\leq x}} &= \P{X\leq x}, \label{eq:74}\\
-\V X &= \E{X^2} - (\E X)^2.\label{eq:68}
-\end{align}
+X&=\sum_{n=0}^\infty X\1{X=n} = \sum_{n=0}^\infty n \1{X=n}, \label{eq:77} \\
+\E X &= \E{\sum_{n=0}^\infty n \1{X=n}} = \sum_{n=0}^\infty n \E{\1{X=n}} = \sum_{n=0}^\infty n f(n), \label{eq:p-78} \\
+  \E{g(X)} &= \sum_{n=0}^\infty g(n) f(n), \label{eq:66}
+\end{align}             
 \end{subequations}
 
+For general random variables $X$ and $Y$:
+\begin{align}
+\E{\1{X\leq x}} &= \P{X\leq x}, \label{eq:74}\\
+  \V X &= \E{X^2} - (\E X)^2.\label{eq:68}\\
+  \E{X+Y} &= \E X + \E Y, \label{eq:95}\\
+  \V{X+Y} &= \V X + \V Y, \quad\text{if $X$ and $Y$ are independent.}\label{eq:94}
+\end{align}
+
 \begin{extra}
-  Why is~\cref{eq:77} true?
+ Why is~\cref{eq:77} true?
 \begin{solution}
 To see~\cref{eq:77}, note first that $X\1{X=n} = n\1{X=n}$ because $X=n$ when $\1{X=n} =1$, and second that $\sum_{n=0}^\infty \1{X=n} =1$, since $X$ takes one of the values in $\N$, and events $\{X=n\}$ and $\{X=m\}$ are non-overlapping when $n\neq m$. 
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-105}
-Define the  \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
+Define the \recall{survivor function} of $X$ as $G(k) = \P{X>k}$. Show that
 \begin{equation*}
-  G(k) = \sum_{m=0}^\infty \1{m>k} f(m).
+ G(k) = \sum_{m=0}^\infty \1{m>k} f(m).
 \end{equation*}
-As you will see below, this idea  makes the computation of certain expressions quite a bit easier.
+As you will see below, this idea makes the computation of certain expressions quite a bit easier.
 \begin{solution}
-  This is just rewriting the definition:
+ This is just rewriting the definition:
 \begin{equation*}
 G(k) = \P{X>k} = \sum_{m=k+1}^\infty \P{X=m} = \sum_{m=k+1}^\infty f(m)=\sum_{m=0}^\infty \1{m>k}f(m).
 \end{equation*}
@@ -101,45 +107,45 @@ G(k) = \P{X>k} = \sum_{m=k+1}^\infty \P{X=m} = \sum_{m=k+1}^\infty f(m)=\sum_{m=
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-106}
-  Express the probability mass  $f(k)$ and the survivor function $G(k)$ in terms of the \recall{distribution function} $F(k)=\P{X\leq k}$ of $X$.
+ Express the probability mass $f(k)$ and the survivor function $G(k)$ in terms of the \recall{distribution function} $F(k)=\P{X\leq k}$ of $X$.
 \begin{hint}
 This exercise is just meant to become familiar with the notation.
 \end{hint}
 \begin{solution}
-    \begin{align*}
-    f(k) &= \P{X=k} = \P{X\leq k} - \P{X\leq k-1} = F(k)-F(k-1), \\
-    G(k) &= \P{X>k} = 1 - \P{X\leq k} = 1-F(k).        
-    \end{align*}
+ \begin{align*}
+ f(k) &= \P{X=k} = \P{X\leq k} - \P{X\leq k-1} = F(k)-F(k-1), \\
+ G(k) &= \P{X>k} = 1 - \P{X\leq k} = 1-F(k). 
+ \end{align*}
 \end{solution}
 \end{exercise}
 
 \begin{extra}
-  Which of the following is true: $G(k) = 1-F(k)$, $G(k) = 1-F(k-1)$, or $G(k) = 1-F(k+1)$?
+ Which of the following is true: $G(k) = 1-F(k)$, $G(k) = 1-F(k-1)$, or $G(k) = 1-F(k+1)$?
 \begin{solution}
-  $G(k) = 1- F(k) = 1-\P{X\leq k} = \P{X>k}$. 
-    It is all too easy to make, so called, off-by-one errors, such as
-    in the three alternatives above.  I nearly always check simple
-    cases to prevent such simple mistakes. I advise you to acquire the
-    same habit.
+ $G(k) = 1- F(k) = 1-\P{X\leq k} = \P{X>k}$. 
+ It is all too easy to make, so called, off-by-one errors, such as
+ in the three alternatives above. I nearly always check simple
+ cases to prevent such simple mistakes. I advise you to acquire the
+ same habit.
 \end{solution}
 \end{extra}
 
 
 \begin{extra}\clabel{ex:6}
- Use indicator functions to prove that $\E X =  \sum_{k=0}^\infty G(k)$.
+ Use indicator functions to prove that $\E X = \sum_{k=0}^\infty G(k)$.
 \begin{hint}
 Write 
 $\sum_{k=0}^\infty G(k) = \sum_{k=0}^\infty \sum_{m=k+1}^\infty \P{X=m}$, reverse the summations. Then realize that $\sum_{k=0}^\infty \1{k<m} = m$. 
 You should be aware that this sort of problem is just a regular probability
-  theory problem, nothing fancy. We use/adapt the tools you learned in
-  calculus to carry out 2D integrals (or in this case 2D summations).
+ theory problem, nothing fancy. We use/adapt the tools you learned in
+ calculus to carry out 2D integrals (or in this case 2D summations).
 \end{hint}
 \begin{solution}
 Observe first that $\sum_{k=0}^\infty \1{m>k} = m$, since $\1{m>k}=1$ if $k<m$ and $\1{m>k} = 0$ if $k\geq m$. With this, 
 \begin{align*}
 \sum_{k=0}^\infty G(k) 
 &= \sum_{k=0}^\infty \P{X>k} 
-= \sum_{k=0}^\infty \sum_{m=k+1}^\infty \P{X=m}  \\
+= \sum_{k=0}^\infty \sum_{m=k+1}^\infty \P{X=m} \\
 & = \sum_{k=0}^\infty \sum_{m=0}^\infty \1{m>k} \P{X=m} 
 = \sum_{m=0}^\infty \sum_{k=0}^\infty \1{m>k} \P{X=m} \\
 &= \sum_{m=0}^\infty m\P{X=m} = \E X.
@@ -152,7 +158,7 @@ Check Fubini's theorem for more on this if you are interested.)
 
 \begin{exercise}\clabel{ex:66}
  Use indicator functions to prove that
-$\sum_{i=0}^\infty i G(i) =  \E{X^2}/2 - \E{X}/2.$
+$\sum_{i=0}^\infty i G(i) = \E{X^2}/2 - \E{X}/2.$
 \begin{hint}
 $\sum_{i=0}^\infty i G(i) = \sum_{n=0}^\infty \P{X=n} \sum_{i=0}^\infty i \1{n\geq i+1}$,
 and reverse the summations.
@@ -161,8 +167,8 @@ and reverse the summations.
 \begin{align*}
 \sum_{i=0}^\infty i G(i)
 &= \sum_{i=0}^\infty i \sum_{n=i+1}^\infty \P{X=n} = \sum_{n=0}^\infty \P{X=n} \sum_{i=0}^\infty i \1{n\geq i+1} \\
-&= \sum_{n=0}^\infty \P{X=n} \sum_{i=0}^{n-1}i  = \sum_{n=0}^\infty \P{X=n} \frac{(n-1)n}{2} \\
-&= \sum_{n=0}^\infty  \frac{n^2}{2} \P{X=n} - \frac{\E X}{2}
+&= \sum_{n=0}^\infty \P{X=n} \sum_{i=0}^{n-1}i = \sum_{n=0}^\infty \P{X=n} \frac{(n-1)n}{2} \\
+&= \sum_{n=0}^\infty \frac{n^2}{2} \P{X=n} - \frac{\E X}{2}
 = \frac{\E{X^2}}{2} - \frac{\E X}{2}.
 \end{align*}
 \end{solution}
@@ -170,11 +176,13 @@ and reverse the summations.
 
 
 
-Let $X$ be a continuous non-negative random variable with distribution function $F$.  We write 
+Let $X$ be a continuous non-negative random variable with distribution function $F$. We write 
 \begin{equation*}
-  \E{X} = \int_0^\infty x \d F(x)
+ \E{X} = \int_0^\infty x \d F(x)
 \end{equation*}
-for the expectation of $X$. Here $\d F(x)$ acts as a shorthand for $f(x) \d x$\footnote{For the interested reader, $\int x \d F(x)$ is a Lebesgue-Stieltjes integral with respect to the distribution function $F$.}. Recall that
+for the expectation of $X$.
+Here $\d F(x)$ acts as a (sort of) shorthand for $f(x) \d x$\footnote{For the interested reader, $\int x \d F(x)$ is a Lebesgue-Stieltjes integral with respect to the measure induced by the distribution function $F$, see the literature for further background.}.
+Recall that
 \begin{align*}
 \E{g(X)} &= \int_0^\infty g(x) \d F(x).
 \end{align*}
@@ -183,101 +191,101 @@ for the expectation of $X$. Here $\d F(x)$ acts as a shorthand for $f(x) \d x$\f
 
 \begin{exercise}\clabel{ex:l-107}
  Use indicator functions to prove that 
-$   \E X = \int_0^\infty x \d F(x)  = \int_0^\infty G(y) \d y,$
+$ \E X = \int_0^\infty x \d F(x) = \int_0^\infty G(y) \d y,$
 where $G(x) = 1 - F(x)$. 
 \begin{hint}
-$\E X = \int_0^\infty x \d F(x)  = \int_0^\infty \int_0^\infty 1_{y\leq x} \d y \d F(x)$.
+$\E X = \int_0^\infty x \d F(x) = \int_0^\infty \int_0^\infty \1{y\leq x} \d y \d F(x)$.
 \end{hint}
 \begin{solution}
-  \begin{align*}
-    \E{X} &= \int_0^\infty x \d F(x)  = \int_0^\infty \int_0^x \d y \d F(x) \\
-    & = \int_0^\infty \int_0^\infty \1{y\leq x} \d y \d F(x)   = \int_0^\infty \int_0^\infty \1{y\leq x} \d F(x) \d y\\
-    & = \int_0^\infty \int_y^\infty \d F(x) \d y = \int_0^\infty G(y) \d y.
-  \end{align*}
+ \begin{align*}
+ \E{X} &= \int_0^\infty x \d F(x) = \int_0^\infty \int_0^x \d y \d F(x) \\
+ & = \int_0^\infty \int_0^\infty \1{y\leq x} \d y \d F(x) = \int_0^\infty \int_0^\infty \1{y\leq x} \d F(x) \d y\\
+ & = \int_0^\infty \int_y^\infty \d F(x) \d y = \int_0^\infty G(y) \d y.
+ \end{align*}
 \end{solution}
 \end{exercise}
 
 You should be able to use indicator functions and integration by parts to show that $\E{X^2} = 2\int_0^\infty y G(y) \d y$, where $G(x) = 1- F(x)$, provided the second moment exists.
 
 \begin{extra}
-  Use indicator functions to prove that for a continuous non-negative random variable~$X$ with distribution function $F$, $ \E{X^2} = \int_0^\infty x^2 \d F(x) = 2 \int_0^\infty y G(y) \d y,$ where $G(x) = 1 - F(x)$.
+ Use indicator functions to prove that for a continuous non-negative random variable~$X$ with distribution function $F$, $ \E{X^2} = \int_0^\infty x^2 \d F(x) = 2 \int_0^\infty y G(y) \d y,$ where $G(x) = 1 - F(x)$.
 \begin{hint}
 $\int_0^\infty y G(y) \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d x \d y$.
 \end{hint}
 \begin{solution}
-  \begin{align*}
+ \begin{align*}
 \int_0^\infty y G(y) \d y 
-&=  \int_0^\infty y \int_y^\infty f(x)\, \d x \d y =  \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d x \d y\\
-&=  \int_0^\infty f(x) \int_0^\infty y \1{y \leq x}\, \d y \d x
-=  \int_0^\infty f(x) \int_0^x y\, \d y \d x\\
-&=  \int_0^\infty f(x) \frac{x^2}2 \d x =\frac{\E{X^2}}2.
-  \end{align*}
+&= \int_0^\infty y \int_y^\infty f(x)\, \d x \d y = \int_0^\infty y \int_0^\infty \1{y\leq x}f(x)\, \d x \d y\\
+&= \int_0^\infty f(x) \int_0^\infty y \1{y \leq x}\, \d y \d x
+= \int_0^\infty f(x) \int_0^x y\, \d y \d x\\
+&= \int_0^\infty f(x) \frac{x^2}2 \d x =\frac{\E{X^2}}2.
+ \end{align*}
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-108}
-  Show that $\E{X^2}/2 = \int_0^\infty y G(y) \d y$  for a continuous non-negative random variable $X$ with survivor function $G$.
+ Show that $\E{X^2}/2 = \int_0^\infty y G(y) \d y$ for a continuous non-negative random variable $X$ with survivor function $G$.
  \begin{solution}
-   \begin{hint}
- Use integration by parts.     
-   \end{hint}
-  \begin{equation}
-      \int_0^\infty y G(y) \d y 
-= \frac{y^2}2 G(y) \bigg|_0^\infty  - \int_0^\infty \frac{y^2}2 g(y)\d y = \int_0^\infty \frac{y^2}2 f(y)\d y = \frac{\E{X^2}}2,
-  \end{equation}
-  since $g(y) = G'(y) = - F'(y) = - f(y)$. Note that we used $\frac{y^2}2 G(y) \bigg|_0^\infty = 0 - 0 = 0$, which follows from our assumption that $\E{X^2}$ exists, implying that $\lim_{y \to \infty} y^2G(y) = 0$.
+ \begin{hint}
+ Use integration by parts. 
+ \end{hint}
+ \begin{equation}
+ \int_0^\infty y G(y) \d y 
+= \frac{y^2}2 G(y) \bigg|_0^\infty - \int_0^\infty \frac{y^2}2 g(y)\d y = \int_0^\infty \frac{y^2}2 f(y)\d y = \frac{\E{X^2}}2,
+ \end{equation}
+ since $g(y) = G'(y) = - F'(y) = - f(y)$. Note that we used $\frac{y^2}2 G(y) \bigg|_0^\infty = 0 - 0 = 0$, which follows from our assumption that $\E{X^2}$ exists, implying that $\lim_{y \to \infty} y^2G(y) = 0$.
 \end{solution}
 \end{exercise}
 
 
-You should know that for  the \recall{moment-generating function}  $M_X(s)$ of a random variable~$X$ and~$s\in \mathbb{R}$  sufficiently small is defined as: 
+You should know that for the \recall{moment-generating function} $M_X(s)$ of a random variable~$X$ and~$s\in \mathbb{R}$ sufficiently small is defined as: 
 \begin{subequations}
 \begin{align}
-  M_X(s) &= \E{e^{s X}}, \\
-  M_X(s) & \text{ uniquely characterizes the distribution of $X$}, \label{eq:75}\\
-  \E{X} &= M_{X}'(0) = \left.\frac{\d M_{X}(s)}{d s}\right|_{s=0},\label{eq:69}\\
+ M_X(s) &= \E{e^{s X}}, \\
+ M_X(s) & \text{ uniquely characterizes the distribution of $X$}, \label{eq:75}\\
+ \E{X} &= M_{X}'(0) = \left.\frac{\d M_{X}(s)}{d s}\right|_{s=0},\label{eq:69}\\
 \E{X^2} &= M_{X}''(0), \label{eq:64}\\
-M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{  if $X$ and $Y$ are independent}. \label{eq:73}
+M_{X+Y}(s) &= M_X(s)\cdot M_Y(s), \quad \text{ if $X$ and $Y$ are independent}. \label{eq:73}
 \end{align}
 \end{subequations}
 
 \begin{extra}
-  What is the value of $M_X(0)?$
+ What is the value of $M_X(0)?$
 \begin{solution}
-    $M_X(0) = \E{e^{0 X}} = \E{e^0} = \E{1} = 1.$
+ $M_X(0) = \E{e^{0 X}} = \E{e^0} = \E{1} = 1.$
 \end{solution}
 \end{extra}
 
 To help you recall the concept of \recall{conditional probability} consider the following question.
 \begin{exercise}\clabel{ex:l-109}
-  We have  one gift to give to one out of three children. As we cannot
-  divide the gift into parts, we decide to let `fate decide'. That
-  is, we choose a random number in the set $\{1, 2, 3\}$. The first
-  child that guesses this number wins the gift. Show that the
-  probability of winning the gift is the same for each child.
+ We have one gift to give to one out of three children. As we cannot
+ divide the gift into parts, we decide to let `fate decide'. That
+ is, we choose a random number in the set $\{1, 2, 3\}$. The first
+ child that guesses this number wins the gift. Show that the
+ probability of winning the gift is the same for each child.
 \begin{hint}
-    For the second child, condition on the event that the first does not choose the right number.
-    Use the definition of conditional probability:
-    $\P{A|B} = \P{AB}/\P{B}$ provided $\P{B}>0$.
+ For the second child, condition on the event that the first does not choose the right number.
+ Use the definition of conditional probability:
+ $\P{A|B} = \P{AB}/\P{B}$ provided $\P{B}>0$.
 \end{hint}
 \begin{solution}
-    The probability that the first child to guess also wins is
-    $1/3$. What is the probability for child number two? Well, for
-    him/her to win, it is necessary that child one does not win and
-    that child two guesses the right number of the remaining
-    numbers. Assume, without loss of generality that child 1 chooses
-    $3$ and that this is not the right number. Then 
-    \begin{equation*}
-      \begin{split}
-&\P{\text{Child  2 wins}} \\
+ The probability that the first child to guess also wins is
+ $1/3$. What is the probability for child number two? Well, for
+ him/her to win, it is necessary that child one does not win and
+ that child two guesses the right number of the remaining
+ numbers. Assume, without loss of generality that child 1 chooses
+ $3$ and that this is not the right number. Then 
+ \begin{equation*}
+ \begin{split}
+&\P{\text{Child 2 wins}} \\
 &= \P{\text{Child 2 guesses the right number and child 1 does not win}} \\
 &= \P{\text{Child 2 guesses the right number} \given \text{ child 1 does not win}}
 \cdot \P{\text{Child 1 does not win}} \\
 &= \P{\text{Child 2 makes the right guess in the set $\{1,2\}$}}\cdot \frac 23 \\
-&= \frac 1 2\cdot \frac 23  = \frac 1 3.
-      \end{split}
-    \end{equation*}
-    Similar conditional reasoning gives that child 3 wins with probability $1/3$. 
+&= \frac 1 2\cdot \frac 23 = \frac 1 3.
+ \end{split}
+ \end{equation*}
+ Similar conditional reasoning gives that child 3 wins with probability $1/3$. 
 \end{solution}
 \end{exercise}
 
@@ -285,7 +293,7 @@ You should know that:
 \begin{subequations}
 \begin{align}
 \P{A\given B} & = \frac{\P{AB}}{\P{B}}, \quad\text{ if } \P{B}>0, \\
-  \P{A} &= \sum_{i=1}^n \P{A B_i} = \sum_{i=1}^n \P{A\given B_i} \P{B_i}, \quad\text{ if  $A=\bigcup_{i=1}^n B_i$ and $\P{B_i>0}$ for all $i$}. \label{eq:70}
+ \P{A} &= \sum_{i=1}^n \P{A B_i} = \sum_{i=1}^n \P{A\given B_i} \P{B_i}, \quad\text{ if $A=\bigcup_{i=1}^n B_i$ and $\P{B_i>0}$ for all $i$}. \label{eq:70}
 \end{align}
 \end{subequations}
 

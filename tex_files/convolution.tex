@@ -12,14 +12,14 @@ $p_i(k|N)=\pi(n_i=k)$ for the marginal probability that station $i$
 contains $k$ jobs, under the assumption that the network contains $N$
 jobs. 
 
-Assume we have computed  $p_i(k|N)$  with Eq.3.15, i.e., with the recursion
+Assume we have computed $p_i(k|N)$ with Eq.3.15, i.e., with the recursion
 \begin{equation*}
-  p_i(k|N) = f_i(k)\frac{G(M\setminus\{i\}, N-k)}{G(M,N)}.
+ p_i(k|N) = f_i(k)\frac{G(M\setminus\{i\}, N-k)}{G(M,N)}.
 \end{equation*}
 We can then compute the rest of the performance measures as 
 \begin{align*}
-  \TH_i &= \mu_i\sum_{k=1}^N p_i(k|N), \\
-  \E W &= \frac{N}{TH_0}, \\
+ \TH_i &= \mu_i\sum_{k=1}^N p_i(k|N), \\
+ \E W &= \frac{N}{TH_0}, \\
 \E L_i &= \sum_{k=1} k p_i(k|N), \\
 \E W_i &= \E L_i / V_i, \text{ by Little's law}. \\
 \end{align*}
@@ -27,50 +27,50 @@ The rest of the equations in Section 3.1.2 are interesting, but not
 necessary for an implementation in computer code. 
 
 \begin{exercise}\clabel{ex:l-173}
-  Explain Zijm.Eq.3.13.
+ Explain Zijm.Eq.3.13.
 \begin{solution}
-    It follows directly from the fact that $G(0,N)$ is a normalization
-    constant. When there is just one station, i.e., station 0, all jobs are at that station. Hence, $\pi_0(N)=1$. From Zijm.Eq.3.1--Zijm.Eq.3.3, it follows that $f_0(N)=(V_0/\mu_0)^N$, so that $G(0,N)$ must be $1/f_0(N)$. Finally, since $V_0=1$ always, we get $G(0,N)=\mu_0^{-N}$.
+ It follows directly from the fact that $G(0,N)$ is a normalization
+ constant. When there is just one station, i.e., station 0, all jobs are at that station. Hence, $\pi_0(N)=1$. From Zijm.Eq.3.1--Zijm.Eq.3.3, it follows that $f_0(N)=(V_0/\mu_0)^N$, so that $G(0,N)$ must be $1/f_0(N)$. Finally, since $V_0=1$ always, we get $G(0,N)=\mu_0^{-N}$.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-174}
 Zijm.Ex.3.1.6
 \begin{solution}
-  This is related to the famous ball/boxes problem in Feller. Given
-  $n$ (identical) balls and $m$ boxes, in how many configurations can
-  the balls be distributed over the boxes? One nice way to get the
-  answer is to use recursion. (I leave it to you to figure this
-  out). The other is this: imagine that all boxes are put next to each
-  other. Then we can imagine that two neighboring boxes are separated
-  by a stick. Since there are $m$ boxes, $m-1$ sticks suffice to
-  separate all boxes. This observation allows us to reduce the
-  balls/boxes problem to figuring out in how many ways all sticks and
-  balls can be mixed. Since the balls and sticks are all identical,
-  and since we have $n+m-1$ objects ($n$ balls and $m-1$ sticks), these objects can be distributed in 
-  \begin{equation*}
-{n+m-1 \choose n} =     {n+m-1 \choose m-1}
-  \end{equation*}
-  ways.  (BTW, this question relates directly to the number of edge
-  points that occur as potential solutions in a linear programming
-  problem.)
+ This is related to the famous ball/boxes problem in Feller. Given
+ $n$ (identical) balls and $m$ boxes, in how many configurations can
+ the balls be distributed over the boxes? One nice way to get the
+ answer is to use recursion. (I leave it to you to figure this
+ out). The other is this: imagine that all boxes are put next to each
+ other. Then we can imagine that two neighboring boxes are separated
+ by a stick. Since there are $m$ boxes, $m-1$ sticks suffice to
+ separate all boxes. This observation allows us to reduce the
+ balls/boxes problem to figuring out in how many ways all sticks and
+ balls can be mixed. Since the balls and sticks are all identical,
+ and since we have $n+m-1$ objects ($n$ balls and $m-1$ sticks), these objects can be distributed in 
+ \begin{equation*}
+{n+m-1 \choose n} = {n+m-1 \choose m-1}
+ \end{equation*}
+ ways. (BTW, this question relates directly to the number of edge
+ points that occur as potential solutions in a linear programming
+ problem.)
 
-  Now interpret the boxes as stations and the jobs as balls. Since we
-  have $M+1$ stations, we get the result.
+ Now interpret the boxes as stations and the jobs as balls. Since we
+ have $M+1$ stations, we get the result.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-175}
 Zijm.Ex.3.1.7
 \begin{solution}
-  If the production rate at station $i$ is infinitely large, the time
-  a job stays at station $i$ must be 0. Thus, the only `activity' of
-  station $i$ would be to distribute all arriving jobs between its
-  receiving stations, without any delay.
+ If the production rate at station $i$ is infinitely large, the time
+ a job stays at station $i$ must be 0. Thus, the only `activity' of
+ station $i$ would be to distribute all arriving jobs between its
+ receiving stations, without any delay.
 
-  Thus, in both cases (i.e., setting the rate to infinity or defining
-  $P_{j,k}' = P_{ji}P_{ik} + P_{j,k} $) it comes down to
-  `short-circuiting' node $i$.
+ Thus, in both cases (i.e., setting the rate to infinity or defining
+ $P_{j,k}' = P_{ji}P_{ik} + P_{j,k} $) it comes down to
+ `short-circuiting' node $i$.
 \end{solution}
 \end{exercise}
 
@@ -79,61 +79,61 @@ Zijm.Ex.3.1.7
 Zijm.Ex.3.1.8
 \begin{solution}
 From Zijm.Eq.3.3 for $c_i=1$ we see that $f_i(n_i) = (V_i/\mu_i)^{n_i}$, since $\min\{c_i, k\} = \min\{1, k\} = 1$. Now using Zijm.Eqs 3.5 and 3.6,
-  \begin{equation*}
-    \begin{split}
-      \P{n_i \geq k} 
+ \begin{equation*}
+ \begin{split}
+ \P{n_i \geq k} 
 &= \sum_{m=k}^N \pi(n_i = m) \\
 &= \frac1{G(M,N)}\sum_{m=k}^N f_i(m)G(M\setminus\{i\}, N-m) \\
 &= \frac1{G(M,N)}\sum_{m=k}^N \left(\frac{V_i}{\mu_i}\right)^{m}G(M\setminus\{i\}, N-m) \\
 &= \frac1{G(M,N)}\left(\frac{V_i}{\mu_i}\right)^{k}\sum_{m=0}^{N-k} \left(\frac{V_i}{\mu_i}\right)^{m}G(M\setminus\{i\}, N-k-m) \\
 &= \frac{f_i(k)}{G(M,N)}\sum_{m=0}^{N-k} \left(\frac{V_i}{\mu_i}\right)^{m}G(M\setminus\{i\}, N-k-m) \\
 &= \frac{f_i(k)}{G(M,N)}G(M, N-k).
-    \end{split}
-  \end{equation*}
-  For $c>1$, the expression for $f_i$ is less simple, and the above
-  derivation is not possible anymore.
+ \end{split}
+ \end{equation*}
+ For $c>1$, the expression for $f_i$ is less simple, and the above
+ derivation is not possible anymore.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-177}
-  Zijm.Ex.3.1.9. 
+ Zijm.Ex.3.1.9. 
 \begin{hint}
 This problem forces you to really trace down all
-  relevant definitions. Please try to do it yourself first. It is
-  harder than you might think initially.
+ relevant definitions. Please try to do it yourself first. It is
+ harder than you might think initially.
 \end{hint}
 \begin{solution}
-  The last time I solved this problem was in 2001. My answer below
-  reflects my train of thought, including the mistakes. 
+ The last time I solved this problem was in 2001. My answer below
+ reflects my train of thought, including the mistakes. 
 
-  My first guess is that
-  $\pi_i(1) = \pi((0,0,\ldots, 1,\ldots, 0))= 1/M$, where
-  $(0,0,\ldots, 1,\ldots, 0)$ is the vector with a $1$ at the $i$-th
-  position and $0$ elsewhere. It must be that $\pi(n)=0$ for $n>1$,
-  because there is just one job in the system.
+ My first guess is that
+ $\pi_i(1) = \pi((0,0,\ldots, 1,\ldots, 0))= 1/M$, where
+ $(0,0,\ldots, 1,\ldots, 0)$ is the vector with a $1$ at the $i$-th
+ position and $0$ elsewhere. It must be that $\pi(n)=0$ for $n>1$,
+ because there is just one job in the system.
 
 Let us check Zijm.Eq.3.5:
 \begin{equation*}
-  \pi(n_i=k) = f_i(k) \frac{G(M\setminus\{i\}, N-k)}{G(M,n)},
+ \pi(n_i=k) = f_i(k) \frac{G(M\setminus\{i\}, N-k)}{G(M,n)},
 \end{equation*}
-and  Zijm.3.3:
+and Zijm.3.3:
 \begin{equation*}
-  f_i(n_i) = \frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}} \left(\frac{V_i}{\mu_i}\right)^{n_i}.
+ f_i(n_i) = \frac{1}{\Pi_{k=1}^{n_i} \min\{k, c_i\}} \left(\frac{V_i}{\mu_i}\right)^{n_i}.
 \end{equation*}
 We take $N=1$ in Zijm.3.3. Since $\sum_{i} n_i = N$, and $N=1$,
 $n_i\in\{0,1\}$. Thus,
 \begin{equation*}
-  f_i(0) = 1.
+ f_i(0) = 1.
 \end{equation*}
 This is a bit tricky, since the product $\Pi$ over $k$ is empty. Such empty products are defined to be 1. Next, whatever $c_i$, $\min\{1,c_i\}=1$. Thus, 
 \begin{equation*}
-  f_i(1) = \frac 11 \left(\frac{V_i}{\mu_i}\right)^{1}.
+ f_i(1) = \frac 11 \left(\frac{V_i}{\mu_i}\right)^{1}.
 \end{equation*}
 Now we need the visit ratios $V_i$. The visit ratios must be one since
 all jobs move from station $n$ to $n+1$, in a circle. BTW, this is the
-same as Zijm.Question 3.1.2.  Thus, 
+same as Zijm.Question 3.1.2. Thus, 
 \begin{equation*}
-  f_i(1) = \frac{1}{\mu_i}.
+ f_i(1) = \frac{1}{\mu_i}.
 \end{equation*}
 
 Now I suddenly see that my initial guess about $\pi_i(1) = \pi(n_i=1)$
@@ -141,9 +141,9 @@ must be wrong. Rather, it has to be proportional to the service times!
 So, I'll revise my guess to
 $\pi_i(1) = \mu_i^{-1}/\sum_{j=0}^M \mu_i^{-1}$. 
 
-I also see now  I can better use Zijm.3.6:
+I also see now I can better use Zijm.3.6:
 \begin{equation*}
-  G(M,N)=\sum_{k=0}^N f_i(k)G(M\setminus\{i\} , N-k).
+ G(M,N)=\sum_{k=0}^N f_i(k)G(M\setminus\{i\} , N-k).
 \end{equation*}
 So,
 $G(M,1) = f_1(0)G(M\setminus\{1\}, 1) + f_1(1)G(M\setminus\{1\},
@@ -154,7 +154,7 @@ $G(M,1) = G(M\setminus\{1\}, 1) + 1/\mu_1$, where I use the above
 results for $f_i(0)$ and $f_i(1)$. But this holds for any station $i$,
 so
 \begin{equation*}
-  G(M,1) = G(M\setminus\{1\}, 1) + 1/\mu_1 = G(M\setminus\{i\}, 1) + 1/\mu_i,
+ G(M,1) = G(M\setminus\{1\}, 1) + 1/\mu_1 = G(M\setminus\{i\}, 1) + 1/\mu_i,
 \end{equation*}
 and so the only choice left for $G(M,N) = \sum_i \mu_i^{-1}$, just as
 I guessed after my repair.
@@ -164,14 +164,14 @@ $f_i(0) G(M\setminus\{i\}, 1-0) = G(M\setminus\{i\}, 1)$ and
 $f_i(1) G(M\setminus\{i\}, 0) = \mu_i^{-1}$. 
 Thus, 
 \begin{align*}
-  \pi_i(0) &=  f_i(0) \frac{G(M\setminus\{i\}, 1-0)}{G(M,1)} = \frac{G(M\setminus\{i\}, 1)}{G(M,N)} = 
+ \pi_i(0) &= f_i(0) \frac{G(M\setminus\{i\}, 1-0)}{G(M,1)} = \frac{G(M\setminus\{i\}, 1)}{G(M,N)} = 
 \frac{\sum_{j\neq i} \mu_m^{-1}}{\sum_{j=1}^M \mu_j^{-1}}.
 \\
-  \pi_i(1) &=  f_i(1) \frac{G(M\setminus\{i\}, 0)}{G(M,1)} = \frac{\mu_i^{-1}}{G(M,N)} = \frac{\mu_i^{-1}}{\sum_{j=1}^M \mu_j^{-1}}.
+ \pi_i(1) &= f_i(1) \frac{G(M\setminus\{i\}, 0)}{G(M,1)} = \frac{\mu_i^{-1}}{G(M,N)} = \frac{\mu_i^{-1}}{\sum_{j=1}^M \mu_j^{-1}}.
 \end{align*}
 
 I am happy to see that my second, less naive, guess comes out
-right. So why then must this be the intuitive answer? Lets consider a
+right. So why then must this be the intuitive answer? Let us consider a
 trivial network, with one load/unload node, and two single-server
 stations, one with a very fast server, and the other with a very slow
 server. Then the job must be at the slow server most of the time. The
@@ -188,31 +188,31 @@ Zijm.Ex.3.1.10. Assume that the visit ratios are 1.
  Compare Zijm.Question 3.1.5.
 \end{hint}
 \begin{solution}
-  $G(2,2)$ means that we have $2$ stations and $2$ jobs. Lets start
-  from Zijm.Eq.3.6 but now applied to node $M=2$:
+ $G(2,2)$ means that we have $2$ stations and $2$ jobs. Lets start
+ from Zijm.Eq.3.6 but now applied to node $M=2$:
 \begin{equation*}
-  G(2,2)=\sum_{k=0}^2 f_2(k)G(2\setminus\{2\} , 2-k),
+ G(2,2)=\sum_{k=0}^2 f_2(k)G(2\setminus\{2\} , 2-k),
 \end{equation*}
 and use Zijm.Eq.3.13
 \begin{equation*}
-  G(0,2) = \mu_0^{-2}.
+ G(0,2) = \mu_0^{-2}.
 \end{equation*}
 
 \begin{equation*}
-  \begin{split}
-  G(2,2)
+ \begin{split}
+ G(2,2)
 &=\sum_{k=0}^2 f_2(k)G(2\setminus\{2\} , 2-k) = \sum_{k=0}^2 f_2(k)G(1 , 2-k) \\
 & = f_2(0) G(1,2) + f_2(1)G(1,1) + f_2(2) G(1,0) \\
-& =  G(1,2) + \mu_2^{-1}G(1,1) + \mu_2^{-2} G(1,0) \\
-  \end{split}
+& = G(1,2) + \mu_2^{-1}G(1,1) + \mu_2^{-2} G(1,0) \\
+ \end{split}
 \end{equation*}
 where we use Zijm.Eq.3.3 to see that $f_2(k) = \mu_2^{-k}$ (realize
-again that we took the visit ratios to be one).  Thus, we need
+again that we took the visit ratios to be one). Thus, we need
 $G(1,\cdot)$.
 \begin{align*}
-  G(1,2)
+ G(1,2)
 &=\sum_{k=0}^2 f_1(k)G(1\setminus\{1\} , 2-k) = \sum_{k=0}^2 f_1(k)G(0 , 2-k) \\
-& = f_1(0) G(0,2) + f_1(1) G(0,1)  + f_1(2)G(0,0), \\
+& = f_1(0) G(0,2) + f_1(1) G(0,1) + f_1(2)G(0,0), \\
 & = f_1(0) \mu_0^{-2} + f_1(1) \mu_0^{-1} + f_1(2), \\
 &= \mu_0^{-2} + \mu_1^{-1} \mu_0^{-1} + \mu_1^{-2},
 \end{align*}
@@ -224,7 +224,7 @@ G(1,0) &= 1.
 \end{align*}
 Filling in the above, we get
 \begin{equation*}
-  G(2,2) = \mu_0^{-2}+\mu_1^{-1}+\mu_2^{-2} + (\mu_0\mu_1)^{-1} + (\mu_1\mu_2)^{-1} + (\mu_0\mu_2)^{-1}.
+ G(2,2) = \mu_0^{-2}+\mu_1^{-1}+\mu_2^{-2} + (\mu_0\mu_1)^{-1} + (\mu_1\mu_2)^{-1} + (\mu_0\mu_2)^{-1}.
 \end{equation*}
 \end{solution}
 \end{exercise}
@@ -233,9 +233,9 @@ Filling in the above, we get
 \begin{exercise}\clabel{ex:l-179}
 Zijm.Ex.3.1.11
 \begin{solution}
-  With the code I can check the results of the previous problem.  I'll
-  discuss the code in steps. I encourage you to study this example very carefully. Your
-  programming skills will improve quite a bit. 
+ With the code I can check the results of the previous problem. I'll
+ discuss the code in steps. I encourage you to study this example very carefully. Your
+ programming skills will improve quite a bit. 
 
 We first need a few libraries. 
 
@@ -243,7 +243,7 @@ We first need a few libraries.
 from functools import lru_cache
 import numpy as np
 from numpy.linalg import eig
-  
+ 
 \end{pyconsole}
 
 Since the convolution algorithm is recursive I use caching to store
@@ -261,12 +261,12 @@ The data is this:
 mu = np.array([2, 1, 3])
 c = np.array([1, 1, 1]) # single-server stations
 P = np.matrix([
-    [0, 1, 0],
-    [0, 0, 1],
-    [1, 0, 0]
+ [0, 1, 0],
+ [0, 0, 1],
+ [1, 0, 0]
 ]
 )
-  
+ 
 \end{pyconsole}
 
 I now compute the visit ratios $V$. This vector is the left
@@ -285,7 +285,7 @@ Compute the eigenvalues and eigenvectors:
 v, w = eig(P.T)
 \end{pyconsole}
 
-Get the index of the  eigenvalue with the largest real part, i.e., the  eigenvalue 1:
+Get the index of the eigenvalue with the largest real part, i.e., the eigenvalue 1:
 \begin{pyconsole}
 x = v.real.argmax() 
 \end{pyconsole}
@@ -300,26 +300,26 @@ Normalize so that $V_0 = 1$.
 \begin{pyconsole}
 V = V / V[0] 
 V
-  
+ 
 \end{pyconsole}
 This is what we expected.
 
 It follows from Zijm.Eq.3.3 that 
 \begin{equation*}
-  f_i(n_i) = 
-  \begin{cases}
+ f_i(n_i) = 
+ \begin{cases}
 \frac{V_i}{\mu_i} \frac1{\min\{n_i, c_i\}} f_i(n_i-1), & \text{ if } n_i > 0, \\
 1, & \text{ if } n_i =0.
-  \end{cases}
+ \end{cases}
 \end{equation*}
 
 \begin{pyconsole}
 @lru_cache(maxsize=None)
 def f(i, n_i):
-    if n_i == 0:
-        return 1
-    return V[i] / mu[i] / min(n_i, c[i]) * f(i, n_i - 1)
-  
+ if n_i == 0:
+ return 1
+ return V[i] / mu[i] / min(n_i, c[i]) * f(i, n_i - 1)
+ 
 \end{pyconsole}
 
 Note that the cache stores the results of intermediate computations.
@@ -329,12 +329,12 @@ Finally the convolution algorithm.
 \begin{pyconsole}
 @lru_cache(maxsize=None) 
 def G(m, n):
-    if n == 0:
-        return 1
-    if m == 0:
-        return 1 / mu[0]**n
-    return sum(f(m, k) * G(m - 1, n - k) for k in range(n + 1))
-  
+ if n == 0:
+ return 1
+ if m == 0:
+ return 1 / mu[0]**n
+ return sum(f(m, k) * G(m - 1, n - k) for k in range(n + 1))
+ 
 \end{pyconsole}
 
 Observe how simple this implementation is compared to the
@@ -351,16 +351,16 @@ analytic result of the previous question becomes in code:
 
 \begin{pyconsole}
 def test():
-    res = 1 / mu[0]**2 + 1 / mu[1]**2 + 1 / mu[2]**2
-    res += 1 / mu[0] * 1 / mu[1] + 1 / mu[0] * \
-        1 / mu[2] + 1 / mu[1] * 1 / mu[2]
-    print(res)
+ res = 1 / mu[0]**2 + 1 / mu[1]**2 + 1 / mu[2]**2
+ res += 1 / mu[0] * 1 / mu[1] + 1 / mu[0] * \
+ 1 / mu[2] + 1 / mu[1] * 1 / mu[2]
+ print(res)
 
 test()
-  
+ 
 \end{pyconsole}
 
-The  outcomes of both procedures are the same. 
+The outcomes of both procedures are the same. 
 
 When $M$ and $N$ are in the order of 1000, then I guess that the
 algorithm will not be that useful anymore. Even model the production
@@ -368,7 +368,7 @@ situation as a closed queueing network will, typically, use its
 value. For instance, the convolution algorithm requires the processing
 rates of all the stations. Who on earth will assemble the processing
 rates of 1000 machines? Often, only the machines with the highest load
-are important the analyze, as these machines are the bottleneck. The
+are important to analyze, as these machines are the bottleneck. The
 rest can be, more or less, neglected, or modeled with very simple
 models.
 
@@ -378,8 +378,8 @@ models.
 \begin{exercise}\clabel{ex:l-180}
 Zijm.Ex.3.1.12
 \begin{solution}
-  Because then the form of $f_i(n_i)\neq (V_i/\mu_i)^{n_i}$, but much
-  less simple.
+ Because then the form of $f_i(n_i)\neq (V_i/\mu_i)^{n_i}$, but much
+ less simple.
 
 We can try the recursion of Example 3.3.
 
@@ -390,14 +390,14 @@ V = np.array([1, 1, 1])
 
 @lru_cache(maxsize=None)
 def G(M, N):
-    if N == 0:
-        return 1
-    if M == 0:
-        return 1 / mu[M]**N
-    return G(M - 1, N) + G(M, N - 1) * V[M] / mu[M]
+ if N == 0:
+ return 1
+ if M == 0:
+ return 1 / mu[M]**N
+ return G(M - 1, N) + G(M, N - 1) * V[M] / mu[M]
 
 print(G(2, 2))
-  
+ 
 \end{pyconsole}
 \end{solution}
 \end{exercise}

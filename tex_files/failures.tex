@@ -2,6 +2,20 @@
 \section{Preemptive Interruptions, Server Failures}
 \label{sec:preempt-interr-serv}
 
+In~\cref{sec:setups-batch-proc,sec:non-preempt-interr} we assumed that servers are never interrupted while serving a job.
+However, in many situations this assumption is not satisfied: a person might receive a short phone call while working on a job, a machine may fail in the midst of processing, and so on.
+In this section, we develop a model to compute the influence on the mean waiting time of such \emph{preemptive outages}, i.e., interruptions that occur \emph{during} a service.
+As in~\cref{sec:non-preempt-interr}, we can use Sakasegawa's formula to estimate expected queueing time for the $G/G/1$ queue.
+For this, it suffices to find expressions for $\E S$ and $\V S$.
+
+We will first present the main formulas and show how to apply them.
+The exercises at the end of the section ask you to provide the derivations.
+Specifically, here we compute the expectation and variance of a random number of failures, each with a random duration.
+Similar problems occur in, for instance, insurance theory (or inventory theory) where we are interested in (the distribution of) the total claim (demand) size that occurs in a period.
+Noting that the total claim (demand) is given by a random number of claims (demands), each of which is a random variable by itself, that problem is exactly the same as the problem here.
+
+The techniques we develop here are of general interest, and they provide relations between the topics discussed in~\cref{sec:preliminaries}, \cref{sec:poisson-distribution},~\cref{sec:distr-queue-length}, and~\cref{sec:n-policies-mg1}.
+
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -9,51 +23,62 @@
 \Opensolutionfile{ans}
 }
 
-%See section 1.11 of Zijm's book for the theory.
+As in the previous sections, we derive expressions for the expectation and variance of the effective processing time $S$. 
 
-In~\cref{sec:setups-batch-proc,sec:non-preempt-interr} we assumed that servers are never interrupted while serving a job.
-However, in many situations this assumption is not satisfied: a person might receive a short phone call while working on a job, a machine may fail in the midst of processing, and so on.
-In this section we develop a model to compute the influence on the mean waiting time of such \emph{preemptive outages}, i.e., interruptions that occur \emph{during} a service.
-As in~\cref{sec:non-preempt-interr}, to use the $G/G/1$ waiting time formula it suffices to find expressions for $\E S$ and $\V S$.
-Thus, this will be our task for the rest of the section.
-We remark in passing that the results and the derivation are of general interest.
-
-Supposing that $N$ interruptions occur during the net service time $S_0$ of a job, the effective service time will be
+Supposing that $N$ interruptions occur during the net service time $S_0$ of a job, and the repair times $\{R_i\}$ form an i.i.d.
+sequence distributed as a common random variable $R$, write
+\begin{equation}\label{eq:104}
+S_N = \sum_{i=1}^N R_i
+\end{equation}
+for the total duration of the interruptions that occur during the service of a job. Then,  the  effective service time becomes
 \begin{equation*}
-S= S_0 + \sum_{i=1}^N R_i.
+  S= S_0 + S_N = S_0 + \sum_{i=1}^N R_i. 
 \end{equation*}
-A common assumption is that the time between two interruptions is $\Exp(\lambda_f)$, hence is memoryless.
-Consequently, the number of interruptions $N$ that occur during the net service time $S_0$ is  Poisson distributed with mean $\E N = \lambda_f \E{S_0}$.
+It is important to realize that $N$ is a random number. 
+
+
+A common assumption is that the time between two interruptions is memoryless; let the interruptions occur at a given \emph{failure rate} $\lambda_f$.
+Then, if the net service time $S_0$ is a constant, the expected number of failures $\E N$ is $\lambda_f S_0$.
+More generally, we show below that $\E N =\lambda_f \E{S_0}$.
+
+%Consequently, the number of interruptions $N$ that occur during the net service time $S_0$ is Poisson distributed with mean $\E N = \lambda_f \E{S_0}$.
+
 Define the \emph{availability} as
 \begin{equation*}
-  A=\frac{m_f}{m_f + m_r},
+ A=\frac{m_f}{m_f + m_r},
 \end{equation*}
-where $m_f$ is the mean time to fail and $m_r$ the mean time to repair. 
-With this,
-\begin{equation}\label{eq:83}
-  \E S = \frac{\E{S_0}}{A}. 
+where $m_f$ is the mean time to fail and $m_r$ the mean time to repair.  From~\cref{ex:80} it follows that
+\begin{equation}\label{eq:91}
+A=\frac 1{1+\lambda_f \E R}.
 \end{equation}
-Finally, by  assuming that repair times are exponentially distributed with mean $\E{R}$, we can find that 
+Then, from~\cref{ex:f-16}, 
+\begin{equation}\label{eq:83}
+ \E S = \frac{\E{S_0}}{A}. 
+\end{equation}
+Now  the load is easy to compute: 
+\begin{equation*}
+\rho = \lambda \E S = \lambda \frac{\E{S_0}}A.
+\end{equation*}
+Clearly, the server load increases due to failures. 
+
+
+By assuming that repair times are exponentially distributed with mean $\E{R}$, we can find with the exercises below  that 
 \begin{equation}\label{eq:87}
-    C_s^2 = C_0^2 + 2 A(1-A) \frac{\E{R}}{\E{S_0}},
+ C_s^2 = C_0^2 + 2 A(1-A) \frac{\E{R}}{\E{S_0}},
 \end{equation}
 where $C_0^2$ is the SCV of $S_0$, i.e., the service time without interruptions. 
-It is important to realize that 
-\begin{equation*}
-\rho = \lambda \E S = \lambda \frac{\E{S_0}}A,
-\end{equation*}
-hence the server load increases due to failures. 
+
 
 Before deriving the above expressions, let us see how to apply them. 
 
 \begin{exercise}\clabel{ex:l-157}
-  Suppose we have a machine with memoryless failure behavior, with a mean-time-to-fail of $3$ hours. Regular service times are deterministic with an average of 10 minutes, jobs arrive as a Poisson process with rate of 4 per hour.  Repair times are exponential with a mean duration of 30 minutes. What is the average sojourn time?
+ Suppose we have a machine with memoryless failure behavior, with a mean-time-to-fail of $3$ hours. Regular service times are deterministic with an average of 10 minutes, jobs arrive as a Poisson process with rate of 4 per hour. Repair times are exponential with a mean duration of 30 minutes. What is the average sojourn time?
 \begin{hint}
-    Mind to work in a consistent set of units, e.g., hours. It is easy to make mistakes. 
+ Mind to work in a consistent set of units, e.g., hours. It is easy to make mistakes. 
 \end{hint}
 \begin{solution}
 Let's first compute the load. If $\rho>1$ we are in trouble.
-    \begin{pyconsole}
+\begin{pyconsole}
 labda = 4.
 ES0 = 10./60 # in hours
 labda_f = 1./3
@@ -64,7 +89,7 @@ ES = ES0/A
 ES
 rho = labda*ES
 rho
-    \end{pyconsole}
+\end{pyconsole}
 As $\rho<1$, the system is not in overload. Now for the queueing time.
 \begin{pyconsole}
 Ca2 = 1.
@@ -79,10 +104,10 @@ EW + ES # sojourn time
 \end{exercise}
 
 \begin{extra}
-  Suppose we could buy another machine that never fails. What is the average sojourn time?
+ Suppose we could buy another machine that never fails. What is the average sojourn time?
 \begin{solution}
 Now we don't need to take availability into account: the machine never fails so $A=1$. 
-    \begin{pyconsole}
+ \begin{pyconsole}
 labda = 4.
 ES0 = 10./60 # in hours
 A = 1
@@ -99,210 +124,261 @@ The average time in queue reduces from $\approx 0.6$ to $\approx 0.17$ hours, a 
 \end{solution}
 \end{extra}
 
+
+The rest of the section is concerned with the derivations of the formulas. 
+
+
 \begin{extra}\clabel{ex:79}
-  Provide an intuitive explanation for $\E S = \E{S_0}/A$.
+ Provide an intuitive explanation for $\E S = \E{S_0}/A$.
 \begin{solution}
-An intuitive way to obtain this result is by noting that $A$ is the fraction of time the server is working. As the total service time of a job is $\E S$, the net work done is $ A\E S$. But this must be the time needed to do the real job, hence $A \E S = \E{S_0}$.  
+An intuitive way to obtain this result is by noting that $A$ is the fraction of time the server is working. As the total service time of a job is $\E S$, the net work done is $ A\E S$. But this must be the time needed to do the real job, hence $A \E S = \E{S_0}$. 
 \end{solution}
 \end{extra}
 
 
-\begin{exercise}\clabel{ex:l-158}
-  Show that $\E{S} = \E{S_0} + \E R \E N$; then show~\cref{eq:83}.
-\begin{solution}
-Write  $S_N = \sum_{i=1}^N R_i$ for the total duration of the interruptions, so that the total job duration becomes $S = S_0 + S_N$.    
 
+\begin{exercise}\clabel{ex:80}
+ Derive~\cref{eq:91} for our model of interruptions.
+\begin{hint}
+ Observe that $m_f = 1/\lambda_f$ and $m_r = \E R$.
+\end{hint}
+\begin{solution}
+  The time to fail is the time in between two interruptions.
+  By assumption, the failure times are $\Exp(\lambda_f)$, hence $m_f = 1/\lambda_f$. 
+  The expected duration of an interruption is $\E R = m_r$.
+  With this
+\begin{equation*}
+ A=\frac{m_f}{m_f + m_r}=\frac{1/\lambda_f }{1/\lambda_f + \E R}. 
+\end{equation*}
 \end{solution}
 \end{exercise}
 
 
 \begin{extra}\clabel{ex:84}
-  Suppose that $N=n$, show that $\E{S_n}=n\E R$.
+ Suppose that the number of failures $N=n$, show that $\E{S_n}=n\E R$, where $S_n$ is given by~\cref{eq:104}. 
 \begin{hint}
-    Is it relevant  for the expectation of $S_n$ that $R_1,\ldots, R_n$ are mutually independent?
+ Is it relevant for the expectation of $S_n$ that $R_1,\ldots, R_n$ are mutually independent?
 \end{hint}
 \begin{solution}
-The expectation of the sum of random variables is the same as the sum of the expectations; independence is irrelevant. Hence,
+  The expectation of the \emph{fixed} sum of random variables is the same as the sum of the expectations; independence is irrelevant.
+  Hence,
 \begin{equation*}
-  \E{S_n } =  \E{\sum_{i=1}^n R_i}=  n \E R, 
+ \E{S_n } = \E{\sum_{i=1}^n R_i}= n \E R, 
 \end{equation*}
-since by assumption $\E{R_1} = \cdots = \E{R_n}$. 
+since by assumption $\{R_i\}$ have the same distribution, hence $\E{R_i} = \E R$.
 \end{solution}
 \end{extra}
 
 
 \begin{extra}\clabel{ex:16}
-  Use~\cref{ex:84} to show that $\E{S_N}=\E R \E N$.
-  This result is known as \recall{Wald's equation}.
+ Use~\cref{ex:84} to show that $\E{S_N}=\E R \E N$.
+ This result is known as \recall{Wald's equation}.
 \begin{hint}
-  Use~\cref{eq:77}. 
+ Use~\cref{eq:105}. 
 \end{hint}
 \begin{solution}
-Since $\E{S_n} = n \E R$, 
+Using~\cref{eq:105} and the fact that $\E{S_n} = n \E R$, we get
 \begin{align*}
-  \E{\sum_{i=1}^N R_i} 
-&=  \E{ \sum_{n=0}^\infty \1{N=n} \left(\sum_{i=1}^n R_i \right)} \\
-&=  \sum_{n=0}^\infty \E{\1{N=n} n\E{R}} \\
-&=  \E{R} \sum_{n=0}^\infty n \E{\1{N=n}} = \E R \sum_{n=0}^\infty n p_n\\
-&= \E R \E N.
+ \E{S_N } 
+&= \E{ \sum_{n=0}^\infty \1{N=n} S_n } 
+= \E{ \sum_{n=0}^\infty \1{N=n} \left(\sum_{i=1}^n R_i \right)} \\
+&= \sum_{n=0}^\infty \E{\1{N=n} n\E{R}} \\
+&= \E{R} \sum_{n=0}^\infty n \E{\1{N=n}} = \E R \sum_{n=0}^\infty n p_n\\
+&= \E R \E N,
 \end{align*}
+where we specifically use~\cref{eq:p-78} in the second to last equation.
 \end{solution}
 \end{extra}
 
 
-\begin{extra}\clabel{ex:80}
-  Show that  for our model of interruptions,
+\begin{exercise}\clabel{ex:f-3}
+Show that $\E N = \lambda_f \E{S_0}$ and $\E{N^2} = \lambda_f^2 \E{S_0^2} + \lambda_f \E{S_0}$.
+\begin{hint}
+  Use that the joint distribution of $S_0=s, N=k$ is given by $g(s)\, e^{-\lambda s}(\lambda s)^k/k!$, where we assume for the sake of simplicity that $S_0$ has the density $g$.
+  Then use~\cref{ex:p-1}.
+\end{hint}
+\begin{solution}
+  If $S=s$, then , by~\eqref{eq:6}, the expected number of failures that arrive is $\E{N(s)} = \lambda s$.
+  Therefore, $\E{N} = \E{\lambda_f S_0} = \lambda_f \E{S_0}$.
+
+  In more detail, and with the hint, 
   \begin{equation*}
-A=\frac 1{1+\lambda_f \E R}
+    \E{N} = \int_0^\infty \sum_{k=0}^\infty k e^{-\lambda_f s}\frac{(\lambda_f s)^k}{k!} g(s) \d s = \int_0^\infty \lambda_f s g(s) \d s = \lambda_f \E{S_0}.
   \end{equation*}
-\begin{hint}
-    Observe that $m_f = 1/\lambda_f$ and $m_r = \E R$.
-\end{hint}
-\begin{solution}
-The time to fail is the time in between two interruptions. We assume that these times are $\Exp(1/\lambda_f)$. The duration of an interruption is $R$, which can be interpreted as the time to repair the server, hence $m_r = \E R$. With this
-\begin{equation*}
-  A=\frac{m_f}{m_f + m_r}=\frac{1/\lambda_f }{1/\lambda_f + \E R}. 
-\end{equation*}
+Next, ~\cref{ex:p-1},
+  \begin{equation*}
+    \E{N^2} = \int_0^\infty \sum_{k=0}^\infty k^2 e^{-\lambda_f s}\frac{(\lambda_f s)^k}{k!} g(s) \d s = \int_0^\infty (\lambda_f^2 s^2 + \lambda_f s) g(s) \d s.
+  \end{equation*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
-\begin{extra}
-  Show that $\E{S} = \E{S_0} (1+\lambda_f \E R)$.
-  Conclude that $\E S = \E{S_0}/A$.
+\begin{exercise}\clabel{ex:f-16}
+ Show that $\E{S} = \E{S_0} + \lambda_r \E{S_0} \E R$, and  conclude that $\E S = \E{S_0}/A$.
 \begin{hint}
-    Realize that $\E N = \lambda_f \E{S_0}$. Then use~\cref{ex:80}.
+ Realize that $\E N = \lambda_f \E{S_0}$. Then use~\cref{ex:80}.
 \end{hint}
 \begin{solution}
-    \begin{equation*}
-      \E S = \E{S_0} + \E N \E R = \E{S_0} +  \lambda_f \E{S_0} \E R= \E{S_0}(1+\lambda_f \E R).
-    \end{equation*}
+ \begin{align*}
+   \E S &= \E{S_0 + S_N} = \E{S_0} + \E{S_N} \\
+    &= \E{S_0} + \E N \E R = \E{S_0} + \lambda_f \E{S_0} \E R= \E{S_0}(1+\lambda_f \E R).
+ \end{align*}
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 \begin{exercise}\clabel{ex:l-159}
-  The derivation of $C_s^2$ is a bit more involved.
-  To see this, explain that $\V{S} \neq \V{S_0} + \V{\sum_{i=0}^N R_i}$.
+ The derivation of $C_s^2$ is a bit more involved.
+To understand why,  explain first that $\V{S} \neq \V{S_0} + \V{\sum_{i=0}^N R_i}$.
 \begin{solution}
-    Observe that $S_0$ and $N$ are not independent. In fact, when $S_0=s$, the number of failures $N$ is Poisson distributed with mean $\lambda_f s$. 
+ Observe that $S_0$ and $N$ are not independent. In fact, when $S_0=s$, the number of failures $N$ is Poisson distributed with mean $\lambda_f s$. 
 \end{solution}
 \end{exercise}
 
 
 
-\begin{extra}\clabel{ex:81}
+\begin{exercise}\clabel{ex:81}
 Show that 
 \begin{equation*}
-  \E{S^2} = \E{S_0^2} + 2\E{S_0 \sum_{i=1}^N R_i} + \E{\sum_{i=1}^N R_i^2} + \E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j}.
+ \E{S^2} = \E{S_0^2} + 2\E{S_0 \sum_{i=1}^N R_i} + \E{\sum_{i=1}^N R_i^2} + \E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j}.
 \end{equation*}
 \begin{solution}
-  Just work out the square of $S_0+\sum_{i=1}^N R_i$ and take expectations. Realize that $(\sum_i R_i)^2 = \sum_i R_i^2 + \sum_i\sum_{j\neq i} R_i R_j$.  
+ Just work out the square of $S_0+\sum_{i=1}^N R_i$ and take expectations. Realize that $(\sum_i R_i)^2 = \sum_i R_i^2 + \sum_i\sum_{j\neq i} R_i R_j$. 
 \end{solution}
-\end{extra}
+\end{exercise}
 
 
 \begin{extra}
-  To simplify the result of~\cref{ex:8}, we assume at first that $S_0$ is known, so that the number of failures that occur during a service time $S_0$ is Poisson distributed, i.e., $N\sim P(\lambda_f S_0)$.
-  Show that $\E{S_0 \sum_{i=1}^N R_i\given S_0} = \lambda_f S_0^2 \E{R}$.
-\begin{solution}
-$\E{S_0 \sum_{i=1}^N R_i\given S_0} = 
-S_0 \E{\sum_{i=1}^N R_i\given S_0} = S_0 \E R \E N = \lambda_f \E R S_0^2$.
-\end{solution}
-\end{extra}
-
-\begin{extra} Now show that $\E{\sum_{i=1}^N R_i^2\given S_0} = \lambda_f S_0 \E{R^2}$.
+Show that  $\E{S_0 \sum_{i=1}^N R_i} = \lambda_f \E R \E{S_0^2}. $
+ % To simplify the result of~\cref{ex:81}, we assume at first that $S_0$ is known, so that the number of failures that occur during a service time $S_0$ is Poisson distributed, i.e., $N\sim P(\lambda_f S_0)$.
+ % Show that $\E{S_0 \sum_{i=1}^N R_i\given S_0} = \lambda_f S_0^2 \E{R}$.
 \begin{hint}
-  Use Wald's equation, which we derived in~\cref{ex:16}.
+  Use~\cref{eq:105} and~\cref{ex:f-3}.
 \end{hint}
 \begin{solution}
+With the hint,
   \begin{align*}
-    \E{\sum_{i=1}^N R_i^2\given S_0} 
-&= \E{R^2}\E{ \sum_{n=0}^\infty n \1{N=n}\given S_0}\\
-&= \E{R^2} \E{N\given S_0} \\
-&= \lambda_f S_0 \E{R^2}.
+    \E{S_0 \sum_{i=1}^N R_i}
+    &=   \E{S_0 \sum_{n=0}^\infty \1{N=n} \sum_{i=1}^N R_i} \\
+    &=   \E{S_0 \sum_{n=0}^\infty \1{N=n} \sum_{i=1}^n R_i} \\
+    &=   \E R \E{S_0 \sum_{n=0}^\infty \1{N=n} n } \\
+    &=   \E R \sum_{n=0}^\infty n \E{S_0 \1{N=n}}.
+  \end{align*}
+  Now observe that $S_0$ and  $\1{N=n}$ are not independent. Thus, we need to use the joint distribution of~\cref{ex:f-3}, and then,
+  \begin{align*}
+    \E{S_0 \1{N=n}}
+    &=  \int_0^\infty s  g(s) e^{-\lambda_f s} \frac{(\lambda_f s)^n}{n!} \d s.
+  \end{align*}
+  Continuing with the previous relation:
+  \begin{align*}
+    \E R \sum_{n=0}^\infty n \E{S_0 \1{N=n}}
+    & =  \E R \sum_{n=0}^\infty n \int_0^\infty s  g(s) e^{-\lambda_f s} \frac{(\lambda_f s)^n}{n!} \d s \\
+    & =  \E R \int_0^\infty s  g(s) \sum_{n=0}^\infty n e^{-\lambda_f s} \frac{(\lambda_f s)^n}{n!} \d s \\
+    & =  \E R \int_0^\infty s  g(s) \lambda_f s \d s \\
+    & =  \lambda_f \E R \E{S_0^2}.
   \end{align*}
 \end{solution}
 \end{extra}
 
-\begin{extra}
-Show that 
-$\E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j\given S_0} = \lambda_f^2 S_0^2 (\E{R})^2.$
+\begin{extra}\clabel{ex:f-82}
+ Show that $\E{\sum_{i=1}^N R_i^2} = \lambda_f \E{S_0 }\E{R^2}$.
+\begin{hint}
+ Use Wald's equation, which we derived in~\cref{ex:16}.
+\end{hint}
 \begin{solution}
-Since the $\{R_i\}$ are i.i.d., 
-  \begin{equation*}
-\E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j\given S_0}
-= \E{N(N-1)|S_0} (\E{R})^2 
-= (\E{N^2|S_0}-\E{N\given S_0}) (\E{R})^2.
-  \end{equation*}
-Now $\E{N^2\given S_0}=\lambda_f^2 S_0^2 +\lambda_f S_0$ and $\E{N\given S_0} = \lambda_f S_0$.
+  With the hint,
+ \begin{align*}
+ \E{\sum_{i=1}^N R_i^2} = \E{R^2}\E{N} = \lambda_f \E{S_0} \E{R^2}.
+ \end{align*}
 \end{solution}
 \end{extra}
 
-\begin{extra}\clabel{ex:82}
-  Combine the above to see that
-    $\E{S^2\given S_0} = \frac{S_0^2}{A^2} + \lambda_f \E{R^2} S_0$. From this, 
-  \begin{equation*}
-    \E{S^2} = \frac{\E{S_0^2}}{A^2} + \lambda_f \E{R^2} \E{S_0}.
-  \end{equation*}
+\begin{extra}\clabel{ex:f-88}
+Show that 
+$\E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j} = \lambda_f^2 \E{S_0^2} (\E{R})^2.$
 \begin{solution}
-For the first equation,
-\begin{equation*}
-  \E{S^2\given S_0} = S_0^2 + 2\lambda_f \E R S_0^2 + \lambda_f \E{R^2} S_0 + \lambda_f^2 (\E R)^2 S_0^2.
-\end{equation*}
-Assemble all terms with $S_0^2$ and observe that $(1/A) = 1+\lambda_f \E R$. For the second, recall that we assumed at first that $S_0$ was fixed, which we indicated by the condition on $S_0$. When $S_0$ is a random variable, we can just take the expectation at the left and right, and obtain the second result. 
+Since the $\{R_i\}$ are i.i.d., 
+ \begin{align*}
+\E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j}
+&=\E{\sum_{n=0}^\infty \1{N=n} \sum_{i=1}^N \sum_{j\neq i} R_i R_j} \\
+&=\E{\sum_{n=0}^\infty \1{N=n} \sum_{i=1}^n \sum_{j\neq i} R_i R_j} \\
+&=\E{\sum_{n=0}^\infty \1{N=n} n(n-1)} (\E{R})^2\\ 
+&=(\E{N^2} - \E{N}) (\E{R})^2\\ 
+&=(\lambda_f^2 \E{S_0^2} + \lambda_f \E{S_0} - \lambda \E{S_0} ) (\E{R})^2.
+ \end{align*}
+where we use \cref{ex:f-3} in the last line. 
+\end{solution}
+\end{extra}
+
+Principally we are done now. With  $\E{S^2}$ and $\E{S}$ we can compute the SCV via $(\E{S^2}-(\E{S})^2)/(\E{S})^2$, so that we have all components for Sakasegawa's formula.  The rest is polishing. 
+
+\begin{extra}\clabel{ex:802}
+ Combine the above to see that
+ \begin{equation*}
+ \E{S^2} = \frac{\E{S_0^2}}{A^2} + \lambda_f \E{R^2} \E{S_0}.
+ \end{equation*}
+\begin{solution}
+It is just algebra based on the results above.  Observe that $(1/A) = 1+\lambda_f \E R$,
+\begin{align*}
+  \E{S^2}
+  &= \E{S_0^2} + 2\E{S_0 \sum_{i=1}^N R_i} + \E{\sum_{i=1}^N R_i^2} + \E{\sum_{i=1}^N \sum_{j\neq i} R_i R_j} \\
+  &= \E{S_0^2} + 2 \lambda_f \E R \E{S_0^2} + \lambda_f \E{S_0 }\E{R^2} +  \lambda_f^2 \E{S_0^2} (\E{R})^2 \\
+  &= \E{S_0^2}/A  +  \lambda_f \E R \E{S_0^2} + \lambda_f \E{S_0 }\E{R^2} +  \lambda_f^2 \E{S_0^2} (\E{R})^2 \\
+  &= \E{S_0^2}/A  +  \lambda_f \E R \E{S_0^2}(1+\lambda_f \E R)  + \lambda_f \E{S_0 }\E{R^2}\\
+  &= \E{S_0^2}/A  +  \lambda_f \E R \E{S_0^2}/A + \lambda_f \E{S_0 }\E{R^2}\\
+  &= (1  +  \lambda_f \E R) \E{S_0^2}/A  + \lambda_f \E{S_0 }\E{R^2}\\
+  &= \E{S_0^2}/A^2  + \lambda_f \E{S_0 }\E{R^2}.
+\end{align*}
 \end{solution}
 \end{extra}
 
 \begin{extra}\clabel{ex:83}
-Show that  
-  \begin{equation*}
-    \V{S} = \frac{\V{S_0}}{A^2} + \lambda_f \E{R^2} \E{S_0}.
-  \end{equation*}
+Show that 
+ \begin{equation*}
+ \V{S} = \frac{\V{S_0}}{A^2} + \lambda_f \E{R^2} \E{S_0}.
+ \end{equation*}
 \begin{solution} 
-    \begin{equation*}
-    \V{S} = \E{S^2} - (\E S)^2 = 
+ \begin{equation*}
+ \V{S} = \E{S^2} - (\E S)^2 = 
 \frac{\E{S_0^2}}{A^2} + \lambda_f \E{R^2} \E{S_0} -\frac{(\E{S_0})^2}{A^2}.
-    \end{equation*}
+ \end{equation*}
 \end{solution}
 \end{extra}
 
 \begin{exercise}\clabel{ex:l-160}
 Show that
-  \begin{equation*}
-    C_s^2 = \frac{\V{S}}{(\E S)^2} = C_0^2 + \frac{\lambda_f \E{R^2} A^2}{\E{S_0}},
-  \end{equation*}
+ \begin{equation*}
+ C_s^2 = \frac{\V{S}}{(\E S)^2} = C_0^2 + \frac{\lambda_f \E{R^2} A^2}{\E{S_0}},
+ \end{equation*}
 \begin{hint} Just realize that $\E{S} = \E{S_0}/A$, and use the above.
 \end{hint}
 \begin{solution} Using~\cref{ex:81}--\cref{ex:83}
-  \begin{align*}
+ \begin{align*}
 C_s^2 &= \frac{\V{S}}{(\E S)^2} =\frac{V(S) A^2}{(\E{S_0})^2} \\
 &=\frac{\E{S_0^2} + \lambda_f \E{R^2} \E{S_0}A^2 -(\E{S_0})^2}{(\E{S_0})^2} \\
 &=\frac{\E{S_0^2} -(\E{S_0})^2}{(\E{S_0})^2} + \frac{\lambda_f \E{R^2} \E{S_0}A^2}{(\E{S_0})^2} \\
 &=C_0^2 + \frac{\lambda_f \E{R^2}A^2}{\E{S_0}}.
-  \end{align*}
+ \end{align*}
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}\clabel{ex:l-161}
-With the above assumption on the distribution of $R$, show that
-  \begin{equation*}
-    C_s^2 = C_0^2 + 2 A(1-A) \frac{\E{R}}{\E{S_0}}.
-  \end{equation*}
-
+With the above assumption that $R$ is exponentially distributed, show that
+ \begin{equation*}
+ C_s^2 = C_0^2 + 2 A(1-A) \frac{\E{R}}{\E{S_0}}.
+ \end{equation*}
 \begin{solution} 
-When repair times are exponentially distributed with mean $\E{R}$:  $\E{R^2}=2(\E R)^2$. 
-
+When repair times are exponentially distributed with mean $\E{R}$ we have, by~\cref{ex:15}, that  $\E{R^2}=2(\E R)^2$. 
 Since $A=1/(1+\lambda_f \E R)$, 
-  \begin{equation*}
-    \begin{split}
-    \lambda_f \E{R^2} A^2 
-&= 2\lambda_f (\E R)^2 A^2 = 2 \lambda_f \E R A A \E R \\
+ \begin{equation*}
+ \begin{split}
+ \lambda_f \E{R^2} A^2 
+&= 2\lambda_f (\E R)^2 A^2 \\ 
 &= 2 \frac{\lambda_f \E R }{1+\lambda_f \E R} A \E R \\
-&= 2 \left(1-\frac{1}{1+\lambda_f \E R}\right) A \E R  = 2(1-A)A \E R.
-    \end{split}
-  \end{equation*}
+&= 2 \left(1-\frac{1}{1+\lambda_f \E R}\right) A \E R = 2(1-A)A \E R.
+ \end{split}
+ \end{equation*}
 \end{solution}
 \end{exercise}
 

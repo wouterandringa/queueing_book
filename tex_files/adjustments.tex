@@ -2,55 +2,109 @@
 \label{sec:non-preempt-interr}
 
 
+In~\cref{sec:setups-batch-proc} we studied the effect of setup times between job batches with a fixed size~$B$.
+%In other words, there are no setups between any two jobs, setups are \emph{planned} between $B$ jobs.
+However, other types of interruptions can occur, such as a machine requiring random adjustments that can occur between any two jobs.
+This type of outages is \recall{non-preemptive} as the outages do not interrupt the processing of a job in service.
+In this section we develop a simple model to understand the impact of such outages on job sojourn times; we use the same notation as in~\cref{sec:setups-batch-proc} and follow the same line of reasoning.
+With this model, we can analyze the effects of reducing adjustment times or the variability of these adjustments times.
+For instance, we might decide to do fewer adjustments, but the average outage times become longer.
+
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
 \Opensolutionfile{hint}
 \Opensolutionfile{ans}
 }
 
-%See section 1.11 of Zijm's book for the theory.
-
-
-In~\cref{sec:setups-batch-proc} we studied the effect of setup times between job batches with a fixed size~$B$.
-%In other words, there are no setups between any two jobs, setups are \emph{planned} between $B$ jobs.
-However, other types of interruptions can occur, such as a machine requiring random adjustments that can occur between any two jobs.
-This type of outages is \recall{non-preemptive} as the outages do not interrupt the processing of a job in service.
-In this section we develop a simple model to understand the impact of such outages on job sojourn times; we use the same notation as in~\cref{sec:setups-batch-proc} and follow the same line of reasoning.
-
 We assume that adjustments $\{R_i\}$ occur geometrically distributed between any two jobs with a mean of $B$ jobs between any two adjustments.
 Consequently, the probability of an outage between any two jobs is $p=1/B$.
 Observe that geometrically distributed random variables satisfy the memoryless property in discrete time.
 Hence, our assumption implies that the occurrence of an adjustment between jobs $i$ and $i+1$ has no effect on the probability that an adjustment is necessary between jobs $i+1$ and $i+2$.
 
-With the model we can obtain quantitative insights into the effects of reducing adjustment times or the variability of these adjustments times.
-For instance, we might decide to do fewer adjustments, so that $p$ decreases, but at the expense of larger average outage times.
-Now we can analyze the consequences of such decisions without needing to actually do the experiments in real life. 
 
-Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times. They are given by
-\begin{align}
-  \E{S} &= \E{S_0} + \frac{\E R}B, \label{eq:88}\\
-  \V{S} &= \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.\label{eq:89} 
-\end{align}
-Thus, the effective server load including down-times is $\rho = \lambda \E{S}$, and we can compute SCV of the effective job processing times.
-We have now all elements to fill in the $G/G/1$ waiting time formula!
+Contrary to the batch processing case of~\cref{sec:setups-batch-proc}, we now only need to find the mean and variance of the effective processing times.
+%From~\cref{ex:l-256} and \cref{,ex:l-257} it follows that
+\begin{exercise}\clabel{ex:l-256}
+Show that the average effective processing time is given by
+\begin{equation} \label{eq:88}
+ \E{S} = \E{S_0} + \frac{\E R}B
+\end{equation}
 
+\begin{hint}
+  If there is no interruption, the service time is $S_0$.
+  However, if there is an interruption, the service of a job is $R + S_0$, since we add the outage time to the service time of the job.
+  Relate this insight to~\cref{ex:49}.
+  In that exercise, take $p=(B-1)/B$ as the probability of a short job of size $\E{S_0}$ and $q=1/B$ as the probability of a long job of $\E{S_0} + \E{R}$.
+\end{hint}
+\begin{solution}
+ \begin{equation*}
+ \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
+ \end{equation*}
+since $p=1/B$. 
+\end{solution}
+\end{exercise}
 
+Clearly, the effective server load including down-times is $\rho = \lambda \E{S}$.
+Since the adjustments do not affect the job arrival process, we only have to find an expression how it affects~$C_s^2$.
+
+%The next step is to compute $\E{S^2}$. 
+\begin{extra}\clabel{ex:78}
+ Show that
+ \begin{equation*}
+ \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
+ \end{equation*}
+\begin{hint}
+  Again, use~\cref{ex:49}.
+\end{hint}
+\begin{solution}
+ \begin{align*}
+ \E{S^2} 
+&= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
+&= (1-p) \E{S_0^2} + p \E{S_0^2} + 2 p \E{S_0} \E R + p \E{R^2}. 
+ \end{align*}
+ Simplify and substitute $p=1/B$. 
+\end{solution}
+\end{extra}
+
+\begin{exercise}\clabel{ex:l-257}
+Derive 
+\begin{equation}\label{eq:89} 
+ \V{S} = \V{S_0} + \frac{\V{R}} B + (B-1)\left(\frac{\E R}{B}\right)^2.
+\end{equation}
+\begin{hint}
+ First compute $\E{S^2}$. See~\cref{ex:78}.
+\end{hint}
+\begin{solution}
+ \begin{equation*}
+ \begin{split}
+\V{S} 
+&=\E{S^2} - (\E{S})^2 \\
+&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B \\
+&\quad - (\E{S_0})^2 - 2\E{S_0}\E R \frac 1 B - (\E R)^2\frac1{B^2}\\
+&= \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
+ \end{split}
+ \end{equation*}
+\end{solution}
+\end{exercise}
+
+With this, we have all elements to fill in the $G/G/1$ waiting time formula!
 
 
 \begin{exercise}\clabel{ex:l-255}
-  A machine requires an adjustment with an average of $5$ hours and standard deviation of $2$ hours.
-  Jobs arrive as a Poisson process with rate $\lambda=9$ per working day.
-  The machine works two $8$ hour shifts a day.
-  Work not processed on a day is carried over to the next day.
-  Job service times are 1.5 hours, on average, with standard deviation of $0.5$ hours.
-  Interruptions occur on average between $30$ jobs.
-  Compute the average waiting time in queue.
+ Jobs arrive as a Poisson process with rate $\lambda=9$ per working day.
+ The machine works two $8$ hour shifts a day.
+ Work not processed on a day is carried over to the next day.
+ Job service times are 1.5 hours, on average, with standard deviation of $0.5$ hours.
+ Outages occur on average between $30$ jobs.
+The average duration of an outage  is of $5$ hours and has a standard deviation of $2$ hours.
+
+ Compute the average waiting time in queue.
 \begin{hint}
-  Get the units right. First compute the load, and then compute the rest.
+ Get the units right. First compute the load, and then compute the rest.
 \end{hint}
 \begin{solution}
-  First we determine the load. 
-  \begin{pyconsole}
+ First we determine the load. 
+ \begin{pyconsole}
 B=30
 ES0 = 1.5
 labda = 9./(2*8) # arrival rate per hour
@@ -59,7 +113,7 @@ ESe=ES0+ER/B
 ESe
 rho = labda*ESe
 rho
-  \end{pyconsole}
+ \end{pyconsole}
 So, at least the system is stable.
 
 \begin{pyconsole}
@@ -71,66 +125,26 @@ Ce2 = VSe/(ESe*ESe)
 Ce2
 \end{pyconsole}
 
-And now we can fill in the waiting time formula
+And now we can fill in the waiting time formula.
 \begin{pyconsole}
 Ca2=1 # Poisson arrivals
 EW = (Ca2+Ce2)/2 * rho/(1-rho) * ESe
-EW  
+EW 
 \end{pyconsole}
 \end{solution}
 \end{exercise}
 
-\begin{exercise}\clabel{ex:l-256}
-Show that the average effective processing time is given by~\cref{eq:88}. 
-\begin{hint}
-If there is no failure, the service time is $S_0$. If there is a failure, the service of a job is $R + S_0$, since we add the outage time to the service time of the job. 
-\end{hint}
-\begin{solution}
-    \begin{equation*}
-      \E{S} = (1-p)\E{S_0} + p (\E{R} + \E{S_0}) = \E{S_0} \frac{B-1}B + (\E{S_0} + \E R) \frac 1B,
-    \end{equation*}
-since $p=1/B$. 
-\end{solution}
-\end{exercise}
 
+\begin{remark}
+  Let us compare the results of this section to those of~\cref{sec:non-preempt-interr}.
+  In both cases the expected service time is the same: an amount $\E R/ B$ gets added to the net processing time $\E{S_0}$.
+  However, the impact on the SCV is different.
+  Unexpected interruptions must have a larger effect on variability than expected interruptions.
 
-%The next step is to compute $\E{S^2}$. 
-\begin{extra}\clabel{ex:78}
-  Show that
-  \begin{equation*}
-    \E{S^2} = \E{S_0^2} + 2\frac{\E{S_0}\E{R}} B + \frac{\E{R^2}}B.
-  \end{equation*}
-\begin{solution}
-  \begin{align*}
-    \E{S^2} 
-&= (1-p) \E{S_0^2} + p \E{(S_0+R)^2}\\
-&= (1-p) \E{S_0^2} + p \E{S_0^2}  + 2 p \E{S_0} \E R + p \E{R^2}. 
-  \end{align*}
-  Simplify and substitute $p=1/B$. 
-\end{solution}
-\end{extra}
-
-\begin{exercise}\clabel{ex:l-257}
-Derive $V(S)$ in~\cref{eq:89}.
-\begin{hint}
-    First compute $\E{S^2}$. See~\cref{ex:78}.
-\end{hint}
-\begin{solution}
-    \begin{equation*}
-      \begin{split}
-\V{S} 
-&=\E{S^2} - (\E{S})^2 \\
-&= \E{S_0^2} + 2 \E{S_0} \E R\frac 1B + \E{R^2}\frac 1B  \\
-&\quad - (\E{S_0})^2 - 2\E{S_0}\E R \frac 1 B - (\E R)^2\frac1{B^2}\\
-&=  \V{S_0} + ((\E{R^2} - (\E R)^2)\frac 1 B + (\E R)^2\left(\frac 1B - \frac 1{B^2}\right).
-      \end{split}
-    \end{equation*}
-\end{solution}
-\end{exercise}
-
-
-
-
+  In more general terms, we can use part of the model of~\cref{sec:setups-batch-proc} to analyze the effect of planned maintenance---do an adjustment after every $B$ jobs---while with the model of this section we consider adjustments that arrive completely unexpectedly.
+  With these two models we can compare the influence on waiting times of doing planned adjustments more often (take $B$ a bit small), but remove the unexpected interruptions.
+  Hence, we have another set of tools to compare different scenarios to organize production systems.
+\end{remark}
 
 \opt{solutionfiles}{
 \Closesolutionfile{hint}

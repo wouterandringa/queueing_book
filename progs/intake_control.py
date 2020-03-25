@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pylab as plt
-from matplotlib2tikz import save as tikz_save
+import tikzplotlib
 from matplotlib import style
 style.use('ggplot')
 
@@ -73,15 +73,17 @@ mins = np.minimum.reduce([Qbb, Qub, Qbu, Quu])
 maxs = np.maximum.reduce([Qbb, Qub, Qbu, Quu])
 
 
-plt.figure(figsize=(6, 2))
+plt.figure(figsize=(10, 2))
 plt.plot(mins, label="min")
 plt.plot(maxs, label="max")
 # plt.plot(Qbb, label="bal cap, spread out")
 # plt.plot(Qub, label="unbal capacity, simul")
 # plt.plot(Qbu, label="bal cap, spread out")
 # plt.plot(Quu, label="unbal capacity, simul")
+plt.xlabel("time (weeks)")
+plt.ylabel("Q")
 plt.legend(loc="upper left")# , bbox_to_anchor=(1,1))
-tikz_save('balanced.tex', figureheight='6cm', figurewidth='15cm')
+tikzplotlib.save('balanced.tex') #, figureheight='6cm', figurewidth='15cm')
 plt.close() 
 
 # now we control the service rate. If the queue is longer than some
@@ -115,7 +117,9 @@ plt.plot(Q, label="Q", color='black')
 plt.plot(Qe1, label="Qe1", color='green')
 plt.plot(Qe2, label="Qe2", color='blue')
 plt.plot(Qe5, label="Qe5", color='red')
+plt.xlabel("time (weeks)")
+plt.ylabel("Q")
 plt.legend()
 # plt.legend(loc="upper left")# , bbox_to_anchor=(1,1))
-tikz_save('service_control.tex', figureheight='6cm', figurewidth='15cm')
+tikzplotlib.save('service_control.tex') #, figureheight='6cm', figurewidth='15cm')
 plt.close() 

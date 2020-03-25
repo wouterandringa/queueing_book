@@ -10,31 +10,31 @@
 }
 
 \begin{exercise}\clabel{ex:mva_numerical}
-  Consider two stations in tandem, stations 0 and 1. The service times
-  are $\E{ S_0} = 2=1/\mu_0$ and $\E{ S_1} = 3=1/\mu_1$ hours. The routing matrix is
-  \begin{equation*}
-    P=
-    \begin{pmatrix}
-      0 & 1\\
+ Consider two stations in tandem, stations 0 and 1. The service times
+ are $\E{ S_0} = 2=1/\mu_0$ and $\E{ S_1} = 3=1/\mu_1$ hours. The routing matrix is
+ \begin{equation*}
+ P=
+ \begin{pmatrix}
+ 0 & 1\\
 1/2 & 1/2\\
-    \end{pmatrix}.
-  \end{equation*}
+ \end{pmatrix}.
+ \end{equation*}
 Apply the MVA algorithm to this case.
 \begin{hint}
 Start with $n=1$, then consider $n=2$ and so on.
 \end{hint}
 \begin{solution}
-  From $V P = V$ we conclude that $V_1=2V_0$.  Take $n=1$.
-  \begin{align*}
+ From $V P = V$ we conclude that $V_1=2V_0$. Take $n=1$.
+ \begin{align*}
 \E{ W_0(1)} &= \E{ L_0(0)+1}\E{ S_0} = \E{ S_0 }= 2,\\
  \E{ W_1(1)} &= \E{ L_1(0)+1}\E{ S_1} = \E{ S_1} = 3,\\
- \E{ W(1)} &= \sum_{i=0}^1 V_i \E{ W_i(1)} = V_0 2 + V_1  3 = 1\cdot 2 + 2 \cdot 3 = 8,\\
+ \E{ W(1)} &= \sum_{i=0}^1 V_i \E{ W_i(1)} = V_0 2 + V_1 3 = 1\cdot 2 + 2 \cdot 3 = 8,\\
  \TH_0(1) &= \frac{1}{\E{ W(1)}} = \frac18, \\
  \E{ L_0(1)} &= \TH_0(1) \E{ W_0(1)} = \frac28=\frac14, \\
  \E{ L_1(1)} &= \TH_1(1) \E{ W_1(1)} = V_1 \TH_0(1) \E{ W_1(1)}= 2 \cdot \frac18 \cdot 3 = \frac34.\\
-  \end{align*}
-Now take $n=2$.     
-  \begin{align*}
+ \end{align*}
+Now take $n=2$. 
+ \begin{align*}
 \E{ W_0(2) }&= (\E{ L_0(1)+1}\E{ S_0}= (1/4+1)\E{ S_0} = \frac54\cdot2=\frac52,\\
 \E{ W_1(2) }&= (\E{ L_1(1)+1}\E{ S_1} = (3/4+1)\E{ S_1} = \frac74\cdot3=\frac{21}4,\\
 \E{ W(2) }&= \sum_{i=0}^1 V_i \E{ W_i(2)} = \frac52 + 2 \cdot \frac{21}4=13,\\
@@ -42,7 +42,7 @@ Now take $n=2$.
 \TH_1(2) &= V_1 \TH_0(2) = \frac4{13}, \\
 \E{ L_0(2)} &= \TH_0(2) \E{ W_0(2)} = \frac2{13}\cdot \frac52=\frac5{13}, \\
 \E{ L_1(2)} &= \TH_1(2) \E{ W_1(2)} = \frac{4}{13} \cdot \frac{21}{4} = \frac{21}{13}.\\
-  \end{align*}
+ \end{align*}
 And so on.
 \end{solution}
 \end{exercise}
@@ -51,12 +51,12 @@ And so on.
 \begin{exercise}\clabel{ex:l-140}
 Zijm.Ex.3.1.13. Assume that all stations have just one server.
 \begin{solution}
-  Since there are quite a lot of jobs, and station 0 is the bottleneck, i.e., the station with the highest load, most of the time there will be a queue at station 0.
-  In fact, most of the jobs will be in queue in front of station 0.
-  Therefore the rate out of station 0 will be approximately equal to its service rate, i.e., $\mu_0$.
-  Thus, station 1 will receive jobs at a rate $\lambda_1\approx\mu_0$, i.e., $\lambda_1 \approx 2$.
-  Now I simply model the queueing process at station 1 as an $M/M/1$ queue with $\mu_1=2.5$.
-  Hence, $\rho_1 = \lambda_1/\mu_1=2/2.5 = 4/5$, hence $\E{L_1} = \rho_1/(1-\rho_1) = (4/5)/(1/5) = 4$.
+ Since there are quite a lot of jobs, and station 0 is the bottleneck, i.e., the station with the highest load, most of the time there will be a queue at station 0.
+ In fact, most of the jobs will be in queue in front of station 0.
+ Therefore the rate out of station 0 will be approximately equal to its service rate, i.e., $\mu_0$.
+ Thus, station 1 will receive jobs at a rate $\lambda_1\approx\mu_0$, i.e., $\lambda_1 \approx 2$.
+ Now I simply model the queueing process at station 1 as an $M/M/1$ queue with $\mu_1=2.5$.
+ Hence, $\rho_1 = \lambda_1/\mu_1=2/2.5 = 4/5$, hence $\E{L_1} = \rho_1/(1-\rho_1) = (4/5)/(1/5) = 4$.
 \end{solution}
 \end{exercise}
 
@@ -65,11 +65,11 @@ Zijm.Ex.3.1.13. Assume that all stations have just one server.
 \begin{exercise}\clabel{ex:l-141}
 Zijm.Ex.3.1.14
 \begin{solution}
-  I use the MVA algorithm to compute the expected number of jobs at each of the stations.
-  % Again, as in an earlier question in which I implemented the convolution algorithm, nearly as a one-liner, studying the code in detail is very rewarding.
-  With an interesting programming concept called caching, or memoization, the implementation becomes very simple.
-  BTW, I will not ask about memoization during the exam.
-  I include the numerical results at the end.
+ I use the MVA algorithm to compute the expected number of jobs at each of the stations.
+ % Again, as in an earlier question in which I implemented the convolution algorithm, nearly as a one-liner, studying the code in detail is very rewarding.
+ With an interesting programming concept called caching, or memoization, the implementation becomes very simple.
+ BTW, I will not ask about memoization during the exam.
+ I include the numerical results at the end.
 
 
  Start with computing the visit ratios.
@@ -80,13 +80,13 @@ import numpy as np
 from numpy.linalg import eig
 
 mu = np.array([2, 2.5, 3, 3, 3])
-c = np.array([1, 1, 1, 1, 1])  # single-server stations
+c = np.array([1, 1, 1, 1, 1]) # single-server stations
 P = np.matrix([
-    [0, 1, 0, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 0, 1, 0],
-    [0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1],
+ [1, 0, 0, 0, 0],
 ]
 )
 
@@ -95,7 +95,7 @@ x = v.real.argmax()
 V = w[:, x].real
 V = V / V[0]
 print(V)
-  
+ 
 \end{pyconsole}
 The visit ratios are according to expectation.
 
@@ -109,24 +109,24 @@ called. The memoization takes care of all these problems.
 \begin{pyconsole}
 @lru_cache(maxsize=None)
 def EL(j, n):
-    if n <= 0:
-        return 0
-    else:
-        return TH(j, n) * EW(j, n)
+   if n <= 0:
+      return 0
+   else:
+      return TH(j, n) * EW(j, n)
 
 
 @lru_cache(maxsize=None)
 def EW(j, n):
-    return (EL(j, n - 1) + 1) / mu[j]
+   return (EL(j, n - 1) + 1) / mu[j]
 
 
 @lru_cache(maxsize=None)
 def TH(j, n):
-    if j == 0:
+   if j == 0:
         return n / sum(V[j] * EW(j, n) for j in range(len(mu)))
-    else:
+   else:
         return V[j] * TH(0, n)
-  
+ 
 \end{pyconsole}
 This is all!
 
@@ -134,21 +134,21 @@ This is all!
 Now I print the expected jobs at the stations. 
 
 \begin{pyconsole}
-print("  n   EL0   EL1   EL2  EL3   EL4   TH0")
+print(" n EL0 EL1 EL2 EL3 EL4 TH0")
 for n in range(1,30):
-    res = "{:3d}".format(n)
-    for j in range(len(mu)):
-        res += "{:6.2f}".format(float(EL(j, n)))
-    res += "{:6.2f}".format(float(TH(0,n)))
-    print(res)
-  
+   res = "{:3d}".format(n)
+   for j in range(len(mu)):
+      res += "{:6.2f}".format(float(EL(j, n)))
+      res += "{:6.2f}".format(float(TH(0,n)))
+   print(res)
+ 
 \end{pyconsole}
 
 This is interesting. Using the insights of the previous question,
 approximation stations 3, 4 and 5 as $M/M/1$ queues, we have according
 to this model that $\E{ L_3} = \rho_3/(1-\rho_3)$. Taking
 $\lambda_3 = 2$ and $\mu_3 = 3$, we see that $\rho_3 = 2/3$ so that
-$\E{ L_3} = 2$.  This is very close to $1.98$. 
+$\E{ L_3} = 2$. This is very close to $1.98$. 
 
 For the last line, with $n=29$, the number of jobs at station 0 must
 therefore be approximately $29-4-2-2-2 = 19$. The algorithm supports
@@ -157,9 +157,9 @@ our intuition!
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-142}
-  Implement the MVA algorithm in your preferred computer language and make Figure~3.2.
+ Implement the MVA algorithm in your preferred computer language and make Figure~3.2.
 \begin{solution}
-    See the answer of the previous question.
+ See the answer of the previous question.
 \end{solution}
 \end{exercise}
 

@@ -3,6 +3,10 @@
 %{$\mathbf{M(n)/M(n)/1}$ Queue}
 \label{sec:mnmn1}
 
+As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level-crossing equations~\cref{eq:25}.
+For these queueing systems, we just present the results.
+In first set of exercises are somewhat technical; we ask you to derive the formulas---the main challenge is not to make computational errors.
+The second set of exercises shows how the combination of PASTA and Little's law allows us to analyze an astonishingly large number of non-trivial practical queueing situations.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -10,35 +14,32 @@
 \Opensolutionfile{ans}
 }
 
-As it turns out, many more single-server queueing situations than the $M/M/1$ queue can be analyzed by making a judicious choice of $\lambda(n)$ and $\mu(n)$ in the level crossing equations~\cref{eq:25}.
-For these queueing systems we just present the results.
-In the exercises we ask you to derive the formulas---the main challenge is not to make computational errors.
 
-It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may  depend on the number of jobs in the system. Specifically, consider the departure time $D_k$ of the $k$th job, so that $A_{A(D_k)+1}$ is the arrival time of the next job. If $L(D_k)=n$, then we require that for every $k$ 
+It is important to realize that the inter-arrival times and service times need to be memoryless for the analysis below; the rates, however, may depend on the number of jobs in the system. Specifically, we require that for all $s$ and $t$,
 \begin{equation*}
-  \P{A_{A(D_k)+1} - D_k \leq x} = 1-e^{-f(n) \lambda x},
+ \P{A_{A(t)+1} \leq t+s \given L(t) = n} = 1-e^{-\lambda(n) s},
 \end{equation*}
-for some function $f:\N\to [0,\infty)$. Next, since $D_{D(A_k)+1}$ is the time until the next departure after $A_k$, we assume for all $k$,
+where we use that $A_{A(t)}+g$ is the arrival time of the next job after time $t$.
+Similarly, we assume for all $t$ and $s$,
 \begin{equation*}
-  \P{D_{D(A_k)+1} - A_k \leq x} = 1-e^{-g(n) \mu x},
+ \P{D_{D(t)+1} \leq t+s \given L(t)=n} = 1-e^{-\mu(n) s}.
 \end{equation*}
-if $L(A_k)=n$ (not $L(A_k-)=n$) for some function $g:\N \to [0,\infty)$. 
 
 
 \begin{exercise}\clabel{ex:l-244}
-    Model the $M/M/1/K$ queue in terms of an $M(n)/M(n)/1$ queue and compute $p(K)$, i.e., the fraction of time that the system is full.
+ Model the $M/M/1/K$ queue in terms of an $M(n)/M(n)/1$ queue and compute $p(K)$, i.e., the fraction of time that the system is full.
 \begin{hint}
-  Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\cref{eq:38}.
+ Take $\lambda(n) = \lambda \1{n < K}$, $\mu(n) = \mu$, use the equations around~\cref{eq:38}.
 \end{hint}
 \begin{solution}
 Note that 
 \begin{equation*}
-1 = \sum_{i=0}^K p(i) = p(0)\sum_{i=0}^K \rho^i  = p(0) \frac{1-\rho^{K+1}}{1-\rho}. 
+1 = \sum_{i=0}^K p(i) = p(0)\sum_{i=0}^K \rho^i = p(0) \frac{1-\rho^{K+1}}{1-\rho}. 
 \end{equation*}
 Thus,
 \begin{subequations}\label{eq:8}
  \begin{align}
-p(n) &=  \frac{\rho^n}G, \quad 0\leq n \leq K,\\
+p(n) &= \frac{\rho^n}G, \quad 0\leq n \leq K,\\
 p(K) &= \frac{1-\rho}{1-\rho^{K+1}} \rho^K.
 \end{align}
 \end{subequations}
@@ -46,23 +47,23 @@ p(K) &= \frac{1-\rho}{1-\rho^{K+1}} \rho^K.
 \end{exercise}
 
 \begin{extra}\clabel{ex:40}
-   Show that as $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
+ Show that as $K\to\infty$, the performance measures of the $M/M/1/K$ converge to those of the $M/M/1$ queue. 
 \begin{hint}
 Use that $\sum_{i=0}^n x^i = (1-x^{n+1})/(1-x)$. BTW, is it
-    necessary for this expression to be true that $|x|<1$? What should
-    you require for $|x|$ when you want to take the limit
-    $n\to\infty$?
+ necessary for this expression to be true that $|x|<1$? What should
+ you require for $|x|$ when you want to take the limit
+ $n\to\infty$?
 \end{hint}
 \begin{solution}
 To take the limit $K\to\infty$---mind, not the limit $n\to\infty$---, write
 \begin{equation*}
 G= \frac{1-\rho^{K+1}}{1-\rho} = \frac{1}{1-\rho} -\frac{\rho^{K+1}}{1-\rho}.
 \end{equation*}
-Since $\rho^{K+1}\to 0$ as $K\to \infty$ (recall, $\rho<1$),  we get
+Since $\rho^{K+1}\to 0$ as $K\to \infty$ (recall, $\rho<1$), we get
 \begin{equation*}
 G \to \frac{1}{1-\rho}, 
 \end{equation*}
-as $K\to\infty$.  Therefore $p(n)=\rho^n/G \to \rho^n(1-\rho)$, and
+as $K\to\infty$. Therefore, $p(n)=\rho^n/G \to \rho^n(1-\rho)$, and
 the latter are the steady-state probabilities of the $M/M/1$
 queue. Finally, if the steady-state probabilities are the same, the
 performance measures (which are derived from $p(n)$) must be the same.
@@ -70,30 +71,30 @@ performance measures (which are derived from $p(n)$) must be the same.
 \end{extra}
 
 \begin{exercise}\clabel{ex:7}
-    Model the $M/M/c$ queue in terms of an $M(n)/M(n)/1$ queue and compute $\E{L_Q}$. 
+ Model the $M/M/c$ queue in terms of an $M(n)/M(n)/1$ queue and compute $\E{L_Q}$. 
 \begin{hint}
 Take $\lambda(n) = \lambda,$ and $\mu(n) = \min\{n, c\} \mu$. 
 \end{hint}
 \begin{solution}
-First we use the hint to  establish a generic relation for $p(n)$. Taking $\rho=\lambda/(c\mu)$, 
-    \begin{align*}
-      p(n) 
-      &= \frac{\lambda(n-1)}{\mu(n)}p(n-1) 
-        = \frac{\lambda}{\min\{c, n\} \mu }p(n-1) 
-      = \frac{1}{\min\{c, n\}}(c\rho) p(n-1) \\
-      &  = \frac{1}{\min\{c, n\}\min\{c, n-1\}}(c\rho)^2 p(n-2) \\
-      &= \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0). 
-    \end{align*}
+First we use the hint to establish a generic relation for $p(n)$. Taking $\rho=\lambda/(c\mu)$, 
+ \begin{align*}
+ p(n) 
+ &= \frac{\lambda(n-1)}{\mu(n)}p(n-1) 
+ = \frac{\lambda}{\min\{c, n\} \mu }p(n-1) 
+ = \frac{1}{\min\{c, n\}}(c\rho) p(n-1) \\
+ & = \frac{1}{\min\{c, n\}\min\{c, n-1\}}(c\rho)^2 p(n-2) \\
+ &= \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0). 
+ \end{align*}
 Thus, if $n<c$:
 \begin{equation}
-  p(n)
-  % = \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0)
-  = \frac{(c\rho)^n}{n!} p(0),
+ p(n)
+ % = \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0)
+ = \frac{(c\rho)^n}{n!} p(0).
 \end{equation}
 % since $\min\{c,k\}=k$ when $k<c$.
 If $n\geq c$:
 \begin{align*}
-  p(n) 
+ p(n) 
 %&= \frac{1}{\Pi_{k=1}^{n}\min\{c, k\}}(c\rho)^{n} p(0) \\
 &= \frac{1}{\Pi_{k=1}^{c} k \cdot \Pi_{k=c+1}^{n} c}(c\rho)^{n} p(0) \\
 &= \frac{1}{c! c^{n-c}}c^n\rho^{n} p(0) \\
@@ -101,14 +102,14 @@ If $n\geq c$:
 \end{align*}
 
 
-To obtain  the normalization constant $G$,
+To obtain the normalization constant $G$,
 \begin{align*}
 1 &= \sum_{n=0}^\infty p(n) 
 = \sum_{n=0}^{c-1} p(n) + \sum_{n=c}^\infty p(n) \\
 &=p(0) \sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + 
- p(0)\sum_{n=c}^{\infty} \frac{c^c}{c!} \rho^{n}  \\
+ p(0)\sum_{n=c}^{\infty} \frac{c^c}{c!} \rho^{n} \\
 &=p(0)\sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + 
- p(0) \sum_{n=c}^{\infty} \frac{(c\rho)^c}{c!} \rho^{n-c}  \\
+ p(0) \sum_{n=c}^{\infty} \frac{(c\rho)^c}{c!} \rho^{n-c} \\
 &= 
 p(0)\sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + 
 p(0)\frac{(c\rho)^c}{c!} \sum_{n=0}^{\infty} \rho^n \\
@@ -118,12 +119,12 @@ p(0)\frac{(c\rho)^c}{c!(1-\rho)}.
 \end{align*}
 Hence, 
 \begin{equation}\label{eq:501}
-  G= \sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{c!(1-\rho)}.
+ G= \sum_{n=0}^{c-1}\frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{c!(1-\rho)}.
 \end{equation}
 
 Next, 
 \begin{align*}
-  \E{L_Q} 
+ \E{L_Q} 
 &=\sum_{n=c}^\infty (n-c) p(n) \\
 &=\sum_{n=c}^\infty (n-c) \frac{c^c}{c!}\rho^{n} p(0) \\
 &=\frac{c^c\rho^c}{G c!} \sum_{n=c}^\infty (n-c) \rho^{n-c} \\
@@ -132,46 +133,46 @@ Next,
 \end{align*}
 % where, with our common trick (if we don't want to use generating functions),
 % \begin{align*}
-%   \sum_{n=0}^\infty n \rho^n 
+% \sum_{n=0}^\infty n \rho^n 
 % &= \sum_{n=0}^\infty \sum_{i=1}^\infty \1{i\leq n} \rho^n
-% = \sum_{i=1}^\infty   \sum_{n=0}^\infty \1{i\leq n} \rho^n\\
-% &= \sum_{i=1}^\infty   \sum_{n=i}^\infty \rho^n
-% = \sum_{i=1}^\infty   \rho^i \sum_{n=0}^\infty \rho^n\\
-% &= \frac1{1-\rho} \sum_{i=1}^\infty   \rho^i 
-% = \frac\rho{1-\rho} \sum_{i=0}^\infty   \rho^i 
+% = \sum_{i=1}^\infty \sum_{n=0}^\infty \1{i\leq n} \rho^n\\
+% &= \sum_{i=1}^\infty \sum_{n=i}^\infty \rho^n
+% = \sum_{i=1}^\infty \rho^i \sum_{n=0}^\infty \rho^n\\
+% &= \frac1{1-\rho} \sum_{i=1}^\infty \rho^i 
+% = \frac\rho{1-\rho} \sum_{i=0}^\infty \rho^i 
 % = \frac\rho{(1-\rho)^2}.
 % \end{align*}
 % Observe again that using indicators and Fubini's theorem
 % (interchanging summations and integrals) makes the above computation
 % painless. Realize, by the way, that
 % \begin{equation*}
-%   \sum_{n=0}^\infty n p(n) = \sum_{n=1}^\infty n p(n).
+% \sum_{n=0}^\infty n p(n) = \sum_{n=1}^\infty n p(n).
 % \end{equation*}
 
 % We next show that 
 % by
-%     \begin{equation*}
-%       \E{L_S} = \sum_{n=0}^{c} n p(n) + \sum_{n=c+1}^{\infty} c p(n).
-%     \end{equation*}
+% \begin{equation*}
+% \E{L_S} = \sum_{n=0}^{c} n p(n) + \sum_{n=c+1}^{\infty} c p(n).
+% \end{equation*}
 
 The derivation of the expected number of jobs in service becomes easier if we pre-multiply the normalization constant $G$:
-    \begin{align*}
-      G \E{L_S}
+ \begin{align*}
+ G \E{L_S}
 &= G \left( \sum_{n=0}^{c} n p(n) + \sum_{n=c+1}^{\infty} c p(n) \right) \\
-&= \sum_{n=1}^{c} n \frac{(c\rho)^n}{n!}  + \sum_{n=c+1}^{\infty} c \frac{c^c\rho^n}{c!} 
-= \sum_{n=1}^{c} \frac{(c\rho)^n}{(n-1)!}  + \frac{c^{c+1}}{c!}\sum_{n=c+1}^{\infty} \rho^n\\
-&= \sum_{n=0}^{c-1} \frac{(c\rho)^{n+1}}{n!}  + \frac{(c\rho)^{c+1}}{c!}\sum_{n=0}^{\infty} \rho^n
-= c\rho \left(\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!}  + \frac{(c\rho)^{c}}{c!(1-\rho)}\right).
-    \end{align*}
+&= \sum_{n=1}^{c} n \frac{(c\rho)^n}{n!} + \sum_{n=c+1}^{\infty} c \frac{c^c\rho^n}{c!} 
+= \sum_{n=1}^{c} \frac{(c\rho)^n}{(n-1)!} + \frac{c^{c+1}}{c!}\sum_{n=c+1}^{\infty} \rho^n\\
+&= \sum_{n=0}^{c-1} \frac{(c\rho)^{n+1}}{n!} + \frac{(c\rho)^{c+1}}{c!}\sum_{n=0}^{\infty} \rho^n
+= c\rho \left(\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^{c}}{c!(1-\rho)}\right).
+ \end{align*}
 Observe that the right-hand side is precisely equal to $\rho c G$, and hence,
 \begin{equation*}
-  \E{L_S} = c\rho = \frac\lambda\mu.
+ \E{L_S} = c\rho = \frac\lambda\mu.
 \end{equation*}
 \end{solution}
 \end{exercise}
 
-%  \begin{align}
-%   \rho &= \frac{\lambda}{c\mu}, \label{eq:9} \\
+% \begin{align}
+% \rho &= \frac{\lambda}{c\mu}, \label{eq:9} \\
 % p(n) &= \frac{1}G \frac{(c\rho)^n}{n!}, \quad n=0,\ldots, c-1, \label{eq:502}\\
 % p(n) &= \frac{1}G \frac{c^c\rho^n}{c!}, \quad n=c,c+1, \ldots\label{eq:58} \\
 % G &=\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{(1-\rho)c!}, \label{eq:501}\\
@@ -180,7 +181,7 @@ Observe that the right-hand side is precisely equal to $\rho c G$, and hence,
 % \end{align}
 
 \begin{extra}
-  Check that the performance measures of the $M/M/c$ queue reduce to those of the $M/M/1$ queue if $c=1$.
+ Check that the performance measures of the $M/M/c$ queue reduce to those of the $M/M/1$ queue if $c=1$.
 \begin{hint}
 Fill in $c=1$. Realize that this is a check on the formulas.
 \end{hint}
@@ -197,20 +198,20 @@ G &=\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{(1-\rho)c!}
 \E{L_S} &= \sum_{n=0}^{c}n p(n) + \sum_{n=c+1}^\infty c p(n) = p(1) + 1 \sum_{n=2}^\infty p(n) = 1- p(0) = \rho.
 \end{align}
 \end{subequations}
-Everything is in accordance to the formulas we derived earlier for the $M/M/1$ queue.    
+Everything is in accordance to the formulas we derived earlier for the $M/M/1$ queue. 
 \end{solution}
 \end{extra}
 
 
 \begin{exercise}\clabel{ex:27}
-  It should be clear that the $M/M/c$ queue is a bit harder to analyze than the $M/M/1$ queue, at least the expressions are more extensive.
-  It is tempting to approximate the $M/M/c$ queue by an $M/M/1$ queue with a server that works $c$ times as fast.
-  As we now have the formulas for the $M/M/c$ queue and the $M/M/q$ queue we can use these to obtain some basic understanding of the difference.
-  
-  Let us therefore consider a numerical example.
-  Suppose that we have an $M/M/3$ queue, with arrival rate $\lambda = 5$ per day and $\mu=2$ per server, and we compare it to an $M/M/1$ with the same arrival rate but with a service rate of $\mu = 3\cdot 2 = 6$.
-  Make a graph of the ratios of $\E{L}$ and $\E{L_Q}$ of both models as a function of $\rho$.
-  Explain why these ratios become $1$ as $\rho\uparrow 1$. 
+ It should be clear that the $M/M/c$ queue is a bit harder to analyze than the $M/M/1$ queue, at least the expressions are more extensive.
+ It is tempting to approximate the $M/M/c$ queue by an $M/M/1$ queue with a server that works $c$ times as fast.
+ As we now have the formulas for the $M/M/c$ queue and the $M/M/1$ queue we can use these to obtain some basic understanding of the difference.
+ 
+ Let us therefore consider a numerical example.
+ Suppose that we have an $M/M/3$ queue, with arrival rate $\lambda = 5$ per day and $\mu=2$ per server, and we compare it to an $M/M/1$ with the same arrival rate but with a service rate of $\mu = 3\cdot 2 = 6$.
+ Make a graph of the ratios of $\E{L}$ and $\E{L_Q}$ of both models as a function of $\rho$.
+ Explain why these ratios become $1$ as $\rho\uparrow 1$. 
 \begin{solution}
 I implement the formulas of~\cref{ex:7} in Python. First the results for the $M/M/3$ queue.
 
@@ -275,7 +276,7 @@ $\rho$ is small, the difference is quite large. This is also
 reasonable, because the service time in the fast $M/M/1$ is 3 times as
 small as the service time in the $M/M/3$ queue. Hence, as $\rho$ is
 small, the time in the system is dominated by service time, as there
-is hardly any queueing time, if at all.  Thus, there must be more jobs
+is hardly any queueing time, if at all. Thus, there must be more jobs
 in the system on average in the $M/M/3$ queue than in the fast $M/M/1$
 queue.
 
@@ -284,43 +285,43 @@ queue.
 \input{progs/multi_vs_single_server.tex}
 \end{center}
 
-The  code can be found on \texttt{github} in the \texttt{progs} directory.
+The code can be found on \texttt{github} in the \texttt{progs} directory.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}\clabel{ex:l-245}
-  Model the $M/M/c/c$ queue in terms of an $M(n)/M(n)/1$ queue and determine the performance measures.
-  This model is also known as the Erlang $B$-formula and is often used to determine the number of beds at hospitals, where the beds act as servers and the patients as jobs.
+ Model the $M/M/c/c$ queue in terms of an $M(n)/M(n)/1$ queue and determine the performance measures.
+ This model is also known as the Erlang $B$-formula and is often used to determine the number of beds at hospitals, where the beds act as servers and the patients as jobs.
 \begin{solution} Take,
-    $\lambda(n) = \lambda$ if $n< c$, and $\lambda(n)=0$ for $n\geq c$. Also, let, $\mu(n) = n \mu$ for $n\leq c$. (And $n$ can never be larger than $c$, since $\lambda(n) = 0$ for $n\geq c$.) Define $\rho = \lambda/(c \mu)$. Then, we see that $p(n) = p(0)(c\rho)^n/n!$. For the normalization
-    \begin{equation*}
-      1=\sum_{n=0}^c p(n) = p(0) \sum_{n=0}^c \frac{(c\rho)^n}{n!}.
-    \end{equation*}
-Thus,  the normalization constant $G=\sum_{n=0}^{c} \frac{(c\rho)^n}{n!}$, and $p(0)=G^{-1}$. 
+ $\lambda(n) = \lambda$ if $n< c$, and $\lambda(n)=0$ for $n\geq c$. Also, let, $\mu(n) = n \mu$ for $n\leq c$. (And $n$ can never be larger than $c$, since $\lambda(n) = 0$ for $n\geq c$.) Define $\rho = \lambda/(c \mu)$. Then, we see that $p(n) = p(0)(c\rho)^n/n!$. For the normalization
+ \begin{equation*}
+ 1=\sum_{n=0}^c p(n) = p(0) \sum_{n=0}^c \frac{(c\rho)^n}{n!}.
+ \end{equation*}
+Thus, the normalization constant $G=\sum_{n=0}^{c} \frac{(c\rho)^n}{n!}$, and $p(0)=G^{-1}$. 
 
 Since there are as many servers as places available in the system, $\E{L_Q}=0$. The expected number of servers busy is
-    \begin{align*}
-      \E{L_S} 
-&= \sum_{n=0}^{c} n p(n) =  \sum_{n=1}^c n p(n)  \\
+ \begin{align*}
+ \E{L_S} 
+&= \sum_{n=0}^{c} n p(n) = \sum_{n=1}^c n p(n) \\
 &= G^{-1} \sum_{n=1}^c n \frac{(\lambda/\mu)^n}{n!} 
 = G^{-1} \sum_{n=1}^{c} \frac{(\lambda/\mu)^{n}}{(n-1)!} \\
 &= \frac{\lambda}{\mu G} \sum_{n=0}^{c-1} \frac{(\lambda/\mu)^{n}}{n!} 
 = \frac{\lambda}{G\mu} \left(G- \frac{(\lambda/\mu)^c}{c!}\right) \\
 &= \frac{\lambda}{\mu} \left(1- \frac{1}G\frac{(\lambda/\mu)^c}{c!}\right) \\
 &= \frac{\lambda}{\mu} \left(1- p(c)\right).
-    \end{align*}
+ \end{align*}
 This can be explained as follows: $\lambda(1-p(c))$ is the rate of accepted jobs (since a fraction $p(c)$ is lost). Thus, the load is $\lambda(1-p(c))/\mu$, and the load is the fraction of time the servers are busy. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}\clabel{ex:l-246}
-  Take the limit $c\to \infty$ in the $M/M/c$ queue (or the $M/M/c/c$ queue) and obtain the performance measures for the $M/M/\infty$ queue, i.e., a queueing system with ample servers.
+ Take the limit $c\to \infty$ in the $M/M/c$ queue (or the $M/M/c/c$ queue) and obtain the performance measures for the $M/M/\infty$ queue, i.e., a queueing system with ample servers.
 \begin{hint}
 Use that for any $x$, $x^n/n!\to 0$ as $n\to\infty$.
 \end{hint}
 \begin{solution}
-  By taking the limit $c\to\infty$, note first that in~\cref{eq:501},
+ By taking the limit $c\to\infty$, note first that in~\cref{eq:501},
 \begin{equation*}
 \frac{(c\rho)^c}{(1-\rho)c!} = \frac{(\lambda/\mu)^c}{(1-\rho)c!}\to 0, \quad\text{as } c\to \infty.
 \end{equation*}
@@ -330,12 +331,12 @@ G =\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{(1-\rho)c!} \to \sum
 \end{equation*}
 Next, for any fixed $n$, eventually $c>n$, and then, as $\rho=\lambda/(\mu c)$, 
 \begin{equation*}
-  p(n) = \frac{1}G \frac{(c\rho)^n}{n!} = \frac{1}G \frac{(\lambda/\mu)^n}{n!} 
-\to e^{-\lambda/\mu}  \frac{(\lambda/\mu)^n}{n!}, \quad\text{as } c\to\infty.
+ p(n) = \frac{1}G \frac{(c\rho)^n}{n!} = \frac{1}G \frac{(\lambda/\mu)^n}{n!} 
+\to e^{-\lambda/\mu} \frac{(\lambda/\mu)^n}{n!}, \quad\text{as } c\to\infty.
 \end{equation*}
 Moreover, there is no fixed $n$ such that $n>c$. Thus, the probabilities in~\cref{ex:7} are no longer present. Thus, we see that the number of busy servers in the $M/M/\infty$ queue is
 Poisson distributed with parameter $\lambda/\mu$, and
-$\E{L} = \E{L_S} = \lambda/\mu$.  Observe that now $\lambda/\mu$ has
+$\E{L} = \E{L_S} = \lambda/\mu$. Observe that now $\lambda/\mu$ has
 no longer the interpretation of the fraction of time the server(s) are
 busy; it is the average number of busy servers.
 
@@ -350,26 +351,26 @@ with $\lambda \E S$ rather than $\lambda/\mu$.
 \begin{extra}
  Show that the $M/M/\infty$ queue is stable for any finite $\lambda$. 
 \begin{solution}
-    No matter how many jobs are in service, there is always another
-   free server available when a new job arrives. Thus, jobs never have
-   to wait in queue, and only spend time in service. Since
-   $\E S < \infty$ by assumption, jobs spend a finite time (with
-   probability one) at a server.
+ No matter how many jobs are in service, there is always another
+ free server available when a new job arrives. Thus, jobs never have
+ to wait in queue, and only spend time in service. Since
+ $\E S < \infty$ by assumption, jobs spend a finite time (with
+ probability one) at a server.
 \end{solution}
 \end{extra}
 
 \begin{extra}
  Why is $\E L=\rho$ for the $M/M/\infty$ queue? 
 \begin{solution}
-   Write $\rho = \lambda /\mu$.
-   Then, from the formulas for the $M/M/\infty$ queue, it follows that $p(n) = e^{-\rho} \rho^n/n!$.
-   Interestingly, we see that this is equal to $\P{N=n}$ where $N$ is a Poisson r.v.
-   with parameter $\rho$.
-   Thus, the number in the system $L$ is Poisson distributed with parameter $\rho$, thus $\E L = \rho$.
+ Write $\rho = \lambda /\mu$.
+ Then, from the formulas for the $M/M/\infty$ queue, it follows that $p(n) = e^{-\rho} \rho^n/n!$.
+ Interestingly, we see that this is equal to $\P{N=n}$ where $N$ is a Poisson r.v.
+ with parameter $\rho$.
+ Thus, the number in the system $L$ is Poisson distributed with parameter $\rho$, thus $\E L = \rho$.
 
-   Another way to see that $\E L=\rho$ is by noting that in the $M/M/\infty$ queue jobs do not interact with each other in the queue.
-   When they arrive, there is always a free server available.
-   Since work arrives at rate $\rho$, and all jobs are in service simultaneously, the average number of busy servers must also be $\rho$.
+ Another way to see that $\E L=\rho$ is by noting that in the $M/M/\infty$ queue jobs do not interact with each other in the queue.
+ When they arrive, there is always a free server available.
+ Since work arrives at rate $\rho$, and all jobs are in service simultaneously, the average number of busy servers must also be $\rho$.
 \end{solution}
 \end{extra}
 
@@ -378,26 +379,26 @@ with $\lambda \E S$ rather than $\lambda/\mu$.
 \begin{extra}
 Consider the $M/M/2/3$ queue with arrival rate $\lambda$ and
 service rate $\mu$ (thus, at most 2 jobs can be in service and 1 in queue).
- Derive first the level-crossing equations for this queueing system, then  derive closed form expressions for the state    probabilities in steady state. 
+ Derive first the level-crossing equations for this queueing system, then derive closed form expressions for the state probabilities in steady state. 
 \begin{hint}
  Think about what would be the appropriate model choices for
-   $\lambda(n)$ and $\mu(n)$ and use the level-crossing equations
-   $\lambda(n) p(n) = \mu(n+1)p(n+1)$.  For instance, realize that
-   $\lambda(3)=0$: the system cannot contain more than 3 jobs, hence a
-   state with $4$ jobs must be impossible. We can achieve that by
-   setting $\lambda(3)=0$. For the service rate, how many servers are
-   busy when the system contains 2 or more jobs?  What does this say
-   about $\mu(k)$ for $k=2$ or $k=3$.
+ $\lambda(n)$ and $\mu(n)$ and use the level-crossing equations
+ $\lambda(n) p(n) = \mu(n+1)p(n+1)$. For instance, realize that
+ $\lambda(3)=0$: the system cannot contain more than 3 jobs, hence a
+ state with $4$ jobs must be impossible. We can achieve that by
+ setting $\lambda(3)=0$. For the service rate, how many servers are
+ busy when the system contains 2 or more jobs? What does this say
+ about $\mu(k)$ for $k=2$ or $k=3$.
 \end{hint}
 \begin{solution}
  Use the figure below. Make sure you understand why $\mu(2)=2\mu$ and so on. 
-    \begin{center}
+ \begin{center}
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
-                    semithick]
-  \node[state] (0) {$p(0)$} ;
-  \node[state] (1) [right of=0] {$p(1)$};
-  \node[state] (2) [right of=1] {$p(2)$};
-  \node[state] (3) [right of=2] {$p(3)$};
+ semithick]
+ \node[state] (0) {$p(0)$} ;
+ \node[state] (1) [right of=0] {$p(1)$};
+ \node[state] (2) [right of=1] {$p(2)$};
+ \node[state] (3) [right of=2] {$p(3)$};
 
 \path 
  (0) edge [bend left] node {$\lambda$} (1)
@@ -407,25 +408,25 @@ service rate $\mu$ (thus, at most 2 jobs can be in service and 1 in queue).
  (2) edge [bend left] node {$\lambda$} (3)
  (3) edge [bend left] node {$2\mu$} (2);
 \end{tikzpicture}
-      
-    \end{center}
+ 
+ \end{center}
 
 From this figure it follows right away that:
-    \begin{align*}
-   \lambda p(0) &= \mu p(1) \\
-   \lambda p(1)  &= 2\mu p(2) \\
-   \lambda p(2)  &= 2\mu p(3).\\
-    \end{align*}
+ \begin{align*}
+ \lambda p(0) &= \mu p(1) \\
+ \lambda p(1) &= 2\mu p(2) \\
+ \lambda p(2) &= 2\mu p(3).\\
+ \end{align*}
 
-Then,  from the above, with $\rho=\lambda/\mu$: 
-    \begin{align*}
-      p(1) &= \rho p(0), \\
-      p(2) &= (\rho/2) p(1) = (\rho^2/2) p(0), \\
-      p(3) &= (\rho/2) p(2) = (\rho^3/4) p(0).
-    \end{align*}
+Then, from the above, with $\rho=\lambda/\mu$: 
+ \begin{align*}
+ p(1) &= \rho p(0), \\
+ p(2) &= (\rho/2) p(1) = (\rho^2/2) p(0), \\
+ p(3) &= (\rho/2) p(2) = (\rho^3/4) p(0).
+ \end{align*}
 Now we normalize to find $p(0)$. Thus, we want that:
 \begin{equation*}
-  1 = p(0)+p(1)+p(2)+p(3) = p(0)\left(1 + \rho + \frac{\rho^2}2 + \frac{\rho^3}4\right),
+ 1 = p(0)+p(1)+p(2)+p(3) = p(0)\left(1 + \rho + \frac{\rho^2}2 + \frac{\rho^3}4\right),
 \end{equation*}
 hence,
 \begin{equation*}
@@ -436,25 +437,25 @@ p(0) = (1+\rho + \rho^2/2 + \rho^3/4)^{-1}.
 
 
 \begin{extra}[Multi-server queue with blocking]\clabel{ex:41}
-  Consider the $M/M/c/c+K$ queue in which at most $c$ jobs can be in service and $K$ in queue.
-  Try to derive the steady state probabilities $p(0)$, $p(1), \ldots$.
-  You do not have to compute the normalization constant $G$.
+ Consider the $M/M/c/c+K$ queue in which at most $c$ jobs can be in service and $K$ in queue.
+ Try to derive the steady state probabilities $p(0)$, $p(1), \ldots$.
+ You do not have to compute the normalization constant $G$.
 \begin{hint}
 Use $\lambda(n) p(n) = \mu(n+1)p(n+1)$ and
-    find suitable expressions for $\lambda(n)$ and $\mu(n+1)$. 
+ find suitable expressions for $\lambda(n)$ and $\mu(n+1)$. 
 \end{hint}
 \begin{solution}
-    $\lambda(n) \equiv \lambda$ for all $n<c+K$. When $n=c+K$,
-    $\lambda(n)=0$, since then the system is full, and all arriving
-    jobs will be dropped; in other words, there will still be jobs
-    arriving to the system when $L=c+K$, but these jobs will be
-    rejected, hence cannot generate a transition from state $c+K$ to
-    $c+K+1$.  When $n<c$, $\mu(n)=n \mu$ since only $n$ servers
-    are active/occupied when the system contains $n$ jobs. When
-    $n\geq c$, $\mu(n) = c \mu$. Thus, using $\rho=\lambda/(c\mu)$, for $n<c$,
-     \begin{equation*}
-      p(n) = \frac{\lambda}{n\mu} p(n-1) = \frac{(\lambda/\mu)^n}{n!} p(0)=\frac{(c\rho)^n}{n!}p(0).
-     \end{equation*}
+ $\lambda(n) \equiv \lambda$ for all $n<c+K$. When $n=c+K$,
+ $\lambda(n)=0$, since then the system is full, and all arriving
+ jobs will be dropped; in other words, there will still be jobs
+ arriving to the system when $L=c+K$, but these jobs will be
+ rejected, hence cannot generate a transition from state $c+K$ to
+ $c+K+1$. When $n<c$, $\mu(n)=n \mu$ since only $n$ servers
+ are active/occupied when the system contains $n$ jobs. When
+ $n\geq c$, $\mu(n) = c \mu$. Thus, using $\rho=\lambda/(c\mu)$, for $n<c$,
+ \begin{equation*}
+ p(n) = \frac{\lambda}{n\mu} p(n-1) = \frac{(\lambda/\mu)^n}{n!} p(0)=\frac{(c\rho)^n}{n!}p(0).
+ \end{equation*}
 For $c\leq n\leq c+K$ and using the above to get $p(c-1)$:
  \begin{align*}
  p(n) &= \frac{\lambda}{c\mu} p(n-1) 
@@ -472,35 +473,35 @@ The normalization is trivial, numerically at least.
 
 
 \begin{exercise}\clabel{ex:l-247}
-  Derive the steady state probabilities $p(n)$ for a single-server queue with a finite calling population with $N$ jobs, i.e., jobs that are in service cannot arrive to the system.
-  Check the answer you obtained for the cases $N=1$ and $N=2$. What happens if $N\to\infty$? 
-  Interpret the results.
+ Derive the steady state probabilities $p(n)$ for a single-server queue with a finite calling population with $N$ jobs, i.e., jobs that are in service cannot arrive to the system.
+ Check the answer you obtained for the cases $N=1$ and $N=2$. What happens if $N\to\infty$? 
+ Interpret the results.
 \begin{hint}
 Use $\lambda(n) p(n) = \mu(n+1)p(n+1)$, and realize that for
-      this case $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$.
+ this case $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$.
 \end{hint}
 \begin{solution}
-      Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$, and solve~\cref{eq:25,eq:20}.
-      Thus:
-    \begin{align*}
-       p(n+1) 
+ Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = \mu$, and solve~\cref{eq:25,eq:20}.
+ Thus:
+ \begin{align*}
+ p(n+1) 
 & = \frac{(N-n)\lambda}\mu p(n) 
  = \rho (N-n) p(n) \\
 & = \rho^2 (N-n)(N-(n-1))p(n-1) \\
 & = \rho^3 (N-n)(N-(n-1))(N-(n-2)) p(n-2) \\
 & = \rho^{n+1} (N-n)(N-(n-1))\cdots(N-(0)) p(0) \\
 &= \rho^{n+1} \frac{N!}{(N-(n+1))!}p(0). 
-    \end{align*}
-    Next, we need to normalize this. Observe that
-    $p(N+1)=p(N+2) = \ldots = 0$ since there are just $N$ customers,
-    so that the system can never contain more than $N$
-    customers. Thus, we want $p(0)$ to be such that
+ \end{align*}
+ Next, we need to normalize this. Observe that
+ $p(N+1)=p(N+2) = \ldots = 0$ since there are just $N$ customers,
+ so that the system can never contain more than $N$
+ customers. Thus, we want $p(0)$ to be such that
 \begin{equation*}
-  1 = \sum_{n=0}^N p(n) = p(0) \sum_{n=0}^N \rho^n \frac{N!}{(N-n)!}.
+ 1 = \sum_{n=0}^N p(n) = p(0) \sum_{n=0}^N \rho^n \frac{N!}{(N-n)!}.
 \end{equation*}
 We see from this that $p(0)$ times some constant must be $1$. Hence, dividing by this constant, we get 
 \begin{equation*}
-  p(0) = \left(\sum_{n=0}^N \rho^n \frac{N!}{(N-n)!}\right)^{-1}.
+ p(0) = \left(\sum_{n=0}^N \rho^n \frac{N!}{(N-n)!}\right)^{-1}.
 \end{equation*}
 I asked WolframAlpha to simplify this, but the answer I got was not particularly revealing. 
 \end{solution}
@@ -509,31 +510,31 @@ I asked WolframAlpha to simplify this, but the answer I got was not particularly
 \begin{exercise}\clabel{ex:l-248}
  Give an example of a system with a finite calling population.
 \begin{solution}
-    A finite calling population occurs for instance at a factory with a number of machines.
-    When a machine breaks down, it becomes a (repair) job at the repair department.
-    Thus, a break down forms an arrival at the repair shop.
-    The mechanics at the repair department form a set of parallel servers.
-    Typically, the number of machines is quite small, 10 or so, and when a machine is `down', i.e., broken, it cannot break again.
-    Hence, when 2, say, machines are in repair, the number of `customers' that can arrive to the queueing system is only 8.
+ A finite calling population occurs for instance at a factory with a number of machines.
+ When a machine breaks down, it becomes a (repair) job at the repair department.
+ Thus, a break down forms an arrival at the repair shop.
+ The mechanics at the repair department form a set of parallel servers.
+ Typically, the number of machines is quite small, 10 or so, and when a machine is `down', i.e., broken, it cannot break again.
+ Hence, when 2, say, machines are in repair, the number of `customers' that can arrive to the queueing system is only 8.
 \end{solution}
 \end{exercise}
 
 
 \begin{extra} Derive the steady state probabilities $p(n)$ for a queue with a finite calling population with $N$ jobs and $N$ servers, i.e., the number of servers in the queueing system is equal to the size of the calling population. What happens if $N\to\infty$? 
 \begin{solution}
-  Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = n \mu$. Then 
-    \begin{align*}
-      p(n+1) 
+ Take $\lambda(n) = (N-n)\lambda$ and $\mu(n) = n \mu$. Then 
+ \begin{align*}
+ p(n+1) 
 &= \frac{\lambda(n)}{\mu(n+1)} p(n) 
 = \frac{(N-n)\lambda}{(n+1)\mu} p(n) 
 = \frac{(N-n)(N-(n-1))}{(n+1)n}\frac{\lambda^2}{\mu^2} p(n-1) \\
 &= \frac{N!}{(N-(n+1))!}\frac1{(n+1)!}\rho^{n+1} p(0) 
-  = {N \choose n+1}\rho^{n+1} p(0).
-    \end{align*}
-    Hence, after normalization, i.e., requiring that $p(0)$ is such
-    that $\sum_{n=0}^N p(n) = 1$, so that $p(0) = \left(\sum_{k=0}^N \rho^k { N \choose k} \right)^{-1}$, the final result becomes
+ = {N \choose n+1}\rho^{n+1} p(0).
+ \end{align*}
+ Hence, after normalization, i.e., requiring that $p(0)$ is such
+ that $\sum_{n=0}^N p(n) = 1$, so that $p(0) = \left(\sum_{k=0}^N \rho^k { N \choose k} \right)^{-1}$, the final result becomes
 \begin{equation*}
-  p(n) = \frac{\rho^n {N \choose n}}{\sum_{k=0}^N \rho^k {N \choose k}}.
+ p(n) = \frac{\rho^n {N \choose n}}{\sum_{k=0}^N \rho^k {N \choose k}}.
 \end{equation*}
 \end{solution}
 \end{extra}
@@ -542,17 +543,17 @@ I asked WolframAlpha to simplify this, but the answer I got was not particularly
 
 Finally, we consider queues with \recall{balking}, that is, queues in
 which customers leave when they find the queue too long at the moment
-they arrive. A simple example model with  customer balking is given by 
-  \begin{equation*}
-    \lambda(n) = 
-  \begin{cases}
-    \lambda, &\text{ if } n=0, \\
-    \lambda/2, &\text{ if } n=1, \\
-    \lambda/4, &\text{ if } n=2, \\
-    0, &\text{ if } n > 2, \\
-  \end{cases}
-  \end{equation*}
-and $\mu(n)=\mu$.   
+they arrive. A simple example model with customer balking is given by 
+ \begin{equation*}
+ \lambda(n) = 
+ \begin{cases}
+ \lambda, &\text{ if } n=0, \\
+ \lambda/2, &\text{ if } n=1, \\
+ \lambda/4, &\text{ if } n=2, \\
+ 0, &\text{ if } n > 2, \\
+ \end{cases}
+ \end{equation*}
+and $\mu(n)=\mu$. 
 
 Observe that here we make a subtle implicit assumption; in~\cref{sec:poisson-arrivals-see} we elaborate on this assumption.
 To make the problem clear, note that balking customers \emph{decide at the moment they arrive} to either join or leave; in other words, they decide based on what they `see upon arrival'.
@@ -563,17 +564,798 @@ To relate these two `views', i.e., time-average versus observer-average, we need
 
 
 \begin{exercise}\clabel{ex:l-249}
-  In what way is a queueing system with balking, at level $b$ say, different from a queueing system with finite calling population of size $b$?
+ In what way is a queueing system with balking, at level $b$ say, different from a queueing system with finite calling population of size $b$?
 \begin{solution}
-  In a queueing system with balking, customers may decide to balk at a level $b$.
-  Thus, whether only $b$ customers are admitted to the system (i.e., blocked), or balk at level $b$, the effect is the same: the number of people in the system remains at or below $b$.
-  However, a fraction of the customers may already balk at lower levels, like in the example above, so that the arrival stream is `thinned' due to balking customers.
-  In that respect, a queueing system with balking behaves differently.
+ In a queueing system with balking, customers may decide to balk at a level $b$.
+ Thus, whether only $b$ customers are admitted to the system (i.e., blocked), or balk at level $b$, the effect is the same: the number of people in the system remains at or below $b$.
+ However, a fraction of the customers may already balk at lower levels, like in the example above, so that the arrival stream is `thinned' due to balking customers.
+ In that respect, a queueing system with balking behaves differently.
 \end{solution}
 \end{exercise}
 
 
 
+
+% The problems below illustrate how to use Little's law and PASTA to analyze numerous queueing situations\footnote{When a problem is mainly of a computational type, I coded the solutions and show you all the steps in between so that you can check each step in your computations.
+% As the code is typically nearly identical to the mathematical formulas, you should not have any difficulty understanding the code.
+% (In the computations below I typically use the simplest, but often not the most efficient, code.)}.
+
+\begin{extra}[Hall 5.2] \label{exer: Hall} 
+After observing a single-server queue for several days, the following steady-state probabilities have been determined: $p(0)=0.4$, $p(1) = 0.3$, $p(2)=0.2$, $p(3)=0.05$ and $p(4)=0.05$.
+ The arrival rate is 10 customers per hour.
+ \begin{enumerate}
+ \item Determine $\E L$ and $\E{L_Q}$. 
+ \item Using Little's formula, determine $\E W$ and $\E{W_Q}$.
+\item Determine $\V{L}$ and $\V{L_Q}$.
+\item Determine the service time and the utilization.
+ \end{enumerate}
+\begin{solution} First find $\E L$
+
+
+\begin{pyconsole}
+P = [0.4, 0.3, 0.2, 0.05, 0.05]
+EL = sum(n*P[n] for n in range(len(P)))
+EL
+\end{pyconsole}
+
+There can only be a queue when a job is in service. Since there is
+$m=1$ server, we subtract $m$ from the amount of jobs in the system.
+Before we do this, we need to ensure that $n-m$ does not become
+negative. Thus, $\E{L_Q} = \sum_n \max\{n-m, 0\} p(n)$.
+
+\begin{pyconsole}
+m = 1
+ELq = sum(max(n-m,0)*P[n] for n in range(len(P)))
+ELq
+\end{pyconsole}
+
+
+\begin{pyconsole}
+labda = 10./60
+Wq = ELq/labda # in minutes
+Wq
+Wq/60 # in hours
+
+W = EL/labda # in minutes
+W
+W/60 # in hours
+\end{pyconsole}
+
+Let's use the standard definition of the variance, i.e., $\V X = \sum_{i} (x_i-\E X)^2 \P{X=x_i}$, for once.
+
+\begin{pyconsole}
+from math import sqrt
+var_L = sum((n-EL)**2*P[n] for n in range(len(P)))
+var_L
+sqrt(var_L)
+\end{pyconsole}
+
+
+\begin{pyconsole}
+var_Lq = sum((max(n-m,0)-ELq)**2*P[n] for n in range(len(P)))
+var_Lq
+sqrt(var_Lq)
+\end{pyconsole}
+
+
+\begin{pyconsole}
+mu = 1./(W-Wq)
+1./mu # in minutes
+
+rho = labda/mu
+rho
+\end{pyconsole}
+
+\begin{pyconsole}
+rho = EL-ELq
+rho
+\end{pyconsole}
+This checks with the previous line.
+
+The utilization must also by equal to the fraction of time the server is busy. 
+\begin{pyconsole}
+u = 1 - P[0]
+u
+\end{pyconsole}
+
+Yet another way: Suppose we have $m$ servers. If the system is empty,
+all $m$ servers are idle. If the system contains one customer, $m-1$
+servers are idle. Therefore, in general, the average fraction of time
+the server is idle is
+\begin{equation*}
+1- u = \sum_{n=0}^\infty \max\{n-m, 0\} p_n,
+\end{equation*}
+as in the case there are more than $m$ customers in the system, the
+number of idle servers is $0$.
+
+
+\begin{pyconsole}
+idle = sum( max(m-n,0)*P[n] for n in range(len(P)))
+idle
+\end{pyconsole}
+
+\end{solution}
+ 
+\end{extra}
+
+
+
+\begin{extra}
+ (Hall 5.7) A single-server queueing system is known to have Poisson
+ arrivals and exponential service times. However, the arrival rate
+ and service time are state dependent. As the queue becomes longer,
+ servers work faster, and the arrival rate declines, yielding the
+ following functions (all in units of number per hour):
+ $\lambda(0) = 5$, $\lambda(1)=3$, $\lambda(2)=2$,
+ $\lambda(n)=0, n\geq 3$, $\mu(0) = 0$, $\mu(1)=2$, $\mu(2)=3$, $\mu(n)=4, n\geq 3$. 
+ Calculate the state probabilities, i.e., $p(n)$ for $n=0,\ldots$
+
+ Why  $p(n) \neq (1-\rho)\rho^n$?
+\begin{hint}
+Use the level-crossing equations of the $M(n)/M(n)/1$ queue. 
+\end{hint}
+\begin{solution}
+  Note that state $4$ cannot be accessed, because $\lambda(n)=0$ for $n\geq 3$, in particular $\lambda(3)=0$, so there are no arrivals when the system contains $n=3$ jobs.
+
+\begin{pyconsole}
+labda = [5, 3, 2, 0, 0]
+mu = [0, 2, 3, 4, 4]
+
+p = [1, 0, 0, 0]
+
+p[1] = labda[0] * p[0] / mu[1]
+p[2] = labda[1] * p[1] / mu[2]
+p[3] = labda[2] * p[2] / mu[3]
+
+print(p)
+
+norm = sum(p)
+p = [x / norm for x in p]
+print(p)
+\end{pyconsole}
+
+
+$p(n) \neq (1-\rho)\rho^n$ because the arrival rate is not the same in all states, neither is the service rate.
+
+
+\end{solution}
+\end{extra}
+
+\begin{extra}
+ (Hall 5.14) An airline phone reservation line has one server and a buffer for two customers.
+ The arrival rate is 6 customers per hour, and a service rate of just 5 customers per hour.
+ Arrivals are Poisson and service times are exponential.
+ Estimate $\E{L_Q}$ and the average number of customers served per hour.
+ Then, estimate $\E{L_Q}$ for a buffer of size~5.
+ What is the impact of the increased buffer size on the number of customers served per hour?
+\begin{hint}
+This is a queueing system with loss, in particular the $M/M/1/1+2$ queue.
+\end{hint}
+\begin{solution}
+First compute $\E{L_Q}$ for the case with a buffer for $2$ customers.
+
+\begin{pyconsole}
+labda = 6.
+mu = 5.
+rho = labda/mu
+c = 1
+b = 2
+\end{pyconsole} 
+
+Set $p(n) = \rho^n$ initially, and normalize later. Use the
+expressions for the $M(n)/M(n)/1$ queue. Observe that $\rho>1$. Since
+the size of the system is $c+b+1$ is finite, all formulas work for
+this case too.
+
+
+There are 4 states in total: $0,1,2,3$. (The reason to import \pyv{numpy} here and convert the lists to arrays is to fix the output precision to 3, otherwise we get long floats in the output.)
+
+\begin{pyconsole}
+import numpy as np
+np.set_printoptions(precision=3)
+
+P = np.array([rho**n for n in range(c+b+1)])
+P
+
+G = sum(P)
+G
+
+P /= G # normalize
+P
+\end{pyconsole} 
+
+\begin{pyconsole}
+L = sum(n*P[n] for n in range(len(P)))
+L
+
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+\end{pyconsole} 
+
+
+The number of jobs served per hour must be equal to the number of jobs
+accepted, i.e., not lost. The fraction of customers lost is equal to
+the fraction of customers that sees a full system.
+
+\begin{pyconsole}
+lost = labda*P[-1] # the last element of P
+lost
+
+accepted = labda*(1.-P[-1]) # rate at which jobs are accepted
+accepted
+\end{pyconsole} 
+
+Now increase the buffer $b$ to 5.
+
+\begin{pyconsole}
+b = 5
+P = np.array([rho**n for n in range(c+b+1)])
+P
+G = sum(P)
+G
+
+P /= G # normalize
+P
+
+L = sum(n*P[n] for n in range(len(P)))
+L
+
+accepted = labda*(1.-P[-1])
+accepted
+\end{pyconsole} 
+\end{solution}
+\end{extra}
+
+\begin{extra}[Hall 5.3] After observing a queue with two servers for several days, the following steady-state probabilities have been determined: $p(0)=0.4$, $p(1) = 0.3$, $p(2)=0.2$, $p(3)=0.05$ and $p(4)=0.05$.
+ The arrival rate is 10 customers per hour.
+ \begin{enumerate}
+ \item Determine $\E L$ and $\E{L_Q}$. 
+ \item Using Little's formula, determine $\E W$ and $\E{W_Q}$. 
+ \item Determine $\V L$ and $\V{L_Q}$.
+ \item Determine the service time and the utilization.
+ \end{enumerate}
+\begin{solution}
+ Determine $\E L$ and $\E{L_Q}$. 
+
+\begin{pyconsole}
+P = [0.4, 0.3, 0.2, 0.05, 0.05]
+
+c = 2
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+
+L= sum(n*P[n] for n in range(len(P)))
+L
+\end{pyconsole}
+
+ Using Little's formula, determine $\E W$ and $\E{W_Q}$. 
+\begin{pyconsole}
+labda = 10./60
+Wq = Lq/labda # in minutes
+Wq
+Wq/60 # in hours
+
+W = L/labda
+W
+\end{pyconsole} 
+
+ Determine $\V L$ and $\V{L_Q}$.
+\begin{pyconsole}
+from math import sqrt
+var_L = sum((n-L)**2*P[n] for n in range(len(P)))
+var_L
+sqrt(var_L)
+\end{pyconsole}
+
+\begin{pyconsole}
+var_Lq = sum((max(n-c,0)-Lq)**2*P[n] for n in range(len(P)))
+var_Lq
+\end{pyconsole}
+
+Determine the service time and the utilization.
+\begin{pyconsole}
+mu = 1./(W-Wq)
+1./mu # in minutes
+
+rho = labda/mu
+rho
+\end{pyconsole}
+
+\begin{pyconsole}
+rho = L-Lq
+rho
+\end{pyconsole}
+This checks the previous line.
+
+The utilization must also by equal to the fraction of time the server is busy. 
+\begin{pyconsole}
+u = 1 - P[0]
+u
+\end{pyconsole}
+\end{solution}
+\end{extra} 
+
+\begin{extra}[Hall 5.8] The queueing system at a fast-food stand behaves in a peculiar fashion.
+ When there is no one in the queue, people are reluctant to use the stand, fearing that the food is unsavory.
+ People are also reluctant to use the stand when the queue is long.
+ This yields the following arrival rates (in numbers per hour): $\lambda(0) = 10$, $\lambda(1)=15$, $\lambda(2)=15$, $\lambda(3)=10$, $\lambda(4)=5$, $\lambda(n)=0, n\geq 5$.
+ The stand has two servers, each of which can operate at 5 per hour.
+ Service times are exponential, and the arrival process is Poisson.
+ Calculate the steady state probabilities.
+ Next, what is the average arrival rate?
+ Finally, determine $\E L$, $\E{L_Q}$, $\E W$ and $\E{W_Q}$.
+\begin{solution}
+First the service rates.
+\begin{pyconsole}
+import numpy as np
+from math import factorial
+labda = [10., 15., 15., 10., 5.]
+c = 2
+mn = 2*np.ones(len(labda)+1, dtype=int) # number of active servers
+mn[0] = 0 # no service if system is empty
+mn[1] = 1 # one busy server if just one job present
+mu = 5*mn # service rate is 5 times no of active servers
+mu
+\end{pyconsole}
+
+Since there can be arrivals in states $0,\ldots, 4$, the system can contain $0$ to $5$ customers, i.e., $p(0),\ldots, p(5)$.
+
+Use the level-crossing result for the $M(n)/M(n)/1$ queue:
+
+\begin{pyconsole}
+P = [1]*(len(labda)+1)
+for i in range(1,len(P)):
+ P[i] = labda[i-1]/mu[i]*P[i-1]
+
+P = np.array(P) # unnormalized probabilities
+P
+\end{pyconsole}
+
+\begin{pyconsole}
+G = sum(P) # normalization constant
+G
+P /= G # normalize
+P 
+\end{pyconsole} 
+
+$\lambda = \sum_{n}\lambda(n) p(n)$.
+
+\begin{pyconsole}
+labdaBar = sum(labda[n]*P[n] for n in range(len(labda)))
+labdaBar
+\end{pyconsole}
+
+
+The average number in the system is: 
+
+\begin{pyconsole}
+Ls = sum(n*P[n] for n in range(len(P)))
+Ls
+\end{pyconsole}
+
+
+The average number in queue: 
+\begin{pyconsole}
+c = 2
+Lq = sum((n-c)*P[n] for n in range(c,len(P)))
+Lq
+\end{pyconsole} 
+
+And now the waiting times:
+
+\begin{pyconsole}
+Ws = Ls/labdaBar
+Ws # time in the system
+
+Wq = Lq/labdaBar
+Wq # time in queue
+\end{pyconsole} 
+
+\end{solution}
+\end{extra}
+
+\begin{exercise}[Hall 5.10]\clabel{ex:l-217} 
+A repair/maintenance facility would like to determine how many employees should be working in its tool crib.
+ The service time is exponential, with mean 4 minutes, and customers arrive by a Poisson process with rate 28 per hour.
+ The customers are actually maintenance workers at the facility, and are compensated at the same rate as the tool crib employees.
+ What is $\E W$ for $c=1, 2, 3$, or $4$ servers?
+ How many employees should work in the tool crib?
+\begin{hint}
+ Realize that we have to control the number of servers.
+ Hence, we are dealing with a multi-server queue, i.e., the $M/M/c$ queue.
+ Use~\cref{ex:7}.
+
+The remark that maintenance workers are compensated at the same rate
+as the tool crib workers confused me a bit at first. Some thought
+revealed that the consequence of this remark is that is it just as
+expensive to let the tool crib workers wait (to help maintenance
+workers) as to let the maintenance workers wait for tools. (Recall, in
+queueing systems always somebody has to wait, either the customer in queue or
+the server being idle. If it is very expensive to let customers wait, the number
+of servers must be high, whereas if servers are relatively expensive, customers have to do the waiting.)
+\end{hint}
+\begin{solution}
+
+ Would one server/person do? 
+\begin{pyconsole}
+labda = 28./60 # arrivals per minute
+ES = 4.
+labda*ES
+\end{pyconsole} 
+
+If $c=1$, the load $\rho=\lambda \E S/c >1$ is clearly undesirable for one server. We need at
+least two servers.
+
+It is not relevant to focus on the time in the system, as time
+ in service needs to be spent anyway. Hence, we focus on the waiting
+ time in queue.
+
+
+I just convert the formulas of~\cref{ex:7} to Python code. This saves
+me time during the computations.
+
+\begin{pyconsole}
+ 
+def WQ(c, labda, ES):
+ from math import factorial
+ rho = labda*ES/c
+ G = sum([(c*rho)**n/factorial(n) for n in range(c)])
+ G += (c*rho)**c/(1.-rho)/factorial(c)
+ Lq = (c*rho)**c/(factorial(c)*G) * rho/(1.-rho)**2
+ return Lq/labda # Wq, Little's law
+
+\end{pyconsole} 
+
+Considering the scenario with one server is superfluous as $\rho>1$ in
+that case.
+
+What is the waiting time for $c=2$ servers?
+
+\begin{pyconsole}
+WQ(2, 28./60, 4) # in minutes
+WQ(2, 28./60, 4)/60. # in hours
+\end{pyconsole}
+
+What is the waiting time for $c=3$ servers?
+
+\begin{pyconsole}
+WQ(3, 28./60, 4) # in minutes
+WQ(3, 28./60, 4)/60. # in hours
+\end{pyconsole}
+
+
+What is the waiting time for $c=4$ servers?
+
+\begin{pyconsole}
+WQ(4, 28./60, 4) # in minutes
+WQ(4, 28./60, 4)/60. # in hours
+\end{pyconsole} 
+
+In the next part of the question we will interpret these numbers.
+
+Since both types of workers cost the same amount of money per unit
+time, it is best to divide the amount of waiting/idleness equally over
+both types of workers. I am inclined to reason as follows. The
+average amount of waiting time done by the maintenance workers per
+hour is $\lambda \E{W_Q}$. To see this, note that maintenance workers arrive at rate $\lambda$, and each worker waits on average $\E{W_Q}$ minutes. Thus, worker time is wasted at rate $\lambda \E{W_Q}$. Interestingly, with Little's law, $\E{L_Q}=\lambda \E{W_Q}$, i.e., the rate at which workers waste capacity (i.e. waiting in queue) is $\E{L_Q}$. On the other hand, the rate of work capacity wasted by the tool crib employees being idle is $c-\lambda \E{S}$, as $\lambda \E S$ is the average number of servers busy, while $c$ crib servers are available.
+
+As both types of
+employees are equally expensive, we need to choose $c$ such that
+the number of maintenance workers waiting (i.e., being idle because they are waiting in queue), is equal to the number of crib workers being idle. In other words, we search for a $c$ such that $\E{L_Q} \approx c- \lambda \E S$ (where, of course, $\E{L_Q}$ depends on $c$).
+
+
+\begin{pyconsole}
+labda = 28./60
+ES = 4.
+c = 2
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+Now the maintenance employees wait more than the tool crib employees.
+
+\begin{pyconsole}
+c = 3
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+
+\begin{pyconsole}
+c = 4
+ELQ = labda*WQ(c, labda, ES)
+ELQ
+c-labda*ES
+\end{pyconsole} 
+
+Clearly, $c=3$ should do.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[Hall 5.22]\clabel{ex:95}
+ At a large hotel, taxi cabs arrive at a rate of 15 per hour, and parties of riders arrive at the rate of 12 per hour.
+ Whenever taxicabs are waiting, riders are served immediately upon arrival.
+ Whenever riders are waiting, taxicabs are loaded immediately upon arrival.
+ A maximum of three cabs can wait at a time (other cabs must go elsewhere).
+ \begin{enumerate}
+ \item Let $p_{ij}$ be the steady-state probability of there being $i$ parties of riders and $j$ taxicabs waiting at the hotel.
+ Write the state transition equation for the system.
+ \item Calculate the expected number of cabs waiting and the expected number of parties waiting.
+ \item Calculate the expected waiting time for cabs and the expected waiting time for parties. (For cabs, compute the average among those that do not go elsewhere.)
+ \item In words, what would be the impact of allowing four cabs to wait at a time?
+ \end{enumerate}
+\begin{solution}
+ Let $p_{ij}$ be the fraction of time that the system contains $i$ riders and $j$ taxi cabs.
+ 
+ I assume that all members of a party of riders can be served by a single cab (that is, the parties do not exceed the capacity of a cab and all members of a party have the same destination).
+ 
+ For clarity, write $\mu$ for the rate at which cabs arrive, and $\lambda$ for the arrival rate of parties of riders.
+ 
+ Then the transitions are as in the figure below.
+ 
+ Suppose first that there are $3$ taxi cabs.
+ 
+ When a group arrives (at rate $\lambda$), there is one taxi less, and so on, until there are no more taxis left.
+ 
+ Finally, if yet more groups arrive, they have to wait.
+ 
+ When a new taxi arrives, the number of groups is reduced by one, and so on, until there are $3$ taxis waiting and no groups of people.
+
+
+ \begin{center}
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+ semithick]
+ \node[state] (0) {$p(0,3)$} ;
+ \node[state] (1) [right of=0] {$p(0,2)$};
+ \node[state] (2) [right of=1] {$p(0,1)$};
+ \node[state] (3) [right of=2] {$p(0,0)$};
+ \node[state] (4) [right of=3] {$p(1,0)$};
+ \node[state] (5) [right of=4] {$p(2,0)$};
+ \node[state] (6) [right of=5] {$p(\cdot, 0)$};
+
+\path 
+ (0) edge [bend left] node {$\lambda$} (1)
+ (1) edge [bend left] node {$\mu$} (0)
+ (1) edge [bend left] node {$\lambda$} (2)
+ (2) edge [bend left] node {$\mu$} (1)
+ (2) edge [bend left] node {$\lambda$} (3)
+ (3) edge [bend left] node {$\mu$} (2)
+ (3) edge [bend left] node {$\lambda$} (4)
+ (4) edge [bend left] node {$\mu$} (3)
+ (4) edge [bend left] node {$\lambda$} (5)
+ (5) edge [bend left] node {$\mu$} (4)
+ (5) edge [bend left] node {$\lambda$} (6)
+ (6) edge [bend left] node {$\mu$} (5)
+;
+\end{tikzpicture}
+ 
+ \end{center}
+
+From this figure, we see that
+\begin{align*}
+\lambda p_{0,3} &= \mu p_{0,2} \\
+(\lambda+\mu) p_{0,2} &= \mu p_{0,1} + \lambda p_{0,3}\\
+(\lambda+\mu) p_{0,1} &= \mu p_{0,0} + \lambda p_{0,2}\\
+(\lambda+\mu) p_{0,0} &= \mu p_{1,0} + \lambda p_{0,1}\\
+(\lambda+\mu) p_{1,0} &= \mu p_{2,0} + \lambda p_{0,0}\\
+(\lambda+\mu) p_{2,0} &= \mu p_{3,0} + \lambda p_{1,0}\\
+\end{align*}
+and so on. Thus, it is left to compute $p_{ij}$. Observe from this
+scheme, or the above figure, that the situation with the taxis
+correspond to an $M/M/1$ queue, only the states have a `different
+name'. Let $q$ be the number of jobs in an M/M/1 queue. Some thought
+will reveal that the queueing system with cabs and parties can be
+mapped to an equivalent M/M/1 queueing system. In fact, consider the
+following table
+\begin{center}
+\begin{tabular}{ccc}
+$j$ & $i$ & $q$\\
+3& 0 & 0\\
+2 & 0& 1\\
+1 & 0& 2\\
+0& 0& 3\\
+0& 1& 4\\
+0& 2& 5\\
+\end{tabular}
+\end{center}
+and so on. Therefore, in general, it must be that 
+
+\begin{equation*}
+q = 3 - j +i.
+\end{equation*}
+From the M/M/1 queue we know right away that $p_q = \rho^q
+(1-\rho)$. With the above relation we can therefore immediately find
+that $p_{ij} = \rho^{3-j+i}(1-\rho)$, save that $i$ and
+$j$ must satisfy the constraints imposed by the model.
+
+Second, the expected number of cabs waiting must be 
+\begin{equation*}
+1p_{0,1} + 2 p_{0,2} + 3p_{0,3}
+\end{equation*}
+and the expected number of parties waiting must be $\sum_{j=1}^\infty j p_{j,0}$.
+
+\begin{pyconsole}
+labda = 12. # per hour
+mu = 15. # per hour
+rho = labda/mu
+
+def p(i,j):
+ q = 3 - j + i
+ return rho**q*(1.-rho)
+
+\end{pyconsole}
+Expected number of cabs waiting:
+\begin{pyconsole}
+Lc = sum(j*p(0,j) for j in range(0,4)) 
+# Recall this sums up to 4, not including 4
+Lc
+ 
+\end{pyconsole}
+
+
+To compute the expected number of parties waiting we formally have to
+sum to infinity. Rather than doing the algebra, I chose to truncate
+the summation at an $i$ such that $\rho^i \ll 1$, i.e.,
+negligible. Truncating at 30 seems reasonable enough:
+
+\begin{pyconsole}
+trunc = 30
+rho**trunc
+\end{pyconsole}
+
+At second thought this is not yet really small. 
+
+\begin{pyconsole}
+trunc = 50
+rho**trunc
+\end{pyconsole}
+
+
+This is better. Now go for what we want to know:
+
+\begin{pyconsole}
+Lp = sum(i*p(i,0) for i in range(trunc))
+Lp
+\end{pyconsole}
+
+For the last part: This is tricky. I first, naively, computed $W_q = L_c/\mu$. This
+seems to make sense, as cabs arrive at rate $\mu$, so that this
+expression follows from a standard application of Little's
+law. However, this is wrong, of course. When using Little's law to
+relate the number of jobs in queue (i.e., in the M/M/1 queue) and the
+queueing time we need to use $\lambda$, not
+$\mu$. Similarly (and more formally by the mapping developed in
+part a), for our cab system we also need to use $\lambda$.
+
+\begin{pyconsole}
+Wq = Lc/labda
+Wq
+\end{pyconsole}
+
+Thinking in templates is often useful, but makes one sloppy\ldots
+
+What would be the impact of allowing 4 cabs? Funny question, and with the above, trivial to answer.
+
+\begin{pyconsole}
+def p(i,j):
+ q = 4 - j + i
+ return rho**q*(1.-rho)
+ 
+\end{pyconsole}
+
+\begin{pyconsole}
+Lc = sum(j*p(0,j) for j in range(0,4))
+Lc
+
+Lp = sum(i*p(i,0) for i in range(trunc))
+Lp
+ 
+\end{pyconsole}
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}[Continuation of~\cref{ex:95}]
+Suppose cabs are not allowed to wait. What is the expected waiting time for a party of riders?
+
+\begin{solution}
+Now we have the standard $M/M/1$ queue. The number of parties waiting must be $\E L$ of the $M/M/1$ queue. We can use Little's law to compute the waiting time.
+\end{solution}
+\end{extra}
+
+
+
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-218}
+ Did you have to use the PASTA property to solve ~\cref{ex:95}? If so, how did you use it? If not, why not?
+\begin{solution}
+ Actually, you don't have to use PASTA.
+ So why is that?
+ For instance, $\sum_{i=1}^3 i p(0, i)$ is the number of taxis waiting, and this is a time average (since we use $p(0, i)$).
+ In the proof of Little's law, it is also clear that the $\E L$ is a time average.
+ Also, in the proof of Little's law, we compute the waiting time as $\E W = \lim_{n\to\infty} n^{-1}\sum_{k=1}^n W_k$, where $W_k$ is the waiting time as perceived by the $k$th job.
+ Thus, here $\E W$ is the average as observed by jobs.
+
+ This was an old exam question.
+ Some students used the PK-formula, see~\cref{sec:mg1}, to compute the average waiting time.
+ The derivation of this \emph{does} depend on the PASTA property.
+\end{solution}
+\end{exercise}
+
+
+\begin{exercise}[Continuation of~\cref{ex:95}]\clabel{ex:l-219}
+ Suppose cabs can contain at most 4 riders, and the size of a party (i.e., a batch) has distribution $B_k$ with $\P{B_k= i} = 1/7$ for $i=1,\ldots, 7$.
+ Parties of riders have the same destination, so riders of different parties cannot be served by one taxi.
+ Provide a set of recursions to simulate this system.
+ (This is a real hard exercise, but doable.
+ I asked it at an exam to see who would deserve the highest grade.
+ I was lenient with the grading\ldots)
+
+\begin{hint}
+Realize that you have model the server process separately from the queueing process. 
+\end{hint}
+
+\begin{solution}
+ We concentrate on departure epochs of the taxis.
+ Thus the $k$th period is the time between the departure of taxi $k-1$ and taxi $k$.
+ During the $k$th epoch $a_k$ batches can arrive.
+
+ The system starts with $a_0$ batches in queue.
+
+ Suppose that the first batch contains 5 riders.
+ Then the first taxi takes 4 riders, and 1 rider of the batch remains.
+ This 1 rider will take the next taxi, and no riders of other groups can join because the riders of different parties have different destinations.
+ Once all riders of a party are served, the next party in line can move to the `server' and wait to be served.
+
+ The recursions are as follows; realize that the order in which you carry out these recursions is important. The meaning of each line is explained below the line. 
+\begin{align*}
+ d_s &=\min\{Q_s, 4\}, 
+ \intertext{the number of riders that can depart from the party of riders in service,} 
+ Q_s' &=Q_s - d_s, 
+ \intertext{the remaining of number riders of a party after being served by one taxi,} 
+ Q &=Q + a_k, 
+ \intertext{the number of parties in queue (not in the system) just after the arrival of the batches during the $k$th interdeparture time,} p
+ d_q &= \min\{Q, \1{Q_s' = 0}\}, 
+ \intertext{only move a party from the queue if `the server is free',} 
+ Q &= Q- d_q, 
+ \intertext{move the party from the queue to the server, if allowed,} 
+ Q_s &= Q_s'\1{Q_s'>0} + B_b\1{Q_s' = 0}, 
+ \intertext{if the server is not free, the number of riders is equal to $Q_s'$, otherwise send the $b$th batch to the server,} 
+ b &= b+ \1{Q_s'=0}, 
+ \intertext{if the server is free, move the index of the batch in service to the next batch to be served once the server becomes free again.}
+\end{align*}
+
+
+
+In the code $A_k$ corresponds to a list of batches arriving on the $k$th day, $B_i$ to the size of the $i$th batch, and $a_k$ to the number of batches arriving on the $k$th period.
+I used the \pyv{pysnooper} module to debug the code. It is quite hard to get it right.
+
+\begin{pyverbatim}
+A = [[5, 3, 4], [3], [6], [1, 1], [], [2], [], [], [3], []]
+
+a = [len(A[i]) for i in range(len(A))]
+
+B = [item for sublist in A for item in sublist]
+
+Qs = 0
+b = 0
+Q = 0
+
+for k in range(len(a)):
+ ds = min(Qs, 4)
+ Qs_p = Qs - ds
+ Q += a[k]
+ dq = min(Q, 1 * (Qs_p == 0))
+ Q -= dq
+ Qs = (Qs_p > 0) * Qs_p + (Qs_p == 0) * B[b]
+ b += Qs_p == 0
+ print(f"ds={ds}, Qs_p={Qs_p}, dq={dq}, Q={Q}, Qs={Qs}, b={b}")
+
+\end{pyverbatim}
+
+\end{solution}
+
+\end{exercise}
 
 
 \opt{solutionfiles}{

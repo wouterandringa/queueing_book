@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -27,11 +27,6 @@ D.R. Cox, editor.
 M.~El-Taha and S.~{Stidham~Jr.}
 \newblock \emph{Sample-Path Analysis of Queueing Systems}.
 \newblock Kluwer Academic Publishers, 1998.
-
-\bibitem[Hall(1991)]{hall91:_queuein_method_servic_manuf}
-R.W. Hall.
-\newblock \emph{Queueing Methods for Services and Manufacturing}.
-\newblock Prentice Hall, 1991.
 
 \bibitem[Tijms(1994)]{tijms94:_stoch_model_algor_approac}
 H.C. Tijms.

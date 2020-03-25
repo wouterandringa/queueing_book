@@ -1,0 +1,244 @@
+\section{N-policies for the $M/G/1$ queue}
+\label{sec:n-policies-mg1}
+
+Interestingly, we can extend the analysis of~\cref{sec:distr-queue-length} and~\cref{sec:n-policies} to compute the average cost of the $M/G/1$ queue under an $N$-policy.
+Thus, rather than exponentially distributed service times, we now consider general service times.
+For the rest, the model and the problem is the same as in~\cref{sec:n-policies}. 
+
+\opt{solutionfiles}{
+\subsection*{Theory and Exercises}
+\Opensolutionfile{hint}
+\Opensolutionfile{ans}
+}
+
+
+Similar to~\cref{sec:distr-queue-length}, we consider the $M/G/1$ queueing process at departure moments.
+It is easy to find an expression for the time to clear the queue right after the departure of a job that leaves $q$ jobs behind.
+Analogous to~\cref{eq:92} and using the definition of $f(k)=\P{Y=k}$ as the probability that $Y=k$ jobs arrive during an arbitrary service time, we see that $T(q)$ must satisfy the relation
+\begin{equation*}
+  T(q) = \sum_{k=0}^\infty f(k) T(q+k-1) + \E S.
+\end{equation*}
+To see this, observe that when $k=0$ the next level is $q-1$ so that it takes $T(q-1)$ time to hit level~$0$.
+When $k=1$, the level returns to $q$ after the departure of the job currently in service; consequently, we have not made any progress, hence we still need $T(q)$ units of time,  and so on.
+Similar to the reasoning in~\cref{sec:n-policies}, we guess that $T(q) = a q + b$. Since $T(0)=0$, we already have $b=0$. 
+
+\begin{exercise}\clabel{ex:nmg3}
+Substitute $T(q) = a q$ in the above recursion for $T(q)$, and solve for $a$ to obtain
+\begin{equation*}
+  T(q) = \frac{\E S}{1- \E Y}q = \frac{\E S}{1-\lambda \E S}q.
+\end{equation*}
+\begin{hint}
+  Use that $\sum_{k=0}^\infty k f(k) = \E Y$. Then use~\cref{ex:mg1-3}. Realize also that $\sum_k f(k) = 1$. 
+\end{hint}
+\begin{solution}
+  \begin{align*}
+    a q = \sum_{k=0}^\infty a (q+k-1) f(k) + \E S \implies a q = a q + a \E Y - a + \E S.
+  \end{align*}
+The terms linear in $q$ cancel. And thus, $0=a\E Y - a + \E S$. The result follows right away.
+\end{solution}
+\end{exercise}
+
+Let $V(q)$ be the cost to clear the system right after a departure that leaves $q$ jobs behind.
+Thus, $V(0)=0$.
+Again, analogous~\cref{sec:distr-queue-length} and the derivation above for $T(q)$, we see that $V(q)$ must satisfy the relation
+\begin{equation}
+  \label{eq:98}
+  V(q) = \sum_{k=0}^\infty f(k) V(q+k-1) + H(q), 
+\end{equation}
+where $H(q)$ is the queueing, or holding, cost, which we will determine next.
+
+The queueing cost $H(q)$ consists of two components.
+The first is the cost to keep $q$ jobs in the system while there is a job in service.
+Clearly, the expected cost of this is $h q \E S$.
+The second component is the cost of new jobs that arrive during the service.
+While this is slightly harder to determine, we can combine the ideas underlying the derivation in~\cref{eq:99} the results of \cref{ex:35} to \cref{ex:p-35}.
+Specifically, assume it is given that the service time is~$s$.
+Then the expected total queueing cost $U(s)$ of the new arrivals must satisfy for some $0<\delta\ll 1$
+\begin{equation*}
+  U(s) = U(s-\delta) + (1-\lambda \delta)\cdot 0 + \lambda \delta h s + o(\delta).
+\end{equation*}
+This follows because during the interval $[0,\delta]$ a job arrives with probability $\lambda \delta$ and this stays $s$ time units in the system, while with probability $1-\lambda \delta$ no job arrives, and the cost of this is~$0$.
+By the next problem, 
+\begin{equation*}
+  U(s) = \lambda h \frac{s^2}2. 
+\end{equation*}
+
+\begin{exercise}\clabel{ex:nmg4}
+Assuming that $U(\cdot)$ is differentiable, we can use that $(U(s) - U(s-\delta))/\delta \approx U'(s)$.
+Use this in the above to arrive at the differential equation $U'(s) = \lambda h s$ that $U$ must satisfy with condition $U(0)=0$ (why is this so?).
+Solve this DE to conclude that $U(s)$ is as given above. 
+\begin{solution}
+Is it plain algebra:
+\begin{align*}
+  U(s)&=  U(s-\delta) + (1-\lambda \delta)\cdot 0 + \lambda \delta h s + o(\delta) &\implies\\
+  (U(s) -U(s-\delta))/\delta &= \lambda h s + o(\delta) & \implies \\
+  U'(s)&= \lambda h s, \quad\text{as } \delta \to 0.
+\end{align*}
+Integrating  both sides with respect to $s$ gives $U(s) - U(0) = \lambda h s^2/2$. As $U(0)=0$, we obtain the final result.
+\end{solution}
+\end{exercise}
+
+Since $U(s)$ is the expected total cost given that the service time is $s$, it follows from~\cref{ex:mg1-3} that $\E{U(S)} = \lambda h \E{S^2}$ is the expected queueing cost of the new jobs that arrive during the service.
+By combining the first and second component of $H(q)$, we obtain
+\begin{equation*}
+  H(q) = h q \E S + \frac 12 \lambda h \E{S^2}.
+\end{equation*}
+To solve~\cref{eq:98}, note that as in~\cref{eq:93}, the cost $H(q)$ has a term linear in~$q$ and a constant term.
+Thus, once again, we guess that $V(q)$ is a quadratic function in $q$.
+Then we substitute this form into~\cref{eq:98}, assemble terms with the same power in $q$, and try to solve for the coefficients in $aq^2 + bq+c$.
+If we succeed, the solution we found must be correct, as a difference equation of the type~\cref{eq:98} can have just one solution once the boundary conditions are given.
+Again, $V(q)=0 \implies c = 0$.
+In fact, observe that we have all elements to compute the costs; except for (quite a bit of) algebra, we are done!
+
+\begin{extra}
+Assemble all terms of $V(q) = \sum_k V(q+k-1) + H(q)$ by their power in $q$ to obtain:
+\begin{align*}
+  a q^2 &= a q^2, \\
+  b q &= 2a q \E Y - 2a q + b q + h q \E S,\\
+  0 &= a \E{Y^2} - 2a \E Y + a + b \E Y - b + \frac 12 \lambda h \E{S^2}.
+\end{align*}
+\begin{hint}
+  Just expand the left- and right-hand sides, and equate the terms with the same power in $q$.
+\end{hint}
+\begin{solution}
+  Just expand
+  \begin{equation*}
+    \sum_{k=0}^\infty f(k)[ a(q+k-1)^2 + b(q+k-1)] + H(q),
+  \end{equation*}
+  and use that $\sum_k f(k) k = \E Y$ and $\sum_k f(k) k^2 = \E{Y^2}$. 
+\end{solution}
+\end{extra}
+
+\begin{extra}
+Simplify the above to obtain
+\begin{align*}
+  a &= \frac{h \E S}{2(1-\E Y)}, \\
+  b(1-\E Y) &= a(\E{Y^2} - 2 \E Y + 1) + \frac 12 h \lambda \E{S^2}.
+\end{align*}
+\begin{solution}
+  The first equation in the previous equation is superfluous.
+  In the second we can cancel $bq$ at both sides.
+  Simplifying gives us the expression for $a$.
+  Similar for the third equation.
+\end{solution}
+\end{extra}
+
+\begin{extra}
+  Show that $\E{Y^2} = \lambda^2 \E{S^2} + \lambda \E S$. 
+\begin{solution}
+This follows directly from~\cref{ex:mg1-3}.
+\end{solution}
+\end{extra}
+
+\begin{exercise}\clabel{ex:nm-2}
+Show that 
+\begin{align*}
+  a &= \frac{h \E S}{2(1-\rho)}, &
+  b &= \frac{h \E S}{2(1-\rho)^2} \left( 1+ \rho C_s^2\right).
+\end{align*}
+(In a sense, this is trivial, as it is just algebra, but it is hard to get the details right.)
+\begin{solution}
+  We already derived $a$, except that we replaced $1-\E Y= 1-\lambda \E S = 1-\rho$. 
+For $b$, and using the expressions for $\E Y$ and $\E{Y^2}$, 
+\begin{align*}
+b(1-\E Y) &= a(\E{Y^2} - 2 \E Y + 1) + \frac 12 h \lambda \E{S^2} \\
+&= \frac{h \E S}{2(1-\E Y)} (\E{Y^2} - 2 \E Y + 1) + \frac 12 h \lambda \E{S^2} \\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left(\lambda^2 \E{S^2} + \lambda \E S - 2 \lambda \E S + 1 +  \lambda \E{S^2}\frac{1-\lambda \E S}{\E S}\right) \\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left(\lambda^2 \E{S^2} - \lambda \E S + 1 +  \frac{\lambda \E{S^2}}{\E S} - \lambda^2 \E{S^2}\right) \\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left(1+ \frac{\lambda \E{S^2}}{\E S }  - \lambda \E S \right) \\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left( 1+ \frac{\lambda \E{S^2}}{\E S }  - \lambda \frac{(\E S)^2}{\E S}\right) \\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left( 1+ \lambda \frac{\V{S}}{\E S }\right)\\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left( 1+ \lambda \frac{\V{S}}{(\E S)^2 } \E S\right)\\
+&= \frac{h \E S}{2(1-\lambda \E S)} \left( 1+ \rho C_s^2\right).
+\end{align*}
+Divide now both sides by $1-\E Y$. 
+\end{solution}
+\end{exercise}
+
+\begin{extra}
+We need to check our work.  For this reason, show that the results of~\cref{ex:nm-2} reduce to those of~\cref{ex:nmm-2} for the $M/M/1$ queue. 
+\begin{solution}
+  For $a$, multiply the numerator and denominator by $\mu=1/ \E S$.
+  For $b$, multiply by $\mu^2 = 1/(\E S)^2$, use that $C_s^1=1$ because the service times are exponentially distributed, and note that
+  \begin{equation*}
+    \frac{1+\rho}{1-\rho} = \frac{\mu + \lambda}{\mu-\lambda}.
+  \end{equation*}
+\end{solution}
+\end{extra}
+
+\begin{exercise}\clabel{ex:nmg5}
+As in~\cref{sec:n-policies}, show that we can obtain the Pollaczek-Khinchine equation~\cref{eq:710} with the results we have obtained up to now. 
+\begin{hint}
+  What is the cycle time $C(1)$ when the service starts with one job in the system? 
+\end{hint}
+\begin{solution}
+  Right after the arrival of the first job that sees an empty system, the service of this job starts.
+  Thus, $C(1) = 1/\lambda + T(1)$ is the expected duration of a cycle, and $V(1)$ the expected queueing cost of once cycle.
+  The rest is algebra:
+  \begin{align*}
+    \frac{V(1)}{1/\lambda + T(1)}
+    &= \frac{a + b}{1/\lambda + \E S/(1-\lambda \E S)} \\
+    &= \frac{h} 2 \frac{\E S}{1-\rho} \frac{1 + (1+\rho C_s^2 )/(1-\rho)}{1/\lambda + \E S /(1-\rho)} \\
+    &= \frac{h} 2 \frac{\E S}{1-\rho} \frac{1-\rho + 1 +\rho C_s^2}{(1-\rho)/\lambda + \E S} \\
+    &= \frac{h} 2 \frac{\E S}{1-\rho} \frac{1-\rho + 1 +\rho C_s^2}{1/\lambda } \\
+    &= \frac{h} 2 \frac{\rho}{1-\rho} (1-\rho + 1 +\rho C_s^2) \\
+    &= \frac{h} 2 \frac{\rho}{1-\rho} (2-2\rho + \rho +\rho C_s^2) \\
+    &= h \rho + \frac h 2 \frac{\rho^2}{1-\rho} (1+ C_s^2).
+  \end{align*}
+It checks!  
+\end{solution}
+\end{exercise}
+
+For the $M/G/1$ queue it is evident that the expected queueing cost while the server is idle is also given by~\cref{eq:99}.
+With this, and noting that there is a cost~$K$ to switch on the server, it follows from~\cref{ex:n-mg3} that the long-run time-average average costs are equal to
+\begin{equation}
+  \label{eq:100}
+    \frac{V(N) + K + W(N)}{C(N)}
+    = \frac h 2 \frac{\rho^2}{1-\rho} (1+ C_s^2) + h \rho + h \frac{N-1}2 + K \frac{\lambda(1-\rho)}N.
+\end{equation}
+Note that, if $N=1$ and $K=0$, this reduces to $h \E L$, as it should by our work above.
+Finally, minimizing over $N$ gives that
+\begin{equation*}
+  N^* \approx \sqrt{\frac{2\lambda(1-\rho)K}{h}}.
+\end{equation*}
+
+\begin{remark}
+  The expression for $N^*$ is a famous result in inventory theory: it is the optimal order size for a machine that produces items with holding cost $h$ per item per unit time, a cost $K$ to switch on the machine, demand arrives at rate $\lambda$, and the machine produces at rate $\mu=1/\E S$.
+  $N^*$ is known as the \recall{Economic Production Quantity (EPQ)}.
+  Taking $\mu\to\infty$, it reduces to the \recall{Economic Order Quantity (EPQ)}.
+\end{remark}
+
+\begin{exercise}\clabel{ex:n-mg3}
+Derive~\cref{eq:100}.
+\begin{solution}
+  Note first that $C(N) = N(1/\lambda + \E S / (1-\rho)) = N/(\lambda(1-\rho))$. Then,
+  \begin{align*}
+    \frac{V(N) + K + W(N)}{C(N)}
+    &= \left(aN^2 + bN + K + h N(N-1)/2 \lambda\right) \frac{\lambda(1-\rho)}N \\
+    &= \frac h 2 \rho N  + \frac h 2 \frac \rho{1-\rho} (1+\rho C_s^2) + \frac h 2 (N-1)(1-\rho) + K \frac{\lambda(1-\rho)}N \\
+    &= \frac h 2 \frac \rho{1-\rho} (1+\rho C_s^2) + \frac h 2 (N-1 + \rho) + K \frac{\lambda(1-\rho)}N \\
+    &= \frac h 2 \frac \rho{1-\rho} (\rho + \rho C_s^2 + 1 - \rho) + \frac h 2 (N-1 + \rho) + K \frac{\lambda(1-\rho)}N \\
+    &= \frac h 2 \frac{\rho^2}{1-\rho} (1+ C_s^2) +\frac h 2 \rho + \frac h 2 (N-1 + \rho) + K \frac{\lambda(1-\rho)}N \\
+    &= \frac h 2 \frac{\rho^2}{1-\rho} (1+ C_s^2) + h \rho + h \frac{N-1}2 + K \frac{\lambda(1-\rho)}N.
+  \end{align*}
+%With the above expressions for $a$ and $b$ the result follows immediately. 
+\end{solution}
+\end{exercise}
+
+
+\opt{solutionfiles}{
+\Closesolutionfile{hint}
+\Closesolutionfile{ans}
+\subsection*{Hints}
+\input{hint}
+\subsection*{Solutions}
+\input{ans}
+}
+
+%\clearpage 
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../companion"
+%%% End:

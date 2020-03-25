@@ -3,7 +3,7 @@
 \Opensolutionfile{ans}
 \subsection{Multiple-choice Questions}
 \begin{exercise}[201804]
- Consider a network with $n$ stations in tandem. At station $i$, the service times $S_i$ for all machines at that station are the same and constant;   station $i$ contains $N_i$ machines. The number of jobs required to keep all machines busy is $N=\sum_{i=1}^n N_i$, and the raw processing time $T_0=\sum_{i=1}^n S_i$. Thus, if the number $w$ of allowed jobs in the system is larger than $N$,  the number of jobs waiting somewhere in queue is $w-N$.
+ Consider a network with $n$ stations in tandem. At station $i$, the service times $S_i$ for all machines at that station are the same and constant; station $i$ contains $N_i$ machines. The number of jobs required to keep all machines busy is $N=\sum_{i=1}^n N_i$, and the raw processing time $T_0=\sum_{i=1}^n S_i$. Thus, if the number $w$ of allowed jobs in the system is larger than $N$, the number of jobs waiting somewhere in queue is $w-N$.
 \begin{solution}
 Answer = B.
 
@@ -15,7 +15,7 @@ In general the number of jobs in queue is much higher than $w-N$. Consider the e
 \begin{exercise}[201804]
 Consider an $M$-station Jackson network with $\lambda_i$ the total arrival rate of jobs at station $i$. The average waiting time jobs spend in the system is
 \begin{equation*}
-  \E{W} = \sum_{i=1}^M \lambda_i \E{W_i}
+ \E{W} = \sum_{i=1}^M \lambda_i \E{W_i}
 \end{equation*}
 \begin{solution}
 Answer = B. A simple reason is that the units left and right don't match: left time, right number per time times time. 
@@ -37,7 +37,7 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201804]
-Suppose in a tandem network of $G/G/c$ queues we can reduce $C_{s}^2$ of just one station by a factor 2.  To improve the average waiting time in the entire chain, it is  best to reduce $C_{s,1}^2$.   
+Suppose in a tandem network of $G/G/c$ queues we can reduce $C_{s}^2$ of just one station by a factor 2. To improve the average waiting time in the entire chain, it is best to reduce $C_{s,1}^2$. 
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -46,11 +46,11 @@ Answer = A.
 \begin{exercise}[201804]
 We have a two-station Jackson network. If the routing matrix is $P=
 \begin{pmatrix}
-  0 & 1\\
+ 0 & 1\\
 r & 0
 \end{pmatrix}$ the total arrival rate $\lambda_1$ at station 1 is finite only if $r=1$. 
 \begin{solution}
-Answer = B, see Zijm, Page 38.
+Answer = B.
 
 When $r=1$, the matrix $P$ has an eigenvalue 1. Hence, the equation $\lambda = \gamma + \lambda P$ has no inverse in this case.
 \end{solution}
@@ -58,70 +58,64 @@ When $r=1$, the matrix $P$ has an eigenvalue 1. Hence, the equation $\lambda = \
 
 
 \begin{exercise}[201807]
-  A production network consists of 3 single-machine stations in
-  tandem. The   processing times constant and such that $t_1=2$ hours, $t_2=3$ hours and $t_3=2$ hours.
-We claim that  the critical WIP $W_0=7/3$, the bottleneck
-  capacity $r_b=1/3$ and the raw processing time~$T_0=7$.
+ A production network consists of 3 single-machine stations in
+ tandem. The processing times constant and such that $t_1=2$ hours, $t_2=3$ hours and $t_3=2$ hours.
+We claim that the critical WIP $W_0=7/3$, the bottleneck
+ capacity $r_b=1/3$ and the raw processing time~$T_0=7$.
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
+
 \begin{exercise}[201904]
- For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
-\begin{solution} Answer = B.
-    The claim applies to closed queueing networks.
+ We have a two-station single-server open network.
+ Jobs enter the network at the first station with rate $\gamma$.
+ A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2.
+ At station 2, a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1.
+ Then,
+ \begin{equation*}
+ P = 
+ \begin{pmatrix}
+ \alpha & 1- \alpha \\
+ 1- \beta_1-\beta_2 & \beta_2
+ \end{pmatrix}.
+ \end{equation*}
+\begin{solution} Answer = B,~\cref{ex:47}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  We have a two-station single-server open network.
-  Jobs enter the network at the first station with rate $\gamma$.
-  A fraction $\alpha$ returns from station 1 to itself; the rest moves to station 2.
-  At station 2, a fraction $\beta_2$ returns to station 2 again, a fraction $\beta_1$ goes to station 1.
-  Then,
-  \begin{equation*}
-    P = 
-    \begin{pmatrix}
-      \alpha & 1- \alpha \\
-      1- \beta_1-\beta_2 & \beta_2
-    \end{pmatrix}.
-  \end{equation*}
-\begin{solution}  Answer = B,~\cref{ex:47}
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[201904]
-  Jobs arrive at rate $\lambda$ and are assembled into batches of size $B$.
-  The average time a job waits until the batch is complete is $\E{W} = \frac{B-1}{2\lambda}$.
+ Jobs arrive at rate $\lambda$ and are assembled into batches of size $B$.
+ The average time a job waits until the batch is complete is $\E{W} = \frac{B-1}{2\lambda}$.
 \begin{solution}Answer = A,~\cref{ex:48}
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201907]
-  We have a queueing network with $M$ exponential servers and Poisson arrival processes
-  Let $P_{ij}$ be the routing matrix.
-  For stability it is necessary that $\sum_{j=1}^M P_{i j} <1$  for at least one $i$. 
+ We have a queueing network with $M$ exponential servers and Poisson arrival processes
+ Let $P_{ij}$ be the routing matrix.
+ For stability it is necessary that $\sum_{j=1}^M P_{i j} <1$ for at least one $i$. 
 \begin{solution}
 Answer = A,~\cref{ex:93}.
 \end{solution}
 \end{exercise}
 
 % \begin{exercise}[201907]
-%   Ruben: voorkeur voor deze vraag, of de vorige? Beide opnemen?
+% Ruben: voorkeur voor deze vraag, of de vorige? Beide opnemen?
 
-%   We have a queueing network with $M$ exponential servers and Poisson arrival processes Let $P_{ij}$ be the routing matrix.
-%   For stability it is sufficient that $\sum_{j=1}^M P_{i j} <1$ for at least one $i$.
+% We have a queueing network with $M$ exponential servers and Poisson arrival processes Let $P_{ij}$ be the routing matrix.
+% For stability it is sufficient that $\sum_{j=1}^M P_{i j} <1$ for at least one $i$.
 % \begin{solution}
 % Answer = B,~\cref{ex:93}.
 % \end{solution}
 % \end{exercise}
 
 \begin{exercise}[201907]
-We have two $M/M/1$ stations in tandem.  The average queueing time for the network  is given by
+We have two $M/M/1$ stations in tandem. The average queueing time for the network is given by
 \begin{equation}
-\E{W_Q}  = \frac{\rho_1}{1-\rho_1} + \frac{\rho_2}{1-\rho_2}.
+\E{W_Q} = \frac{\rho_1}{1-\rho_1} + \frac{\rho_2}{1-\rho_2}.
 \end{equation}
 \begin{solution}
 Answer = B, see~\cref{ex:94}. It is evidently wrong: the units don't check.
@@ -130,16 +124,16 @@ Answer = B, see~\cref{ex:94}. It is evidently wrong: the units don't check.
 
 
 \begin{exercise}[201907]
-  Consider a two-station Jackson network with $P=
-  \begin{pmatrix}
-    0 &1 \\
-    0 & 0
-  \end{pmatrix}$ and $\gamma = (1, 0)$.
-  Let $p(i,j)$ be the stationary probability that the first (second) station contains $i$ ($j$) jobs.
-  Then
-  \begin{equation*}
-    \lambda p(0, 0) = \mu_2 p(0, 1).
-  \end{equation*}
+ Consider a two-station Jackson network with $P=
+ \begin{pmatrix}
+ 0 &1 \\
+ 0 & 0
+ \end{pmatrix}$ and $\gamma = (1, 0)$.
+ Let $p(i,j)$ be the stationary probability that the first (second) station contains $i$ ($j$) jobs.
+ Then
+ \begin{equation*}
+ \lambda p(0, 0) = \mu_2 p(0, 1).
+ \end{equation*}
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -158,72 +152,72 @@ The entire network can contain at most one job, hence, when there is a job anywh
 
 
 % \begin{exercise}[201704]
-%   Is this a closed queueing network? (Why (not)?)
+% Is this a closed queueing network (why (not)?
 % \end{exercise}
 
 \begin{exercise}[201704]
-  Can the first station be characterized as an $M/M/1/1$ queue? (Why (not)?)
+ Can the first station be characterized as an $M/M/1/1$ queue? why, or why not?
 \begin{solution}
-    No, if the server at the first station is free but the second is occupied, the first server still has to reject any arriving job. This is not the case for the $M/M/1/1$ queue.
+ No, if the server at the first station is free but the second is occupied, the first server still has to reject any arriving job. This is not the case for the $M/M/1/1$ queue.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]
 Make a sketch of the states and the transition rates.
 \begin{solution}
-  \begin{center}
+ \begin{center}
 \begin{tikzpicture}[scale=1,
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for boxes
-    circ/.style={
-      circle, 
-      draw=black,
-      thick,
-      minimum size=1.cm,
-      inner sep=0pt,
-      text centered
-    },
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt}
+ %Define standard arrow tip
+ >=stealth',
+ %Define style for boxes
+ circ/.style={
+ circle, 
+ draw=black,
+ thick,
+ minimum size=1.cm,
+ inner sep=0pt,
+ text centered
+ },
+ % Define arrow style
+ pil/.style={
+ ->,
+ thick,
+ shorten <=2pt,
+ shorten >=2pt}
 ]
 
 \node[circ] (0) {$(0,0)$};
 \node[circ, right=of 0] (1) {$(1,0)$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (0); 
+edge[pil, <-] node[midway, above] {$\lambda$} (0); 
 \node[circ, above=of 0] (2) {$(0,1)$}
-edge[pil, <-]  node[midway, above] {$\mu_1$} (1)
-edge[pil, ->]  node[midway, left] {$\mu_2$} (0);
+edge[pil, <-] node[midway, above] {$\mu_1$} (1)
+edge[pil, ->] node[midway, left] {$\mu_2$} (0);
 \end{tikzpicture}
-    
-  \end{center}
+ 
+ \end{center}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]
 What are the balance equations for this queueing network?
 \begin{solution}
-  \begin{align*}
-    \mu_1 p(1,0) &= \lambda p(0,0) \\
-    \mu_2 p(0,1) &= \mu_1 p(1,0) = \lambda p(0,0).
-  \end{align*}
+ \begin{align*}
+ \mu_1 p(1,0) &= \lambda p(0,0) \\
+ \mu_2 p(0,1) &= \mu_1 p(1,0) = \lambda p(0,0).
+ \end{align*}
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201704]
-  Find the stationary distribution of the number of jobs at the first
-  and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
+ Find the stationary distribution of the number of jobs at the first
+ and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
 \begin{solution}
 Define $\rho_i=\lambda/\mu_i$.
-  \begin{align*}
-     p(1,0) &= \rho_1 p(0,0) \\
-     p(0,1) &= \rho_2 p(0,0).
-  \end{align*}
+ \begin{align*}
+ p(1,0) &= \rho_1 p(0,0) \\
+ p(0,1) &= \rho_2 p(0,0).
+ \end{align*}
 With the normalization requirement $p(0,0)+p(1,0)+p(0,1) = 1$ we get
 $p(0,0)(1 + \rho_1 + \rho_2) = 1$, hence
 \begin{equation*}
@@ -233,170 +227,132 @@ p(0,0)=\frac1{1 + \rho_1 + \rho_2}.
 \end{exercise}
 
 \begin{exercise}[201704]
-  Compute  $\E{L_1}$ and $\E{L_2}$.
+ Compute $\E{L_1}$ and $\E{L_2}$.
 \begin{solution}
-    \begin{equation*}
-    \E{L_1} = 0 (p(0,0) + p(0,1)) + 1 p(1,0) = \frac{\rho_1}{1+\rho_1 + \rho_2}
-    \end{equation*}
+ \begin{equation*}
+ \E{L_1} = 0 (p(0,0) + p(0,1)) + 1 p(1,0) = \frac{\rho_1}{1+\rho_1 + \rho_2}
+ \end{equation*}
 and
-    \begin{equation*}
-    \E{L_2} = \frac{\rho_2}{1+\rho_1 + \rho_2}
-    \end{equation*}
+ \begin{equation*}
+ \E{L_2} = \frac{\rho_2}{1+\rho_1 + \rho_2}
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]
-  Compute  $\V{L_1}$.
+ Compute $\V{L_1}$.
 \begin{solution}
-    \begin{equation*}
-      \V{L_1} = \E{L_1^2} - (\E{L_1})^2= \frac{\rho_1}{1+\rho_1 + \rho_2} - \left(\frac{\rho_1}{1+\rho_1 + \rho_2}\right)^2.
-    \end{equation*}
+ \begin{equation*}
+ \V{L_1} = \E{L_1^2} - (\E{L_1})^2= \frac{\rho_1}{1+\rho_1 + \rho_2} - \left(\frac{\rho_1}{1+\rho_1 + \rho_2}\right)^2.
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201704]
-  Suppose $\mu_1=\mu_2=\mu$. How much larger than $\lambda$ should
-  $\mu$ minimally be such that the loss probability is less than
-  $5\%$?
+ Suppose $\mu_1=\mu_2=\mu$. How much larger than $\lambda$ should
+ $\mu$ minimally be such that the loss probability is less than
+ $5\%$?
 \begin{solution}
-    The acceptance probability is $p(0,0)$. Let $\rho=\lambda/\mu$. Then
-    \begin{equation*}
-      0.95 =\frac{19}{20}\leq \frac1{1+2\rho} \iff 2\rho \leq 1/19 \iff \rho \leq 1/38.
-    \iff \lambda < \frac{\mu}{38}.
+ The acceptance probability is $p(0,0)$. Let $\rho=\lambda/\mu$. Then
+ \begin{equation*}
+ 0.95 =\frac{19}{20}\leq \frac1{1+2\rho} \iff 2\rho \leq 1/19 \iff \rho \leq 1/38.
+ \iff \lambda < \frac{\mu}{38}.
 \end{equation*}
 \end{solution}
 \end{exercise}
 
 
-We have a closed network with two single-server stations and two jobs. Jobs from station 0 go to station 1, and from station 1 to station 0.  Services times are exponentially distributed with mean $1/\mu_i$ at station $i, i=0,1$.
-
-\begin{exercise}[201704]
-What are the visit ratios at each station?
-\begin{solution}
-  Clearly, $V_0=V_1=1$.
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[201704]
-  Use the convolution algorithm to determine the value of the
-  normalization constant for this network.
-\begin{solution}
-    From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
-    that $M=1$, since there just two stations. Since there are $N=2$
-    jobs, we need $G(1,2)$. 
-    \begin{equation*}
-      \begin{split}
-      G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
-       &= 1\cdot \mu_0^{-2}  + \frac1{\mu_1} \frac{\mu_0}  + \frac{\mu_1^2} 1 \\
-       &= \frac 1{16} + \frac1{12}  + \frac{9}.
-      \end{split}
-    \end{equation*}
-\end{solution}
-\end{exercise}
-
-\begin{exercise}[201704]
-  What is the fraction of jobs that see the load/unload station idle
-  when moving to this station?
-\begin{solution}
-    When the load/unload station is idle, there are no jobs, hence we need
-      $\P{n_0=0}$. Clearly, when $n_0=0$, $n_1 = 2$. Hence,
-    \begin{equation*}
-\pi(0, 2) = \frac1{G(1,2)} f_0(0) f_1(2).
-    \end{equation*}
-Since $f_0(0) = 1$ and $f_1(2) = \mu_1^{-2}$, the answer follows.
-\end{solution}
-\end{exercise}
 
 We have a network with two single-server stations in tandem. Jobs
 arrive at the first station as a Poisson process with rate $\lambda$,
 the service times at stations 1 and 2 are i.i.d. and exponentially
-distributed with  mean $\mu_i^{-1}$ for station $i$, $i=1,2$. The waiting room at the first station is unlimited; the  second station can contain at most one job. When the server at the second station is occupied, the server at first station blocks in the sense that it does not start service when  the second station is busy. 
+distributed with mean $\mu_i^{-1}$ for station $i$, $i=1,2$. The waiting room at the first station is unlimited; the second station can contain at most one job. When the server at the second station is occupied, the server at first station blocks in the sense that it does not start service when the second station is busy. 
 
 \begin{exercise}[201706]
-  The assumed blocking  policy at the first station is equivalent to the \emph{preemptive repeat with without resampling} discipline, which means that the interrupted customer starts again with the original service time. Why is this so? 
+ The assumed blocking policy at the first station is equivalent to the \emph{preemptive repeat with without resampling} discipline, which means that the interrupted customer starts again with the original service time. Why is this so? 
 \begin{solution}
-  Because the service times are exponentially distributed, hence memoryless. 
+ Because the service times are exponentially distributed, hence memoryless. 
 \end{solution}
 \end{exercise}
 
 % \begin{exercise}[201706]
-%   Is this a closed queueing network? (Why (not)?)
+% Is this a closed queueing network? Why, or why not?
 % \end{exercise}
 
 \begin{exercise}[201706]
-  Can the second station be characterized as an $M/M/1/1$ queue? 
+ Can the second station be characterized as an $M/M/1/1$ queue? 
 \begin{solution}
-    No, due to blocking, the departure process of the first station depends on the state of the next server. Hence, the how  jobs arrive at the second station depends on the state of the second server. For the $M/M/1/1$ the arrival process does not depend on the state of the server; only the process of accepting jobs depends on the state of the server.  
+ No, due to blocking, the departure process of the first station depends on the state of the next server. Hence, the how jobs arrive at the second station depends on the state of the second server. For the $M/M/1/1$ the arrival process does not depend on the state of the server; only the process of accepting jobs depends on the state of the server. 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201706]
-Make a sketch of the state space,  the transitions and the transition rates.
+Make a sketch of the state space, the transitions and the transition rates.
 \begin{solution}
-  \begin{center}
+ \begin{center}
 \begin{tikzpicture}[scale=1,
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for boxes
-    circ/.style={
-      circle, 
-      draw=black,
-      thick,
-      minimum size=1.cm,
-      inner sep=0pt,
-      text centered
-    },
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt}
+ %Define standard arrow tip
+ >=stealth',
+ %Define style for boxes
+ circ/.style={
+ circle, 
+ draw=black,
+ thick,
+ minimum size=1.cm,
+ inner sep=0pt,
+ text centered
+ },
+ % Define arrow style
+ pil/.style={
+ ->,
+ thick,
+ shorten <=2pt,
+ shorten >=2pt}
 ]
 
 \node[circ] (0) {$(0,0)$};
 \node[circ, right=of 0] (1) {$(1,0)$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (0); 
+edge[pil, <-] node[midway, above] {$\lambda$} (0); 
 \node[circ, above=of 0] (2) {$(0,1)$}
-edge[pil, <-]  node[midway, above] {$\mu_1$} (1)
-edge[pil, ->]  node[midway, left] {$\mu_2$} (0);
+edge[pil, <-] node[midway, above] {$\mu_1$} (1)
+edge[pil, ->] node[midway, left] {$\mu_2$} (0);
 \node[circ, above=of 1] (3) {$(1,1)$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (2)
-edge[pil, ->]  node[midway, left] {$\mu_2$} (1);
+edge[pil, <-] node[midway, above] {$\lambda$} (2)
+edge[pil, ->] node[midway, left] {$\mu_2$} (1);
 \node[circ, right=of 3] (4) {$\ldots$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (3);
+edge[pil, <-] node[midway, above] {$\lambda$} (3);
 \node[circ, below=of 4] (5) {$\ldots$}
-edge[pil, <-]  node[midway, left] {$\mu_1$} (3)
-edge[pil, <-]  node[midway, above] {$\lambda$} (1);
+edge[pil, <-] node[midway, left] {$\mu_1$} (3)
+edge[pil, <-] node[midway, above] {$\lambda$} (1);
 \end{tikzpicture}
-    
-  \end{center}
+ 
+ \end{center}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
-What is the stability criterion for  this queueing network?
+What is the stability criterion for this queueing network?
 \begin{solution}
-For step to the right, i.e., arrival, there must be a service at the first and second station. Hence $\lambda (\E{S_1} + \E{S_2} )  < 1.$ 
+For step to the right, i.e., arrival, there must be a service at the first and second station. Hence $\lambda (\E{S_1} + \E{S_2} ) < 1.$ 
 
 The wording of the actual exam was wrong; I included the solution in the question... For this reason I removed the question. However, I still gave a point for a reasonable answer. 
 \end{solution}
 \end{exercise}
 
 %\begin{exercise}[201706]
-%   Can we use level crossing arguments to solve for this stationary
-%   distribution? (Why (not)?)
-%   \begin{solution}
-%   \end{solution}
+% Can we use level-crossing arguments to solve for this stationary
+% distribution? Why (not)?
+% \begin{solution}
+% \end{solution}
 % \end{exercise}
 
 \begin{exercise}[201706]
 Suppose you have some resources (money) available to increase the processing rate of \emph{just} one of the servers or invest in queueing space between stations 1 and 2.. Which of these options should you suggest to analyze first? 
 \begin{solution}
 Due to blocking the first server and second server are hardly occupied. 
-If  we have unlimited buffer space between the two stations, the stability condition is 
-$\lambda\min\{E{S_1}, \E{S_2}\}<1$.   
+If we have unlimited buffer space between the two stations, the stability condition is 
+$\lambda\min\{E{S_1}, \E{S_2}\}<1$. 
 Thus, if possible, expanding the queueing space is an easy solution.
 
 However, any reasonable answer would do here.
@@ -407,62 +363,62 @@ However, any reasonable answer would do here.
 Henceforth, assume that also the first station cannot contain more than one job. 
 
 \begin{exercise}[201706]
-  Find the stationary joint distribution of the number of jobs at the first
-  and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
+ Find the stationary joint distribution of the number of jobs at the first
+ and second station in terms of $\lambda$, $\mu_1$ and $\mu_2$.
 \begin{solution}
 The state space plus transitions becomes like this now:
 
 \begin{tikzpicture}[scale=1,
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for boxes
-    circ/.style={
-      circle, 
-      draw=black,
-      thick,
-      minimum size=1.cm,
-      inner sep=0pt,
-      text centered
-    },
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt}
+ %Define standard arrow tip
+ >=stealth',
+ %Define style for boxes
+ circ/.style={
+ circle, 
+ draw=black,
+ thick,
+ minimum size=1.cm,
+ inner sep=0pt,
+ text centered
+ },
+ % Define arrow style
+ pil/.style={
+ ->,
+ thick,
+ shorten <=2pt,
+ shorten >=2pt}
 ]
 
 \node[circ] (0) {$(0,0)$};
 \node[circ, right=of 0] (1) {$(1,0)$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (0); 
+edge[pil, <-] node[midway, above] {$\lambda$} (0); 
 \node[circ, above=of 0] (2) {$(0,1)$}
-edge[pil, <-]  node[midway, above] {$\mu_1$} (1)
-edge[pil, ->]  node[midway, left] {$\mu_2$} (0);
+edge[pil, <-] node[midway, above] {$\mu_1$} (1)
+edge[pil, ->] node[midway, left] {$\mu_2$} (0);
 \end{tikzpicture}
 
 
 Define $\rho_i=\lambda/\mu_i$. Write $p=p(0,0), q=p(1,0), r=p(0,1), s=p(1,1)$. Then,
-  \begin{align*}
-     \lambda p &= \mu_2 r \\
-     \lambda r &= \mu_2 s,\\
-     \mu_1 q &= \lambda p + \mu_2 s.
-  \end{align*}
-We have four unknowns and three equations. With normalization we have four equations, so the above should  suffice.  Expression everything in terms of $p$: 
-  \begin{align*}
-     r &= \rho_2 p \\
-     s &= \rho_2 r = \rho_2^2 p,\\
-     q &= \rho_1 p + \mu_2 s/\mu_1 = \rho_1 p + \rho_1\rho_2 p = p \rho_1 (1+\rho_2).
-  \end{align*}
+ \begin{align*}
+ \lambda p &= \mu_2 r \\
+ \lambda r &= \mu_2 s,\\
+ \mu_1 q &= \lambda p + \mu_2 s.
+ \end{align*}
+We have four unknowns and three equations. With normalization we have four equations, so the above should suffice. Expression everything in terms of $p$: 
+ \begin{align*}
+ r &= \rho_2 p \\
+ s &= \rho_2 r = \rho_2^2 p,\\
+ q &= \rho_1 p + \mu_2 s/\mu_1 = \rho_1 p + \rho_1\rho_2 p = p \rho_1 (1+\rho_2).
+ \end{align*}
 The normalization condition gives
 \begin{equation*}
-  p(1+\rho_1(1+\rho_2) + \rho_2 + \rho_2^2) = 1.
+ p(1+\rho_1(1+\rho_2) + \rho_2 + \rho_2^2) = 1.
 \end{equation*}
 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
-What is the fraction of time the network is empty? %  Compute  $\E{L_1}$ and $\E{L_2}$.
+What is the fraction of time the network is empty? % Compute $\E{L_1}$ and $\E{L_2}$.
 \begin{solution}
 This is $p$. 
 \end{solution}
@@ -476,25 +432,25 @@ Jobs arrive at rate $\lambda$. Only the jobs that arrive when the first server i
 \end{exercise}
 
 \begin{exercise}[201706]
-  What is throughput of this queueing system in the limit $\mu_2 \to \infty$? 
+ What is throughput of this queueing system in the limit $\mu_2 \to \infty$? 
 \begin{solution}
 In the limit $\mu_2 \to \infty$, there is no job at the second station. Thus, in this case, $r=s=0$. Moreover
 \begin{equation*}
-  1+\rho_1(1+\rho_2) + \rho_2 + \rho_2^2 \to 1+\rho_1.
+ 1+\rho_1(1+\rho_2) + \rho_2 + \rho_2^2 \to 1+\rho_1.
 \end{equation*}
-  Hence $p=(1+\rho_1)^{-1}$. And this is what we get for a single server station with blocking. 
+ Hence $p=(1+\rho_1)^{-1}$. And this is what we get for a single server station with blocking. 
 
 It is actually interesting to also consider the limit $\mu_1\to\infty$, rather than taking the limit $\mu_2\to\infty$. Why are the answers so different?
 \end{solution}
 \end{exercise}
 
 
-
+\begin{comment}
 
 \subsection{Closed Queueing Networks}
 \label{sec:queueing-networks}
 
-We have a closed network with three single-server stations, a load-unload node,  and two jobs. Jobs from station 0 go to station 1. For station 1: half of the jobs go  to station  0, the other half to station 2. For station 2:  one out of three jobs goes to station 1, the rest to station 3. From station 3, all jobs go to station 1. Services times are exponentially distributed with mean $1$, $2$ and $3$  at stations $1, 2$ and $3$, and $10$ at station 0.
+We have a closed network with three single-server stations, a load-unload node, and two jobs. Jobs from station 0 go to station 1. For station 1: half of the jobs go to station 0, the other half to station 2. For station 2: one out of three jobs goes to station 1, the rest to station 3. From station 3, all jobs go to station 1. Services times are exponentially distributed with mean $1$, $2$ and $3$ at stations $1, 2$ and $3$, and $10$ at station 0.
 
 \begin{exercise}[201706]
 What is the routing matrix?
@@ -502,7 +458,7 @@ What is the routing matrix?
 \begin{equation*}
 P = 
 \begin{pmatrix}
-  0 & 1 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
 1/2 & 0 & 1/2 & 0 \\
 0 & 1/3 & 0 & 2/3 \\
 0 & 1 & 0 & 0
@@ -514,47 +470,47 @@ P =
 Suppose henceforth that the visit ratios are $(1,2,3,4)$. 
 
 \begin{exercise}[201706]
-  Use the convolution algorithm to determine $G(2,2)$.
+ Use the convolution algorithm to determine $G(2,2)$.
 \begin{solution}
-    From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
-    that $M=1$, since there just two stations. Since there are $N=2$
-    jobs, we need $G(1,2)$. 
-    \begin{equation*}
-      \begin{split}
-      G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
-       &= 1\cdot \mu_0^{-2}  + \frac1{\mu_1} \frac{1}{\mu_0}  + \frac{1}{\mu_1^2} 1 \\
-       &= \frac 1{16} + \frac1{12}  + \frac{1}{9}.
-      \end{split}
-    \end{equation*}
+ From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
+ that $M=1$, since there just two stations. Since there are $N=2$
+ jobs, we need $G(1,2)$. 
+ \begin{equation*}
+ \begin{split}
+ G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
+ &= 1\cdot \mu_0^{-2} + \frac1{\mu_1} \frac{1}{\mu_0} + \frac{1}{\mu_1^2} 1 \\
+ &= \frac 1{16} + \frac1{12} + \frac{1}{9}.
+ \end{split}
+ \end{equation*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201706]
 For this network, why is $\mu_i f_i(k) = V_i f_i(k-1)$? 
 \begin{solution}
-  One way (that I accepted)  is to use the formula for $f$, but that is actually not completely right, because the formula for $f$ is based on the statement in the question, not the other way around. 
+ One way (that I accepted) is to use the formula for $f$, but that is actually not completely right, because the formula for $f$ is based on the statement in the question, not the other way around. 
 
-The left hand side is the rate at which jobs leave station $i$ when $k$ jobs are present, the right hand side is the rate at which jobs arrive to station $i$ when it contains $k-1$ jobs (so that once the job has arrived, the station contains $k$ jobs.)
+The left-hand side is the rate at which jobs leave station $i$ when $k$ jobs are present, the right-hand side is the rate at which jobs arrive to station $i$ when it contains $k-1$ jobs (so that once the job has arrived, the station contains $k$ jobs.)
 \end{solution}
 \end{exercise}
 
 
 
 \begin{exercise}[201804]
-Consider a network of two stations. The first station can only send jobs to the next station when the next station contains less than $K$ jobs. Provide a set of recursions to simulate the queue length process at  both stations in discrete time. 
+Consider a network of two stations. The first station can only send jobs to the next station when the next station contains less than $K$ jobs. Provide a set of recursions to simulate the queue length process at both stations in discrete time. 
 
 \begin{solution}
-  There can be different ways in which you model the system. One way is like this.
-  \begin{align*}
-    d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\}\1{Q_{k-1,2}<K} \\
-    Q_{k,1} &= Q_{k-1,1} + a_{k,1} - d_{k,1}\\
-    d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\} \\
-    Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}\\
-  \end{align*}
+ There can be different ways in which you model the system. One way is like this.
+ \begin{align*}
+ d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\}\1{Q_{k-1,2}<K} \\
+ Q_{k,1} &= Q_{k-1,1} + a_{k,1} - d_{k,1}\\
+ d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\} \\
+ Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}.
+ \end{align*}
 Another interesting way is to take this for $d_{k,1}$.
-  \begin{align*}
-    d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}, K-Q_{k-1,2}\}\1{Q_{k-1,2}<K}.
-  \end{align*}
+ \begin{align*}
+ d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}, K-Q_{k-1,2}\}\1{Q_{k-1,2}<K}.
+ \end{align*}
 Like this, the second queue can be replenished to level $K$, but cannot exceed level $K$. 
 
 If you forgot to relate $a_{k,2}$ and $d_{k,1}$ in some way: $-1/2$. 
@@ -567,89 +523,85 @@ $d_{k,1} = \min\{c_{k,1}, Q_{k-1, 1}, K-Q_{k-1,2}\}$. What happens if $K-Q_{k-1,
 
 We have a Jackson network with two single-server stations in tandem. Jobs
 arrive at the first station as a Poisson process with rate $\lambda$,
-the service times at station~$i$ is $~\exp(\mu_i)$.
+the service times at station~$i$ is $~\Exp(\mu_i)$.
 
 
 \begin{exercise}[201804]
 Make a sketch of the state space and the transition rates.
 \begin{solution}
-  See Figure 2.2 in Zijm's book.
 
 Some students came up with very near to trivial networks. In those cases I gave 1/2 for this and the next two problems in total. (Consistently solving trivial problems cannot result in points\ldots)
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
-  What are the balance equations on the boundary $n_1\geq 0$, $n_2=0$. 
+ What are the balance equations on the boundary $n_1\geq 0$, $n_2=0$. 
 \begin{solution}
-    At $(0,0)$, the rates out and in are $\pi(0,0)\lambda = \pi(0,1)\mu_2$. At the rest of the boundary, $(\lambda+\mu_1) \pi(n_1, 0) = \lambda \pi(n_1-1, 0) + \mu_2\pi(n_1, 1)$. 
+ At $(0,0)$, the rates out and in are $\pi(0,0)\lambda = \pi(0,1)\mu_2$. At the rest of the boundary, $(\lambda+\mu_1) \pi(n_1, 0) = \lambda \pi(n_1-1, 0) + \mu_2\pi(n_1, 1)$. 
 
 I accepted if you forgot the state $(0,0)$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
-Show that on the boundary $n_1\geq0, n_2=0$, the stationary distribution $\pi(n_1, n_2)$  of the number of jobs satisfies the balance equations.
+Show that on the boundary $n_1\geq0, n_2=0$, the stationary distribution $\pi(n_1, n_2)$ of the number of jobs satisfies the balance equations.
 \begin{solution}
-  Fill in the stationary distribution  $\pi(n_1,n_2)=(1-\rho_1)(1-\rho_2)\rho^{n_1}\rho^{n_2}$, in the above balance equation, and check that both sides cancel. 
+ Fill in the stationary distribution $\pi(n_1,n_2)=(1-\rho_1)(1-\rho_2)\rho^{n_1}\rho^{n_2}$, in the above balance equation, and check that both sides cancel. 
 \end{solution}
 \end{exercise}
 
 
-\begin{comment}
-
 The solution is in the formula sheet!
 
-  \begin{center}
+ \begin{center}
 \begin{tikzpicture}[scale=1,
-    %Define standard arrow tip
-    >=stealth',
-    %Define style for boxes
-    circ/.style={
-      circle, 
-      draw=black,
-      thick,
-      minimum size=1.cm,
-      inner sep=0pt,
-      text centered
-    },
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt}
+ %Define standard arrow tip
+ >=stealth',
+ %Define style for boxes
+ circ/.style={
+ circle, 
+ draw=black,
+ thick,
+ minimum size=1.cm,
+ inner sep=0pt,
+ text centered
+ },
+ % Define arrow style
+ pil/.style={
+ ->,
+ thick,
+ shorten <=2pt,
+ shorten >=2pt}
 ]
 
 \node[circ] (0) {$(0,0)$};
 \node[circ, right=of 0] (1) {$(1,0)$}
-edge[pil, <-]  node[midway, above] {$\lambda$} (0); 
+edge[pil, <-] node[midway, above] {$\lambda$} (0); 
 \node[circ, above=of 0] (2) {$(0,1)$}
-edge[pil, <-]  node[midway, above] {$\mu_1$} (1)
-edge[pil, ->]  node[midway, left] {$\mu_2$} (0);
+edge[pil, <-] node[midway, above] {$\mu_1$} (1)
+edge[pil, ->] node[midway, left] {$\mu_2$} (0);
 \end{tikzpicture}
-    
-  \end{center}
-\end{comment}
+ 
+ \end{center}
 
 % \subsection{Closed Queueing Networks}
 % \label{sec:queueing-networks}
 
-We have a closed network with two single-server stations. Jobs from station 0 go to station 1, and from station 1 to station 0 with probability 1/3 and from station 1 to itself with probability $2/3$.  Services times are exponentially distributed with mean $1$ at station $0$, and $2$ at station 1.
+We have a closed network with two single-server stations. Jobs from station 0 go to station 1, and from station 1 to station 0 with probability 1/3 and from station 1 to itself with probability $2/3$. Services times are exponentially distributed with mean $1$ at station $0$, and $2$ at station 1.
 
 \begin{exercise}[201804]
 What is the routing matrix $P$? Use this to compute the visit ratios at each station.
 \begin{solution}
-  $P=
-  \begin{pmatrix}
-    0 & 1 \\
+ $P=
+ \begin{pmatrix}
+ 0 & 1 \\
 1/3 & 2/3
-  \end{pmatrix}
+ \end{pmatrix}
 $. Set $V_0=1$. Then solve for $V_1$ in the equation $V = VP$, where $V=(V_0, V_1)$, to see that $V_1=3$. Indeed, station 1 is visited three times as often as station 0. 
 
 If the row sums of $P$ are not 1, this means that jobs leave the network. This is impossible in closed queueing networks. Hence, such $P$'s are wrong. $-1/2$.
 
-You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is in the book of Zijm, and implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
+You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
 
 If you assume that $V_0+V_1=1$: $-1/2$. 
 
@@ -657,70 +609,70 @@ If you assume that $V_0+V_1=1$: $-1/2$.
 \end{exercise}
 
 \begin{exercise}[201804]
-  If there is just one job allowed in the network, determine $\E W$.
+ If there is just one job allowed in the network, determine $\E W$.
 \begin{solution}
-    \begin{align*}
-    \E{W_0} &= \E{S_0} = 1\\      
-    \E{W_1} &= \E{S_1} = 2\\
+ \begin{align*}
+ \E{W_0} &= \E{S_0} = 1\\ 
+ \E{W_1} &= \E{S_1} = 2\\
 \E W &= \E{W_0} + V_1 \E{W_1} = 1\cdot 1 + 3 \cdot 2 = 7\\
 \TH_0 &= \frac{1}{\E W} = 1/7\\
 \TH_1&= V_1 \TH_0 = 3/7\\
 \E{L_1} &= \TH_1 \E{W_1} = 3/7\cdot 2 = 6/7,\\
 \E{L_0} &= 1/7\cdot 1 = 1/7
-    \end{align*}
+ \end{align*}
 If you forgot to include the visit ratios: $-1/2$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
-  Use the MVA to determine $\E W$ in case two jobs are allowed in the network.
+ Use the MVA to determine $\E W$ in case two jobs are allowed in the network.
 \begin{solution}
-    With the previous problem we have the case with one job. Now, with the arrival theorem,
-    \begin{align*}
+ With the previous problem we have the case with one job. Now, with the arrival theorem,
+ \begin{align*}
 \E{W_{0}(2)} &= \E{L_0(1)}\E{S_0} +\E{S_0} = \frac{1}{7} 1 + 1=8/7\\
 \E{W_{1}(2)} &= \E{L_1(1)}\E{S_1} +\E{S_1} = \frac{6}{7} 2 + 2 = 26/7\\
 \E{W(2)} &= \E{W_0} + V_1 \E{W_1} = 8/7 + 26/7 = 34/7\\
 \TH_0(2) &= \frac{1}{\E{W(2)}} = 7/34\\
 \TH_1(2)&= V_1 \TH_0(2) = 21/34\\
-    \end{align*}
+ \end{align*}
 
 In hindsight, it would have more interesting to ask for the expected number of jobs at station 1, i.e., $\E{L_1(2)}$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201804]
-Consider a factory that limits the amount of work on the factory floor to $w$. We may model the queueing process on the factory floor as a closed queueing network.  However,  in the real factory, the number of jobs on the floor cannot be constant. Why not?
+Consider a factory that limits the amount of work on the factory floor to $w$. We may model the queueing process on the factory floor as a closed queueing network. However, in the real factory, the number of jobs on the floor cannot be constant. Why not?
 \begin{solution}
-  There are some different ways to look at this. A correct answer depends on the motivation.  A interesting answer would be like this. (Observe, to get a point for this problem, I expect a less complete answer than this from you.) In a real factory, the demand pattern has  seasonal patterns. At times with low demand, the arrival rate of jobs is lower than the throughput that results from allowing $w$ jobs on the floor (observe from the MVA that throughput is an increasing function of $w$). But if the arrival rate is smaller than the service rate of the bottleneck, i.e., $\rho<1$, then the bottleneck station must be idle $1-\rho$ of the time. But when the bottleneck is idle, in particular, the total number of jobs in the closed queueing system must be less than $w$.  The reason for this is that in closed queueing networks, queues build up in front of bottlenecks, and not so much in front of the non-bottleneck machines.  But then the number of jobs on the factory floor cannot be constant. 
+ There are some different ways to look at this. A correct answer depends on the motivation. An interesting answer would be like this. (Observe, to get a point for this problem, I expect a less complete answer than this from you.) In a real factory, the demand pattern has seasonal patterns. At times with low demand, the arrival rate of jobs is lower than the throughput that results from allowing $w$ jobs on the floor (observe from the MVA that throughput is an increasing function of $w$). But if the arrival rate is smaller than the service rate of the bottleneck, i.e., $\rho<1$, then the bottleneck station must be idle $1-\rho$ of the time. But when the bottleneck is idle, in particular, the total number of jobs in the closed queueing system must be less than $w$. The reason for this is that in closed queueing networks, queues build up in front of bottlenecks, and not so much in front of the non-bottleneck machines. But then the number of jobs on the factory floor cannot be constant. 
 
 Once again, other answers can certainly be ok too. 
 \end{solution}
 \end{exercise}
 
 
-We have a closed network with three single-server stations. Jobs go from the load/unload station with probability 1/3 to  station 2. From stations 1 and 2 jobs can only return to the load/unload station. Services times are exponentially distributed with mean $\E{S_0} = 1$ at the load/unload, $\E{S_1} = 2$ at station 1 and $\E{S_2}=3$ at station 2.
+We have a closed network with three single-server stations. Jobs go from the load/unload station with probability 1/3 to station 2. From stations 1 and 2 jobs can only return to the load/unload station. Services times are exponentially distributed with mean $\E{S_0} = 1$ at the load/unload, $\E{S_1} = 2$ at station 1 and $\E{S_2}=3$ at station 2.
 
 \begin{exercise}[201807]
 Make a sketch of the transitions; use this to make the routing matrix $P$.
 \begin{solution}
-  \begin{equation*}
-  P=
-  \begin{pmatrix}
-    0 & 2/3 & 1/3 \\
+ \begin{equation*}
+ P=
+ \begin{pmatrix}
+ 0 & 2/3 & 1/3 \\
 1 & 0 & 0 \\
 1 & 0 & 0
-  \end{pmatrix}.
-  \end{equation*}
+ \end{pmatrix}.
+ \end{equation*}
 
 % If the row sums of $P$ are not 1, this means that jobs leave the network. This is impossible in closed queueing networks. Hence, such $P$'s are wrong. $-1/2$.
 
-% You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is in the book of Zijm, and implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
+% You should also know that the load-unload node, indicated as node 0, is only visited once during a routing. This assumption is implicit in the entire analysis. Hence $V_{00}>0$: $-1/2$.
 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]
-  What are the visit ratios?
+ What are the visit ratios?
 \begin{solution}
 Set $V_0=1$. Then solve for $V_1$ and $V_2$ in the equation $V = VP$, where $V=(V_0, V_1, V_2)$.
 This gives
@@ -735,20 +687,20 @@ If you would not set $V_0=1$, but solve $V_0+V_1+V_2 = 1$, then this is VERY wro
 \end{exercise}
 
 \begin{exercise}[201807]
-  If there is just one job allowed in the network, determine $\E W$.
+ If there is just one job allowed in the network, determine $\E W$.
 \begin{solution}
-    \begin{align*}
-    \E{W_0} &= \E{S_0} = 1\\      
-    \E{W_1} &= \E{S_1} = 2\\
-    \E{W_1} &= \E{S_3} = 3\\
-\E W &= \E{W_0} + V_1 \E{W_1} + V_2 \E{W_2} = 1\cdot 1 + \frac{2}{3}\cdot 2 +  \frac{1}{3} \cdot 3 = \frac{10}{3}\\
+ \begin{align*}
+ \E{W_0} &= \E{S_0} = 1\\ 
+ \E{W_1} &= \E{S_1} = 2\\
+ \E{W_1} &= \E{S_3} = 3\\
+\E W &= \E{W_0} + V_1 \E{W_1} + V_2 \E{W_2} = 1\cdot 1 + \frac{2}{3}\cdot 2 + \frac{1}{3} \cdot 3 = \frac{10}{3}\\
 \TH_0 &= \frac{1}{\E W} = \frac{3}{10}\\
 \TH_1&= V_1 \TH_0 = \frac{2}{3} \frac{3}{10}=\frac{1}{5}\\
 \TH_2&= V_2 \TH_0 = \frac{1}{3} \frac{3}{10}=\frac{1}{10}\\
 \E{L_0} &= \TH_0 \E{W_0} = \frac{3}{10} 1 = \frac{3}{10}\\
 \E{L_1} &= \TH_1 \E{W_1} = \frac{1}{5} 2 = \frac{2}{5}\\
 \E{L_2} &= \TH_2 \E{W_2} = \frac{1}{10} 3 = \frac{3}{10}.
-    \end{align*}
+ \end{align*}
 % If you forget to include the visit ratios: $-1/2$. 
 \end{solution}
 
@@ -757,16 +709,16 @@ If you would not set $V_0=1$, but solve $V_0+V_1+V_2 = 1$, then this is VERY wro
 \begin{exercise}[201807]
 If two jobs are allowed in the network, what is the expected number of jobs at the second station?
 \begin{solution}
-    With the previous problem we have the case with one job. Now, with the arrival theorem,
-    \begin{align*}
+ With the previous problem we have the case with one job. Now, with the arrival theorem,
+ \begin{align*}
 \E{W_{0}(2)} &= (\E{L_0(1)} + 1)\E{S_0} = \frac{13}{10} 1 = \frac{13}{10} \\
 \E{W_{1}(2)} &= (\E{L_1(1)} + 1)\E{S_1} = \frac{7}{5} 2 = \frac{14}{5}, \\
 \E{W_{2}(2)} &= (\E{L_2(1)} + 1)\E{S_2} = \frac{13}{10} 3 = \frac{39}{10} \\
-\E{W(2)} &= \E{W_0(2)} + V_1 \E{W_1(2)} + V_2 \E{W_2(2)} = \frac{13}{10}+ \frac{2}{3}\frac{14}{5} +  \frac{1}{3}\frac{39}{10}=\frac{67}{15}\\
+\E{W(2)} &= \E{W_0(2)} + V_1 \E{W_1(2)} + V_2 \E{W_2(2)} = \frac{13}{10}+ \frac{2}{3}\frac{14}{5} + \frac{1}{3}\frac{39}{10}=\frac{67}{15}\\
 \TH_0(2) &= \frac{2}{\E{W(2)}} = \frac{30}{67}\\
 \TH_2(2) &= V_2 \TH_0(2) = \frac{1}{3} \frac{30}{67}=\frac{10}{67}\\
 \E{L_2(2)} &= \TH_2(2) \E{W_2(2)} = \frac{10}{67} \frac{39}{10} = \frac{39}{67}.
-    \end{align*}
+ \end{align*}
 
 % In hindsight, it would have more interesting to ask for the expected number of jobs at station 1, i.e., $\E{L_1(2)}$. 
 \end{solution}
@@ -784,72 +736,119 @@ EW = [0] * num_stations
 
 
 for n in range(1, 4):
-    for j in range(num_stations):
-        EW[j] = EL[j] * ES[j] + ES[j]
-    EW_tot = 0
-    for j in range(num_stations):
-        EW_tot += EW[j]
-    TH = n / EW_tot
-    for j in range(num_stations):
-        EL[j] =  EW[j] *  V[j] * TH
-    print(EL)
+ for j in range(num_stations):
+ EW[j] = EL[j] * ES[j] + ES[j]
+ EW_tot = 0
+ for j in range(num_stations):
+ EW_tot += EW[j]
+ TH = n / EW_tot
+ for j in range(num_stations):
+ EL[j] = EW[j] * V[j] * TH
+ print(EL)
 
-  \end{pyverbatim}  
+ \end{pyverbatim} 
 
 \begin{exercise}[201904]
-  By which line in the code do we control the number of jobs that are present in the network?
+ By which line in the code do we control the number of jobs that are present in the network?
 \begin{solution}
-    Line 8
+ Line 8
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  One line in the code above is wrong.
-  Repair the incorrect line (you can write the correct expression in mathematical notation; it is not necessary to provide the python code.)
+ One line in the code above is wrong.
+ Repair the incorrect line (you can write the correct expression in mathematical notation; it is not necessary to provide the python code.)
 \begin{solution}
 Line 13 should read like this: \pyv{EW_tot += V[j] * EW[j]}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  Assume that the algorithm is correct.
-  Suppose that we would merge lines 8--16 into the following:
+ Assume that the algorithm is correct.
+ Suppose that we would merge lines 8--16 into the following:
 \begin{pyverbatim}[stdout][numbers=left]
 for n in range(1, 4):
-    EW_tot = 0
-    for j in range(num_stations):
-        EW[j] = EL[j] * ES[j] + ES[j]
-        EW_tot += EW[j]
-        TH = n / EW_tot
-        EL[j] =  EW[j] *  V[j] * TH
-      \end{pyverbatim}
-      Explain why is this wrong.
+ EW_tot = 0
+ for j in range(num_stations):
+ EW[j] = EL[j] * ES[j] + ES[j]
+ EW_tot += EW[j]
+ TH = n / EW_tot
+ EL[j] = EW[j] * V[j] * TH
+ \end{pyverbatim}
+ Explain why is this wrong.
 \begin{solution}
-Since \pyv{EW_tot} is updated for every $j$, the throughput depends on $j$. This is of course wrong. We should first compute  $\E{W_j}$ for all stations, then compute the total time in the system, and then the throughput. 
+Since \pyv{EW_tot} is updated for every $j$, the throughput depends on $j$. This is of course wrong. We should first compute $\E{W_j}$ for all stations, then compute the total time in the system, and then the throughput. 
 \end{solution}
-\end{exercise}  
+\end{exercise} 
 
 In the tutorial we developed a number of important simulation concepts.
 
 \begin{exercise}[201904]
-Why is  an event stack useful in discrete-event simulation? 
+Why is an event stack useful in discrete-event simulation? 
 \begin{solution}
-  It is used to organize the events in the correct chronological order. 
+ It is used to organize the events in the correct chronological order. 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201904]
-  Why do we use classes and objects in the simulations?
+ Why do we use classes and objects in the simulations?
 \begin{solution}
-  With classes we can organize functions (behavior) and state in a neat way.
-  Then we make objects of classes to store the state for specific individuals, like jobs.
-  We assemble the data of a simulation in these objects, so that we can do statistical analysis at the end.
+ With classes we can organize functions (behavior) and state in a neat way.
+ Then we make objects of classes to store the state for specific individuals, like jobs.
+ We assemble the data of a simulation in these objects, so that we can do statistical analysis at the end.
 
-  For a detailed discussion, see the web, but that is for the really interested student.
+ For a detailed discussion, see the web, but that is for the really interested student.
 \end{solution}
 \end{exercise}
 
+\begin{exercise}[201904]
+ For an open queueing network we need to compute the visit ratios with the equation $V = V P$, where $V$ is a (horizontal) vector of visit ratios and $P$ is the routing matrix.
+\begin{solution} Answer = B.
+ The claim applies to closed queueing networks.
+\end{solution}
+\end{exercise}
+
+We have a closed network with two single-server stations and two jobs. Jobs from station 0 go to station 1, and from station 1 to station 0. Services times are exponentially distributed with mean $1/\mu_i$ at station $i, i=0,1$.
+
+\begin{exercise}[201704]
+What are the visit ratios at each station?
+\begin{solution}
+ Clearly, $V_0=V_1=1$.
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201704]
+ Use the convolution algorithm to determine the value of the
+ normalization constant for this network.
+\begin{solution}
+ From the boundary conditions we know $G(m, 0)$ and $G(0,n)$. Note
+ that $M=1$, since there just two stations. Since there are $N=2$
+ jobs, we need $G(1,2)$. 
+ \begin{equation*}
+ \begin{split}
+ G(1,2) &= f_1(0) G(0, 2) + f_1(1) G(0, 1) + f_1(2) G(0,0) \\
+ &= 1\cdot \mu_0^{-2} + \frac1{\mu_1} \frac{\mu_0} + \frac{\mu_1^2} 1 \\
+ &= \frac 1{16} + \frac1{12} + \frac{9}.
+ \end{split}
+ \end{equation*}
+\end{solution}
+\end{exercise}
+
+\begin{exercise}[201704]
+ What is the fraction of jobs that see the load/unload station idle
+ when moving to this station?
+\begin{solution}
+ When the load/unload station is idle, there are no jobs, hence we need
+ $\P{n_0=0}$. Clearly, when $n_0=0$, $n_1 = 2$. Hence,
+ \begin{equation*}
+\pi(0, 2) = \frac1{G(1,2)} f_0(0) f_1(2).
+ \end{equation*}
+Since $f_0(0) = 1$ and $f_1(2) = \mu_1^{-2}$, the answer follows.
+\end{solution}
+\end{exercise}
+
+\end{comment}
 
 \Closesolutionfile{ans}
 \subsection*{Solutions}

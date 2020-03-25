@@ -1,10 +1,11 @@
-\section*{Motivation and Examples}
+\section{Introduction}
+\subsection*{Motivation and Examples}
 Queueing systems abound, and the analysis and control of queueing systems are major topics in the control, performance evaluation and optimization of production and service systems.
 
 
 At my local supermarket, for instance, any customer that joins a queue of 4 or more customers gets his/her groceries for free.
 Of course, there are some constraints: at least one of the cashier facilities has to be unoccupied by a server and the customers in queue should be equally divided over the cashiers that are open (and perhaps there are some further rules, of which I am unaware).
-The manager that controls the occupation of the cashier positions is focused on keeping $\pi(4)+\pi(5)+\cdots$, i.e., the fraction of customers that see upon arrival a queue length exceeding~3, very small.
+When $\pi(n)$ denotes fraction of customers that 'see upon arrival' the system with n customers, the manager that controls the occupation of the cashier positions is focused on keeping $\pi(4)+\pi(5)+\cdots$, i.e., the fraction of customers that see upon arrival a queue length exceeding~3, very small.
 In a sense, this is easy enough: just hire many cashiers.
 However, the cost of personnel may then outweigh the yearly average cost of paying the customer penalties.
 Thus, the manager's problem becomes to plan and control the service capacity in such a way that both the penalties and the personnel cost are small.
@@ -16,136 +17,95 @@ Thus, hamburgers in stock can be interpreted as customers in queue waiting for s
 The hamburgers have a typical lifetime, and they have to be scrapped if they remain on the shelf longer than a specified amount of time.
 Thus, the waiting time of hamburgers has to be closely monitored.
 Of course, it is easy to achieve zero scrap cost, simply by keeping no stock at all.
-However, to prevent lost-sales it is very important to maintain a certain amount of hamburgers in stock.
+However, to prevent lost-sales, it is very important to maintain a certain amount of hamburgers in stock.
 Thus, the manager has to balance the scrap cost against the cost of lost sales.
 In more formal terms, the problem is to choose a policy to prepare hamburgers such that the cost of excess waiting time (scrap) is balanced against the cost of an empty queue (lost sales).
 
-Service systems, such as hospitals, call centers, courts, and so on,
-have a certain capacity available to serve customers. The performance
-of such systems is, in part, measured by the total number of jobs
-processed per year and the fraction of jobs processed within a certain
-time frame between receiving and closing the job. Here the problem is to
-organize the capacity such that the sojourn time, i.e., the typical
-time a job spends in the system, does not exceed some threshold, and
-such that the system achieves a certain throughput, i.e., jobs served
-per year. 
+Service systems, such as hospitals, call centers, courts, and so on, have a certain capacity available to serve customers.
+The performance of such systems is, in part, measured by the total number of jobs processed per year and the fraction of jobs processed within a certain time frame between receiving and closing the job.
+Here the problem is to organize the capacity such that the sojourn time, i.e., the typical time a job spends in the system, does not exceed some threshold, and such that the system achieves a certain throughput, i.e., jobs served per year.
 
-Clearly, all of the above systems can be seen as queueing systems that
-have to be monitored and controlled to achieve a certain
-performance. The performance analysis of such systems can, typically,
-be characterized by the following performance measures:
+Clearly, all of the above systems can be seen as queueing systems that have to be monitored and controlled to achieve a certain performance.
+The performance analysis of such systems can, typically, be characterized by the following performance measures:
 \begin{enumerate}
 \item The fraction of time $p(n)$ that the system contains $n$ customers.
-  In particular, $1-p(0)$, i.e., the fraction of time the system contains jobs, is important, as this is a measure of the time-average occupancy of the servers, hence related to personnel cost.
+ In particular, $1-p(0)$, i.e., the fraction of time the system contains jobs, is important, as this is a measure of the time-average occupancy of the servers, hence related to personnel cost.
 \item The fraction of customers $\pi(n)$ that `see upon arrival' the system with $n$ customers.
   This measure relates to customer perception and lost sales, i.e., fractions of arriving customers that do not enter the system.
 \item The average, variance, and/or distribution of the waiting time.
 \item The average, variance, and/or distribution of the number of customers in the system.\
 \end{enumerate}
-Here the system can be anything that is capable of holding jobs, such
-as a queue, the server(s), an entire court, patients waiting for
-an MRI scan in a hospital, and so on.
+Here the system can be anything that is capable of holding jobs, such as a queue, the server(s), an entire court, patients waiting for an MRI scan in a hospital, and so on.
 
-It is important to realize that a queueing system can, typically, be
-decomposed into \emph{two subsystems}: the queue itself and the
-service system. Thus, we are concerned with three types of waiting:
-waiting in queue, i.e., \emph{queueing time}, waiting while being in
-service, i.e., the \emph{service time}, and the total waiting time in
-the system, i.e., the \emph{sojourn time}.
+It is important to realize that a queueing system can, typically, be decomposed into \emph{two subsystems}: the queue itself and the service system.
+Thus, we are concerned with three types of waiting: waiting in queue, i.e., \emph{queueing time}, waiting while being in service, i.e., the \emph{service time}, and the total waiting time in the system, i.e., the \emph{sojourn time}.
 
-\section*{Organization}
+\subsection*{Organization}
 
 
-In these notes we will be primarily concerned with making models of queueing systems such that we can compute or estimate the above-mentioned performance measures.
+In these notes, we will be primarily concerned with making models of queueing systems such that we can compute or estimate the above-mentioned performance measures.
 
-In~\cref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time.
-By implementing these constructions in Python code we can then simulate and analyze such systems.
-Besides that, simulation provides ample motivation for why and how we deal with queueing systems and is useful for analyzing realistic systems, as mathematical models have severe shortcomings in such cases.
-Consider, for example, the service process at a check-in desk of KLM.
-Business customers and economy customers are served by two separate queueing systems.
-The business customers are served by one server, server A say, while the economy class customers by three servers, say.
-What would happen to the sojourn time of the business customers if server A would be allowed to serve economy class customers when the business queue is empty?
-For the analysis of such complicated control policies, simulation is the most natural approach.
+In~\cref{cha:single-stat-queu} we construct queueing systems in discrete time and continuous time, and by implementing these models in code, we can simulate and analyze such systems.
+Simulation allows us to analyze many realistic queueing systems, while such systems are often (way) too hard to analyze by mathematical tools.
+Consider, for example, the service process at a check-in desk of an airline company.
+Business customers and economy customers are served by two separate queueing systems: the business customers are served by one server, say, while the economy class customers by three servers, say.
+What would happen to the sojourn time of the business customers if their server would be allowed to serve economy class customers when the business queue is empty?
+For the analysis of such complicated control policies, simulation appears to be the most natural approach.
 
-In~\cref{cha:analytical-models} and~\cref{cha:approximate-models} we derive exact and approximate models, respectively, for single-station queueing systems.
-The benefit of such models is that they offer structural insights into the behavior of the system and scaling laws, such as that the average waiting time scales (more or less) linearly in the variance of the service times of individual customers.
-The main idea is to consider the \emph{sample paths of a queueing process}, and assume that a typical sample path captures the `normal' stochastic behavior of the system.
+Notwithstanding the power of simulation, it is often hard to obtain structural understanding into the behavior of queueing systems.
+Mathematical models, whether exact or approximate, are much more useful to help reason about and improve queueing systems, mainly because they offer insights into scaling laws, such as how the average waiting time depends on average service times or variability of such times.
+The aim of~\cref{cha:approximate-models} is to apply Sakasegawa's formula to understand how different production and service situations are affected by the system parameters such as service speed, batching rules, and outages.
+In passing we will use some general tools of probability theory, which proves useful for the sequel of the book.
+
+In~\cref{cha:analytical-models} we focus on exact models for single-station queueing systems, and provide the motivation that underlies Sakasegawa's formula.
+The main idea here is to consider the \emph{sample paths of a queueing process}, and assume that a typical sample path captures the `normal' stochastic behavior of the system.
 This sample-path approach has two advantages.
 In the first place, many of the theoretical results follow from very concrete aspects of these sample paths.
 Second, the analysis of sample-paths carries over right away to simulation.
-In fact, simulation of a queueing system offers us one (or more) sample path(s), and based on such sample paths we derive behavioral and statistical properties of the system.
-In fact, the performance measures defined for sample paths are precisely those we compute with simulation.
+In fact, simulation of a queueing system offers us one (or more) sample path(s), and based on such sample paths, we derive behavioral and statistical properties of the system.
+Thus, sample paths form a direct bridge between simulation on the one hand and mathematical analysis on the other.
 
 
-In~\cref{sec:notes-relat-chapt2}  we construct algorithms to analyze open and closed queueing networks.
-Many of the sample path results developed for the single-station case can be applied to these networks.
-Thus, with sample-path methods we relate the theory, algorithms, and simulation of queueing systems.
-For this part we refer to the book of Prof.
-Zijm; the present set of notes augments the discussion there.
+\cref{cha:queu-contr-open} extends the models of the previous chapters to controlled queueing systems and queueing networks.
+The analysis of these systems requires a combination of material of the previous chapters, but also other mathematical tools such as difference and differential equations, and non-negative matrices.
+As such, it also provides a stepping stone to the many-fold extensions of the theory to Markov decision theory, optimization, dynamic programming, and so on.
 
-
-
-Our aim is not to provide rigorous proofs for all results derived in the book. For this we refer to the following books. 
-%As a consequence we tacitly assume in the remainder that results derived from the (long-run) analysis of a particular sample path are equal to their `probabilistic counterpart'.
+In our discussions we focus on obtaining an intuitive understanding of the analytical tools. For proofs and/or more extensive results we refer to the following books.
 \begin{enumerate}
 \item \citet{bolch06:_queuein_networ_markov_chain}
-\item \citet{capinski03:_probab_probl}
 \item \citet{el-taha98:_sampl_path_analy_queuein_system}
 \item \citet{tijms94:_stoch_model_algor_approac} and/or \citet{tijms03:_first_cours_stoch_model}
+\item \citet{capinski03:_probab_probl}
 \end{enumerate}
 
-% For instance, assume that the sequence of service times
-% $S_1, S_2, \ldots$ for jobs $1, 2, \ldots$, are i.i.d., i.e.,
-% independent and identically distributed. It then follows from the
-% strong law of large numbers that $k^{-1}\sum_{i=1}^k S_i \to \E S$,
-% almost surely, where $\E S$ is the expectation of a generic service
-% time $S$ with the same distribution as the service times
-% $\{S_i\}$. While this is already a quite deep result in probability
-% theory, the problems become much harder when we have to consider the
-% sequence of waiting times $\{W_i\}$. As we will see later, the times
-% are constructed in terms of recursions, and are \emph{not}
-% i.i.d. Thus, we cannot right away apply the strong law to conclude
-% that results of sample path analysis capture the long-run
-% probabilistic behavior the waiting time. However, intuitively, it is
-% hopefully clear that the sequence of waiting times $W_i$ will
-% converge, in some sense, to a random variable $W$ and that the
-% stochastic properties of $W$ can be obtained from a sample-path
-% analysis of the waiting times $\{W_i\}$. In the remainder we will
-% freely use that $k^{-1}\sum_{i=1}^k W_i \to \E W$ as $k\to\infty$, and
-% so on.
 
 
-\section*{Exercises}
+\subsection*{Exercises}
 
-I urge you to try to make as many exercises as possible.
-The main text contains hardly any examples or derivations: the exercises \emph{illustrate} the material and force you to \textit{think} about the technical parts.
-The exercises require many of the tools you learned previously in courses on calculus, probability, and linear algebra.
-Here you can see them applied.
-Moreover, many of these tools will be useful for other, future, courses.
-Thus, the investments made here will pay off for the rest of your (student) career.
-
-You'll notice that some of these problems are quite difficult, often not because the problem itself is difficult, but because you need to combine a substantial amount of knowledge all at the same time.
-All this takes time and effort.
-Realize that the exercises are not intended to be easy (otherwise we could have been satisfied with computing $1+1$).
+The main text contains hardly any examples or derivations.
+Instead, the exercises provide the material to \emph{illustrate} the material and help the reader study the material.
+Also, a substantial part of exercises consists of consistency checks, to show how new results reduce to old results; like this these exercises also provide relations between various parts of the text.
+Typically, such checks are trivial; however, the algebra can be quite difficult at times.
+Another part of the exercises form a set of questions any student should ask while studying the material (even though asking good questions is difficult).
+For this reason, the reader is urged to try to make as many exercises as possible.
+Finally, the intention of  the exercises is not be easy.
 
 The companion document gives hints and solutions to all problems.
-The solutions spell out nearly every intermediate steps.
-For most of you all this detail is not necessary, but over the years I got many questions like: "how do you go from `here' to `there'?"
-As service I then added such intermediate steps.
+The solutions spell out nearly every intermediate step.
+For most of you all, this detail is not necessary, but over the years I got many questions like: "how do you go from `here' to `there'?"
+As service, I then added such intermediate steps.
+As a consequence, the companion is quite extensive.
 The companion document also contains many additional simple exercises and old exam questions.
 
-Exercises marked as `not obligatory' are interesting, but hard. I will not use this in an exam.
+Exercises marked as `not obligatory' are interesting, but (too) hard.
+I will not use this in an exam.
 
-\section*{Acknowledgements}
+\subsection*{Acknowledgements}
 
 I would like to acknowledge dr.
 J.W.
 Nieuwenhuis for our many discussions on queueing theory.
 To convince him about the more formal aspects, sample-path arguments proved very useful.
-Prof.
-dr.
-W.H.M.
-Zijm allowed me to use the first few chapters of his book.
 Finally, I thank my students for submitting many improvements via github.
 It's very motivating to see a book like this turn into a joint piece of work.
 

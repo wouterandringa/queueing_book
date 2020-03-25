@@ -2,6 +2,15 @@
 \label{sec:queu-proc-as}
 
 
+In this section, we provide an elegant construction of a queueing process $\{L_k\}$ based on a \emph{random walk} $\{Z_k\}$.
+This serves two aims.
+The first is to show that a characterization of the transient behavior of a queueing process is typically extremely hard.
+Thus, in the rest of the book we will only study queueing systems in steady-state.
+The second is to show that queueing theory is essentially based on concepts of fundamental interest in probability theory (the random walk), hence is strongly related to many other applications of random walks, such as in finance, inventory theory, and insurance theory.
+Moreover, we can use tools of random walk to analyze queueing systems, such a characterization of the distribution of the time until an especially large queue length is reached; we refer the reader to literature for this.
+
+
+
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -15,28 +24,24 @@ In the construction of queueing processes as set out in~\cref{sec:constr-discr-t
 random variables: the number of arrivals $\{a_k\}$ per period and the service capacities $\{c_k\}$, cf.,~\cref{eq:5}.
 Observe that in~\cref{eq:5} the process $\{L_k\}$ shares a resemblance to a random walk $\{Z_k, k=0,1,\ldots\}$ with $Z_k$ given by
 \begin{equation}\label{eq:44}
-  Z_k = Z_{k-1} + a_k - c_k.
+ Z_k = Z_{k-1} + a_k - c_k.
 \end{equation}
 To see that $\{Z_k\}$ is indeed a random walk, observe that $Z$ makes jumps of size $a_k-c_k, k=1,\ldots$, and $\{a_k-c_k\}$ is a sequence of i.i.d.
 random variables since, by assumption, $\{a_k\}$ and $\{c_k\}$ are i.i.d.
 Clearly, $\{Z_k\}$ is `free', i.e., it can take positive and negative values, but $\{L_k\}$ is restricted to the non-negative integers.
-In this section we show how to build the queueing process $\{L_k\}$ from the random walk $\{Z_k\}$ using a device called a \emph{reflection map}, which gives an elegant construction of a queueing process.
-Moreover, we can use the probabilistic tools that have been developed for the random walk to analyze queueing systems.
-One example is the distribution of the time until an especially large queue length is reached; these times can be formulated as \emph{hitting times} of the random walk.
-Another example is the average time it takes to clear a large queue.
 
 \begin{exercise}\clabel{ex:l-133}
-Show that  $L_k$ satisfies the relation
+Show that $L_k$ satisfies the relation
 \begin{equation}\label{eq:reich1}
-  L_k = Z_k - \min_{1\leq i \leq k} Z_i\wedge 0,
+ L_k = Z_k - \min_{1\leq i \leq k} Z_i\wedge 0,
 \end{equation}
 where $Z_k$ is defined by the above random walk and
 we write $a\wedge b$ for $\min\{a,b\}$.
 \begin{hint}
 Note first that from the expression for $Z_k$,
-  $a_k - c_k = Z_k - Z_{k-1}$. Use this to get
-  $L_k = [L_{k-1} +Z_k- Z_{k-1}]^+$. Subtract $Z_k$ from both sides, use recursion and
-  use subsequently,
+ $a_k - c_k = Z_k - Z_{k-1}$. Use this to get
+ $L_k = [L_{k-1} +Z_k- Z_{k-1}]^+$. Subtract $Z_k$ from both sides, use recursion and
+ use subsequently,
 \begin{align*}
 &\max\{\max\{a,b\}, c\} = \max\{a,b,c\}, \\
 &L_0 = Z_0, \\
@@ -48,51 +53,51 @@ Note first that from the expression
 for $Z_k$, $a_k - c_k = Z_k - Z_{k-1}$. Using this in the recursion
 for $L_k$, we get
 \begin{equation*}
-  L_k = [L_{k-1} +Z_k- Z_{k-1}]^+,
+ L_k = [L_{k-1} +Z_k- Z_{k-1}]^+,
 \end{equation*}
 thus, 
 \begin{equation*}
-  L_k - Z_{k} = \max\{L_{k-1} - Z_{k-1}, -Z_k\}.
+ L_k - Z_{k} = \max\{L_{k-1} - Z_{k-1}, -Z_k\}.
 \end{equation*}
 From this, using recursion and the hints, we see that
 \begin{equation*}
-  \begin{split}
-  L_k - Z_{k} 
+ \begin{split}
+ L_k - Z_{k} 
 % &= \max\{L_{k-1} - Z_{k-1}, -Z_k\} \\
 &= \max\{\max\{L_{k-2} - Z_{k-2}, -Z_{k-1}\}, -Z_k\} \\
 &= \max\{L_{k-2} - Z_{k-2}, -Z_{k-1}, -Z_k\} \\
 &= \max\{L_{0} - Z_{0}, -Z_1, \ldots, -Z_k\} \\
 &= \max\{0, -Z_1, \ldots, -Z_k\} \\
 &= - \min\{0, Z_1, \ldots, Z_k\}.
-  \end{split}
-  \end{equation*}
-  For further discussion, if you are interested, see~\citet{baccelli88:_sampl_m_m}.
+ \end{split}
+ \end{equation*}
+ For further discussion, if you are interested, see~\citet{baccelli88:_sampl_m_m}.
 \end{solution}
 \end{exercise}
 
 This recursion for $L_k$ leads to really interesting graphs.
-In~\cref{fig:random_bernoulli} we take $a_k \sim B(0.3)$, i.e., $a_k$ is Bernoulli-distributed with success parameter $p=0.3$, i.e., $\P{a_k = 1} = 0.3 = 1- \P{a_k=0}$, and $c_k \sim B(0.4)$.
+In~\cref{fig:random_bernoulli} we take $a_k \sim B(0.3)$, i.e., $a_k$ is Bernoulli distributed with success parameter $p=0.3$, i.e., $\P{a_k = 1} = 0.3 = 1- \P{a_k=0}$, and $c_k \sim B(0.4)$.
 In~\cref{fig:random_walk}, $a_k\sim B(0.49)$ and the random walk is constructed as
 \begin{equation}\label{eq:51}
-  Z_k = Z_{k-1} + 2 a_k -1.
+ Z_k = Z_{k-1} + 2 a_k -1.
 \end{equation}
-Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the random walk decreases by one step, so that $Z_k \neq Z_{k-1}$  always. Observe that this is slightly different from a random walk that satisfies~\cref{eq:44}; there, $Z_{k}=Z_{k-1}$, if $a_k=c_k$.
+Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the random walk decreases by one step, so that $Z_k \neq Z_{k-1}$ always. Observe that this is slightly different from a random walk that satisfies~\cref{eq:44}; there, $Z_{k}=Z_{k-1}$, if $a_k=c_k$.
 
 
 \begin{figure}[ht]
-  \centering
+ \centering
 % see progs/reflected_random_walk.py
 \input{progs/reflected_bernoulli_walk.tex}
 %\input{reflected_random_walk.tex}
 \caption{The upper panel shows a graph of the random walk $Z$. An
-  upward pointing triangle corresponds to an arrival, a downward
-  triangle to a potential service. The lower panel shows the queueing
-  process $\{L_k\}$ as a random walk with reflection.}
+ upward pointing triangle corresponds to an arrival, a downward
+ triangle to a potential service. The lower panel shows the queueing
+ process $\{L_k\}$ as a random walk with reflection.}
 \label{fig:random_bernoulli}
 \end{figure}
 
 \begin{figure}[ht]
-  \centering
+ \centering
 % see progs/reflected_random_walk.py
 \input{progs/reflected_random_walk.tex}
 \caption{Another example of a reflected random walk.}
@@ -100,182 +105,61 @@ Thus, if $a_k=1$, the random walk increases by one step, while if $a_k=0$, the r
 \end{figure}
 
 
-With~\cref{eq:reich1},  we see that a random walk $\{Z_k\}$ can be converted into a queueing
-process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.  For this, we first relate the random walk of the type~\cref{eq:51} to a random walk in continuous time. 
+With~\cref{eq:reich1}, we see that a random walk $\{Z_k\}$ can be converted into a queueing process $\{L_k\}$, and we might try to understand the transient behavior of the latter by investigating the transient behavior of the former.
+Suppose that $a_k\sim P(\lambda)$ and $c_k \sim P(\mu)$.
 
 \begin{exercise}\clabel{ex:89}
-  Let $N_{\lambda+\mu}$ be a Poisson process with rate $\lambda+\mu$. If $\{a_k\}$ is an i.i.d. sequence of Bernoulli random variables such that $\P{a_k=1} = \lambda/(\lambda+\mu)=1-\P{a_k=0}$, show that the random variable
-  \begin{equation*}
-    N_\lambda(t) = \sum_{k=1}^\infty a_k \1{k \leq N_{\lambda+\mu}(t)},
-  \end{equation*}
-has a Poisson distribution with rate $\lambda t$. 
+  Show that if $\{a_k\}$ forms an i.i.d.
+sequence of random variables all Poisson distributed $P(\lambda)$ then, $\sum_{j=1}^k a_j = P(\lambda k)$. 
 \begin{hint}
 Use~\cref{ex:1}.
 \end{hint}
-\begin{solution}
-  From~\cref{ex:1} we know that thinning  a rate $\lambda$ Poisson process  with i.i.d. Bernoulli random variables with success probability $p$  leads to another Poisson process with rate $\lambda p$. In the present case, the original Poisson process has rate $\lambda+\mu$ and $p=\lambda/(\lambda+\mu)$. Hence, the random variable $N_{\lambda t}\sim P\left(\frac\lambda{\lambda+\mu} (\lambda+\mu)t\right) = P(\lambda t)$.
+\begin{solution} Write $a$ for the common random variable. Then
+  \begin{equation*}
+    M_a(s) = \E{e^{sa}} = \sum_{j=0}^\infty e^{s j} e^{-\lambda j} \lambda^j/j! = e^{\lambda(e^{s}-1)}. 
+  \end{equation*}
+  Then with $X=\sum_{j=1}^k a_j$, and by independence, 
+  \begin{equation*}
+    M_X(s) = \left(M_a(s)\right)^k = e^{\lambda k (e^{s}-1)}. 
+  \end{equation*}
+  Hence, $X\sim P(\lambda k)$. 
 \end{solution}
 \end{exercise}
 
-Similarly, let
-\begin{equation*}
-  N_\mu(t) = N_{\lambda+\mu}(t) - N_\lambda(t) = \sum_{k=1}^\infty (1-a_k) \1{N_{\lambda+\mu}(t) \leq k};
-\end{equation*}
-but this is $N_{\lambda+\mu}(t)$ thinned by the Bernoulli random variables $\{1-a_k\}$. Let  $N_\lambda = \{N_\lambda(t)\}$ and $N_\mu = \{N_\mu(t)\}$  be the associated Poisson processes. 
 
-With the processes $N_\lambda$ and $N_\mu$ constructed above from the sequence $\{a_k\}$ and the Poisson process $N_{\lambda+\mu}$ we can define the process $Z=\{Z(t)\}$ such that
+With the above exercise, 
 \begin{equation*}
-  Z(t) = Z(0)+N_\lambda(t) - N_\mu(t).
+ Z_k = Z_0+N_{\lambda k} - N_{\mu k},
 \end{equation*}
-Thus, we let $N_\lambda$ correspond to job  arrivals and $N_\mu$ to departures. Observe that the times $\{T_k\}$ at which $Z$ makes jumps are such that $T_k-T_{k-1}$ have exponential distribution with mean $1/(\lambda+\mu)$. At the jump times, $Z(T_k) = Z_k$, where $Z_k$ satisfies~\cref{eq:51} with $\P{a_k = 1} = \lambda/(\lambda+\mu)$.  We call $Z$ the \emph{free} $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values. 
+and we call $Z=\{Z_k\}$ the \emph{free} (discrete-time) $M/M/1$ queue as, contrary to the real $M/M/1$ queue, $Z$ can take negative values.
 
 \begin{exercise}\clabel{ex:l-134}
-  Show that
+ Show that when $n>m$ and $Z_0=m$, 
 \begin{equation*}
-    \P{Z(t)=n}_m 
-= e^{-(\lambda+\mu)t} \left(\frac\lambda\mu\right)^{(n-m)/2} \sum_{k=0}^\infty 
-\frac{(t\sqrt{\lambda\mu} )^{2k+m-n}}{k!(k+m-n)!},
+ \P{Z_k=n}
+= e^{-(\lambda+\mu)k} (\lambda k)^{n-m} \sum_{j=0}^\infty 
+\frac{(\lambda\mu k^2)^j} {j!(n-m+j)!}.
 \end{equation*}
-where $\P{\cdot}_m$ means that the random walk starts at $m$, i.e., $Z(0)=m$.
-As an aside, the summation includes negative factorials when $k+m-n<0$.
-The tacit assumption is to take $n!\in \{\pm \infty\}$ for $n\in \Z_-$.
-Another way to get around this problem is to take $k=\max\{0, m-n\}$.
-\begin{hint}
-It is actually not hard, even though the expression looks
-  hard. Use conditioning to see that
-  $\P{Z(t)=n}_m = \P{N_\mu(t) - N_\lambda(t) = m - n}$. Then write out
-  the definitions of the two Poisson distributions. Assemble
-  terms. Then fiddle a bit with the terms to get~$t\sqrt{\lambda\mu}$. 
-\end{hint}
 \begin{solution}
-With this we have a characterization of the queue length process as a
-function of time until it hits zero for the first time. What can we
-say about the distribution of $L(t)$? With the above random walk, 
 \begin{equation}\label{eq:29}
-  \begin{split}
-    \P{Z(t)=n}_m
-&= \P{m+N_\lambda(t) - N_\mu(t) = n }  = \P{N_\lambda(t) - N_\mu(t) = n-m }  \\
-&= \P{N_\mu(t) - N_\lambda(t) = m-n }  \\
-&= \sum_{k=0}^\infty \P{N_\mu(t) = k - n + m\given N_\lambda(t) = k } \P{N_\lambda(t)=k}\\
-&= \sum_{k=0}^\infty e^{-\mu t} \frac{(\mu t)^{k -n+m}}{(k-n +m)!} e^{-\lambda t} \frac{(\lambda t)^k}{k!} \\
-&= e^{-(\lambda+\mu)t} \sum_{k=0}^\infty \frac{(\lambda t)^k(\mu t)^{k  -n + m }}{k!(k-n+m)!}.
-  \end{split}
+ \begin{split}
+ \P{Z_k=n}
+&= \P{m+N_{\lambda k } - N_{\mu k} = n } \\ 
+&= \P{N_{\lambda k}  - N_{\mu k}  = n - m } \\
+&= \sum_{j=0}^\infty \P{N_{\lambda k}  =  n - m + j, N_{\mu k} =j}\\
+&= \sum_{j=0}^\infty e^{-\lambda k} \frac{(\lambda k )^{n - m + j}}{(n-m+j)!} e^{-\mu k} \frac{(\mu k )^j}{j!} \\
+&= e^{-(\lambda+\mu)k} (\lambda k)^{n-m} \sum_{j=0}^\infty  \frac{(\lambda\mu k^2)^j} {j!(n-m+j)!}.
+ \end{split}
 \end{equation}
-We can write this a bit simpler by noting that
-\begin{align*}
-  (\lambda t)^k (\mu t) ^{k + m - n}  
-&=  \lambda^k t^k\mu^{k + m - n} t^{k+m-n} \\
-&= \lambda^k \mu^{k + m - n} (t\sqrt{\lambda \mu})^{2k+m-n} (\lambda\mu)^{-k + (n-m)/2} \\
-&= (\lambda/\mu)^{(n-m)/2} (t\sqrt{\lambda \mu})^{2k+m-n}.
-\end{align*}
-With this,
-\begin{equation*}
-    \P{Z(t)=n}_m 
-= e^{-(\lambda+\mu)t} \left(\frac\lambda\mu\right)^{(n-m)/2} \sum_{k=0}^\infty 
-\frac{(t\sqrt{\lambda\mu} )^{2k+m-n}}{k!(k+m-n)!}.
-\end{equation*}
 \end{solution}
 \end{exercise}
 
 
 The solution of the above exercise shows that there is no simple function by which we can compute the transient distribution of this simple random walk $Z$.
 Since a queueing process is typically a more complicated object (as we need to obtain $L$ from $Z$ via~\cref{eq:reich1}), our hopes of finding anything simple for the transient analysis of the $M/M/1$ queue should not be too high.
-And the $M/M/1$ is but the simplest queueing system; other queueing systems will be more complicated yet.
-We therefore give up the analysis of such transient queueing systems and we henceforth contend ourselves with the analysis of queueing systems in the limit as $t\to\infty$.
-The limiting random variable $L$ is known as the \recall{steady-state limit} of the sequence of random variables $\{L_k\}$, and the distribution of~$L$ is known as the \recall{limiting distribution} or \emph{stationary distribution} of $\{L_k\}$.
-Taking these limits warrants two questions: what type of limit is actually meant here, and what is the rate of convergence to this limiting situation?
-Here we sidestep all such fundamental issues, as the details require measure theory and more advanced probability theory than we can deal with here.
+But the $M/M/1$ queue is about the simplest queueing system; other queueing systems are (much) more complicated.
+We therefore give up the analysis of the transient behavior of queueing systems and henceforth contend ourselves with the analysis of queueing systems in the limit as $t\to\infty$.
 
-
-\begin{extra}[Not obligatory]
-Sketch a mathematical framework to answer  these questions. 
-
-\begin{solution}
-  
-The \emph{long-run limiting behavior} of a queueing system (i.e., the first question) is an important topic by itself.
-The underlying question is what happens if we simulate the system for a long time.
-For instance, does there exist a random variable $L$ such that $L_k\to L$ in some sense?
-The answer to this question is in the affirmative, provided some simple stability conditions are satisfied, see~\cref{sec:rate-stability}.
-However, it requires a considerable amount of mathematics to make this procedure precise.
-To sketch what has to be done, first, we need to define $\{L_k\}$ as random variables in their own right.
-Note that up to now we just considered each $L_k$ as a \emph{number}, i.e., a measurement or simulation of the queue length time of the $k$th period.
-Defining $L_k$ as a random variable is not as simple as the definition of, for instance, the number of arrivals $\{a_k\}$; these random variables can be safely \emph{assumed} to be i.i.d.
-However, the queue lengths $\{L_k\}$ are certainly not i.i.d., but, as should be apparent from~\cref{eq:59}, they are \emph{constructed} in terms of recursions.
-Next, based on these recursions, we need to show that the sequence of distribution functions $\{G_k\}$ associated with the random variables $\{L_k\}$ converges to some limiting distribution function~$G$, say.
-Finally, it is necessary to show that it is possible to construct a random variable~$L$ that has~$G$ as its distribution function.
-In this sense, then, we can say that~$L_k \to L$.
-\end{solution}
-
-\end{extra}
-
-
-We illustrate the rate of convergence to the limiting situation by means of an example.
-Specifically, we consider the sequence of waiting times $\{W_{Q,k}\}$ to a limiting random variable $W_L$, where $W_{Q,k}$ is constructed according to the recursion~\cref{eq:56}.
-Suppose that $X_k\sim U\{1,2,4\}$ and $S_k\sim U\{1,2,3\}$.
-Starting with $W_{Q,0}=5$ we use~\cref{eq:56} to compute the \emph{exact} distribution of $W_{Q,k}$ for $k=1,2,\ldots, 20$, cf., the left panel in~\cref{fig:convergence}.
-We see that when $k=5$, the `hump' of $\P{W_{Q,5}=x}$ around $x=5$ is due the starting value of $W_{Q,0}=5$.
-However, for $k>10$ the distribution of $W_{Q,k}$ hardly changes, at least not visually.
-Apparently, the convergence of the sequence of distributions of $W_{Q,k}$ is rather fast.
-In the middle panel we show the results of a set of \emph{simulations} for increasing simulation length, up to $N=1000$ samples.
-Here the \emph{empirical distribution} for the simulation is defined as
-\begin{equation*}
-\P{W_Q\leq x} =   \frac 1n \sum_{k=1}^n \1{W_{Q,k} \leq x},
-\end{equation*}
-where $W_{Q,k}$ is obtained by simulation.
-As should be clear from the figure, the simulated distribution also converges quite fast to some limiting function.
-Finally, in the right panel we compare the densities as obtained by the exact method and simulation with $n=1000$.
-Clearly, for all practical purposes, these densities can be treated as the same.
-
-The combination of the fast convergence to the steady-state situation
-and the difficulties with the transient analysis validates, to some
-extent, that most queueing theory is concerned with the analysis of
-the system in \emph{stationarity}. The study of queueing systems in
-stationary state will occupy us for the rest of the book.
-
-\begin{figure}
-  \centering
-% see progs/waiting_time_simulation.py
-\input{progs/waiting_time_1.tex}
-\input{progs/waiting_time_2.tex}
-\input{progs/waiting_time_3.tex}
-%  \includegraphics{progs/gg1convergence}
-  \caption{The density of $W_{Q,k}$ for $k=5, 10, 15, 20$ computed by
-    an exact method as compared the density obtained by simulation of
-    different run lengths $N=200, 400, \ldots, 1000$. The right panel
-    compares the exact density of $W_{Q,20}$ to the density obtained by simulation
-    for $N=1000$.}
-\label{fig:convergence}
-\end{figure}
-
-
-
-
-\begin{exercise}\clabel{ex:l-135}
-  Suppose that $X_k\in\{1,3\}$ such that $\P{X_k=1}=\P{X_k=3}$ and
-  $S_k\in\{1,2\}$ with $\P{S_k=1}=\P{S_k=2}$. Write a computer program
-  to see how fast the distributions of $W_{Q,k}$ converge to a limiting distribution function.
-\begin{solution}
-    Here is an example with Python.
-    I compute the difference, i.e., the Kolmogorov-Smirnov statistic, between the distributions of $W_{Q,k-1}$ and $W_{Q,k}$,
-\begin{equation*}
-  \max_x\{ |\P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}|\},
-\end{equation*}
-for $x$ in the support of $W_{Q,k}$. 
-
-The code can be found in the \pyv{exact} function in the file \pyv{waiting_time_simulation.py} at
-my github repo.
-
-If you make a plot, you will see that after some 10 customers the distribution hardly changes any further. 
-
-\end{solution}
-  \end{exercise}
-
-\begin{exercise}\clabel{ex:l-136}
-  Validate the results of~\cref{fig:convergence} with simulation.
-\begin{solution}
-    The code is in the file \pyv{waiting_time_simulation.py} at my github repo.
-\end{solution}
-\end{exercise}
 
 
 \opt{solutionfiles}{

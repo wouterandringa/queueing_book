@@ -3,84 +3,84 @@
 \Opensolutionfile{ans}
 \subsection{Multiple-choice Questions}
 
-The questions in this sections are actually claims that are either true of false.
+The questions in this section are actually claims that are either true of false.
 It is up to you to decide which of the two alternatives is correct.
 A (in)correct answers (costs) earns you a point.
 
 \begin{exercise}[201703] 
-  If the random variable $X\sim\exp(\lambda)$ then
-  \begin{equation*}
-  \E{X^2}= \frac{1}{\lambda^2}.
-  \end{equation*}
+ If the random variable $X\sim\Exp(\lambda)$, then
+ \begin{equation*}
+ \E{X^2}= \frac{1}{\lambda^2}.
+ \end{equation*}
 \begin{solution}
-    Answer = B.
+ Answer = B.
 
-  \begin{equation*}
-  \E{X^2}= \frac{2}{\lambda^2}.
-  \end{equation*}
+ \begin{equation*}
+ \E{X^2}= \frac{2}{\lambda^2}.
+ \end{equation*}
 
 \end{solution}
 \end{exercise}
 
 %2
 \begin{exercise}[201703]
-  If $X\sim\exp(\lambda)$ and $Y\sim\exp(\mu)$ and $X$ and $Y$ are
-  independent, then
-  \begin{equation*}
-Z=\max\{X,Y\}\sim\exp(\lambda+\mu),
-  \end{equation*}
+ If $X\sim\Exp(\lambda)$ and $Y\sim\Exp(\mu)$ and $X$ and $Y$ are
+ independent, then
+ \begin{equation*}
+Z=\max\{X,Y\}\sim\Exp(\lambda+\mu).
+ \end{equation*}
 \begin{solution}
-    Answer = B.
+ Answer = B.
 
-$Z=\min\{X,Y\} \sim \exp(\lambda+\mu)$.
+$Z=\min\{X,Y\} \sim \Exp(\lambda+\mu)$.
 
 \end{solution}
 \end{exercise}
 
 %3
 \begin{exercise}[201703]
-  If the interarrival times $\{X_k\}$ are i.i.d. and exponentially
-  distributed with mean $1/\lambda$, and $A_k = \sum_{i=1}^k X_i$, then 
+ If the interarrival times $\{X_k\}$ are i.i.d. and exponentially
+ distributed with mean $1/\lambda$, and $A_k = \sum_{i=1}^k X_i$, then 
 \begin{equation*}
-  \begin{split}
+ \begin{split}
 \P{A_{k+1} \leq t} 
-&= - \frac{(\lambda t)^{k}}{k!} e^{-\lambda t} + \P{A_k \leq t}
-  \end{split}
+&= - \frac{(\lambda t)^{k}}{k!} e^{-\lambda t} + \P{A_k \leq t}.
+ \end{split}
 \end{equation*}
 \begin{solution}
-    Answer = A. 
+ Answer = A. 
 
-    I decided to withdraw this question. The initial wording of the
-    question was like this: `If the interarrival times $\{A_k\}$ are
-    i.i.d. and exponentially distributed with mean $1/\lambda$,
-    then\ldots'. However, in the book we use the notation $A_k$ for
-    arrival times, not interarrival times. During the exam I changed
-    the word `interarrival' by `arrival', hoping that it would clarify
-    the meaning of the $A_k$, but then there is another problem,
-    namely the arrival times are not i.i.d.  Hence, there was no way
-    in which the problem could be interpreted during the exam in an
-    unambiguous way. 
+ I decided to withdraw this question. The initial wording of the
+ question was like this: `If the interarrival times $\{A_k\}$ are
+ i.i.d. and exponentially distributed with mean $1/\lambda$,
+ then\ldots'. However, in the book we use the notation $A_k$ for
+ arrival times, not interarrival times. During the exam I changed
+ the word `interarrival' by `arrival', hoping that it would clarify
+ the meaning of the $A_k$, but then there is another problem,
+ namely the arrival times are not i.i.d. Hence, there was no way
+ in which the problem could be interpreted during the exam in an
+ unambiguous way. 
 \end{solution}
 \end{exercise}
 
 %4
 \begin{exercise}[201703] 
 Assume that
-  $N_a(t)\sim \text{P}(\lambda t)$ , $N_s(t) \sim \text{P}(\mu t)$ and
-  independent.   Then,
-  \begin{equation*}
+ $N_a(t)\sim \text{P}(\lambda t)$ , $N_s(t) \sim \text{P}(\mu t)$ and
+ independent. Then,
+ \begin{equation*}
 \P{N_a(t) + N_s(t) = n} 
-= e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!}  \\
-  \end{equation*}
+= e^{-(\mu+\lambda)t} \sum_{i=0}^n \frac{(\mu t)^{n-i}}{(n-i)!} \frac{(\lambda t)^i}{i!}. \\
+ \end{equation*}
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 % 5
 
 \begin{exercise}[201703]
-  If $N(t)\sim P(\lambda t)$,
+ If $N(t)\sim P(\lambda t)$,
  then $\E{N^2}=(\lambda t)^2$.
 
 \begin{solution}
@@ -88,15 +88,15 @@ Answer = B.
 
 Set $t=1$ for notational simplicity. Then
 \begin{equation*}
-   M(s) = \E{e^{sN}} = e^{-\lambda}\sum_{n=0}^\infty \frac{\lambda^n}{n!} = \exp{\lambda(e^s-1)}.
+ M(s) = \E{e^{sN}} = e^{-\lambda}\sum_{n=0}^\infty \frac{\lambda^n}{n!} = \exp\{\lambda(e^s-1)\}.
 \end{equation*}
 Then, 
 \begin{equation*}
-  M'(s) = \frac{\d}{\d t} M(s) = \exp{\lambda(e^s-1)}\lambda e^s,
+ M'(s) = \frac{\d}{\d t} M(s) = \exp\{\lambda(e^s-1)\}\lambda e^s,
 \end{equation*}
 and 
 \begin{equation*}
-  M''(s) = \exp{\lambda(e^s-1)}(\lambda^2 e^{2s} + \lambda e^s).
+ M''(s) = \exp\{\lambda(e^s-1)\}(\lambda^2 e^{2s} + \lambda e^s).
 \end{equation*}
 Finally, 
 $\E{N^2} = M''(0) = \lambda^2+\lambda$. 
@@ -107,43 +107,43 @@ $\E{N^2} = M''(0) = \lambda^2+\lambda$.
 
 % 6
 \begin{exercise}[201703]
-  For the $M/D/1$ queue, job service times are exponentially
-  distributed and the interarrival times are deterministic.
+ For the $M/D/1$ queue, job service times are exponentially
+ distributed and the interarrival times are deterministic.
 
 \begin{solution}
-    Answer = B.
+ Answer = B.
 
-    The interarrival times are exponentially distributed and the
-    service times are deterministic.
+ The interarrival times are exponentially distributed and the
+ service times are deterministic.
 \end{solution}
 \end{exercise}
 
 %7
 \begin{exercise}[201703] 
 A machine can switch on and off. If the queue length
-  hits $N$, the machine switches on, and if the system becomes empty,
-  the machine switches off.  Let $I_k=1$ if the machine is on in
-  period $k$ and $I_k=0$ if it is off, let $Q_k$ be the number of
-  items in the system at the end of period $k$, then, 
-    \begin{align*}
-      I_{k+1} &=
-      \begin{cases}
-        1 & \text{ if } Q_{k} \geq N,\\
-        I_k & \text{ if } 0< Q_{k} <N,\\
-        0 & \text{ if }  Q_{k} =0,\\
-      \end{cases}\\
-  I_{k+1} &= \1{Q_k\geq N} + I_k \1{0<Q_k<N} \\
-d_k &=\min\{Q_{k-1}, c_k\}, \\
-Q_k &= Q_{k-1} - (1-I_k) d_k + a_k.
-    \end{align*}
-    Assume that $I_0 =0$ at time $k=0$. 
+ hits $N$, the machine switches on, and if the system becomes empty,
+ the machine switches off. Let $I_k=1$ if the machine is on in
+ period $k$ and $I_k=0$ if it is off, let $L_k$ be the number of
+ items in the system at the end of period $k$, then, 
+ \begin{align*}
+ I_{k+1} &=
+ \begin{cases}
+ 1 & \text{ if } L_{k} \geq N,\\
+ I_k & \text{ if } 0< L_{k} <N,\\
+ 0 & \text{ if } L_{k} =0,\\
+ \end{cases}\\
+ I_{k+1} &= \1{L_k\geq N} + I_k \1{0<L_k<N}, \\
+d_k &=\min\{L_{k-1}, c_k\}, \\
+L_k &= L_{k-1} - (1-I_k) d_k + a_k.
+ \end{align*}
+ Assume that $I_0 =0$ at time $k=0$. 
 
 It is true that the above
-    recursions model this queueing system.
+ recursions model this queueing system.
 
 \begin{solution}
-    Answer = B.
-It should be this: $d_k =I_k \min\{Q_{k-1}, c_k\}$,  $Q_k = Q_{k-1} - d_k + a_k$.
+ Answer = B.
+It should be this: $d_k =I_k \min\{L_{k-1}, c_k\}$, $L_k = L_{k-1} - d_k + a_k$.
 
 \end{solution}
 \end{exercise}
@@ -153,81 +153,81 @@ It should be this: $d_k =I_k \min\{Q_{k-1}, c_k\}$,  $Q_k = Q_{k-1} - d_k + a_k$
 \begin{exercise}[201703]
 For the $G/G/1$ queue the following recursion is true: 
 \begin{align*}
-  W_{k} &= [W_{k-1} - X_k]^+ + S_k,\\
-  D_k &= A_k + W_k.
+ W_{k} &= [W_{k-1} - X_k]^+ + S_k,\\
+ D_k &= A_k + W_k.
 \end{align*}
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 % 9
 \begin{exercise}[201703]
-  For the $G/G/1$ queue, suppose that the interarrival times
-  $X_k\in\{1,3\}$ such that $\P{X_k=1}=1/5$ (hence, $\P{X_k=3}=4/5$)
-  and the service times $S_k\in\{1,2\}$ with $\P{S_k=1}=1/3$ (hence,
-  $\P{S_k=2}=2/3$). If $W_{Q,0}=3$,
-  \begin{equation*}
-    \P{W_{Q,1} = 1} =\frac4{15}.
-  \end{equation*}
+ For the $G/G/1$ queue, suppose that the interarrival times
+ $X_k\in\{1,3\}$ such that $\P{X_k=1}=1/5$ (hence, $\P{X_k=3}=4/5$)
+ and the service times $S_k\in\{1,2\}$ with $\P{S_k=1}=1/3$ (hence,
+ $\P{S_k=2}=2/3$). If $W_{L,0}=3$,
+ \begin{equation*}
+ \P{W_{L,1} = 1} =\frac4{15}.
+ \end{equation*}
 
 \begin{solution}
-    Answer = A.
-  \begin{equation*}
-    \P{W_{Q,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
-  \end{equation*}
+ Answer = A.
+ \begin{equation*}
+ \P{W_{L,1} = 1} = \P{S_0=1, X_1=3}=\frac13\frac 45 = \frac4{15}.
+ \end{equation*}
 
-  I asked $<1/2$ in case you would use your calculator which might
-  have resulted in rounding errors. Like this, I was on the safe side.
+ I asked $<1/2$ in case you would use your calculator which might
+ have resulted in rounding errors. Like this, I was on the safe side.
 \end{solution}
 \end{exercise}
 
 % 10
 \begin{exercise}[201703] 
-  Consider the random walk
+ Consider the random walk
 \begin{equation*}
-  Z(t) = Z(0) + N_\lambda(t) - N_\mu(t), 
+ Z(t) = Z(0) + N_\lambda(t) - N_\mu(t), 
 \end{equation*}
 where the arrival process is a Poisson process $N_\lambda(t)$ and the
 departure process is a Poisson process $N_\mu(t)$. 
 
 \begin{equation*}
-  \begin{split}
-    \P{m}{Z(t)=n} 
-&= \sum_{k=0}^\infty e^{-\mu t} \frac{(\mu t)^{k -n+m}}{(k-n +m)!} e^{-\lambda t} \frac{(\lambda t)^k}{k!} \\
-  \end{split}
+ \begin{split}
+ \P{m}{Z(t)=n} 
+&= \sum_{k=0}^\infty e^{-\mu t} \frac{(\mu t)^{k -n+m}}{(k-n +m)!} e^{-\lambda t} \frac{(\lambda t)^k}{k!}, \\
+ \end{split}
 \end{equation*}
 where $\P{m}{\cdot}$ means that $Z(0)=m$.
 
 \begin{solution}
-    Answer = A.
+ Answer = A.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201704] %1
-   If $X\sim \exp(\lambda)$, $S\sim\exp(\mu)$ and independent, 
+ If $X\sim \Exp(\lambda)$, $S\sim\Exp(\mu)$ and independent, 
 then
 \begin{equation*}
-  \begin{split}
-    \P{X\leq S} 
+ \begin{split}
+ \P{X\leq S} 
 &= \E{\1{X\leq S}} \\
 &= \int_0^\infty \int_0^\infty \1{x\leq y} f_{X,S}(x,y)\, \d y\,\d x\\
 &= \lambda \mu \int_0^\infty \int_0^\infty \1{x\leq y} e^{-\lambda x} e^{-\mu y} \, \d y\,\d x\\
 &= \lambda \mu \int_0^\infty e^{-\mu y} \int_0^y e^{-\lambda x}\, \d x \, \d y \\
 &= \mu \int_0^\infty e^{-\mu y} e^{-\lambda y}\,\d y\\
 &= \mu \int_0^\infty e^{-(\lambda +\mu)y} \,\d y\\
-&= \frac{\mu}{\lambda + \mu} 
-  \end{split}
+&= \frac{\mu}{\lambda + \mu}.
+ \end{split}
 \end{equation*}
 
 \begin{solution}
 Answer = B.
 
 \begin{equation*}
-  \begin{split}
-    \P{X\leq S} 
+ \begin{split}
+ \P{X\leq S} 
 &= \E{\1{X\leq S}} \\
 &= \int_0^\infty \int_0^\infty \1{x\leq y} f_{X,S}(x,y)\, \d y\,\d x\\
 &= \lambda \mu \int_0^\infty \int_0^\infty \1{x\leq y} e^{-\lambda x} e^{-\mu y} \, \d y\,\d x\\
@@ -235,68 +235,68 @@ Answer = B.
 &= \mu \int_0^\infty e^{-\mu y} (1-e^{-\lambda y})\,\d y\\
 &= \mu \int_0^\infty (e^{-\mu y} - e^{-(\lambda +\mu)y} ) \,\d y\\
 &= \mu \int_0^\infty (e^{-\mu y} - e^{-(\lambda +\mu)y} ) \,\d y\\
-&= 1 - \frac{\mu}{\lambda + \mu} 
-  \end{split}
+&= 1 - \frac{\mu}{\lambda + \mu}.`
+ \end{split}
 \end{equation*}
 
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704] %2
+\begin{exercise}[201704]
 For the $G/G/1$ it is true that
 \begin{equation*}
-  W_{k} = [W_{k-1} - X_k + S_k]^+.
+ W_{k} = [W_{k-1} - X_k + S_k]^+.
 \end{equation*}
 
 \begin{solution}
-  Answer = B.
+ Answer = B.
 
 \begin{equation}
-  \begin{split}
-  W_{Q,k} &= [W_{k-1} - X_k]^+,\\
-  W_{k} &= W_{Q,k} + S_k = [W_{k-1} - X_k]^+ + S_k.
-  \end{split}
+ \begin{split}
+ W_{Q,k} &= [W_{k-1} - X_k]^+,\\
+ W_{k} &= W_{Q,k} + S_k = [W_{k-1} - X_k]^+ + S_k.
+ \end{split}
 \end{equation}
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]%3
+\begin{exercise}[201704]
 For the $G/G/1$ queue the virtual waiting time process $\{V(t), t\geq 0\}$ 
 satisfies
-      \begin{equation*}
-        V(t) = [V(A_{A(t)}) + (A_{A(t)}-t)]^+.
-      \end{equation*}
+ \begin{equation*}
+ V(t) = [V(A_{A(t)}) + (A_{A(t)}-t)]^+.
+ \end{equation*}
 \begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]%4
-  For the $G/G/1$ queue, if $\E B$ is the expected busy time and
-  $\E I$ is the expected idle time, then
+\begin{exercise}[201704]
+ For the $G/G/1$ queue, if $\E B$ is the expected busy time and
+ $\E I$ is the expected idle time, then
 \begin{equation*}
-  \E B = \frac{\rho }{1-\rho} \E I. 
+ \E B = \frac{\rho }{1-\rho} \E I. 
 \end{equation*}
 \begin{solution} Answer = A.
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]%5
-  Consider a paint factory which contains a paint mixing machine that
-  serves two classes of jobs, A and B. The processing times of jobs of
-  types A and B are constant and require $t_A$ and $t_B$ hours. The
-  job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type
-  $B$ jobs. It takes a setup time of $S_{i j}$ hours to clean the mixing
-  station when changing from paint type $i$ to type $j$.
+\begin{exercise}[201704]
+ Consider a paint factory which contains a paint mixing machine that
+ serves two classes of jobs, A and B. The processing times of jobs of
+ types A and B are constant and require $t_A$ and $t_B$ hours. The
+ job arrival rate is $\lambda_A$ for type A and $\lambda_B$ for type
+ $B$ jobs. It takes a setup time of $S_{i j}$ hours to clean the mixing
+ station when changing from paint type $i$ to type $j$.
 
-  The linear program below can be used to determine the minimal batch
-  sizes.  To keep the system (rate) stable,
+ The linear program below can be used to determine the minimal batch
+ sizes. To keep the system (rate) stable,
 \begin{equation*}
-  \text{minimize }  T
+ \text{minimize } T
 \end{equation*}
 such that
 \begin{align*}
- T&=  k_A t_A + S_{AB} + k_B t_B + S_{BA}, \\
- \lambda_A T &< k_A,  \\
+ T&= k_A t_A + S_{AB} + k_B t_B + S_{BA}, \\
+ \lambda_A T &< k_A, \\
  \lambda_B T &< k_B.
 \end{align*}
 
@@ -304,16 +304,16 @@ such that
 \end{solution}
 \end{exercise}
 
-\begin{exercise}[201704]%6
-  For the $G/G/1$ queue the stationary distribution  of
-  the waiting times at arrival times is equal to the empirical distribution
+\begin{exercise}[201704]
+ For the $G/G/1$ queue the stationary distribution of
+ the waiting times at arrival times is equal to the empirical distribution
 \begin{equation*}
-  \P{W \leq x}  =  \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
+ \P{W \leq x} = \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
 \end{equation*}
 \begin{solution} Answer = B.
-  
+ 
 \begin{equation}
-  \P{W \leq x}  = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
+ \P{W \leq x} = \lim_{n\to\infty} \frac 1n\sum_{k=1}^n \1{W_k\leq x}.
 \end{equation}
 
 \end{solution}
@@ -339,9 +339,9 @@ Answer = A.
 
 \begin{exercise}[201802]
 Let $N$ be a Poisson process with rate $\lambda$. Then,
-  \begin{equation*}
+ \begin{equation*}
 \{N(0,s]+N(s,t]=1\}\cap\{N(0,t]=1\} = \{N(0,s]=1\}.
-  \end{equation*}
+ \end{equation*}
 \begin{solution}
 Answer = B.
 \end{solution}
@@ -361,18 +361,18 @@ Answer = B.
 \begin{exercise}[201802]
 Suppose $N\sim P(\lambda)$ and $N_1$ is a random variable obtained by `thinning'~$N$ with Bernoulli random variables with success probability $p$. The following reasoning is correct:
 \begin{equation*}
-  \begin{split}
-    \P{N_1 = k}
+ \begin{split}
+ \P{N_1 = k}
 &= \sum_{n=k}^\infty \P{N_1 =k, N = n} 
 = \sum_{n=k}^\infty \P{N_1 =k\given N = n}\P{N=n} \\
 &= \sum_{n=k}^\infty \P{N_1 =k\given N = n}e^{-\lambda} \frac{\lambda^n}{n!}\\
 &= \sum_{n=k}^\infty {n \choose k} p^k (1-p)^{n-k} e^{-\lambda} \frac{\lambda^n}{n!} \\
-&= e^{-\lambda}\sum_{n=k}^\infty  \frac{p^k (1-p)^{n-k}}{k! (n-k)!} \lambda^n
-= e^{-\lambda} \frac{(\lambda p)^k}{k!} \sum_{n=k}^\infty  \frac{(\lambda (1-p))^{n-k}}{(n-k)!}\\
-&= e^{-\lambda} \frac{(\lambda p)^k}{k!} \sum_{n=0}^\infty  \frac{(\lambda (1-p))^{n}}{n!}
+&= e^{-\lambda}\sum_{n=k}^\infty \frac{p^k (1-p)^{n-k}}{k! (n-k)!} \lambda^n
+= e^{-\lambda} \frac{(\lambda p)^k}{k!} \sum_{n=k}^\infty \frac{(\lambda (1-p))^{n-k}}{(n-k)!}\\
+&= e^{-\lambda} \frac{(\lambda p)^k}{k!} \sum_{n=0}^\infty \frac{(\lambda (1-p))^{n}}{n!}
 = e^{-\lambda} \frac{(\lambda p)^k}{k!} e^{\lambda(1-p)} \\
 &= e^{-\lambda p} \frac{(\lambda p)^k}{k!}.
-  \end{split}
+ \end{split}
 \end{equation*}
 \begin{solution}
 Answer = A.
@@ -389,8 +389,8 @@ Answer = A.
 \begin{exercise}[201802]
 If $X$ is exponentially distributed with rate $\lambda$,
  \begin{equation*}
-    \E X = \int_0^\infty \lambda e^{-\lambda t}\, \d t.
-  \end{equation*}
+ \E X = \int_0^\infty \lambda e^{-\lambda t}\, \d t.
+ \end{equation*}
 \begin{solution}
 Answer = B.
 \end{solution}
@@ -405,7 +405,7 @@ Answer = B.
 \end{exercise}
 
 \begin{exercise}[201802]
-In the  $D/M/1$ jobs have deterministic service times.
+In the $D/M/1$ jobs have deterministic service times.
 \begin{solution}
 Answer = B.
 \end{solution}
@@ -421,7 +421,7 @@ Answer = A.
 \begin{exercise}[201802]
 For a continuous-time queueing system, if $S_2$ is the service time of job $2$ and $X_3$ is the time between jobs 2 and 3, and $S_2$ and $X_3$ are independent, then
 \begin{equation*}
-  \P{S_{2}=1, X_3=3} = \P{S_{2}=1}\P{X_3=3}.
+ \P{S_{2}=1, X_3=3} = \P{S_{2}=1}\P{X_3=3}.
 \end{equation*}
 \begin{solution}
 Answer = A.
@@ -429,10 +429,10 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201802]
-For a single-server queueing system that starts empty,  the number $L(t)$ of jobs in the system at time $t$ satisfies
-  \begin{equation*}
-      L(t) = \sum_{k=1}^\infty \left[\1{A_k \leq t} -  \1{D_k \leq t}\right].
-  \end{equation*}
+For a single-server queueing system that starts empty, the number $L(t)$ of jobs in the system at time $t$ satisfies
+ \begin{equation*}
+ L(t) = \sum_{k=1}^\infty \left[\1{A_k \leq t} - \1{D_k \leq t}\right].
+ \end{equation*}
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -447,9 +447,9 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201802]
-If a r.v. $X\sim\exp(\lambda)$, i.e., exponentially distributed with mean $\lambda^{-1}$, then the following shows that $X$ has the memoryless  property:
+If a r.v. $X\sim\Exp(\lambda)$, i.e., exponentially distributed with mean $\lambda^{-1}$, then the following shows that $X$ has the memoryless property:
 \begin{equation*}
-  \P{X>t+h|X>t} = \frac{\P{X>t+h, X>t}}{\P{X>t}} = \frac{\P{X>t+h}}{\P{X>t}} = \frac{e^{-\lambda(t+h)}}{e^{-\lambda t}} = e^{-\lambda h} = \P{X>h}.
+ \P{X>t+h|X>t} = \frac{\P{X>t+h, X>t}}{\P{X>t}} = \frac{\P{X>t+h}}{\P{X>t}} = \frac{e^{-\lambda(t+h)}}{e^{-\lambda t}} = e^{-\lambda h} = \P{X>h}.
 \end{equation*}
 
 \begin{solution}
@@ -465,27 +465,27 @@ Answer = B.
 \end{exercise}
 
 \begin{exercise}[201803]
- Consider a single-server that  serves two parallel queues $A$ and $B$. Each queue receives a minimal service   capacity every period. Reserved capacity unused for one queue can be
-  used to serve the other queue. Any extra capacity beyond the
-  reserved capacity is given to queue A with priority. The following set
-  of recursions suffices to simulate this situation,
+ Consider a single-server that serves two parallel queues $A$ and $B$. Each queue receives a minimal service capacity every period. Reserved capacity unused for one queue can be
+ used to serve the other queue. Any extra capacity beyond the
+ reserved capacity is given to queue A with priority. The following set
+ of recursions suffices to simulate this situation,
 \begin{align*}
-  c_{k,A} &= \min\{Q_{ k-1, A}, r_A\}\\
-d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,A}\}\\
-Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A}\\
-d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\} \\
-Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
+ c_{k,A} &= \min\{Q_{ k-1, A}, r_A\},\\
+d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,A}\},\\
+Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A},\\
+d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\}, \\
+Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B},
 \end{align*}
 where $r_A$, $r_B$ are the reserved capacities for each queue, and $c_k$ the total service capacity available in time $k$ and such that $c_k \geq r_A+r_B$.
 
 \begin{solution}
 Answer = B. The following is correct: 
 \begin{align*}
-  c_{k,B} &= \min\{Q_{ k-1, B}, r_B\}\\
-d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,B}\}\\
-Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A}\\
-d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\}\\
-Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
+ c_{k,B} &= \min\{Q_{ k-1, B}, r_B\},\\
+d_{k,A} &= \min\{Q_{k-1, A}, c_k-c_{k,B}\},\\
+Q_{k,A} &= Q_{k-1, A} - d_{k,A} + a_{k,A},\\
+d_{k,B} &= \min\{Q_{k-1, B}, c_k-d_{k,A}\},\\
+Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}.
 \end{align*}
 \end{solution}
 \end{exercise}
@@ -493,13 +493,13 @@ Q_{k,B} &= Q_{k-1, B} - d_{k,B} + a_{k,B}
 \begin{exercise}[201803]
 The Kolmogorov-Smirnov statistic between the distributions of the random variables $W_{Q,k}$ and $W_{Q,k-1}$ is given by
 \begin{equation*}
-  \max_x\{ \P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}\}.
+ \max_x\{ \P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}\}.
 \end{equation*}
 
 \begin{solution}
 Answer = B. It should be
 \begin{equation*}
-  \max_x\{|\P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}|\}.
+ \max_x\{|\P{W_{Q,k}\leq x} - \P{W_{Q,k-1}\leq x}|\}.
 \end{equation*}
 
 \end{solution}
@@ -507,9 +507,9 @@ Answer = B. It should be
 
 
 \begin{exercise}[201804]
-    Assume that the interarrival times $\{X_i\}$ are i.i.d. and
-    $X_i\sim\exp(\lambda)$. Let
-    $A_i=X_1+X_2+\cdots+X_i=\sum_{k=1}^i X_k$ with $i\geq 1$. Then,
+ Assume that the interarrival times $\{X_i\}$ are i.i.d. and
+ $X_i\sim\Exp(\lambda)$. Let
+ $A_i=X_1+X_2+\cdots+X_i=\sum_{k=1}^i X_k$ with $i\geq 1$. Then,
  \begin{equation*}
 \E{A_i} = \frac i\lambda.
  \end{equation*}
@@ -520,20 +520,20 @@ Answer = A.
 
 \begin{exercise}[201804]
 We have a discrete-time queueing system with a server with capacity $c$ per period. The server can serve 2 more jobs
-when the queue length is 24 or longer, and  1 less when the queue length is less than 12.  
-We can use the following construction  to simulate this queueing process:
+when the queue length is 24 or longer, and 1 less when the queue length is less than 12. 
+We can use the following construction to simulate this queueing process:
 \begin{align*}
-c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} \leq 12}\\
-  d_n &= \min\{Q_{n-1}, c_n\} \\
+c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} \leq 12},\\
+ d_n &= \min\{Q_{n-1}, c_n\}, \\
 Q_n &= Q_{n-1} + a_n - d_n,
 \end{align*}
 where the notation is the same as in the book.
 \begin{solution}
 Answer = B. It should be this:
 \begin{align*}
-c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} < 12}\\
-  d_n &= \min\{Q_{n-1}, c_n\} \\
-Q_n &= Q_{n-1} + a_n - d_n,
+c_n &= c + 2\1{Q_{n-1} \geq 24} - \1{Q_{n-1} < 12},\\
+ d_n &= \min\{Q_{n-1}, c_n\}, \\
+Q_n &= Q_{n-1} + a_n - d_n.
 \end{align*}
 Note the \emph{less than}.
 \end{solution}
@@ -541,15 +541,15 @@ Note the \emph{less than}.
 
 \begin{exercise}[201804]
 We have a discrete-time queueing system with a server with capacity $c$ per period. The server can serve 2 more jobs
-when the queue length is 24 or longer, and  1 less when the queue length is less than 12.  
+when the queue length is 24 or longer, and 1 less when the queue length is less than 12. 
 The following formula computes the number of periods in which the queue exceeds 30 for a simulation that starts at period 1 and stops at period~$N$, 
 \begin{equation*}
-N-  \sum_{n=1}^N \1{Q_n \leq 30}.
+N- \sum_{n=1}^N \1{Q_n \leq 30}.
 \end{equation*}
 \begin{solution}
 Answer = A. 
 \begin{equation*}
-N-  \sum_{i=n}^N \1{Q_n \leq 30} = 
+N- \sum_{i=n}^N \1{Q_n \leq 30} = 
 \sum_{i=n}^N (1-\1{Q_n \leq 30}) = 
 \sum_{i=n}^N \1{Q_n > 30}.
 \end{equation*}
@@ -559,8 +559,8 @@ N-  \sum_{i=n}^N \1{Q_n \leq 30} =
 \begin{exercise}[201804]
 The following is correct: 
 \begin{equation*}
-  (\lambda t)^k (\mu t) ^{k + m - n}  
-%&=  \lambda^k t^k\mu^{k + m - n} t^{k+m-n} \\
+ (\lambda t)^k (\mu t) ^{k + m - n} 
+%&= \lambda^k t^k\mu^{k + m - n} t^{k+m-n} \\
 %&= \lambda^k \mu^{k + m - n} (t\sqrt{\lambda \mu})^{2k+m-n} (\lambda\mu)^{-k + (n-m)/2} \\
 = (\lambda/\mu)^{(n-m)/2} (t\sqrt{\lambda \mu})^{2k+m-n}.
 \end{equation*}
@@ -570,30 +570,30 @@ Answer = A.
 \end{exercise}
 
 \begin{exercise}[201804] 
-Consider the $G/G/1$ queue.  The total amount of service that arrived during the arrival times of the first and the $n+1$th job, i.e., between $[A_1, A_{n+1})$, is $\sum_{i=1}^n S_i$.
-Thus,  the     fraction of time that the server has been busy during $[A_1, A_{n+1})$    is
-        \begin{equation*}
+Consider the $G/G/1$ queue. The total amount of service that arrived during the arrival times of the first and the $n+1$th job, i.e., between $[A_1, A_{n+1})$, is $\sum_{i=1}^n S_i$.
+Thus, the fraction of time that the server has been busy during $[A_1, A_{n+1})$ is
+ \begin{equation*}
 \frac{\sum_{i=1}^n S_i}{A_{n+1}-A_1} 
-=          \frac{\sum_{i=1}^n S_i}{\sum_{i=1}^{n+1}X_i -X_1} 
-=          \frac{\sum_{i=1}^n S_i}{\sum_{i=2}^{n+1}X_i}.
-        \end{equation*}
+= \frac{\sum_{i=1}^n S_i}{\sum_{i=1}^{n+1}X_i -X_1} 
+= \frac{\sum_{i=1}^n S_i}{\sum_{i=2}^{n+1}X_i}.
+ \end{equation*}
 \begin{solution}
 Answer = B. The point here is that it is not true in general. Only when $L(A_{n+1})=0$, it is true. Otherwise, if $A_{n+1}< D_n$, there is a queue, hence the total amount of work arrived is larger than what has been served. In fact, the quantity in the formula may exceed 1, in which case it cannot be a fraction of time.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201807]
-Let $\{N(t)\}$ denote the Poisson process with rate $\lambda$, and write $N(s, t]$ for the number of arrivals in the interval $(s,t]$. Claim:  the following holds for $h\ll 1$, 
-    \begin{align*}
-  \P{N(t+h) = n | N(t) = n} 
-&=  \P{N(t+h) = n, N(t) = n}/\P{N(t)=n} \\
-&=  \P{N(t, t+h] = 0,  N(t) = n}/\P{N(t)=n} \\
-&=  \P{N(t, t+h] = 0} \P{N(t) = n}/\P{N(t)=n}, \\
+Let $\{N(t)\}$ denote the Poisson process with rate $\lambda$, and write $N(s, t]$ for the number of arrivals in the interval $(s,t]$. Claim: the following holds for $h\ll 1$, 
+ \begin{align*}
+ \P{N(t+h) = n | N(t) = n} 
+&= \P{N(t+h) = n, N(t) = n}/\P{N(t)=n} \\
+&= \P{N(t, t+h] = 0, N(t) = n}/\P{N(t)=n} \\
+&= \P{N(t, t+h] = 0} \P{N(t) = n}/\P{N(t)=n}, \\
 &= \P{N(t, t+h] = 0} \\
 &= \P{N(0, h] = 0} \\
 &= e^{-\lambda h} (\lambda h)^0/0! \\
 &= e^{-\lambda h} = 1-\lambda h + o(h).
-    \end{align*}
+ \end{align*}
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -602,7 +602,7 @@ Answer = A.
 
 
 \begin{exercise}[201807]
-Assume that the arrival rate of customers is constant in a given half hour. Claim: it is reasonable to model the interarrival times of customers at call centers or hospitals as  exponentially distributed.
+Assume that the arrival rate of customers is constant in a given half hour. Claim: it is reasonable to model the interarrival times of customers at call centers or hospitals as exponentially distributed.
 \begin{solution}
 Answer = A.
 \end{solution}
@@ -611,8 +611,8 @@ Answer = A.
 \begin{exercise}[201807]
 If $X$ is an exponentially distributed random variable with mean $1/\lambda$ and $Y$ exp. dist. with mean $1/\mu$, and $X$ and $Y$ are independent. Claim:
 \begin{align*}
-    \P{X\leq Y} 
-&= 1 - \frac{\lambda}{\lambda + \mu} 
+ \P{X\leq Y} 
+&= 1 - \frac{\lambda}{\lambda + \mu}.
 \end{align*}
 
 \begin{solution}
@@ -621,13 +621,13 @@ Answer = B.
 \end{exercise}
 
 \begin{exercise}[201807]
-Let $S$ be  a continuous random variable with survivor function $G$, density $f$, and finite second moment. Claim:
-  \begin{align*}
+Let $S$ be a continuous random variable with survivor function $G$, density $f$, and finite second moment. Claim:
+ \begin{align*}
 \int_0^\infty y G(y) \d y 
-&=  \int_0^\infty y \int_y^\infty f(x)\, \d x \d y =  \int_0^\infty y \int_0^\infty 1\{y\leq x\}f(x)\, \d x \d y\\
-&=  \int_0^\infty f(x) \int_0^\infty y 1\{y \leq x\}\, \d y \d x
-=  \int_0^\infty f(x) \frac{x^2}2 \d x =\frac{\E{S^2}}2.
-  \end{align*}
+&= \int_0^\infty y \int_y^\infty f(x)\, \d x \d y = \int_0^\infty y \int_0^\infty 1\{y\leq x\}f(x)\, \d x \d y\\
+&= \int_0^\infty f(x) \int_0^\infty y 1\{y \leq x\}\, \d y \d x
+= \int_0^\infty f(x) \frac{x^2}2 \d x =\frac{\E{S^2}}2.
+ \end{align*}
 
 \begin{solution}
 Answer = A.
@@ -638,7 +638,7 @@ Answer = A.
 
 
 \begin{exercise}[201902]
-Let $N\sim P(\lambda)$. Then its variance is  $\lambda$. 
+Let $N\sim P(\lambda)$. Then its variance is $\lambda$. 
 
 \begin{solution}
 Answer = A. %see Page 11
@@ -646,36 +646,36 @@ Answer = A. %see Page 11
 \end{exercise}
 
 \begin{exercise}[201902]
-Let $N\sim P(\lambda)$. Then its SCV is  $1/\lambda^2$. 
+Let $N\sim P(\lambda)$. Then its SCV is $1/\lambda^2$. 
 \begin{solution}
 Answer = B. The SCV is $1/\lambda$. %see Page 16
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-Let $f(x) =  10^6 x^2$. Then $f(x) = o(x)$. 
+Let $f(x) = 10^6 x^2$. Then $f(x) = o(x)$. 
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  Let $N$ be a random variable taking values in $\N$. Let $\{Z_i\}$ be a set of i.i.d. Bernoulli random variables, and independent of $N$. Let $Y=\sum_{i=1}^N Z_i$. 
-  Then, for $s>0$, 
-  \begin{equation*}
-    \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N\leq n}}.
-  \end{equation*}
+ Let $N$ be a random variable taking values in $\N$. Let $\{Z_i\}$ be a set of i.i.d. Bernoulli random variables, and independent of $N$. Let $Y=\sum_{i=1}^N Z_i$. 
+ Then, for $s>0$, 
+ \begin{equation*}
+ \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N\leq n}}.
+ \end{equation*}
 \begin{solution} 
 Answer = B.
-  \begin{equation*}
-    \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N= n}}.
-  \end{equation*}
-  We discussed this and similar expressions in class, at least in two lectures.  
+ \begin{equation*}
+ \E{e^{sY}} = \sum_{n=0}^\infty \E{e^{s\sum_{i=1}^n Z_i} }\E{\1{N= n}}.
+ \end{equation*}
+ We discussed this and similar expressions in class, at least in two lectures. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-Let $Y$ be a random variable,  exponentially distributed with rate $\lambda>0$. Then $\V Y = 1/\lambda^2$. 
+Let $Y$ be a random variable, exponentially distributed with rate $\lambda>0$. Then $\V Y = 1/\lambda^2$. 
 \begin{solution}
 Answer = A. %
 \end{solution}
@@ -683,38 +683,38 @@ Answer = A. %
 
 \begin{exercise}[201902]
  Let $A_i$ be the arrival time of customer $i$ and set $A_0=0$.
-    Assume that the inter-arrival times $\{X_i\}$ are i.i.d.  with
-    exponential distribution with mean $1/\lambda$ for some
-    $\lambda>0$. It it true that  for the  moment generating function $M_{A_i}(t)$
+ Assume that the inter-arrival times $\{X_i\}$ are i.i.d. with
+ exponential distribution with mean $1/\lambda$ for some
+ $\lambda>0$. It it true that for the moment-generating function $M_{A_i}(t)$
 \begin{align*}
-  M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i-1} X_k\right)}.
+ M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i-1} X_k\right)}.
 \end{align*}
 
 \begin{solution}
 Answer = B. $A_i = A_{i-1} + X_i$. Hence, 
 \begin{align*}
-  M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i} X_k\right)}.
+ M_{A_i}(t) &= \E{e^{t A_i}} = \E{\exp\left(t\sum_{k=1}^{i} X_k\right)}.
 \end{align*}
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  Let $S\sim U[0,7]$ and $X\sim U[0,10]$, where $U[I]$ stands for the
-  uniform distribution concentrated on the interval $I$, and $S$ and $X$ independent. Then the joint density function is equal to 
+ Let $S\sim U[0,7]$ and $X\sim U[0,10]$, where $U[I]$ stands for the
+ uniform distribution concentrated on the interval $I$, and $S$ and $X$ independent. Then the joint density function is equal to 
 \begin{equation*}
-  f_{X S}(x,s) = \1{0\leq x \leq 10, 0\leq s \leq 7}.
+ f_{X S}(x,s) = \1{0\leq x \leq 10, 0\leq s \leq 7}.
 \end{equation*}
 \begin{solution}
 Answer = B. %
 \begin{equation*}
-  f_{X S}(x, s) = f_X(x) \cdot f_S(s) = \frac{1}{10} \1{0\leq x \leq 10}\cdot \frac 17 \1{0\leq s \leq 7},
+ f_{X S}(x, s) = f_X(x) \cdot f_S(s) = \frac{1}{10} \1{0\leq x \leq 10}\cdot \frac 17 \1{0\leq s \leq 7}.
 \end{equation*}
 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-Consider a check-in desk at an airport. There is one desk that is dedicated to  business customers. However, when it is idle (i.e., no business customer in service or in queue), this desk also serves economy class customers. The other $c$ desks are reserved for economy class customers. The queueing process as perceived by the economy class customers can be modeled as an $M/M/(c+1)$ queue. 
+Consider a check-in desk at an airport. There is one desk that is dedicated to business customers. However, when it is idle (i.e., no business customer in service or in queue), this desk also serves economy class customers. The other $c$ desks are reserved for economy class customers. The queueing process as perceived by the economy class customers can be modeled as an $M/M/(c+1)$ queue. 
 \begin{solution}
 Answer = B. 
 \end{solution}
@@ -736,47 +736,47 @@ import numpy as np
 
 Q = np.zeros_like(a)
 d = np.zeros_like(a)
-Q[0] = 10  # initial queue length
+Q[0] = 10 # initial queue length
 
 for k in range(1, len(a)):
-    d[k] = min(Q[k - 1], c[k])
-    Q[k] = Q[k - 1] - d[k] + a[k]
+ d[k] = min(Q[k - 1], c[k])
+ Q[k] = Q[k - 1] - d[k] + a[k]
 
 \end{pyverbatim}
 
 \begin{solution}
-  Answer = B. The vectors $a$ and $c$ are not given. See this:
+ Answer = B. The vectors $a$ and $c$ are not given. See this:
 
 \begin{pyconsole}
 import numpy as np
 
 Q = np.zeros_like(a)
 d = np.zeros_like(a)
-Q[0] = 10  # initial queue length
+Q[0] = 10 # initial queue length
 
 for k in range(1, len(a)):
-    d[k] = min(Q[k - 1], c[k])
-    Q[k] = Q[k - 1] - d[k] + a[k]
+ d[k] = min(Q[k - 1], c[k])
+ Q[k] = Q[k - 1] - d[k] + a[k]
 
 \end{pyconsole}
-  
+ 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  We have a queueing system in discrete time. Take $c_k = c\1{Q_{k-1} > t}$ as service capacity in period $k$. If $c < t$, and $Q_0 > 0$, then $Q_k > 0$ for all $k$. 
+ We have a queueing system in discrete time. Take $c_k = c\1{Q_{k-1} > t}$ as service capacity in period $k$. If $c < t$, and $Q_0 > 0$, then $Q_k > 0$ for all $k$. 
 \begin{solution}
 Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  With the recursion below we can simulate a queueing system in discrete time such that the arrivals in period $k$ can also be served in period $k$.
-  (Note: the question is not whether this code will run as is; it will not.)
+ With the recursion below we can simulate a queueing system in discrete time such that the arrivals in period $k$ can also be served in period $k$.
+ (Note: the question is not whether this code will run as is; it will not.)
 \begin{pyverbatim}
 for k in range(1, len(a)):
-    Q[k] = max(Q[k - 1] - c[k] + a[k], 0)
-    d[k] = Q[k - 1] + a[k] - Q[k]
+ Q[k] = max(Q[k - 1] - c[k] + a[k], 0)
+ d[k] = Q[k - 1] + a[k] - Q[k]
 
 \end{pyverbatim}
 
@@ -786,68 +786,68 @@ Answer = A. This recursion is used to relate the queueing process to a random wa
 \end{exercise}
 
 \begin{exercise}[201902]
-Take  $d_k = \min\{Q_{k-1}+a_k, c_k\}$, and assume that jobs are served in
-  FIFO sequence. The  largest possible waiting time $W_{+, k}$ for a  job arriving in period $k$ is given by 
-    \begin{equation*}
-      W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
-        Q_{k-1}+a_k\right\}.
-    \end{equation*}
+Take $d_k = \min\{Q_{k-1}+a_k, c_k\}$, and assume that jobs are served in
+ FIFO sequence. The largest possible waiting time $W_{+, k}$ for a job arriving in period $k$ is given by 
+ \begin{equation*}
+ W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
+ Q_{k-1}+a_k\right\}.
+ \end{equation*}
 
 \begin{solution}
 Answer = A.
 
 
 
-The initial formulation of the question was like this: Take  $d_k = \min\{Q_{k-1}+a_k, c_k\}$, and assume that jobs are served in
-  FIFO sequence. The  largest possible waiting time $W_{+, k}$ for the $k$th arriving job is given by 
-    \begin{equation*}
-      W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
-        Q_{k-1}+a_k\right\}.
-    \end{equation*}
+The initial formulation of the question was like this: Take $d_k = \min\{Q_{k-1}+a_k, c_k\}$, and assume that jobs are served in
+ FIFO sequence. The largest possible waiting time $W_{+, k}$ for the $k$th arriving job is given by 
+ \begin{equation*}
+ W_{+,k}:= \min\left\{m: \sum_{i=k}^{k+m} c_i \geq
+ Q_{k-1}+a_k\right\}.
+ \end{equation*}
 
-    We  removed this question from the exam as it  was confusing. The problem was that the $k$th job need not arrive in period $k$.
+ We removed this question from the exam as it was confusing. The problem was that the $k$th job need not arrive in period $k$.
 
-    The formulation in the question is adapted so that it can be used as an example. 
+ The formulation in the question is adapted so that it can be used as an example. 
 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201902]
-  Consider a random walk $Z_k = Z_{k-1} + X_k$ with $\{X_k\}$ a process of i.i.d. random variables such that $\P{X_k=1} = 1-\P{X_k=-1} = p \in (0, 1)$. Then, for large $n$ and $\alpha = 2$
-  \begin{equation*}
-    \P{Z_n >  np + \alpha \sqrt{np(1-p)}} \approx 2.5\%, 
-  \end{equation*}
+ Consider a random walk $Z_k = Z_{k-1} + X_k$ with $\{X_k\}$ a process of i.i.d. random variables such that $\P{X_k=1} = 1-\P{X_k=-1} = p \in (0, 1)$. Then, for large $n$ and $\alpha = 2$
+ \begin{equation*}
+ \P{Z_n > np + \alpha \sqrt{np(1-p)}} \approx 2.5\%.
+ \end{equation*}
 
 
 \begin{solution}
-Answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases  when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
+Answer = B. Immediate consequence of the central limit theorem. It is in fact very interesting. It tells us that when $\E{X_k} < 0$ and $Q_0$ is very large, the relative variability of the queueing process decreases when $n$ becomes large. To see this, observe that $\E{X_k} = p - (1-p)=2p-1$ and $\V{X_k} = 1 - (2p-1)^2 = 2p(1-2p)$. Then consider $(Z_n - n\E{X_k})/\sqrt{n\V{X_k}}$. From the central limit theorem we know that this random variable is normally distributed with mean 0 and $\sigma=1$. 
 
 The statement in the question uses random variables $X_k$ such that $\P{X_k=1}=p = 1- \P{X_k=0}$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
-Let $\{X_k, k=1, 2, \ldots\}$ be a set of i.i.d. exponentially distributed random variables with mean $1/\lambda$, and $\{N(t), t\geq 0\}$ with  $N(0)=0$ the associated counting process. Then $\P{X_1\leq s, X_2 \leq t} = \P{N(s+t) = 2}$. 
+Let $\{X_k, k=1, 2, \ldots\}$ be a set of i.i.d. exponentially distributed random variables with mean $1/\lambda$, and $\{N(t), t\geq 0\}$ with $N(0)=0$ the associated counting process. Then $\P{X_1\leq s, X_2 \leq t} = \P{N(s+t) = 2}$. 
 \begin{solution}
-  Answer = B.
+ Answer = B.
 
-  When $X_1\leq s$ and $X_2\leq t$ then still $N(s+t)=3$ is possible. For $N(s+t)=2$ it is  necessary that $X_1+X_2 + X_3 > s+t$. 
+ When $X_1\leq s$ and $X_2\leq t$ then still $N(s+t)=3$ is possible. For $N(s+t)=2$ it is necessary that $X_1+X_2 + X_3 > s+t$. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
-Let $X\sim\exp(\lambda)$ and $M_X(s)$ the associated moment-generating function. Then $M_X(s)<\infty$ for all $s\in \R$. 
+Let $X\sim\Exp(\lambda)$ and $M_X(s)$ the associated moment-generating function. Then $M_X(s)<\infty$ for all $s\in \R$. 
 \begin{solution}
-  Answer = B.
+ Answer = B.
 
-  If $s>\lambda$ the integral does not converge. 
+ If $s>\lambda$ the integral does not converge. 
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201903]
 We consider a discrete-time queueing system with $a_k$ the number of arrivals in period $k$, and $c_k$ the service capacity. Let
 \begin{align}
-d_k &= \min\{Q_{k-1}, c_k\},  & Q_k &= Q_{k-1} -d_k + a_k.
+d_k &= \min\{Q_{k-1}, c_k\}, & Q_k &= Q_{k-1} -d_k + a_k.
 \end{align}
 Take $a_k$ Poisson distributed with $\lambda=2$, i.e., $a_k \sim P(2)$, and $c_k\sim P(1)$ and initialize $Q_0 = 0$. Then $\P{Q_{10000} \geq 100} \leq 1/2$. 
 \begin{solution}
@@ -856,23 +856,23 @@ Answer = B.
 \end{exercise}
 
 \begin{exercise}[201903]
-  % Consider a civil law court.
-  % `Cases' arrive as Poisson process and are (hopefully) settled during a `hearing' (a moment in time all parties involved have to appear at the court house to gather further information for deciding the case and to test whether parties can come to a settlement).
-  % The average time between the arrival of a case and the actual hearing is 4 months, but it should be no longer than 3 months.
-  % To analyze the system we simulate the queueing process at the court as a discrete-time queueing system. It is appropriate to model  the period length in months.
-  A single-server queueing station processes customers.
-  At the start of a period the server capacity is chosen, so that for period $k$ the capacity is $c_k$.
-  Demand that arrives in a period can be served in that period.
-  It costs $\beta$ per unit time per unit processing capacity to operate the machine, i.e., to have it switched on.
-  There is also a cost $h$ per unit time per job in the system.
-  The total cost up to some time $T$ is given by  $\beta \sum_{k=1}^T c_k$.
+ % Consider a civil law court.
+ % `Cases' arrive as Poisson process and are (hopefully) settled during a `hearing' (a moment in time all parties involved have to appear at the court house to gather further information for deciding the case and to test whether parties can come to a settlement).
+ % The average time between the arrival of a case and the actual hearing is 4 months, but it should be no longer than 3 months.
+ % To analyze the system we simulate the queueing process at the court as a discrete-time queueing system. It is appropriate to model the period length in months.
+ A single-server queueing station processes customers.
+ At the start of a period the server capacity is chosen, so that for period $k$ the capacity is $c_k$.
+ Demand that arrives in a period can be served in that period.
+ It costs $\beta$ per unit time per unit processing capacity to operate the machine, i.e., to have it switched on.
+ There is also a cost $h$ per unit time per job in the system.
+ The total cost up to some time $T$ is given by $\beta \sum_{k=1}^T c_k$.
 \begin{solution}
 Answer = B.
 
 The total cost is
-    \begin{equation*}
-      \sum_{k=1}^T \left(\beta c_k + h Q_k\right).
-    \end{equation*}
+ \begin{equation*}
+ \sum_{k=1}^T \left(\beta c_k + h Q_k\right).
+ \end{equation*}
 
 \end{solution}
 \end{exercise}
@@ -887,8 +887,8 @@ Answer = A.
 \begin{exercise}[201903]
 Consider the $G/G/1$ queue in continuous time with inter-arrival times $X_k$, service times $S_k$, arrival times $A_k$ and departure times $D_k$. We can compute the waiting times and sojourn times with the following recursion:
 \begin{align}
-  W_{Q,k} &= [W_{k-1} - X_k]^+, &
-  W_{k} &= W_{Q,k} + S_k = [W_{k-1} - X_k]^+ + S_k.
+ W_{Q,k} &= [W_{k-1} - X_k]^+, &
+ W_{k} &= W_{Q,k} + S_k = [W_{k-1} - X_k]^+ + S_k.
 \end{align}
 
 \begin{solution}
@@ -899,38 +899,38 @@ Answer = A.
 
 
 \begin{exercise}[201904]
-  One server serves two queues and has capacity $c$ per period available.
-  %Each queue receives service capacity in period $k$ 
-  We divide the capacity $c$ over the queues in proportion to the queue lengths $L^i_{k-1}$, $i=1,2$.
-  The following implements this rule:
-    \begin{align*}
-      c_k^1 &= \left\lfloor \frac{L_{k-1}^1}{L_{k-1}^1 + L_{k-1}^2} c + \frac 1 2 \right\rfloor, & c_k^2 &= c - c_k^1,
-    \end{align*}
-    where $c_k^i$ be the capacity allocated to queue $i$ in period $k$ and we include the rounding to prevent the loss of capacity.
+ One server serves two queues and has capacity $c$ per period available.
+ %Each queue receives service capacity in period $k$ 
+ We divide the capacity $c$ over the queues in proportion to the queue lengths $L^i_{k-1}$, $i=1,2$.
+ The following implements this rule:
+ \begin{align*}
+ c_k^1 &= \left\lfloor \frac{L_{k-1}^1}{L_{k-1}^1 + L_{k-1}^2} c + \frac 1 2 \right\rfloor, & c_k^2 &= c - c_k^1,
+ \end{align*}
+ where $c_k^i$ be the capacity allocated to queue $i$ in period $k$ and we include the rounding to prevent the loss of capacity.
 
 \begin{solution}
-      Answer =  A,~\cref{ex:51}.
-      We introduce rounding to prevent the service of `partial' customers.
-      For instance, if the first queue contains 1 job, and the second 2, then without rounding we would server $2/3$ customer of the second type.
+ Answer = A,~\cref{ex:51}.
+ We introduce rounding to prevent the service of `partial' customers.
+ For instance, if the first queue contains 1 job, and the second 2, then without rounding we would server $2/3$ customer of the second type.
 
-      Note that the case with empty queues does not lead to a problem.
-      When there are no jobs, the service distribution is irrelevant.
+ Note that the case with empty queues does not lead to a problem.
+ When there are no jobs, the service distribution is irrelevant.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201904]
-When  $X\sim\Exp(\lambda)$ its SCV is larger than 1.
-\begin{solution} Answer =  B, see~\cref{ex:29}.
+When $X\sim\Exp(\lambda)$ its SCV is larger than 1.
+\begin{solution} Answer = B, see~\cref{ex:29}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201904]
-  For the $G/G/1$ queue the waiting time satisfies the recursion
-  \begin{equation*}
-  W_{Q,k} = \max\{W_{Q,k-1} + S_{k}-X_k, 0\}.
-  \end{equation*}
-\begin{solution} Answer =  B, \eqref{eq:56}.
+ For the $G/G/1$ queue the waiting time satisfies the recursion
+ \begin{equation*}
+ W_{Q,k} = \max\{W_{Q,k-1} + S_{k}-X_k, 0\}.
+ \end{equation*}
+\begin{solution} Answer = B, \eqref{eq:56}.
 \end{solution}
 \end{exercise}
 
@@ -938,41 +938,41 @@ When  $X\sim\Exp(\lambda)$ its SCV is larger than 1.
 \begin{exercise}[201907]
 $e^{x} = 1 +x^2 + o(x^2)$.
 \begin{solution}
-Answer =  B, see~\cref{ex:87}
+Answer = B, see~\cref{ex:87}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
-  A machine produces items to serve customer demand.
-  A fraction $p_k$ of the items produced in period $k$ turns out to be faulty, and has to be made anew.
-  The following set of recursions models the queue of customers waiting to be served from the machine:
-  \begin{align*}
-    d_k &= \min\{L_{k-1}, c_k\}, \\
-    L_k &= L_{k-1}-d_k(1-p_k) + a_k.
-  \end{align*}
+ A machine produces items to serve customer demand.
+ A fraction $p_k$ of the items produced in period $k$ turns out to be faulty, and has to be made anew.
+ The following set of recursions models the queue of customers waiting to be served from the machine:
+ \begin{align*}
+ d_k &= \min\{L_{k-1}, c_k\}, \\
+ L_k &= L_{k-1}-d_k(1-p_k) + a_k.
+ \end{align*}
 \begin{solution}
-Answer =  A, see\cref{ex:88}.
+Answer = A, see\cref{ex:88}.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
 The departure process $\{D(t)\}$ can be computed from the set $\{D_k\}$ of departure times according to:
 \begin{equation*}
-  D(t) = \sum_{k=1}^\infty \1{D_k \leq t}.
+ D(t) = \sum_{k=1}^\infty \1{D_k \leq t}.
 \end{equation*}
 
 \begin{solution}
-Answer =  A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
 \begin{exercise}[201907]
 The waiting time of the third job is correctly represented in the figure below.
-  \begin{center}
+ \begin{center}
 \begin{tikzpicture}[scale=0.9,
-  open/.style={shape=circle, fill=white, inner sep=1pt, draw, node contents=},
-  closed/.style={shape=circle, fill=black, inner sep=1pt, draw, node contents=},
-  soldot/.style={color=blue,only marks,mark=*}
+ open/.style={shape=circle, fill=white, inner sep=1pt, draw, node contents=},
+ closed/.style={shape=circle, fill=black, inner sep=1pt, draw, node contents=},
+ soldot/.style={color=blue,only marks,mark=*}
 ]
 
 \def\rightend{14}
@@ -985,10 +985,10 @@ The waiting time of the third job is correctly represented in the figure below.
 % arrivals
 \def\lastx{0}
 \foreach \x [count=\y, remember=\x as \lastx] in {1,3,4, 7, 9, 18} { 
-  \node at (\lastx, 0) [below] {$A_{\y}$};
-  \node (a) at (\lastx,\y) [closed] {};
-  \draw[dotted] (\lastx,0) -- (a); 
-  \draw (a)-- (\x,\y) node[open, label={}]; 
+ \node at (\lastx, 0) [below] {$A_{\y}$};
+ \node (a) at (\lastx,\y) [closed] {};
+ \draw[dotted] (\lastx,0) -- (a); 
+ \draw (a)-- (\x,\y) node[open, label={}]; 
 }
 % draw first arrival. Since I want the circle to be open, I draw it at
 % the end.
@@ -999,21 +999,21 @@ The waiting time of the third job is correctly represented in the figure below.
 % departures
 \def\lastx{5}
 \foreach \x [count=\y, remember=\x as \lastx] in {6, 8, 10, 11, 13,15} { 
-  \draw[dotted] (\lastx,\y) -- (\lastx,0); 
-  \draw (\lastx,\y) node[closed, label={}] -- (\x,\y) node[open, label={}]; 
-  \node at (\lastx, -0.5) [below] {$D_{\y}$};
+ \draw[dotted] (\lastx,\y) -- (\lastx,0); 
+ \draw (\lastx,\y) node[closed, label={}] -- (\x,\y) node[open, label={}]; 
+ \node at (\lastx, -0.5) [below] {$D_{\y}$};
 }
 \node at (5, 0) [open] {};
 \node at (12, 5) [fill=white] {$D(t)$};
-  
+ 
 \draw[dashed, <->] (3,2.5)--node[midway, fill=white] {$W_3$} (8,2.5);
 \draw[dashed, <->] (7.5,2)--node[midway, fill=white,rotate=90] {$L(t)$} (7.5,5);
 
 \end{tikzpicture}
-  \end{center}
+ \end{center}
 
 \begin{solution}
-Answer =  A.
+Answer = A.
 \end{solution}
 \end{exercise}
 
@@ -1024,28 +1024,28 @@ Answer =  A.
 
 \begin{exercise}[201704] 
 One server serves $n$ queues in parallel. The
-  server has capacity $c_k\in \R_+$ for day~$k$.  The amount of work
-  that arrives on day $k$ for queue $i$ is given by $a_k^i\in \R_+$.
-  Jobs arriving on day $k$ cannot be served on day $k$. Queue $i$
-  receives service capacity in proportion to its queue length.  Derive
-  a set of recursions  to compute the queue lengths $Q_k^i \in \R_+$ for days $k=1,2,\ldots$. 
+ server has capacity $c_k\in \R_+$ for day~$k$. The amount of work
+ that arrives on day $k$ for queue $i$ is given by $a_k^i\in \R_+$.
+ Jobs arriving on day $k$ cannot be served on day $k$. Queue $i$
+ receives service capacity in proportion to its queue length. Derive
+ a set of recursions to compute the queue lengths $Q_k^i \in \R_+$ for days $k=1,2,\ldots$. 
 \begin{solution}
-    Let $c_k^i$ be the capacity allocated to queue $i$ in period $k$. The fair rule gives that 
-    \begin{equation*}
-      c_k^i = \frac{Q_{k-1}^i}{\sum_{i=1}^n Q_{k-1}^i } c_k.
-    \end{equation*}
+ Let $c_k^i$ be the capacity allocated to queue $i$ in period $k$. The fair rule gives that 
+ \begin{equation*}
+ c_k^i = \frac{Q_{k-1}^i}{\sum_{i=1}^n Q_{k-1}^i } c_k.
+ \end{equation*}
 Then, 
 \begin{equation*}
-  \begin{split}
-      d_k^i &= \min\{Q_{k-1}^i, c^i_k\}, \\
-Q_k^i &= Q_{k-1}^1+a_k^i  - d_k^i.
-  \end{split}
+ \begin{split}
+ d_k^i &= \min\{Q_{k-1}^i, c^i_k\}, \\
+Q_k^i &= Q_{k-1}^1+a_k^i - d_k^i.
+ \end{split}
 \end{equation*}
 \end{solution}
-  \end{exercise}
+ \end{exercise}
 
 \begin{exercise}[201704]
-  Provide a real-world example for this queueing model.
+ Provide a real-world example for this queueing model.
 \begin{solution}
 A machine serving work of different types of jobs. Jobs of the same type are put in the same queue. When the machine has to switch from one type of job to another, it might need to change a tool. For this reason it works on jobs of the same queue for some time. Then it changes to the next queue, and so on. 
 \end{solution}
@@ -1056,7 +1056,7 @@ For the situation of the previous question, find a recursion to compute a tight 
 \begin{solution}
 We need to compute the time it takes to clear $Q_k^i$. This is
 \begin{equation*}
-  \min\left\{r: \sum_{j=k+1}^r c_j^i \geq Q_k^i\right\}.
+ \min\left\{r: \sum_{j=k+1}^r c_j^i \geq Q_k^i\right\}.
 \end{equation*}
 
 Some wrong answers:
@@ -1070,16 +1070,16 @@ Some wrong answers:
 
 
 \begin{exercise}[201807]
-Consider a network of two stations in tandem. Jobs only arrive at station 1. Jobs arriving in period $k$ are only accepted  when the total number of jobs in the system is less than $K$ at the start of the period. Otherwise, all arriving jobs are rejected. Provide a set of recursions to simulate the queue length process at  both stations in discrete time. 
+Consider a network of two stations in tandem. Jobs only arrive at station 1. Jobs arriving in period $k$ are only accepted when the total number of jobs in the system is less than $K$ at the start of the period. Otherwise, all arriving jobs are rejected. Provide a set of recursions to simulate the queue length process at both stations in discrete time. 
 
 \begin{solution}
-  \begin{align*}
-a_{k,1}' &= a_{k,1}\1{Q_{k-1, 1} + Q_{k-1,2} < K} \\
-    d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\} \\
-    Q_{k,1} &= Q_{k-1,1} + a_{k,1}' - d_{k,1}\\
-    d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\} \\
-    Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}\\
-  \end{align*}
+ \begin{align*}
+a_{k,1}' &= a_{k,1}\1{Q_{k-1, 1} + Q_{k-1,2} < K}, \\
+ d_{k,1} &= \min\{c_{k,1}, Q_{k-1, 1}\}, \\
+ Q_{k,1} &= Q_{k-1,1} + a_{k,1}' - d_{k,1},\\
+ d_{k,2} &= \min\{c_{k,2}, Q_{k-1, 2}\}, \\
+ Q_{k,2} &= Q_{k-1,2} + d_{k,1} - d_{k,2}.\\
+ \end{align*}
 
 Some students just model one queue, or do not mention that the arrivals at the second station are the departures of the first station.
 \end{solution}
@@ -1089,13 +1089,13 @@ Some students just model one queue, or do not mention that the arrivals at the s
 \begin{exercise}[201807]
 We have a queueing system that operates under the following set of recursions:
 \begin{align*}
-  c_n &= 3\1{Q_n \in [5, 10]} + \1{Q_n \not \in [5, 10]}, \\
+ c_n &= 3\1{Q_n \in [5, 10]} + \1{Q_n \not \in [5, 10]}, \\
 d_n &= \min\{Q_{n-1}+a_n, c_n\} \\
 Q_n &= Q_{n-1} + a_n - d_n,
 \end{align*}
 where the arrivals $a_n$ are i.i.d. and have Poisson distribution with parameter $\lambda=2$, $c_n$ is the service capacity in period $n$ and $d_n$ corresponds to the number of departures. Why is this queueing system unstable?
 \begin{solution}
-This system is in fact unstable. Once $Q_n > 10$, there is a drift upwards with rate $2-1$. Eventually the queue will drift to infinity. 
+This system is in fact unstable. Once $Q_n > 10$, there is a drift upwards with rate $2-1$. Eventually, the queue will drift to infinity. 
 
 Now even when $Qn>10$, it may happen that some time later the queue length gets below 10. This happens when $a_i = 0$ for a sufficient number of consecutive periods. However, whenever the queue is less than 10, the state 10 will be hit with probability one. Eventually there will be time that it does not get back to state 10 again. 
 
@@ -1105,37 +1105,37 @@ The process is a random walk with drift. The study of its probabilistic properti
 
 
 \begin{exercise}[201807]
-  What is a disadvantage of using simulation to analyze queueing systems?
+ What is a disadvantage of using simulation to analyze queueing systems?
 \begin{solution}
-    It can take a long simulation time to obtain relevant answers. It is hard to get structural insights into systems. When you make a bug, it may be hard to find it out.
+ It can take a long simulation time to obtain relevant answers. It is hard to get structural insights into systems. When you make a bug, it may be hard to find it out.
 
 Some students say that the fact that a simulation is a model is itself a disadvantage. This is of course not a good answer. Anything we say is a model: the word `apple' is not an apple itself, and all apples are slightly different\ldots 
 
-Others say that with simulation its only possible to model systems that operate in discrete time. This is nonsense, just check the book. 
+Others say that with simulation it is only possible to model systems that operate in discrete time. This is nonsense, just check the book. 
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201904]
-  A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
-  Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
-  Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
-  Make a set of discrete-time recursions to analyze this case.
+ A machine produces items, but a fraction $p$ of the items does not meet the quality requirements after the first pass at the server, but it requires a second pass.
+ Assume that the repair of a faulty item requires half of the work of a new job, and that the faulty jobs are processed with priority over the new jobs.
+ Also assume that faulty items do not need more than one repair (hence, faulty items that are repaired cannot be faulty anymore).
+ Make a set of discrete-time recursions to analyze this case.
 \begin{solution}
-See~\cref{ex:52}
+See~\cref{ex:52}.
 \end{solution}
 \end{exercise}
 
 
 \begin{exercise}[201907]
-  Why did we discuss the transient behavior of the random walk in a course on queueing theory?   
+ Why did we discuss the transient behavior of the random walk in a course on queueing theory? 
 
 \begin{solution}
-  The random walk acts as a queueing system without a boundary at $y=0$; the random walk can be negative while the queueing system cannot be negative.
-  Often a queueing system is called a reflected random walk.
-  We analyzed the transient behavior of the random walk, and saw that that was already quite complicated.
-  Including reflections makes the analysis of the transient behavior harder.
-  Thus we decided to focus on the stationary behavior instead.
+ The random walk acts as a queueing system without a boundary at $y=0$; the random walk can be negative while the queueing system cannot be negative.
+ Often a queueing system is called a reflected random walk.
+ We analyzed the transient behavior of the random walk, and saw that that was already quite complicated.
+ Including reflections makes the analysis of the transient behavior harder.
+ Thus we decided to focus on the stationary behavior instead.
 \end{solution}
 \end{exercise}
 

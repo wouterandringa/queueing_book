@@ -1,0 +1,257 @@
+\section{On $\lambda = \gamma + \lambda P$}
+\label{sec:lambda-=-gamma}
+
+Here we study the existence of a solution for the equation $\lambda = \gamma + \lambda P$, and its inverse $V = c + P V$. 
+
+\subsection*{Theory and Exercises}
+
+\opt{solutionfiles}{
+\Opensolutionfile{hint}
+\Opensolutionfile{ans}
+}
+
+
+From~\cref{ex:on:3} we know that $P_{i0} = 1-\sum_{j=1}^M P_{ij}$ is the probability that a job departing from node $i$ also leaves the network, in other words, with probability $P_{i 0}$ a job is finished after its service at station~$i$.
+Next, consider a station $k$ with $P_{ki} > 0$.
+Then the probability that a job starting at $k$, moving to $i$ and then leaving the network, must be equal to $P_{ki}P_{i0}$.
+As $P_{ki}>0$ and $P_{i0}>0$, the probability that a job leaves the network from node $k$ in two steps is positive.
+As a matter of fact, $P^2_{k0} = \sum_{j=0}^M P_{kj}P_{j0} \geq P_{ki}P_{i0} > 0$.
+More generally, we assume that the (finite) matrix $P$ is transient, which means that it is possible to leave the network from any station in at most $M$ steps.
+In other words, for any station $j$ there is a sequence of intermediate stations $j_1, j_2, \ldots , j_{M-1}$ such that $P^{M}_{jk} \geq P_{j j_1}P_{j_1 j_2}\cdots P_{j_{M-1}k} > 0$.
+
+\begin{extra}
+  What type of networks lead to the longest chains before jobs can leave the network? What routing matrix~$P$ corresponds to such a network? Show that $P^M = 0$ for such networks.
+\begin{hint}
+Analyze the tandem network.    
+\end{hint}
+\begin{solution}
+  A network of stations is tandem must be the worst, as it is impossible to leave the network in less than $M$ steps. The routing matrix $P$ is such that $P_{i, i+1} = 1$, and $P_{i j} = 0$ for $j\neq i+1$. As $P$ is an upper-triangular matrix of dimension $M\times M$, $P^M =0$. 
+
+  Note that by adding rework, that is, a fraction of jobs is sent upstream into the network, the average length of a routing can be much longer than $M$; however, it is still possible (with small probability perhaps) to leave the network in $M$ steps.
+\end{solution}
+\end{extra}
+
+The next few exercises provide two different ways to prove that a finite transient matrix $P^n\to 0$ geometrically fast ((element wise) as $n\to\infty$. 
+
+\begin{exercise}\clabel{ex:g-3}
+Use that $\sum_{j=1}^M P^M_{i j} <1$ for all $i=1,\ldots, M$ to prove that $P^n \to 0$ geometrically fast in $n$. 
+\begin{solution}
+By assumption, $\sum_{j=1}^M P^M_{i j} <1$ for all $i=1,\ldots,M$. Since $M$ is a finite number, there exists an $\epsilon>0$ such that $\sum_{j=1}^M P^M_{i j} < 1-\epsilon$ for all rows $i$. 
+Writing $\bf{1}$ for the vector $(1,1,\ldots, 1)$, this condition means that $P^M{\bf 1} < (1-\epsilon) {\bf 1}$. But then, by the linearity of $P$,
+\begin{equation*}
+  P^{2M} {\bf 1} = P^M(P^M{\bf 1}) < (1-\epsilon) P^M {\bf 1} < (1-\epsilon)^2 {\bf 1}. 
+\end{equation*}
+In words, this says that each of the row sums become small. As the elements of $P\geq 0$, this implies that all elements of $P^{nM}$ decreases, that is, $P^{nM} < (1-\epsilon)^n$ as $n\to \infty$. 
+\end{solution}
+\end{exercise}
+
+
+\begin{extra}
+  Why does the assumption of \cref{ex:g-3} does not apply to an infinite transient matrix $P$?
+\begin{solution}
+  The above argumentation is not necessarily valid for matrices $P$ that are infinite, since $\inf\{P^{M}_{ik}\}$ need not be strictly positive for all $i, j$. 
+\end{solution}
+\end{extra}
+
+Before we can provide the second type of proof, do the next exercise.
+
+\begin{exercise}\clabel{ex:l-187}
+What is the geometric interpretation of an eigenvector and eigenvalue of a matrix $P$, say? Specifically, what happens if an eigenvalue has modulus less than $1$?
+\begin{hint}
+  Recall that when $x$ is an eigenvector of $P$ with eigenvalue $\lambda$, then $Px = \lambda x$. 
+\end{hint}
+\begin{solution}
+The  equation $Px = \lambda x$ shows that the direction of the vector $x$ remains the same under $P$, only its length changes by $|\lambda|$.  Thus, if $|\lambda|<1$, the vector $x$ shrinks under the operation of $P$. 
+
+%  Many students think that a matrix is just a bunch of numbers ordered in a grid.
+%  This is, in my opinion, the most unproductive way to think about matrices.
+%  A much more useful way is to see a matrix as an \emph{operator}.
+%  For instance, take $A$ to be a $3\times3$ matrix.
+%  Then it can be seen as a \emph{mapping} from $\R^3$ to $\R^3$; it takes a vector $x\in\R^3$ and changes $x$ into a new vector $Ax\in \R^3$.
+%  Thus, a square matrix $A$ typically changes the length and direction of a vector $x$.
+
+%  The next example is meant to illustrate what happens when a matrix has an eigenvalue 0. Consider the simple example with
+%  \begin{equation*}
+% A =
+%  \begin{pmatrix}
+%  1 & 0 & 0 \\ 
+%  0 & 1 & 0 \\ 
+%  0 & 0 & 0 \\ 
+%  \end{pmatrix}.
+%  \end{equation*}
+% Clearly, $A$ has an eigenvalue $0$. Now take $v=(x,y,z)$, so that
+%  \begin{equation*}
+% A v = A
+%  \begin{pmatrix}
+% x\\
+% y\\
+% z
+%  \end{pmatrix}
+% = \begin{pmatrix}
+% x\\
+% y\\
+% 0
+%  \end{pmatrix}.
+%  \end{equation*}
+%  We see that $A$ removes any information about the $z$-direction from the vector $v$.
+%  (It projects $v$ on the $x-y$ plane, and throws away the $z$ component of $v$.)
+%  But then, for a given vector $w=(x,y,0)$ in the $x-y$ plane, it is impossible to use $A$ to retrieve the original vector $v=(x,y,z)$.
+%  Thus, $A$ cannot have an inverse on all of $\R^3$.
+
+%  So, hopefully, with this example, you can memorize that for any matrix $A$ to have an inverse, it is essential that it has no zero eigenvalues.
+%  When the \emph{operator} $A$ (don't think of a matrix as a set of numbers) throws away part of the dimension of the space on which it operates (i.e., it has one or more eigenvalue(s) $0$), it is impossible to retrieve the part of the space it throws away.
+%  Hence, its inverse cannot be used to get this part of the space back.
+\end{solution}
+\end{exercise}
+
+
+Let us make the simplifying assumption that $P$ is a diagonalizable matrix with $M$ different eigenvalues.
+\footnote{The argument below applies just as well matrices reduced to Jordan normal form, but only adds notational clutter.}
+In this case, there exists an invertible matrix $V$ with the (left) eigenvectors of $P$ as its rows and a diagonal matrix $\Lambda$ with the eigenvalues on its diagonal such that $ V P = \Lambda V$.
+Hence, premultiplying with $V^{-1}$, $ P = V^{-1}\Lambda V$.
+But then $P^2 = V^{-1}\Lambda V \cdot V^{-1}\Lambda V= V^{-1}\Lambda^2 V$, and in general $P^n = V^{-1}\Lambda^n V$.
+Clearly, if each eigenvalue $\lambda_i$ is such that its modulus $|\lambda_i| < 1$, then $\Lambda^n \to 0$ geometrically fast, hence $P^n\to 0$ geometrically fast.
+
+So, let us prove that all eigenvalues of a finite, transient routing matrix $P$ have modulus less than $1$.
+For this we use \recall{Gerschgorin's disk theorem}.
+Define the Gerschgorin disk of the $i$th row of the matrix $P$ as the disk in the complex plan:
+\begin{equation*}
+B_i=\left\{z\in \mathbb{C};  |z-a_{ii}|\leq \sum_{j\neq i} |a_{i j}| \right\}.  
+\end{equation*}
+In words, this is the set of complex numbers that lies within a distance $\sum_{j\neq i} |a_{i j}|$ of the point $a_{i i}$.
+Next, assume for notational simplicity that for each row $i$ of $P$ we have that $\sum_{j} a_{i j}<1$ (otherwise apply the argument to $P^M$.)
+Then this implies for all $i$ that
+\begin{equation*}
+1> \sum_{j=1}^M a_{i j} =  a_{ii} + \sum_{j\neq i} a_{i j}.
+\end{equation*}
+Since all elements of $P$ are non-negative, so that $|a_{i j}| = a_{i j }$, it follows that
+\begin{equation*}
+-1 < a_{ii} - \sum_{j\neq i} a_{i j} \leq a_{ii} + \sum_{j\neq i} a_{i j} < 1. 
+\end{equation*}
+With this and using that $a_{ii}$ is a real number (so that it lies on the real number axis) it follows that the disk $B_i $ lies strictly within the complex unit circle $\{z \in \mathbb{C}; |z|\leq 1\}$.
+As this applies to any row $i$, the union of the disks $\cup_{i} B_{i}$ lies strictly within the complex unit circle.
+Now Gerschgorin's theorem states that all eigenvalues of the matrix $P$ must lie in $\cup_i B_i$. 
+We conclude that all eigenvalues of $P$ also lie strictly in the unit circle, hence all eigenvalues have modulus smaller than 1.
+
+
+With the above results, we can show that the equation $\lambda = \gamma + \lambda P$ has a unique solution when $P$ is a transient matrix. For this, define iteratively, 
+\begin{align*}
+  \lambda^0 &= 0, & \lambda^n &= \gamma + \lambda^{n-1}P, \quad\text{for } n\geq 1.
+\end{align*}
+Then, by substituting $\lambda^j = \gamma + \lambda^{j-1} P$ a sufficient number of times, 
+\begin{align*}
+  \lambda^n = \gamma + \lambda^{n-1} P = \gamma + (\gamma + \lambda^{n-2}P) P = \gamma \sum_{i=0}^{n-1} P^i,
+\end{align*}
+where we take $P^0=1$, i.e., equal to the identity matrix.
+By the result of the above reasoning, there exists an $N$ and $\epsilon>0$ such that $P_{i j}^n < (1-\epsilon)^n$ for all $n>N$ and $1\leq i, j \leq M$.
+Therefore, and using~\cref{eq:61}, each element $i, j$ of the sequence of matrices $\sum_{k=0}^n P^k $ increases monotonically as $n\to\infty$ to a finite limit.
+Consequently,
+\begin{equation}
+  \label{eq:g-103}
+  \lambda = \gamma \sum_{k=0}^n P^k 
+\end{equation}
+is well-defined, finite, and the solution of $\lambda = \gamma + \lambda P$. 
+
+
+We can apply the results here also to see why the recursions for $T$, $V$ and $W$ in~\cref{sec:n-policies} and \cref{sec:n-policies-mg1} have solutions.
+For instance, observe that we can write~\cref{eq:98} as
+\begin{equation*}
+V = PV + H,
+\end{equation*}
+with \begin{align*}
+  P &=
+  \begin{pmatrix}
+    0 & 0 & 0 & 0&  \hdots\\
+    f(0) & f(1) & f(2) & 0 & \hdots \\
+    0 & f(0)& f(1) & f(2) & 0 \\
+    \vdots & \ddots & \ddots & \ddots& \ddots
+  \end{pmatrix},
+& H =
+                   \begin{pmatrix}
+                     0 \\
+                     H(1)\\
+                     H(2)\\
+                     \vdots
+                   \end{pmatrix}.
+\end{align*}
+It is clear that $V=PV + H$ is the same equation (in transpose) as $\lambda = \gamma + \lambda P$.
+With the same type of reasoning, we can find the solution for $V$, for instance by defining iteratively $V^0 = 0$, and $V^n = PV^{n-1} + H$, for $n\geq 0$.
+Again, $P$ is here a non-negative matrix, although it is infinite, which adds a few technical complications.
+These complications can be solved, and with this body of theory we can analyze all such systems.
+
+
+
+% \begin{exercise}[Linear algebra refresher]\clabel{ex:l-186} 
+% Can you find an example to
+%  show for two matrices $A$ and $B$ that $AB\neq BA$, hence
+%  $x A \neq A x$.
+% \begin{hint}
+%  Let 
+%  \begin{equation*}
+% A =
+%  \begin{pmatrix}
+%  1 & 1 \\ 
+% 0&1
+%  \end{pmatrix},
+% \quad B=
+%  \begin{pmatrix}
+%  1 & 0 \\ 
+% 1&1
+%  \end{pmatrix}.
+%  \end{equation*}
+% \end{hint}
+
+% \begin{solution}
+%  \begin{equation*}
+%  AB = 
+%  \begin{pmatrix}
+%  2 & 1 \\ 
+% 1&1
+%  \end{pmatrix} 
+% \neq
+%  \begin{pmatrix}
+%  1 & 1 \\ 
+% 1&2
+%  \end{pmatrix} 
+% = BA.
+%  \end{equation*}
+
+% Take $x=(1,1)$, then $x A=(1,2)$. Now, taking $x=
+% \begin{pmatrix}
+%  1 \\
+% 1
+% \end{pmatrix}
+% $, we get $Ax = 
+% \begin{pmatrix}
+%  2 \\
+% 1
+% \end{pmatrix}. $
+% Recall, horizontal vectors are not vertical vectors. The horizontal
+% ones are to the left of a matrix, and the vertical ones to the right.
+% \end{solution}
+% \end{exercise}
+
+Let us finish with making a number of remarks on how to extend the material we covered in this book.
+
+\begin{remark}
+  If you happen to know a bit about Markov chains, observe that the routing matrix $P$ does not correspond to the transition matrix of a recurrent Markov chain.
+  Since for at least one row $i$, $\sum_{j=1}^N P_{i j}<1$, the matrix $P$ is sub-stochastic.
+  Hence, a Markov chain induced by $P$ cannot be irreducible, because for this to happen, the chain must stay in some absorbing set with probability 1.
+\end{remark}
+
+\opt{solutionfiles}{
+\Closesolutionfile{hint}
+\Closesolutionfile{ans}
+\subsection*{Hints}
+\input{hint}
+\subsection*{Solutions}
+\input{ans}
+}
+%\clearpage
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../companion"
+%%% End:

@@ -1,8 +1,15 @@
-\section{$G/G/c$ Queue: Approximations}
+\section{$G/G/c$ Queue: Sakasegawa's Formula}
 \label{sec:gg1}
 
 
+In manufacturing settings it is quite often the case that the arrival process at a station is not a Poisson process.
+For instance, if processing times at a station are nearly constant, and the jobs of this station are sent to a second station for further processing, the inter-arrival times at the second station must be more or less equal too.
+Hence, in this case, the arrival process at this  second station is most probably more regular than at the first station.
+As a second, trivial, case if the inter-arrival times of jobs are 1 hour always and service times 59 minutes always, there simply cannot be a queue.
 
+In this section, we discuss Sakasegawa's formula by which we can estimate the expected waiting time in queue for the $G/G/c$ queue.
+The aim here is to show how to use this formula.
+In later sections we will provide some theoretical background.
 
 \opt{solutionfiles}{
 \subsection*{Theory and Exercises}
@@ -11,38 +18,28 @@
 }
 
 
-In manufacturing settings it is quite often the case that the arrival process at a station is not a Poisson process.
-For instance, if processing times at a station are nearly constant, and the jobs of this station are sent to a second station for further processing, the inter-arrival times at the second station must be more or less equal too.
-Hence, in this case, the SCV of the arrivals at the second station $C_{a,2}^2$ is most probably smaller than 1.
-%As a consequence the Pollaczek-Khinchine formula for the $M/G/1$ queue can no longer be reliably used to compute the average waiting times.
-As a second, trivial case, if the inter-arrival times of jobs are 1 hour always and service times 59 minutes always, there simply cannot be a queue.
-Thus, the $M/G/1$ waiting time formula should not be naively applied to approximate the average waiting time of the $G/G/1$ queue.
 
 While there is no closed-form expression available to compute the expected waiting time in queue for the $G/G/c$ queue, Sakasegawa's formula provides a reasonable approximation. This takes the form
 \begin{equation}\label{eq:7}
-  \E{W_Q} = \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \frac{\E S}c,
+ \E{W_Q} = \frac{C_a^2+C_s^2}2 \frac{\rho^{\sqrt{2(c+1)}-1}}{c(1-\rho)} \E S,
 \end{equation}
-where
+where $\lambda$ is the rate at which jobs arrive at the system, $\E S$ is the expected service time, 
 \begin{equation*}
-  \rho = \frac{\lambda \E S}{c}
+ \rho = \frac{\lambda \E S}{c}
 \end{equation*}
-is the load of the station (but not of the individual machines) and $C_a^2 = \V X/(\E X)^2$ is the SCV of the inter-arrival times.
-This formula is reasonably accurate; for related expressions we refer to \citet{bolch06:_queuein_networ_markov_chain} and \citet{hall91:_queuein_method_servic_manuf}.
+is the \emph{load} of the station (but not of the individual machines), $C_a^2 = \V X/(\E X)^2$ is the SCV of the inter-arrival times, $C_s^2=\V S/(\E S)^2$ of the service times, and $c$ the number of servers.
 
 
-It is crucial to memorize the \emph{scaling} relations that can be obtained from the $G/G/c$ waiting time formula.
-Even though the above results are only approximations, they prove to be exceedingly useful when designing queueing systems and analyzing the effect of certain changes, in particular changes in capacity, variability and service times.
+It is crucial to memorize the \emph{scaling} relations that can be obtained from this formula.
+Even though the above results are only approximations, they prove to be exceedingly useful when designing queueing systems and analyzing the effect of certain changes, in particular changes processing speed (i.e., service times) and service variability.
 Roughly:
 \begin{enumerate}
 \item $\E{W_Q} \sim (1-\rho)^{-1}$. The consequence is that the waiting
-  time increases \emph{very steeply} when~$\rho$ is large. Hence, the waiting time is
-  very sensitive to the actual value of $\rho$ when $\rho$ is large.
+ time increases \emph{very steeply} when~$\rho$ is large. Hence, the waiting time is
+extremely sensitive to the actual value of $\rho$ when $\rho$ is large. 
 \item $\E{W_Q} \sim C_a^2$ and $\E{W_Q} \sim C_s^2$.
-  Hence, reductions of the variation of the inter-arrival and service times do affect the waiting time, but only linearly.
-\item $\E{W_Q} \sim \E S/c$.
-  Thus, working in smaller job sizes reduces the waiting time as well.
-  The average queue length does not decrease by working with smaller batches, but jobs are more `uniformly spread' over the queue.
-  This effect lies behind the idea of `lot-splitting', i.e., rather than process large jobs, split jobs into multiple small jobs (assuming that setup times are negligible), so that the waiting time per job can be reduced.
+ Hence, reductions of the variation of the inter-arrival and service times do affect the waiting time, but only linearly.
+\item $\E{W_Q} \sim \E S/c$. This means that, from the perspective of a job in queue,  the average services are $c$ times as short. 
 \end{enumerate}
 
 These insights prove very useful when trying to reduce waiting times in any practical situation.
@@ -52,107 +49,65 @@ First try to reduce the load (by blocking demand or increasing the capacity), th
 
 
 \begin{exercise}\clabel{ex:l-184}
-  Show that the approximation~\cref{eq:7} reduces to the result known for the $M/M/1$ and $M/G/1$ queues.
-\begin{hint}
- Take $c=1$.
-\end{hint}
+ Show for the  $M/G/1$ and $M/M/1$ queue that  the approximation~\cref{eq:7} reduces to
+\begin{align*}
+  \E{W_Q(M/G/1)} &= \frac{1+C_s^2}2\frac{\rho}{1-\rho} \E S, & 
+  \E{W_Q(M/M/1)} &= \frac{\rho}{1-\rho} \E S.
+\end{align*}
 \begin{solution}
-    If $c=1$, as is the case for the $M/M/1$ queue, $\sqrt{2(c+1)} - 1=2-1=1$, so that~\cref{eq:7} reduces to $\E{W_Q} = \rho/(1-\rho) \E S$. Recall that $C_a^2=C_s^2=1$ for the $M/M/1$. 
+For the $M/G/1$ queue, $C_a^2=1$. Then take $c=1$ in Sakasegawa's formula. Next, realize that $C_s^2=1$ for the $M/M/1$ queue. 
 \end{solution}
 \end{exercise}
+The above results explain part of the form of Sakasegawa's formula. In case $C_a^2=C_s^2=1$, we obtain the expression for $\E{W_Q(M/M/1)}$. 
+As we will see in~\cref{sec:mm1}, this is an exact result. Then, by generalizing to the $M/G/1$ queue, we obtain $(1+C_s^2)/2$
+
+\cref{sec:littles-law}, and \cref{sec:mg1}, these results are exact. 
 
 
-\begin{extra}
-  Is~\cref{eq:24} also valid for the $G/G/1$ queue? Why (not)?
-\begin{solution}
-    Not necessarily.
-    Since jobs do not arrive in general as a Poisson process, we cannot use the PASTA property to conclude that the time average queue length $\E{L_Q}$ is the same as the average queue length as observed by customers.
-    (Can you provide an example that shows this difference?
-    Hint, we did this earlier.)
-\end{solution}
-\end{extra}
+% \begin{exercise}\clabel{ex:77}
+%  Consider a single-server queue at which every minute a customer arrives, precisely at the first second.
+%  Each customer requires precisely $50$ seconds of service.
+%  What are $\rho$, $\E L$, $C_a^2$, and $C_s^2$?
+% \begin{solution}
+%  $\rho = \lambda \E S = 1/60 \cdot 50 = 5/6$.
+%  Since job arrivals do not overlap any job service, the number of jobs in the system is 1 for $50$ seconds, then the server is idle for 10 seconds, and so on.
+%  Thus $\E L = 1\cdot5/6 = 5/6$.
+%  There is no variance in the inter-arrival times, and also not in the service times, thus $C_a^2 = C_s^2 = 0$.
+%  Also $\E{W_Q}=0$ since $\E{L_Q}=0$.
+% \end{solution}
+% \end{exercise}
 
-\begin{exercise}\clabel{ex:l-185}
-  Consider a queue with $c$ servers, with generally distributed inter-arrival times, generally distributed service times, and the system can contain at most $K$ customers, i.e., the $G/G/c/K$ queue.
-  Let $\lambda$ be the arrival rate, $\mu$ the service rate, $\beta$ the long-run fraction of customers lost, and $\rho$ the average number of busy/occupied servers.
-  Show that
-  \begin{equation*}
-    \beta = 1 - \rho\frac{\mu}{\lambda}.
-  \end{equation*}
-\begin{solution}
-  This follows from the observation that $\lambda(1-\beta)$ is the net
-  arrival rate, as jobs are lost at a rate $\lambda\beta$ . Hence, the
-  load must be $\lambda(1-\beta)/\mu$. As the load must be equal to
-  $\rho$, it follows that $\rho = \lambda(1-\beta)/\mu$, from which the
-  other result immediately follows.
-\end{solution}
-\end{exercise}
-
-\begin{extra}\clabel{ex:77}
-  Consider a single-server queue at which every minute a customer arrives, precisely at the first second.
-  Each customer requires precisely $50$ seconds of service.
-  What are $\rho$, $\E L$, $C_a^2$, and $C_S^2$?
-\begin{solution}
-    $\rho = \lambda \E S = 1/60 \cdot 50 = 5/6$.
-    Since job arrivals do not overlap any job service, the number of jobs in the system is 1 for $50$ seconds, then the server is idle for 10 seconds, and so on.
-    Thus $\E L = 1\cdot5/6 = 5/6$.
-    There is no variance in the inter-arrival times, and also not in the service times, thus $C_a^2 = C_s^2 = 0$.
-    Also $\E{W_Q}=0$ since $\E{L_Q}=0$.
-    Interestingly, we get the same from Kingman's formula.
-\end{solution}
-\end{extra}
-
-\begin{exercise}\clabel{ex:76}
-  Consider the same single-server system as in~\cref{ex:76}, but now the customer service time is stochastic: with probability $1/2$ a customer requires $1$ minute and $20$ seconds of service, and with probability $1/2$ the customer requires only $20$ seconds of service.
-  What are $\rho$, $C_a^2$, and $C_S^2$?
-\begin{solution}
- Again $\E S$ is 50 seconds, so that $\rho = 5/6$. Also
-      $C_a^2=0$. For the $C_S^2$ we have to do some work. 
-      \begin{equation*}
-        \begin{split}
-          \E S &=  \frac{20}2 + \frac{80}2 = 50 \\
-          \E{S^2} &=  \frac{400}2 + \frac{6400} 2 = 3400 \\
-          \V S &=  \E S^2 - (\E S)^2 = 3400 - 2500 = 900 \\
-          C_S^2 &=  \frac{\V S}{(\E S)^2} = \frac{900}{2500}=\frac{9}{25}.
-        \end{split}
-      \end{equation*}
-\end{solution}
-It is crucial to remember from the above exercises that knowledge of the   utilization is not sufficient to characterize the average queue   length.
-\end{exercise}
-
-\begin{extra}
-  For the $G/G/1$ queue, prove that the fraction of jobs that see $n$ jobs in the system is the same as the fraction of departures that leave $n$ jobs behind.
-  What condition have you used to prove this?
-%\item Motivate that for  the $G/M/1$, $\delta(n) = p(n)$, i.e.,  departures see time averages. 
-\begin{solution}
-    All follows straightaway from the definitions in the main text.
-    In the $G/G/1$ queue jobs arrive and depart in single units.
-    Hence, $|A(n,t)-D(n,t)|\leq 1$, cf.,~\cref{eq:19}.
-    Then,
-    \begin{equation*}
-      \frac{A(t)}{t}\frac{A(n,t)}{A(t)} \approx 
-      \frac{D(t)}{t}\frac{D(n,t)}{D(t)}. 
-    \end{equation*}
-    The left-hand side goes to $\lambda \pi(n)$ as $t\to\infty$, and
-    the right-hand side to $\delta \delta(n)$. Use the fact that we
-    always assume, implicitly, that the system is stable, so that
-    $\lambda = \delta$. As a consequence $\delta(n) = \pi(n)$.
-\end{solution}
-\end{extra}
+% \begin{exercise}\clabel{ex:76}
+%  Consider the same single-server system as in~\cref{ex:77}, but now the customer service time is stochastic: with probability $1/2$ a customer requires $1$ minute and $20$ seconds of service, and with probability $1/2$ the customer requires only $20$ seconds of service.
+%  What are $\rho$, $C_a^2$, and $C_s^2$?
+% \begin{solution}
+%  Again $\E S$ is 50 seconds, so that $\rho = 5/6$. Also
+%  $C_a^2=0$. For the $C_s^2$ we have to do some work. 
+%  \begin{equation*}
+%  \begin{split}
+%  \E S &= \frac{20}2 + \frac{80}2 = 50 \\
+%  \E{S^2} &= \frac{400}2 + \frac{6400} 2 = 3400 \\
+%  \V S &= \E S^2 - (\E S)^2 = 3400 - 2500 = 900 \\
+%  C_s^2 &= \frac{\V S}{(\E S)^2} = \frac{900}{2500}=\frac{9}{25}.
+%  \end{split}
+%  \end{equation*}
+% \end{solution}
+% \end{exercise}
 
 
 \begin{exercise}\clabel{ex:91}
-  (Hall 5.19) When a bus reaches the end of its line, it undergoes a
-  series of inspections. The entire inspection takes 5 minutes on
-  average, with a standard deviation of 2 minutes. Buses arrive with
-  inter-arrival times uniformly distributed on $[3,9]$ minutes.
+  (Hall 5.19) When a bus reaches the end of its line, it undergoes a series of inspections.
+  The entire inspection takes 5 minutes on average, with a standard deviation of 2 minutes.
+  Buses arrive with inter-arrival times uniformly distributed on $[3,9]$ minutes, hence, 10 buses arrive on average per hour.
 
-As a first case,  assuming a single server, estimate $\E{W_Q}$ with the $G/G/1$ waiting time formula. As a second case, compare this result to an $M/G/1$ system with arrival rate 10 per hour and the same service time distribution. Explain why your previous answer is smaller. 
+  As a first case, assuming a single server, estimate $\E{W_Q}$ with the $G/G/1$ waiting time formula.
+  As a second case, compare this result to an $M/G/1$ system with arrival rate 10 per hour and the same service time distribution.
+
+  Explain why the queueing time in the first setting is smaller.
 \begin{solution}
 First the $G/G/1$ case. Observe that in this case, the inter-arrival time $X\sim U[3,9]$, that is, never smaller than 3 minutes, and never longer than 9 minutes. 
 
 \begin{pyconsole}
-  
 a = 3.
 b = 9. 
 EX = (b+a)/2. # expected inter-arrival time
@@ -176,49 +131,67 @@ Wq = (CA2+CS2)/2. * rho/(1.-rho) * ES
 Wq
 \end{pyconsole}
 
-Now  the $M/G/1$ case.
+Now the $M/G/1$ case.
 
 \begin{pyconsole}
 Wq = (1.+CS2)/2. * rho/(1.-rho) * ES
 Wq
 \end{pyconsole}
 
-The arrival process with uniform inter-arrival times is much more
-regular than a Poisson process. In the first case, bus arrivals are
-spaced in time at least with 3 minutes.
+The arrival process with uniform inter-arrival times is much more regular than a Poisson process.
+In the first case, bus arrivals are spaced in time at least with 3 minutes.
+\end{solution}
+\end{exercise}
+
+
+The next exercise shows us that in a queue with finite capacity, there is a relation between the loss and the average number of servers occupied.
+Thus, if we want to reduce the loss, we need to reduce the load on the servers.
+\begin{exercise}\clabel{ex:l-185}
+ Consider a queue with $c$ servers, with generally distributed inter-arrival times, generally distributed service times, and the system can contain at most $K$ customers, i.e., the $G/G/c/K$ queue.
+ Let $\lambda$ be the arrival rate, $\mu$ the service rate, $\beta$ the long-run fraction of customers lost, and $\rho$ the average number of busy/occupied servers.
+ Show that
+ \begin{equation*}
+ \beta = 1 - \rho\frac{\mu}{\lambda}.
+ \end{equation*}
+\begin{solution}
+ This follows from the observation that $\lambda(1-\beta)$ is the net
+ arrival rate, as jobs are lost at a rate $\lambda\beta$ . Hence, the
+ load must be $\lambda(1-\beta)/\mu$. As the load must be equal to
+ $\rho$, it follows that $\rho = \lambda(1-\beta)/\mu$, from which the
+ other result immediately follows.
 \end{solution}
 \end{exercise}
 
 
 
-Clearly, Sakasegawa's equation requires an estimate of the SCV $C_a^2$ of the inter-arrival times and the SCV $C_s^2$ of the service times.
+Clearly, Sakasegawa's equation requires an estimate of $C_a^2$ and $C_s^2$.
 Now it is not always easy in practice to determine the actual service time distribution, one reason being that service times are often only estimated by a planner, but not actually measured.
-Similarly, the actual arrival moments of jobs are often not registered, mostly just the date or the hour, perhaps, that a customer arrived.
+Similarly, the actual arrival moments of jobs are often not registered, only just the date, or perhaps the hour, that a customer arrived.
 Hence, it is often not possible to estimate $C_a^2$ and $C_s^2$ from the information that is available.
-However, when for instance the number of arrivals per day has been logged for some time so that we know $\{a_n, n=1,\ldots, N\}$ for some $N$, we can use this information instead of the inter-arrival times $\{X_k\}$ to obtain insight into $C_a^2$.
+However, when for instance the number of arrivals per period has been logged for some time so that we know the arrivals per period $\{a_n, n=1,\ldots, N\}$ for some $N$, we can use this information instead of the inter-arrival times $\{X_k\}$ to obtain insight into $C_a^2$.
 The relation we present here to compute $C_a^2$ from $\{a_n\}$ can of course also be applied to estimate $C_s^2$.
 
 \begin{theorem} The SCV of the inter-arrival times can be estimated
-  with the formula
+ with the formula
 \begin{equation*}
 C_a^2 \approx \frac{\tilde \sigma^2}{\tilde \lambda},
 \end{equation*}
 where 
 \begin{equation*}
-\tilde  \lambda = \lim_{n\to\infty} \frac 1n  \sum_{i=1}^n a_i,\quad  
-\tilde  \sigma^2 = \lim_{n\to\infty} \frac 1 n \sum_{i=1}^n a_i^2 - \tilde \lambda^2.
+\tilde \lambda = \lim_{n\to\infty} \frac 1n \sum_{i=1}^n a_i,\quad 
+\tilde \sigma^2 = \lim_{n\to\infty} \frac 1 n \sum_{i=1}^n a_i^2 - \tilde \lambda^2.
 \end{equation*}
 In words, $\tilde \lambda$ is the average number of arrivals per period, e.g., per day, and $\tilde \sigma^2 $ is the variance of the number of arrivals per period.
 \end{theorem}
 
 \begin{proof}
-  The proof is based on an argument in \cite{cox62:_renew_theor}.
-  We use quite a bit of the notation developed in~\cref{sec:rate-stability}.
-  Let $\{A(t), t\geq 0\}$ be the number of arrivals that occur up to (and including) time $t$.
-  We assume that $\{A(t)\}$ is a renewal process such that the inter-arrival times $\{X_k, k=1, 2, \ldots\}$ with $X_k = A_{k}-A_{k-1}$, are i.i.d.
-  with mean $1/\lambda$ and standard deviation~$\sigma$.
-  (Observe that $\sigma$ is not the same as $\tilde \sigma$ above.)
-  Note that $C_a^2$ is defined in terms of $\lambda$ and $\sigma$ as:
+ The proof is based on an argument in \cite{cox62:_renew_theor}.
+ We use quite a bit of the notation developed in~\cref{sec:rate-stability}.
+ Let $\{A(t), t\geq 0\}$ be the number of arrivals that occur up to (and including) time $t$.
+ We assume that $\{A(t)\}$ is a renewal process such that the inter-arrival times $\{X_k, k=1, 2, \ldots\}$ with $X_k = A_{k}-A_{k-1}$, are i.i.d.
+ with mean $1/\lambda$ and standard deviation~$\sigma$.
+ (Observe that $\sigma$ is not the same as $\tilde \sigma$ above.)
+ Note that $C_a^2$ is defined in terms of $\lambda$ and $\sigma$ as:
 \begin{equation*}
 C_a^2 = \frac{\V{X_i}}{(\E{X_i})^2} = \frac{\sigma^2}{1/\lambda^2} = \lambda^2 \sigma^2.
 \end{equation*}
@@ -234,7 +207,7 @@ Since the inter-arrival times have finite mean and second moment by assumption, 
 \frac{A_k -k/\lambda}{\sigma \sqrt k} \to N(0,1),
 \end{equation*}
 where $N(0,1)$ is a standard normal random variable with
-distribution $\Phi(\cdot)$.  Similarly,
+distribution $\Phi(\cdot)$. Similarly,
 %
 \begin{equation*}
 \frac{A(t) -\lambda t}{\alpha \sqrt t} \to N(0,1)
@@ -247,8 +220,8 @@ Using that $\P{N(0,1) \leq y} =
 %
 \begin{align*}
 \Phi(y) &\approx \P{\frac{A_k - k/\lambda}{\sigma \sqrt k }\leq y} \\
-        &= \P{\frac{A_k - k/\lambda}{\sigma \sqrt k} >  -y} \\
-        &=  \P{A_k >  \frac k\lambda - y \sigma \sqrt k}.
+ &= \P{\frac{A_k - k/\lambda}{\sigma \sqrt k} > -y} \\
+ &= \P{A_k > \frac k\lambda - y \sigma \sqrt k}.
 \end{align*}
 Define for ease
 \begin{equation*}
@@ -259,9 +232,9 @@ and~$A_k$ to see that~$\P{A_k >t_k } = \P{A(t_k) <k}$. With this we
 get,
 \begin{align*}
 \Phi(y)
-        &\approx  \P{A_k >  t_k } \\
-        &=  \P{A(t_k) <  k } \\
-        &=  \P{\frac{A(t_k) - \lambda t_k}{\alpha \sqrt{t_k}} < 
+ &\approx \P{A_k > t_k } \\
+ &= \P{A(t_k) < k } \\
+ &= \P{\frac{A(t_k) - \lambda t_k}{\alpha \sqrt{t_k}} < 
 \frac{k-\lambda t_k}{\alpha \sqrt{t_k}}}.
 \end{align*}
 Since $(A(t_k) - \lambda t_k)/ \alpha \sqrt{t_k} \to N(0,1)$
@@ -269,8 +242,8 @@ as $t_k \to \infty$, the above implies that
 \begin{equation*}
 \frac{k-\lambda t_k}{\alpha \sqrt{t_k}} \to y,
 \end{equation*}
-as $t_k \to \infty$.  Using the above definition of $t_k$, the left
-hand of this equation can be written as
+as $t_k \to \infty$. Using the above definition of $t_k$, the left-hand side
+of this equation can be written as
 \begin{equation*}
 \frac{k-\lambda t_k}{\alpha \sqrt{t_k}} =
 \frac{\lambda \sigma \sqrt k }{\alpha \sqrt{k/\lambda + \sigma\sqrt k}} y.
